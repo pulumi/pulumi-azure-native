@@ -19,10 +19,10 @@ func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts 
 type LookupFirewallRuleArgs struct {
 	// The name of the Redis cache.
 	CacheName string `pulumi:"cacheName"`
-	// The name of the firewall rule.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the firewall rule.
+	RuleName string `pulumi:"ruleName"`
 }
 
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect

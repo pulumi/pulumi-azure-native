@@ -15,6 +15,7 @@ export function getSiteInstanceDeploymentSlot(args: GetSiteInstanceDeploymentSlo
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteInstanceDeploymentSlot", {
+        "id": args.id,
         "instanceId": args.instanceId,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -24,11 +25,15 @@ export function getSiteInstanceDeploymentSlot(args: GetSiteInstanceDeploymentSlo
 
 export interface GetSiteInstanceDeploymentSlotArgs {
     /**
+     * Id of the deployment
+     */
+    readonly id: string;
+    /**
      * Id of web app instance
      */
     readonly instanceId: string;
     /**
-     * Id of the deployment
+     * Name of web app
      */
     readonly name: string;
     /**

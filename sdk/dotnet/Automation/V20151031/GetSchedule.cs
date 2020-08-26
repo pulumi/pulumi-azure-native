@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public string AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The schedule name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The schedule name.
+        /// </summary>
+        [Input("scheduleName", required: true)]
+        public string ScheduleName { get; set; } = null!;
 
         public GetScheduleArgs()
         {

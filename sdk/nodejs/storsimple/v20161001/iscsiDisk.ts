@@ -61,7 +61,7 @@ export class IscsiDisk extends pulumi.CustomResource {
     /**
      * The name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioned capacity in bytes.
      */
@@ -97,6 +97,9 @@ export class IscsiDisk extends pulumi.CustomResource {
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
+            if (!args || args.diskName === undefined) {
+                throw new Error("Missing required property 'diskName'");
+            }
             if (!args || args.diskStatus === undefined) {
                 throw new Error("Missing required property 'diskStatus'");
             }
@@ -109,9 +112,6 @@ export class IscsiDisk extends pulumi.CustomResource {
             if (!args || args.monitoringStatus === undefined) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.provisionedCapacityInBytes === undefined) {
                 throw new Error("Missing required property 'provisionedCapacityInBytes'");
             }
@@ -122,14 +122,15 @@ export class IscsiDisk extends pulumi.CustomResource {
             inputs["dataPolicy"] = args ? args.dataPolicy : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
+            inputs["diskName"] = args ? args.diskName : undefined;
             inputs["diskStatus"] = args ? args.diskStatus : undefined;
             inputs["iscsiServerName"] = args ? args.iscsiServerName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisionedCapacityInBytes"] = args ? args.provisionedCapacityInBytes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["localUsedCapacityInBytes"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["usedCapacityInBytes"] = undefined /*out*/;
         }
@@ -165,6 +166,10 @@ export interface IscsiDiskArgs {
      */
     readonly deviceName: pulumi.Input<string>;
     /**
+     * The disk name.
+     */
+    readonly diskName: pulumi.Input<string>;
+    /**
      * The disk status.
      */
     readonly diskStatus: pulumi.Input<string>;
@@ -180,10 +185,6 @@ export interface IscsiDiskArgs {
      * The monitoring.
      */
     readonly monitoringStatus: pulumi.Input<string>;
-    /**
-     * The disk name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The provisioned capacity in bytes.
      */

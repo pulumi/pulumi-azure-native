@@ -15,7 +15,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:search/v20200313:getPrivateEndpointConnection", {
-        "name": args.name,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
      */
-    readonly name: string;
+    readonly privateEndpointConnectionName: string;
     /**
      * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
      */

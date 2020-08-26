@@ -43,7 +43,7 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The integration service environment properties.
      */
@@ -74,18 +74,19 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as IntegrationServiceEnvironmentArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.integrationServiceEnvironmentName === undefined) {
+                throw new Error("Missing required property 'integrationServiceEnvironmentName'");
             }
             if (!args || args.resourceGroup === undefined) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
+            inputs["integrationServiceEnvironmentName"] = args ? args.integrationServiceEnvironmentName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,13 +105,13 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
  */
 export interface IntegrationServiceEnvironmentArgs {
     /**
+     * The integration service environment name.
+     */
+    readonly integrationServiceEnvironmentName: pulumi.Input<string>;
+    /**
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The integration service environment name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The integration service environment properties.
      */

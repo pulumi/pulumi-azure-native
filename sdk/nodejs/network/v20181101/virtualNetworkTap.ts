@@ -59,7 +59,7 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
      */
@@ -94,11 +94,11 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualNetworkTapArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.tapName === undefined) {
+                throw new Error("Missing required property 'tapName'");
             }
             inputs["destinationLoadBalancerFrontEndIPConfiguration"] = args ? args.destinationLoadBalancerFrontEndIPConfiguration : undefined;
             inputs["destinationNetworkInterfaceIPConfiguration"] = args ? args.destinationNetworkInterfaceIPConfiguration : undefined;
@@ -106,9 +106,10 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tapName"] = args ? args.tapName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["networkInterfaceTapConfigurations"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
@@ -156,10 +157,6 @@ export interface VirtualNetworkTapArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the virtual network tap.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -167,4 +164,8 @@ export interface VirtualNetworkTapArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the virtual network tap.
+     */
+    readonly tapName: pulumi.Input<string>;
 }

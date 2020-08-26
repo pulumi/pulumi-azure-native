@@ -173,12 +173,6 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// How the read-write server's participation in the query pool is controlled.&lt;br/&gt;It can have the following values: &lt;ul&gt;&lt;li&gt;readOnly - indicates that the read-write server is intended not to participate in query operations&lt;/li&gt;&lt;li&gt;all - indicates that the read-write server can participate in query operations&lt;/li&gt;&lt;/ul&gt;Specifying readOnly when capacity is 1 results in error.
         /// </summary>
         [Input("querypoolConnectionMode")]
@@ -189,6 +183,12 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
         /// The SKU of the Analysis Services resource.

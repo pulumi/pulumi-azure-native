@@ -20,9 +20,9 @@ class Rule(pulumi.CustomResource):
                  action: Optional[pulumi.Input[pulumi.InputType['ActionArgs']]] = None,
                  correlation_filter: Optional[pulumi.Input[pulumi.InputType['CorrelationFilterArgs']]] = None,
                  filter_type: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
                  sql_filter: Optional[pulumi.Input[pulumi.InputType['SqlFilterArgs']]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
@@ -37,9 +37,9 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ActionArgs']] action: Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         :param pulumi.Input[pulumi.InputType['CorrelationFilterArgs']] correlation_filter: Properties of correlationFilter
         :param pulumi.Input[str] filter_type: Filter type that is evaluated against a BrokeredMessage.
-        :param pulumi.Input[str] name: The rule name.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] rule_name: The rule name.
         :param pulumi.Input[pulumi.InputType['SqlFilterArgs']] sql_filter: Properties of sqlFilter
         :param pulumi.Input[str] subscription_name: The subscription name.
         :param pulumi.Input[str] topic_name: The topic name.
@@ -64,15 +64,15 @@ class Rule(pulumi.CustomResource):
             __props__['action'] = action
             __props__['correlation_filter'] = correlation_filter
             __props__['filter_type'] = filter_type
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if rule_name is None:
+                raise TypeError("Missing required property 'rule_name'")
+            __props__['rule_name'] = rule_name
             __props__['sql_filter'] = sql_filter
             if subscription_name is None:
                 raise TypeError("Missing required property 'subscription_name'")
@@ -80,6 +80,7 @@ class Rule(pulumi.CustomResource):
             if topic_name is None:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
+            __props__['name'] = None
             __props__['type'] = None
         super(Rule, __self__).__init__(
             'azurerm:servicebus/v20170401:Rule',

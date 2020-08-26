@@ -37,8 +37,8 @@ type Hub struct {
 // NewHub registers a new resource with the given unique name, arguments, and options.
 func NewHub(ctx *pulumi.Context,
 	name string, args *HubArgs, opts ...pulumi.ResourceOption) (*Hub, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.HubName == nil {
+		return nil, errors.New("missing required argument 'HubName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -122,10 +122,10 @@ func (HubState) ElementType() reflect.Type {
 type hubArgs struct {
 	// Billing settings of the hub.
 	HubBillingInfo *HubBillingInfoFormat `pulumi:"hubBillingInfo"`
+	// The name of the Hub.
+	HubName string `pulumi:"hubName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the Hub.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -138,10 +138,10 @@ type hubArgs struct {
 type HubArgs struct {
 	// Billing settings of the hub.
 	HubBillingInfo HubBillingInfoFormatPtrInput
+	// The name of the Hub.
+	HubName pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the Hub.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

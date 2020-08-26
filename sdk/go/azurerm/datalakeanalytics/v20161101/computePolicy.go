@@ -34,8 +34,8 @@ func NewComputePolicy(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ComputePolicyName == nil {
+		return nil, errors.New("missing required argument 'ComputePolicyName'")
 	}
 	if args == nil || args.ObjectId == nil {
 		return nil, errors.New("missing required argument 'ObjectId'")
@@ -107,12 +107,12 @@ func (ComputePolicyState) ElementType() reflect.Type {
 type computePolicyArgs struct {
 	// The name of the Data Lake Analytics account.
 	AccountName string `pulumi:"accountName"`
+	// The name of the compute policy to create or update.
+	ComputePolicyName string `pulumi:"computePolicyName"`
 	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
 	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
 	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
 	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
-	// The name of the compute policy to create or update.
-	Name string `pulumi:"name"`
 	// The AAD object identifier for the entity to create a policy for.
 	ObjectId string `pulumi:"objectId"`
 	// The type of AAD object the object identifier refers to.
@@ -125,12 +125,12 @@ type computePolicyArgs struct {
 type ComputePolicyArgs struct {
 	// The name of the Data Lake Analytics account.
 	AccountName pulumi.StringInput
+	// The name of the compute policy to create or update.
+	ComputePolicyName pulumi.StringInput
 	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
 	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput
 	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
 	MinPriorityPerJob pulumi.IntPtrInput
-	// The name of the compute policy to create or update.
-	Name pulumi.StringInput
 	// The AAD object identifier for the entity to create a policy for.
 	ObjectId pulumi.StringInput
 	// The type of AAD object the object identifier refers to.

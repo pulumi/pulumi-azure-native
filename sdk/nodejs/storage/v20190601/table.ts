@@ -37,11 +37,11 @@ export class Table extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Table name under the specified account
      */
-    public /*out*/ readonly tableName!: pulumi.Output<string>;
+    public readonly tableName!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -63,16 +63,16 @@ export class Table extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.tableName === undefined) {
+                throw new Error("Missing required property 'tableName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tableName"] = undefined /*out*/;
+            inputs["tableName"] = args ? args.tableName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -95,11 +95,11 @@ export interface TableArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
-     * A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
+     */
+    readonly tableName: pulumi.Input<string>;
 }

@@ -27,11 +27,11 @@ type DataConnector struct {
 // NewDataConnector registers a new resource with the given unique name, arguments, and options.
 func NewDataConnector(ctx *pulumi.Context,
 	name string, args *DataConnectorArgs, opts ...pulumi.ResourceOption) (*DataConnector, error) {
+	if args == nil || args.DataConnectorId == nil {
+		return nil, errors.New("missing required argument 'DataConnectorId'")
+	}
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -90,12 +90,12 @@ func (DataConnectorState) ElementType() reflect.Type {
 }
 
 type dataConnectorArgs struct {
+	// Connector ID
+	DataConnectorId string `pulumi:"dataConnectorId"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
 	// The data connector kind
 	Kind string `pulumi:"kind"`
-	// Connector ID
-	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace.
@@ -104,12 +104,12 @@ type dataConnectorArgs struct {
 
 // The set of arguments for constructing a DataConnector resource.
 type DataConnectorArgs struct {
+	// Connector ID
+	DataConnectorId pulumi.StringInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
 	// The data connector kind
 	Kind pulumi.StringInput
-	// Connector ID
-	Name pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the workspace.

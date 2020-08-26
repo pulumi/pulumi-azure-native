@@ -21,9 +21,9 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  availability_set: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  network_profile_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs']]] = None,
                  os_profile: Optional[pulumi.Input[pulumi.InputType['OSProfileArgs']]] = None,
@@ -45,9 +45,9 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         :param pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Specifies the hardware settings for the virtual machine.
+        :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[str] license_type: Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The instance ID of the virtual machine.
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Specifies the network interfaces of the virtual machine.
         :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMNetworkProfileConfigurationArgs']] network_profile_configuration: Specifies the network profile configuration of the virtual machine.
         :param pulumi.Input[pulumi.InputType['OSProfileArgs']] os_profile: Specifies the operating system settings for the virtual machine.
@@ -79,13 +79,13 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__['availability_set'] = availability_set
             __props__['diagnostics_profile'] = diagnostics_profile
             __props__['hardware_profile'] = hardware_profile
+            if instance_id is None:
+                raise TypeError("Missing required property 'instance_id'")
+            __props__['instance_id'] = instance_id
             __props__['license_type'] = license_type
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_profile'] = network_profile
             __props__['network_profile_configuration'] = network_profile_configuration
             __props__['os_profile'] = os_profile
@@ -99,10 +99,10 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             if vm_scale_set_name is None:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__['vm_scale_set_name'] = vm_scale_set_name
-            __props__['instance_id'] = None
             __props__['instance_view'] = None
             __props__['latest_model_applied'] = None
             __props__['model_definition_applied'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resources'] = None
             __props__['sku'] = None

@@ -36,6 +36,9 @@ func NewConnection(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
+	if args == nil || args.ConnectionName == nil {
+		return nil, errors.New("missing required argument 'ConnectionName'")
+	}
 	if args == nil || args.ConnectionType == nil {
 		return nil, errors.New("missing required argument 'ConnectionType'")
 	}
@@ -110,13 +113,15 @@ func (ConnectionState) ElementType() reflect.Type {
 type connectionArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// The parameters supplied to the create or update connection operation.
+	ConnectionName string `pulumi:"connectionName"`
 	// Gets or sets the connectionType of the connection.
 	ConnectionType ConnectionTypeAssociationProperty `pulumi:"connectionType"`
 	// Gets or sets the description of the connection.
 	Description *string `pulumi:"description"`
 	// Gets or sets the field definition properties of the connection.
 	FieldDefinitionValues map[string]string `pulumi:"fieldDefinitionValues"`
-	// The parameters supplied to the create or update connection operation.
+	// Gets or sets the name of the connection.
 	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -126,13 +131,15 @@ type connectionArgs struct {
 type ConnectionArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// The parameters supplied to the create or update connection operation.
+	ConnectionName pulumi.StringInput
 	// Gets or sets the connectionType of the connection.
 	ConnectionType ConnectionTypeAssociationPropertyInput
 	// Gets or sets the description of the connection.
 	Description pulumi.StringPtrInput
 	// Gets or sets the field definition properties of the connection.
 	FieldDefinitionValues pulumi.StringMapInput
-	// The parameters supplied to the create or update connection operation.
+	// Gets or sets the name of the connection.
 	Name pulumi.StringInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput

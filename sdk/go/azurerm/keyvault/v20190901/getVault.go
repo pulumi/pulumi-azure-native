@@ -17,10 +17,10 @@ func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.Invo
 }
 
 type LookupVaultArgs struct {
-	// The name of the vault.
-	Name string `pulumi:"name"`
 	// The name of the Resource Group to which the vault belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the vault.
+	VaultName string `pulumi:"vaultName"`
 }
 
 // Resource information with extended details.

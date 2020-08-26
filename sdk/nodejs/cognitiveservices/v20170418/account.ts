@@ -55,7 +55,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The name of the created account
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of Cognitive Services account.
      */
@@ -86,21 +86,22 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AccountArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.accountName === undefined) {
+                throw new Error("Missing required property 'accountName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -119,6 +120,10 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
+     * The name of Cognitive Services account.
+     */
+    readonly accountName: pulumi.Input<string>;
+    /**
      * The identity of Cognitive Services account.
      */
     readonly identity?: pulumi.Input<inputs.cognitiveservices.v20170418.Identity>;
@@ -130,10 +135,6 @@ export interface AccountArgs {
      * The location of the resource
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of Cognitive Services account.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Properties of Cognitive Services account.
      */

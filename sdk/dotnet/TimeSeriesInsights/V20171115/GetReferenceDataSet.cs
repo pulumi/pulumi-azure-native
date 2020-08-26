@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         /// <summary>
         /// The name of the Time Series Insights reference data set associated with the specified environment.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("referenceDataSetName", required: true)]
+        public string ReferenceDataSetName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

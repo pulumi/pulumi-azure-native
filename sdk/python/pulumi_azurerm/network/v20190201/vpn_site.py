@@ -24,12 +24,12 @@ class VpnSite(pulumi.CustomResource):
                  ip_address: Optional[pulumi.Input[str]] = None,
                  is_security_site: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 vpn_site_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -45,12 +45,12 @@ class VpnSite(pulumi.CustomResource):
         :param pulumi.Input[str] ip_address: The ip-address for the vpn-site.
         :param pulumi.Input[bool] is_security_site: IsSecuritySite flag
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the VpnSite being created or updated.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnSite.
         :param pulumi.Input[str] site_key: The key for vpn-site that can be used for connections.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the vpnSite belongs
+        :param pulumi.Input[str] vpn_site_name: The name of the VpnSite being created or updated.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,9 +78,6 @@ class VpnSite(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -88,7 +85,11 @@ class VpnSite(pulumi.CustomResource):
             __props__['site_key'] = site_key
             __props__['tags'] = tags
             __props__['virtual_wan'] = virtual_wan
+            if vpn_site_name is None:
+                raise TypeError("Missing required property 'vpn_site_name'")
+            __props__['vpn_site_name'] = vpn_site_name
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180401:VpnSite"), pulumi.Alias(type_="azurerm:network/v20180601:VpnSite"), pulumi.Alias(type_="azurerm:network/v20180701:VpnSite"), pulumi.Alias(type_="azurerm:network/v20180801:VpnSite"), pulumi.Alias(type_="azurerm:network/v20181001:VpnSite"), pulumi.Alias(type_="azurerm:network/v20181101:VpnSite"), pulumi.Alias(type_="azurerm:network/v20181201:VpnSite"), pulumi.Alias(type_="azurerm:network/v20190401:VpnSite"), pulumi.Alias(type_="azurerm:network/v20190601:VpnSite"), pulumi.Alias(type_="azurerm:network/v20190701:VpnSite"), pulumi.Alias(type_="azurerm:network/v20190801:VpnSite"), pulumi.Alias(type_="azurerm:network/v20190901:VpnSite"), pulumi.Alias(type_="azurerm:network/v20191101:VpnSite"), pulumi.Alias(type_="azurerm:network/v20191201:VpnSite"), pulumi.Alias(type_="azurerm:network/v20200301:VpnSite"), pulumi.Alias(type_="azurerm:network/v20200401:VpnSite"), pulumi.Alias(type_="azurerm:network/v20200501:VpnSite"), pulumi.Alias(type_="azurerm:network/v20200601:VpnSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -142,8 +142,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// <summary>
         /// Logger identifier. Must be unique in the API Management service instance.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("loggerid", required: true)]
+        public Input<string> Loggerid { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

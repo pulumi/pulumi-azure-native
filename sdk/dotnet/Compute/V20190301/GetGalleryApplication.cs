@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Compute.V20190301
     public sealed class GetGalleryApplicationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the gallery Application Definition to be retrieved.
+        /// </summary>
+        [Input("galleryApplicationName", required: true)]
+        public string GalleryApplicationName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Shared Application Gallery from which the Application Definitions are to be retrieved.
         /// </summary>
         [Input("galleryName", required: true)]
         public string GalleryName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the gallery Application Definition to be retrieved.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

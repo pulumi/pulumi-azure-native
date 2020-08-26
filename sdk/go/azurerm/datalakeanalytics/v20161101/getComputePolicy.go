@@ -20,7 +20,7 @@ type LookupComputePolicyArgs struct {
 	// The name of the Data Lake Analytics account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the compute policy to retrieve.
-	Name string `pulumi:"name"`
+	ComputePolicyName string `pulumi:"computePolicyName"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

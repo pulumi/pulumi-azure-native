@@ -51,7 +51,7 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
     /**
      * The name of the policy set definition.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
@@ -85,20 +85,21 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
             if (!args || args.managementGroupId === undefined) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.policyDefinitions === undefined) {
                 throw new Error("Missing required property 'policyDefinitions'");
+            }
+            if (!args || args.policySetDefinitionName === undefined) {
+                throw new Error("Missing required property 'policySetDefinitionName'");
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
+            inputs["policySetDefinitionName"] = args ? args.policySetDefinitionName : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -135,10 +136,6 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
      */
     readonly metadata?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The name of the policy set definition to create.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The policy set definition parameters that can be used in policy definition references.
      */
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
@@ -146,6 +143,10 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
      * An array of policy definition references.
      */
     readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.management.v20190601.PolicyDefinitionReference>[]>;
+    /**
+     * The name of the policy set definition to create.
+     */
+    readonly policySetDefinitionName: pulumi.Input<string>;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */

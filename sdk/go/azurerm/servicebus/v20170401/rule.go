@@ -31,14 +31,14 @@ type Rule struct {
 // NewRule registers a new resource with the given unique name, arguments, and options.
 func NewRule(ctx *pulumi.Context,
 	name string, args *RuleArgs, opts ...pulumi.ResourceOption) (*Rule, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RuleName == nil {
+		return nil, errors.New("missing required argument 'RuleName'")
 	}
 	if args == nil || args.SubscriptionName == nil {
 		return nil, errors.New("missing required argument 'SubscriptionName'")
@@ -111,12 +111,12 @@ type ruleArgs struct {
 	CorrelationFilter *CorrelationFilter `pulumi:"correlationFilter"`
 	// Filter type that is evaluated against a BrokeredMessage.
 	FilterType *string `pulumi:"filterType"`
-	// The rule name.
-	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The rule name.
+	RuleName string `pulumi:"ruleName"`
 	// Properties of sqlFilter
 	SqlFilter *SqlFilter `pulumi:"sqlFilter"`
 	// The subscription name.
@@ -133,12 +133,12 @@ type RuleArgs struct {
 	CorrelationFilter CorrelationFilterPtrInput
 	// Filter type that is evaluated against a BrokeredMessage.
 	FilterType pulumi.StringPtrInput
-	// The rule name.
-	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The rule name.
+	RuleName pulumi.StringInput
 	// Properties of sqlFilter
 	SqlFilter SqlFilterPtrInput
 	// The subscription name.

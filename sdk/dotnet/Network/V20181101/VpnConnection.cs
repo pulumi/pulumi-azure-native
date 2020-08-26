@@ -177,6 +177,12 @@ namespace Pulumi.AzureRM.Network.V20181101
         public Input<int>? ConnectionBandwidth { get; set; }
 
         /// <summary>
+        /// The name of the connection.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
         /// The connection status.
         /// </summary>
         [Input("connectionStatus")]
@@ -225,10 +231,10 @@ namespace Pulumi.AzureRM.Network.V20181101
         }
 
         /// <summary>
-        /// The name of the connection.
+        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The provisioning state of the resource.

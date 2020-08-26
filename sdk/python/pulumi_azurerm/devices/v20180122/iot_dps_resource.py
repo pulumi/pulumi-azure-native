@@ -19,8 +19,8 @@ class IotDpsResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']]] = None,
+                 provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IotDpsSkuInfoArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -34,8 +34,8 @@ class IotDpsResource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: Name of provisioning service to create or update.
         :param pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']] properties: Service specific properties for a provisioning service
+        :param pulumi.Input[str] provisioning_service_name: Name of provisioning service to create or update.
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
         :param pulumi.Input[pulumi.InputType['IotDpsSkuInfoArgs']] sku: Sku info for a provisioning Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -61,12 +61,12 @@ class IotDpsResource(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
+            if provisioning_service_name is None:
+                raise TypeError("Missing required property 'provisioning_service_name'")
+            __props__['provisioning_service_name'] = provisioning_service_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -74,6 +74,7 @@ class IotDpsResource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devices/v20171115:IotDpsResource"), pulumi.Alias(type_="azurerm:devices/v20200101:IotDpsResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

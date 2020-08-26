@@ -130,6 +130,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class BackendArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Identifier of the Backend entity. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("backendId", required: true)]
+        public Input<string> BackendId { get; set; } = null!;
+
+        /// <summary>
         /// Backend Credentials Contract Properties
         /// </summary>
         [Input("credentials")]
@@ -140,12 +146,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// Identifier of the Backend entity. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Backend Properties contract

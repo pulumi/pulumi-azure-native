@@ -136,12 +136,6 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         }
 
         /// <summary>
-        /// Name of the Storage Target.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Properties when targetType is nfs3.
         /// </summary>
         [Input("nfs3")]
@@ -158,6 +152,12 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Storage Target.
+        /// </summary>
+        [Input("storageTargetName", required: true)]
+        public Input<string> StorageTargetName { get; set; } = null!;
 
         /// <summary>
         /// Type of the Storage Target.

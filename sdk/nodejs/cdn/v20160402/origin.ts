@@ -49,7 +49,7 @@ export class Origin extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning status of the origin.
      */
@@ -82,8 +82,8 @@ export class Origin extends pulumi.CustomResource {
             if (!args || args.hostName === undefined) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.originName === undefined) {
+                throw new Error("Missing required property 'originName'");
             }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
@@ -95,9 +95,10 @@ export class Origin extends pulumi.CustomResource {
             inputs["hostName"] = args ? args.hostName : undefined;
             inputs["httpPort"] = args ? args.httpPort : undefined;
             inputs["httpsPort"] = args ? args.httpsPort : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["originName"] = args ? args.originName : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -138,7 +139,7 @@ export interface OriginArgs {
     /**
      * Name of the origin, an arbitrary value but it needs to be unique under endpoint
      */
-    readonly name: pulumi.Input<string>;
+    readonly originName: pulumi.Input<string>;
     /**
      * Name of the CDN profile within the resource group.
      */

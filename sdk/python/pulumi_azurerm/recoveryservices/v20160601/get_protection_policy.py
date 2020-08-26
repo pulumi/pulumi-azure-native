@@ -103,19 +103,19 @@ class AwaitableGetProtectionPolicyResult(GetProtectionPolicyResult):
             type=self.type)
 
 
-def get_protection_policy(name: Optional[str] = None,
+def get_protection_policy(policy_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           vault_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The backup policy name used in this GET operation.
+    :param str policy_name: The backup policy name used in this GET operation.
     :param str resource_group_name: The name of the resource group associated with the Recovery Services vault.
     :param str vault_name: The name of the Recovery Services vault.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
     if opts is None:

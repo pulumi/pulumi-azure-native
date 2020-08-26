@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// Diagnostic identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("diagnosticId", required: true)]
+        public string DiagnosticId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -17,12 +17,12 @@ func LookupEmailTemplate(ctx *pulumi.Context, args *LookupEmailTemplateArgs, opt
 }
 
 type LookupEmailTemplateArgs struct {
-	// Email Template Name Identifier.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Email Template Name Identifier.
+	TemplateName string `pulumi:"templateName"`
 }
 
 // Email Template details.

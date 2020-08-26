@@ -17,10 +17,10 @@ func LookupHyperVSiteSite(ctx *pulumi.Context, args *LookupHyperVSiteSiteArgs, o
 }
 
 type LookupHyperVSiteSiteArgs struct {
-	// Site name.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Site name.
+	SiteName string `pulumi:"siteName"`
 }
 
 // Site REST Resource.

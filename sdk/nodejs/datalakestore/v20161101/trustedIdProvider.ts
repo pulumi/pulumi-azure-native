@@ -41,7 +41,7 @@ export class TrustedIdProvider extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The resource type.
      */
@@ -66,16 +66,17 @@ export class TrustedIdProvider extends pulumi.CustomResource {
             if (!args || args.idProvider === undefined) {
                 throw new Error("Missing required property 'idProvider'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.trustedIdProviderName === undefined) {
+                throw new Error("Missing required property 'trustedIdProviderName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["idProvider"] = args ? args.idProvider : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["trustedIdProviderName"] = args ? args.trustedIdProviderName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,11 +103,11 @@ export interface TrustedIdProviderArgs {
      */
     readonly idProvider: pulumi.Input<string>;
     /**
-     * The name of the trusted identity provider. This is used for differentiation of providers in the account.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the Azure resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the trusted identity provider. This is used for differentiation of providers in the account.
+     */
+    readonly trustedIdProviderName: pulumi.Input<string>;
 }

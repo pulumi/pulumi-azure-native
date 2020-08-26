@@ -95,7 +95,7 @@ export class ManagedCluster extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Profile of network configuration.
      */
@@ -145,11 +145,11 @@ export class ManagedCluster extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
             }
             inputs["aadProfile"] = args ? args.aadProfile : undefined;
             inputs["addonProfiles"] = args ? args.addonProfiles : undefined;
@@ -163,15 +163,16 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
             inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             inputs["fqdn"] = undefined /*out*/;
             inputs["maxAgentPools"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["privateFQDN"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -242,10 +243,6 @@ export interface ManagedClusterArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the managed cluster resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Profile of network configuration.
      */
     readonly networkProfile?: pulumi.Input<inputs.containerservice.v20191101.ContainerServiceNetworkProfile>;
@@ -257,6 +254,10 @@ export interface ManagedClusterArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the managed cluster resource.
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
      */

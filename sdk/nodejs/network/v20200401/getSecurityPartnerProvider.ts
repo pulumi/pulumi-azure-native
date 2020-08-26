@@ -15,20 +15,20 @@ export function getSecurityPartnerProvider(args: GetSecurityPartnerProviderArgs,
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200401:getSecurityPartnerProvider", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "securityPartnerProviderName": args.securityPartnerProviderName,
     }, opts);
 }
 
 export interface GetSecurityPartnerProviderArgs {
     /**
-     * The name of the Security Partner Provider.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the Security Partner Provider.
+     */
+    readonly securityPartnerProviderName: string;
 }
 
 /**

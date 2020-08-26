@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Insights.V20170401
         /// <summary>
         /// The name of the activity log alert.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("activityLogAlertName", required: true)]
+        public string ActivityLogAlertName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

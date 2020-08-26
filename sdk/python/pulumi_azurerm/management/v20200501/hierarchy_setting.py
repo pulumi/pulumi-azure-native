@@ -16,7 +16,7 @@ class HierarchySetting(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_management_group: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
                  require_authorization_for_group_creation: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
@@ -27,7 +27,7 @@ class HierarchySetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_management_group: Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
-        :param pulumi.Input[str] name: Management Group ID.
+        :param pulumi.Input[str] group_id: Management Group ID.
         :param pulumi.Input[bool] require_authorization_for_group_creation: Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         """
         if __name__ is not None:
@@ -48,10 +48,11 @@ class HierarchySetting(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['default_management_group'] = default_management_group
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if group_id is None:
+                raise TypeError("Missing required property 'group_id'")
+            __props__['group_id'] = group_id
             __props__['require_authorization_for_group_creation'] = require_authorization_for_group_creation
+            __props__['name'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:management/v20200201:HierarchySetting")])

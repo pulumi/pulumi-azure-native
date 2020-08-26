@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Resources.V20191001
         /// <summary>
         /// The name of the deployment.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("deploymentName", required: true)]
+        public string DeploymentName { get; set; } = null!;
 
         public GetDeploymentAtTenantScopeArgs()
         {

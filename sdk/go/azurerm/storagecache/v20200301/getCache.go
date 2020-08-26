@@ -18,7 +18,7 @@ func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.Invo
 
 type LookupCacheArgs struct {
 	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-	Name string `pulumi:"name"`
+	CacheName string `pulumi:"cacheName"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

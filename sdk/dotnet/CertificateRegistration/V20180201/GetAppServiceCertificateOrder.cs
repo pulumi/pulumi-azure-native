@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20180201
         /// <summary>
         /// Name of the certificate order..
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("certificateOrderName", required: true)]
+        public string CertificateOrderName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

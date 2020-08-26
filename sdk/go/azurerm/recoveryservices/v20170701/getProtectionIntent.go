@@ -20,7 +20,7 @@ type LookupProtectionIntentArgs struct {
 	// Fabric name associated with the backed up item.
 	FabricName string `pulumi:"fabricName"`
 	// Backed up item name whose details are to be fetched.
-	Name string `pulumi:"name"`
+	IntentObjectName string `pulumi:"intentObjectName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.

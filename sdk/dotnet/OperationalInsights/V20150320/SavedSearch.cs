@@ -130,12 +130,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         public Input<string>? ETag { get; set; }
 
         /// <summary>
-        /// The id of the saved search.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
         /// </summary>
         [Input("query", required: true)]
@@ -146,6 +140,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The id of the saved search.
+        /// </summary>
+        [Input("savedSearchId", required: true)]
+        public Input<string> SavedSearchId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.TagArgs>? _tags;

@@ -18,7 +18,7 @@ func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.Invo
 
 type LookupCacheArgs struct {
 	// Name of Cache.
-	Name string `pulumi:"name"`
+	CacheName string `pulumi:"cacheName"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -15,7 +15,7 @@ export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:databoxedge/v20190301:getOrder", {
-        "name": args.name,
+        "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetOrderArgs {
     /**
      * The device name.
      */
-    readonly name: string;
+    readonly deviceName: string;
     /**
      * The resource group name.
      */

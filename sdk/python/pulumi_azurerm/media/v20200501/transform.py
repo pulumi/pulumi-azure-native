@@ -19,9 +19,9 @@ class Transform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 transform_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,9 +32,9 @@ class Transform(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
-        :param pulumi.Input[str] name: The Transform name.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]] outputs: An array of one or more TransformOutputs that the Transform should generate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] transform_name: The Transform name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -57,17 +57,18 @@ class Transform(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['description'] = description
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if outputs is None:
                 raise TypeError("Missing required property 'outputs'")
             __props__['outputs'] = outputs
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if transform_name is None:
+                raise TypeError("Missing required property 'transform_name'")
+            __props__['transform_name'] = transform_name
             __props__['created'] = None
             __props__['last_modified'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20180701:Transform")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

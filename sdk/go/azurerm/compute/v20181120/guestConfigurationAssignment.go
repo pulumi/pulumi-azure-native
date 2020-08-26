@@ -27,8 +27,8 @@ type GuestConfigurationAssignment struct {
 // NewGuestConfigurationAssignment registers a new resource with the given unique name, arguments, and options.
 func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 	name string, args *GuestConfigurationAssignmentArgs, opts ...pulumi.ResourceOption) (*GuestConfigurationAssignment, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.GuestConfigurationAssignmentName == nil {
+		return nil, errors.New("missing required argument 'GuestConfigurationAssignmentName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,10 +93,12 @@ func (GuestConfigurationAssignmentState) ElementType() reflect.Type {
 }
 
 type guestConfigurationAssignmentArgs struct {
+	// Name of the guest configuration assignment.
+	GuestConfigurationAssignmentName string `pulumi:"guestConfigurationAssignmentName"`
 	// Region where the VM is located.
 	Location *string `pulumi:"location"`
 	// Name of the guest configuration assignment.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Properties of the Guest configuration assignment.
 	Properties *GuestConfigurationAssignmentProperties `pulumi:"properties"`
 	// The resource group name.
@@ -107,10 +109,12 @@ type guestConfigurationAssignmentArgs struct {
 
 // The set of arguments for constructing a GuestConfigurationAssignment resource.
 type GuestConfigurationAssignmentArgs struct {
+	// Name of the guest configuration assignment.
+	GuestConfigurationAssignmentName pulumi.StringInput
 	// Region where the VM is located.
 	Location pulumi.StringPtrInput
 	// Name of the guest configuration assignment.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Properties of the Guest configuration assignment.
 	Properties GuestConfigurationAssignmentPropertiesPtrInput
 	// The resource group name.

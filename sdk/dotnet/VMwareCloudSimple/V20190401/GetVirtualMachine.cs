@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
     public sealed class GetVirtualMachineArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// virtual machine name
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// virtual machine name
+        /// </summary>
+        [Input("virtualMachineName", required: true)]
+        public string VirtualMachineName { get; set; } = null!;
 
         public GetVirtualMachineArgs()
         {

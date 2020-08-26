@@ -18,7 +18,7 @@ func LookupManagementLock(ctx *pulumi.Context, args *LookupManagementLockArgs, o
 
 type LookupManagementLockArgs struct {
 	// Name of the management lock.
-	Name string `pulumi:"name"`
+	LockName string `pulumi:"lockName"`
 }
 
 // Management lock information.

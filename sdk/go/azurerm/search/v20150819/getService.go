@@ -17,10 +17,10 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 }
 
 type LookupServiceArgs struct {
-	// The name of the Azure Cognitive Search service associated with the specified resource group.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Azure Cognitive Search service associated with the specified resource group.
+	SearchServiceName string `pulumi:"searchServiceName"`
 }
 
 // Describes an Azure Cognitive Search service and its current state.

@@ -15,8 +15,8 @@ export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20161201:getProtectionContainer", {
+        "containerName": args.containerName,
         "fabricName": args.fabricName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,
     }, opts);
@@ -24,13 +24,13 @@ export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: 
 
 export interface GetProtectionContainerArgs {
     /**
+     * Name of the container whose details need to be fetched.
+     */
+    readonly containerName: string;
+    /**
      * Name of the fabric where the container belongs.
      */
     readonly fabricName: string;
-    /**
-     * Name of the container whose details need to be fetched.
-     */
-    readonly name: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

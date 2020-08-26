@@ -15,7 +15,7 @@ export function getNamedValue(args: GetNamedValueArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getNamedValue", {
-        "name": args.name,
+        "namedValueId": args.namedValueId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetNamedValueArgs {
     /**
      * Identifier of the NamedValue.
      */
-    readonly name: string;
+    readonly namedValueId: string;
     /**
      * The name of the resource group.
      */

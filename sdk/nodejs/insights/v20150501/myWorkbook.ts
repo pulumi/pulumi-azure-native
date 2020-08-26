@@ -102,11 +102,11 @@ export class MyWorkbook extends pulumi.CustomResource {
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
             }
             if (!args || args.serializedData === undefined) {
                 throw new Error("Missing required property 'serializedData'");
@@ -118,6 +118,7 @@ export class MyWorkbook extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["serializedData"] = args ? args.serializedData : undefined;
             inputs["sourceId"] = args ? args.sourceId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -162,13 +163,17 @@ export interface MyWorkbookArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Application Insights component resource.
+     * Azure resource name
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * Configuration of this particular private workbook. Configuration data is a string containing valid JSON
      */

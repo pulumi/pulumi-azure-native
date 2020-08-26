@@ -55,7 +55,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The common properties of a service.
      */
@@ -88,20 +88,21 @@ export class Service extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -136,10 +137,6 @@ export interface ServiceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the service instance.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The common properties of a service.
      */
     readonly properties?: pulumi.Input<inputs.healthcareapis.v20190916.ServicesProperties>;
@@ -147,6 +144,10 @@ export interface ServiceArgs {
      * The name of the resource group that contains the service instance.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the service instance.
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * The resource tags.
      */

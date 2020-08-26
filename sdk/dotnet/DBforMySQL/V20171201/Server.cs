@@ -198,12 +198,6 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the server.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Properties of the server.
         /// </summary>
         [Input("properties", required: true)]
@@ -214,6 +208,12 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
         /// The SKU (pricing tier) of the server.

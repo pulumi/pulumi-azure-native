@@ -17,12 +17,12 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection connection.
-	Name string `pulumi:"name"`
 	// The name of the parent resource (namely, either, the topic name or domain name).
 	ParentName string `pulumi:"parentName"`
 	// The type of the parent resource. This can be either \'topics\' or \'domains\'.
 	ParentType string `pulumi:"parentType"`
+	// The name of the private endpoint connection connection.
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

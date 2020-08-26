@@ -19,12 +19,12 @@ func LookupSynchronizationSetting(ctx *pulumi.Context, args *LookupSynchronizati
 type LookupSynchronizationSettingArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
-	// The name of the synchronizationSetting.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share.
 	ShareName string `pulumi:"shareName"`
+	// The name of the synchronizationSetting.
+	SynchronizationSettingName string `pulumi:"synchronizationSettingName"`
 }
 
 // A Synchronization Setting data transfer object.

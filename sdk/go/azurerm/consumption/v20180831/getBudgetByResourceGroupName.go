@@ -18,7 +18,7 @@ func LookupBudgetByResourceGroupName(ctx *pulumi.Context, args *LookupBudgetByRe
 
 type LookupBudgetByResourceGroupNameArgs struct {
 	// Budget Name.
-	Name string `pulumi:"name"`
+	BudgetName string `pulumi:"budgetName"`
 	// Azure Resource Group Name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

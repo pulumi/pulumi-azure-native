@@ -25,8 +25,8 @@ type RegistrationAssignment struct {
 // NewRegistrationAssignment registers a new resource with the given unique name, arguments, and options.
 func NewRegistrationAssignment(ctx *pulumi.Context,
 	name string, args *RegistrationAssignmentArgs, opts ...pulumi.ResourceOption) (*RegistrationAssignment, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.RegistrationAssignmentId == nil {
+		return nil, errors.New("missing required argument 'RegistrationAssignmentId'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -84,20 +84,20 @@ func (RegistrationAssignmentState) ElementType() reflect.Type {
 }
 
 type registrationAssignmentArgs struct {
-	// Guid of the registration assignment.
-	Name string `pulumi:"name"`
 	// Properties of a registration assignment.
 	Properties *RegistrationAssignmentProperties `pulumi:"properties"`
+	// Guid of the registration assignment.
+	RegistrationAssignmentId string `pulumi:"registrationAssignmentId"`
 	// Scope of the resource.
 	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RegistrationAssignment resource.
 type RegistrationAssignmentArgs struct {
-	// Guid of the registration assignment.
-	Name pulumi.StringInput
 	// Properties of a registration assignment.
 	Properties RegistrationAssignmentPropertiesPtrInput
+	// Guid of the registration assignment.
+	RegistrationAssignmentId pulumi.StringInput
 	// Scope of the resource.
 	Scope pulumi.StringInput
 }

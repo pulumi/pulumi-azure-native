@@ -125,12 +125,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         public Input<string>? ExternalDocsUrl { get; set; }
 
         /// <summary>
-        /// Tag identifier. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -141,6 +135,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Tag identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("tagId", required: true)]
+        public Input<string> TagId { get; set; } = null!;
 
         public TagDescriptionArgs()
         {

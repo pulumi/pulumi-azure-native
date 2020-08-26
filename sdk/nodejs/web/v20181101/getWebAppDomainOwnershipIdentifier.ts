@@ -15,6 +15,7 @@ export function getWebAppDomainOwnershipIdentifier(args: GetWebAppDomainOwnershi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20181101:getWebAppDomainOwnershipIdentifier", {
+        "domainOwnershipIdentifierName": args.domainOwnershipIdentifierName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -23,6 +24,10 @@ export function getWebAppDomainOwnershipIdentifier(args: GetWebAppDomainOwnershi
 export interface GetWebAppDomainOwnershipIdentifierArgs {
     /**
      * Name of domain ownership identifier.
+     */
+    readonly domainOwnershipIdentifierName: string;
+    /**
+     * Name of the app.
      */
     readonly name: string;
     /**

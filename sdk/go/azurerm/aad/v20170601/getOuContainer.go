@@ -20,7 +20,7 @@ type LookupOuContainerArgs struct {
 	// The name of the domain service.
 	DomainServiceName string `pulumi:"domainServiceName"`
 	// The name of the OuContainer.
-	Name string `pulumi:"name"`
+	OuContainerName string `pulumi:"ouContainerName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

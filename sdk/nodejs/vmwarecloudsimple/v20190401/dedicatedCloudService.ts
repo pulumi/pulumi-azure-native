@@ -49,7 +49,7 @@ export class DedicatedCloudService extends pulumi.CustomResource {
     /**
      * {dedicatedCloudServiceName}
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * total nodes purchased
      */
@@ -80,24 +80,25 @@ export class DedicatedCloudService extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DedicatedCloudServiceArgs | undefined;
+            if (!args || args.dedicatedCloudServiceName === undefined) {
+                throw new Error("Missing required property 'dedicatedCloudServiceName'");
+            }
             if (!args || args.gatewaySubnet === undefined) {
                 throw new Error("Missing required property 'gatewaySubnet'");
             }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dedicatedCloudServiceName"] = args ? args.dedicatedCloudServiceName : undefined;
             inputs["gatewaySubnet"] = args ? args.gatewaySubnet : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["isAccountOnboarded"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["nodes"] = undefined /*out*/;
             inputs["serviceURL"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -118,6 +119,10 @@ export class DedicatedCloudService extends pulumi.CustomResource {
  */
 export interface DedicatedCloudServiceArgs {
     /**
+     * dedicated cloud Service name
+     */
+    readonly dedicatedCloudServiceName: pulumi.Input<string>;
+    /**
      * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
      */
     readonly gatewaySubnet: pulumi.Input<string>;
@@ -125,10 +130,6 @@ export interface DedicatedCloudServiceArgs {
      * Azure region
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * dedicated cloud Service name
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group
      */

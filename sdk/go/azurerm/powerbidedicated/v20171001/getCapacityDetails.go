@@ -18,7 +18,7 @@ func LookupCapacityDetails(ctx *pulumi.Context, args *LookupCapacityDetailsArgs,
 
 type LookupCapacityDetailsArgs struct {
 	// The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-	Name string `pulumi:"name"`
+	DedicatedCapacityName string `pulumi:"dedicatedCapacityName"`
 	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

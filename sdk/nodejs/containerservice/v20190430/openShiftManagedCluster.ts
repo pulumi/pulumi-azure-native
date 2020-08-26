@@ -63,7 +63,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Configuration for OpenShift networking.
      */
@@ -113,28 +113,29 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.openShiftVersion === undefined) {
                 throw new Error("Missing required property 'openShiftVersion'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
             inputs["authProfile"] = args ? args.authProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["masterPoolProfile"] = args ? args.masterPoolProfile : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["openShiftVersion"] = args ? args.openShiftVersion : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["routerProfiles"] = args ? args.routerProfiles : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["clusterVersion"] = undefined /*out*/;
             inputs["fqdn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicHostname"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -171,10 +172,6 @@ export interface OpenShiftManagedClusterArgs {
      */
     readonly masterPoolProfile?: pulumi.Input<inputs.containerservice.v20190430.OpenShiftManagedClusterMasterPoolProfile>;
     /**
-     * The name of the OpenShift managed cluster resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Configuration for OpenShift networking.
      */
     readonly networkProfile?: pulumi.Input<inputs.containerservice.v20190430.NetworkProfile>;
@@ -190,6 +187,10 @@ export interface OpenShiftManagedClusterArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the OpenShift managed cluster resource.
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * Configuration for OpenShift router(s).
      */

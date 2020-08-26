@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.KeyVault.V20161001
     public sealed class GetVaultArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the vault.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Resource Group to which the vault belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the vault.
+        /// </summary>
+        [Input("vaultName", required: true)]
+        public string VaultName { get; set; } = null!;
 
         public GetVaultArgs()
         {

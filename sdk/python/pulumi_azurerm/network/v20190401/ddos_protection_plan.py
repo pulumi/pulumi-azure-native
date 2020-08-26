@@ -16,8 +16,8 @@ class DdosProtectionPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ddos_protection_plan_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -28,8 +28,8 @@ class DdosProtectionPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ddos_protection_plan_name: The name of the DDoS protection plan.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the DDoS protection plan.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -50,15 +50,16 @@ class DdosProtectionPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if ddos_protection_plan_name is None:
+                raise TypeError("Missing required property 'ddos_protection_plan_name'")
+            __props__['ddos_protection_plan_name'] = ddos_protection_plan_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None

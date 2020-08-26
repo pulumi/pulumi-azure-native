@@ -17,10 +17,10 @@ func LookupVpnConnection(ctx *pulumi.Context, args *LookupVpnConnectionArgs, opt
 }
 
 type LookupVpnConnectionArgs struct {
+	// The name of the vpn connection.
+	ConnectionName string `pulumi:"connectionName"`
 	// The name of the gateway.
 	GatewayName string `pulumi:"gatewayName"`
-	// The name of the vpn connection.
-	Name string `pulumi:"name"`
 	// The resource group name of the VpnGateway.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

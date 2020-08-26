@@ -20,7 +20,7 @@ type LookupNetworkProfileArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the PublicIPPrefix.
-	Name string `pulumi:"name"`
+	NetworkProfileName string `pulumi:"networkProfileName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

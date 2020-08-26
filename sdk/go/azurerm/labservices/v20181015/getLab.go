@@ -22,7 +22,7 @@ type LookupLabArgs struct {
 	// The name of the lab Account.
 	LabAccountName string `pulumi:"labAccountName"`
 	// The name of the lab.
-	Name string `pulumi:"name"`
+	LabName string `pulumi:"labName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

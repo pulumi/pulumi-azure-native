@@ -173,12 +173,6 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         [Input("folder")]
         public Input<Inputs.PipelineFolderArgs>? Folder { get; set; }
 
-        /// <summary>
-        /// The pipeline name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 
@@ -190,6 +184,12 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
             get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterSpecificationArgs>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// The pipeline name.
+        /// </summary>
+        [Input("pipelineName", required: true)]
+        public Input<string> PipelineName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

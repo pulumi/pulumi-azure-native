@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// <summary>
         /// The name of the Shared Image Gallery.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("galleryName", required: true)]
+        public string GalleryName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

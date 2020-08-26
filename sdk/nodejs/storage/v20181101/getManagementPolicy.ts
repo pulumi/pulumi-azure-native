@@ -16,7 +16,7 @@ export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi
     }
     return pulumi.runtime.invoke("azurerm:storage/v20181101:getManagementPolicy", {
         "accountName": args.accountName,
-        "name": args.name,
+        "managementPolicyName": args.managementPolicyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetManagementPolicyArgs {
     /**
      * The name of the Storage Account Management Policy. It should always be 'default'
      */
-    readonly name: string;
+    readonly managementPolicyName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

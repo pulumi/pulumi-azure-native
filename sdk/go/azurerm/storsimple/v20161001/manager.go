@@ -38,8 +38,8 @@ func NewManager(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ManagerName == nil {
+		return nil, errors.New("missing required argument 'ManagerName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -124,7 +124,7 @@ type managerArgs struct {
 	// The Geo location of the Manager
 	Location string `pulumi:"location"`
 	// The manager name
-	Name string `pulumi:"name"`
+	ManagerName string `pulumi:"managerName"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the Sku
@@ -142,7 +142,7 @@ type ManagerArgs struct {
 	// The Geo location of the Manager
 	Location pulumi.StringInput
 	// The manager name
-	Name pulumi.StringInput
+	ManagerName pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// Specifies the Sku

@@ -91,19 +91,19 @@ class AwaitableGetEventSourceResult(GetEventSourceResult):
 
 
 def get_event_source(environment_name: Optional[str] = None,
-                     name: Optional[str] = None,
+                     event_source_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSourceResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
-    :param str name: The name of the Time Series Insights event source associated with the specified environment.
+    :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
     __args__ = dict()
     __args__['environmentName'] = environment_name
-    __args__['name'] = name
+    __args__['eventSourceName'] = event_source_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

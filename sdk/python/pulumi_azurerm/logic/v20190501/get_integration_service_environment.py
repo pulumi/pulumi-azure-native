@@ -103,17 +103,17 @@ class AwaitableGetIntegrationServiceEnvironmentResult(GetIntegrationServiceEnvir
             type=self.type)
 
 
-def get_integration_service_environment(name: Optional[str] = None,
+def get_integration_service_environment(integration_service_environment_name: Optional[str] = None,
                                         resource_group: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationServiceEnvironmentResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The integration service environment name.
+    :param str integration_service_environment_name: The integration service environment name.
     :param str resource_group: The resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['integrationServiceEnvironmentName'] = integration_service_environment_name
     __args__['resourceGroup'] = resource_group
     if opts is None:
         opts = pulumi.InvokeOptions()

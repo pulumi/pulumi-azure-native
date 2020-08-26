@@ -19,7 +19,7 @@ class Project(pulumi.CustomResource):
                  customer_workspace_location: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -35,7 +35,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] customer_workspace_location: Location of the Service Map workspace created by user.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] location: Azure location in which project is created.
-        :param pulumi.Input[str] name: Name of the Azure Migrate project.
+        :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] provisioning_state: Provisioning state of the project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[Mapping[str, Any]] tags: Tags provided by Azure Tagging service.
@@ -61,9 +61,9 @@ class Project(pulumi.CustomResource):
             __props__['customer_workspace_location'] = customer_workspace_location
             __props__['e_tag'] = e_tag
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if project_name is None:
+                raise TypeError("Missing required property 'project_name'")
+            __props__['project_name'] = project_name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -74,6 +74,7 @@ class Project(pulumi.CustomResource):
             __props__['last_assessment_timestamp'] = None
             __props__['last_discovery_session_id'] = None
             __props__['last_discovery_timestamp'] = None
+            __props__['name'] = None
             __props__['number_of_assessments'] = None
             __props__['number_of_groups'] = None
             __props__['number_of_machines'] = None

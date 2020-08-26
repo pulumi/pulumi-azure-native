@@ -126,12 +126,6 @@ namespace Pulumi.AzureRM.Network.V20180901
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the virtual network link.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Private DNS zone (without a terminating dot).
         /// </summary>
         [Input("privateZoneName", required: true)]
@@ -166,6 +160,12 @@ namespace Pulumi.AzureRM.Network.V20180901
         /// </summary>
         [Input("virtualNetwork")]
         public Input<Inputs.SubResourceArgs>? VirtualNetwork { get; set; }
+
+        /// <summary>
+        /// The name of the virtual network link.
+        /// </summary>
+        [Input("virtualNetworkLinkName", required: true)]
+        public Input<string> VirtualNetworkLinkName { get; set; } = null!;
 
         public VirtualNetworkLinkArgs()
         {

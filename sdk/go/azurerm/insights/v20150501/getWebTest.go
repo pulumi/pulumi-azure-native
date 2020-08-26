@@ -17,10 +17,10 @@ func LookupWebTest(ctx *pulumi.Context, args *LookupWebTestArgs, opts ...pulumi.
 }
 
 type LookupWebTestArgs struct {
-	// The name of the Application Insights webtest resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Application Insights webtest resource.
+	WebTestName string `pulumi:"webTestName"`
 }
 
 // An Application Insights web test definition.

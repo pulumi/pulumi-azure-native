@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// <summary>
         /// The Asset name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("assetName", required: true)]
+        public string AssetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

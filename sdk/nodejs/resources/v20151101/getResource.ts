@@ -15,9 +15,9 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:resources/v20151101:getResource", {
-        "name": args.name,
         "parentResourcePath": args.parentResourcePath,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
         "resourceProviderNamespace": args.resourceProviderNamespace,
         "resourceType": args.resourceType,
     }, opts);
@@ -27,15 +27,15 @@ export interface GetResourceArgs {
     /**
      * Resource identity.
      */
-    readonly name: string;
-    /**
-     * Resource identity.
-     */
     readonly parentResourcePath: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Resource identity.
+     */
+    readonly resourceName: string;
     /**
      * Resource identity.
      */

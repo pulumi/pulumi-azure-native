@@ -29,14 +29,14 @@ type VirtualNetworkRule struct {
 // NewVirtualNetworkRule registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkRule(ctx *pulumi.Context,
 	name string, args *VirtualNetworkRuleArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkRule, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ServerName == nil {
 		return nil, errors.New("missing required argument 'ServerName'")
+	}
+	if args == nil || args.VirtualNetworkRuleName == nil {
+		return nil, errors.New("missing required argument 'VirtualNetworkRuleName'")
 	}
 	if args == nil || args.VirtualNetworkSubnetId == nil {
 		return nil, errors.New("missing required argument 'VirtualNetworkSubnetId'")
@@ -98,12 +98,12 @@ func (VirtualNetworkRuleState) ElementType() reflect.Type {
 type virtualNetworkRuleArgs struct {
 	// Create firewall rule before the virtual network has vnet service endpoint enabled.
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// The name of the virtual network rule.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
+	// The name of the virtual network rule.
+	VirtualNetworkRuleName string `pulumi:"virtualNetworkRuleName"`
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -112,12 +112,12 @@ type virtualNetworkRuleArgs struct {
 type VirtualNetworkRuleArgs struct {
 	// Create firewall rule before the virtual network has vnet service endpoint enabled.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
-	// The name of the virtual network rule.
-	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput
+	// The name of the virtual network rule.
+	VirtualNetworkRuleName pulumi.StringInput
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId pulumi.StringInput
 }

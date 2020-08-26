@@ -23,7 +23,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  nva_sku: Optional[pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -43,7 +43,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The service principal that has read access to cloud-init and config blob.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of Network Virtual Appliance.
+        :param pulumi.Input[str] network_virtual_appliance_name: The name of Network Virtual Appliance.
         :param pulumi.Input[pulumi.InputType['VirtualApplianceSkuPropertiesArgs']] nva_sku: Network Virtual Appliance SKU.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -73,9 +73,9 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__['id'] = id
             __props__['identity'] = identity
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if network_virtual_appliance_name is None:
+                raise TypeError("Missing required property 'network_virtual_appliance_name'")
+            __props__['network_virtual_appliance_name'] = network_virtual_appliance_name
             __props__['nva_sku'] = nva_sku
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -84,6 +84,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__['virtual_appliance_asn'] = virtual_appliance_asn
             __props__['virtual_hub'] = virtual_hub
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['virtual_appliance_nics'] = None

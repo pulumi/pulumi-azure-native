@@ -130,12 +130,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         public Input<string>? ETag { get; set; }
 
         /// <summary>
-        /// Name of the storageInsightsConfigs resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The Resource Group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -146,6 +140,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         /// </summary>
         [Input("storageAccount", required: true)]
         public Input<Inputs.StorageAccountArgs> StorageAccount { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the storageInsightsConfigs resource
+        /// </summary>
+        [Input("storageInsightName", required: true)]
+        public Input<string> StorageInsightName { get; set; } = null!;
 
         [Input("tables")]
         private InputList<string>? _tables;

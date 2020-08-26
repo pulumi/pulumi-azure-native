@@ -139,23 +139,23 @@ class AwaitableGetVirtualMachineScaleSetExtensionResult(GetVirtualMachineScaleSe
 
 
 def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
-                                            name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             vm_scale_set_name: Optional[str] = None,
+                                            vmss_extension_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetExtensionResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str expand: The expand expression to apply on the operation.
-    :param str name: The name of the VM scale set extension.
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set containing the extension.
+    :param str vmss_extension_name: The name of the VM scale set extension.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmScaleSetName'] = vm_scale_set_name
+    __args__['vmssExtensionName'] = vmss_extension_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

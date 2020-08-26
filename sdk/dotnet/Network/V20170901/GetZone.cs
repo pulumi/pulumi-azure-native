@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20170901
     public sealed class GetZoneArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the DNS zone (without a terminating dot).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("zoneName", required: true)]
+        public string ZoneName { get; set; } = null!;
 
         public GetZoneArgs()
         {

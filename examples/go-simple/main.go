@@ -11,8 +11,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		// Create an Azure Resource Group
 		resourceGroup, err := resources.NewResourceGroup(ctx, "resourceGroup", &resources.ResourceGroupArgs{
-			Name:     pulumi.String("azurerm-go"),
-			Location: pulumi.String("WestUS"),
+			ResourceGroupName: pulumi.String("azurerm-go"),
+			Location:          pulumi.String("WestUS"),
 		})
 		if err != nil {
 			return err
@@ -20,7 +20,7 @@ func main() {
 
 		_, err = storage.NewStorageAccount(ctx, "sa", &storage.StorageAccountArgs{
 			ResourceGroupName: resourceGroup.Name,
-			Name: pulumi.String("pulumi14345sago"),
+			AccountName: pulumi.String("pulumi14345sago"),
 			Location: pulumi.String("westus2"),
 			Sku: &storage.SkuArgs {
 				Name: pulumi.String("Standard_LRS"),

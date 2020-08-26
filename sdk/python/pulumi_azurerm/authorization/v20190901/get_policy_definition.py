@@ -139,15 +139,15 @@ class AwaitableGetPolicyDefinitionResult(GetPolicyDefinitionResult):
             type=self.type)
 
 
-def get_policy_definition(name: Optional[str] = None,
+def get_policy_definition(policy_definition_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDefinitionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the policy definition to get.
+    :param str policy_definition_name: The name of the policy definition to get.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['policyDefinitionName'] = policy_definition_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

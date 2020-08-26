@@ -63,11 +63,11 @@ type RoleAssignment struct {
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
 func NewRoleAssignment(ctx *pulumi.Context,
 	name string, args *RoleAssignmentArgs, opts ...pulumi.ResourceOption) (*RoleAssignment, error) {
+	if args == nil || args.AssignmentName == nil {
+		return nil, errors.New("missing required argument 'AssignmentName'")
+	}
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Principals == nil {
 		return nil, errors.New("missing required argument 'Principals'")
@@ -207,6 +207,8 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 }
 
 type roleAssignmentArgs struct {
+	// The assignment name
+	AssignmentName string `pulumi:"assignmentName"`
 	// Widget types set for the assignment.
 	ConflationPolicies *ResourceSetDescription `pulumi:"conflationPolicies"`
 	// Connectors set for the assignment.
@@ -223,8 +225,6 @@ type roleAssignmentArgs struct {
 	Kpis *ResourceSetDescription `pulumi:"kpis"`
 	// Links set for the assignment.
 	Links *ResourceSetDescription `pulumi:"links"`
-	// The assignment name
-	Name string `pulumi:"name"`
 	// The principals being assigned to.
 	Principals []AssignmentPrincipal `pulumi:"principals"`
 	// Profiles set for the assignment.
@@ -251,6 +251,8 @@ type roleAssignmentArgs struct {
 
 // The set of arguments for constructing a RoleAssignment resource.
 type RoleAssignmentArgs struct {
+	// The assignment name
+	AssignmentName pulumi.StringInput
 	// Widget types set for the assignment.
 	ConflationPolicies ResourceSetDescriptionPtrInput
 	// Connectors set for the assignment.
@@ -267,8 +269,6 @@ type RoleAssignmentArgs struct {
 	Kpis ResourceSetDescriptionPtrInput
 	// Links set for the assignment.
 	Links ResourceSetDescriptionPtrInput
-	// The assignment name
-	Name pulumi.StringInput
 	// The principals being assigned to.
 	Principals AssignmentPrincipalArrayInput
 	// Profiles set for the assignment.

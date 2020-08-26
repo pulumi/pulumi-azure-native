@@ -46,8 +46,8 @@ func NewLogProfile(ctx *pulumi.Context,
 	if args == nil || args.Locations == nil {
 		return nil, errors.New("missing required argument 'Locations'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LogProfileName == nil {
+		return nil, errors.New("missing required argument 'LogProfileName'")
 	}
 	if args == nil || args.RetentionPolicy == nil {
 		return nil, errors.New("missing required argument 'RetentionPolicy'")
@@ -130,7 +130,7 @@ type logProfileArgs struct {
 	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
 	Locations []string `pulumi:"locations"`
 	// The name of the log profile.
-	Name string `pulumi:"name"`
+	LogProfileName string `pulumi:"logProfileName"`
 	// the retention policy for the events in the log.
 	RetentionPolicy RetentionPolicy `pulumi:"retentionPolicy"`
 	// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
@@ -150,7 +150,7 @@ type LogProfileArgs struct {
 	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
 	Locations pulumi.StringArrayInput
 	// The name of the log profile.
-	Name pulumi.StringInput
+	LogProfileName pulumi.StringInput
 	// the retention policy for the events in the log.
 	RetentionPolicy RetentionPolicyInput
 	// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.

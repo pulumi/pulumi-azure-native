@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// Identifier of the authorization server.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("authsid", required: true)]
+        public string Authsid { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

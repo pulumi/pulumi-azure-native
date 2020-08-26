@@ -16,7 +16,7 @@ export function getPolicySetDefinitionAtManagementGroup(args: GetPolicySetDefini
     }
     return pulumi.runtime.invoke("azurerm:management/v20190601:getPolicySetDefinitionAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
-        "name": args.name,
+        "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
@@ -28,7 +28,7 @@ export interface GetPolicySetDefinitionAtManagementGroupArgs {
     /**
      * The name of the policy set definition to get.
      */
-    readonly name: string;
+    readonly policySetDefinitionName: string;
 }
 
 /**

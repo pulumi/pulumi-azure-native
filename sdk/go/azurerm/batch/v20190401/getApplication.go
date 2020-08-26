@@ -20,7 +20,7 @@ type LookupApplicationArgs struct {
 	// The name of the Batch account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the application. This must be unique within the account.
-	Name string `pulumi:"name"`
+	ApplicationName string `pulumi:"applicationName"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

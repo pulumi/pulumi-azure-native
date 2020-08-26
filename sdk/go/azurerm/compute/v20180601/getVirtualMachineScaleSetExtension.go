@@ -19,12 +19,12 @@ func LookupVirtualMachineScaleSetExtension(ctx *pulumi.Context, args *LookupVirt
 type LookupVirtualMachineScaleSetExtensionArgs struct {
 	// The expand expression to apply on the operation.
 	Expand *string `pulumi:"expand"`
-	// The name of the VM scale set extension.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the VM scale set containing the extension.
 	VmScaleSetName string `pulumi:"vmScaleSetName"`
+	// The name of the VM scale set extension.
+	VmssExtensionName string `pulumi:"vmssExtensionName"`
 }
 
 // Describes a Virtual Machine Scale Set Extension.

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         /// <summary>
         /// Unique name of a group within a project.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("groupName", required: true)]
+        public string GroupName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Migrate project.

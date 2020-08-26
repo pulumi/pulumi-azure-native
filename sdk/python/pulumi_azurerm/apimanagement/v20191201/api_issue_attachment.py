@@ -16,10 +16,10 @@ class ApiIssueAttachment(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
+                 attachment_id: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  content_format: Optional[pulumi.Input[str]] = None,
                  issue_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -32,10 +32,10 @@ class ApiIssueAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] attachment_id: Attachment identifier within an Issue. Must be unique in the current Issue.
         :param pulumi.Input[str] content: An HTTP link or Base64-encoded binary data.
         :param pulumi.Input[str] content_format: Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
         :param pulumi.Input[str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] name: Attachment identifier within an Issue. Must be unique in the current Issue.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] title: Filename by which the binary data will be saved.
@@ -60,6 +60,9 @@ class ApiIssueAttachment(pulumi.CustomResource):
             if api_id is None:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
+            if attachment_id is None:
+                raise TypeError("Missing required property 'attachment_id'")
+            __props__['attachment_id'] = attachment_id
             if content is None:
                 raise TypeError("Missing required property 'content'")
             __props__['content'] = content
@@ -69,9 +72,6 @@ class ApiIssueAttachment(pulumi.CustomResource):
             if issue_id is None:
                 raise TypeError("Missing required property 'issue_id'")
             __props__['issue_id'] = issue_id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -81,6 +81,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
             if title is None:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiIssueAttachment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

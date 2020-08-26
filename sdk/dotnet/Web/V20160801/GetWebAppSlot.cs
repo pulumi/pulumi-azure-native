@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class GetWebAppSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the deployment slot. By default, this API returns the production slot.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -29,6 +29,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. By default, this API returns the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public string Slot { get; set; } = null!;
 
         public GetWebAppSlotArgs()
         {

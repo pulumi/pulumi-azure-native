@@ -112,6 +112,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
     public sealed class MachineLearningComputeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the Azure Machine Learning compute.
+        /// </summary>
+        [Input("computeName", required: true)]
+        public Input<string> ComputeName { get; set; } = null!;
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
@@ -122,12 +128,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Name of the Azure Machine Learning compute.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Compute properties

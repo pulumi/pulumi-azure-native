@@ -142,6 +142,12 @@ namespace Pulumi.AzureRM.Network.V20200401
     public sealed class LoadBalancerBackendAddressPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the backend address pool.
+        /// </summary>
+        [Input("backendAddressPoolName", required: true)]
+        public Input<string> BackendAddressPoolName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -166,10 +172,10 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Input<string> LoadBalancerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the backend address pool.
+        /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group.

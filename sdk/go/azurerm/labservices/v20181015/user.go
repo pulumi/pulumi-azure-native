@@ -49,11 +49,11 @@ func NewUser(ctx *pulumi.Context,
 	if args == nil || args.LabName == nil {
 		return nil, errors.New("missing required argument 'LabName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.UserName == nil {
+		return nil, errors.New("missing required argument 'UserName'")
 	}
 	if args == nil {
 		args = &UserArgs{}
@@ -144,8 +144,6 @@ type userArgs struct {
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the user.
-	Name string `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -154,6 +152,8 @@ type userArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// The name of the user.
+	UserName string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -164,8 +164,6 @@ type UserArgs struct {
 	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the user.
-	Name pulumi.StringInput
 	// The provisioning status of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
@@ -174,6 +172,8 @@ type UserArgs struct {
 	Tags pulumi.StringMapInput
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier pulumi.StringPtrInput
+	// The name of the user.
+	UserName pulumi.StringInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

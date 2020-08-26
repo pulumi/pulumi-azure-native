@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
     public sealed class GetServerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the server.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public string ServerName { get; set; } = null!;
 
         public GetServerArgs()
         {

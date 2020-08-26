@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
         /// <summary>
         /// Recovery services provider name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("providerName", required: true)]
+        public string ProviderName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

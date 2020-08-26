@@ -152,17 +152,17 @@ class AwaitableGetAdaptiveApplicationControlResult(GetAdaptiveApplicationControl
 
 
 def get_adaptive_application_control(asc_location: Optional[str] = None,
-                                     name: Optional[str] = None,
+                                     group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAdaptiveApplicationControlResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
-    :param str name: Name of an application control machine group
+    :param str group_name: Name of an application control machine group
     """
     __args__ = dict()
     __args__['ascLocation'] = asc_location
-    __args__['name'] = name
+    __args__['groupName'] = group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

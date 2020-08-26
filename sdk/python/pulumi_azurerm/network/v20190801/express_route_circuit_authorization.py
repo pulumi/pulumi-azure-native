@@ -16,6 +16,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
+                 authorization_name: Optional[pulumi.Input[str]] = None,
                  authorization_use_status: Optional[pulumi.Input[str]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -31,10 +32,11 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorization key.
+        :param pulumi.Input[str] authorization_name: The name of the authorization.
         :param pulumi.Input[str] authorization_use_status: The authorization use status.
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the authorization.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the authorization resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
@@ -56,13 +58,14 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorization_key'] = authorization_key
+            if authorization_name is None:
+                raise TypeError("Missing required property 'authorization_name'")
+            __props__['authorization_name'] = authorization_name
             __props__['authorization_use_status'] = authorization_use_status
             if circuit_name is None:
                 raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:

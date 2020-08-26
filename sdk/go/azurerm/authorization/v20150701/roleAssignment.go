@@ -25,11 +25,11 @@ type RoleAssignment struct {
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
 func NewRoleAssignment(ctx *pulumi.Context,
 	name string, args *RoleAssignmentArgs, opts ...pulumi.ResourceOption) (*RoleAssignment, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
+	}
+	if args == nil || args.RoleAssignmentName == nil {
+		return nil, errors.New("missing required argument 'RoleAssignmentName'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -81,20 +81,20 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 }
 
 type roleAssignmentArgs struct {
-	// The name of the role assignment to create. It can be any valid GUID.
-	Name string `pulumi:"name"`
 	// Role assignment properties.
 	Properties RoleAssignmentProperties `pulumi:"properties"`
+	// The name of the role assignment to create. It can be any valid GUID.
+	RoleAssignmentName string `pulumi:"roleAssignmentName"`
 	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
 	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RoleAssignment resource.
 type RoleAssignmentArgs struct {
-	// The name of the role assignment to create. It can be any valid GUID.
-	Name pulumi.StringInput
 	// Role assignment properties.
 	Properties RoleAssignmentPropertiesInput
+	// The name of the role assignment to create. It can be any valid GUID.
+	RoleAssignmentName pulumi.StringInput
 	// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
 	Scope pulumi.StringInput
 }

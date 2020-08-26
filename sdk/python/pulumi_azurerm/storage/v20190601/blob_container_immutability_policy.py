@@ -19,7 +19,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  allow_protected_append_writes: Optional[pulumi.Input[bool]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  immutability_period_since_creation_in_days: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 immutability_policy_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,7 +33,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
         :param pulumi.Input[str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[float] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
-        :param pulumi.Input[str] name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
+        :param pulumi.Input[str] immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
         if __name__ is not None:
@@ -61,13 +61,14 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'container_name'")
             __props__['container_name'] = container_name
             __props__['immutability_period_since_creation_in_days'] = immutability_period_since_creation_in_days
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if immutability_policy_name is None:
+                raise TypeError("Missing required property 'immutability_policy_name'")
+            __props__['immutability_policy_name'] = immutability_policy_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/v20180201:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azurerm:storage/v20180701:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azurerm:storage/v20181101:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azurerm:storage/v20190401:BlobContainerImmutabilityPolicy")])

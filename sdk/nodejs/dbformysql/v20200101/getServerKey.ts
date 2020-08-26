@@ -15,7 +15,7 @@ export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:dbformysql/v20200101:getServerKey", {
-        "name": args.name,
+        "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetServerKeyArgs {
     /**
      * The name of the MySQL Server key to be retrieved.
      */
-    readonly name: string;
+    readonly keyName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

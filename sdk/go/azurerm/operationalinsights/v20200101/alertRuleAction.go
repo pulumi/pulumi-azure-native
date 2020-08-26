@@ -29,11 +29,11 @@ type AlertRuleAction struct {
 // NewAlertRuleAction registers a new resource with the given unique name, arguments, and options.
 func NewAlertRuleAction(ctx *pulumi.Context,
 	name string, args *AlertRuleActionArgs, opts ...pulumi.ResourceOption) (*AlertRuleAction, error) {
+	if args == nil || args.ActionId == nil {
+		return nil, errors.New("missing required argument 'ActionId'")
+	}
 	if args == nil || args.LogicAppResourceId == nil {
 		return nil, errors.New("missing required argument 'LogicAppResourceId'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -99,12 +99,12 @@ func (AlertRuleActionState) ElementType() reflect.Type {
 }
 
 type alertRuleActionArgs struct {
+	// Action ID
+	ActionId string `pulumi:"actionId"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 	LogicAppResourceId string `pulumi:"logicAppResourceId"`
-	// Action ID
-	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID
@@ -117,12 +117,12 @@ type alertRuleActionArgs struct {
 
 // The set of arguments for constructing a AlertRuleAction resource.
 type AlertRuleActionArgs struct {
+	// Action ID
+	ActionId pulumi.StringInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 	LogicAppResourceId pulumi.StringInput
-	// Action ID
-	Name pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Alert rule ID

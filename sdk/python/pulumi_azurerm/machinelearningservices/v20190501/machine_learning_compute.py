@@ -17,9 +17,9 @@ class MachineLearningCompute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 compute_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ComputeArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,9 +32,9 @@ class MachineLearningCompute(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] compute_name: Name of the Azure Machine Learning compute.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[str] name: Name of the Azure Machine Learning compute.
         :param pulumi.Input[pulumi.InputType['ComputeArgs']] properties: Compute properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
@@ -57,11 +57,11 @@ class MachineLearningCompute(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if compute_name is None:
+                raise TypeError("Missing required property 'compute_name'")
+            __props__['compute_name'] = compute_name
             __props__['identity'] = identity
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -70,6 +70,7 @@ class MachineLearningCompute(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningservices/v20181119:MachineLearningCompute"), pulumi.Alias(type_="azurerm:machinelearningservices/v20190601:MachineLearningCompute"), pulumi.Alias(type_="azurerm:machinelearningservices/v20191101:MachineLearningCompute"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200101:MachineLearningCompute"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200301:MachineLearningCompute"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200401:MachineLearningCompute"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200601:MachineLearningCompute")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

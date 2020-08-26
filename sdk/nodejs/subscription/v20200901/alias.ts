@@ -39,7 +39,7 @@ export class Alias extends pulumi.CustomResource {
     /**
      * Alias ID.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Put Alias response properties.
      */
@@ -62,14 +62,15 @@ export class Alias extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AliasArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.aliasName === undefined) {
+                throw new Error("Missing required property 'aliasName'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["aliasName"] = args ? args.aliasName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -90,7 +91,7 @@ export interface AliasArgs {
     /**
      * Alias Name
      */
-    readonly name: pulumi.Input<string>;
+    readonly aliasName: pulumi.Input<string>;
     /**
      * Put alias request properties.
      */

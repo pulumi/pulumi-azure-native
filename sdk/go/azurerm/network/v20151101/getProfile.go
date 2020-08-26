@@ -18,7 +18,7 @@ func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.
 
 type LookupProfileArgs struct {
 	// The name of the Traffic Manager profile.
-	Name string `pulumi:"name"`
+	ProfileName string `pulumi:"profileName"`
 	// The name of the resource group containing the Traffic Manager profile.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -17,10 +17,10 @@ func LookupVpnSite(ctx *pulumi.Context, args *LookupVpnSiteArgs, opts ...pulumi.
 }
 
 type LookupVpnSiteArgs struct {
-	// The name of the VpnSite being retrieved.
-	Name string `pulumi:"name"`
 	// The resource group name of the VpnSite.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the VpnSite being retrieved.
+	VpnSiteName string `pulumi:"vpnSiteName"`
 }
 
 // VpnSite Resource.

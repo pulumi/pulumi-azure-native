@@ -43,7 +43,7 @@ export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
     /**
      * Resource Name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provider properties.
      */
@@ -69,11 +69,11 @@ export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
+            }
+            if (!args || args.providerName === undefined) {
+                throw new Error("Missing required property 'providerName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -82,11 +82,12 @@ export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["providerName"] = args ? args.providerName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -111,13 +112,13 @@ export interface ReplicationRecoveryServicesProviderArgs {
      */
     readonly fabricName: pulumi.Input<string>;
     /**
-     * Recovery services provider name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The properties of an add provider request.
      */
     readonly properties: pulumi.Input<inputs.recoveryservices.v20180710.AddRecoveryServicesProviderInputProperties>;
+    /**
+     * Recovery services provider name.
+     */
+    readonly providerName: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

@@ -18,9 +18,9 @@ class GalleryApplication(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
+                 gallery_application_name: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -37,9 +37,9 @@ class GalleryApplication(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of this gallery Application Definition resource. This property is updatable.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[str] eula: The Eula agreement for the gallery Application Definition.
+        :param pulumi.Input[str] gallery_application_name: The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] gallery_name: The name of the Shared Application Gallery in which the Application Definition is to be created.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
         :param pulumi.Input[str] release_note_uri: The release note uri.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -66,15 +66,15 @@ class GalleryApplication(pulumi.CustomResource):
             __props__['description'] = description
             __props__['end_of_life_date'] = end_of_life_date
             __props__['eula'] = eula
+            if gallery_application_name is None:
+                raise TypeError("Missing required property 'gallery_application_name'")
+            __props__['gallery_application_name'] = gallery_application_name
             if gallery_name is None:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__['gallery_name'] = gallery_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['privacy_statement_uri'] = privacy_statement_uri
             __props__['release_note_uri'] = release_note_uri
             if resource_group_name is None:
@@ -84,6 +84,7 @@ class GalleryApplication(pulumi.CustomResource):
                 raise TypeError("Missing required property 'supported_os_type'")
             __props__['supported_os_type'] = supported_os_type
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20190701:GalleryApplication"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryApplication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

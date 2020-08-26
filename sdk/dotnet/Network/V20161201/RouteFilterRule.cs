@@ -168,12 +168,6 @@ namespace Pulumi.AzureRM.Network.V20161201
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the route filter rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -190,6 +184,12 @@ namespace Pulumi.AzureRM.Network.V20161201
         /// </summary>
         [Input("routeFilterRuleType", required: true)]
         public Input<string> RouteFilterRuleType { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the route filter rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -17,18 +17,23 @@ export function getWebAppSwiftVirtualNetworkConnectionSlot(args: GetWebAppSwiftV
     return pulumi.runtime.invoke("azurerm:web/v20190801:getWebAppSwiftVirtualNetworkConnectionSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
     }, opts);
 }
 
 export interface GetWebAppSwiftVirtualNetworkConnectionSlotArgs {
     /**
-     * Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
+     * Name of the app.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
+     */
+    readonly slot: string;
 }
 
 /**

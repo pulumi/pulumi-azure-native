@@ -15,7 +15,7 @@ export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRul
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:notificationhubs/v20170401:getNamespaceAuthorizationRule", {
-        "name": args.name,
+        "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetNamespaceAuthorizationRuleArgs {
     /**
      * Authorization rule name.
      */
-    readonly name: string;
+    readonly authorizationRuleName: string;
     /**
      * The namespace name
      */

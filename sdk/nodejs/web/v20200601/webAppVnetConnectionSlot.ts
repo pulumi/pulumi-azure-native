@@ -100,6 +100,9 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
+            if (!args || args.vnetName === undefined) {
+                throw new Error("Missing required property 'vnetName'");
+            }
             inputs["certBlob"] = args ? args.certBlob : undefined;
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
             inputs["isSwift"] = args ? args.isSwift : undefined;
@@ -107,6 +110,7 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["vnetName"] = args ? args.vnetName : undefined;
             inputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
             inputs["certThumbprint"] = undefined /*out*/;
             inputs["resyncRequired"] = undefined /*out*/;
@@ -148,7 +152,7 @@ export interface WebAppVnetConnectionSlotArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of an existing Virtual Network.
+     * Name of the app.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -159,6 +163,10 @@ export interface WebAppVnetConnectionSlotArgs {
      * Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
      */
     readonly slot: pulumi.Input<string>;
+    /**
+     * Name of an existing Virtual Network.
+     */
+    readonly vnetName: pulumi.Input<string>;
     /**
      * The Virtual Network's resource ID.
      */

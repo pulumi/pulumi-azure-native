@@ -15,7 +15,7 @@ export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:appconfiguration/v20191001:getConfigurationStore", {
-        "name": args.name,
+        "configStoreName": args.configStoreName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetConfigurationStoreArgs {
     /**
      * The name of the configuration store.
      */
-    readonly name: string;
+    readonly configStoreName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */

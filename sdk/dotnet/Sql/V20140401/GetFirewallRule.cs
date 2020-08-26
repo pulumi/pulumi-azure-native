@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// <summary>
         /// The name of the firewall rule.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("firewallRuleName", required: true)]
+        public string FirewallRuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

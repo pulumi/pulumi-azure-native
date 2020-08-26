@@ -16,7 +16,7 @@ class Policy(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  format: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,7 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] format: Format of the policyContent.
-        :param pulumi.Input[str] name: The identifier of the Policy.
+        :param pulumi.Input[str] policy_id: The identifier of the Policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] value: Contents of the Policy as defined by the format.
@@ -52,9 +52,9 @@ class Policy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['format'] = format
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if policy_id is None:
+                raise TypeError("Missing required property 'policy_id'")
+            __props__['policy_id'] = policy_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -64,6 +64,7 @@ class Policy(pulumi.CustomResource):
             if value is None:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:Policy"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Policy"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

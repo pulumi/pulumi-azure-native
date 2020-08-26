@@ -126,17 +126,17 @@ class AwaitableGetDedicatedCloudServiceResult(GetDedicatedCloudServiceResult):
             type=self.type)
 
 
-def get_dedicated_cloud_service(name: Optional[str] = None,
+def get_dedicated_cloud_service(dedicated_cloud_service_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedCloudServiceResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: dedicated cloud Service name
+    :param str dedicated_cloud_service_name: dedicated cloud Service name
     :param str resource_group_name: The name of the resource group
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['dedicatedCloudServiceName'] = dedicated_cloud_service_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

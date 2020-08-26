@@ -16,7 +16,7 @@ export function getbackupPolicy(args: GetbackupPolicyArgs, opts?: pulumi.InvokeO
     }
     return pulumi.runtime.invoke("azurerm:netapp/v20200601:getbackupPolicy", {
         "accountName": args.accountName,
-        "name": args.name,
+        "backupPolicyName": args.backupPolicyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetbackupPolicyArgs {
     /**
      * Backup policy Name which uniquely identify backup policy.
      */
-    readonly name: string;
+    readonly backupPolicyName: string;
     /**
      * The name of the resource group.
      */

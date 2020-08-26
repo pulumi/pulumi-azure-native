@@ -18,9 +18,9 @@ class CustomIPPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioned_state: Optional[pulumi.Input[str]] = None,
+                 custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -34,9 +34,9 @@ class CustomIPPrefix(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: The prefix range in CIDR notation. Should include the start address and the prefix length.
         :param pulumi.Input[str] commissioned_state: The commissioned state of the Custom IP Prefix.
+        :param pulumi.Input[str] custom_ip_prefix_name: The name of the custom IP prefix.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the custom IP prefix.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
@@ -60,17 +60,18 @@ class CustomIPPrefix(pulumi.CustomResource):
 
             __props__['cidr'] = cidr
             __props__['commissioned_state'] = commissioned_state
+            if custom_ip_prefix_name is None:
+                raise TypeError("Missing required property 'custom_ip_prefix_name'")
+            __props__['custom_ip_prefix_name'] = custom_ip_prefix_name
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['zones'] = zones
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['public_ip_prefixes'] = None
             __props__['resource_guid'] = None

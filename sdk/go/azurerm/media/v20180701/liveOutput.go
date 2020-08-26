@@ -55,8 +55,8 @@ func NewLiveOutput(ctx *pulumi.Context,
 	if args == nil || args.LiveEventName == nil {
 		return nil, errors.New("missing required argument 'LiveEventName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LiveOutputName == nil {
+		return nil, errors.New("missing required argument 'LiveOutputName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -162,10 +162,10 @@ type liveOutputArgs struct {
 	Hls *Hls `pulumi:"hls"`
 	// The name of the Live Event.
 	LiveEventName string `pulumi:"liveEventName"`
+	// The name of the Live Output.
+	LiveOutputName string `pulumi:"liveOutputName"`
 	// The manifest file name.  If not provided, the service will generate one automatically.
 	ManifestName *string `pulumi:"manifestName"`
-	// The name of the Live Output.
-	Name string `pulumi:"name"`
 	// The output snapshot time.
 	OutputSnapTime *int `pulumi:"outputSnapTime"`
 	// The name of the resource group within the Azure subscription.
@@ -186,10 +186,10 @@ type LiveOutputArgs struct {
 	Hls HlsPtrInput
 	// The name of the Live Event.
 	LiveEventName pulumi.StringInput
+	// The name of the Live Output.
+	LiveOutputName pulumi.StringInput
 	// The manifest file name.  If not provided, the service will generate one automatically.
 	ManifestName pulumi.StringPtrInput
-	// The name of the Live Output.
-	Name pulumi.StringInput
 	// The output snapshot time.
 	OutputSnapTime pulumi.IntPtrInput
 	// The name of the resource group within the Azure subscription.

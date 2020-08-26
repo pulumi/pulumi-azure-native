@@ -151,15 +151,15 @@ class AwaitableGetBudgetResult(GetBudgetResult):
             type=self.type)
 
 
-def get_budget(name: Optional[str] = None,
+def get_budget(budget_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBudgetResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Budget Name.
+    :param str budget_name: Budget Name.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['budgetName'] = budget_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

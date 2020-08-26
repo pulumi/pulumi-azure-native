@@ -16,9 +16,9 @@ export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise
     }
     return pulumi.runtime.invoke("azurerm:customerinsights/v20170101:getView", {
         "hubName": args.hubName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "userId": args.userId,
+        "viewName": args.viewName,
     }, opts);
 }
 
@@ -28,10 +28,6 @@ export interface GetViewArgs {
      */
     readonly hubName: string;
     /**
-     * The name of the view.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
@@ -39,6 +35,10 @@ export interface GetViewArgs {
      * The user ID. Use * to retrieve hub level view.
      */
     readonly userId: string;
+    /**
+     * The name of the view.
+     */
+    readonly viewName: string;
 }
 
 /**

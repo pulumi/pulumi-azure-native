@@ -162,6 +162,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Input<Inputs.DnsSettingsArgs>? DnsSettings { get; set; }
 
         /// <summary>
+        /// The name of the Firewall Policy.
+        /// </summary>
+        [Input("firewallPolicyName", required: true)]
+        public Input<string> FirewallPolicyName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -172,12 +178,6 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the Firewall Policy.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -44,11 +44,11 @@ func NewZone(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ZoneName == nil {
+		return nil, errors.New("missing required argument 'ZoneName'")
 	}
 	if args == nil {
 		args = &ZoneArgs{}
@@ -145,8 +145,6 @@ type zoneArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the DNS zone (without a terminating dot).
-	Name string `pulumi:"name"`
 	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
 	RegistrationVirtualNetworks []SubResource `pulumi:"registrationVirtualNetworks"`
 	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
@@ -155,6 +153,8 @@ type zoneArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the DNS zone (without a terminating dot).
+	ZoneName string `pulumi:"zoneName"`
 	// The type of this DNS zone (Public or Private).
 	ZoneType *string `pulumi:"zoneType"`
 }
@@ -165,8 +165,6 @@ type ZoneArgs struct {
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the DNS zone (without a terminating dot).
-	Name pulumi.StringInput
 	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
 	RegistrationVirtualNetworks SubResourceArrayInput
 	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
@@ -175,6 +173,8 @@ type ZoneArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The name of the DNS zone (without a terminating dot).
+	ZoneName pulumi.StringInput
 	// The type of this DNS zone (Public or Private).
 	ZoneType pulumi.StringPtrInput
 }

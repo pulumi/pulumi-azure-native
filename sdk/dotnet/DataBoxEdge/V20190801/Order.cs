@@ -133,8 +133,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// <summary>
         /// The order details of a device.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

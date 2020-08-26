@@ -17,9 +17,9 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  alternate_id: Optional[pulumi.Input[str]] = None,
+                 asset_name: Optional[pulumi.Input[str]] = None,
                  container: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -32,9 +32,9 @@ class Asset(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] alternate_id: The alternate ID of the Asset.
+        :param pulumi.Input[str] asset_name: The Asset name.
         :param pulumi.Input[str] container: The name of the asset blob container.
         :param pulumi.Input[str] description: The Asset description.
-        :param pulumi.Input[str] name: The Asset name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] storage_account_name: The name of the storage account.
         """
@@ -59,11 +59,11 @@ class Asset(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['alternate_id'] = alternate_id
+            if asset_name is None:
+                raise TypeError("Missing required property 'asset_name'")
+            __props__['asset_name'] = asset_name
             __props__['container'] = container
             __props__['description'] = description
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -71,6 +71,7 @@ class Asset(pulumi.CustomResource):
             __props__['asset_id'] = None
             __props__['created'] = None
             __props__['last_modified'] = None
+            __props__['name'] = None
             __props__['storage_encryption_format'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20200501:Asset")])

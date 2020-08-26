@@ -196,12 +196,6 @@ namespace Pulumi.AzureRM.NetApp.V20190501
         }
 
         /// <summary>
-        /// The name of the volume
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the capacity pool
         /// </summary>
         [Input("poolName", required: true)]
@@ -260,6 +254,12 @@ namespace Pulumi.AzureRM.NetApp.V20190501
         /// </summary>
         [Input("usageThreshold", required: true)]
         public Input<int> UsageThreshold { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the volume
+        /// </summary>
+        [Input("volumeName", required: true)]
+        public Input<string> VolumeName { get; set; } = null!;
 
         public VolumeArgs()
         {

@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class GetBackupPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of backup policy to be fetched.
+        /// </summary>
+        [Input("backupPolicyName", required: true)]
+        public string BackupPolicyName { get; set; } = null!;
+
+        /// <summary>
         /// The device name
         /// </summary>
         [Input("deviceName", required: true)]
@@ -29,12 +35,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("managerName", required: true)]
         public string ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of backup policy to be fetched.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

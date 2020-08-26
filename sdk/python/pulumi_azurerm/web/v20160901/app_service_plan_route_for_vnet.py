@@ -19,6 +19,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_name: Optional[pulumi.Input[str]] = None,
                  route_type: Optional[pulumi.Input[str]] = None,
                  start_address: Optional[pulumi.Input[str]] = None,
                  vnet_name: Optional[pulumi.Input[str]] = None,
@@ -33,8 +34,9 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Name of the Virtual Network route.
+        :param pulumi.Input[str] name: Name of the App Service plan.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] route_name: Name of the Virtual Network route.
         :param pulumi.Input[str] route_type: The type of route this is:
                DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
                INHERITED - Routes inherited from the real Virtual Network routes
@@ -70,6 +72,9 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if route_name is None:
+                raise TypeError("Missing required property 'route_name'")
+            __props__['route_name'] = route_name
             __props__['route_type'] = route_type
             __props__['start_address'] = start_address
             if vnet_name is None:

@@ -68,12 +68,13 @@ export class PolicyDefinition extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PolicyDefinitionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.policyDefinitionName === undefined) {
+                throw new Error("Missing required property 'policyDefinitionName'");
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["policyDefinitionName"] = args ? args.policyDefinitionName : undefined;
             inputs["policyRule"] = args ? args.policyRule : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
         }
@@ -103,9 +104,13 @@ export interface PolicyDefinitionArgs {
      */
     readonly displayName?: pulumi.Input<string>;
     /**
+     * The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
+     */
+    readonly name?: pulumi.Input<string>;
+    /**
      * The name of the policy definition to create.
      */
-    readonly name: pulumi.Input<string>;
+    readonly policyDefinitionName: pulumi.Input<string>;
     /**
      * The policy rule.
      */

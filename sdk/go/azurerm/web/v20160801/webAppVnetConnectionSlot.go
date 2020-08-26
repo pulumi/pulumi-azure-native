@@ -47,6 +47,9 @@ func NewWebAppVnetConnectionSlot(ctx *pulumi.Context,
 	if args == nil || args.Slot == nil {
 		return nil, errors.New("missing required argument 'Slot'")
 	}
+	if args == nil || args.VnetName == nil {
+		return nil, errors.New("missing required argument 'VnetName'")
+	}
 	if args == nil {
 		args = &WebAppVnetConnectionSlotArgs{}
 	}
@@ -145,12 +148,14 @@ type webAppVnetConnectionSlotArgs struct {
 	DnsServers *string `pulumi:"dnsServers"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of an existing Virtual Network.
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
 	Slot string `pulumi:"slot"`
+	// Name of an existing Virtual Network.
+	VnetName string `pulumi:"vnetName"`
 	// The Virtual Network's resource ID.
 	VnetResourceId *string `pulumi:"vnetResourceId"`
 }
@@ -164,12 +169,14 @@ type WebAppVnetConnectionSlotArgs struct {
 	DnsServers pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of an existing Virtual Network.
+	// Name of the app.
 	Name pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
 	Slot pulumi.StringInput
+	// Name of an existing Virtual Network.
+	VnetName pulumi.StringInput
 	// The Virtual Network's resource ID.
 	VnetResourceId pulumi.StringPtrInput
 }

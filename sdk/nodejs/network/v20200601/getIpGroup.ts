@@ -16,7 +16,7 @@ export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:network/v20200601:getIpGroup", {
         "expand": args.expand,
-        "name": args.name,
+        "ipGroupsName": args.ipGroupsName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetIpGroupArgs {
     /**
      * The name of the ipGroups.
      */
-    readonly name: string;
+    readonly ipGroupsName: string;
     /**
      * The name of the resource group.
      */

@@ -21,7 +21,7 @@ class Profile(pulumi.CustomResource):
                  endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  monitor_config: Optional[pulumi.Input[pulumi.InputType['MonitorConfigArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
                  profile_status: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -38,7 +38,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointArgs']]]] endpoints: Gets or sets the list of endpoints in the Traffic Manager profile.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['MonitorConfigArgs']] monitor_config: Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
-        :param pulumi.Input[str] name: The name of the Traffic Manager profile.
+        :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[str] profile_status: Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -65,15 +65,16 @@ class Profile(pulumi.CustomResource):
             __props__['endpoints'] = endpoints
             __props__['location'] = location
             __props__['monitor_config'] = monitor_config
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if profile_name is None:
+                raise TypeError("Missing required property 'profile_name'")
+            __props__['profile_name'] = profile_name
             __props__['profile_status'] = profile_status
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['traffic_routing_method'] = traffic_routing_method
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20170301:Profile"), pulumi.Alias(type_="azurerm:network/v20170501:Profile"), pulumi.Alias(type_="azurerm:network/v20180201:Profile"), pulumi.Alias(type_="azurerm:network/v20180301:Profile"), pulumi.Alias(type_="azurerm:network/v20180401:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

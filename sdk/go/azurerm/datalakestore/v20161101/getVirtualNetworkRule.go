@@ -19,10 +19,10 @@ func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRul
 type LookupVirtualNetworkRuleArgs struct {
 	// The name of the Data Lake Store account.
 	AccountName string `pulumi:"accountName"`
-	// The name of the virtual network rule to retrieve.
-	Name string `pulumi:"name"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the virtual network rule to retrieve.
+	VirtualNetworkRuleName string `pulumi:"virtualNetworkRuleName"`
 }
 
 // Data Lake Store virtual network rule information.

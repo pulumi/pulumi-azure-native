@@ -37,8 +37,8 @@ type AzureFirewall struct {
 // NewAzureFirewall registers a new resource with the given unique name, arguments, and options.
 func NewAzureFirewall(ctx *pulumi.Context,
 	name string, args *AzureFirewallArgs, opts ...pulumi.ResourceOption) (*AzureFirewall, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AzureFirewallName == nil {
+		return nil, errors.New("missing required argument 'AzureFirewallName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -173,14 +173,14 @@ func (AzureFirewallState) ElementType() reflect.Type {
 type azureFirewallArgs struct {
 	// Collection of application rule collections used by a Azure Firewall.
 	ApplicationRuleCollections []AzureFirewallApplicationRuleCollection `pulumi:"applicationRuleCollections"`
+	// The name of the Azure Firewall.
+	AzureFirewallName string `pulumi:"azureFirewallName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// IP configuration of the Azure Firewall resource.
 	IpConfigurations []AzureFirewallIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the Azure Firewall.
-	Name string `pulumi:"name"`
 	// Collection of network rule collections used by a Azure Firewall.
 	NetworkRuleCollections []AzureFirewallNetworkRuleCollection `pulumi:"networkRuleCollections"`
 	// The provisioning state of the resource.
@@ -195,14 +195,14 @@ type azureFirewallArgs struct {
 type AzureFirewallArgs struct {
 	// Collection of application rule collections used by a Azure Firewall.
 	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionArrayInput
+	// The name of the Azure Firewall.
+	AzureFirewallName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// IP configuration of the Azure Firewall resource.
 	IpConfigurations AzureFirewallIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the Azure Firewall.
-	Name pulumi.StringInput
 	// Collection of network rule collections used by a Azure Firewall.
 	NetworkRuleCollections AzureFirewallNetworkRuleCollectionArrayInput
 	// The provisioning state of the resource.

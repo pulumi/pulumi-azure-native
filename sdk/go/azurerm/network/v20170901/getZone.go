@@ -17,10 +17,10 @@ func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.Invoke
 }
 
 type LookupZoneArgs struct {
-	// The name of the DNS zone (without a terminating dot).
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the DNS zone (without a terminating dot).
+	ZoneName string `pulumi:"zoneName"`
 }
 
 // Describes a DNS zone.

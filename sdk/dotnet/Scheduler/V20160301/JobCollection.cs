@@ -91,16 +91,22 @@ namespace Pulumi.AzureRM.Scheduler.V20160301
     public sealed class JobCollectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The job collection name.
+        /// </summary>
+        [Input("jobCollectionName", required: true)]
+        public Input<string> JobCollectionName { get; set; } = null!;
+
+        /// <summary>
         /// Gets or sets the storage account location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The job collection name.
+        /// Gets or sets the job collection resource name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the job collection properties.

@@ -48,8 +48,8 @@ func NewRegistry(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.RegistryName == nil {
+		return nil, errors.New("missing required argument 'RegistryName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -157,12 +157,12 @@ type registryArgs struct {
 	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
-	// The name of the container registry.
-	Name string `pulumi:"name"`
 	// The network rule set for a container registry.
 	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
 	// The policies for a container registry.
 	Policies *Policies `pulumi:"policies"`
+	// The name of the container registry.
+	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the container registry.
@@ -179,12 +179,12 @@ type RegistryArgs struct {
 	AdminUserEnabled pulumi.BoolPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
-	// The name of the container registry.
-	Name pulumi.StringInput
 	// The network rule set for a container registry.
 	NetworkRuleSet NetworkRuleSetPtrInput
 	// The policies for a container registry.
 	Policies PoliciesPtrInput
+	// The name of the container registry.
+	RegistryName pulumi.StringInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the container registry.

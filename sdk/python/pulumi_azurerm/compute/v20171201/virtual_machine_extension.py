@@ -21,7 +21,6 @@ class VirtualMachineExtension(pulumi.CustomResource):
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  instance_view: Optional[pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -29,6 +28,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
+                 vm_extension_name: Optional[pulumi.Input[str]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -42,7 +42,6 @@ class VirtualMachineExtension(pulumi.CustomResource):
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']] instance_view: The virtual machine extension instance view.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the virtual machine extension.
         :param pulumi.Input[Mapping[str, Any]] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -50,6 +49,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
+        :param pulumi.Input[str] vm_extension_name: The name of the virtual machine extension.
         :param pulumi.Input[str] vm_name: The name of the virtual machine where the extension should be created or updated.
         """
         if __name__ is not None:
@@ -75,9 +75,6 @@ class VirtualMachineExtension(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['protected_settings'] = protected_settings
             __props__['publisher'] = publisher
             if resource_group_name is None:
@@ -87,9 +84,13 @@ class VirtualMachineExtension(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['type_handler_version'] = type_handler_version
+            if vm_extension_name is None:
+                raise TypeError("Missing required property 'vm_extension_name'")
+            __props__['vm_extension_name'] = vm_extension_name
             if vm_name is None:
                 raise TypeError("Missing required property 'vm_name'")
             __props__['vm_name'] = vm_name
+            __props__['name'] = None
             __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20150615:VirtualMachineExtension"), pulumi.Alias(type_="azurerm:compute/v20160330:VirtualMachineExtension"), pulumi.Alias(type_="azurerm:compute/v20170330:VirtualMachineExtension"), pulumi.Alias(type_="azurerm:compute/v20180401:VirtualMachineExtension"), pulumi.Alias(type_="azurerm:compute/v20180601:VirtualMachineExtension"), pulumi.Alias(type_="azurerm:compute/v20181001:VirtualMachineExtension"), pulumi.Alias(type_="azurerm:compute/v20190301:VirtualMachineExtension"), pulumi.Alias(type_="azurerm:compute/v20190701:VirtualMachineExtension"), pulumi.Alias(type_="azurerm:compute/v20191201:VirtualMachineExtension"), pulumi.Alias(type_="azurerm:compute/v20200601:VirtualMachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -20,7 +20,7 @@ type LookupProjectArgs struct {
 	// Name of the resource group
 	GroupName string `pulumi:"groupName"`
 	// Name of the project
-	Name string `pulumi:"name"`
+	ProjectName string `pulumi:"projectName"`
 	// Name of the service
 	ServiceName string `pulumi:"serviceName"`
 }

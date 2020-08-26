@@ -18,7 +18,7 @@ func LookupDeploymentAtScope(ctx *pulumi.Context, args *LookupDeploymentAtScopeA
 
 type LookupDeploymentAtScopeArgs struct {
 	// The name of the deployment.
-	Name string `pulumi:"name"`
+	DeploymentName string `pulumi:"deploymentName"`
 	// The resource scope.
 	Scope string `pulumi:"scope"`
 }

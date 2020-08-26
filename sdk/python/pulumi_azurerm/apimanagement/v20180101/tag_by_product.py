@@ -15,10 +15,10 @@ class TagByProduct(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  product_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 tag_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -27,10 +27,10 @@ class TagByProduct(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Tag identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] product_id: Product identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -49,9 +49,6 @@ class TagByProduct(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if product_id is None:
                 raise TypeError("Missing required property 'product_id'")
             __props__['product_id'] = product_id
@@ -61,7 +58,11 @@ class TagByProduct(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            if tag_id is None:
+                raise TypeError("Missing required property 'tag_id'")
+            __props__['tag_id'] = tag_id
             __props__['display_name'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:TagByProduct"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:TagByProduct"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:TagByProduct")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

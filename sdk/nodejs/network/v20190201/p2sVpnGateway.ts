@@ -51,7 +51,7 @@ export class P2sVpnGateway extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
      */
@@ -98,19 +98,19 @@ export class P2sVpnGateway extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as P2sVpnGatewayArgs | undefined;
+            if (!args || args.gatewayName === undefined) {
+                throw new Error("Missing required property 'gatewayName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customRoutes"] = args ? args.customRoutes : undefined;
+            inputs["gatewayName"] = args ? args.gatewayName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["p2SVpnServerConfiguration"] = args ? args.p2SVpnServerConfiguration : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -119,6 +119,7 @@ export class P2sVpnGateway extends pulumi.CustomResource {
             inputs["vpnClientAddressPool"] = args ? args.vpnClientAddressPool : undefined;
             inputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vpnClientConnectionHealth"] = undefined /*out*/;
         }
@@ -144,6 +145,10 @@ export interface P2sVpnGatewayArgs {
      */
     readonly customRoutes?: pulumi.Input<inputs.network.v20190201.AddressSpace>;
     /**
+     * The name of the gateway.
+     */
+    readonly gatewayName: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -151,10 +156,6 @@ export interface P2sVpnGatewayArgs {
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the gateway.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
      */

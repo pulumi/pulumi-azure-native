@@ -47,7 +47,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Name of the project.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the project.
      */
@@ -74,18 +74,19 @@ export class Project extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ProjectArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.projectName === undefined) {
+                throw new Error("Missing required property 'projectName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["projectName"] = args ? args.projectName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,7 +115,7 @@ export interface ProjectArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    readonly name: pulumi.Input<string>;
+    readonly projectName: pulumi.Input<string>;
     /**
      * Properties of the project.
      */

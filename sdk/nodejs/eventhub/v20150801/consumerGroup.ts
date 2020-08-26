@@ -76,14 +76,14 @@ export class ConsumerGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ConsumerGroupArgs | undefined;
+            if (!args || args.consumerGroupName === undefined) {
+                throw new Error("Missing required property 'consumerGroupName'");
+            }
             if (!args || args.eventHubName === undefined) {
                 throw new Error("Missing required property 'eventHubName'");
             }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -91,6 +91,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -120,6 +121,10 @@ export class ConsumerGroup extends pulumi.CustomResource {
  */
 export interface ConsumerGroupArgs {
     /**
+     * The consumer group name
+     */
+    readonly consumerGroupName: pulumi.Input<string>;
+    /**
      * The Event Hub name
      */
     readonly eventHubName: pulumi.Input<string>;
@@ -128,9 +133,9 @@ export interface ConsumerGroupArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The consumer group name
+     * Name of the consumer group.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The Namespace name
      */

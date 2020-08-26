@@ -30,11 +30,11 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 	if args == nil || args.FactoryName == nil {
 		return nil, errors.New("missing required argument 'FactoryName'")
 	}
+	if args == nil || args.ManagedPrivateEndpointName == nil {
+		return nil, errors.New("missing required argument 'ManagedPrivateEndpointName'")
+	}
 	if args == nil || args.ManagedVirtualNetworkName == nil {
 		return nil, errors.New("missing required argument 'ManagedVirtualNetworkName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -95,10 +95,10 @@ func (ManagedPrivateEndpointState) ElementType() reflect.Type {
 type managedPrivateEndpointArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
+	// Managed private endpoint name
+	ManagedPrivateEndpointName string `pulumi:"managedPrivateEndpointName"`
 	// Managed virtual network name
 	ManagedVirtualNetworkName string `pulumi:"managedVirtualNetworkName"`
-	// Managed private endpoint name
-	Name string `pulumi:"name"`
 	// Managed private endpoint properties.
 	Properties ManagedPrivateEndpointType `pulumi:"properties"`
 	// The resource group name.
@@ -109,10 +109,10 @@ type managedPrivateEndpointArgs struct {
 type ManagedPrivateEndpointArgs struct {
 	// The factory name.
 	FactoryName pulumi.StringInput
+	// Managed private endpoint name
+	ManagedPrivateEndpointName pulumi.StringInput
 	// Managed virtual network name
 	ManagedVirtualNetworkName pulumi.StringInput
-	// Managed private endpoint name
-	Name pulumi.StringInput
 	// Managed private endpoint properties.
 	Properties ManagedPrivateEndpointTypeInput
 	// The resource group name.

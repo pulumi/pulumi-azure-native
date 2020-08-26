@@ -96,8 +96,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         /// <summary>
         /// Migration item name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("migrationItemName", required: true)]
+        public Input<string> MigrationItemName { get; set; } = null!;
 
         /// <summary>
         /// Enable migration input properties.

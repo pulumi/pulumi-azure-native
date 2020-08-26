@@ -92,19 +92,19 @@ class AwaitableGetAccountFilterResult(GetAccountFilterResult):
 
 
 def get_account_filter(account_name: Optional[str] = None,
-                       name: Optional[str] = None,
+                       filter_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountFilterResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: The Media Services account name.
-    :param str name: The Account Filter name
+    :param str filter_name: The Account Filter name
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
-    __args__['name'] = name
+    __args__['filterName'] = filter_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

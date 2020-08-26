@@ -21,6 +21,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[float]] = None,
                  relay_arm_uri: Optional[pulumi.Input[str]] = None,
+                 relay_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  send_key_name: Optional[pulumi.Input[str]] = None,
                  send_key_value: Optional[pulumi.Input[str]] = None,
@@ -36,10 +37,11 @@ class WebAppHybridConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hostname: The hostname of the endpoint.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: The name of the Service Bus relay.
+        :param pulumi.Input[str] name: The name of the web app.
         :param pulumi.Input[str] namespace_name: The namespace for this hybrid connection.
         :param pulumi.Input[float] port: The port of the endpoint.
         :param pulumi.Input[str] relay_arm_uri: The ARM URI to the Service Bus relay.
+        :param pulumi.Input[str] relay_name: The name of the Service Bus relay.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
         :param pulumi.Input[str] send_key_value: The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
@@ -74,6 +76,9 @@ class WebAppHybridConnection(pulumi.CustomResource):
             __props__['namespace_name'] = namespace_name
             __props__['port'] = port
             __props__['relay_arm_uri'] = relay_arm_uri
+            if relay_name is None:
+                raise TypeError("Missing required property 'relay_name'")
+            __props__['relay_name'] = relay_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -81,7 +86,6 @@ class WebAppHybridConnection(pulumi.CustomResource):
             __props__['send_key_value'] = send_key_value
             __props__['service_bus_namespace'] = service_bus_namespace
             __props__['service_bus_suffix'] = service_bus_suffix
-            __props__['relay_name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppHybridConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

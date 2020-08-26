@@ -49,7 +49,7 @@ export class IscsiServer extends pulumi.CustomResource {
     /**
      * The name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The reverse chap id.
      */
@@ -82,11 +82,11 @@ export class IscsiServer extends pulumi.CustomResource {
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
+            if (!args || args.iscsiServerName === undefined) {
+                throw new Error("Missing required property 'iscsiServerName'");
+            }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -98,11 +98,12 @@ export class IscsiServer extends pulumi.CustomResource {
             inputs["chapId"] = args ? args.chapId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
+            inputs["iscsiServerName"] = args ? args.iscsiServerName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["reverseChapId"] = args ? args.reverseChapId : undefined;
             inputs["storageDomainId"] = args ? args.storageDomainId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -137,13 +138,13 @@ export interface IscsiServerArgs {
      */
     readonly deviceName: pulumi.Input<string>;
     /**
+     * The iSCSI server name.
+     */
+    readonly iscsiServerName: pulumi.Input<string>;
+    /**
      * The manager name
      */
     readonly managerName: pulumi.Input<string>;
-    /**
-     * The iSCSI server name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name
      */

@@ -22,9 +22,9 @@ class StreamingPolicy(pulumi.CustomResource):
                  common_encryption_cenc: Optional[pulumi.Input[pulumi.InputType['CommonEncryptionCencArgs']]] = None,
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  envelope_encryption: Optional[pulumi.Input[pulumi.InputType['EnvelopeEncryptionArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  no_encryption: Optional[pulumi.Input[pulumi.InputType['NoEncryptionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 streaming_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,9 +38,9 @@ class StreamingPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CommonEncryptionCencArgs']] common_encryption_cenc: Configuration of CommonEncryptionCenc
         :param pulumi.Input[str] default_content_key_policy_name: Default ContentKey used by current Streaming Policy
         :param pulumi.Input[pulumi.InputType['EnvelopeEncryptionArgs']] envelope_encryption: Configuration of EnvelopeEncryption
-        :param pulumi.Input[str] name: The Streaming Policy name.
         :param pulumi.Input[pulumi.InputType['NoEncryptionArgs']] no_encryption: Configurations of NoEncryption
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] streaming_policy_name: The Streaming Policy name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,14 +66,15 @@ class StreamingPolicy(pulumi.CustomResource):
             __props__['common_encryption_cenc'] = common_encryption_cenc
             __props__['default_content_key_policy_name'] = default_content_key_policy_name
             __props__['envelope_encryption'] = envelope_encryption
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['no_encryption'] = no_encryption
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if streaming_policy_name is None:
+                raise TypeError("Missing required property 'streaming_policy_name'")
+            __props__['streaming_policy_name'] = streaming_policy_name
             __props__['created'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20180701:StreamingPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

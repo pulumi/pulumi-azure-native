@@ -15,7 +15,7 @@ export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:servicebus/v20170401:getMigrationConfig", {
-        "name": args.name,
+        "configName": args.configName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetMigrationConfigArgs {
     /**
      * The configuration name. Should always be "$default".
      */
-    readonly name: string;
+    readonly configName: string;
     /**
      * The namespace name
      */

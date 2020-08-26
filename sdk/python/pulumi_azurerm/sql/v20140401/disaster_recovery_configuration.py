@@ -15,7 +15,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 disaster_recovery_configuration_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -26,7 +26,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the disaster recovery configuration to be created/updated.
+        :param pulumi.Input[str] disaster_recovery_configuration_name: The name of the disaster recovery configuration to be created/updated.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         """
@@ -47,9 +47,9 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if disaster_recovery_configuration_name is None:
+                raise TypeError("Missing required property 'disaster_recovery_configuration_name'")
+            __props__['disaster_recovery_configuration_name'] = disaster_recovery_configuration_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -60,6 +60,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
             __props__['failover_policy'] = None
             __props__['location'] = None
             __props__['logical_server_name'] = None
+            __props__['name'] = None
             __props__['partner_logical_server_name'] = None
             __props__['partner_server_id'] = None
             __props__['role'] = None

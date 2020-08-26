@@ -59,7 +59,7 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
     /**
      * The name of the database account.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The configuration of the partition key to be used for partitioning data into multiple partitions
      */
@@ -101,11 +101,11 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.containerName === undefined) {
+                throw new Error("Missing required property 'containerName'");
+            }
             if (!args || args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.options === undefined) {
                 throw new Error("Missing required property 'options'");
@@ -117,8 +117,8 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["containerName"] = args ? args.containerName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -127,6 +127,7 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["indexingPolicy"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["partitionKey"] = undefined /*out*/;
             inputs["rid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -156,13 +157,13 @@ export interface DatabaseAccountSqlContainerArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * Cosmos DB container name.
+     */
+    readonly containerName: pulumi.Input<string>;
+    /**
      * Cosmos DB database name.
      */
     readonly databaseName: pulumi.Input<string>;
-    /**
-     * Cosmos DB container name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

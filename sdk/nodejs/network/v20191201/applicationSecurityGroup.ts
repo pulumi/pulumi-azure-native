@@ -45,7 +45,7 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the application security group resource.
      */
@@ -76,18 +76,19 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ApplicationSecurityGroupArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.applicationSecurityGroupName === undefined) {
+                throw new Error("Missing required property 'applicationSecurityGroupName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["applicationSecurityGroupName"] = args ? args.applicationSecurityGroupName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -110,6 +111,10 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
  */
 export interface ApplicationSecurityGroupArgs {
     /**
+     * The name of the application security group.
+     */
+    readonly applicationSecurityGroupName: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -117,10 +122,6 @@ export interface ApplicationSecurityGroupArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the application security group.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

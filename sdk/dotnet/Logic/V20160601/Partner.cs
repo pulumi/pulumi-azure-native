@@ -150,8 +150,8 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// <summary>
         /// The integration account partner name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("partnerName", required: true)]
+        public Input<string> PartnerName { get; set; } = null!;
 
         /// <summary>
         /// The partner type.

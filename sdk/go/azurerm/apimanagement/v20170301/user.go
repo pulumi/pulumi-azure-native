@@ -48,14 +48,14 @@ func NewUser(ctx *pulumi.Context,
 	if args == nil || args.LastName == nil {
 		return nil, errors.New("missing required argument 'LastName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.Uid == nil {
+		return nil, errors.New("missing required argument 'Uid'")
 	}
 	if args == nil {
 		args = &UserArgs{}
@@ -152,8 +152,6 @@ type userArgs struct {
 	FirstName string `pulumi:"firstName"`
 	// Last name.
 	LastName string `pulumi:"lastName"`
-	// User identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// Optional note about a user set by the administrator.
 	Note *string `pulumi:"note"`
 	// User Password. If no value is provided, a default password is generated.
@@ -164,6 +162,8 @@ type userArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
 	State *string `pulumi:"state"`
+	// User identifier. Must be unique in the current API Management service instance.
+	Uid string `pulumi:"uid"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -176,8 +176,6 @@ type UserArgs struct {
 	FirstName pulumi.StringInput
 	// Last name.
 	LastName pulumi.StringInput
-	// User identifier. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
 	// Optional note about a user set by the administrator.
 	Note pulumi.StringPtrInput
 	// User Password. If no value is provided, a default password is generated.
@@ -188,6 +186,8 @@ type UserArgs struct {
 	ServiceName pulumi.StringInput
 	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
 	State pulumi.StringPtrInput
+	// User identifier. Must be unique in the current API Management service instance.
+	Uid pulumi.StringInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

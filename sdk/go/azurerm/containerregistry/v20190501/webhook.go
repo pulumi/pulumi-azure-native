@@ -41,9 +41,6 @@ func NewWebhook(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.RegistryName == nil {
 		return nil, errors.New("missing required argument 'RegistryName'")
 	}
@@ -52,6 +49,9 @@ func NewWebhook(ctx *pulumi.Context,
 	}
 	if args == nil || args.ServiceUri == nil {
 		return nil, errors.New("missing required argument 'ServiceUri'")
+	}
+	if args == nil || args.WebhookName == nil {
+		return nil, errors.New("missing required argument 'WebhookName'")
 	}
 	if args == nil {
 		args = &WebhookArgs{}
@@ -132,8 +132,6 @@ type webhookArgs struct {
 	CustomHeaders map[string]string `pulumi:"customHeaders"`
 	// The location of the webhook. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
-	// The name of the webhook.
-	Name string `pulumi:"name"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
@@ -146,6 +144,8 @@ type webhookArgs struct {
 	Status *string `pulumi:"status"`
 	// The tags for the webhook.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the webhook.
+	WebhookName string `pulumi:"webhookName"`
 }
 
 // The set of arguments for constructing a Webhook resource.
@@ -156,8 +156,6 @@ type WebhookArgs struct {
 	CustomHeaders pulumi.StringMapInput
 	// The location of the webhook. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
-	// The name of the webhook.
-	Name pulumi.StringInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the resource group to which the container registry belongs.
@@ -170,6 +168,8 @@ type WebhookArgs struct {
 	Status pulumi.StringPtrInput
 	// The tags for the webhook.
 	Tags pulumi.StringMapInput
+	// The name of the webhook.
+	WebhookName pulumi.StringInput
 }
 
 func (WebhookArgs) ElementType() reflect.Type {

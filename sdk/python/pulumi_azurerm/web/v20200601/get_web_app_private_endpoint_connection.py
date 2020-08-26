@@ -101,15 +101,18 @@ class AwaitableGetWebAppPrivateEndpointConnectionResult(GetWebAppPrivateEndpoint
 
 
 def get_web_app_private_endpoint_connection(name: Optional[str] = None,
+                                            private_endpoint_connection_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPrivateEndpointConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str name: Name of the site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

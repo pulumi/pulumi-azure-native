@@ -136,6 +136,12 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
 
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the domain.
+        /// </summary>
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
+
         [Input("inboundIpRules")]
         private InputList<Inputs.InboundIpRuleArgs>? _inboundIpRules;
 
@@ -165,12 +171,6 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the domain.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;

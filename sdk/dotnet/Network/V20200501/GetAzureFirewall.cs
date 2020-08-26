@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The name of the Azure Firewall.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("azureFirewallName", required: true)]
+        public string AzureFirewallName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -18,7 +18,7 @@ func LookupWorkspaceConnection(ctx *pulumi.Context, args *LookupWorkspaceConnect
 
 type LookupWorkspaceConnectionArgs struct {
 	// Friendly name of the workspace connection
-	Name string `pulumi:"name"`
+	ConnectionName string `pulumi:"connectionName"`
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Azure Machine Learning workspace.

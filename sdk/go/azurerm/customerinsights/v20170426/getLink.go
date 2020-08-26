@@ -20,7 +20,7 @@ type LookupLinkArgs struct {
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// The name of the link.
-	Name string `pulumi:"name"`
+	LinkName string `pulumi:"linkName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

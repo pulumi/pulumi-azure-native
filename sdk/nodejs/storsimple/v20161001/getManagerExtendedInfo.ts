@@ -15,7 +15,7 @@ export function getManagerExtendedInfo(args: GetManagerExtendedInfoArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20161001:getManagerExtendedInfo", {
-        "name": args.name,
+        "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetManagerExtendedInfoArgs {
     /**
      * The manager name
      */
-    readonly name: string;
+    readonly managerName: string;
     /**
      * The resource group name
      */

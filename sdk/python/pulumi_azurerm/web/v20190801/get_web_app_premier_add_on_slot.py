@@ -151,18 +151,21 @@ class AwaitableGetWebAppPremierAddOnSlotResult(GetWebAppPremierAddOnSlotResult):
 
 
 def get_web_app_premier_add_on_slot(name: Optional[str] = None,
+                                    premier_add_on_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPremierAddOnSlotResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Add-on name.
+    :param str name: Name of the app.
+    :param str premier_add_on_name: Add-on name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the named add-on for the production slot.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['premierAddOnName'] = premier_add_on_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
     if opts is None:

@@ -16,8 +16,8 @@ export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulu
     }
     return pulumi.runtime.invoke("azurerm:media/v20200501:getStreamingEndpoint", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "streamingEndpointName": args.streamingEndpointName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetStreamingEndpointArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the StreamingEndpoint.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the StreamingEndpoint.
+     */
+    readonly streamingEndpointName: string;
 }
 
 /**

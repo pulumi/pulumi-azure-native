@@ -16,7 +16,7 @@ export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<G
     }
     return pulumi.runtime.invoke("azurerm:logic/v20160601:getMap", {
         "integrationAccountName": args.integrationAccountName,
-        "name": args.name,
+        "mapName": args.mapName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetMapArgs {
     /**
      * The integration account map name.
      */
-    readonly name: string;
+    readonly mapName: string;
     /**
      * The resource group name.
      */

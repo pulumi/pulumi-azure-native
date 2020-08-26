@@ -18,7 +18,7 @@ func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulum
 
 type LookupEndpointArgs struct {
 	// Name of the endpoint within the CDN profile.
-	Name string `pulumi:"name"`
+	EndpointName string `pulumi:"endpointName"`
 	// Name of the CDN profile within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the resource group within the Azure subscription.

@@ -36,7 +36,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Gets the job resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets the job properties.
      */
@@ -62,16 +62,17 @@ export class Job extends pulumi.CustomResource {
             if (!args || args.jobCollectionName === undefined) {
                 throw new Error("Missing required property 'jobCollectionName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.jobName === undefined) {
+                throw new Error("Missing required property 'jobName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["jobCollectionName"] = args ? args.jobCollectionName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["jobName"] = args ? args.jobName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,7 +99,7 @@ export interface JobArgs {
     /**
      * The job name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly jobName: pulumi.Input<string>;
     /**
      * Gets or sets the job properties.
      */

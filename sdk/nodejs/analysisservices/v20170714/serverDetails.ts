@@ -55,7 +55,7 @@ export class ServerDetails extends pulumi.CustomResource {
     /**
      * The name of the Analysis Services resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
      */
@@ -97,11 +97,11 @@ export class ServerDetails extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.serverName === undefined) {
+                throw new Error("Missing required property 'serverName'");
             }
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
@@ -110,10 +110,11 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
             inputs["gatewayDetails"] = args ? args.gatewayDetails : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serverFullName"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
@@ -153,13 +154,13 @@ export interface ServerDetailsArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+     */
+    readonly serverName: pulumi.Input<string>;
     /**
      * The SKU of the Analysis Services resource.
      */

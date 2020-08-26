@@ -43,7 +43,7 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The rights associated with the rule.
      */
@@ -74,11 +74,11 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NotificationHubAuthorizationRuleArgs | undefined;
+            if (!args || args.authorizationRuleName === undefined) {
+                throw new Error("Missing required property 'authorizationRuleName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -92,14 +92,15 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["notificationHubName"] = args ? args.notificationHubName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["rights"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -121,13 +122,13 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
  */
 export interface NotificationHubAuthorizationRuleArgs {
     /**
+     * Authorization Rule Name.
+     */
+    readonly authorizationRuleName: pulumi.Input<string>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Authorization Rule Name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The namespace name.
      */

@@ -15,8 +15,8 @@ export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20171001:getRecordSet", {
-        "name": args.name,
         "recordType": args.recordType,
+        "relativeRecordSetName": args.relativeRecordSetName,
         "resourceGroupName": args.resourceGroupName,
         "zoneName": args.zoneName,
     }, opts);
@@ -24,13 +24,13 @@ export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions
 
 export interface GetRecordSetArgs {
     /**
-     * The name of the record set, relative to the name of the zone.
-     */
-    readonly name: string;
-    /**
      * The type of DNS record in this record set.
      */
     readonly recordType: string;
+    /**
+     * The name of the record set, relative to the name of the zone.
+     */
+    readonly relativeRecordSetName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

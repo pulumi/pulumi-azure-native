@@ -92,19 +92,19 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
 
 
 def get_private_endpoint_connection(account_name: Optional[str] = None,
-                                    name: Optional[str] = None,
+                                    private_endpoint_connection_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-    :param str name: The name of the private endpoint connection associated with the Azure resource
+    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
-    __args__['name'] = name
+    __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

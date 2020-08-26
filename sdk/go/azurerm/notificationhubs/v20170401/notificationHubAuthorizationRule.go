@@ -47,8 +47,8 @@ type NotificationHubAuthorizationRule struct {
 // NewNotificationHubAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	name string, args *NotificationHubAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*NotificationHubAuthorizationRule, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AuthorizationRuleName == nil {
+		return nil, errors.New("missing required argument 'AuthorizationRuleName'")
 	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
@@ -163,7 +163,7 @@ func (NotificationHubAuthorizationRuleState) ElementType() reflect.Type {
 
 type notificationHubAuthorizationRuleArgs struct {
 	// Authorization Rule Name.
-	Name string `pulumi:"name"`
+	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
 	// The notification hub name.
@@ -177,7 +177,7 @@ type notificationHubAuthorizationRuleArgs struct {
 // The set of arguments for constructing a NotificationHubAuthorizationRule resource.
 type NotificationHubAuthorizationRuleArgs struct {
 	// Authorization Rule Name.
-	Name pulumi.StringInput
+	AuthorizationRuleName pulumi.StringInput
 	// The namespace name.
 	NamespaceName pulumi.StringInput
 	// The notification hub name.

@@ -164,6 +164,12 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Input<string>? DomainId { get; set; }
 
         /// <summary>
+        /// Hostname in the hostname binding.
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
         /// Hostname type.
         /// </summary>
         [Input("hostNameType")]
@@ -176,7 +182,7 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Hostname in the hostname binding.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

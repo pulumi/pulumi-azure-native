@@ -25,6 +25,9 @@ type PatchSchedule struct {
 // NewPatchSchedule registers a new resource with the given unique name, arguments, and options.
 func NewPatchSchedule(ctx *pulumi.Context,
 	name string, args *PatchScheduleArgs, opts ...pulumi.ResourceOption) (*PatchSchedule, error) {
+	if args == nil || args.Default == nil {
+		return nil, errors.New("missing required argument 'Default'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -88,6 +91,8 @@ func (PatchScheduleState) ElementType() reflect.Type {
 
 type patchScheduleArgs struct {
 	// Default string modeled as parameter for auto generation to work correctly.
+	Default string `pulumi:"default"`
+	// The name of the Redis cache.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -98,6 +103,8 @@ type patchScheduleArgs struct {
 // The set of arguments for constructing a PatchSchedule resource.
 type PatchScheduleArgs struct {
 	// Default string modeled as parameter for auto generation to work correctly.
+	Default pulumi.StringInput
+	// The name of the Redis cache.
 	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput

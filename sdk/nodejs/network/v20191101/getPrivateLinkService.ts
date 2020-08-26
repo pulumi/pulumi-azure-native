@@ -16,8 +16,8 @@ export function getPrivateLinkService(args: GetPrivateLinkServiceArgs, opts?: pu
     }
     return pulumi.runtime.invoke("azurerm:network/v20191101:getPrivateLinkService", {
         "expand": args.expand,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetPrivateLinkServiceArgs {
      */
     readonly expand?: string;
     /**
-     * The name of the private link service.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the private link service.
+     */
+    readonly serviceName: string;
 }
 
 /**

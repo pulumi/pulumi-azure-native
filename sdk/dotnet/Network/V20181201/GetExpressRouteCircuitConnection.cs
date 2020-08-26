@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20181201
         /// <summary>
         /// The name of the express route circuit connection.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the peering.

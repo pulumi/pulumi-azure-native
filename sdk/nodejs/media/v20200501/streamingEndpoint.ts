@@ -95,7 +95,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the StreamingEndpoint.
      */
@@ -136,14 +136,14 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.scaleUnits === undefined) {
                 throw new Error("Missing required property 'scaleUnits'");
+            }
+            if (!args || args.streamingEndpointName === undefined) {
+                throw new Error("Missing required property 'streamingEndpointName'");
             }
             inputs["accessControl"] = args ? args.accessControl : undefined;
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -157,14 +157,15 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxCacheAge"] = args ? args.maxCacheAge : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scaleUnits"] = args ? args.scaleUnits : undefined;
+            inputs["streamingEndpointName"] = args ? args.streamingEndpointName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["created"] = undefined /*out*/;
             inputs["freeTrialEndTime"] = undefined /*out*/;
             inputs["hostName"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -235,10 +236,6 @@ export interface StreamingEndpointArgs {
      */
     readonly maxCacheAge?: pulumi.Input<number>;
     /**
-     * The name of the StreamingEndpoint.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -246,6 +243,10 @@ export interface StreamingEndpointArgs {
      * The number of scale units.  Use the Scale operation to adjust this value.
      */
     readonly scaleUnits: pulumi.Input<number>;
+    /**
+     * The name of the StreamingEndpoint.
+     */
+    readonly streamingEndpointName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

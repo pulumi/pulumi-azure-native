@@ -45,14 +45,14 @@ type AssessmentMetadataInSubscription struct {
 // NewAssessmentMetadataInSubscription registers a new resource with the given unique name, arguments, and options.
 func NewAssessmentMetadataInSubscription(ctx *pulumi.Context,
 	name string, args *AssessmentMetadataInSubscriptionArgs, opts ...pulumi.ResourceOption) (*AssessmentMetadataInSubscription, error) {
+	if args == nil || args.AssessmentMetadataName == nil {
+		return nil, errors.New("missing required argument 'AssessmentMetadataName'")
+	}
 	if args == nil || args.AssessmentType == nil {
 		return nil, errors.New("missing required argument 'AssessmentType'")
 	}
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Severity == nil {
 		return nil, errors.New("missing required argument 'Severity'")
@@ -144,6 +144,8 @@ func (AssessmentMetadataInSubscriptionState) ElementType() reflect.Type {
 }
 
 type assessmentMetadataInSubscriptionArgs struct {
+	// The Assessment Key - Unique key for the assessment type
+	AssessmentMetadataName string `pulumi:"assessmentMetadataName"`
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType string   `pulumi:"assessmentType"`
 	Category       []string `pulumi:"category"`
@@ -153,8 +155,6 @@ type assessmentMetadataInSubscriptionArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The implementation effort required to remediate this assessment
 	ImplementationEffort *string `pulumi:"implementationEffort"`
-	// The Assessment Key - Unique key for the assessment type
-	Name string `pulumi:"name"`
 	// Describes the partner that created the assessment
 	PartnerData *SecurityAssessmentMetadataPartnerData `pulumi:"partnerData"`
 	// True if this assessment is in preview release status
@@ -170,6 +170,8 @@ type assessmentMetadataInSubscriptionArgs struct {
 
 // The set of arguments for constructing a AssessmentMetadataInSubscription resource.
 type AssessmentMetadataInSubscriptionArgs struct {
+	// The Assessment Key - Unique key for the assessment type
+	AssessmentMetadataName pulumi.StringInput
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType pulumi.StringInput
 	Category       pulumi.StringArrayInput
@@ -179,8 +181,6 @@ type AssessmentMetadataInSubscriptionArgs struct {
 	DisplayName pulumi.StringInput
 	// The implementation effort required to remediate this assessment
 	ImplementationEffort pulumi.StringPtrInput
-	// The Assessment Key - Unique key for the assessment type
-	Name pulumi.StringInput
 	// Describes the partner that created the assessment
 	PartnerData SecurityAssessmentMetadataPartnerDataPtrInput
 	// True if this assessment is in preview release status

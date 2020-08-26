@@ -54,7 +54,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
      */
@@ -114,11 +114,11 @@ export class Cluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ClusterArgs | undefined;
+            if (!args || args.clusterName === undefined) {
+                throw new Error("Missing required property 'clusterName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -129,8 +129,8 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.vmSize === undefined) {
                 throw new Error("Missing required property 'vmSize'");
             }
+            inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["nodeSetup"] = args ? args.nodeSetup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scaleSettings"] = args ? args.scaleSettings : undefined;
@@ -145,6 +145,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["creationTime"] = undefined /*out*/;
             inputs["currentNodeCount"] = undefined /*out*/;
             inputs["errors"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["nodeStateCounts"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["provisioningStateTransitionTime"] = undefined /*out*/;
@@ -166,13 +167,13 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
+     * The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+     */
+    readonly clusterName: pulumi.Input<string>;
+    /**
      * The region in which to create the cluster.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
      */

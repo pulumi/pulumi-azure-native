@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// The name of the network interface.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("networkInterfaceName", required: true)]
+        public string NetworkInterfaceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

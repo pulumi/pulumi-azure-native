@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <summary>
         /// The integration account partner name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("partnerName", required: true)]
+        public string PartnerName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

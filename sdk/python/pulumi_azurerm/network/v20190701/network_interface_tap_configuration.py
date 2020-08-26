@@ -22,6 +22,7 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tap_configuration_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_tap: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkTapArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,9 +34,10 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the tap configuration.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] tap_configuration_name: The name of the tap configuration.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkTapArgs']] virtual_network_tap: The reference of the Virtual Network Tap resource.
         """
         if __name__ is not None:
@@ -57,8 +59,6 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
 
             __props__['etag'] = etag
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if network_interface_name is None:
                 raise TypeError("Missing required property 'network_interface_name'")
@@ -66,6 +66,9 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if tap_configuration_name is None:
+                raise TypeError("Missing required property 'tap_configuration_name'")
+            __props__['tap_configuration_name'] = tap_configuration_name
             __props__['virtual_network_tap'] = virtual_network_tap
             __props__['provisioning_state'] = None
             __props__['type'] = None

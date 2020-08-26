@@ -28,7 +28,7 @@ class Profile(pulumi.CustomResource):
                  large_image: Optional[pulumi.Input[str]] = None,
                  localized_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None,
                  medium_image: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_item_type_link: Optional[pulumi.Input[str]] = None,
                  small_image: Optional[pulumi.Input[str]] = None,
@@ -54,7 +54,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] large_image: Large Image associated with the Property or EntityType.
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[str]]]]] localized_attributes: Any custom localized attributes for the Type.
         :param pulumi.Input[str] medium_image: Medium Image associated with the Property or EntityType.
-        :param pulumi.Input[str] name: The name of the profile.
+        :param pulumi.Input[str] profile_name: The name of the profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] schema_item_type_link: The schema org link. This helps ACI identify and suggest semantic models.
         :param pulumi.Input[str] small_image: Small Image associated with the Property or EntityType.
@@ -92,9 +92,9 @@ class Profile(pulumi.CustomResource):
             __props__['large_image'] = large_image
             __props__['localized_attributes'] = localized_attributes
             __props__['medium_image'] = medium_image
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if profile_name is None:
+                raise TypeError("Missing required property 'profile_name'")
+            __props__['profile_name'] = profile_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -104,6 +104,7 @@ class Profile(pulumi.CustomResource):
             __props__['timestamp_field_name'] = timestamp_field_name
             __props__['type_name'] = type_name
             __props__['last_changed_utc'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None

@@ -115,17 +115,17 @@ class AwaitableGetProfileResult(GetProfileResult):
             type=self.type)
 
 
-def get_profile(name: Optional[str] = None,
+def get_profile(profile_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

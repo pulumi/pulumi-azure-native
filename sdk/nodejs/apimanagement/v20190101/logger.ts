@@ -54,7 +54,7 @@ export class Logger extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
      */
@@ -80,11 +80,11 @@ export class Logger extends pulumi.CustomResource {
             if (!args || args.credentials === undefined) {
                 throw new Error("Missing required property 'credentials'");
             }
+            if (!args || args.loggerId === undefined) {
+                throw new Error("Missing required property 'loggerId'");
+            }
             if (!args || args.loggerType === undefined) {
                 throw new Error("Missing required property 'loggerType'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -95,11 +95,12 @@ export class Logger extends pulumi.CustomResource {
             inputs["credentials"] = args ? args.credentials : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["isBuffered"] = args ? args.isBuffered : undefined;
+            inputs["loggerId"] = args ? args.loggerId : undefined;
             inputs["loggerType"] = args ? args.loggerType : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -133,13 +134,13 @@ export interface LoggerArgs {
      */
     readonly isBuffered?: pulumi.Input<boolean>;
     /**
+     * Logger identifier. Must be unique in the API Management service instance.
+     */
+    readonly loggerId: pulumi.Input<string>;
+    /**
      * Logger type.
      */
     readonly loggerType: pulumi.Input<string>;
-    /**
-     * Logger identifier. Must be unique in the API Management service instance.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

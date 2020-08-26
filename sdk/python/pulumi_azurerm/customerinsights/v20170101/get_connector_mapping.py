@@ -237,7 +237,7 @@ class AwaitableGetConnectorMappingResult(GetConnectorMappingResult):
 
 def get_connector_mapping(connector_name: Optional[str] = None,
                           hub_name: Optional[str] = None,
-                          name: Optional[str] = None,
+                          mapping_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorMappingResult:
     """
@@ -245,13 +245,13 @@ def get_connector_mapping(connector_name: Optional[str] = None,
 
     :param str connector_name: The name of the connector.
     :param str hub_name: The name of the hub.
-    :param str name: The name of the connector mapping.
+    :param str mapping_name: The name of the connector mapping.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['connectorName'] = connector_name
     __args__['hubName'] = hub_name
-    __args__['name'] = name
+    __args__['mappingName'] = mapping_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

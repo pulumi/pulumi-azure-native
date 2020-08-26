@@ -190,6 +190,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
 
     public sealed class DatabaseAccountArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Cosmos DB database account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
         [Input("capabilities")]
         private InputList<Inputs.CapabilityArgs>? _capabilities;
 
@@ -273,12 +279,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
             get => _locations ?? (_locations = new InputList<Inputs.LocationArgs>());
             set => _locations = value;
         }
-
-        /// <summary>
-        /// Cosmos DB database account name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.

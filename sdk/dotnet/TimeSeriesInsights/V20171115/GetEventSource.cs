@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         /// <summary>
         /// The name of the Time Series Insights event source associated with the specified environment.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("eventSourceName", required: true)]
+        public string EventSourceName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.ManagedIdentity.V20181130
     public sealed class GetUserAssignedIdentityArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the identity resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Resource Group to which the identity belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the identity resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetUserAssignedIdentityArgs()
         {

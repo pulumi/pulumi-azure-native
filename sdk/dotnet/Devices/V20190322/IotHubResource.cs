@@ -126,12 +126,6 @@ namespace Pulumi.AzureRM.Devices.V20190322
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the IoT hub.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// IotHub properties
         /// </summary>
         [Input("properties")]
@@ -142,6 +136,12 @@ namespace Pulumi.AzureRM.Devices.V20190322
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the IoT hub.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// IotHub SKU info

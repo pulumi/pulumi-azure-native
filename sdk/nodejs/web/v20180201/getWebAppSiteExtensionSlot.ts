@@ -17,19 +17,24 @@ export function getWebAppSiteExtensionSlot(args: GetWebAppSiteExtensionSlotArgs,
     return pulumi.runtime.invoke("azurerm:web/v20180201:getWebAppSiteExtensionSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "siteExtensionId": args.siteExtensionId,
         "slot": args.slot,
     }, opts);
 }
 
 export interface GetWebAppSiteExtensionSlotArgs {
     /**
-     * Site extension name.
+     * Site name.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * Site extension name.
+     */
+    readonly siteExtensionId: string;
     /**
      * Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
      */

@@ -18,7 +18,7 @@ func LookupConnectionGateway(ctx *pulumi.Context, args *LookupConnectionGatewayA
 
 type LookupConnectionGatewayArgs struct {
 	// The connection gateway name
-	Name string `pulumi:"name"`
+	ConnectionGatewayName string `pulumi:"connectionGatewayName"`
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

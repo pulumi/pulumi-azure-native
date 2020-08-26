@@ -150,8 +150,8 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// <summary>
         /// The name of the OuContainer.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("ouContainerName", required: true)]
+        public Input<string> OuContainerName { get; set; } = null!;
 
         /// <summary>
         /// The account password

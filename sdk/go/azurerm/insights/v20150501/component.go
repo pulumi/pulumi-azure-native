@@ -74,11 +74,11 @@ func NewComponent(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil {
 		args = &ComponentArgs{}
@@ -223,12 +223,12 @@ type componentArgs struct {
 	Kind string `pulumi:"kind"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the Application Insights component resource.
-	Name string `pulumi:"name"`
 	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
 	RequestSource *string `pulumi:"requestSource"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName string `pulumi:"resourceName"`
 	// Retention period in days.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
@@ -255,12 +255,12 @@ type ComponentArgs struct {
 	Kind pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the Application Insights component resource.
-	Name pulumi.StringInput
 	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
 	RequestSource pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The name of the Application Insights component resource.
+	ResourceName pulumi.StringInput
 	// Retention period in days.
 	RetentionInDays pulumi.IntPtrInput
 	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.

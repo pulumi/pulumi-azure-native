@@ -176,25 +176,25 @@ class AwaitableGetVolumeResult(GetVolumeResult):
 
 def get_volume(device_name: Optional[str] = None,
                manager_name: Optional[str] = None,
-               name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                volume_container_name: Optional[str] = None,
+               volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str device_name: The device name
     :param str manager_name: The manager name
-    :param str name: The volume name.
     :param str resource_group_name: The resource group name
     :param str volume_container_name: The volume container name.
+    :param str volume_name: The volume name.
     """
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['managerName'] = manager_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['volumeContainerName'] = volume_container_name
+    __args__['volumeName'] = volume_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

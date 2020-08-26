@@ -18,7 +18,7 @@ func LookupVirtualRouterPeering(ctx *pulumi.Context, args *LookupVirtualRouterPe
 
 type LookupVirtualRouterPeeringArgs struct {
 	// The name of the Virtual Router Peering.
-	Name string `pulumi:"name"`
+	PeeringName string `pulumi:"peeringName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Virtual Router.

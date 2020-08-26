@@ -127,20 +127,20 @@ class AwaitableGetSavedSearchResult(GetSavedSearchResult):
             version=self.version)
 
 
-def get_saved_search(name: Optional[str] = None,
-                     resource_group_name: Optional[str] = None,
+def get_saved_search(resource_group_name: Optional[str] = None,
+                     saved_search_id: Optional[str] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSavedSearchResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The id of the saved search.
     :param str resource_group_name: The Resource Group name.
+    :param str saved_search_id: The id of the saved search.
     :param str workspace_name: The Log Analytics Workspace name.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['savedSearchId'] = saved_search_id
     __args__['workspaceName'] = workspace_name
     if opts is None:
         opts = pulumi.InvokeOptions()

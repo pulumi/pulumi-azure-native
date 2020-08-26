@@ -27,7 +27,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  ingress_bytes_transferred: Optional[pulumi.Input[float]] = None,
                  local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  peer: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -37,6 +36,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_gateway1: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
                  virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
+                 virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -55,7 +55,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[float] ingress_bytes_transferred: The Ingress Bytes Transferred in this connection
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']] local_network_gateway2: A common class for general resource information
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the virtual network gateway connection.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] peer: The reference to peerings resource.
         :param pulumi.Input[str] provisioning_state: Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -65,6 +64,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway1: A common class for general resource information
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway2: A common class for general resource information
+        :param pulumi.Input[str] virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,9 +93,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['ingress_bytes_transferred'] = ingress_bytes_transferred
             __props__['local_network_gateway2'] = local_network_gateway2
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['peer'] = peer
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
@@ -107,6 +104,10 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['virtual_network_gateway1'] = virtual_network_gateway1
             __props__['virtual_network_gateway2'] = virtual_network_gateway2
+            if virtual_network_gateway_connection_name is None:
+                raise TypeError("Missing required property 'virtual_network_gateway_connection_name'")
+            __props__['virtual_network_gateway_connection_name'] = virtual_network_gateway_connection_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20150615:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20160330:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20160901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20161201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20170301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20170601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20170801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20170901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20171001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20171101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20180101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20180201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20180401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20180601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20180701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20180801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20181001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20181101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20181201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20190201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20190401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20190601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20190701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20190801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20190901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20191101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20191201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20200301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20200401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20200501:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azurerm:network/v20200601:VirtualNetworkGatewayConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -46,11 +46,11 @@ func NewServer(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServerName == nil {
+		return nil, errors.New("missing required argument 'ServerName'")
 	}
 	if args == nil {
 		args = &ServerArgs{}
@@ -141,10 +141,10 @@ type serverArgs struct {
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the server.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName string `pulumi:"serverName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The version of the server.
@@ -159,10 +159,10 @@ type ServerArgs struct {
 	AdministratorLoginPassword pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the server.
-	Name pulumi.StringInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
+	// The name of the server.
+	ServerName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The version of the server.

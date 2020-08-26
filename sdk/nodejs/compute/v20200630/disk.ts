@@ -103,7 +103,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Policy for accessing the disk via network.
      */
@@ -165,11 +165,11 @@ export class Disk extends pulumi.CustomResource {
             if (!args || args.creationData === undefined) {
                 throw new Error("Missing required property 'creationData'");
             }
+            if (!args || args.diskName === undefined) {
+                throw new Error("Missing required property 'diskName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -180,6 +180,7 @@ export class Disk extends pulumi.CustomResource {
             inputs["diskIOPSReadWrite"] = args ? args.diskIOPSReadWrite : undefined;
             inputs["diskMBpsReadOnly"] = args ? args.diskMBpsReadOnly : undefined;
             inputs["diskMBpsReadWrite"] = args ? args.diskMBpsReadWrite : undefined;
+            inputs["diskName"] = args ? args.diskName : undefined;
             inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
             inputs["diskState"] = args ? args.diskState : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
@@ -187,7 +188,6 @@ export class Disk extends pulumi.CustomResource {
             inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxShares"] = args ? args.maxShares : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -198,6 +198,7 @@ export class Disk extends pulumi.CustomResource {
             inputs["diskSizeBytes"] = undefined /*out*/;
             inputs["managedBy"] = undefined /*out*/;
             inputs["managedByExtended"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["shareInfo"] = undefined /*out*/;
             inputs["timeCreated"] = undefined /*out*/;
@@ -246,6 +247,10 @@ export interface DiskArgs {
      */
     readonly diskMBpsReadWrite?: pulumi.Input<number>;
     /**
+     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     */
+    readonly diskName: pulumi.Input<string>;
+    /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
     readonly diskSizeGB?: pulumi.Input<number>;
@@ -273,10 +278,6 @@ export interface DiskArgs {
      * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
      */
     readonly maxShares?: pulumi.Input<number>;
-    /**
-     * The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Policy for accessing the disk via network.
      */

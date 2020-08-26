@@ -41,7 +41,7 @@ export class RedisFirewallRule extends pulumi.CustomResource {
     /**
      * name of the firewall rule
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * lowest IP address included in the range
      */
@@ -70,20 +70,21 @@ export class RedisFirewallRule extends pulumi.CustomResource {
             if (!args || args.endIP === undefined) {
                 throw new Error("Missing required property 'endIP'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.ruleName === undefined) {
+                throw new Error("Missing required property 'ruleName'");
             }
             if (!args || args.startIP === undefined) {
                 throw new Error("Missing required property 'startIP'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;
             inputs["endIP"] = args ? args.endIP : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ruleName"] = args ? args.ruleName : undefined;
             inputs["startIP"] = args ? args.startIP : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,13 +113,13 @@ export interface RedisFirewallRuleArgs {
      */
     readonly endIP: pulumi.Input<string>;
     /**
-     * The name of the firewall rule.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the firewall rule.
+     */
+    readonly ruleName: pulumi.Input<string>;
     /**
      * lowest IP address included in the range
      */

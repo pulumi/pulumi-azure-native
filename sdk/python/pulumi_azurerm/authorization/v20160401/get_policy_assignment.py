@@ -90,17 +90,17 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
             type=self.type)
 
 
-def get_policy_assignment(name: Optional[str] = None,
+def get_policy_assignment(policy_assignment_name: Optional[str] = None,
                           scope: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyAssignmentResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the policy assignment to get.
+    :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['policyAssignmentName'] = policy_assignment_name
     __args__['scope'] = scope
     if opts is None:
         opts = pulumi.InvokeOptions()

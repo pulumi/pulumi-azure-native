@@ -47,7 +47,7 @@ export class IotHubResource extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The properties of an IoT hub.
      */
@@ -89,11 +89,11 @@ export class IotHubResource extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
             }
             if (!args || args.resourcegroup === undefined) {
                 throw new Error("Missing required property 'resourcegroup'");
@@ -106,13 +106,14 @@ export class IotHubResource extends pulumi.CustomResource {
             }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["resourcegroup"] = args ? args.resourcegroup : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["subscriptionid"] = args ? args.subscriptionid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -141,10 +142,6 @@ export interface IotHubResourceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the IoT hub to create or update.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The properties of an IoT hub.
      */
     readonly properties?: pulumi.Input<inputs.devices.v20160203.IotHubProperties>;
@@ -152,6 +149,10 @@ export interface IotHubResourceArgs {
      * The name of the resource group that contains the IoT hub.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the IoT hub to create or update.
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
      */

@@ -15,7 +15,7 @@ export function getDeploymentAtTenantScope(args: GetDeploymentAtTenantScopeArgs,
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:resources/v20190801:getDeploymentAtTenantScope", {
-        "name": args.name,
+        "deploymentName": args.deploymentName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetDeploymentAtTenantScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly name: string;
+    readonly deploymentName: string;
 }
 
 /**

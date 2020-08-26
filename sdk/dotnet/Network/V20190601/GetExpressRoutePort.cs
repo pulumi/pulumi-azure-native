@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// <summary>
         /// The name of ExpressRoutePort.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("expressRoutePortName", required: true)]
+        public string ExpressRoutePortName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

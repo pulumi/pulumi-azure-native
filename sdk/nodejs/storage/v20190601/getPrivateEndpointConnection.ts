@@ -16,7 +16,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
     }
     return pulumi.runtime.invoke("azurerm:storage/v20190601:getPrivateEndpointConnection", {
         "accountName": args.accountName,
-        "name": args.name,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    readonly name: string;
+    readonly privateEndpointConnectionName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

@@ -47,7 +47,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * The link name.
      */
-    public /*out*/ readonly linkName!: pulumi.Output<string>;
+    public readonly linkName!: pulumi.Output<string>;
     /**
      * The set of properties mappings between the source and target Types.
      */
@@ -55,7 +55,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
@@ -105,8 +105,8 @@ export class Link extends pulumi.CustomResource {
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.linkName === undefined) {
+                throw new Error("Missing required property 'linkName'");
             }
             if (!args || args.participantPropertyReferences === undefined) {
                 throw new Error("Missing required property 'participantPropertyReferences'");
@@ -123,15 +123,15 @@ export class Link extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
+            inputs["linkName"] = args ? args.linkName : undefined;
             inputs["mappings"] = args ? args.mappings : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["operationType"] = args ? args.operationType : undefined;
             inputs["participantPropertyReferences"] = args ? args.participantPropertyReferences : undefined;
             inputs["referenceOnly"] = args ? args.referenceOnly : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sourceInteractionType"] = args ? args.sourceInteractionType : undefined;
             inputs["targetProfileType"] = args ? args.targetProfileType : undefined;
-            inputs["linkName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -166,13 +166,13 @@ export interface LinkArgs {
      */
     readonly hubName: pulumi.Input<string>;
     /**
+     * The name of the link.
+     */
+    readonly linkName: pulumi.Input<string>;
+    /**
      * The set of properties mappings between the source and target Types.
      */
     readonly mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.TypePropertiesMapping>[]>;
-    /**
-     * The name of the link.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */

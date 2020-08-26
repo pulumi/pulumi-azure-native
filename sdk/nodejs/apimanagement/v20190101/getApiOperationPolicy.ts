@@ -17,8 +17,8 @@ export function getApiOperationPolicy(args: GetApiOperationPolicyArgs, opts?: pu
     return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getApiOperationPolicy", {
         "apiId": args.apiId,
         "format": args.format,
-        "name": args.name,
         "operationId": args.operationId,
+        "policyId": args.policyId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -34,13 +34,13 @@ export interface GetApiOperationPolicyArgs {
      */
     readonly format?: string;
     /**
-     * The identifier of the Policy.
-     */
-    readonly name: string;
-    /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
     readonly operationId: string;
+    /**
+     * The identifier of the Policy.
+     */
+    readonly policyId: string;
     /**
      * The name of the resource group.
      */

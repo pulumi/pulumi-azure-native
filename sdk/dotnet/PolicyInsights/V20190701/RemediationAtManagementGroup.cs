@@ -138,12 +138,6 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         public Input<string> ManagementGroupsNamespace { get; set; } = null!;
 
         /// <summary>
-        /// The name of the remediation.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource ID of the policy assignment that should be remediated.
         /// </summary>
         [Input("policyAssignmentId")]
@@ -154,6 +148,12 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         /// </summary>
         [Input("policyDefinitionReferenceId")]
         public Input<string>? PolicyDefinitionReferenceId { get; set; }
+
+        /// <summary>
+        /// The name of the remediation.
+        /// </summary>
+        [Input("remediationName", required: true)]
+        public Input<string> RemediationName { get; set; } = null!;
 
         /// <summary>
         /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.

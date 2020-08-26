@@ -163,17 +163,17 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
             vpn_gateway_scale_unit=self.vpn_gateway_scale_unit)
 
 
-def get_vpn_gateway(name: Optional[str] = None,
+def get_vpn_gateway(gateway_name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnGatewayResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the gateway.
+    :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['gatewayName'] = gateway_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

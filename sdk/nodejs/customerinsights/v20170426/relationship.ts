@@ -63,7 +63,7 @@ export class Relationship extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Profile type.
      */
@@ -83,7 +83,7 @@ export class Relationship extends pulumi.CustomResource {
     /**
      * The Relationship name.
      */
-    public /*out*/ readonly relationshipName!: pulumi.Output<string>;
+    public readonly relationshipName!: pulumi.Output<string>;
     /**
      * The hub name.
      */
@@ -109,14 +109,14 @@ export class Relationship extends pulumi.CustomResource {
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.profileType === undefined) {
                 throw new Error("Missing required property 'profileType'");
             }
             if (!args || args.relatedProfileType === undefined) {
                 throw new Error("Missing required property 'relatedProfileType'");
+            }
+            if (!args || args.relationshipName === undefined) {
+                throw new Error("Missing required property 'relationshipName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -128,13 +128,13 @@ export class Relationship extends pulumi.CustomResource {
             inputs["fields"] = args ? args.fields : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
             inputs["lookupMappings"] = args ? args.lookupMappings : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["profileType"] = args ? args.profileType : undefined;
             inputs["relatedProfileType"] = args ? args.relatedProfileType : undefined;
+            inputs["relationshipName"] = args ? args.relationshipName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["relationshipGuidId"] = undefined /*out*/;
-            inputs["relationshipName"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -184,10 +184,6 @@ export interface RelationshipArgs {
      */
     readonly lookupMappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.RelationshipTypeMapping>[]>;
     /**
-     * The name of the Relationship.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Profile type.
      */
     readonly profileType: pulumi.Input<string>;
@@ -195,6 +191,10 @@ export interface RelationshipArgs {
      * Related profile being referenced.
      */
     readonly relatedProfileType: pulumi.Input<string>;
+    /**
+     * The name of the Relationship.
+     */
+    readonly relationshipName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

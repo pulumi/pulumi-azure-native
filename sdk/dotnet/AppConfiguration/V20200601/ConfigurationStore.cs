@@ -136,6 +136,12 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
     public sealed class ConfigurationStoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the configuration store.
+        /// </summary>
+        [Input("configStoreName", required: true)]
+        public Input<string> ConfigStoreName { get; set; } = null!;
+
+        /// <summary>
         /// The encryption settings of the configuration store.
         /// </summary>
         [Input("encryption")]
@@ -152,12 +158,6 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the configuration store.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.

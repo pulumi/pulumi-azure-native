@@ -25,11 +25,11 @@ class Workspace(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -46,11 +46,11 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] key_vault: ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[str] name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
         :param pulumi.Input[str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
+        :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,16 +77,17 @@ class Workspace(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['key_vault'] = key_vault
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['storage_account'] = storage_account
             __props__['tags'] = tags
+            if workspace_name is None:
+                raise TypeError("Missing required property 'workspace_name'")
+            __props__['workspace_name'] = workspace_name
             __props__['creation_time'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['workspace_id'] = None

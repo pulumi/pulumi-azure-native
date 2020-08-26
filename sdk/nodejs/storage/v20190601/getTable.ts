@@ -16,8 +16,8 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
     }
     return pulumi.runtime.invoke("azurerm:storage/v20190601:getTable", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "tableName": args.tableName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetTableArgs {
      */
     readonly accountName: string;
     /**
-     * A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
+     */
+    readonly tableName: string;
 }
 
 /**

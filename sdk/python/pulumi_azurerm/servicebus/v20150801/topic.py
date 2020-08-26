@@ -34,6 +34,7 @@ class Topic(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
+                 topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -53,12 +54,13 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] is_anonymous_accessible: Value that indicates whether the message is accessible anonymously.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[float] max_size_in_megabytes: Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
-        :param pulumi.Input[str] name: The topic name.
+        :param pulumi.Input[str] name: Topic name.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[bool] requires_duplicate_detection: Value indicating if this topic requires duplicate detection.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] status: Enumerates the possible values for the status of a messaging entity.
         :param pulumi.Input[bool] support_ordering: Value that indicates whether the topic supports ordering.
+        :param pulumi.Input[str] topic_name: The topic name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,8 +93,6 @@ class Topic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_size_in_megabytes'] = max_size_in_megabytes
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
@@ -103,6 +103,9 @@ class Topic(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
             __props__['support_ordering'] = support_ordering
+            if topic_name is None:
+                raise TypeError("Missing required property 'topic_name'")
+            __props__['topic_name'] = topic_name
             __props__['accessed_at'] = None
             __props__['count_details'] = None
             __props__['created_at'] = None

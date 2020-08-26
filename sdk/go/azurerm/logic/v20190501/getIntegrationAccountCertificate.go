@@ -17,10 +17,10 @@ func LookupIntegrationAccountCertificate(ctx *pulumi.Context, args *LookupIntegr
 }
 
 type LookupIntegrationAccountCertificateArgs struct {
+	// The integration account certificate name.
+	CertificateName string `pulumi:"certificateName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The integration account certificate name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

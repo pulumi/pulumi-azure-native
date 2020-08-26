@@ -18,11 +18,11 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 
 type LookupResourceArgs struct {
 	// Resource identity.
-	Name string `pulumi:"name"`
-	// Resource identity.
 	ParentResourcePath string `pulumi:"parentResourcePath"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource identity.
+	ResourceName string `pulumi:"resourceName"`
 	// Resource identity.
 	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
 	// Resource identity.

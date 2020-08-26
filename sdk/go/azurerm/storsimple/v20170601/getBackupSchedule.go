@@ -19,12 +19,12 @@ func LookupBackupSchedule(ctx *pulumi.Context, args *LookupBackupScheduleArgs, o
 type LookupBackupScheduleArgs struct {
 	// The backup policy name.
 	BackupPolicyName string `pulumi:"backupPolicyName"`
+	// The name of the backup schedule to be fetched
+	BackupScheduleName string `pulumi:"backupScheduleName"`
 	// The device name
 	DeviceName string `pulumi:"deviceName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The name of the backup schedule to be fetched
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

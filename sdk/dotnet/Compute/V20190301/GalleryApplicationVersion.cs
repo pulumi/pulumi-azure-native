@@ -113,6 +113,12 @@ namespace Pulumi.AzureRM.Compute.V20190301
         public Input<string> GalleryApplicationName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: &lt;MajorVersion&gt;.&lt;MinorVersion&gt;.&lt;Patch&gt;
+        /// </summary>
+        [Input("galleryApplicationVersionName", required: true)]
+        public Input<string> GalleryApplicationVersionName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Shared Application Gallery in which the Application Definition resides.
         /// </summary>
         [Input("galleryName", required: true)]
@@ -123,12 +129,6 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: &lt;MajorVersion&gt;.&lt;MinorVersion&gt;.&lt;Patch&gt;
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The publishing profile of a gallery Image Version.

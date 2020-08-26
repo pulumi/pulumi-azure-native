@@ -90,8 +90,8 @@ namespace Pulumi.AzureRM.Resources.V20151101
         /// <summary>
         /// The name of the deployment.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the deployment properties.

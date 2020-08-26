@@ -19,9 +19,9 @@ class VpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
                  connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]]] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,9 +37,9 @@ class VpnGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]] connections: list of all vpn connections to the gateway.
+        :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the gateway.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -65,13 +65,13 @@ class VpnGateway(pulumi.CustomResource):
 
             __props__['bgp_settings'] = bgp_settings
             __props__['connections'] = connections
+            if gateway_name is None:
+                raise TypeError("Missing required property 'gateway_name'")
+            __props__['gateway_name'] = gateway_name
             __props__['id'] = id
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -80,6 +80,7 @@ class VpnGateway(pulumi.CustomResource):
             __props__['virtual_hub'] = virtual_hub
             __props__['vpn_gateway_scale_unit'] = vpn_gateway_scale_unit
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180401:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20180601:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20180701:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20180801:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20181101:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20181201:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190201:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190401:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190601:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190701:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190801:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20190901:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20191101:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20191201:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20200301:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20200401:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20200501:VpnGateway"), pulumi.Alias(type_="azurerm:network/v20200601:VpnGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

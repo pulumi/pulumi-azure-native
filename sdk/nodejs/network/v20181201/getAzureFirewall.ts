@@ -15,7 +15,7 @@ export function getAzureFirewall(args: GetAzureFirewallArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20181201:getAzureFirewall", {
-        "name": args.name,
+        "azureFirewallName": args.azureFirewallName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetAzureFirewallArgs {
     /**
      * The name of the Azure Firewall.
      */
-    readonly name: string;
+    readonly azureFirewallName: string;
     /**
      * The name of the resource group.
      */

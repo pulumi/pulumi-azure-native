@@ -16,8 +16,8 @@ export function getStreamingLocator(args: GetStreamingLocatorArgs, opts?: pulumi
     }
     return pulumi.runtime.invoke("azurerm:media/v20200501:getStreamingLocator", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "streamingLocatorName": args.streamingLocatorName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetStreamingLocatorArgs {
      */
     readonly accountName: string;
     /**
-     * The Streaming Locator name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: string;
+    /**
+     * The Streaming Locator name.
+     */
+    readonly streamingLocatorName: string;
 }
 
 /**

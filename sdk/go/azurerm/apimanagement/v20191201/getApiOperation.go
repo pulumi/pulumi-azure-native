@@ -20,7 +20,7 @@ type LookupApiOperationArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId string `pulumi:"apiId"`
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
+	OperationId string `pulumi:"operationId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

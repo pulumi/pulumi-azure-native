@@ -17,7 +17,9 @@ func LookupWebAppPrivateEndpointConnection(ctx *pulumi.Context, args *LookupWebA
 }
 
 type LookupWebAppPrivateEndpointConnectionArgs struct {
-	Name string `pulumi:"name"`
+	// Name of the site.
+	Name                          string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -15,7 +15,7 @@ export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerregistry/v20170301:getRegistry", {
-        "name": args.name,
+        "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetRegistryArgs {
     /**
      * The name of the container registry.
      */
-    readonly name: string;
+    readonly registryName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */

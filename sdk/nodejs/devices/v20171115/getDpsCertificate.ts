@@ -15,7 +15,7 @@ export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devices/v20171115:getDpsCertificate", {
-        "name": args.name,
+        "certificateName": args.certificateName,
         "provisioningServiceName": args.provisioningServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetDpsCertificateArgs {
     /**
      * Name of the certificate to retrieve.
      */
-    readonly name: string;
+    readonly certificateName: string;
     /**
      * Name of the provisioning service the certificate is associated with.
      */

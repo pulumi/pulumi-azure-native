@@ -20,7 +20,7 @@ type LookupNatGatewayArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the nat gateway.
-	Name string `pulumi:"name"`
+	NatGatewayName string `pulumi:"natGatewayName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

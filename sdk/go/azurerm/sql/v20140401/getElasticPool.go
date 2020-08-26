@@ -18,7 +18,7 @@ func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ..
 
 type LookupElasticPoolArgs struct {
 	// The name of the elastic pool to be retrieved.
-	Name string `pulumi:"name"`
+	ElasticPoolName string `pulumi:"elasticPoolName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.

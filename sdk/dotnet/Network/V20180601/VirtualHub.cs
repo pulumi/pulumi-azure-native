@@ -165,12 +165,6 @@ namespace Pulumi.AzureRM.Network.V20180601
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the VirtualHub.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
         [Input("provisioningState")]
@@ -193,6 +187,12 @@ namespace Pulumi.AzureRM.Network.V20180601
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the VirtualHub.
+        /// </summary>
+        [Input("virtualHubName", required: true)]
+        public Input<string> VirtualHubName { get; set; } = null!;
 
         /// <summary>
         /// The VirtualWAN to which the VirtualHub belongs

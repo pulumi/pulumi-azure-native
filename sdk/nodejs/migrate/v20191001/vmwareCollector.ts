@@ -34,7 +34,7 @@ export class VMwareCollector extends pulumi.CustomResource {
     }
 
     public readonly eTag!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<outputs.migrate.v20191001.CollectorPropertiesResponse>;
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -51,20 +51,21 @@ export class VMwareCollector extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VMwareCollectorArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.projectName === undefined) {
                 throw new Error("Missing required property 'projectName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.vmWareCollectorName === undefined) {
+                throw new Error("Missing required property 'vmWareCollectorName'");
+            }
             inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["vmWareCollectorName"] = args ? args.vmWareCollectorName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -84,10 +85,6 @@ export class VMwareCollector extends pulumi.CustomResource {
 export interface VMwareCollectorArgs {
     readonly eTag?: pulumi.Input<string>;
     /**
-     * Unique name of a VMware collector within a project.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Name of the Azure Migrate project.
      */
     readonly projectName: pulumi.Input<string>;
@@ -96,4 +93,8 @@ export interface VMwareCollectorArgs {
      * Name of the Azure Resource Group that project is part of.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Unique name of a VMware collector within a project.
+     */
+    readonly vmWareCollectorName: pulumi.Input<string>;
 }

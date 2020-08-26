@@ -18,8 +18,8 @@ class ContentKeyPolicy(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContentKeyPolicyOptionArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -31,8 +31,8 @@ class ContentKeyPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[str] content_key_policy_name: The Content Key Policy name.
         :param pulumi.Input[str] description: A description for the Policy.
-        :param pulumi.Input[str] name: The Content Key Policy name.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContentKeyPolicyOptionArgs']]]] options: The Key Policy options.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         """
@@ -56,10 +56,10 @@ class ContentKeyPolicy(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if content_key_policy_name is None:
+                raise TypeError("Missing required property 'content_key_policy_name'")
+            __props__['content_key_policy_name'] = content_key_policy_name
             __props__['description'] = description
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if options is None:
                 raise TypeError("Missing required property 'options'")
             __props__['options'] = options
@@ -68,6 +68,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['created'] = None
             __props__['last_modified'] = None
+            __props__['name'] = None
             __props__['policy_id'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20180701:ContentKeyPolicy")])

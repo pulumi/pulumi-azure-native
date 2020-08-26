@@ -16,15 +16,20 @@ export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pu
     }
     return pulumi.runtime.invoke("azurerm:web/v20180201:getWebAppPremierAddOn", {
         "name": args.name,
+        "premierAddOnName": args.premierAddOnName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetWebAppPremierAddOnArgs {
     /**
-     * Add-on name.
+     * Name of the app.
      */
     readonly name: string;
+    /**
+     * Add-on name.
+     */
+    readonly premierAddOnName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

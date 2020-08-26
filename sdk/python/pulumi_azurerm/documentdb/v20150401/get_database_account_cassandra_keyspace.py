@@ -79,19 +79,19 @@ class AwaitableGetDatabaseAccountCassandraKeyspaceResult(GetDatabaseAccountCassa
 
 
 def get_database_account_cassandra_keyspace(account_name: Optional[str] = None,
-                                            name: Optional[str] = None,
+                                            keyspace_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseAccountCassandraKeyspaceResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: Cosmos DB database account name.
-    :param str name: Cosmos DB keyspace name.
+    :param str keyspace_name: Cosmos DB keyspace name.
     :param str resource_group_name: Name of an Azure resource group.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
-    __args__['name'] = name
+    __args__['keyspaceName'] = keyspace_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

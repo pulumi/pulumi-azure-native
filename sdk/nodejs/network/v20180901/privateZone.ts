@@ -57,7 +57,7 @@ export class PrivateZone extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
      */
@@ -96,20 +96,21 @@ export class PrivateZone extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrivateZoneArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.privateZoneName === undefined) {
+                throw new Error("Missing required property 'privateZoneName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["privateZoneName"] = args ? args.privateZoneName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["maxNumberOfRecordSets"] = undefined /*out*/;
             inputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
             inputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["numberOfRecordSets"] = undefined /*out*/;
             inputs["numberOfVirtualNetworkLinks"] = undefined /*out*/;
             inputs["numberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
@@ -142,7 +143,7 @@ export interface PrivateZoneArgs {
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
-    readonly name: pulumi.Input<string>;
+    readonly privateZoneName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

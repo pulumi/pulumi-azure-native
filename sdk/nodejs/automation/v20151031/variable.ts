@@ -85,12 +85,16 @@ export class Variable extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.variableName === undefined) {
+                throw new Error("Missing required property 'variableName'");
+            }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["isEncrypted"] = args ? args.isEncrypted : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["value"] = args ? args.value : undefined;
+            inputs["variableName"] = args ? args.variableName : undefined;
             inputs["creationTime"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -123,7 +127,7 @@ export interface VariableArgs {
      */
     readonly isEncrypted?: pulumi.Input<boolean>;
     /**
-     * The variable name.
+     * Gets or sets the name of the variable.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -134,4 +138,8 @@ export interface VariableArgs {
      * Gets or sets the value of the variable.
      */
     readonly value?: pulumi.Input<string>;
+    /**
+     * The variable name.
+     */
+    readonly variableName: pulumi.Input<string>;
 }

@@ -160,12 +160,6 @@ namespace Pulumi.AzureRM.Network.V20160330
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the route table.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
         /// </summary>
         [Input("provisioningState")]
@@ -176,6 +170,12 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the route table.
+        /// </summary>
+        [Input("routeTableName", required: true)]
+        public Input<string> RouteTableName { get; set; } = null!;
 
         [Input("routes")]
         private InputList<Inputs.RouteArgs>? _routes;

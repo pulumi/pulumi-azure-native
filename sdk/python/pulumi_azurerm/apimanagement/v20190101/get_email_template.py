@@ -127,21 +127,21 @@ class AwaitableGetEmailTemplateResult(GetEmailTemplateResult):
             type=self.type)
 
 
-def get_email_template(name: Optional[str] = None,
-                       resource_group_name: Optional[str] = None,
+def get_email_template(resource_group_name: Optional[str] = None,
                        service_name: Optional[str] = None,
+                       template_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailTemplateResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Email Template Name Identifier.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
+    :param str template_name: Email Template Name Identifier.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
+    __args__['templateName'] = template_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

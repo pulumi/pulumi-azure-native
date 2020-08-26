@@ -226,10 +226,10 @@ namespace Pulumi.AzureRM.Automation.V20180630
         public Input<bool>? LogVerbose { get; set; }
 
         /// <summary>
-        /// The runbook name.
+        /// Gets or sets the name of the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the published runbook content link.
@@ -242,6 +242,12 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The runbook name.
+        /// </summary>
+        [Input("runbookName", required: true)]
+        public Input<string> RunbookName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the type of the runbook.

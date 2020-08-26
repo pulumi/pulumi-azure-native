@@ -23,10 +23,10 @@ type LookupSqlResourceSqlTriggerArgs struct {
 	ContainerName string `pulumi:"containerName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
-	// Cosmos DB trigger name.
-	Name string `pulumi:"name"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Cosmos DB trigger name.
+	TriggerName string `pulumi:"triggerName"`
 }
 
 // An Azure Cosmos DB trigger.

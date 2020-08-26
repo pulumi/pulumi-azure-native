@@ -19,6 +19,7 @@ class ManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  details: Optional[pulumi.Input[pulumi.InputType['CreateManagementGroupDetailsArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -30,7 +31,8 @@ class ManagementGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreateManagementGroupDetailsArgs']] details: The details of a management group used during creation.
         :param pulumi.Input[str] display_name: The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
-        :param pulumi.Input[str] name: Management Group ID.
+        :param pulumi.Input[str] group_id: Management Group ID.
+        :param pulumi.Input[str] name: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -51,8 +53,9 @@ class ManagementGroup(pulumi.CustomResource):
 
             __props__['details'] = details
             __props__['display_name'] = display_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
+            if group_id is None:
+                raise TypeError("Missing required property 'group_id'")
+            __props__['group_id'] = group_id
             __props__['name'] = name
             __props__['children'] = None
             __props__['path'] = None

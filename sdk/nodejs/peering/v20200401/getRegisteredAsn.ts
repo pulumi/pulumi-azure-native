@@ -15,21 +15,21 @@ export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:peering/v20200401:getRegisteredAsn", {
-        "name": args.name,
         "peeringName": args.peeringName,
+        "registeredAsnName": args.registeredAsnName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetRegisteredAsnArgs {
     /**
-     * The name of the registered ASN.
-     */
-    readonly name: string;
-    /**
      * The name of the peering.
      */
     readonly peeringName: string;
+    /**
+     * The name of the registered ASN.
+     */
+    readonly registeredAsnName: string;
     /**
      * The name of the resource group.
      */

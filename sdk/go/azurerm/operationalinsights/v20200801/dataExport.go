@@ -39,8 +39,8 @@ type DataExport struct {
 // NewDataExport registers a new resource with the given unique name, arguments, and options.
 func NewDataExport(ctx *pulumi.Context,
 	name string, args *DataExportArgs, opts ...pulumi.ResourceOption) (*DataExport, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DataExportName == nil {
+		return nil, errors.New("missing required argument 'DataExportName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -132,14 +132,14 @@ type dataExportArgs struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// The data export rule ID.
 	DataExportId *string `pulumi:"dataExportId"`
+	// The data export rule name.
+	DataExportName string `pulumi:"dataExportName"`
 	// Active when enabled.
 	Enable *bool `pulumi:"enable"`
 	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
 	EventHubName *string `pulumi:"eventHubName"`
 	// Date and time when the export was last modified.
 	LastModifiedDate *string `pulumi:"lastModifiedDate"`
-	// The data export rule name.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
@@ -158,14 +158,14 @@ type DataExportArgs struct {
 	CreatedDate pulumi.StringPtrInput
 	// The data export rule ID.
 	DataExportId pulumi.StringPtrInput
+	// The data export rule name.
+	DataExportName pulumi.StringInput
 	// Active when enabled.
 	Enable pulumi.BoolPtrInput
 	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
 	EventHubName pulumi.StringPtrInput
 	// Date and time when the export was last modified.
 	LastModifiedDate pulumi.StringPtrInput
-	// The data export rule name.
-	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.

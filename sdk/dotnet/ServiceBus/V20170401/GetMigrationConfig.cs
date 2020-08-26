@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// <summary>
         /// The configuration name. Should always be "$default".
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("configName", required: true)]
+        public string ConfigName { get; set; } = null!;
 
         /// <summary>
         /// The namespace name

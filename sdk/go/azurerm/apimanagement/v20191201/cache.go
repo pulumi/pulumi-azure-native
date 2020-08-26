@@ -29,11 +29,11 @@ type Cache struct {
 // NewCache registers a new resource with the given unique name, arguments, and options.
 func NewCache(ctx *pulumi.Context,
 	name string, args *CacheArgs, opts ...pulumi.ResourceOption) (*Cache, error) {
+	if args == nil || args.CacheId == nil {
+		return nil, errors.New("missing required argument 'CacheId'")
+	}
 	if args == nil || args.ConnectionString == nil {
 		return nil, errors.New("missing required argument 'ConnectionString'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -102,12 +102,12 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
+	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
+	CacheId string `pulumi:"cacheId"`
 	// Runtime connection string to cache
 	ConnectionString string `pulumi:"connectionString"`
 	// Cache description
 	Description *string `pulumi:"description"`
-	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Original uri of entity in external system cache points to
@@ -118,12 +118,12 @@ type cacheArgs struct {
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
+	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
+	CacheId pulumi.StringInput
 	// Runtime connection string to cache
 	ConnectionString pulumi.StringInput
 	// Cache description
 	Description pulumi.StringPtrInput
-	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Original uri of entity in external system cache points to

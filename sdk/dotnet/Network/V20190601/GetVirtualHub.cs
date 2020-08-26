@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20190601
     public sealed class GetVirtualHubArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the VirtualHub.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name of the VirtualHub.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VirtualHub.
+        /// </summary>
+        [Input("virtualHubName", required: true)]
+        public string VirtualHubName { get; set; } = null!;
 
         public GetVirtualHubArgs()
         {

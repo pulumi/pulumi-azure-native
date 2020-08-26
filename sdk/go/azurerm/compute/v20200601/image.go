@@ -35,11 +35,11 @@ type Image struct {
 // NewImage registers a new resource with the given unique name, arguments, and options.
 func NewImage(ctx *pulumi.Context,
 	name string, args *ImageArgs, opts ...pulumi.ResourceOption) (*Image, error) {
+	if args == nil || args.ImageName == nil {
+		return nil, errors.New("missing required argument 'ImageName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -140,10 +140,10 @@ func (ImageState) ElementType() reflect.Type {
 type imageArgs struct {
 	// Gets the HyperVGenerationType of the VirtualMachine created from the image
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// The name of the image.
+	ImageName string `pulumi:"imageName"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the image.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The source virtual machine from which Image is created.
@@ -158,10 +158,10 @@ type imageArgs struct {
 type ImageArgs struct {
 	// Gets the HyperVGenerationType of the VirtualMachine created from the image
 	HyperVGeneration pulumi.StringPtrInput
+	// The name of the image.
+	ImageName pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the image.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The source virtual machine from which Image is created.

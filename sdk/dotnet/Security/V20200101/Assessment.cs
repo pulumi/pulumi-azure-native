@@ -126,16 +126,16 @@ namespace Pulumi.AzureRM.Security.V20200101
         }
 
         /// <summary>
+        /// The Assessment Key - Unique key for the assessment type
+        /// </summary>
+        [Input("assessmentName", required: true)]
+        public Input<string> AssessmentName { get; set; } = null!;
+
+        /// <summary>
         /// Describes properties of an assessment metadata.
         /// </summary>
         [Input("metadata")]
         public Input<Inputs.SecurityAssessmentMetadataPropertiesArgs>? Metadata { get; set; }
-
-        /// <summary>
-        /// The Assessment Key - Unique key for the assessment type
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Data regarding 3rd party partner integration

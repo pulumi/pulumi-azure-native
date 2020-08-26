@@ -156,6 +156,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class EnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the environment.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the environment Setting.
         /// </summary>
         [Input("environmentSettingName", required: true)]
@@ -178,12 +184,6 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the environment.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The provisioning status of the resource.

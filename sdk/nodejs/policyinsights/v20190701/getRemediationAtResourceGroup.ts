@@ -15,7 +15,7 @@ export function getRemediationAtResourceGroup(args: GetRemediationAtResourceGrou
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:policyinsights/v20190701:getRemediationAtResourceGroup", {
-        "name": args.name,
+        "remediationName": args.remediationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetRemediationAtResourceGroupArgs {
     /**
      * The name of the remediation.
      */
-    readonly name: string;
+    readonly remediationName: string;
     /**
      * Resource group name.
      */

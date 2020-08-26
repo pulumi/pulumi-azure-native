@@ -204,12 +204,6 @@ namespace Pulumi.AzureRM.Insights.V20150501
         }
 
         /// <summary>
-        /// User defined name if this WebTest.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -250,6 +244,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         [Input("webTestKind", required: true)]
         public Input<string> WebTestKind { get; set; } = null!;
+
+        /// <summary>
+        /// User defined name if this WebTest.
+        /// </summary>
+        [Input("webTestName", required: true)]
+        public Input<string> WebTestName { get; set; } = null!;
 
         public WebTestArgs()
         {

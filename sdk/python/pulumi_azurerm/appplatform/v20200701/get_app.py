@@ -91,7 +91,7 @@ class AwaitableGetAppResult(GetAppResult):
             type=self.type)
 
 
-def get_app(name: Optional[str] = None,
+def get_app(app_name: Optional[str] = None,
             resource_group_name: Optional[str] = None,
             service_name: Optional[str] = None,
             sync_status: Optional[str] = None,
@@ -99,13 +99,13 @@ def get_app(name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the App resource.
+    :param str app_name: The name of the App resource.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     :param str sync_status: Indicates whether sync status
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['appName'] = app_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['syncStatus'] = sync_status

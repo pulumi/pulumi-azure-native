@@ -140,7 +140,7 @@ class AwaitableGetExpressRouteCircuitConnectionResult(GetExpressRouteCircuitConn
 
 
 def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
-                                         name: Optional[str] = None,
+                                         connection_name: Optional[str] = None,
                                          peering_name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitConnectionResult:
@@ -148,13 +148,13 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str circuit_name: The name of the express route circuit.
-    :param str name: The name of the express route circuit connection.
+    :param str connection_name: The name of the express route circuit connection.
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['circuitName'] = circuit_name
-    __args__['name'] = name
+    __args__['connectionName'] = connection_name
     __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

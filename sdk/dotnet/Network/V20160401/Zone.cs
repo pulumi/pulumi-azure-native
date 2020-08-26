@@ -132,12 +132,6 @@ namespace Pulumi.AzureRM.Network.V20160401
         public Input<int>? MaxNumberOfRecordSets { get; set; }
 
         /// <summary>
-        /// The name of the DNS zone (without a terminating dot).
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
         [Input("numberOfRecordSets")]
@@ -160,6 +154,12 @@ namespace Pulumi.AzureRM.Network.V20160401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("zoneName", required: true)]
+        public Input<string> ZoneName { get; set; } = null!;
 
         public ZoneArgs()
         {

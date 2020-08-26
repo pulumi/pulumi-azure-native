@@ -207,6 +207,12 @@ namespace Pulumi.AzureRM.Network.V20150615
 
     public sealed class ApplicationGatewayArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the application gateway.
+        /// </summary>
+        [Input("applicationGatewayName", required: true)]
+        public Input<string> ApplicationGatewayName { get; set; } = null!;
+
         [Input("backendAddressPools")]
         private InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs>? _backendAddressPools;
 
@@ -296,12 +302,6 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the application gateway.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("probes")]
         private InputList<Inputs.ApplicationGatewayProbeArgs>? _probes;

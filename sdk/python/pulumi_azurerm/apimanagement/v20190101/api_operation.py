@@ -21,7 +21,7 @@ class ApiOperation(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  method: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 operation_id: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[str]] = None,
                  request: Optional[pulumi.Input[pulumi.InputType['RequestContractArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -41,7 +41,7 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the operation. May include HTML formatting tags.
         :param pulumi.Input[str] display_name: Operation Name.
         :param pulumi.Input[str] method: A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-        :param pulumi.Input[str] name: Operation identifier within an API. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] policies: Operation Policies
         :param pulumi.Input[pulumi.InputType['RequestContractArgs']] request: An entity containing request details.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -77,9 +77,9 @@ class ApiOperation(pulumi.CustomResource):
             if method is None:
                 raise TypeError("Missing required property 'method'")
             __props__['method'] = method
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if operation_id is None:
+                raise TypeError("Missing required property 'operation_id'")
+            __props__['operation_id'] = operation_id
             __props__['policies'] = policies
             __props__['request'] = request
             if resource_group_name is None:
@@ -93,6 +93,7 @@ class ApiOperation(pulumi.CustomResource):
             if url_template is None:
                 raise TypeError("Missing required property 'url_template'")
             __props__['url_template'] = url_template
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:ApiOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:ApiOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

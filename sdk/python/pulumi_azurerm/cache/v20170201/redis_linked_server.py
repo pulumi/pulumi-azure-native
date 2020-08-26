@@ -17,6 +17,7 @@ class RedisLinkedServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
                  linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
+                 linked_server_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_role: Optional[pulumi.Input[str]] = None,
@@ -30,7 +31,8 @@ class RedisLinkedServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
         :param pulumi.Input[str] linked_redis_cache_location: Location of the linked redis cache.
-        :param pulumi.Input[str] name: The name of the linked server that is being added to the Redis cache.
+        :param pulumi.Input[str] linked_server_name: The name of the linked server that is being added to the Redis cache.
+        :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] server_role: Role of the linked server.
         """
@@ -57,6 +59,9 @@ class RedisLinkedServer(pulumi.CustomResource):
             if linked_redis_cache_location is None:
                 raise TypeError("Missing required property 'linked_redis_cache_location'")
             __props__['linked_redis_cache_location'] = linked_redis_cache_location
+            if linked_server_name is None:
+                raise TypeError("Missing required property 'linked_server_name'")
+            __props__['linked_server_name'] = linked_server_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name

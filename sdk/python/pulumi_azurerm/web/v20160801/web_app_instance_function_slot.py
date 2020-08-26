@@ -18,6 +18,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
                  config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  config_href: Optional[pulumi.Input[str]] = None,
                  files: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 function_name: Optional[pulumi.Input[str]] = None,
                  href: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -38,9 +39,10 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] config: Config information.
         :param pulumi.Input[str] config_href: Config URI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] files: File list.
+        :param pulumi.Input[str] function_name: Function name.
         :param pulumi.Input[str] href: Function URI.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Function name.
+        :param pulumi.Input[str] name: Site name.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] script_href: Script URI.
         :param pulumi.Input[str] script_root_path_href: Script root path URI.
@@ -68,6 +70,9 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
             __props__['config'] = config
             __props__['config_href'] = config_href
             __props__['files'] = files
+            if function_name is None:
+                raise TypeError("Missing required property 'function_name'")
+            __props__['function_name'] = function_name
             __props__['href'] = href
             __props__['kind'] = kind
             if name is None:

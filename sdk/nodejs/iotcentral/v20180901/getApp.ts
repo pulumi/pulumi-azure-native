@@ -15,20 +15,20 @@ export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:iotcentral/v20180901:getApp", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetAppArgs {
     /**
-     * The ARM resource name of the IoT Central application.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group that contains the IoT Central application.
      */
     readonly resourceGroupName: string;
+    /**
+     * The ARM resource name of the IoT Central application.
+     */
+    readonly resourceName: string;
 }
 
 /**

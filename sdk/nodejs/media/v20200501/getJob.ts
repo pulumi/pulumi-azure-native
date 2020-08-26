@@ -16,7 +16,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
     }
     return pulumi.runtime.invoke("azurerm:media/v20200501:getJob", {
         "accountName": args.accountName,
-        "name": args.name,
+        "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,
         "transformName": args.transformName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetJobArgs {
     /**
      * The Job name.
      */
-    readonly name: string;
+    readonly jobName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */

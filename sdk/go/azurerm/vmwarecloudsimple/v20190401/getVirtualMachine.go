@@ -17,10 +17,10 @@ func LookupVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineArgs, o
 }
 
 type LookupVirtualMachineArgs struct {
-	// virtual machine name
-	Name string `pulumi:"name"`
 	// The name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// virtual machine name
+	VirtualMachineName string `pulumi:"virtualMachineName"`
 }
 
 // Virtual machine model

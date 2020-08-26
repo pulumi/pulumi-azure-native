@@ -63,7 +63,7 @@ export class OuContainer extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
@@ -101,15 +101,15 @@ export class OuContainer extends pulumi.CustomResource {
             if (!args || args.domainServiceName === undefined) {
                 throw new Error("Missing required property 'domainServiceName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.ouContainerName === undefined) {
+                throw new Error("Missing required property 'ouContainerName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["domainServiceName"] = args ? args.domainServiceName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["ouContainerName"] = args ? args.ouContainerName : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["spn"] = args ? args.spn : undefined;
@@ -119,6 +119,7 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["domainName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceStatus"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -153,7 +154,7 @@ export interface OuContainerArgs {
     /**
      * The name of the OuContainer.
      */
-    readonly name: pulumi.Input<string>;
+    readonly ouContainerName: pulumi.Input<string>;
     /**
      * The account password
      */

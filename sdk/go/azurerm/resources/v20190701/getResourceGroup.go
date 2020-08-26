@@ -18,7 +18,7 @@ func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opt
 
 type LookupResourceGroupArgs struct {
 	// The name of the resource group to get. The name is case insensitive.
-	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Resource group information.

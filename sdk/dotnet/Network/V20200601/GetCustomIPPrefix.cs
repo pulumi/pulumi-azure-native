@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20200601
     public sealed class GetCustomIPPrefixArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the custom IP prefix.
+        /// </summary>
+        [Input("customIpPrefixName", required: true)]
+        public string CustomIpPrefixName { get; set; } = null!;
+
+        /// <summary>
         /// Expands referenced resources.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }
-
-        /// <summary>
-        /// The name of the custom IP prefix.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

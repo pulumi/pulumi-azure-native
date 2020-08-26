@@ -21,7 +21,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 network_security_group_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the network security group.
+        :param pulumi.Input[str] network_security_group_name: The name of the network security group.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the network security group resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the network security group resource.
@@ -67,9 +67,9 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if network_security_group_name is None:
+                raise TypeError("Missing required property 'network_security_group_name'")
+            __props__['network_security_group_name'] = network_security_group_name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -77,6 +77,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             __props__['resource_guid'] = resource_guid
             __props__['security_rules'] = security_rules
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['network_interfaces'] = None
             __props__['subnets'] = None
             __props__['type'] = None

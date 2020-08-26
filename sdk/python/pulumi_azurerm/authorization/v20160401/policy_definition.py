@@ -18,6 +18,7 @@ class PolicyDefinition(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policy_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_rule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,7 +31,8 @@ class PolicyDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The policy definition description.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
-        :param pulumi.Input[str] name: The name of the policy definition to create.
+        :param pulumi.Input[str] name: The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
+        :param pulumi.Input[str] policy_definition_name: The name of the policy definition to create.
         :param pulumi.Input[Mapping[str, Any]] policy_rule: The policy rule.
         :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
@@ -53,9 +55,10 @@ class PolicyDefinition(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if policy_definition_name is None:
+                raise TypeError("Missing required property 'policy_definition_name'")
+            __props__['policy_definition_name'] = policy_definition_name
             __props__['policy_rule'] = policy_rule
             __props__['policy_type'] = policy_type
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20151101:PolicyDefinition")])

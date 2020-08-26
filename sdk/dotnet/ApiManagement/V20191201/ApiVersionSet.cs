@@ -118,12 +118,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Api Version Set identifier. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -146,6 +140,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("versionQueryName")]
         public Input<string>? VersionQueryName { get; set; }
+
+        /// <summary>
+        /// Api Version Set identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("versionSetId", required: true)]
+        public Input<string> VersionSetId { get; set; } = null!;
 
         /// <summary>
         /// An value that determines where the API Version identifer will be located in a HTTP request.

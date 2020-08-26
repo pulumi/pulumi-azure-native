@@ -115,17 +115,17 @@ class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
             zones=self.zones)
 
 
-def get_dedicated_host_group(name: Optional[str] = None,
+def get_dedicated_host_group(host_group_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostGroupResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the dedicated host group.
+    :param str host_group_name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['hostGroupName'] = host_group_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

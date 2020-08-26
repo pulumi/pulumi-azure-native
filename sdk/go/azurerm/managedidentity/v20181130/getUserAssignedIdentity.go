@@ -17,10 +17,10 @@ func LookupUserAssignedIdentity(ctx *pulumi.Context, args *LookupUserAssignedIde
 }
 
 type LookupUserAssignedIdentityArgs struct {
-	// The name of the identity resource.
-	Name string `pulumi:"name"`
 	// The name of the Resource Group to which the identity belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the identity resource.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // Describes an identity resource.

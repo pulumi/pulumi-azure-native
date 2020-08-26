@@ -89,16 +89,22 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
     public sealed class QueueAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
         /// data center location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The authorization rule name.
+        /// Name of the authorization rule.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The namespace name

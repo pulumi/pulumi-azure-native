@@ -15,7 +15,7 @@ export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:solutions/v20190701:getJitRequest", {
-        "name": args.name,
+        "jitRequestName": args.jitRequestName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetJitRequestArgs {
     /**
      * The name of the JIT request.
      */
-    readonly name: string;
+    readonly jitRequestName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

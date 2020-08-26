@@ -57,8 +57,8 @@ type DomainService struct {
 // NewDomainService registers a new resource with the given unique name, arguments, and options.
 func NewDomainService(ctx *pulumi.Context,
 	name string, args *DomainServiceArgs, opts ...pulumi.ResourceOption) (*DomainService, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DomainServiceName == nil {
+		return nil, errors.New("missing required argument 'DomainServiceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -187,6 +187,8 @@ type domainServiceArgs struct {
 	DomainName *string `pulumi:"domainName"`
 	// DomainSecurity Settings
 	DomainSecuritySettings *DomainSecuritySettings `pulumi:"domainSecuritySettings"`
+	// The name of the domain service.
+	DomainServiceName string `pulumi:"domainServiceName"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
 	// Enabled or Disabled flag to turn on Group-based filtered sync
@@ -195,8 +197,6 @@ type domainServiceArgs struct {
 	LdapsSettings *LdapsSettings `pulumi:"ldapsSettings"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the domain service.
-	Name string `pulumi:"name"`
 	// Notification Settings
 	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -213,6 +213,8 @@ type DomainServiceArgs struct {
 	DomainName pulumi.StringPtrInput
 	// DomainSecurity Settings
 	DomainSecuritySettings DomainSecuritySettingsPtrInput
+	// The name of the domain service.
+	DomainServiceName pulumi.StringInput
 	// Resource etag
 	Etag pulumi.StringPtrInput
 	// Enabled or Disabled flag to turn on Group-based filtered sync
@@ -221,8 +223,6 @@ type DomainServiceArgs struct {
 	LdapsSettings LdapsSettingsPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the domain service.
-	Name pulumi.StringInput
 	// Notification Settings
 	NotificationSettings NotificationSettingsPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

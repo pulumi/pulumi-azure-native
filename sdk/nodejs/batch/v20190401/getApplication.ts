@@ -16,7 +16,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
     }
     return pulumi.runtime.invoke("azurerm:batch/v20190401:getApplication", {
         "accountName": args.accountName,
-        "name": args.name,
+        "applicationName": args.applicationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetApplicationArgs {
     /**
      * The name of the application. This must be unique within the account.
      */
-    readonly name: string;
+    readonly applicationName: string;
     /**
      * The name of the resource group that contains the Batch account.
      */

@@ -107,7 +107,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Network rule set
      */
@@ -174,14 +174,14 @@ export class StorageAccount extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as StorageAccountArgs | undefined;
+            if (!args || args.accountName === undefined) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
             }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -190,6 +190,7 @@ export class StorageAccount extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["allowBlobPublicAccess"] = args ? args.allowBlobPublicAccess : undefined;
             inputs["azureFilesIdentityBasedAuthentication"] = args ? args.azureFilesIdentityBasedAuthentication : undefined;
             inputs["customDomain"] = args ? args.customDomain : undefined;
@@ -201,7 +202,6 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["largeFileSharesState"] = args ? args.largeFileSharesState : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routingPreference"] = args ? args.routingPreference : undefined;
@@ -212,6 +212,7 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["failoverInProgress"] = undefined /*out*/;
             inputs["geoReplicationStats"] = undefined /*out*/;
             inputs["lastGeoFailoverTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["primaryEndpoints"] = undefined /*out*/;
             inputs["primaryLocation"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
@@ -243,6 +244,10 @@ export interface StorageAccountArgs {
      * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
      */
     readonly accessTier?: pulumi.Input<string>;
+    /**
+     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+     */
+    readonly accountName: pulumi.Input<string>;
     /**
      * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
      */
@@ -287,10 +292,6 @@ export interface StorageAccountArgs {
      * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
      */
     readonly minimumTlsVersion?: pulumi.Input<string>;
-    /**
-     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Network rule set
      */

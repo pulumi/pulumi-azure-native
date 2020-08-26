@@ -39,7 +39,7 @@ export class ChapSetting extends pulumi.CustomResource {
     /**
      * The name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The chap password.
      */
@@ -62,14 +62,14 @@ export class ChapSetting extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ChapSettingArgs | undefined;
+            if (!args || args.chapUserName === undefined) {
+                throw new Error("Missing required property 'chapUserName'");
+            }
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.password === undefined) {
                 throw new Error("Missing required property 'password'");
@@ -77,11 +77,12 @@ export class ChapSetting extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["chapUserName"] = args ? args.chapUserName : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,6 +101,10 @@ export class ChapSetting extends pulumi.CustomResource {
  */
 export interface ChapSettingArgs {
     /**
+     * The chap user name.
+     */
+    readonly chapUserName: pulumi.Input<string>;
+    /**
      * The device name.
      */
     readonly deviceName: pulumi.Input<string>;
@@ -107,10 +112,6 @@ export interface ChapSettingArgs {
      * The manager name
      */
     readonly managerName: pulumi.Input<string>;
-    /**
-     * The chap user name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The chap password.
      */

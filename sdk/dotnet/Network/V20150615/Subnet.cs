@@ -132,10 +132,10 @@ namespace Pulumi.AzureRM.Network.V20150615
         }
 
         /// <summary>
-        /// The name of the subnet.
+        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The reference of the NetworkSecurityGroup resource.
@@ -160,6 +160,12 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// </summary>
         [Input("routeTable")]
         public Input<Inputs.RouteTableArgs>? RouteTable { get; set; }
+
+        /// <summary>
+        /// The name of the subnet.
+        /// </summary>
+        [Input("subnetName", required: true)]
+        public Input<string> SubnetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the virtual network.

@@ -165,6 +165,12 @@ namespace Pulumi.AzureRM.Network.V20190401
         }
 
         /// <summary>
+        /// The name of the Azure Firewall.
+        /// </summary>
+        [Input("azureFirewallName", required: true)]
+        public Input<string> AzureFirewallName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -187,12 +193,6 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the Azure Firewall.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("natRuleCollections")]
         private InputList<Inputs.AzureFirewallNatRuleCollectionArgs>? _natRuleCollections;

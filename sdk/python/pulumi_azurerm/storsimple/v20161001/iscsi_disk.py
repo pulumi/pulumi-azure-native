@@ -19,11 +19,11 @@ class IscsiDisk(pulumi.CustomResource):
                  data_policy: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
+                 disk_name: Optional[pulumi.Input[str]] = None,
                  disk_status: Optional[pulumi.Input[str]] = None,
                  iscsi_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  monitoring_status: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -38,11 +38,11 @@ class IscsiDisk(pulumi.CustomResource):
         :param pulumi.Input[str] data_policy: The data policy.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input[str] disk_name: The disk name.
         :param pulumi.Input[str] disk_status: The disk status.
         :param pulumi.Input[str] iscsi_server_name: The iSCSI server name.
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] monitoring_status: The monitoring.
-        :param pulumi.Input[str] name: The disk name.
         :param pulumi.Input[float] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
@@ -73,6 +73,9 @@ class IscsiDisk(pulumi.CustomResource):
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
+            if disk_name is None:
+                raise TypeError("Missing required property 'disk_name'")
+            __props__['disk_name'] = disk_name
             if disk_status is None:
                 raise TypeError("Missing required property 'disk_status'")
             __props__['disk_status'] = disk_status
@@ -85,9 +88,6 @@ class IscsiDisk(pulumi.CustomResource):
             if monitoring_status is None:
                 raise TypeError("Missing required property 'monitoring_status'")
             __props__['monitoring_status'] = monitoring_status
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if provisioned_capacity_in_bytes is None:
                 raise TypeError("Missing required property 'provisioned_capacity_in_bytes'")
             __props__['provisioned_capacity_in_bytes'] = provisioned_capacity_in_bytes
@@ -95,6 +95,7 @@ class IscsiDisk(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['local_used_capacity_in_bytes'] = None
+            __props__['name'] = None
             __props__['type'] = None
             __props__['used_capacity_in_bytes'] = None
         super(IscsiDisk, __self__).__init__(

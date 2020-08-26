@@ -51,7 +51,7 @@ export class LogProfile extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * the retention policy for the events in the log.
      */
@@ -95,8 +95,8 @@ export class LogProfile extends pulumi.CustomResource {
             if (!args || args.locations === undefined) {
                 throw new Error("Missing required property 'locations'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.logProfileName === undefined) {
+                throw new Error("Missing required property 'logProfileName'");
             }
             if (!args || args.retentionPolicy === undefined) {
                 throw new Error("Missing required property 'retentionPolicy'");
@@ -104,11 +104,12 @@ export class LogProfile extends pulumi.CustomResource {
             inputs["categories"] = args ? args.categories : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["locations"] = args ? args.locations : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["logProfileName"] = args ? args.logProfileName : undefined;
             inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             inputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -141,7 +142,7 @@ export interface LogProfileArgs {
     /**
      * The name of the log profile.
      */
-    readonly name: pulumi.Input<string>;
+    readonly logProfileName: pulumi.Input<string>;
     /**
      * the retention policy for the events in the log.
      */

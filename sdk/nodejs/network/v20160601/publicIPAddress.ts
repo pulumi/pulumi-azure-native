@@ -60,7 +60,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
@@ -99,8 +99,8 @@ export class PublicIPAddress extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PublicIPAddressArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.publicIpAddressName === undefined) {
+                throw new Error("Missing required property 'publicIpAddressName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -111,14 +111,15 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
             inputs["publicIPAllocationMethod"] = args ? args.publicIPAllocationMethod : undefined;
+            inputs["publicIpAddressName"] = args ? args.publicIpAddressName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ipConfiguration"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -160,10 +161,6 @@ export interface PublicIPAddressArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the publicIpAddress.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
     readonly provisioningState?: pulumi.Input<string>;
@@ -175,6 +172,10 @@ export interface PublicIPAddressArgs {
      * Gets or sets PublicIP allocation method (Static/Dynamic)
      */
     readonly publicIPAllocationMethod?: pulumi.Input<string>;
+    /**
+     * The name of the publicIpAddress.
+     */
+    readonly publicIpAddressName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

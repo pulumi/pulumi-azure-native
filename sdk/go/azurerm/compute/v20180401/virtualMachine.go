@@ -60,11 +60,11 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VmName == nil {
+		return nil, errors.New("missing required argument 'VmName'")
 	}
 	if args == nil {
 		args = &VirtualMachineArgs{}
@@ -222,8 +222,6 @@ type virtualMachineArgs struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the virtual machine.
-	Name string `pulumi:"name"`
 	// Specifies the network interfaces of the virtual machine.
 	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
 	// Specifies the operating system settings for the virtual machine.
@@ -238,6 +236,8 @@ type virtualMachineArgs struct {
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the virtual machine.
+	VmName string `pulumi:"vmName"`
 	// The virtual machine zones.
 	Zones []string `pulumi:"zones"`
 }
@@ -256,8 +256,6 @@ type VirtualMachineArgs struct {
 	LicenseType pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the virtual machine.
-	Name pulumi.StringInput
 	// Specifies the network interfaces of the virtual machine.
 	NetworkProfile NetworkProfilePtrInput
 	// Specifies the operating system settings for the virtual machine.
@@ -272,6 +270,8 @@ type VirtualMachineArgs struct {
 	StorageProfile StorageProfilePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// The name of the virtual machine.
+	VmName pulumi.StringInput
 	// The virtual machine zones.
 	Zones pulumi.StringArrayInput
 }

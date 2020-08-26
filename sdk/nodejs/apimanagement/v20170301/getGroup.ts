@@ -15,7 +15,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20170301:getGroup", {
-        "name": args.name,
+        "groupId": args.groupId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetGroupArgs {
     /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
-    readonly name: string;
+    readonly groupId: string;
     /**
      * The name of the resource group.
      */

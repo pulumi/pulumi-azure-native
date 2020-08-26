@@ -51,7 +51,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of sqlFilter
      */
@@ -74,14 +74,14 @@ export class Rule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RuleArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.ruleName === undefined) {
+                throw new Error("Missing required property 'ruleName'");
             }
             if (!args || args.subscriptionName === undefined) {
                 throw new Error("Missing required property 'subscriptionName'");
@@ -92,12 +92,13 @@ export class Rule extends pulumi.CustomResource {
             inputs["action"] = args ? args.action : undefined;
             inputs["correlationFilter"] = args ? args.correlationFilter : undefined;
             inputs["filterType"] = args ? args.filterType : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ruleName"] = args ? args.ruleName : undefined;
             inputs["sqlFilter"] = args ? args.sqlFilter : undefined;
             inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -128,10 +129,6 @@ export interface RuleArgs {
      */
     readonly filterType?: pulumi.Input<string>;
     /**
-     * The rule name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The namespace name
      */
     readonly namespaceName: pulumi.Input<string>;
@@ -139,6 +136,10 @@ export interface RuleArgs {
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The rule name.
+     */
+    readonly ruleName: pulumi.Input<string>;
     /**
      * Properties of sqlFilter
      */

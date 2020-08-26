@@ -31,11 +31,11 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 	if args == nil || args.IdProvider == nil {
 		return nil, errors.New("missing required argument 'IdProvider'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TrustedIdProviderName == nil {
+		return nil, errors.New("missing required argument 'TrustedIdProviderName'")
 	}
 	if args == nil {
 		args = &TrustedIdProviderArgs{}
@@ -88,10 +88,10 @@ type trustedIdProviderArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The URL of this trusted identity provider.
 	IdProvider string `pulumi:"idProvider"`
-	// The name of the trusted identity provider. This is used for differentiation of providers in the account.
-	Name string `pulumi:"name"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the trusted identity provider. This is used for differentiation of providers in the account.
+	TrustedIdProviderName string `pulumi:"trustedIdProviderName"`
 }
 
 // The set of arguments for constructing a TrustedIdProvider resource.
@@ -100,10 +100,10 @@ type TrustedIdProviderArgs struct {
 	AccountName pulumi.StringInput
 	// The URL of this trusted identity provider.
 	IdProvider pulumi.StringInput
-	// The name of the trusted identity provider. This is used for differentiation of providers in the account.
-	Name pulumi.StringInput
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the trusted identity provider. This is used for differentiation of providers in the account.
+	TrustedIdProviderName pulumi.StringInput
 }
 
 func (TrustedIdProviderArgs) ElementType() reflect.Type {

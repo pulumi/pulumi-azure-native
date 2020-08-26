@@ -67,20 +67,20 @@ class AwaitableGetInputResult(GetInputResult):
             type=self.type)
 
 
-def get_input(job_name: Optional[str] = None,
-              name: Optional[str] = None,
+def get_input(input_name: Optional[str] = None,
+              job_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInputResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str input_name: The name of the input.
     :param str job_name: The name of the streaming job.
-    :param str name: The name of the input.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
     __args__ = dict()
+    __args__['inputName'] = input_name
     __args__['jobName'] = job_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

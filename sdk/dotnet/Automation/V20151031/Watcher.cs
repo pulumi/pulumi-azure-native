@@ -174,12 +174,6 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The watcher name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -220,6 +214,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The watcher name.
+        /// </summary>
+        [Input("watcherName", required: true)]
+        public Input<string> WatcherName { get; set; } = null!;
 
         public WatcherArgs()
         {

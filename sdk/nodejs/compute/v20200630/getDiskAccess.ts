@@ -15,7 +15,7 @@ export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20200630:getDiskAccess", {
-        "name": args.name,
+        "diskAccessName": args.diskAccessName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDiskAccessArgs {
     /**
      * The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
      */
-    readonly name: string;
+    readonly diskAccessName: string;
     /**
      * The name of the resource group.
      */

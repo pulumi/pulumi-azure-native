@@ -43,7 +43,7 @@ export class DeploymentAtTenantScope extends pulumi.CustomResource {
     /**
      * The name of the deployment.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Deployment properties.
      */
@@ -66,18 +66,19 @@ export class DeploymentAtTenantScope extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DeploymentAtTenantScopeArgs | undefined;
+            if (!args || args.deploymentName === undefined) {
+                throw new Error("Missing required property 'deploymentName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
+            inputs["deploymentName"] = args ? args.deploymentName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,13 +99,13 @@ export class DeploymentAtTenantScope extends pulumi.CustomResource {
  */
 export interface DeploymentAtTenantScopeArgs {
     /**
+     * The name of the deployment.
+     */
+    readonly deploymentName: pulumi.Input<string>;
+    /**
      * The location to store the deployment data.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the deployment.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The deployment properties.
      */

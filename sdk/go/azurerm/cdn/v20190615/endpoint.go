@@ -59,11 +59,11 @@ type Endpoint struct {
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewEndpoint(ctx *pulumi.Context,
 	name string, args *EndpointArgs, opts ...pulumi.ResourceOption) (*Endpoint, error) {
+	if args == nil || args.EndpointName == nil {
+		return nil, errors.New("missing required argument 'EndpointName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Origins == nil {
 		return nil, errors.New("missing required argument 'Origins'")
@@ -223,6 +223,8 @@ type endpointArgs struct {
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
 	// A policy that specifies the delivery rules to be used for an endpoint.
 	DeliveryPolicy *EndpointPropertiesUpdateParametersDeliveryPolicy `pulumi:"deliveryPolicy"`
+	// Name of the endpoint under the profile which is unique globally.
+	EndpointName string `pulumi:"endpointName"`
 	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
 	GeoFilters []GeoFilter `pulumi:"geoFilters"`
 	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
@@ -233,8 +235,6 @@ type endpointArgs struct {
 	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// Name of the endpoint under the profile which is unique globally.
-	Name string `pulumi:"name"`
 	// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
 	OptimizationType *string `pulumi:"optimizationType"`
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
@@ -263,6 +263,8 @@ type EndpointArgs struct {
 	ContentTypesToCompress pulumi.StringArrayInput
 	// A policy that specifies the delivery rules to be used for an endpoint.
 	DeliveryPolicy EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput
+	// Name of the endpoint under the profile which is unique globally.
+	EndpointName pulumi.StringInput
 	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
 	GeoFilters GeoFilterArrayInput
 	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
@@ -273,8 +275,6 @@ type EndpointArgs struct {
 	IsHttpsAllowed pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// Name of the endpoint under the profile which is unique globally.
-	Name pulumi.StringInput
 	// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
 	OptimizationType pulumi.StringPtrInput
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.

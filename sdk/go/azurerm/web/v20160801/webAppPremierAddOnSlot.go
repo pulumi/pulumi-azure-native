@@ -47,6 +47,9 @@ func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PremierAddOnName == nil {
+		return nil, errors.New("missing required argument 'PremierAddOnName'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -158,8 +161,10 @@ type webAppPremierAddOnSlotArgs struct {
 	MarketplaceOffer *string `pulumi:"marketplaceOffer"`
 	// Premier add on Marketplace publisher.
 	MarketplacePublisher *string `pulumi:"marketplacePublisher"`
-	// Premier add on Name.
+	// Name of the app.
 	Name string `pulumi:"name"`
+	// Premier add on Name.
+	PremierAddOnName string `pulumi:"premierAddOnName"`
 	// Premier add on Product.
 	Product *string `pulumi:"product"`
 	// Name of the resource group to which the resource belongs.
@@ -184,8 +189,10 @@ type WebAppPremierAddOnSlotArgs struct {
 	MarketplaceOffer pulumi.StringPtrInput
 	// Premier add on Marketplace publisher.
 	MarketplacePublisher pulumi.StringPtrInput
-	// Premier add on Name.
+	// Name of the app.
 	Name pulumi.StringInput
+	// Premier add on Name.
+	PremierAddOnName pulumi.StringInput
 	// Premier add on Product.
 	Product pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.

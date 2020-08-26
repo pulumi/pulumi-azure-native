@@ -17,6 +17,7 @@ class Api(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_id: Optional[pulumi.Input[str]] = None,
                  api_revision: Optional[pulumi.Input[str]] = None,
                  api_revision_description: Optional[pulumi.Input[str]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
@@ -29,7 +30,6 @@ class Api(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  is_current: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -49,6 +49,7 @@ class Api(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[str] api_revision: Describes the Revision of the Api. If no value is provided, default revision 1 is created
         :param pulumi.Input[str] api_revision_description: Description of the Api Revision.
         :param pulumi.Input[str] api_type: Type of API.
@@ -61,7 +62,6 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: API name. Must be 1 to 300 characters long.
         :param pulumi.Input[str] format: Format of the Content in which the API is getting imported.
         :param pulumi.Input[bool] is_current: Indicates if API revision is current api revision.
-        :param pulumi.Input[str] name: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[str] path: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
         :param pulumi.Input[List[pulumi.Input[str]]] protocols: Describes on which protocols the operations in this API can be invoked.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -93,6 +93,9 @@ class Api(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if api_id is None:
+                raise TypeError("Missing required property 'api_id'")
+            __props__['api_id'] = api_id
             __props__['api_revision'] = api_revision
             __props__['api_revision_description'] = api_revision_description
             __props__['api_type'] = api_type
@@ -105,9 +108,6 @@ class Api(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['format'] = format
             __props__['is_current'] = is_current
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if path is None:
                 raise TypeError("Missing required property 'path'")
             __props__['path'] = path
@@ -126,6 +126,7 @@ class Api(pulumi.CustomResource):
             __props__['value'] = value
             __props__['wsdl_selector'] = wsdl_selector
             __props__['is_online'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Api")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

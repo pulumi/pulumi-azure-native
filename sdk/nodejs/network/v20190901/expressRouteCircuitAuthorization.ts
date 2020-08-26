@@ -72,16 +72,17 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ExpressRouteCircuitAuthorizationArgs | undefined;
+            if (!args || args.authorizationName === undefined) {
+                throw new Error("Missing required property 'authorizationName'");
+            }
             if (!args || args.circuitName === undefined) {
                 throw new Error("Missing required property 'circuitName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            inputs["authorizationName"] = args ? args.authorizationName : undefined;
             inputs["authorizationUseStatus"] = args ? args.authorizationUseStatus : undefined;
             inputs["circuitName"] = args ? args.circuitName : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -113,6 +114,10 @@ export interface ExpressRouteCircuitAuthorizationArgs {
      */
     readonly authorizationKey?: pulumi.Input<string>;
     /**
+     * The name of the authorization.
+     */
+    readonly authorizationName: pulumi.Input<string>;
+    /**
      * The authorization use status.
      */
     readonly authorizationUseStatus?: pulumi.Input<string>;
@@ -125,9 +130,9 @@ export interface ExpressRouteCircuitAuthorizationArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the authorization.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -17,10 +17,10 @@ class DatabaseAccountTable(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['TableResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,10 +30,10 @@ class DatabaseAccountTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[str] name: Cosmos DB table name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[pulumi.InputType['TableResourceArgs']] resource: The standard JSON format of a Table
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
+        :param pulumi.Input[str] table_name: Cosmos DB table name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,9 +55,6 @@ class DatabaseAccountTable(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if options is None:
                 raise TypeError("Missing required property 'options'")
             __props__['options'] = options
@@ -67,7 +64,11 @@ class DatabaseAccountTable(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if table_name is None:
+                raise TypeError("Missing required property 'table_name'")
+            __props__['table_name'] = table_name
             __props__['location'] = None
+            __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/v20150401:DatabaseAccountTable"), pulumi.Alias(type_="azurerm:documentdb/v20150408:DatabaseAccountTable"), pulumi.Alias(type_="azurerm:documentdb/v20151106:DatabaseAccountTable"), pulumi.Alias(type_="azurerm:documentdb/v20160319:DatabaseAccountTable")])

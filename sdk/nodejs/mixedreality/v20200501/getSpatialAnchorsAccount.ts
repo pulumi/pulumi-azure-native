@@ -15,7 +15,7 @@ export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:mixedreality/v20200501:getSpatialAnchorsAccount", {
-        "name": args.name,
+        "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetSpatialAnchorsAccountArgs {
     /**
      * Name of an Mixed Reality Account.
      */
-    readonly name: string;
+    readonly accountName: string;
     /**
      * Name of an Azure resource group.
      */

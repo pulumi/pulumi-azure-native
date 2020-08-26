@@ -32,8 +32,8 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
 	}
 	if args == nil || args.PrivateLinkServiceConnectionState == nil {
 		return nil, errors.New("missing required argument 'PrivateLinkServiceConnectionState'")
@@ -99,7 +99,7 @@ type privateEndpointConnectionArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
 	// The name of the private endpoint connection associated with the Azure resource
-	Name string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
@@ -113,7 +113,7 @@ type PrivateEndpointConnectionArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
 	// The name of the private endpoint connection associated with the Azure resource
-	Name pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The provisioning state of the private endpoint connection resource.

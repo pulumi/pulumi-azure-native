@@ -82,11 +82,12 @@ export class ManagementGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ManagementGroupArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.groupId === undefined) {
+                throw new Error("Missing required property 'groupId'");
             }
             inputs["details"] = args ? args.details : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["groupId"] = args ? args.groupId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["children"] = undefined /*out*/;
             inputs["path"] = undefined /*out*/;
@@ -122,5 +123,9 @@ export interface ManagementGroupArgs {
     /**
      * Management Group ID.
      */
-    readonly name: pulumi.Input<string>;
+    readonly groupId: pulumi.Input<string>;
+    /**
+     * The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+     */
+    readonly name?: pulumi.Input<string>;
 }

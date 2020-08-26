@@ -19,12 +19,12 @@ class VirtualNetworkLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  private_zone_name: Optional[pulumi.Input[str]] = None,
                  registration_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 virtual_network_link_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,12 +35,12 @@ class VirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The ETag of the virtual network link.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The name of the virtual network link.
         :param pulumi.Input[str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
         :param pulumi.Input[bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_network: The reference of the virtual network.
+        :param pulumi.Input[str] virtual_network_link_name: The name of the virtual network link.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,9 +61,6 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
             __props__['etag'] = etag
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if private_zone_name is None:
                 raise TypeError("Missing required property 'private_zone_name'")
             __props__['private_zone_name'] = private_zone_name
@@ -73,6 +70,10 @@ class VirtualNetworkLink(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['virtual_network'] = virtual_network
+            if virtual_network_link_name is None:
+                raise TypeError("Missing required property 'virtual_network_link_name'")
+            __props__['virtual_network_link_name'] = virtual_network_link_name
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['virtual_network_link_state'] = None

@@ -21,7 +21,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
                  policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicySettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,7 +37,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the policy.
+        :param pulumi.Input[str] policy_name: The name of the policy.
         :param pulumi.Input[pulumi.InputType['PolicySettingsArgs']] policy_settings: Describes  policySettings for policy
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -63,15 +63,16 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if policy_name is None:
+                raise TypeError("Missing required property 'policy_name'")
+            __props__['policy_name'] = policy_name
             __props__['policy_settings'] = policy_settings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['application_gateways'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None

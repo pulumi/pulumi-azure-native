@@ -15,20 +15,20 @@ export function getMetricAlert(args: GetMetricAlertArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20180301:getMetricAlert", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
     }, opts);
 }
 
 export interface GetMetricAlertArgs {
     /**
-     * The name of the rule.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the rule.
+     */
+    readonly ruleName: string;
 }
 
 /**

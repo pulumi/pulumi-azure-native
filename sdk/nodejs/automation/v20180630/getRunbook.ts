@@ -16,8 +16,8 @@ export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:automation/v20180630:getRunbook", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "runbookName": args.runbookName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetRunbookArgs {
      */
     readonly automationAccountName: string;
     /**
-     * The runbook name.
-     */
-    readonly name: string;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The runbook name.
+     */
+    readonly runbookName: string;
 }
 
 /**

@@ -17,8 +17,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,8 +32,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authorization_rule_name: Authorization Rule Name.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Authorization Rule Name.
         :param pulumi.Input[str] namespace_name: The namespace name.
         :param pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']] properties: Properties of the Namespace AuthorizationRules.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -57,12 +57,12 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if authorization_rule_name is None:
+                raise TypeError("Missing required property 'authorization_rule_name'")
+            __props__['authorization_rule_name'] = authorization_rule_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
@@ -74,6 +74,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['rights'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:notificationhubs/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azurerm:notificationhubs/v20170401:NamespaceAuthorizationRule")])

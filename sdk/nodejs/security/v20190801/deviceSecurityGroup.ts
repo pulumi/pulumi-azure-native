@@ -47,7 +47,7 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The list of custom alert threshold rules.
      */
@@ -74,18 +74,19 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DeviceSecurityGroupArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.deviceSecurityGroupName === undefined) {
+                throw new Error("Missing required property 'deviceSecurityGroupName'");
             }
             if (!args || args.resourceId === undefined) {
                 throw new Error("Missing required property 'resourceId'");
             }
             inputs["allowlistRules"] = args ? args.allowlistRules : undefined;
             inputs["denylistRules"] = args ? args.denylistRules : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["deviceSecurityGroupName"] = args ? args.deviceSecurityGroupName : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["thresholdRules"] = args ? args.thresholdRules : undefined;
             inputs["timeWindowRules"] = args ? args.timeWindowRules : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,7 +115,7 @@ export interface DeviceSecurityGroupArgs {
     /**
      * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
-    readonly name: pulumi.Input<string>;
+    readonly deviceSecurityGroupName: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */

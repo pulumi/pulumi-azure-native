@@ -34,8 +34,8 @@ func NewOutput(ctx *pulumi.Context,
 	if args == nil || args.JobName == nil {
 		return nil, errors.New("missing required argument 'JobName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.OutputName == nil {
+		return nil, errors.New("missing required argument 'OutputName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -103,8 +103,10 @@ type outputArgs struct {
 	Datasource *OutputDataSource `pulumi:"datasource"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
+	// Resource name
+	Name *string `pulumi:"name"`
 	// The name of the output.
-	Name string `pulumi:"name"`
+	OutputName string `pulumi:"outputName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
@@ -117,8 +119,10 @@ type OutputArgs struct {
 	Datasource OutputDataSourcePtrInput
 	// The name of the streaming job.
 	JobName pulumi.StringInput
+	// Resource name
+	Name pulumi.StringPtrInput
 	// The name of the output.
-	Name pulumi.StringInput
+	OutputName pulumi.StringInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.

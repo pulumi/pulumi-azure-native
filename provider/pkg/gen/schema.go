@@ -175,12 +175,6 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		return
 	}
 
-	err = gen.normalizeName(key, resourceRequest, resourceResponse)
-	if err != nil {
-		log.Printf("failed to assign name for '%s': %s", resourceTok, err.Error())
-		return
-	}
-
 	gen.escapeCSharpNames(typeName, resourceResponse)
 
 	// Add an alias for each API version that has the same path in it.
@@ -221,8 +215,6 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
 		return
 	}
-
-	gen.normalizeName(key, requestFunction, responseFunction)
 
 	functionSpec := pschema.FunctionSpec{
 		Inputs: &pschema.ObjectTypeSpec{
@@ -306,8 +298,6 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 		return
 	}
 
-	gen.normalizeName(key, request, response)
-
 	functionSpec := pschema.FunctionSpec{
 		Inputs: &pschema.ObjectTypeSpec{
 			Description: request.description,
@@ -349,56 +339,6 @@ type moduleGenerator struct {
 	module        string
 	resourceToken string
 	visitedTypes  map[string]bool
-}
-
-// normalizeName replaces a custom name input property like `accountName` or `resourceGroupName` with the standard
-// `name` property.
-func (m *moduleGenerator) normalizeName(path string, requestProperties *parameterBag, responseProperties *propertyBag) error {
-	// Do nothing if there's no `name` in response properties - we always expect it for any resource.
-	if _, ok := responseProperties.specs["name"]; !ok {
-		return nil
-	}
-
-	parts := strings.Split(path, "/")
-	for i := len(parts) - 1; i >= 4; i-- {
-		part := parts[i]
-		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
-			name := part[1 : len(part)-1]
-			if name == "name" {
-				// It's already called `name`, nothing needs to change.
-				return nil
-			}
-			sdkName := name
-			for _, v := range requestProperties.parameters {
-				if v.Name == name {
-					prop := v.Value
-					if prop.SdkName != "" {
-						sdkName = prop.SdkName
-					}
-					// We expect names to be always a required string.
-					if prop.Type != "string" {
-						return errors.Errorf("name property '%s' is not a string", name)
-					}
-					prop.SdkName = "name"
-					break
-				}
-			}
-			if !requestProperties.requiredSpecs.Has(sdkName) {
-				return errors.Errorf("name property '%s' is not required", name)
-			}
-			if nameProp, ok := requestProperties.specs[sdkName]; ok {
-				delete(requestProperties.specs, sdkName)
-				requestProperties.specs["name"] = nameProp
-				requestProperties.requiredSpecs.Delete(sdkName)
-				requestProperties.requiredSpecs.Add("name")
-				break
-			} else {
-				return errors.Errorf("name property '%s' not found", sdkName)
-			}
-		}
-	}
-
-	return nil
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {

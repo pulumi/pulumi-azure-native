@@ -19,10 +19,16 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class GetWebAppPremierAddOnArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Add-on name.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
+
+        /// <summary>
+        /// Add-on name.
+        /// </summary>
+        [Input("premierAddOnName", required: true)]
+        public string PremierAddOnName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

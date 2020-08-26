@@ -191,6 +191,9 @@ export class SiteSlot extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.slot === undefined) {
+                throw new Error("Missing required property 'slot'");
+            }
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             inputs["clientCertEnabled"] = args ? args.clientCertEnabled : undefined;
             inputs["cloningInfo"] = args ? args.cloningInfo : undefined;
@@ -213,6 +216,7 @@ export class SiteSlot extends pulumi.CustomResource {
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
             inputs["skipCustomDomainVerification"] = args ? args.skipCustomDomainVerification : undefined;
             inputs["skipDnsRegistration"] = args ? args.skipDnsRegistration : undefined;
+            inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttlInSeconds"] = args ? args.ttlInSeconds : undefined;
             inputs["type"] = args ? args.type : undefined;
@@ -309,7 +313,7 @@ export interface SiteSlotArgs {
     readonly maxNumberOfWorkers?: pulumi.Input<number>;
     readonly microService?: pulumi.Input<string>;
     /**
-     * Name of web app slot. If not specified then will default to production slot.
+     * Resource Name
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -334,6 +338,10 @@ export interface SiteSlotArgs {
      *             only used for app creation
      */
     readonly skipDnsRegistration?: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    readonly slot: pulumi.Input<string>;
     /**
      * Resource tags
      */

@@ -19,11 +19,11 @@ class ExpressRoutePort(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  encapsulation: Optional[pulumi.Input[str]] = None,
+                 express_route_port_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  links: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteLinkArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  peering_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,11 +37,11 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.
         :param pulumi.Input[str] encapsulation: Encapsulation method on physical ports.
+        :param pulumi.Input[str] express_route_port_name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of ExpressRoutePort, if configured.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteLinkArgs']]]] links: The set of physical links of the ExpressRoutePort resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[str] peering_location: The name of the peering location that the ExpressRoutePort is mapped to physically.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -65,13 +65,13 @@ class ExpressRoutePort(pulumi.CustomResource):
 
             __props__['bandwidth_in_gbps'] = bandwidth_in_gbps
             __props__['encapsulation'] = encapsulation
+            if express_route_port_name is None:
+                raise TypeError("Missing required property 'express_route_port_name'")
+            __props__['express_route_port_name'] = express_route_port_name
             __props__['id'] = id
             __props__['identity'] = identity
             __props__['links'] = links
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['peering_location'] = peering_location
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -82,6 +82,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['ether_type'] = None
             __props__['mtu'] = None
+            __props__['name'] = None
             __props__['provisioned_bandwidth_in_gbps'] = None
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None

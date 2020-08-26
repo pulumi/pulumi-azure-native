@@ -48,11 +48,11 @@ func NewServerDetails(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServerName == nil {
+		return nil, errors.New("missing required argument 'ServerName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
@@ -163,12 +163,12 @@ type serverDetailsArgs struct {
 	IpV4FirewallSettings *IPv4FirewallSettings `pulumi:"ipV4FirewallSettings"`
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
-	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-	Name string `pulumi:"name"`
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+	ServerName string `pulumi:"serverName"`
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSku `pulumi:"sku"`
 	// Key-value pairs of additional resource provisioning properties.
@@ -187,12 +187,12 @@ type ServerDetailsArgs struct {
 	IpV4FirewallSettings IPv4FirewallSettingsPtrInput
 	// Location of the Analysis Services resource.
 	Location pulumi.StringInput
-	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-	Name pulumi.StringInput
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
 	QuerypoolConnectionMode pulumi.StringPtrInput
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
+	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
+	ServerName pulumi.StringInput
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuInput
 	// Key-value pairs of additional resource provisioning properties.

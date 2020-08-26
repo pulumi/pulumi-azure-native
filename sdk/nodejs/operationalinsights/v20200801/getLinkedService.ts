@@ -15,7 +15,7 @@ export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20200801:getLinkedService", {
-        "name": args.name,
+        "linkedServiceName": args.linkedServiceName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetLinkedServiceArgs {
     /**
      * Name of the linked service.
      */
-    readonly name: string;
+    readonly linkedServiceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

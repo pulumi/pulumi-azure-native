@@ -15,7 +15,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:avs/v20200320:getCluster", {
-        "name": args.name,
+        "clusterName": args.clusterName,
         "privateCloudName": args.privateCloudName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetClusterArgs {
     /**
      * Name of the cluster in the private cloud
      */
-    readonly name: string;
+    readonly clusterName: string;
     /**
      * Name of the private cloud
      */

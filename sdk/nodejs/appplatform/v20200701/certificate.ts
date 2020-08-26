@@ -39,7 +39,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the certificate resource payload.
      */
@@ -62,8 +62,8 @@ export class Certificate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.certificateName === undefined) {
+                throw new Error("Missing required property 'certificateName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -71,10 +71,11 @@ export class Certificate extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["certificateName"] = args ? args.certificateName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -95,7 +96,7 @@ export interface CertificateArgs {
     /**
      * The name of the certificate resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly certificateName: pulumi.Input<string>;
     /**
      * Properties of the certificate resource payload.
      */

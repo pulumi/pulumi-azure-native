@@ -19,11 +19,11 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
                  authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
+                 circuit_name: Optional[pulumi.Input[str]] = None,
                  circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  peerings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -43,11 +43,11 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow classic operations
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]] authorizations: The list of authorizations.
+        :param pulumi.Input[str] circuit_name: The name of the circuit.
         :param pulumi.Input[str] circuit_provisioning_state: The CircuitProvisioningState state of the resource.
         :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the circuit.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] peerings: The list of peerings.
         :param pulumi.Input[str] provisioning_state: Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -77,13 +77,13 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
             __props__['allow_classic_operations'] = allow_classic_operations
             __props__['authorizations'] = authorizations
+            if circuit_name is None:
+                raise TypeError("Missing required property 'circuit_name'")
+            __props__['circuit_name'] = circuit_name
             __props__['circuit_provisioning_state'] = circuit_provisioning_state
             __props__['gateway_manager_etag'] = gateway_manager_etag
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['peerings'] = peerings
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
@@ -96,6 +96,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20150615:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20160330:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20160601:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20160901:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20170301:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20170601:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20170801:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20170901:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20171001:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20171101:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20180101:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20180201:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20180401:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20180601:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20180701:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20180801:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20181001:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20181101:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20181201:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20190201:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20190401:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20190601:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20190701:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20190801:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20190901:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20191101:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20191201:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20200301:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20200401:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20200501:ExpressRouteCircuit"), pulumi.Alias(type_="azurerm:network/v20200601:ExpressRouteCircuit")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

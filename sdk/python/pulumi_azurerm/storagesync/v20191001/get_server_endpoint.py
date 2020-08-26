@@ -247,22 +247,22 @@ class AwaitableGetServerEndpointResult(GetServerEndpointResult):
             volume_free_space_percent=self.volume_free_space_percent)
 
 
-def get_server_endpoint(name: Optional[str] = None,
-                        resource_group_name: Optional[str] = None,
+def get_server_endpoint(resource_group_name: Optional[str] = None,
+                        server_endpoint_name: Optional[str] = None,
                         storage_sync_service_name: Optional[str] = None,
                         sync_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerEndpointResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of Server Endpoint object.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str server_endpoint_name: Name of Server Endpoint object.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['serverEndpointName'] = server_endpoint_name
     __args__['storageSyncServiceName'] = storage_sync_service_name
     __args__['syncGroupName'] = sync_group_name
     if opts is None:

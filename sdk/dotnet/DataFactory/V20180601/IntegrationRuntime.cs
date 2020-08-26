@@ -92,8 +92,8 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// <summary>
         /// The integration runtime name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("integrationRuntimeName", required: true)]
+        public Input<string> IntegrationRuntimeName { get; set; } = null!;
 
         /// <summary>
         /// Integration runtime properties.

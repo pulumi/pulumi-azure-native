@@ -28,14 +28,14 @@ func NewTag(ctx *pulumi.Context,
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.TagId == nil {
+		return nil, errors.New("missing required argument 'TagId'")
 	}
 	if args == nil {
 		args = &TagArgs{}
@@ -98,24 +98,24 @@ func (TagState) ElementType() reflect.Type {
 type tagArgs struct {
 	// Tag name.
 	DisplayName string `pulumi:"displayName"`
-	// Tag identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Tag identifier. Must be unique in the current API Management service instance.
+	TagId string `pulumi:"tagId"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
 	// Tag name.
 	DisplayName pulumi.StringInput
-	// Tag identifier. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Tag identifier. Must be unique in the current API Management service instance.
+	TagId pulumi.StringInput
 }
 
 func (TagArgs) ElementType() reflect.Type {

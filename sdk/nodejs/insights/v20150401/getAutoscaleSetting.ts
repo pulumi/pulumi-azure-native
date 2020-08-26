@@ -15,7 +15,7 @@ export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20150401:getAutoscaleSetting", {
-        "name": args.name,
+        "autoscaleSettingName": args.autoscaleSettingName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetAutoscaleSettingArgs {
     /**
      * The autoscale setting name.
      */
-    readonly name: string;
+    readonly autoscaleSettingName: string;
     /**
      * The name of the resource group.
      */

@@ -17,10 +17,10 @@ func LookupProtectionContainer(ctx *pulumi.Context, args *LookupProtectionContai
 }
 
 type LookupProtectionContainerArgs struct {
+	// Name of the container whose details need to be fetched.
+	ContainerName string `pulumi:"containerName"`
 	// Name of the fabric where the container belongs.
 	FabricName string `pulumi:"fabricName"`
-	// Name of the container whose details need to be fetched.
-	Name string `pulumi:"name"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.

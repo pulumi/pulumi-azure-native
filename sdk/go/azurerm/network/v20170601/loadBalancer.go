@@ -47,8 +47,8 @@ type LoadBalancer struct {
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancer(ctx *pulumi.Context,
 	name string, args *LoadBalancerArgs, opts ...pulumi.ResourceOption) (*LoadBalancer, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LoadBalancerName == nil {
+		return nil, errors.New("missing required argument 'LoadBalancerName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -252,12 +252,12 @@ type loadBalancerArgs struct {
 	InboundNatPools []InboundNatPool `pulumi:"inboundNatPools"`
 	// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
 	InboundNatRules []InboundNatRuleType `pulumi:"inboundNatRules"`
+	// The name of the load balancer.
+	LoadBalancerName string `pulumi:"loadBalancerName"`
 	// Object collection representing the load balancing rules Gets the provisioning
 	LoadBalancingRules []LoadBalancingRule `pulumi:"loadBalancingRules"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the load balancer.
-	Name string `pulumi:"name"`
 	// The outbound NAT rules.
 	OutboundNatRules []OutboundNatRule `pulumi:"outboundNatRules"`
 	// Collection of probe objects used in the load balancer
@@ -286,12 +286,12 @@ type LoadBalancerArgs struct {
 	InboundNatPools InboundNatPoolArrayInput
 	// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
 	InboundNatRules InboundNatRuleTypeArrayInput
+	// The name of the load balancer.
+	LoadBalancerName pulumi.StringInput
 	// Object collection representing the load balancing rules Gets the provisioning
 	LoadBalancingRules LoadBalancingRuleArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the load balancer.
-	Name pulumi.StringInput
 	// The outbound NAT rules.
 	OutboundNatRules OutboundNatRuleArrayInput
 	// Collection of probe objects used in the load balancer

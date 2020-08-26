@@ -19,6 +19,7 @@ class AuthorizationServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_endpoint: Optional[pulumi.Input[str]] = None,
                  authorization_methods: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 authsid: Optional[pulumi.Input[str]] = None,
                  bearer_token_sending_methods: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  client_authentication_method: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -28,7 +29,6 @@ class AuthorizationServer(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  grant_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_owner_password: Optional[pulumi.Input[str]] = None,
                  resource_owner_username: Optional[pulumi.Input[str]] = None,
@@ -46,6 +46,7 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_endpoint: OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
         :param pulumi.Input[List[pulumi.Input[str]]] authorization_methods: HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+        :param pulumi.Input[str] authsid: Identifier of the authorization server.
         :param pulumi.Input[List[pulumi.Input[str]]] bearer_token_sending_methods: Specifies the mechanism by which access token is passed to the API. 
         :param pulumi.Input[List[pulumi.Input[str]]] client_authentication_method: Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
         :param pulumi.Input[str] client_id: Client or app id registered with this authorization server.
@@ -55,7 +56,6 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the authorization server. Can contain HTML formatting tags.
         :param pulumi.Input[str] display_name: User-friendly authorization server name.
         :param pulumi.Input[List[pulumi.Input[str]]] grant_types: Form of an authorization grant, which the client uses to request the access token.
-        :param pulumi.Input[str] name: Identifier of the authorization server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_owner_password: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
         :param pulumi.Input[str] resource_owner_username: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
@@ -85,6 +85,9 @@ class AuthorizationServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authorization_endpoint'")
             __props__['authorization_endpoint'] = authorization_endpoint
             __props__['authorization_methods'] = authorization_methods
+            if authsid is None:
+                raise TypeError("Missing required property 'authsid'")
+            __props__['authsid'] = authsid
             __props__['bearer_token_sending_methods'] = bearer_token_sending_methods
             __props__['client_authentication_method'] = client_authentication_method
             if client_id is None:
@@ -102,9 +105,6 @@ class AuthorizationServer(pulumi.CustomResource):
             if grant_types is None:
                 raise TypeError("Missing required property 'grant_types'")
             __props__['grant_types'] = grant_types
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -116,6 +116,7 @@ class AuthorizationServer(pulumi.CustomResource):
             __props__['support_state'] = support_state
             __props__['token_body_parameters'] = token_body_parameters
             __props__['token_endpoint'] = token_endpoint
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:AuthorizationServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

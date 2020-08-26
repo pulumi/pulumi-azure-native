@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20180401
     public sealed class GetEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the Traffic Manager endpoint.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public string EndpointName { get; set; } = null!;
+
+        /// <summary>
         /// The type of the Traffic Manager endpoint.
         /// </summary>
         [Input("endpointType", required: true)]
         public string EndpointType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Traffic Manager endpoint.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the Traffic Manager profile.

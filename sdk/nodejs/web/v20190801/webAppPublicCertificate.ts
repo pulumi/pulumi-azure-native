@@ -75,6 +75,9 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.publicCertificateName === undefined) {
+                throw new Error("Missing required property 'publicCertificateName'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -82,6 +85,7 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["publicCertificateLocation"] = args ? args.publicCertificateLocation : undefined;
+            inputs["publicCertificateName"] = args ? args.publicCertificateName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -112,13 +116,17 @@ export interface WebAppPublicCertificateArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Public certificate name.
+     * Name of the app.
      */
     readonly name: pulumi.Input<string>;
     /**
      * Public Certificate Location
      */
     readonly publicCertificateLocation?: pulumi.Input<string>;
+    /**
+     * Public certificate name.
+     */
+    readonly publicCertificateName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

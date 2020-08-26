@@ -184,16 +184,16 @@ namespace Pulumi.AzureRM.Network.V20181101
         public Input<Inputs.AddressSpaceArgs>? LocalNetworkAddressSpace { get; set; }
 
         /// <summary>
+        /// The name of the local network gateway.
+        /// </summary>
+        [Input("localNetworkGatewayName", required: true)]
+        public Input<string> LocalNetworkGatewayName { get; set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the local network gateway.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

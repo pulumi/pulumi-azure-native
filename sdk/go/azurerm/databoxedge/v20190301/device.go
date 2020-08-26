@@ -57,11 +57,11 @@ type Device struct {
 // NewDevice registers a new resource with the given unique name, arguments, and options.
 func NewDevice(ctx *pulumi.Context,
 	name string, args *DeviceArgs, opts ...pulumi.ResourceOption) (*Device, error) {
+	if args == nil || args.DeviceName == nil {
+		return nil, errors.New("missing required argument 'DeviceName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -190,6 +190,8 @@ type deviceArgs struct {
 	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
 	// The Description of the Data Box Edge/Gateway device.
 	Description *string `pulumi:"description"`
+	// The device name.
+	DeviceName string `pulumi:"deviceName"`
 	// The etag for the devices.
 	Etag *string `pulumi:"etag"`
 	// The Data Box Edge/Gateway device name.
@@ -198,8 +200,6 @@ type deviceArgs struct {
 	Location string `pulumi:"location"`
 	// The description of the Data Box Edge/Gateway device model.
 	ModelDescription *string `pulumi:"modelDescription"`
-	// The device name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU type.
@@ -214,6 +214,8 @@ type DeviceArgs struct {
 	DataBoxEdgeDeviceStatus pulumi.StringPtrInput
 	// The Description of the Data Box Edge/Gateway device.
 	Description pulumi.StringPtrInput
+	// The device name.
+	DeviceName pulumi.StringInput
 	// The etag for the devices.
 	Etag pulumi.StringPtrInput
 	// The Data Box Edge/Gateway device name.
@@ -222,8 +224,6 @@ type DeviceArgs struct {
 	Location pulumi.StringInput
 	// The description of the Data Box Edge/Gateway device model.
 	ModelDescription pulumi.StringPtrInput
-	// The device name.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The SKU type.

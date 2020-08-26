@@ -15,7 +15,7 @@ export function getDeploymentAtSubscriptionScope(args: GetDeploymentAtSubscripti
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:resources/v20190701:getDeploymentAtSubscriptionScope", {
-        "name": args.name,
+        "deploymentName": args.deploymentName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetDeploymentAtSubscriptionScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly name: string;
+    readonly deploymentName: string;
 }
 
 /**

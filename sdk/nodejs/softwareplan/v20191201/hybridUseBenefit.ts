@@ -51,7 +51,7 @@ export class HybridUseBenefit extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state
      */
@@ -78,8 +78,8 @@ export class HybridUseBenefit extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as HybridUseBenefitArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.planId === undefined) {
+                throw new Error("Missing required property 'planId'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
@@ -87,12 +87,13 @@ export class HybridUseBenefit extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["planId"] = args ? args.planId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["createdDate"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -114,7 +115,7 @@ export interface HybridUseBenefitArgs {
     /**
      * This is a unique identifier for a plan. Should be a guid.
      */
-    readonly name: pulumi.Input<string>;
+    readonly planId: pulumi.Input<string>;
     /**
      * The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
      */

@@ -15,7 +15,7 @@ export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20180710:getReplicationPolicy", {
-        "name": args.name,
+        "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetReplicationPolicyArgs {
     /**
      * Replication policy name.
      */
-    readonly name: string;
+    readonly policyName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

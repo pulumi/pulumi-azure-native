@@ -220,6 +220,12 @@ namespace Pulumi.AzureRM.Network.V20180701
         }
 
         /// <summary>
+        /// The name of the circuit.
+        /// </summary>
+        [Input("circuitName", required: true)]
+        public Input<string> CircuitName { get; set; } = null!;
+
+        /// <summary>
         /// The CircuitProvisioningState state of the resource.
         /// </summary>
         [Input("circuitProvisioningState")]
@@ -242,12 +248,6 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the circuit.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("peerings")]
         private InputList<Inputs.ExpressRouteCircuitPeeringArgs>? _peerings;

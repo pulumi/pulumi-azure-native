@@ -112,10 +112,10 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the site.
+        /// Name of the virtual appliance site.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the Network Virtual Appliance.
@@ -134,6 +134,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the site.
+        /// </summary>
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
 
         public VirtualApplianceSiteArgs()
         {

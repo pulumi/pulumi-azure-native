@@ -36,14 +36,14 @@ func NewApiTagDescription(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.TagDescriptionId == nil {
+		return nil, errors.New("missing required argument 'TagDescriptionId'")
 	}
 	if args == nil {
 		args = &ApiTagDescriptionArgs{}
@@ -116,12 +116,12 @@ type apiTagDescriptionArgs struct {
 	ExternalDocsDescription *string `pulumi:"externalDocsDescription"`
 	// Absolute URL of external resources describing the tag.
 	ExternalDocsUrl *string `pulumi:"externalDocsUrl"`
-	// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
+	TagDescriptionId string `pulumi:"tagDescriptionId"`
 }
 
 // The set of arguments for constructing a ApiTagDescription resource.
@@ -134,12 +134,12 @@ type ApiTagDescriptionArgs struct {
 	ExternalDocsDescription pulumi.StringPtrInput
 	// Absolute URL of external resources describing the tag.
 	ExternalDocsUrl pulumi.StringPtrInput
-	// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
+	TagDescriptionId pulumi.StringInput
 }
 
 func (ApiTagDescriptionArgs) ElementType() reflect.Type {

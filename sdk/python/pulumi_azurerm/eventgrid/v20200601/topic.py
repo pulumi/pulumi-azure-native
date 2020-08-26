@@ -21,11 +21,11 @@ class Topic(pulumi.CustomResource):
                  input_schema: Optional[pulumi.Input[str]] = None,
                  input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['InputSchemaMappingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,11 +38,11 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] input_schema: This determines the format that Event Grid should expect for incoming events published to the topic.
         :param pulumi.Input[pulumi.InputType['InputSchemaMappingArgs']] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[str] name: Name of the topic.
         :param pulumi.Input[str] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. 
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
+        :param pulumi.Input[str] topic_name: Name of the topic.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,17 +67,18 @@ class Topic(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['private_endpoint_connections'] = private_endpoint_connections
             __props__['public_network_access'] = public_network_access
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if topic_name is None:
+                raise TypeError("Missing required property 'topic_name'")
+            __props__['topic_name'] = topic_name
             __props__['endpoint'] = None
             __props__['metric_resource_id'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventgrid/v20180101:Topic"), pulumi.Alias(type_="azurerm:eventgrid/v20190101:Topic"), pulumi.Alias(type_="azurerm:eventgrid/v20190601:Topic")])

@@ -331,20 +331,20 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             type=self.type)
 
 
-def get_storage_account(expand: Optional[str] = None,
-                        name: Optional[str] = None,
+def get_storage_account(account_name: Optional[str] = None,
+                        expand: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str expand: May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats.
-    :param str name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
     __args__ = dict()
+    __args__['accountName'] = account_name
     __args__['expand'] = expand
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

@@ -15,9 +15,9 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 administrator_name: Optional[pulumi.Input[str]] = None,
                  administrator_type: Optional[pulumi.Input[str]] = None,
                  login: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sid: Optional[pulumi.Input[str]] = None,
@@ -30,9 +30,9 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] administrator_name: Name of the server administrator resource.
         :param pulumi.Input[str] administrator_type: The type of administrator.
         :param pulumi.Input[str] login: The server administrator login value.
-        :param pulumi.Input[str] name: Name of the server administrator resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] sid: The server administrator Sid (Secure ID).
@@ -55,15 +55,15 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if administrator_name is None:
+                raise TypeError("Missing required property 'administrator_name'")
+            __props__['administrator_name'] = administrator_name
             if administrator_type is None:
                 raise TypeError("Missing required property 'administrator_type'")
             __props__['administrator_type'] = administrator_type
             if login is None:
                 raise TypeError("Missing required property 'login'")
             __props__['login'] = login
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -76,6 +76,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
             if tenant_id is None:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__['tenant_id'] = tenant_id
+            __props__['name'] = None
             __props__['type'] = None
         super(ServerAzureADAdministrator, __self__).__init__(
             'azurerm:sql/v20140401:ServerAzureADAdministrator',

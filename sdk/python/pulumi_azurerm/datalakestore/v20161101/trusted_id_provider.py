@@ -17,8 +17,8 @@ class TrustedIdProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  id_provider: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 trusted_id_provider_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -29,8 +29,8 @@ class TrustedIdProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
         :param pulumi.Input[str] id_provider: The URL of this trusted identity provider.
-        :param pulumi.Input[str] name: The name of the trusted identity provider. This is used for differentiation of providers in the account.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
+        :param pulumi.Input[str] trusted_id_provider_name: The name of the trusted identity provider. This is used for differentiation of providers in the account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,12 +55,13 @@ class TrustedIdProvider(pulumi.CustomResource):
             if id_provider is None:
                 raise TypeError("Missing required property 'id_provider'")
             __props__['id_provider'] = id_provider
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if trusted_id_provider_name is None:
+                raise TypeError("Missing required property 'trusted_id_provider_name'")
+            __props__['trusted_id_provider_name'] = trusted_id_provider_name
+            __props__['name'] = None
             __props__['type'] = None
         super(TrustedIdProvider, __self__).__init__(
             'azurerm:datalakestore/v20161101:TrustedIdProvider',

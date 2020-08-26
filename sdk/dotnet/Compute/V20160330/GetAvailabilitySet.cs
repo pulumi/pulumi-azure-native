@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Compute.V20160330
         /// <summary>
         /// The name of the availability set.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("availabilitySetName", required: true)]
+        public string AvailabilitySetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

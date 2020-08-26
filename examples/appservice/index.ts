@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 
 const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
-    name: "azurerm-appservice",
+    resourceGroupName: "azurerm-appservice",
     location: "westus2",
     tags: {
         Owner: "mikhailshilkov",
@@ -12,7 +12,7 @@ const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
 
 const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
-    name: "pulumiassa",
+    accountName: "pulumiassa",
     location: "westus2",
     sku: {
         name: "Standard_LRS",
@@ -35,7 +35,7 @@ const appServicePlan  = new azurerm.web.v20190801.AppServicePlan("asp", {
 const storageContainer = new azurerm.storage.v20190601.BlobContainer("c", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
-    name: "files",
+    containerName: "files",
     publicAccess: "None",
 });
 
@@ -54,7 +54,7 @@ const storageContainer = new azurerm.storage.v20190601.BlobContainer("c", {
 const appInsights = new azurerm.insights.v20150501.Component("ai", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
-    name: "pulumi-as-ai",
+    resourceName: "pulumi-as-ai",
     kind: "web",
     applicationType: "web",
 });
@@ -65,7 +65,7 @@ const pwd = "Not2S3cure!?";
 const sqlServer = new azurerm.sql.v20140401.Server("sql", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
-    name: "pulumi-as-sql",
+    serverName: "pulumi-as-sql",
     administratorLogin: username,
     administratorLoginPassword: pwd,
     version: "12.0",
@@ -75,7 +75,7 @@ const database = new azurerm.sql.v20140401.Database("db", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     serverName: sqlServer.name,
-    name: "db",
+    databaseName: "db",
     requestedServiceObjectiveName: "S0",
 });
 

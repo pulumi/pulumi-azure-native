@@ -104,6 +104,9 @@ export class SiteVNETConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.vnetName === undefined) {
+                throw new Error("Missing required property 'vnetName'");
+            }
             inputs["certBlob"] = args ? args.certBlob : undefined;
             inputs["certThumbprint"] = args ? args.certThumbprint : undefined;
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
@@ -116,6 +119,7 @@ export class SiteVNETConnection extends pulumi.CustomResource {
             inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["vnetName"] = args ? args.vnetName : undefined;
             inputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
         }
         if (!opts) {
@@ -161,7 +165,7 @@ export interface SiteVNETConnectionArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the Virtual Network
+     * Resource Name
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -184,6 +188,10 @@ export interface SiteVNETConnectionArgs {
      * Resource type
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * The name of the Virtual Network
+     */
+    readonly vnetName: pulumi.Input<string>;
     /**
      * The vnet resource id
      */

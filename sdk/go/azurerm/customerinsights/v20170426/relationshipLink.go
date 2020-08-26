@@ -51,14 +51,14 @@ func NewRelationshipLink(ctx *pulumi.Context,
 	if args == nil || args.InteractionType == nil {
 		return nil, errors.New("missing required argument 'InteractionType'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ProfilePropertyReferences == nil {
 		return nil, errors.New("missing required argument 'ProfilePropertyReferences'")
 	}
 	if args == nil || args.RelatedProfilePropertyReferences == nil {
 		return nil, errors.New("missing required argument 'RelatedProfilePropertyReferences'")
+	}
+	if args == nil || args.RelationshipLinkName == nil {
+		return nil, errors.New("missing required argument 'RelationshipLinkName'")
 	}
 	if args == nil || args.RelationshipName == nil {
 		return nil, errors.New("missing required argument 'RelationshipName'")
@@ -169,12 +169,12 @@ type relationshipLinkArgs struct {
 	InteractionType string `pulumi:"interactionType"`
 	// The mappings between Interaction and Relationship fields.
 	Mappings []RelationshipLinkFieldMapping `pulumi:"mappings"`
-	// The name of the relationship link.
-	Name string `pulumi:"name"`
 	// The property references for the Profile of the Relationship.
 	ProfilePropertyReferences []ParticipantProfilePropertyReference `pulumi:"profilePropertyReferences"`
 	// The property references for the Related Profile of the Relationship.
 	RelatedProfilePropertyReferences []ParticipantProfilePropertyReference `pulumi:"relatedProfilePropertyReferences"`
+	// The name of the relationship link.
+	RelationshipLinkName string `pulumi:"relationshipLinkName"`
 	// The Relationship associated with the Link.
 	RelationshipName string `pulumi:"relationshipName"`
 	// The name of the resource group.
@@ -193,12 +193,12 @@ type RelationshipLinkArgs struct {
 	InteractionType pulumi.StringInput
 	// The mappings between Interaction and Relationship fields.
 	Mappings RelationshipLinkFieldMappingArrayInput
-	// The name of the relationship link.
-	Name pulumi.StringInput
 	// The property references for the Profile of the Relationship.
 	ProfilePropertyReferences ParticipantProfilePropertyReferenceArrayInput
 	// The property references for the Related Profile of the Relationship.
 	RelatedProfilePropertyReferences ParticipantProfilePropertyReferenceArrayInput
+	// The name of the relationship link.
+	RelationshipLinkName pulumi.StringInput
 	// The Relationship associated with the Link.
 	RelationshipName pulumi.StringInput
 	// The name of the resource group.

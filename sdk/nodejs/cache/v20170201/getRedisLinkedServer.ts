@@ -15,6 +15,7 @@ export function getRedisLinkedServer(args: GetRedisLinkedServerArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:cache/v20170201:getRedisLinkedServer", {
+        "linkedServerName": args.linkedServerName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -23,6 +24,10 @@ export function getRedisLinkedServer(args: GetRedisLinkedServerArgs, opts?: pulu
 export interface GetRedisLinkedServerArgs {
     /**
      * The name of the linked server.
+     */
+    readonly linkedServerName: string;
+    /**
+     * The name of the redis cache.
      */
     readonly name: string;
     /**

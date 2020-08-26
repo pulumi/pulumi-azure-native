@@ -23,10 +23,10 @@ class PublicIPAddress(pulumi.CustomResource):
                  idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_ip_address_version: Optional[pulumi.Input[str]] = None,
                  public_ip_allocation_method: Optional[pulumi.Input[str]] = None,
+                 public_ip_address_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -43,10 +43,10 @@ class PublicIPAddress(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[float] idle_timeout_in_minutes: Gets or sets the idle timeout of the public IP address
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the publicIpAddress.
         :param pulumi.Input[str] provisioning_state: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         :param pulumi.Input[str] public_ip_address_version: Gets or sets PublicIP address version (IPv4/IPv6)
         :param pulumi.Input[str] public_ip_allocation_method: Gets or sets PublicIP allocation method (Static/Dynamic)
+        :param pulumi.Input[str] public_ip_address_name: The name of the publicIpAddress.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: Gets or sets resource guid property of the PublicIP resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -74,18 +74,19 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
             __props__['ip_address'] = ip_address
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             __props__['public_ip_address_version'] = public_ip_address_version
             __props__['public_ip_allocation_method'] = public_ip_allocation_method
+            if public_ip_address_name is None:
+                raise TypeError("Missing required property 'public_ip_address_name'")
+            __props__['public_ip_address_name'] = public_ip_address_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid
             __props__['tags'] = tags
             __props__['ip_configuration'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20150615:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20160330:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20160901:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20161201:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20170301:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20170601:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20170801:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20170901:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20171001:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20171101:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20180101:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20180201:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20180401:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20180601:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20180701:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20180801:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20181001:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20181101:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20181201:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20190201:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20190401:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20190601:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20190701:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20190801:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20190901:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20191101:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20191201:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20200301:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20200401:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20200501:PublicIPAddress"), pulumi.Alias(type_="azurerm:network/v20200601:PublicIPAddress")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

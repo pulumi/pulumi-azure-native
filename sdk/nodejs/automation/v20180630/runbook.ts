@@ -133,11 +133,11 @@ export class Runbook extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.runbookName === undefined) {
+                throw new Error("Missing required property 'runbookName'");
             }
             if (!args || args.runbookType === undefined) {
                 throw new Error("Missing required property 'runbookType'");
@@ -152,6 +152,7 @@ export class Runbook extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["publishContentLink"] = args ? args.publishContentLink : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["runbookName"] = args ? args.runbookName : undefined;
             inputs["runbookType"] = args ? args.runbookType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationTime"] = undefined /*out*/;
@@ -211,9 +212,9 @@ export interface RunbookArgs {
      */
     readonly logVerbose?: pulumi.Input<boolean>;
     /**
-     * The runbook name.
+     * Gets or sets the name of the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Gets or sets the published runbook content link.
      */
@@ -222,6 +223,10 @@ export interface RunbookArgs {
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The runbook name.
+     */
+    readonly runbookName: pulumi.Input<string>;
     /**
      * Gets or sets the type of the runbook.
      */

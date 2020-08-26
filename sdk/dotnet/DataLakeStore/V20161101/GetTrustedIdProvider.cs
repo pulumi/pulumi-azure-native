@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the trusted identity provider to retrieve.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Azure resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the trusted identity provider to retrieve.
+        /// </summary>
+        [Input("trustedIdProviderName", required: true)]
+        public string TrustedIdProviderName { get; set; } = null!;
 
         public GetTrustedIdProviderArgs()
         {

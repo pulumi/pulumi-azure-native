@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// <summary>
         /// Bookmark ID
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("bookmarkId", required: true)]
+        public string BookmarkId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

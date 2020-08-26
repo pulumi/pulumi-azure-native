@@ -18,8 +18,8 @@ export function getSqlResourceSqlTrigger(args: GetSqlResourceSqlTriggerArgs, opt
         "accountName": args.accountName,
         "containerName": args.containerName,
         "databaseName": args.databaseName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "triggerName": args.triggerName,
     }, opts);
 }
 
@@ -37,13 +37,13 @@ export interface GetSqlResourceSqlTriggerArgs {
      */
     readonly databaseName: string;
     /**
-     * Cosmos DB trigger name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Cosmos DB trigger name.
+     */
+    readonly triggerName: string;
 }
 
 /**

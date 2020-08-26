@@ -30,8 +30,8 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.KeyspaceName == nil {
+		return nil, errors.New("missing required argument 'KeyspaceName'")
 	}
 	if args == nil || args.Options == nil {
 		return nil, errors.New("missing required argument 'Options'")
@@ -111,7 +111,7 @@ type databaseAccountCassandraKeyspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB keyspace name.
-	Name string `pulumi:"name"`
+	KeyspaceName string `pulumi:"keyspaceName"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options map[string]string `pulumi:"options"`
 	// The standard JSON format of a Cassandra keyspace
@@ -125,7 +125,7 @@ type DatabaseAccountCassandraKeyspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
 	// Cosmos DB keyspace name.
-	Name pulumi.StringInput
+	KeyspaceName pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options pulumi.StringMapInput
 	// The standard JSON format of a Cassandra keyspace

@@ -18,7 +18,7 @@ class HyperVCollector(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 hyper_v_collector_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CollectorPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,7 @@ class HyperVCollector(pulumi.CustomResource):
         Create a HyperVCollector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Unique name of a Hyper-V collector within a project.
+        :param pulumi.Input[str] hyper_v_collector_name: Unique name of a Hyper-V collector within a project.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         """
@@ -51,9 +51,9 @@ class HyperVCollector(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if hyper_v_collector_name is None:
+                raise TypeError("Missing required property 'hyper_v_collector_name'")
+            __props__['hyper_v_collector_name'] = hyper_v_collector_name
             if project_name is None:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
@@ -61,6 +61,7 @@ class HyperVCollector(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['type'] = None
         super(HyperVCollector, __self__).__init__(
             'azurerm:migrate/v20191001:HyperVCollector',

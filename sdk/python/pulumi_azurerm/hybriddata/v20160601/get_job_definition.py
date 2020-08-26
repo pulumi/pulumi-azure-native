@@ -165,7 +165,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
 
 def get_job_definition(data_manager_name: Optional[str] = None,
                        data_service_name: Optional[str] = None,
-                       name: Optional[str] = None,
+                       job_definition_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
     """
@@ -173,13 +173,13 @@ def get_job_definition(data_manager_name: Optional[str] = None,
 
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str data_service_name: The data service name of the job definition
-    :param str name: The job definition name that is being queried.
+    :param str job_definition_name: The job definition name that is being queried.
     :param str resource_group_name: The Resource Group Name
     """
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
     __args__['dataServiceName'] = data_service_name
-    __args__['name'] = name
+    __args__['jobDefinitionName'] = job_definition_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

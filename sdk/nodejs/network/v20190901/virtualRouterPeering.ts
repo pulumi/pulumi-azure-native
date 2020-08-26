@@ -72,8 +72,8 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualRouterPeeringArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.peeringName === undefined) {
+                throw new Error("Missing required property 'peeringName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -85,6 +85,7 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["peerAsn"] = args ? args.peerAsn : undefined;
             inputs["peerIp"] = args ? args.peerIp : undefined;
+            inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
             inputs["etag"] = undefined /*out*/;
@@ -113,9 +114,9 @@ export interface VirtualRouterPeeringArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the Virtual Router Peering.
+     * Name of the virtual router peering that is unique within a virtual router.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Peer ASN.
      */
@@ -124,6 +125,10 @@ export interface VirtualRouterPeeringArgs {
      * Peer IP.
      */
     readonly peerIp?: pulumi.Input<string>;
+    /**
+     * The name of the Virtual Router Peering.
+     */
+    readonly peeringName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -61,7 +61,7 @@ export class Asset extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The name of the storage account.
      */
@@ -91,22 +91,23 @@ export class Asset extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.assetName === undefined) {
+                throw new Error("Missing required property 'assetName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["alternateId"] = args ? args.alternateId : undefined;
+            inputs["assetName"] = args ? args.assetName : undefined;
             inputs["container"] = args ? args.container : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["assetId"] = undefined /*out*/;
             inputs["created"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["storageEncryptionFormat"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -136,6 +137,10 @@ export interface AssetArgs {
      */
     readonly alternateId?: pulumi.Input<string>;
     /**
+     * The Asset name.
+     */
+    readonly assetName: pulumi.Input<string>;
+    /**
      * The name of the asset blob container.
      */
     readonly container?: pulumi.Input<string>;
@@ -143,10 +148,6 @@ export interface AssetArgs {
      * The Asset description.
      */
     readonly description?: pulumi.Input<string>;
-    /**
-     * The Asset name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group within the Azure subscription.
      */

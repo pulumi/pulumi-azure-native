@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     public sealed class GetInputArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the input.
+        /// </summary>
+        [Input("inputName", required: true)]
+        public string InputName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the streaming job.
         /// </summary>
         [Input("jobName", required: true)]
         public string JobName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the input.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -18,7 +18,7 @@ func LookupDatabaseAccount(ctx *pulumi.Context, args *LookupDatabaseAccountArgs,
 
 type LookupDatabaseAccountArgs struct {
 	// Cosmos DB database account name.
-	Name string `pulumi:"name"`
+	AccountName string `pulumi:"accountName"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

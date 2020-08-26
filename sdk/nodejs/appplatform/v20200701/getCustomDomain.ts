@@ -16,7 +16,7 @@ export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeO
     }
     return pulumi.runtime.invoke("azurerm:appplatform/v20200701:getCustomDomain", {
         "appName": args.appName,
-        "name": args.name,
+        "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetCustomDomainArgs {
     /**
      * The name of the custom domain resource.
      */
-    readonly name: string;
+    readonly domainName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

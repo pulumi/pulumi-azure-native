@@ -15,7 +15,7 @@ export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArg
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180101:getApplicationSecurityGroup", {
-        "name": args.name,
+        "applicationSecurityGroupName": args.applicationSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetApplicationSecurityGroupArgs {
     /**
      * The name of the application security group.
      */
-    readonly name: string;
+    readonly applicationSecurityGroupName: string;
     /**
      * The name of the resource group.
      */

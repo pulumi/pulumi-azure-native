@@ -17,10 +17,10 @@ func LookupSignalR(ctx *pulumi.Context, args *LookupSignalRArgs, opts ...pulumi.
 }
 
 type LookupSignalRArgs struct {
-	// The name of the SignalR resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the SignalR resource.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // A class represent a SignalR service resource.

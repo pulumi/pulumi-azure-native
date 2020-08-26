@@ -21,7 +21,7 @@ class Partner(pulumi.CustomResource):
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 partner_name: Optional[pulumi.Input[str]] = None,
                  partner_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,7 +37,7 @@ class Partner(pulumi.CustomResource):
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
-        :param pulumi.Input[str] name: The integration account partner name.
+        :param pulumi.Input[str] partner_name: The integration account partner name.
         :param pulumi.Input[str] partner_type: The partner type.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -67,9 +67,9 @@ class Partner(pulumi.CustomResource):
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if partner_name is None:
+                raise TypeError("Missing required property 'partner_name'")
+            __props__['partner_name'] = partner_name
             if partner_type is None:
                 raise TypeError("Missing required property 'partner_type'")
             __props__['partner_type'] = partner_type
@@ -79,6 +79,7 @@ class Partner(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['changed_time'] = None
             __props__['created_time'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20190501:Partner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

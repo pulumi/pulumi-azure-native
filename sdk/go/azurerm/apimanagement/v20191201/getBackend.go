@@ -18,7 +18,7 @@ func LookupBackend(ctx *pulumi.Context, args *LookupBackendArgs, opts ...pulumi.
 
 type LookupBackendArgs struct {
 	// Identifier of the Backend entity. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
+	BackendId string `pulumi:"backendId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.MachineLearning.V20191001
     public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the machine learning workspace.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group to which the machine learning workspace belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the machine learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public string WorkspaceName { get; set; } = null!;
 
         public GetWorkspaceArgs()
         {

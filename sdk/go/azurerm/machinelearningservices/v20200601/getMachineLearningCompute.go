@@ -18,7 +18,7 @@ func LookupMachineLearningCompute(ctx *pulumi.Context, args *LookupMachineLearni
 
 type LookupMachineLearningComputeArgs struct {
 	// Name of the Azure Machine Learning compute.
-	Name string `pulumi:"name"`
+	ComputeName string `pulumi:"computeName"`
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Azure Machine Learning workspace.

@@ -15,7 +15,7 @@ export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20190401:getBastionHost", {
-        "name": args.name,
+        "bastionHostName": args.bastionHostName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetBastionHostArgs {
     /**
      * The name of the Bastion Host.
      */
-    readonly name: string;
+    readonly bastionHostName: string;
     /**
      * The name of the resource group.
      */

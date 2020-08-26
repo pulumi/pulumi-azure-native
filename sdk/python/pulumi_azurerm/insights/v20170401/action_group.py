@@ -17,6 +17,7 @@ class ActionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_group_name: Optional[pulumi.Input[str]] = None,
                  automation_runbook_receivers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutomationRunbookReceiverArgs']]]]] = None,
                  azure_app_push_receivers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureAppPushReceiverArgs']]]]] = None,
                  email_receivers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailReceiverArgs']]]]] = None,
@@ -24,7 +25,6 @@ class ActionGroup(pulumi.CustomResource):
                  group_short_name: Optional[pulumi.Input[str]] = None,
                  itsm_receivers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ItsmReceiverArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sms_receivers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SmsReceiverArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,6 +37,7 @@ class ActionGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action_group_name: The name of the action group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutomationRunbookReceiverArgs']]]] automation_runbook_receivers: The list of AutomationRunbook receivers that are part of this action group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureAppPushReceiverArgs']]]] azure_app_push_receivers: The list of AzureAppPush receivers that are part of this action group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EmailReceiverArgs']]]] email_receivers: The list of email receivers that are part of this action group.
@@ -44,7 +45,6 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] group_short_name: The short name of the action group. This will be used in SMS messages.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ItsmReceiverArgs']]]] itsm_receivers: The list of ITSM receivers that are part of this action group.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the action group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SmsReceiverArgs']]]] sms_receivers: The list of SMS receivers that are part of this action group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -67,6 +67,9 @@ class ActionGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if action_group_name is None:
+                raise TypeError("Missing required property 'action_group_name'")
+            __props__['action_group_name'] = action_group_name
             __props__['automation_runbook_receivers'] = automation_runbook_receivers
             __props__['azure_app_push_receivers'] = azure_app_push_receivers
             __props__['email_receivers'] = email_receivers
@@ -80,15 +83,13 @@ class ActionGroup(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sms_receivers'] = sms_receivers
             __props__['tags'] = tags
             __props__['webhook_receivers'] = webhook_receivers
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/v20180301:ActionGroup"), pulumi.Alias(type_="azurerm:insights/v20180901:ActionGroup"), pulumi.Alias(type_="azurerm:insights/v20190301:ActionGroup"), pulumi.Alias(type_="azurerm:insights/v20190601:ActionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

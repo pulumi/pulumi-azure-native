@@ -16,8 +16,8 @@ export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions
     }
     return pulumi.runtime.invoke("azurerm:media/v20180701:getTransform", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "transformName": args.transformName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetTransformArgs {
      */
     readonly accountName: string;
     /**
-     * The Transform name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: string;
+    /**
+     * The Transform name.
+     */
+    readonly transformName: string;
 }
 
 /**

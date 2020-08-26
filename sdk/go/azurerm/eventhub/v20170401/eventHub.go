@@ -37,8 +37,8 @@ type EventHub struct {
 // NewEventHub registers a new resource with the given unique name, arguments, and options.
 func NewEventHub(ctx *pulumi.Context,
 	name string, args *EventHubArgs, opts ...pulumi.ResourceOption) (*EventHub, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.EventHubName == nil {
+		return nil, errors.New("missing required argument 'EventHubName'")
 	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
@@ -128,10 +128,10 @@ func (EventHubState) ElementType() reflect.Type {
 type eventHubArgs struct {
 	// Properties of capture description
 	CaptureDescription *CaptureDescription `pulumi:"captureDescription"`
+	// The Event Hub name
+	EventHubName string `pulumi:"eventHubName"`
 	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
 	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
-	// The Event Hub name
-	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
@@ -146,10 +146,10 @@ type eventHubArgs struct {
 type EventHubArgs struct {
 	// Properties of capture description
 	CaptureDescription CaptureDescriptionPtrInput
+	// The Event Hub name
+	EventHubName pulumi.StringInput
 	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
 	MessageRetentionInDays pulumi.IntPtrInput
-	// The Event Hub name
-	Name pulumi.StringInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
 	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.

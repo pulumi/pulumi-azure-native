@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
     public sealed class GetManagedClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the managed cluster resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetManagedClusterArgs()
         {

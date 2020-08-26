@@ -21,6 +21,7 @@ class WebAppDeployment(pulumi.CustomResource):
                  deployer: Optional[pulumi.Input[str]] = None,
                  details: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -41,9 +42,10 @@ class WebAppDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] deployer: Who performed the deployment.
         :param pulumi.Input[str] details: Details on deployment.
         :param pulumi.Input[str] end_time: End time.
+        :param pulumi.Input[str] id: Identifier for deployment.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] message: Details about deployment status.
-        :param pulumi.Input[str] name: Identifier for deployment.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] start_time: Start time.
         :param pulumi.Input[float] status: Deployment status.
@@ -71,6 +73,9 @@ class WebAppDeployment(pulumi.CustomResource):
             __props__['deployer'] = deployer
             __props__['details'] = details
             __props__['end_time'] = end_time
+            if id is None:
+                raise TypeError("Missing required property 'id'")
+            __props__['id'] = id
             __props__['kind'] = kind
             __props__['message'] = message
             if name is None:

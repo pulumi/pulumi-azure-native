@@ -83,7 +83,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
      */
@@ -125,6 +125,9 @@ export class AuthorizationServer extends pulumi.CustomResource {
             if (!args || args.authorizationEndpoint === undefined) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
+            if (!args || args.authsid === undefined) {
+                throw new Error("Missing required property 'authsid'");
+            }
             if (!args || args.clientId === undefined) {
                 throw new Error("Missing required property 'clientId'");
             }
@@ -137,9 +140,6 @@ export class AuthorizationServer extends pulumi.CustomResource {
             if (!args || args.grantTypes === undefined) {
                 throw new Error("Missing required property 'grantTypes'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -148,6 +148,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
             }
             inputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
             inputs["authorizationMethods"] = args ? args.authorizationMethods : undefined;
+            inputs["authsid"] = args ? args.authsid : undefined;
             inputs["bearerTokenSendingMethods"] = args ? args.bearerTokenSendingMethods : undefined;
             inputs["clientAuthenticationMethod"] = args ? args.clientAuthenticationMethod : undefined;
             inputs["clientId"] = args ? args.clientId : undefined;
@@ -157,7 +158,6 @@ export class AuthorizationServer extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["grantTypes"] = args ? args.grantTypes : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceOwnerPassword"] = args ? args.resourceOwnerPassword : undefined;
             inputs["resourceOwnerUsername"] = args ? args.resourceOwnerUsername : undefined;
@@ -165,6 +165,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
             inputs["supportState"] = args ? args.supportState : undefined;
             inputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
             inputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -192,6 +193,10 @@ export interface AuthorizationServerArgs {
      * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
      */
     readonly authorizationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Identifier of the authorization server.
+     */
+    readonly authsid: pulumi.Input<string>;
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */
@@ -228,10 +233,6 @@ export interface AuthorizationServerArgs {
      * Form of an authorization grant, which the client uses to request the access token.
      */
     readonly grantTypes: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Identifier of the authorization server.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

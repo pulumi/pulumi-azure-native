@@ -16,7 +16,7 @@ export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Pro
     }
     return pulumi.runtime.invoke("azurerm:netapp/v20200601:getBackup", {
         "accountName": args.accountName,
-        "name": args.name,
+        "backupName": args.backupName,
         "poolName": args.poolName,
         "resourceGroupName": args.resourceGroupName,
         "volumeName": args.volumeName,
@@ -31,7 +31,7 @@ export interface GetBackupArgs {
     /**
      * The name of the backup
      */
-    readonly name: string;
+    readonly backupName: string;
     /**
      * The name of the capacity pool
      */

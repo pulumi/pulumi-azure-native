@@ -291,6 +291,12 @@ namespace Pulumi.AzureRM.Network.V20200301
 
     public sealed class ApplicationGatewayArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the application gateway.
+        /// </summary>
+        [Input("applicationGatewayName", required: true)]
+        public Input<string> ApplicationGatewayName { get; set; } = null!;
+
         [Input("authenticationCertificates")]
         private InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs>? _authenticationCertificates;
 
@@ -434,12 +440,6 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the application gateway.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("probes")]
         private InputList<Inputs.ApplicationGatewayProbeArgs>? _probes;

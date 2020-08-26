@@ -17,10 +17,10 @@ func LookupNotificationHub(ctx *pulumi.Context, args *LookupNotificationHubArgs,
 }
 
 type LookupNotificationHubArgs struct {
-	// The notification hub name.
-	Name string `pulumi:"name"`
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
+	// The notification hub name.
+	NotificationHubName string `pulumi:"notificationHubName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

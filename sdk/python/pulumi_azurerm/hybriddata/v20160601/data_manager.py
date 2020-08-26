@@ -17,9 +17,9 @@ class DataManager(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_manager_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -31,11 +31,11 @@ class DataManager(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[str] etag: Etag of the Resource.
         :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
                US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
                region is specified on update the request will succeed.
-        :param pulumi.Input[str] name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
@@ -58,18 +58,19 @@ class DataManager(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if data_manager_name is None:
+                raise TypeError("Missing required property 'data_manager_name'")
+            __props__['data_manager_name'] = data_manager_name
             __props__['etag'] = etag
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybriddata/v20190601:DataManager")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

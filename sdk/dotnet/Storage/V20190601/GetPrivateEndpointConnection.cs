@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Storage.V20190601
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

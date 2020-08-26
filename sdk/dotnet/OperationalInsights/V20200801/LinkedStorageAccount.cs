@@ -86,8 +86,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// <summary>
         /// Linked storage accounts type.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("dataSourceType", required: true)]
+        public Input<string> DataSourceType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

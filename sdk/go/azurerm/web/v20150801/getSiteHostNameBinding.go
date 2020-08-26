@@ -18,6 +18,8 @@ func LookupSiteHostNameBinding(ctx *pulumi.Context, args *LookupSiteHostNameBind
 
 type LookupSiteHostNameBindingArgs struct {
 	// Name of host
+	HostName string `pulumi:"hostName"`
+	// Name of web app
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`

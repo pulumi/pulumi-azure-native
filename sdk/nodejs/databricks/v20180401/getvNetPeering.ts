@@ -15,7 +15,7 @@ export function getvNetPeering(args: GetvNetPeeringArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:databricks/v20180401:getvNetPeering", {
-        "name": args.name,
+        "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetvNetPeeringArgs {
     /**
      * The name of the workspace vNet peering.
      */
-    readonly name: string;
+    readonly peeringName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

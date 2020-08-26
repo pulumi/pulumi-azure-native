@@ -19,7 +19,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ProjectPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -33,7 +33,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] location: Azure location in which project is created.
-        :param pulumi.Input[str] name: Name of the Azure Migrate project.
+        :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[pulumi.InputType['ProjectPropertiesArgs']] properties: Properties of the project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[Mapping[str, Any]] tags: Tags provided by Azure Tagging service.
@@ -57,14 +57,15 @@ class Project(pulumi.CustomResource):
 
             __props__['e_tag'] = e_tag
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if project_name is None:
+                raise TypeError("Missing required property 'project_name'")
+            __props__['project_name'] = project_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         super(Project, __self__).__init__(
             'azurerm:migrate/v20191001:Project',

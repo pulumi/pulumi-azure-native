@@ -45,14 +45,14 @@ func NewSavedSearch(ctx *pulumi.Context,
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Query == nil {
 		return nil, errors.New("missing required argument 'Query'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SavedSearchId == nil {
+		return nil, errors.New("missing required argument 'SavedSearchId'")
 	}
 	if args == nil || args.WorkspaceName == nil {
 		return nil, errors.New("missing required argument 'WorkspaceName'")
@@ -148,12 +148,12 @@ type savedSearchArgs struct {
 	FunctionAlias *string `pulumi:"functionAlias"`
 	// The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
 	FunctionParameters *string `pulumi:"functionParameters"`
-	// The id of the saved search.
-	Name string `pulumi:"name"`
 	// The query expression for the saved search.
 	Query string `pulumi:"query"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The id of the saved search.
+	SavedSearchId string `pulumi:"savedSearchId"`
 	// The tags attached to the saved search.
 	Tags []Tag `pulumi:"tags"`
 	// The version number of the query language. The current version is 2 and is the default.
@@ -174,12 +174,12 @@ type SavedSearchArgs struct {
 	FunctionAlias pulumi.StringPtrInput
 	// The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
 	FunctionParameters pulumi.StringPtrInput
-	// The id of the saved search.
-	Name pulumi.StringInput
 	// The query expression for the saved search.
 	Query pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The id of the saved search.
+	SavedSearchId pulumi.StringInput
 	// The tags attached to the saved search.
 	Tags TagArrayInput
 	// The version number of the query language. The current version is 2 and is the default.

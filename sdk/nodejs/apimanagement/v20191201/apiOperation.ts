@@ -51,7 +51,7 @@ export class ApiOperation extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Operation Policies
      */
@@ -99,8 +99,8 @@ export class ApiOperation extends pulumi.CustomResource {
             if (!args || args.method === undefined) {
                 throw new Error("Missing required property 'method'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.operationId === undefined) {
+                throw new Error("Missing required property 'operationId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -115,7 +115,7 @@ export class ApiOperation extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["method"] = args ? args.method : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["operationId"] = args ? args.operationId : undefined;
             inputs["policies"] = args ? args.policies : undefined;
             inputs["request"] = args ? args.request : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -123,6 +123,7 @@ export class ApiOperation extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["templateParameters"] = args ? args.templateParameters : undefined;
             inputs["urlTemplate"] = args ? args.urlTemplate : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -161,7 +162,7 @@ export interface ApiOperationArgs {
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
-    readonly name: pulumi.Input<string>;
+    readonly operationId: pulumi.Input<string>;
     /**
      * Operation Policies
      */

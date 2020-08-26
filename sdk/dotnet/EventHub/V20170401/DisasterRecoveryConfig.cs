@@ -102,16 +102,16 @@ namespace Pulumi.AzureRM.EventHub.V20170401
     public sealed class DisasterRecoveryConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Disaster Recovery configuration name
+        /// </summary>
+        [Input("alias", required: true)]
+        public Input<string> Alias { get; set; } = null!;
+
+        /// <summary>
         /// Alternate name specified when alias and namespace names are same.
         /// </summary>
         [Input("alternateName")]
         public Input<string>? AlternateName { get; set; }
-
-        /// <summary>
-        /// The Disaster Recovery configuration name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The Namespace name

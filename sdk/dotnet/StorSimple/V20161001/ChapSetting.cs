@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class ChapSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The chap user name.
+        /// </summary>
+        [Input("chapUserName", required: true)]
+        public Input<string> ChapUserName { get; set; } = null!;
+
+        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
@@ -88,12 +94,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// </summary>
         [Input("managerName", required: true)]
         public Input<string> ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The chap user name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The chap password.

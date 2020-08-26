@@ -59,7 +59,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Length of the Public IP Prefix.
      */
@@ -110,8 +110,8 @@ export class PublicIPPrefix extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PublicIPPrefixArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.publicIpPrefixName === undefined) {
+                throw new Error("Missing required property 'publicIpPrefixName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -121,17 +121,18 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             inputs["ipPrefix"] = args ? args.ipPrefix : undefined;
             inputs["ipTags"] = args ? args.ipTags : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["prefixLength"] = args ? args.prefixLength : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
             inputs["publicIPAddresses"] = args ? args.publicIPAddresses : undefined;
+            inputs["publicIpPrefixName"] = args ? args.publicIpPrefixName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["loadBalancerFrontendIpConfiguration"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -172,10 +173,6 @@ export interface PublicIPPrefixArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the public IP prefix.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The Length of the Public IP Prefix.
      */
     readonly prefixLength?: pulumi.Input<number>;
@@ -191,6 +188,10 @@ export interface PublicIPPrefixArgs {
      * The list of all referenced PublicIPAddresses.
      */
     readonly publicIPAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ReferencedPublicIpAddress>[]>;
+    /**
+     * The name of the public IP prefix.
+     */
+    readonly publicIpPrefixName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

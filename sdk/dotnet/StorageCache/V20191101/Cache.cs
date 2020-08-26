@@ -130,6 +130,12 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
     public sealed class CacheArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of Cache.
+        /// </summary>
+        [Input("cacheName", required: true)]
+        public Input<string> CacheName { get; set; } = null!;
+
+        /// <summary>
         /// The size of this Cache, in GB.
         /// </summary>
         [Input("cacheSizeGB")]
@@ -140,12 +146,6 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Name of Cache.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property

@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// The name of the backup
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("backupName", required: true)]
+        public string BackupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the capacity pool

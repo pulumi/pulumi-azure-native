@@ -43,7 +43,7 @@ export class AccountFilter extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The presentation time range.
      */
@@ -73,18 +73,19 @@ export class AccountFilter extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.filterName === undefined) {
+                throw new Error("Missing required property 'filterName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["filterName"] = args ? args.filterName : undefined;
             inputs["firstQuality"] = args ? args.firstQuality : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["presentationTimeRange"] = args ? args.presentationTimeRange : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tracks"] = args ? args.tracks : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,13 +110,13 @@ export interface AccountFilterArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The Account Filter name
+     */
+    readonly filterName: pulumi.Input<string>;
+    /**
      * The first quality.
      */
     readonly firstQuality?: pulumi.Input<inputs.media.v20180701.FirstQuality>;
-    /**
-     * The Account Filter name
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The presentation time range.
      */

@@ -15,9 +15,9 @@ class AccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_policy_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  principal_object_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -29,9 +29,9 @@ class AccessPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_policy_name: Name of the access policy.
         :param pulumi.Input[str] description: An description of the access policy.
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
-        :param pulumi.Input[str] name: Name of the access policy.
         :param pulumi.Input[str] principal_object_id: The objectId of the principal in Azure Active Directory.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[List[pulumi.Input[str]]] roles: The list of roles the principal is assigned on the environment.
@@ -53,18 +53,19 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if access_policy_name is None:
+                raise TypeError("Missing required property 'access_policy_name'")
+            __props__['access_policy_name'] = access_policy_name
             __props__['description'] = description
             if environment_name is None:
                 raise TypeError("Missing required property 'environment_name'")
             __props__['environment_name'] = environment_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['principal_object_id'] = principal_object_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['roles'] = roles
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:timeseriesinsights/v20171115:AccessPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

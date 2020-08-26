@@ -21,10 +21,10 @@ type LookupBackupScheduleGroupArgs struct {
 	DeviceName string `pulumi:"deviceName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The name of the schedule group.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the schedule group.
+	ScheduleGroupName string `pulumi:"scheduleGroupName"`
 }
 
 // The Backup Schedule Group

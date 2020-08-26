@@ -102,16 +102,16 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public sealed class DisasterRecoveryConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Disaster Recovery configuration name
+        /// </summary>
+        [Input("alias", required: true)]
+        public Input<string> Alias { get; set; } = null!;
+
+        /// <summary>
         /// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         /// </summary>
         [Input("alternateName")]
         public Input<string>? AlternateName { get; set; }
-
-        /// <summary>
-        /// The Disaster Recovery configuration name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The namespace name

@@ -178,16 +178,16 @@ namespace Pulumi.AzureRM.HybridData.V20160601
         public Input<string> DataSourceId { get; set; } = null!;
 
         /// <summary>
+        /// The job definition name to be created or updated.
+        /// </summary>
+        [Input("jobDefinitionName", required: true)]
+        public Input<string> JobDefinitionName { get; set; } = null!;
+
+        /// <summary>
         /// Last modified time of the job definition.
         /// </summary>
         [Input("lastModifiedTime")]
         public Input<string>? LastModifiedTime { get; set; }
-
-        /// <summary>
-        /// The job definition name to be created or updated.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name

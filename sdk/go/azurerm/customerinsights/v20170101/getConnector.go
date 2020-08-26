@@ -17,10 +17,10 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 }
 
 type LookupConnectorArgs struct {
+	// The name of the connector.
+	ConnectorName string `pulumi:"connectorName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
-	// The name of the connector.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

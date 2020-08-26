@@ -188,6 +188,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class ApiArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        /// </summary>
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
         /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
         /// </summary>
         [Input("apiRevision")]
@@ -258,12 +264,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("isCurrent")]
         public Input<bool>? IsCurrent { get; set; }
-
-        /// <summary>
-        /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.

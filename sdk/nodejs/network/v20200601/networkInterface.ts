@@ -75,7 +75,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The reference to the NetworkSecurityGroup resource.
      */
@@ -126,8 +126,8 @@ export class NetworkInterface extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NetworkInterfaceArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.networkInterfaceName === undefined) {
+                throw new Error("Missing required property 'networkInterfaceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -138,7 +138,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
             inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -146,6 +146,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["hostedWorkloads"] = undefined /*out*/;
             inputs["macAddress"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["primary"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -198,7 +199,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The name of the network interface.
      */
-    readonly name: pulumi.Input<string>;
+    readonly networkInterfaceName: pulumi.Input<string>;
     /**
      * The reference to the NetworkSecurityGroup resource.
      */

@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
     public sealed class GetAppArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARM resource name of the IoT Central application.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group that contains the IoT Central application.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The ARM resource name of the IoT Central application.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetAppArgs()
         {

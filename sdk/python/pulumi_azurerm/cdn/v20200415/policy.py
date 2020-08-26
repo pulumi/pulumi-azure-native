@@ -21,7 +21,7 @@ class Policy(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
                  policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicySettingsArgs']]] = None,
                  rate_limit_rules: Optional[pulumi.Input[pulumi.InputType['RateLimitRuleListArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']] managed_rules: Describes managed rules inside the policy.
-        :param pulumi.Input[str] name: The name of the CdnWebApplicationFirewallPolicy.
+        :param pulumi.Input[str] policy_name: The name of the CdnWebApplicationFirewallPolicy.
         :param pulumi.Input[pulumi.InputType['PolicySettingsArgs']] policy_settings: Describes  policySettings for policy
         :param pulumi.Input[pulumi.InputType['RateLimitRuleListArgs']] rate_limit_rules: Describes rate limit rules inside the policy.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -69,9 +69,9 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['managed_rules'] = managed_rules
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if policy_name is None:
+                raise TypeError("Missing required property 'policy_name'")
+            __props__['policy_name'] = policy_name
             __props__['policy_settings'] = policy_settings
             __props__['rate_limit_rules'] = rate_limit_rules
             if resource_group_name is None:
@@ -82,6 +82,7 @@ class Policy(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['endpoint_links'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None

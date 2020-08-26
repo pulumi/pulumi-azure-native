@@ -20,7 +20,7 @@ type LookupPublicIPPrefixArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the public IP prefix.
-	Name string `pulumi:"name"`
+	PublicIpPrefixName string `pulumi:"publicIpPrefixName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

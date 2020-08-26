@@ -16,7 +16,7 @@ export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCross
     }
     return pulumi.runtime.invoke("azurerm:network/v20181201:getExpressRouteCrossConnectionPeering", {
         "crossConnectionName": args.crossConnectionName,
-        "name": args.name,
+        "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetExpressRouteCrossConnectionPeeringArgs {
     /**
      * The name of the peering.
      */
-    readonly name: string;
+    readonly peeringName: string;
     /**
      * The name of the resource group.
      */

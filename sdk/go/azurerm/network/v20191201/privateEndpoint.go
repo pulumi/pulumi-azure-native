@@ -39,8 +39,8 @@ type PrivateEndpoint struct {
 // NewPrivateEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewPrivateEndpoint(ctx *pulumi.Context,
 	name string, args *PrivateEndpointArgs, opts ...pulumi.ResourceOption) (*PrivateEndpoint, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PrivateEndpointName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -160,7 +160,7 @@ type privateEndpointArgs struct {
 	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
 	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"manualPrivateLinkServiceConnections"`
 	// The name of the private endpoint.
-	Name string `pulumi:"name"`
+	PrivateEndpointName string `pulumi:"privateEndpointName"`
 	// A grouping of information about the connection to the remote resource.
 	PrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"privateLinkServiceConnections"`
 	// The name of the resource group.
@@ -180,7 +180,7 @@ type PrivateEndpointArgs struct {
 	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
 	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput
 	// The name of the private endpoint.
-	Name pulumi.StringInput
+	PrivateEndpointName pulumi.StringInput
 	// A grouping of information about the connection to the remote resource.
 	PrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput
 	// The name of the resource group.

@@ -126,12 +126,6 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the share.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -142,6 +136,12 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// </summary>
         [Input("shareKind")]
         public Input<string>? ShareKind { get; set; }
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
 
         /// <summary>
         /// Share terms.

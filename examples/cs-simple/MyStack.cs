@@ -9,14 +9,14 @@ class MyStack : Stack
     {
         var resourceGroup = new ResourceGroup("resourceGroup", new ResourceGroupArgs
         {
-            Name = "azurerm-dotnet",
+            ResourceGroupName = "azurerm-dotnet",
             Location = "WestUS"
         });
 
         var storageAccount = new StorageAccount("sa", new StorageAccountArgs
         {
             ResourceGroupName = resourceGroup.Name,
-            Name = "pulumiassacs",
+            AccountName = "pulumiassacs",
             Location = "WestUS",
             Sku = new SkuArgs
             {

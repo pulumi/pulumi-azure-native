@@ -59,8 +59,8 @@ type Incident struct {
 // NewIncident registers a new resource with the given unique name, arguments, and options.
 func NewIncident(ctx *pulumi.Context,
 	name string, args *IncidentArgs, opts ...pulumi.ResourceOption) (*Incident, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.IncidentId == nil {
+		return nil, errors.New("missing required argument 'IncidentId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -204,12 +204,12 @@ type incidentArgs struct {
 	Etag *string `pulumi:"etag"`
 	// The time of the first activity in the incident
 	FirstActivityTimeUtc *string `pulumi:"firstActivityTimeUtc"`
+	// Incident ID
+	IncidentId string `pulumi:"incidentId"`
 	// List of labels relevant to this incident
 	Labels []IncidentLabel `pulumi:"labels"`
 	// The time of the last activity in the incident
 	LastActivityTimeUtc *string `pulumi:"lastActivityTimeUtc"`
-	// Incident ID
-	Name string `pulumi:"name"`
 	// Describes a user that the incident is assigned to
 	Owner *IncidentOwnerInfo `pulumi:"owner"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -238,12 +238,12 @@ type IncidentArgs struct {
 	Etag pulumi.StringPtrInput
 	// The time of the first activity in the incident
 	FirstActivityTimeUtc pulumi.StringPtrInput
+	// Incident ID
+	IncidentId pulumi.StringInput
 	// List of labels relevant to this incident
 	Labels IncidentLabelArrayInput
 	// The time of the last activity in the incident
 	LastActivityTimeUtc pulumi.StringPtrInput
-	// Incident ID
-	Name pulumi.StringInput
 	// Describes a user that the incident is assigned to
 	Owner IncidentOwnerInfoPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -40,7 +40,7 @@ export class WorkspaceCollection extends pulumi.CustomResource {
     /**
      * Workspace collection name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
     /**
      * Properties
      */
@@ -65,17 +65,18 @@ export class WorkspaceCollection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WorkspaceCollectionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.workspaceCollectionName === undefined) {
+                throw new Error("Missing required property 'workspaceCollectionName'");
+            }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["workspaceCollectionName"] = args ? args.workspaceCollectionName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -99,13 +100,13 @@ export interface WorkspaceCollectionArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Power BI Embedded Workspace Collection name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Azure resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
     readonly sku?: pulumi.Input<inputs.powerbi.v20160129.AzureSku>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Power BI Embedded Workspace Collection name
+     */
+    readonly workspaceCollectionName: pulumi.Input<string>;
 }

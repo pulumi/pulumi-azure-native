@@ -15,7 +15,7 @@ export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:sql/v20140401:getElasticPool", {
-        "name": args.name,
+        "elasticPoolName": args.elasticPoolName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetElasticPoolArgs {
     /**
      * The name of the elastic pool to be retrieved.
      */
-    readonly name: string;
+    readonly elasticPoolName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -40,8 +40,8 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 	if args == nil || args.AscLocation == nil {
 		return nil, errors.New("missing required argument 'AscLocation'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.GroupName == nil {
+		return nil, errors.New("missing required argument 'GroupName'")
 	}
 	if args == nil {
 		args = &AdaptiveApplicationControlArgs{}
@@ -121,7 +121,7 @@ type adaptiveApplicationControlArgs struct {
 	// The application control policy enforcement/protection mode of the machine group
 	EnforcementMode *string `pulumi:"enforcementMode"`
 	// Name of an application control machine group
-	Name                string               `pulumi:"name"`
+	GroupName           string               `pulumi:"groupName"`
 	PathRecommendations []PathRecommendation `pulumi:"pathRecommendations"`
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 	ProtectionMode    *ProtectionMode    `pulumi:"protectionMode"`
@@ -135,7 +135,7 @@ type AdaptiveApplicationControlArgs struct {
 	// The application control policy enforcement/protection mode of the machine group
 	EnforcementMode pulumi.StringPtrInput
 	// Name of an application control machine group
-	Name                pulumi.StringInput
+	GroupName           pulumi.StringInput
 	PathRecommendations PathRecommendationArrayInput
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 	ProtectionMode    ProtectionModePtrInput

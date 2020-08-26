@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
     public sealed class GetApplicationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the application resource.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public string ApplicationName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the cluster resource.
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the application resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

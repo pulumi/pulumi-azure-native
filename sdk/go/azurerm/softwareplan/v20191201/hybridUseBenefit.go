@@ -33,8 +33,8 @@ type HybridUseBenefit struct {
 // NewHybridUseBenefit registers a new resource with the given unique name, arguments, and options.
 func NewHybridUseBenefit(ctx *pulumi.Context,
 	name string, args *HybridUseBenefitArgs, opts ...pulumi.ResourceOption) (*HybridUseBenefit, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PlanId == nil {
+		return nil, errors.New("missing required argument 'PlanId'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -106,7 +106,7 @@ func (HybridUseBenefitState) ElementType() reflect.Type {
 
 type hybridUseBenefitArgs struct {
 	// This is a unique identifier for a plan. Should be a guid.
-	Name string `pulumi:"name"`
+	PlanId string `pulumi:"planId"`
 	// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
 	Scope string `pulumi:"scope"`
 	// Hybrid use benefit SKU
@@ -116,7 +116,7 @@ type hybridUseBenefitArgs struct {
 // The set of arguments for constructing a HybridUseBenefit resource.
 type HybridUseBenefitArgs struct {
 	// This is a unique identifier for a plan. Should be a guid.
-	Name pulumi.StringInput
+	PlanId pulumi.StringInput
 	// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
 	Scope pulumi.StringInput
 	// Hybrid use benefit SKU

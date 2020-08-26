@@ -39,7 +39,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The role assignment name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Role assignment properties.
      */
@@ -62,18 +62,19 @@ export class RoleAssignment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RoleAssignmentArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
+            }
+            if (!args || args.roleAssignmentName === undefined) {
+                throw new Error("Missing required property 'roleAssignmentName'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["roleAssignmentName"] = args ? args.roleAssignmentName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -92,13 +93,13 @@ export class RoleAssignment extends pulumi.CustomResource {
  */
 export interface RoleAssignmentArgs {
     /**
-     * The name of the role assignment to create. It can be any valid GUID.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Role assignment properties.
      */
     readonly properties: pulumi.Input<inputs.authorization.v20150701.RoleAssignmentProperties>;
+    /**
+     * The name of the role assignment to create. It can be any valid GUID.
+     */
+    readonly roleAssignmentName: pulumi.Input<string>;
     /**
      * The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
      */

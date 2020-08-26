@@ -16,8 +16,8 @@ export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:datafactory/v20180601:getTrigger", {
         "factoryName": args.factoryName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "triggerName": args.triggerName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetTriggerArgs {
      */
     readonly factoryName: string;
     /**
-     * The trigger name.
-     */
-    readonly name: string;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: string;
+    /**
+     * The trigger name.
+     */
+    readonly triggerName: string;
 }
 
 /**

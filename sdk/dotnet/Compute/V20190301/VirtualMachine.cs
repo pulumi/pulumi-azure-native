@@ -283,12 +283,6 @@ namespace Pulumi.AzureRM.Compute.V20190301
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual machine.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Specifies the network interfaces of the virtual machine.
         /// </summary>
         [Input("networkProfile")]
@@ -347,6 +341,12 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         [Input("virtualMachineScaleSet")]
         public Input<Inputs.SubResourceArgs>? VirtualMachineScaleSet { get; set; }
+
+        /// <summary>
+        /// The name of the virtual machine.
+        /// </summary>
+        [Input("vmName", required: true)]
+        public Input<string> VmName { get; set; } = null!;
 
         [Input("zones")]
         private InputList<string>? _zones;

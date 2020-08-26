@@ -200,20 +200,20 @@ class AwaitableGetSchemaResult(GetSchemaResult):
 
 
 def get_schema(integration_account_name: Optional[str] = None,
-               name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
+               schema_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str integration_account_name: The integration account name.
-    :param str name: The integration account schema name.
     :param str resource_group_name: The resource group name.
+    :param str schema_name: The integration account schema name.
     """
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['schemaName'] = schema_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

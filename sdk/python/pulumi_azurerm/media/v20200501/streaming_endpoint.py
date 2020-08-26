@@ -29,9 +29,9 @@ class StreamingEndpoint(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_cache_age: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[float]] = None,
+                 streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -53,9 +53,9 @@ class StreamingEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] description: The StreamingEndpoint description.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] max_cache_age: Max cache age
-        :param pulumi.Input[str] name: The name of the StreamingEndpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[float] scale_units: The number of scale units.  Use the Scale operation to adjust this value.
+        :param pulumi.Input[str] streaming_endpoint_name: The name of the StreamingEndpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -91,20 +91,21 @@ class StreamingEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_cache_age'] = max_cache_age
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if scale_units is None:
                 raise TypeError("Missing required property 'scale_units'")
             __props__['scale_units'] = scale_units
+            if streaming_endpoint_name is None:
+                raise TypeError("Missing required property 'streaming_endpoint_name'")
+            __props__['streaming_endpoint_name'] = streaming_endpoint_name
             __props__['tags'] = tags
             __props__['created'] = None
             __props__['free_trial_end_time'] = None
             __props__['host_name'] = None
             __props__['last_modified'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None

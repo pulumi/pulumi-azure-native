@@ -15,7 +15,7 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storagecache/v20191101:getCache", {
-        "name": args.name,
+        "cacheName": args.cacheName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetCacheArgs {
     /**
      * Name of Cache.
      */
-    readonly name: string;
+    readonly cacheName: string;
     /**
      * Target resource group.
      */

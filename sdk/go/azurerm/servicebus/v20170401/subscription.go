@@ -57,14 +57,14 @@ type Subscription struct {
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
 func NewSubscription(ctx *pulumi.Context,
 	name string, args *SubscriptionArgs, opts ...pulumi.ResourceOption) (*Subscription, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SubscriptionName == nil {
+		return nil, errors.New("missing required argument 'SubscriptionName'")
 	}
 	if args == nil || args.TopicName == nil {
 		return nil, errors.New("missing required argument 'TopicName'")
@@ -209,8 +209,6 @@ type subscriptionArgs struct {
 	LockDuration *string `pulumi:"lockDuration"`
 	// Number of maximum deliveries.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// The subscription name.
-	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Value indicating if a subscription supports the concept of sessions.
@@ -219,6 +217,8 @@ type subscriptionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *string `pulumi:"status"`
+	// The subscription name.
+	SubscriptionName string `pulumi:"subscriptionName"`
 	// The topic name.
 	TopicName string `pulumi:"topicName"`
 }
@@ -245,8 +245,6 @@ type SubscriptionArgs struct {
 	LockDuration pulumi.StringPtrInput
 	// Number of maximum deliveries.
 	MaxDeliveryCount pulumi.IntPtrInput
-	// The subscription name.
-	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Value indicating if a subscription supports the concept of sessions.
@@ -255,6 +253,8 @@ type SubscriptionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrInput
+	// The subscription name.
+	SubscriptionName pulumi.StringInput
 	// The topic name.
 	TopicName pulumi.StringInput
 }

@@ -53,11 +53,11 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	if args == nil || args.ClusterName == nil {
+		return nil, errors.New("missing required argument 'ClusterName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -186,6 +186,8 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// The name of the Kusto cluster.
+	ClusterName string `pulumi:"clusterName"`
 	// A boolean value that indicates if the cluster's disks are encrypted.
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
 	// A boolean value that indicates if the streaming ingest is enabled.
@@ -196,8 +198,6 @@ type clusterArgs struct {
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the Kusto cluster.
-	Name string `pulumi:"name"`
 	// Optimized auto scale definition.
 	OptimizedAutoscale *OptimizedAutoscale `pulumi:"optimizedAutoscale"`
 	// The name of the resource group containing the Kusto cluster.
@@ -216,6 +216,8 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// The name of the Kusto cluster.
+	ClusterName pulumi.StringInput
 	// A boolean value that indicates if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrInput
 	// A boolean value that indicates if the streaming ingest is enabled.
@@ -226,8 +228,6 @@ type ClusterArgs struct {
 	KeyVaultProperties KeyVaultPropertiesPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The name of the Kusto cluster.
-	Name pulumi.StringInput
 	// Optimized auto scale definition.
 	OptimizedAutoscale OptimizedAutoscalePtrInput
 	// The name of the resource group containing the Kusto cluster.

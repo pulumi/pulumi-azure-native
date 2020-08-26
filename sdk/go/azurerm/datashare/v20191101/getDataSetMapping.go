@@ -20,7 +20,7 @@ type LookupDataSetMappingArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the dataSetMapping.
-	Name string `pulumi:"name"`
+	DataSetMappingName string `pulumi:"dataSetMappingName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the shareSubscription.

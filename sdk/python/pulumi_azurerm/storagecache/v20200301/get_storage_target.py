@@ -128,20 +128,20 @@ class AwaitableGetStorageTargetResult(GetStorageTargetResult):
 
 
 def get_storage_target(cache_name: Optional[str] = None,
-                       name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
+                       storage_target_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str cache_name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-    :param str name: Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.
+    :param str storage_target_name: Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
     """
     __args__ = dict()
     __args__['cacheName'] = cache_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['storageTargetName'] = storage_target_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

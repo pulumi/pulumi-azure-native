@@ -45,7 +45,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -67,20 +67,21 @@ export class Database extends pulumi.CustomResource {
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
+            if (!args || args.databaseName === undefined) {
+                throw new Error("Missing required property 'databaseName'");
+            }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +106,10 @@ export interface DatabaseArgs {
      */
     readonly clusterName: pulumi.Input<string>;
     /**
+     * The name of the database in the Kusto cluster.
+     */
+    readonly databaseName: pulumi.Input<string>;
+    /**
      * Kind of the database
      */
     readonly kind: pulumi.Input<string>;
@@ -112,10 +117,6 @@ export interface DatabaseArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the database in the Kusto cluster.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

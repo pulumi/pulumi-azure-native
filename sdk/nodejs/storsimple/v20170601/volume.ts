@@ -57,7 +57,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The name of the object.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The operation status on the volume.
      */
@@ -108,9 +108,6 @@ export class Volume extends pulumi.CustomResource {
             if (!args || args.monitoringStatus === undefined) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -119,6 +116,9 @@ export class Volume extends pulumi.CustomResource {
             }
             if (!args || args.volumeContainerName === undefined) {
                 throw new Error("Missing required property 'volumeContainerName'");
+            }
+            if (!args || args.volumeName === undefined) {
+                throw new Error("Missing required property 'volumeName'");
             }
             if (!args || args.volumeStatus === undefined) {
                 throw new Error("Missing required property 'volumeStatus'");
@@ -131,14 +131,15 @@ export class Volume extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sizeInBytes"] = args ? args.sizeInBytes : undefined;
             inputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
+            inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["volumeStatus"] = args ? args.volumeStatus : undefined;
             inputs["volumeType"] = args ? args.volumeType : undefined;
             inputs["backupPolicyIds"] = undefined /*out*/;
             inputs["backupStatus"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["operationStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["volumeContainerId"] = undefined /*out*/;
@@ -179,10 +180,6 @@ export interface VolumeArgs {
      */
     readonly monitoringStatus: pulumi.Input<string>;
     /**
-     * The volume name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -194,6 +191,10 @@ export interface VolumeArgs {
      * The volume container name.
      */
     readonly volumeContainerName: pulumi.Input<string>;
+    /**
+     * The volume name.
+     */
+    readonly volumeName: pulumi.Input<string>;
     /**
      * The volume status.
      */

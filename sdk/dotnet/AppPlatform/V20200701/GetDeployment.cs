@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         /// <summary>
         /// The name of the Deployment resource.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("deploymentName", required: true)]
+        public string DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

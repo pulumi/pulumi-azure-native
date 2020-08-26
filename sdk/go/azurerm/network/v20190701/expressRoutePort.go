@@ -53,8 +53,8 @@ type ExpressRoutePort struct {
 // NewExpressRoutePort registers a new resource with the given unique name, arguments, and options.
 func NewExpressRoutePort(ctx *pulumi.Context,
 	name string, args *ExpressRoutePortArgs, opts ...pulumi.ResourceOption) (*ExpressRoutePort, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ExpressRoutePortName == nil {
+		return nil, errors.New("missing required argument 'ExpressRoutePortName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -214,6 +214,8 @@ type expressRoutePortArgs struct {
 	BandwidthInGbps *int `pulumi:"bandwidthInGbps"`
 	// Encapsulation method on physical ports.
 	Encapsulation *string `pulumi:"encapsulation"`
+	// The name of the ExpressRoutePort resource.
+	ExpressRoutePortName string `pulumi:"expressRoutePortName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The identity of ExpressRoutePort, if configured.
@@ -222,8 +224,6 @@ type expressRoutePortArgs struct {
 	Links []ExpressRouteLink `pulumi:"links"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the ExpressRoutePort resource.
-	Name string `pulumi:"name"`
 	// The name of the peering location that the ExpressRoutePort is mapped to physically.
 	PeeringLocation *string `pulumi:"peeringLocation"`
 	// The name of the resource group.
@@ -240,6 +240,8 @@ type ExpressRoutePortArgs struct {
 	BandwidthInGbps pulumi.IntPtrInput
 	// Encapsulation method on physical ports.
 	Encapsulation pulumi.StringPtrInput
+	// The name of the ExpressRoutePort resource.
+	ExpressRoutePortName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The identity of ExpressRoutePort, if configured.
@@ -248,8 +250,6 @@ type ExpressRoutePortArgs struct {
 	Links ExpressRouteLinkArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the ExpressRoutePort resource.
-	Name pulumi.StringInput
 	// The name of the peering location that the ExpressRoutePort is mapped to physically.
 	PeeringLocation pulumi.StringPtrInput
 	// The name of the resource group.

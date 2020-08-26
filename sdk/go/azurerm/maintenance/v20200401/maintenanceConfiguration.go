@@ -33,11 +33,11 @@ type MaintenanceConfiguration struct {
 // NewMaintenanceConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	name string, args *MaintenanceConfigurationArgs, opts ...pulumi.ResourceOption) (*MaintenanceConfiguration, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil {
 		args = &MaintenanceConfigurationArgs{}
@@ -108,12 +108,12 @@ type maintenanceConfigurationArgs struct {
 	Location *string `pulumi:"location"`
 	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
 	MaintenanceScope *string `pulumi:"maintenanceScope"`
-	// Resource Identifier
-	Name string `pulumi:"name"`
 	// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
 	Namespace *string `pulumi:"namespace"`
 	// Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource Identifier
+	ResourceName string `pulumi:"resourceName"`
 	// Gets or sets tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -126,12 +126,12 @@ type MaintenanceConfigurationArgs struct {
 	Location pulumi.StringPtrInput
 	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
 	MaintenanceScope pulumi.StringPtrInput
-	// Resource Identifier
-	Name pulumi.StringInput
 	// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
 	Namespace pulumi.StringPtrInput
 	// Resource Group Name
 	ResourceGroupName pulumi.StringInput
+	// Resource Identifier
+	ResourceName pulumi.StringInput
 	// Gets or sets tags of the resource
 	Tags pulumi.StringMapInput
 }

@@ -41,6 +41,9 @@ type SiteHostNameBindingSlot struct {
 // NewSiteHostNameBindingSlot registers a new resource with the given unique name, arguments, and options.
 func NewSiteHostNameBindingSlot(ctx *pulumi.Context,
 	name string, args *SiteHostNameBindingSlotArgs, opts ...pulumi.ResourceOption) (*SiteHostNameBindingSlot, error) {
+	if args == nil || args.HostName == nil {
+		return nil, errors.New("missing required argument 'HostName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -158,6 +161,8 @@ type siteHostNameBindingSlotArgs struct {
 	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
 	// Fully qualified ARM domain resource URI
 	DomainId *string `pulumi:"domainId"`
+	// Name of host
+	HostName string `pulumi:"hostName"`
 	// Host name type
 	HostNameType *string `pulumi:"hostNameType"`
 	// Resource Id
@@ -166,7 +171,7 @@ type siteHostNameBindingSlotArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
-	// Name of host
+	// Resource Name
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -190,6 +195,8 @@ type SiteHostNameBindingSlotArgs struct {
 	CustomHostNameDnsRecordType pulumi.StringPtrInput
 	// Fully qualified ARM domain resource URI
 	DomainId pulumi.StringPtrInput
+	// Name of host
+	HostName pulumi.StringInput
 	// Host name type
 	HostNameType pulumi.StringPtrInput
 	// Resource Id
@@ -198,7 +205,7 @@ type SiteHostNameBindingSlotArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
-	// Name of host
+	// Resource Name
 	Name pulumi.StringInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput

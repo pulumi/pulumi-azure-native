@@ -48,6 +48,9 @@ func NewSiteSourceControlSlot(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Slot == nil {
+		return nil, errors.New("missing required argument 'Slot'")
+	}
 	if args == nil {
 		args = &SiteSourceControlSlotArgs{}
 	}
@@ -155,12 +158,14 @@ type siteSourceControlSlotArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
-	// Name of web app slot. If not specified then will default to production slot.
+	// Resource Name
 	Name string `pulumi:"name"`
 	// Repository or source control url
 	RepoUrl *string `pulumi:"repoUrl"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot string `pulumi:"slot"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -183,12 +188,14 @@ type SiteSourceControlSlotArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
-	// Name of web app slot. If not specified then will default to production slot.
+	// Resource Name
 	Name pulumi.StringInput
 	// Repository or source control url
 	RepoUrl pulumi.StringPtrInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

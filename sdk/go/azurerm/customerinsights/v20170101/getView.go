@@ -19,12 +19,12 @@ func LookupView(ctx *pulumi.Context, args *LookupViewArgs, opts ...pulumi.Invoke
 type LookupViewArgs struct {
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
-	// The name of the view.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The user ID. Use * to retrieve hub level view.
 	UserId string `pulumi:"userId"`
+	// The name of the view.
+	ViewName string `pulumi:"viewName"`
 }
 
 // The view resource format.

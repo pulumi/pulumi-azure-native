@@ -31,14 +31,14 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ShareName == nil {
 		return nil, errors.New("missing required argument 'ShareName'")
+	}
+	if args == nil || args.SynchronizationSettingName == nil {
+		return nil, errors.New("missing required argument 'SynchronizationSettingName'")
 	}
 	if args == nil {
 		args = &SynchronizationSettingArgs{}
@@ -91,12 +91,12 @@ type synchronizationSettingArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Kind of synchronization
 	Kind string `pulumi:"kind"`
-	// The name of the synchronizationSetting.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share to add the synchronization setting to.
 	ShareName string `pulumi:"shareName"`
+	// The name of the synchronizationSetting.
+	SynchronizationSettingName string `pulumi:"synchronizationSettingName"`
 }
 
 // The set of arguments for constructing a SynchronizationSetting resource.
@@ -105,12 +105,12 @@ type SynchronizationSettingArgs struct {
 	AccountName pulumi.StringInput
 	// Kind of synchronization
 	Kind pulumi.StringInput
-	// The name of the synchronizationSetting.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The name of the share to add the synchronization setting to.
 	ShareName pulumi.StringInput
+	// The name of the synchronizationSetting.
+	SynchronizationSettingName pulumi.StringInput
 }
 
 func (SynchronizationSettingArgs) ElementType() reflect.Type {

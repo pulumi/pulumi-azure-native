@@ -128,19 +128,19 @@ class AwaitableGetIpGroupResult(GetIpGroupResult):
 
 
 def get_ip_group(expand: Optional[str] = None,
-                 name: Optional[str] = None,
+                 ip_groups_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpGroupResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str expand: Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
-    :param str name: The name of the ipGroups.
+    :param str ip_groups_name: The name of the ipGroups.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
+    __args__['ipGroupsName'] = ip_groups_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

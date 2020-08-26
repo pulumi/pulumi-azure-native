@@ -17,7 +17,7 @@ export function getConnectorMapping(args: GetConnectorMappingArgs, opts?: pulumi
     return pulumi.runtime.invoke("azurerm:customerinsights/v20170101:getConnectorMapping", {
         "connectorName": args.connectorName,
         "hubName": args.hubName,
-        "name": args.name,
+        "mappingName": args.mappingName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -34,7 +34,7 @@ export interface GetConnectorMappingArgs {
     /**
      * The name of the connector mapping.
      */
-    readonly name: string;
+    readonly mappingName: string;
     /**
      * The name of the resource group.
      */

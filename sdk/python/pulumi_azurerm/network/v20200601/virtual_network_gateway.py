@@ -28,10 +28,10 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewaySkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                  vpn_client_configuration: Optional[pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']]] = None,
                  vpn_gateway_generation: Optional[pulumi.Input[str]] = None,
                  vpn_type: Optional[pulumi.Input[str]] = None,
@@ -54,10 +54,10 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIPConfigurationArgs']]]] ip_configurations: IP configurations for virtual network gateway.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the virtual network gateway.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewaySkuArgs']] sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_network_gateway_name: The name of the virtual network gateway.
         :param pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']] vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param pulumi.Input[str] vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         :param pulumi.Input[str] vpn_type: The type of this virtual network gateway.
@@ -90,19 +90,20 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            if virtual_network_gateway_name is None:
+                raise TypeError("Missing required property 'virtual_network_gateway_name'")
+            __props__['virtual_network_gateway_name'] = virtual_network_gateway_name
             __props__['vpn_client_configuration'] = vpn_client_configuration
             __props__['vpn_gateway_generation'] = vpn_gateway_generation
             __props__['vpn_type'] = vpn_type
             __props__['etag'] = None
             __props__['inbound_dns_forwarding_endpoint'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None

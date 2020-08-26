@@ -102,20 +102,20 @@ class AwaitableGetExpressRouteCircuitAuthorizationResult(GetExpressRouteCircuitA
             type=self.type)
 
 
-def get_express_route_circuit_authorization(circuit_name: Optional[str] = None,
-                                            name: Optional[str] = None,
+def get_express_route_circuit_authorization(authorization_name: Optional[str] = None,
+                                            circuit_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitAuthorizationResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str authorization_name: The name of the authorization.
     :param str circuit_name: The name of the express route circuit.
-    :param str name: The name of the authorization.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['authorizationName'] = authorization_name
     __args__['circuitName'] = circuit_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

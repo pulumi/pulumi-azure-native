@@ -16,9 +16,9 @@ export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions):
     }
     return pulumi.runtime.invoke("azurerm:netapp/v20190801:getSnapshot", {
         "accountName": args.accountName,
-        "name": args.name,
         "poolName": args.poolName,
         "resourceGroupName": args.resourceGroupName,
+        "snapshotName": args.snapshotName,
         "volumeName": args.volumeName,
     }, opts);
 }
@@ -29,10 +29,6 @@ export interface GetSnapshotArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the mount target
-     */
-    readonly name: string;
-    /**
      * The name of the capacity pool
      */
     readonly poolName: string;
@@ -40,6 +36,10 @@ export interface GetSnapshotArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the mount target
+     */
+    readonly snapshotName: string;
     /**
      * The name of the volume
      */

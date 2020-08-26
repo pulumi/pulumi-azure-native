@@ -39,8 +39,8 @@ type PrivateStoreOffer struct {
 // NewPrivateStoreOffer registers a new resource with the given unique name, arguments, and options.
 func NewPrivateStoreOffer(ctx *pulumi.Context,
 	name string, args *PrivateStoreOfferArgs, opts ...pulumi.ResourceOption) (*PrivateStoreOffer, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.OfferId == nil {
+		return nil, errors.New("missing required argument 'OfferId'")
 	}
 	if args == nil || args.PrivateStoreId == nil {
 		return nil, errors.New("missing required argument 'PrivateStoreId'")
@@ -123,7 +123,7 @@ type privateStoreOfferArgs struct {
 	// Identifier for purposes of race condition
 	ETag *string `pulumi:"eTag"`
 	// The offer ID to update or delete
-	Name string `pulumi:"name"`
+	OfferId string `pulumi:"offerId"`
 	// The store ID - must use the tenant ID
 	PrivateStoreId string `pulumi:"privateStoreId"`
 	// Plan ids limitation for this offer
@@ -135,7 +135,7 @@ type PrivateStoreOfferArgs struct {
 	// Identifier for purposes of race condition
 	ETag pulumi.StringPtrInput
 	// The offer ID to update or delete
-	Name pulumi.StringInput
+	OfferId pulumi.StringInput
 	// The store ID - must use the tenant ID
 	PrivateStoreId pulumi.StringInput
 	// Plan ids limitation for this offer

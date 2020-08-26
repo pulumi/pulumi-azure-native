@@ -30,11 +30,11 @@ func NewAlertRule(ctx *pulumi.Context,
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RuleId == nil {
+		return nil, errors.New("missing required argument 'RuleId'")
 	}
 	if args == nil || args.WorkspaceName == nil {
 		return nil, errors.New("missing required argument 'WorkspaceName'")
@@ -94,10 +94,10 @@ type alertRuleArgs struct {
 	Etag *string `pulumi:"etag"`
 	// The alert rule kind
 	Kind string `pulumi:"kind"`
-	// Alert rule ID
-	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Alert rule ID
+	RuleId string `pulumi:"ruleId"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -108,10 +108,10 @@ type AlertRuleArgs struct {
 	Etag pulumi.StringPtrInput
 	// The alert rule kind
 	Kind pulumi.StringInput
-	// Alert rule ID
-	Name pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Alert rule ID
+	RuleId pulumi.StringInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }

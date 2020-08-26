@@ -65,7 +65,7 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The state of the elastic pool.
      */
@@ -100,11 +100,11 @@ export class ElasticPool extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ElasticPoolArgs | undefined;
+            if (!args || args.elasticPoolName === undefined) {
+                throw new Error("Missing required property 'elasticPoolName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -116,8 +116,8 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["databaseDtuMin"] = args ? args.databaseDtuMin : undefined;
             inputs["dtu"] = args ? args.dtu : undefined;
             inputs["edition"] = args ? args.edition : undefined;
+            inputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["storageMB"] = args ? args.storageMB : undefined;
@@ -125,6 +125,7 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -160,13 +161,13 @@ export interface ElasticPoolArgs {
      */
     readonly edition?: pulumi.Input<string>;
     /**
+     * The name of the elastic pool to be operated on (updated or created).
+     */
+    readonly elasticPoolName: pulumi.Input<string>;
+    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the elastic pool to be operated on (updated or created).
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

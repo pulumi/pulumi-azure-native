@@ -76,10 +76,16 @@ namespace Pulumi.AzureRM.Authorization.V20151101
     public sealed class PolicyDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets the policy definition name.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The policy definition name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("policyDefinitionName", required: true)]
+        public Input<string> PolicyDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the policy definition properties.

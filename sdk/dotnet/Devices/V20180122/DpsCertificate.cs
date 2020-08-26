@@ -97,8 +97,8 @@ namespace Pulumi.AzureRM.Devices.V20180122
         /// <summary>
         /// The name of the certificate create or update.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the provisioning service.

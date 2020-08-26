@@ -55,8 +55,8 @@ func NewLiveEvent(ctx *pulumi.Context,
 	if args == nil || args.Input == nil {
 		return nil, errors.New("missing required argument 'Input'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LiveEventName == nil {
+		return nil, errors.New("missing required argument 'LiveEventName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -174,10 +174,10 @@ type liveEventArgs struct {
 	Encoding *LiveEventEncoding `pulumi:"encoding"`
 	// The Live Event input.
 	Input LiveEventInput `pulumi:"input"`
+	// The name of the Live Event.
+	LiveEventName string `pulumi:"liveEventName"`
 	// The Azure Region of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the Live Event.
-	Name string `pulumi:"name"`
 	// The Live Event preview.
 	Preview *LiveEventPreview `pulumi:"preview"`
 	// The name of the resource group within the Azure subscription.
@@ -204,10 +204,10 @@ type LiveEventArgs struct {
 	Encoding LiveEventEncodingPtrInput
 	// The Live Event input.
 	Input LiveEventInputInput
+	// The name of the Live Event.
+	LiveEventName pulumi.StringInput
 	// The Azure Region of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the Live Event.
-	Name pulumi.StringInput
 	// The Live Event preview.
 	Preview LiveEventPreviewPtrInput
 	// The name of the resource group within the Azure subscription.

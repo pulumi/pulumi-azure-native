@@ -36,8 +36,8 @@ func NewDatabaseAccountGremlinDatabase(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DatabaseName == nil {
+		return nil, errors.New("missing required argument 'DatabaseName'")
 	}
 	if args == nil || args.Options == nil {
 		return nil, errors.New("missing required argument 'Options'")
@@ -129,7 +129,7 @@ type databaseAccountGremlinDatabaseArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB database name.
-	Name string `pulumi:"name"`
+	DatabaseName string `pulumi:"databaseName"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options map[string]string `pulumi:"options"`
 	// The standard JSON format of a Gremlin database
@@ -143,7 +143,7 @@ type DatabaseAccountGremlinDatabaseArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
 	// Cosmos DB database name.
-	Name pulumi.StringInput
+	DatabaseName pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options pulumi.StringMapInput
 	// The standard JSON format of a Gremlin database

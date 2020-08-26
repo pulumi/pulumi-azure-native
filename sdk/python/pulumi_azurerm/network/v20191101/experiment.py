@@ -21,8 +21,8 @@ class Experiment(pulumi.CustomResource):
                  enabled_state: Optional[pulumi.Input[str]] = None,
                  endpoint_a: Optional[pulumi.Input[pulumi.InputType['EndpointArgs']]] = None,
                  endpoint_b: Optional[pulumi.Input[pulumi.InputType['EndpointArgs']]] = None,
+                 experiment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_state: Optional[pulumi.Input[str]] = None,
@@ -39,8 +39,8 @@ class Experiment(pulumi.CustomResource):
         :param pulumi.Input[str] enabled_state: The state of the Experiment
         :param pulumi.Input[pulumi.InputType['EndpointArgs']] endpoint_a: The endpoint A of an experiment
         :param pulumi.Input[pulumi.InputType['EndpointArgs']] endpoint_b: The endpoint B of an experiment
+        :param pulumi.Input[str] experiment_name: The Experiment identifier associated with the Experiment
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The Experiment identifier associated with the Experiment
         :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] resource_state: Resource status.
@@ -67,10 +67,10 @@ class Experiment(pulumi.CustomResource):
             __props__['enabled_state'] = enabled_state
             __props__['endpoint_a'] = endpoint_a
             __props__['endpoint_b'] = endpoint_b
+            if experiment_name is None:
+                raise TypeError("Missing required property 'experiment_name'")
+            __props__['experiment_name'] = experiment_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if profile_name is None:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
@@ -79,6 +79,7 @@ class Experiment(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_state'] = resource_state
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['script_file_uri'] = None
             __props__['status'] = None
             __props__['type'] = None

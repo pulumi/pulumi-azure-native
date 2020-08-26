@@ -114,19 +114,19 @@ class AwaitableGetMigrationConfigResult(GetMigrationConfigResult):
             type=self.type)
 
 
-def get_migration_config(name: Optional[str] = None,
+def get_migration_config(config_name: Optional[str] = None,
                          namespace_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationConfigResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The configuration name. Should always be "$default".
+    :param str config_name: The configuration name. Should always be "$default".
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['configName'] = config_name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

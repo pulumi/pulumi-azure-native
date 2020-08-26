@@ -136,16 +136,16 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
     public sealed class CloudEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of Cloud Endpoint object.
+        /// </summary>
+        [Input("cloudEndpointName", required: true)]
+        public Input<string> CloudEndpointName { get; set; } = null!;
+
+        /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Name of Cloud Endpoint object.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

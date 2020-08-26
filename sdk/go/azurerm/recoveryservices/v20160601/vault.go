@@ -38,11 +38,11 @@ func NewVault(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VaultName == nil {
+		return nil, errors.New("missing required argument 'VaultName'")
 	}
 	if args == nil {
 		args = &VaultArgs{}
@@ -117,14 +117,14 @@ type vaultArgs struct {
 	Identity *IdentityData `pulumi:"identity"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the recovery services vault.
-	Name string `pulumi:"name"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Identifies the unique system identifier for each Azure resource.
 	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the recovery services vault.
+	VaultName string `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a Vault resource.
@@ -135,14 +135,14 @@ type VaultArgs struct {
 	Identity IdentityDataPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the recovery services vault.
-	Name pulumi.StringInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// Identifies the unique system identifier for each Azure resource.
 	Sku SkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The name of the recovery services vault.
+	VaultName pulumi.StringInput
 }
 
 func (VaultArgs) ElementType() reflect.Type {

@@ -49,7 +49,7 @@ export class WCFRelay extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * WCFRelay Type.
      */
@@ -88,17 +88,17 @@ export class WCFRelay extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WCFRelayArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
+            }
+            if (!args || args.relayName === undefined) {
+                throw new Error("Missing required property 'relayName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
+            inputs["relayName"] = args ? args.relayName : undefined;
             inputs["relayType"] = args ? args.relayType : undefined;
             inputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
             inputs["requiresTransportSecurity"] = args ? args.requiresTransportSecurity : undefined;
@@ -107,6 +107,7 @@ export class WCFRelay extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["isDynamic"] = undefined /*out*/;
             inputs["listenerCount"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
@@ -126,13 +127,13 @@ export class WCFRelay extends pulumi.CustomResource {
  */
 export interface WCFRelayArgs {
     /**
-     * The relay name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The Namespace Name
      */
     readonly namespaceName: pulumi.Input<string>;
+    /**
+     * The relay name
+     */
+    readonly relayName: pulumi.Input<string>;
     /**
      * WCFRelay Type.
      */

@@ -18,7 +18,7 @@ func LookupServerKey(ctx *pulumi.Context, args *LookupServerKeyArgs, opts ...pul
 
 type LookupServerKeyArgs struct {
 	// The name of the PostgreSQL Server key to be retrieved.
-	Name string `pulumi:"name"`
+	KeyName string `pulumi:"keyName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.

@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <summary>
         /// The job schedule name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("jobScheduleId", required: true)]
+        public string JobScheduleId { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

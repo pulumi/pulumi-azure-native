@@ -79,7 +79,7 @@ export class DomainService extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Notification Settings
      */
@@ -126,19 +126,19 @@ export class DomainService extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DomainServiceArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.domainServiceName === undefined) {
+                throw new Error("Missing required property 'domainServiceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["domainSecuritySettings"] = args ? args.domainSecuritySettings : undefined;
+            inputs["domainServiceName"] = args ? args.domainServiceName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["filteredSync"] = args ? args.filteredSync : undefined;
             inputs["ldapsSettings"] = args ? args.ldapsSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["notificationSettings"] = args ? args.notificationSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
@@ -147,6 +147,7 @@ export class DomainService extends pulumi.CustomResource {
             inputs["healthAlerts"] = undefined /*out*/;
             inputs["healthLastEvaluated"] = undefined /*out*/;
             inputs["healthMonitors"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceStatus"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
@@ -179,6 +180,10 @@ export interface DomainServiceArgs {
      */
     readonly domainSecuritySettings?: pulumi.Input<inputs.aad.v20170101.DomainSecuritySettings>;
     /**
+     * The name of the domain service.
+     */
+    readonly domainServiceName: pulumi.Input<string>;
+    /**
      * Resource etag
      */
     readonly etag?: pulumi.Input<string>;
@@ -194,10 +199,6 @@ export interface DomainServiceArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the domain service.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Notification Settings
      */

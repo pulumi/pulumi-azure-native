@@ -15,7 +15,7 @@ export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:customerinsights/v20170101:getHub", {
-        "name": args.name,
+        "hubName": args.hubName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetHubArgs {
     /**
      * The name of the hub.
      */
-    readonly name: string;
+    readonly hubName: string;
     /**
      * The name of the resource group.
      */

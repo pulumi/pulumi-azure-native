@@ -24,8 +24,8 @@ class PrivateLinkService(pulumi.CustomResource):
                  ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]]] = None,
                  load_balancer_frontend_ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']]] = None,
                  __props__=None,
@@ -43,8 +43,8 @@ class PrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateLinkServiceIpConfigurationArgs']]]] ip_configurations: An array of private link service IP configurations.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]]] load_balancer_frontend_ip_configurations: An array of references to the load balancer IP configurations.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the private link service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the private link service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']] visibility: The visibility list of the private link service.
         """
@@ -72,16 +72,17 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__['ip_configurations'] = ip_configurations
             __props__['load_balancer_frontend_ip_configurations'] = load_balancer_frontend_ip_configurations
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if service_name is None:
+                raise TypeError("Missing required property 'service_name'")
+            __props__['service_name'] = service_name
             __props__['tags'] = tags
             __props__['visibility'] = visibility
             __props__['alias'] = None
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['network_interfaces'] = None
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None

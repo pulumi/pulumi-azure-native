@@ -18,9 +18,9 @@ class Service(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ClusterResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -32,9 +32,9 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The GEO location of the resource.
-        :param pulumi.Input[str] name: The name of the Service resource.
         :param pulumi.Input[pulumi.InputType['ClusterResourcePropertiesArgs']] properties: Properties of the Service resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] service_name: The name of the Service resource.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku of the Service resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
         """
@@ -56,15 +56,16 @@ class Service(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if service_name is None:
+                raise TypeError("Missing required property 'service_name'")
+            __props__['service_name'] = service_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         super(Service, __self__).__init__(
             'azurerm:appplatform/v20200701:Service',

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// <summary>
         /// The name of the elastic pool to be retrieved.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("elasticPoolName", required: true)]
+        public string ElasticPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

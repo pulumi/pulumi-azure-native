@@ -173,6 +173,12 @@ namespace Pulumi.AzureRM.Aad.V20200101
         public Input<Inputs.DomainSecuritySettingsArgs>? DomainSecuritySettings { get; set; }
 
         /// <summary>
+        /// The name of the domain service.
+        /// </summary>
+        [Input("domainServiceName", required: true)]
+        public Input<string> DomainServiceName { get; set; } = null!;
+
+        /// <summary>
         /// Resource etag
         /// </summary>
         [Input("etag")]
@@ -195,12 +201,6 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the domain service.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Notification Settings

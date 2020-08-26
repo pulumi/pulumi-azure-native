@@ -145,16 +145,16 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Cosmos DB container name.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
         /// Cosmos DB database name.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
-
-        /// <summary>
-        /// Cosmos DB container name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("options", required: true)]
         private InputMap<string>? _options;

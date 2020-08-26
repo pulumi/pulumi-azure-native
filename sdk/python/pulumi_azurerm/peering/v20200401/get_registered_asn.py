@@ -90,20 +90,20 @@ class AwaitableGetRegisteredAsnResult(GetRegisteredAsnResult):
             type=self.type)
 
 
-def get_registered_asn(name: Optional[str] = None,
-                       peering_name: Optional[str] = None,
+def get_registered_asn(peering_name: Optional[str] = None,
+                       registered_asn_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredAsnResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the registered ASN.
     :param str peering_name: The name of the peering.
+    :param str registered_asn_name: The name of the registered ASN.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['peeringName'] = peering_name
+    __args__['registeredAsnName'] = registered_asn_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

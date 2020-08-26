@@ -198,20 +198,20 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             vnet_subnet_id=self.vnet_subnet_id)
 
 
-def get_agent_pool(managed_cluster_name: Optional[str] = None,
-                   name: Optional[str] = None,
+def get_agent_pool(agent_pool_name: Optional[str] = None,
+                   managed_cluster_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str agent_pool_name: The name of the agent pool.
     :param str managed_cluster_name: The name of the managed cluster resource.
-    :param str name: The name of the agent pool.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['agentPoolName'] = agent_pool_name
     __args__['managedClusterName'] = managed_cluster_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

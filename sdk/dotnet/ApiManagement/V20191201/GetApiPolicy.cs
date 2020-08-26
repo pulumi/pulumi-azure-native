@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// The identifier of the Policy.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("policyId", required: true)]
+        public string PolicyId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -18,7 +18,7 @@ class Job(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  job_collection_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 job_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['JobPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -29,7 +29,7 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_collection_name: The job collection name.
-        :param pulumi.Input[str] name: The job name.
+        :param pulumi.Input[str] job_name: The job name.
         :param pulumi.Input[pulumi.InputType['JobPropertiesArgs']] properties: Gets or sets the job properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
@@ -53,13 +53,14 @@ class Job(pulumi.CustomResource):
             if job_collection_name is None:
                 raise TypeError("Missing required property 'job_collection_name'")
             __props__['job_collection_name'] = job_collection_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if job_name is None:
+                raise TypeError("Missing required property 'job_name'")
+            __props__['job_name'] = job_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:scheduler/v20160301:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

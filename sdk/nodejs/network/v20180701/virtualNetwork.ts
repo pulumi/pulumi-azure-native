@@ -67,7 +67,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -106,11 +106,11 @@ export class VirtualNetwork extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualNetworkArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.virtualNetworkName === undefined) {
+                throw new Error("Missing required property 'virtualNetworkName'");
             }
             inputs["addressSpace"] = args ? args.addressSpace : undefined;
             inputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
@@ -120,13 +120,14 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -179,10 +180,6 @@ export interface VirtualNetworkArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the virtual network.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
     readonly provisioningState?: pulumi.Input<string>;
@@ -202,6 +199,10 @@ export interface VirtualNetworkArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the virtual network.
+     */
+    readonly virtualNetworkName: pulumi.Input<string>;
     /**
      * A list of peerings in a Virtual Network.
      */

@@ -164,19 +164,19 @@ class AwaitableGetProjectResult(GetProjectResult):
 
 
 def get_project(group_name: Optional[str] = None,
-                name: Optional[str] = None,
+                project_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str group_name: Name of the resource group
-    :param str name: Name of the project
+    :param str project_name: Name of the project
     :param str service_name: Name of the service
     """
     __args__ = dict()
     __args__['groupName'] = group_name
-    __args__['name'] = name
+    __args__['projectName'] = project_name
     __args__['serviceName'] = service_name
     if opts is None:
         opts = pulumi.InvokeOptions()

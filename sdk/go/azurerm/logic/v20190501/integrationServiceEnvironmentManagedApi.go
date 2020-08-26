@@ -29,11 +29,11 @@ type IntegrationServiceEnvironmentManagedApi struct {
 // NewIntegrationServiceEnvironmentManagedApi registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 	name string, args *IntegrationServiceEnvironmentManagedApiArgs, opts ...pulumi.ResourceOption) (*IntegrationServiceEnvironmentManagedApi, error) {
+	if args == nil || args.ApiName == nil {
+		return nil, errors.New("missing required argument 'ApiName'")
+	}
 	if args == nil || args.IntegrationServiceEnvironmentName == nil {
 		return nil, errors.New("missing required argument 'IntegrationServiceEnvironmentName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroup == nil {
 		return nil, errors.New("missing required argument 'ResourceGroup'")
@@ -93,20 +93,20 @@ func (IntegrationServiceEnvironmentManagedApiState) ElementType() reflect.Type {
 }
 
 type integrationServiceEnvironmentManagedApiArgs struct {
+	// The api name.
+	ApiName string `pulumi:"apiName"`
 	// The integration service environment name.
 	IntegrationServiceEnvironmentName string `pulumi:"integrationServiceEnvironmentName"`
-	// The api name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroup string `pulumi:"resourceGroup"`
 }
 
 // The set of arguments for constructing a IntegrationServiceEnvironmentManagedApi resource.
 type IntegrationServiceEnvironmentManagedApiArgs struct {
+	// The api name.
+	ApiName pulumi.StringInput
 	// The integration service environment name.
 	IntegrationServiceEnvironmentName pulumi.StringInput
-	// The api name.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroup pulumi.StringInput
 }

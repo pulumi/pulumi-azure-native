@@ -16,9 +16,9 @@ export function getReplicationStorageClassificationMapping(args: GetReplicationS
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20180110:getReplicationStorageClassificationMapping", {
         "fabricName": args.fabricName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
+        "storageClassificationMappingName": args.storageClassificationMappingName,
         "storageClassificationName": args.storageClassificationName,
     }, opts);
 }
@@ -29,10 +29,6 @@ export interface GetReplicationStorageClassificationMappingArgs {
      */
     readonly fabricName: string;
     /**
-     * Storage classification mapping name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group where the recovery services vault is present.
      */
     readonly resourceGroupName: string;
@@ -40,6 +36,10 @@ export interface GetReplicationStorageClassificationMappingArgs {
      * The name of the recovery services vault.
      */
     readonly resourceName: string;
+    /**
+     * Storage classification mapping name.
+     */
+    readonly storageClassificationMappingName: string;
     /**
      * Storage classification name.
      */

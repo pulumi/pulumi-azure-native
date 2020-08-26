@@ -32,14 +32,14 @@ func NewVault(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VaultName == nil {
+		return nil, errors.New("missing required argument 'VaultName'")
 	}
 	if args == nil {
 		args = &VaultArgs{}
@@ -110,28 +110,28 @@ func (VaultState) ElementType() reflect.Type {
 type vaultArgs struct {
 	// The supported Azure location where the key vault should be created.
 	Location string `pulumi:"location"`
-	// Name of the vault
-	Name string `pulumi:"name"`
 	// Properties of the vault
 	Properties VaultProperties `pulumi:"properties"`
 	// The name of the Resource Group to which the server belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags that will be assigned to the key vault.
 	Tags map[string]string `pulumi:"tags"`
+	// Name of the vault
+	VaultName string `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
 	// The supported Azure location where the key vault should be created.
 	Location pulumi.StringInput
-	// Name of the vault
-	Name pulumi.StringInput
 	// Properties of the vault
 	Properties VaultPropertiesInput
 	// The name of the Resource Group to which the server belongs.
 	ResourceGroupName pulumi.StringInput
 	// The tags that will be assigned to the key vault.
 	Tags pulumi.StringMapInput
+	// Name of the vault
+	VaultName pulumi.StringInput
 }
 
 func (VaultArgs) ElementType() reflect.Type {

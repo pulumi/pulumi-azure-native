@@ -18,6 +18,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ip_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
@@ -34,7 +35,8 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the ipconfig.
+        :param pulumi.Input[str] ip_config_name: The name of the ipconfig.
+        :param pulumi.Input[str] name: Name of the Ip Configuration.
         :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
         :param pulumi.Input[str] private_ip_allocation_method: The private IP address allocation method.
         :param pulumi.Input[pulumi.InputType['PublicIPAddressArgs']] public_ip_address: The reference to the public IP resource.
@@ -60,8 +62,9 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
+            if ip_config_name is None:
+                raise TypeError("Missing required property 'ip_config_name'")
+            __props__['ip_config_name'] = ip_config_name
             __props__['name'] = name
             __props__['private_ip_address'] = private_ip_address
             __props__['private_ip_allocation_method'] = private_ip_allocation_method

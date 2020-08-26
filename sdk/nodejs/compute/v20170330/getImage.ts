@@ -16,7 +16,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
     }
     return pulumi.runtime.invoke("azurerm:compute/v20170330:getImage", {
         "expand": args.expand,
-        "name": args.name,
+        "imageName": args.imageName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetImageArgs {
     /**
      * The name of the image.
      */
-    readonly name: string;
+    readonly imageName: string;
     /**
      * The name of the resource group.
      */

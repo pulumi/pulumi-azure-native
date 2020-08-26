@@ -17,7 +17,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 proximity_placement_group_name: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -30,7 +30,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the proximity placement group.
+        :param pulumi.Input[str] proximity_placement_group_name: The name of the proximity placement group.
         :param pulumi.Input[str] proximity_placement_group_type: Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -55,15 +55,16 @@ class ProximityPlacementGroup(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if proximity_placement_group_name is None:
+                raise TypeError("Missing required property 'proximity_placement_group_name'")
+            __props__['proximity_placement_group_name'] = proximity_placement_group_name
             __props__['proximity_placement_group_type'] = proximity_placement_group_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['availability_sets'] = None
+            __props__['name'] = None
             __props__['type'] = None
             __props__['virtual_machine_scale_sets'] = None
             __props__['virtual_machines'] = None

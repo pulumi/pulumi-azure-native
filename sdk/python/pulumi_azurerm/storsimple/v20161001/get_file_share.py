@@ -153,8 +153,8 @@ class AwaitableGetFileShareResult(GetFileShareResult):
 def get_file_share(device_name: Optional[str] = None,
                    file_server_name: Optional[str] = None,
                    manager_name: Optional[str] = None,
-                   name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
+                   share_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileShareResult:
     """
     Use this data source to access information about an existing resource.
@@ -162,15 +162,15 @@ def get_file_share(device_name: Optional[str] = None,
     :param str device_name: The device name.
     :param str file_server_name: The file server name.
     :param str manager_name: The manager name
-    :param str name: The file share name.
     :param str resource_group_name: The resource group name
+    :param str share_name: The file share name.
     """
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['fileServerName'] = file_server_name
     __args__['managerName'] = manager_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['shareName'] = share_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Management.V20190601
         /// <summary>
         /// The name of the policy definition to get.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("policyDefinitionName", required: true)]
+        public string PolicyDefinitionName { get; set; } = null!;
 
         public GetPolicyDefinitionAtManagementGroupArgs()
         {

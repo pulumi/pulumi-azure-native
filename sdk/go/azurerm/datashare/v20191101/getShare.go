@@ -19,10 +19,10 @@ func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.Invo
 type LookupShareArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
-	// The name of the share to retrieve.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the share to retrieve.
+	ShareName string `pulumi:"shareName"`
 }
 
 // A share data transfer object.

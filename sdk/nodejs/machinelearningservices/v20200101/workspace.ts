@@ -83,7 +83,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Specifies the name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
      */
@@ -126,11 +126,11 @@ export class Workspace extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.workspaceName === undefined) {
+                throw new Error("Missing required property 'workspaceName'");
             }
             inputs["applicationInsights"] = args ? args.applicationInsights : undefined;
             inputs["containerRegistry"] = args ? args.containerRegistry : undefined;
@@ -142,12 +142,13 @@ export class Workspace extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["keyVault"] = args ? args.keyVault : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["creationTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceProvisionedResourceGroup"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -211,10 +212,6 @@ export interface WorkspaceArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Name of Azure Machine Learning workspace.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Name of the resource group in which workspace is located.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -230,4 +227,8 @@ export interface WorkspaceArgs {
      * Contains resource tags defined as key/value pairs.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of Azure Machine Learning workspace.
+     */
+    readonly workspaceName: pulumi.Input<string>;
 }

@@ -108,6 +108,12 @@ namespace Pulumi.AzureRM.Insights.V20150401
     public sealed class AutoscaleSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The autoscale setting name.
+        /// </summary>
+        [Input("autoscaleSettingName", required: true)]
+        public Input<string> AutoscaleSettingName { get; set; } = null!;
+
+        /// <summary>
         /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
         /// </summary>
         [Input("enabled")]
@@ -120,10 +126,10 @@ namespace Pulumi.AzureRM.Insights.V20150401
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The autoscale setting name.
+        /// the name of the autoscale setting.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("notifications")]
         private InputList<Inputs.AutoscaleNotificationArgs>? _notifications;

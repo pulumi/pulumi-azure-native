@@ -90,12 +90,6 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// The name of the trigger.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -106,6 +100,12 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// </summary>
         [Input("shareSubscriptionName", required: true)]
         public Input<string> ShareSubscriptionName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the trigger.
+        /// </summary>
+        [Input("triggerName", required: true)]
+        public Input<string> TriggerName { get; set; } = null!;
 
         public TriggerArgs()
         {

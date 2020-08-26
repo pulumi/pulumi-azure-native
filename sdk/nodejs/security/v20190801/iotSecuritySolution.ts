@@ -63,7 +63,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * List of the configuration status for each recommendation type.
      */
@@ -112,26 +112,27 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             if (!args || args.iotHubs === undefined) {
                 throw new Error("Missing required property 'iotHubs'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.solutionName === undefined) {
+                throw new Error("Missing required property 'solutionName'");
             }
             inputs["disabledDataSources"] = args ? args.disabledDataSources : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["export"] = args ? args.export : undefined;
             inputs["iotHubs"] = args ? args.iotHubs : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["recommendationsConfiguration"] = args ? args.recommendationsConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["solutionName"] = args ? args.solutionName : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["unmaskedIpLoggingStatus"] = args ? args.unmaskedIpLoggingStatus : undefined;
             inputs["userDefinedResources"] = args ? args.userDefinedResources : undefined;
             inputs["workspace"] = args ? args.workspace : undefined;
             inputs["autoDiscoveredResources"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -170,10 +171,6 @@ export interface IotSecuritySolutionArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the IoT Security solution.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * List of the configuration status for each recommendation type.
      */
     readonly recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.v20190801.RecommendationConfigurationProperties>[]>;
@@ -181,6 +178,10 @@ export interface IotSecuritySolutionArgs {
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the IoT Security solution.
+     */
+    readonly solutionName: pulumi.Input<string>;
     /**
      * Status of the IoT Security solution.
      */

@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
     public sealed class GetPrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection connection.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the parent resource (namely, either, the topic name or domain name).
         /// </summary>
         [Input("parentName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// </summary>
         [Input("parentType", required: true)]
         public string ParentType { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the private endpoint connection connection.
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

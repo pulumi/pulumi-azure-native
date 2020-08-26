@@ -15,21 +15,21 @@ export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:alertsmanagement/v20190601:getSmartDetectorAlertRule", {
+        "alertRuleName": args.alertRuleName,
         "expandDetector": args.expandDetector,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetSmartDetectorAlertRuleArgs {
     /**
+     * The name of the alert rule.
+     */
+    readonly alertRuleName: string;
+    /**
      * Indicates if Smart Detector should be expanded.
      */
     readonly expandDetector?: boolean;
-    /**
-     * The name of the alert rule.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

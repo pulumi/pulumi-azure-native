@@ -17,10 +17,10 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 }
 
 type LookupRouteArgs struct {
-	// The name of the route.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the route.
+	RouteName string `pulumi:"routeName"`
 	// The name of the route table.
 	RouteTableName string `pulumi:"routeTableName"`
 }

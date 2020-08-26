@@ -19,10 +19,10 @@ class DscpConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_ip_ranges: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]]] = None,
                  destination_port_ranges: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]]] = None,
+                 dscp_configuration_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  markings: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_ip_ranges: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]]] = None,
@@ -38,10 +38,10 @@ class DscpConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]] destination_ip_ranges: Destination IP ranges.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]] destination_port_ranges: Destination port ranges.
+        :param pulumi.Input[str] dscp_configuration_name: The name of the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[List[pulumi.Input[float]]] markings: List of markings to be used in the configuration.
-        :param pulumi.Input[str] name: The name of the resource.
         :param pulumi.Input[str] protocol: RNM supported protocol types.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]] source_ip_ranges: Source IP ranges.
@@ -67,12 +67,12 @@ class DscpConfiguration(pulumi.CustomResource):
 
             __props__['destination_ip_ranges'] = destination_ip_ranges
             __props__['destination_port_ranges'] = destination_port_ranges
+            if dscp_configuration_name is None:
+                raise TypeError("Missing required property 'dscp_configuration_name'")
+            __props__['dscp_configuration_name'] = dscp_configuration_name
             __props__['id'] = id
             __props__['location'] = location
             __props__['markings'] = markings
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['protocol'] = protocol
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -82,6 +82,7 @@ class DscpConfiguration(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['associated_network_interfaces'] = None
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['qos_collection_id'] = None
             __props__['resource_guid'] = None

@@ -15,20 +15,20 @@ export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs,
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerservice/v20190430:getOpenShiftManagedCluster", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetOpenShiftManagedClusterArgs {
     /**
-     * The name of the OpenShift managed cluster resource.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the OpenShift managed cluster resource.
+     */
+    readonly resourceName: string;
 }
 
 /**

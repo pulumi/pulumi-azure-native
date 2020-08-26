@@ -120,8 +120,14 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The name of the ipconfig.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("ipConfigName", required: true)]
+        public Input<string> IpConfigName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Ip Configuration.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The private IP address of the IP configuration.

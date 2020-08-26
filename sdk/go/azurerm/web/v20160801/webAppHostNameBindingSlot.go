@@ -43,6 +43,9 @@ type WebAppHostNameBindingSlot struct {
 // NewWebAppHostNameBindingSlot registers a new resource with the given unique name, arguments, and options.
 func NewWebAppHostNameBindingSlot(ctx *pulumi.Context,
 	name string, args *WebAppHostNameBindingSlotArgs, opts ...pulumi.ResourceOption) (*WebAppHostNameBindingSlot, error) {
+	if args == nil || args.HostName == nil {
+		return nil, errors.New("missing required argument 'HostName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -161,11 +164,13 @@ type webAppHostNameBindingSlotArgs struct {
 	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
 	// Fully qualified ARM domain resource URI.
 	DomainId *string `pulumi:"domainId"`
+	// Hostname in the hostname binding.
+	HostName string `pulumi:"hostName"`
 	// Hostname type.
 	HostNameType *string `pulumi:"hostNameType"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Hostname in the hostname binding.
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -189,11 +194,13 @@ type WebAppHostNameBindingSlotArgs struct {
 	CustomHostNameDnsRecordType pulumi.StringPtrInput
 	// Fully qualified ARM domain resource URI.
 	DomainId pulumi.StringPtrInput
+	// Hostname in the hostname binding.
+	HostName pulumi.StringInput
 	// Hostname type.
 	HostNameType pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Hostname in the hostname binding.
+	// Name of the app.
 	Name pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput

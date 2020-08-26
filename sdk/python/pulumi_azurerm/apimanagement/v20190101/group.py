@@ -18,7 +18,7 @@ class Group(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: Group description.
         :param pulumi.Input[str] display_name: Group name.
         :param pulumi.Input[str] external_id: Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
-        :param pulumi.Input[str] name: Group identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] group_id: Group identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] type: Group type.
@@ -60,9 +60,9 @@ class Group(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['external_id'] = external_id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if group_id is None:
+                raise TypeError("Missing required property 'group_id'")
+            __props__['group_id'] = group_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -71,6 +71,7 @@ class Group(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['type'] = type
             __props__['built_in'] = None
+            __props__['name'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Group"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Group"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Group"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Group"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Group")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(

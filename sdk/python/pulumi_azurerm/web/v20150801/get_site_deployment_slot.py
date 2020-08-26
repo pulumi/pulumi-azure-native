@@ -198,18 +198,21 @@ class AwaitableGetSiteDeploymentSlotResult(GetSiteDeploymentSlotResult):
             type=self.type)
 
 
-def get_site_deployment_slot(name: Optional[str] = None,
+def get_site_deployment_slot(id: Optional[str] = None,
+                             name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              slot: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteDeploymentSlotResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Id of the deployment
+    :param str id: Id of the deployment
+    :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot

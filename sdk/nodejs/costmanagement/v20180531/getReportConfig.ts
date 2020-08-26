@@ -15,7 +15,7 @@ export function getReportConfig(args: GetReportConfigArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:costmanagement/v20180531:getReportConfig", {
-        "name": args.name,
+        "reportConfigName": args.reportConfigName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetReportConfigArgs {
     /**
      * Report Config Name.
      */
-    readonly name: string;
+    readonly reportConfigName: string;
 }
 
 /**

@@ -16,7 +16,7 @@ export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingA
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20180110:getReplicationNetworkMapping", {
         "fabricName": args.fabricName,
-        "name": args.name,
+        "networkMappingName": args.networkMappingName,
         "networkName": args.networkName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
@@ -31,7 +31,7 @@ export interface GetReplicationNetworkMappingArgs {
     /**
      * Network mapping name.
      */
-    readonly name: string;
+    readonly networkMappingName: string;
     /**
      * Primary network name.
      */

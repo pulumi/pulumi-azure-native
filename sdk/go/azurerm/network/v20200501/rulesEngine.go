@@ -30,11 +30,11 @@ func NewRulesEngine(ctx *pulumi.Context,
 	if args == nil || args.FrontDoorName == nil {
 		return nil, errors.New("missing required argument 'FrontDoorName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RulesEngineName == nil {
+		return nil, errors.New("missing required argument 'RulesEngineName'")
 	}
 	if args == nil {
 		args = &RulesEngineArgs{}
@@ -98,28 +98,28 @@ func (RulesEngineState) ElementType() reflect.Type {
 type rulesEngineArgs struct {
 	// Name of the Front Door which is globally unique.
 	FrontDoorName string `pulumi:"frontDoorName"`
-	// Name of the Rules Engine which is unique within the Front Door.
-	Name string `pulumi:"name"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource status.
 	ResourceState *string `pulumi:"resourceState"`
 	// A list of rules that define a particular Rules Engine Configuration.
 	Rules []RulesEngineRule `pulumi:"rules"`
+	// Name of the Rules Engine which is unique within the Front Door.
+	RulesEngineName string `pulumi:"rulesEngineName"`
 }
 
 // The set of arguments for constructing a RulesEngine resource.
 type RulesEngineArgs struct {
 	// Name of the Front Door which is globally unique.
 	FrontDoorName pulumi.StringInput
-	// Name of the Rules Engine which is unique within the Front Door.
-	Name pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Resource status.
 	ResourceState pulumi.StringPtrInput
 	// A list of rules that define a particular Rules Engine Configuration.
 	Rules RulesEngineRuleArrayInput
+	// Name of the Rules Engine which is unique within the Front Door.
+	RulesEngineName pulumi.StringInput
 }
 
 func (RulesEngineArgs) ElementType() reflect.Type {

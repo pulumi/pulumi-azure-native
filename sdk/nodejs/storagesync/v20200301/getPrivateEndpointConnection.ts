@@ -15,7 +15,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storagesync/v20200301:getPrivateEndpointConnection", {
-        "name": args.name,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    readonly name: string;
+    readonly privateEndpointConnectionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

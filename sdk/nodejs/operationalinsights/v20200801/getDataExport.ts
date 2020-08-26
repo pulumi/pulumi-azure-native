@@ -15,7 +15,7 @@ export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20200801:getDataExport", {
-        "name": args.name,
+        "dataExportName": args.dataExportName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetDataExportArgs {
     /**
      * The data export rule name.
      */
-    readonly name: string;
+    readonly dataExportName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

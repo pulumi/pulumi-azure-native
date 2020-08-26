@@ -20,7 +20,7 @@ type LookupMongoDBResourceMongoDBDatabaseArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB database name.
-	Name string `pulumi:"name"`
+	DatabaseName string `pulumi:"databaseName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

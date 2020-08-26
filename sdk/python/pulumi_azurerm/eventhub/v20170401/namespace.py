@@ -21,7 +21,7 @@ class Namespace(pulumi.CustomResource):
                  kafka_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maximum_throughput_units: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,7 +37,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[bool] kafka_enabled: Value that indicates whether Kafka is enabled for eventhub namespace.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[float] maximum_throughput_units: Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-        :param pulumi.Input[str] name: The Namespace name
+        :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Properties of sku resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -63,9 +63,9 @@ class Namespace(pulumi.CustomResource):
             __props__['kafka_enabled'] = kafka_enabled
             __props__['location'] = location
             __props__['maximum_throughput_units'] = maximum_throughput_units
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if namespace_name is None:
+                raise TypeError("Missing required property 'namespace_name'")
+            __props__['namespace_name'] = namespace_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -73,6 +73,7 @@ class Namespace(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['created_at'] = None
             __props__['metric_id'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['service_bus_endpoint'] = None
             __props__['type'] = None

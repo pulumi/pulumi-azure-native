@@ -15,18 +15,14 @@ export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180901:getRecordSet", {
-        "name": args.name,
         "privateZoneName": args.privateZoneName,
         "recordType": args.recordType,
+        "relativeRecordSetName": args.relativeRecordSetName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetRecordSetArgs {
-    /**
-     * The name of the record set, relative to the name of the zone.
-     */
-    readonly name: string;
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
@@ -35,6 +31,10 @@ export interface GetRecordSetArgs {
      * The type of DNS record in this record set.
      */
     readonly recordType: string;
+    /**
+     * The name of the record set, relative to the name of the zone.
+     */
+    readonly relativeRecordSetName: string;
     /**
      * The name of the resource group.
      */

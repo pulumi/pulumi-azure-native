@@ -20,7 +20,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata_endpoint: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 opid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -36,7 +36,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         :param pulumi.Input[str] description: User-friendly description of OpenID Connect Provider.
         :param pulumi.Input[str] display_name: User-friendly OpenID Connect Provider name.
         :param pulumi.Input[str] metadata_endpoint: Metadata endpoint URI.
-        :param pulumi.Input[str] name: Identifier of the OpenID Connect Provider.
+        :param pulumi.Input[str] opid: Identifier of the OpenID Connect Provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
@@ -68,15 +68,16 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             if metadata_endpoint is None:
                 raise TypeError("Missing required property 'metadata_endpoint'")
             __props__['metadata_endpoint'] = metadata_endpoint
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if opid is None:
+                raise TypeError("Missing required property 'opid'")
+            __props__['opid'] = opid
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:OpenIdConnectProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:OpenIdConnectProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:OpenIdConnectProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:OpenIdConnectProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:OpenIdConnectProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

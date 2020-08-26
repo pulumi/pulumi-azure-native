@@ -103,6 +103,12 @@ namespace Pulumi.AzureRM.HybridData.V20160601
     public sealed class DataManagerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        /// </summary>
+        [Input("dataManagerName", required: true)]
+        public Input<string> DataManagerName { get; set; } = null!;
+
+        /// <summary>
         /// Etag of the Resource.
         /// </summary>
         [Input("etag")]
@@ -115,12 +121,6 @@ namespace Pulumi.AzureRM.HybridData.V20160601
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name

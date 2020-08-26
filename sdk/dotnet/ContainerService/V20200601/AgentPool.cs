@@ -222,6 +222,12 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
 
     public sealed class AgentPoolArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the agent pool.
+        /// </summary>
+        [Input("agentPoolName", required: true)]
+        public Input<string> AgentPoolName { get; set; } = null!;
+
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
 
@@ -275,12 +281,6 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
-
-        /// <summary>
-        /// The name of the agent pool.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Version of node image

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20180901
         /// <summary>
         /// The name of the Private DNS zone (without a terminating dot).
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("privateZoneName", required: true)]
+        public string PrivateZoneName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

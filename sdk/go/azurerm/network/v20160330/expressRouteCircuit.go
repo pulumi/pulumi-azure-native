@@ -49,8 +49,8 @@ type ExpressRouteCircuit struct {
 // NewExpressRouteCircuit registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuit(ctx *pulumi.Context,
 	name string, args *ExpressRouteCircuitArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuit, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CircuitName == nil {
+		return nil, errors.New("missing required argument 'CircuitName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -250,6 +250,8 @@ type expressRouteCircuitArgs struct {
 	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
 	// Gets or sets list of authorizations
 	Authorizations []ExpressRouteCircuitAuthorizationType `pulumi:"authorizations"`
+	// The name of the circuit.
+	CircuitName string `pulumi:"circuitName"`
 	// Gets or sets CircuitProvisioningState state of the resource
 	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
 	// Gets a unique read-only string that changes whenever the resource is updated
@@ -258,8 +260,6 @@ type expressRouteCircuitArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the circuit.
-	Name string `pulumi:"name"`
 	// Gets or sets list of peerings
 	Peerings []ExpressRouteCircuitPeeringType `pulumi:"peerings"`
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -286,6 +286,8 @@ type ExpressRouteCircuitArgs struct {
 	AllowClassicOperations pulumi.BoolPtrInput
 	// Gets or sets list of authorizations
 	Authorizations ExpressRouteCircuitAuthorizationTypeArrayInput
+	// The name of the circuit.
+	CircuitName pulumi.StringInput
 	// Gets or sets CircuitProvisioningState state of the resource
 	CircuitProvisioningState pulumi.StringPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated
@@ -294,8 +296,6 @@ type ExpressRouteCircuitArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the circuit.
-	Name pulumi.StringInput
 	// Gets or sets list of peerings
 	Peerings ExpressRouteCircuitPeeringTypeArrayInput
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed

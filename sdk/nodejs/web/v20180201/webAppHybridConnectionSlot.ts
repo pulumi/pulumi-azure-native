@@ -57,7 +57,7 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
     /**
      * The name of the Service Bus relay.
      */
-    public /*out*/ readonly relayName!: pulumi.Output<string | undefined>;
+    public readonly relayName!: pulumi.Output<string | undefined>;
     /**
      * The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
      */
@@ -99,6 +99,9 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
+            if (!args || args.relayName === undefined) {
+                throw new Error("Missing required property 'relayName'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -111,13 +114,13 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["relayArmUri"] = args ? args.relayArmUri : undefined;
+            inputs["relayName"] = args ? args.relayName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sendKeyName"] = args ? args.sendKeyName : undefined;
             inputs["sendKeyValue"] = args ? args.sendKeyValue : undefined;
             inputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
             inputs["serviceBusSuffix"] = args ? args.serviceBusSuffix : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["relayName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -146,7 +149,7 @@ export interface WebAppHybridConnectionSlotArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The name of the Service Bus relay.
+     * The name of the web app.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -161,6 +164,10 @@ export interface WebAppHybridConnectionSlotArgs {
      * The ARM URI to the Service Bus relay.
      */
     readonly relayArmUri?: pulumi.Input<string>;
+    /**
+     * The name of the Service Bus relay.
+     */
+    readonly relayName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

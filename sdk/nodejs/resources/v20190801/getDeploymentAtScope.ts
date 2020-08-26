@@ -15,7 +15,7 @@ export function getDeploymentAtScope(args: GetDeploymentAtScopeArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:resources/v20190801:getDeploymentAtScope", {
-        "name": args.name,
+        "deploymentName": args.deploymentName,
         "scope": args.scope,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDeploymentAtScopeArgs {
     /**
      * The name of the deployment.
      */
-    readonly name: string;
+    readonly deploymentName: string;
     /**
      * The scope of a deployment.
      */

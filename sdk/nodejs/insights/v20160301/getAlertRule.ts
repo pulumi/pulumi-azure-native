@@ -15,20 +15,20 @@ export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20160301:getAlertRule", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
     }, opts);
 }
 
 export interface GetAlertRuleArgs {
     /**
-     * The name of the rule.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the rule.
+     */
+    readonly ruleName: string;
 }
 
 /**

@@ -49,8 +49,8 @@ type PublicIPPrefix struct {
 // NewPublicIPPrefix registers a new resource with the given unique name, arguments, and options.
 func NewPublicIPPrefix(ctx *pulumi.Context,
 	name string, args *PublicIPPrefixArgs, opts ...pulumi.ResourceOption) (*PublicIPPrefix, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PublicIpPrefixName == nil {
+		return nil, errors.New("missing required argument 'PublicIpPrefixName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -211,8 +211,6 @@ type publicIPPrefixArgs struct {
 	IpTags []IpTag `pulumi:"ipTags"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the public IP prefix.
-	Name string `pulumi:"name"`
 	// The Length of the Public IP Prefix.
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
@@ -221,6 +219,8 @@ type publicIPPrefixArgs struct {
 	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
 	// The list of all referenced PublicIPAddresses
 	PublicIPAddresses []ReferencedPublicIpAddress `pulumi:"publicIPAddresses"`
+	// The name of the public IP prefix.
+	PublicIpPrefixName string `pulumi:"publicIpPrefixName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the public IP prefix resource.
@@ -245,8 +245,6 @@ type PublicIPPrefixArgs struct {
 	IpTags IpTagArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the public IP prefix.
-	Name pulumi.StringInput
 	// The Length of the Public IP Prefix.
 	PrefixLength pulumi.IntPtrInput
 	// The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
@@ -255,6 +253,8 @@ type PublicIPPrefixArgs struct {
 	PublicIPAddressVersion pulumi.StringPtrInput
 	// The list of all referenced PublicIPAddresses
 	PublicIPAddresses ReferencedPublicIpAddressArrayInput
+	// The name of the public IP prefix.
+	PublicIpPrefixName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource GUID property of the public IP prefix resource.

@@ -37,8 +37,8 @@ type Account struct {
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -114,14 +114,14 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// The name of Cognitive Services account.
+	AccountName string `pulumi:"accountName"`
 	// The identity of Cognitive Services account.
 	Identity *Identity `pulumi:"identity"`
 	// The Kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// The location of the resource
 	Location *string `pulumi:"location"`
-	// The name of Cognitive Services account.
-	Name string `pulumi:"name"`
 	// Properties of Cognitive Services account.
 	Properties *CognitiveServicesAccountProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -134,14 +134,14 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// The name of Cognitive Services account.
+	AccountName pulumi.StringInput
 	// The identity of Cognitive Services account.
 	Identity IdentityPtrInput
 	// The Kind of the resource.
 	Kind pulumi.StringPtrInput
 	// The location of the resource
 	Location pulumi.StringPtrInput
-	// The name of Cognitive Services account.
-	Name pulumi.StringInput
 	// Properties of Cognitive Services account.
 	Properties CognitiveServicesAccountPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.

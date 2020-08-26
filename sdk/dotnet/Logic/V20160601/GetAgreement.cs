@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class GetAgreementArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The integration account agreement name.
+        /// </summary>
+        [Input("agreementName", required: true)]
+        public string AgreementName { get; set; } = null!;
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
         public string IntegrationAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// The integration account agreement name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

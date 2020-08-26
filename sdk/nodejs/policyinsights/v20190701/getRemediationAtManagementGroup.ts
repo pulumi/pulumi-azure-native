@@ -17,7 +17,7 @@ export function getRemediationAtManagementGroup(args: GetRemediationAtManagement
     return pulumi.runtime.invoke("azurerm:policyinsights/v20190701:getRemediationAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
         "managementGroupsNamespace": args.managementGroupsNamespace,
-        "name": args.name,
+        "remediationName": args.remediationName,
     }, opts);
 }
 
@@ -33,7 +33,7 @@ export interface GetRemediationAtManagementGroupArgs {
     /**
      * The name of the remediation.
      */
-    readonly name: string;
+    readonly remediationName: string;
 }
 
 /**

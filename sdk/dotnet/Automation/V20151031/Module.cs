@@ -176,8 +176,14 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <summary>
         /// The name of module.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("moduleName", required: true)]
+        public Input<string> ModuleName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets name of the resource.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

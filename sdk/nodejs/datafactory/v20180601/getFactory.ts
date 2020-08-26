@@ -15,7 +15,7 @@ export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:datafactory/v20180601:getFactory", {
-        "name": args.name,
+        "factoryName": args.factoryName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetFactoryArgs {
     /**
      * The factory name.
      */
-    readonly name: string;
+    readonly factoryName: string;
     /**
      * The resource group name.
      */

@@ -35,8 +35,8 @@ type BastionHost struct {
 // NewBastionHost registers a new resource with the given unique name, arguments, and options.
 func NewBastionHost(ctx *pulumi.Context,
 	name string, args *BastionHostArgs, opts ...pulumi.ResourceOption) (*BastionHost, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.BastionHostName == nil {
+		return nil, errors.New("missing required argument 'BastionHostName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -141,6 +141,8 @@ func (BastionHostState) ElementType() reflect.Type {
 }
 
 type bastionHostArgs struct {
+	// The name of the Bastion Host.
+	BastionHostName string `pulumi:"bastionHostName"`
 	// FQDN for the endpoint on which bastion host is accessible.
 	DnsName *string `pulumi:"dnsName"`
 	// Resource ID.
@@ -149,8 +151,6 @@ type bastionHostArgs struct {
 	IpConfigurations []BastionHostIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the Bastion Host.
-	Name string `pulumi:"name"`
 	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -161,6 +161,8 @@ type bastionHostArgs struct {
 
 // The set of arguments for constructing a BastionHost resource.
 type BastionHostArgs struct {
+	// The name of the Bastion Host.
+	BastionHostName pulumi.StringInput
 	// FQDN for the endpoint on which bastion host is accessible.
 	DnsName pulumi.StringPtrInput
 	// Resource ID.
@@ -169,8 +171,6 @@ type BastionHostArgs struct {
 	IpConfigurations BastionHostIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the Bastion Host.
-	Name pulumi.StringInput
 	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

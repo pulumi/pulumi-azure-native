@@ -127,17 +127,17 @@ class AwaitableGetDdosProtectionPlanResult(GetDdosProtectionPlanResult):
             virtual_networks=self.virtual_networks)
 
 
-def get_ddos_protection_plan(name: Optional[str] = None,
+def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosProtectionPlanResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the DDoS protection plan.
+    :param str ddos_protection_plan_name: The name of the DDoS protection plan.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['ddosProtectionPlanName'] = ddos_protection_plan_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

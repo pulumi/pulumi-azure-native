@@ -17,10 +17,12 @@ func ListWebAppBackupConfigurationSlot(ctx *pulumi.Context, args *ListWebAppBack
 }
 
 type ListWebAppBackupConfigurationSlotArgs struct {
-	// Name of the deployment slot. If a slot is not specified, the API will get the backup configuration for the production slot.
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the deployment slot. If a slot is not specified, the API will get the backup configuration for the production slot.
+	Slot string `pulumi:"slot"`
 }
 
 // Description of a backup which will be performed.

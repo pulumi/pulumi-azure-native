@@ -16,8 +16,8 @@ export function getDataConnection(args: GetDataConnectionArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:kusto/v20191109:getDataConnection", {
         "clusterName": args.clusterName,
+        "dataConnectionName": args.dataConnectionName,
         "databaseName": args.databaseName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetDataConnectionArgs {
      */
     readonly clusterName: string;
     /**
+     * The name of the data connection.
+     */
+    readonly dataConnectionName: string;
+    /**
      * The name of the database in the Kusto cluster.
      */
     readonly databaseName: string;
-    /**
-     * The name of the data connection.
-     */
-    readonly name: string;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

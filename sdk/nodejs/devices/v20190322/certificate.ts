@@ -43,7 +43,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The name of the certificate.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The description of an X509 CA Certificate.
      */
@@ -66,8 +66,8 @@ export class Certificate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.certificateName === undefined) {
+                throw new Error("Missing required property 'certificateName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -76,10 +76,11 @@ export class Certificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["certificateName"] = args ? args.certificateName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -107,7 +108,7 @@ export interface CertificateArgs {
     /**
      * The name of the certificate
      */
-    readonly name: pulumi.Input<string>;
+    readonly certificateName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the IoT hub.
      */

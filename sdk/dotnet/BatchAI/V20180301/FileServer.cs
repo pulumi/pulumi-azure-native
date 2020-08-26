@@ -132,16 +132,16 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         public Input<Inputs.DataDisksArgs> DataDisks { get; set; } = null!;
 
         /// <summary>
+        /// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        /// </summary>
+        [Input("fileServerName", required: true)]
+        public Input<string> FileServerName { get; set; } = null!;
+
+        /// <summary>
         /// The region in which to create the File Server.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

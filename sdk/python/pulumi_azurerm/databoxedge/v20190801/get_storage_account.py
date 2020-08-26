@@ -127,20 +127,20 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
 
 
 def get_storage_account(device_name: Optional[str] = None,
-                        name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
+                        storage_account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str device_name: The device name.
-    :param str name: The storage account name.
     :param str resource_group_name: The resource group name.
+    :param str storage_account_name: The storage account name.
     """
     __args__ = dict()
     __args__['deviceName'] = device_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['storageAccountName'] = storage_account_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

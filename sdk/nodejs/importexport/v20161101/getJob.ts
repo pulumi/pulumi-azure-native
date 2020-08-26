@@ -15,7 +15,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:importexport/v20161101:getJob", {
-        "name": args.name,
+        "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetJobArgs {
     /**
      * The name of the import/export job.
      */
-    readonly name: string;
+    readonly jobName: string;
     /**
      * The resource group name uniquely identifies the resource group within the user subscription.
      */

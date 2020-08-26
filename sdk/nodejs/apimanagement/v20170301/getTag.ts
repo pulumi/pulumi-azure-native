@@ -15,17 +15,13 @@ export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20170301:getTag", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
+        "tagId": args.tagId,
     }, opts);
 }
 
 export interface GetTagArgs {
-    /**
-     * Tag identifier. Must be unique in the current API Management service instance.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */
@@ -34,6 +30,10 @@ export interface GetTagArgs {
      * The name of the API Management service.
      */
     readonly serviceName: string;
+    /**
+     * Tag identifier. Must be unique in the current API Management service instance.
+     */
+    readonly tagId: string;
 }
 
 /**

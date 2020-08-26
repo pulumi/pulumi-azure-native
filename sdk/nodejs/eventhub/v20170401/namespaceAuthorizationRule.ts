@@ -37,7 +37,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The rights associated with the rule.
      */
@@ -60,8 +60,8 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NamespaceAuthorizationRuleArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.authorizationRuleName === undefined) {
+                throw new Error("Missing required property 'authorizationRuleName'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -72,10 +72,11 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.rights === undefined) {
                 throw new Error("Missing required property 'rights'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rights"] = args ? args.rights : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,7 +97,7 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly authorizationRuleName: pulumi.Input<string>;
     /**
      * The Namespace name
      */

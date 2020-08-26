@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Insights.V20190601
         /// <summary>
         /// The name of the action group.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("actionGroupName", required: true)]
+        public string ActionGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

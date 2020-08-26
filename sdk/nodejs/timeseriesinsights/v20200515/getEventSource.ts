@@ -16,7 +16,7 @@ export function getEventSource(args: GetEventSourceArgs, opts?: pulumi.InvokeOpt
     }
     return pulumi.runtime.invoke("azurerm:timeseriesinsights/v20200515:getEventSource", {
         "environmentName": args.environmentName,
-        "name": args.name,
+        "eventSourceName": args.eventSourceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetEventSourceArgs {
     /**
      * The name of the Time Series Insights event source associated with the specified environment.
      */
-    readonly name: string;
+    readonly eventSourceName: string;
     /**
      * Name of an Azure Resource group.
      */

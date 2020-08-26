@@ -118,7 +118,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Azure resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The list of node types in the cluster.
      */
@@ -182,14 +182,14 @@ export class Cluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ClusterArgs | undefined;
+            if (!args || args.clusterName === undefined) {
+                throw new Error("Missing required property 'clusterName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.managementEndpoint === undefined) {
                 throw new Error("Missing required property 'managementEndpoint'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.nodeTypes === undefined) {
                 throw new Error("Missing required property 'nodeTypes'");
@@ -204,12 +204,12 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clientCertificateCommonNames"] = args ? args.clientCertificateCommonNames : undefined;
             inputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
             inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
+            inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["diagnosticsStorageAccountConfig"] = args ? args.diagnosticsStorageAccountConfig : undefined;
             inputs["eventStoreServiceEnabled"] = args ? args.eventStoreServiceEnabled : undefined;
             inputs["fabricSettings"] = args ? args.fabricSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managementEndpoint"] = args ? args.managementEndpoint : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["nodeTypes"] = args ? args.nodeTypes : undefined;
             inputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -224,6 +224,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterId"] = undefined /*out*/;
             inputs["clusterState"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -273,6 +274,10 @@ export interface ClusterArgs {
      */
     readonly clusterCodeVersion?: pulumi.Input<string>;
     /**
+     * The name of the cluster resource.
+     */
+    readonly clusterName: pulumi.Input<string>;
+    /**
      * The storage account information for storing Service Fabric diagnostic logs.
      */
     readonly diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.v20190301.DiagnosticsStorageAccountConfig>;
@@ -292,10 +297,6 @@ export interface ClusterArgs {
      * The http management endpoint of the cluster.
      */
     readonly managementEndpoint: pulumi.Input<string>;
-    /**
-     * The name of the cluster resource.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The list of node types in the cluster.
      */

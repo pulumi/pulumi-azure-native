@@ -248,19 +248,19 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
 
 
 def get_network_interface(expand: Optional[str] = None,
-                          name: Optional[str] = None,
+                          network_interface_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str expand: Expands referenced resources.
-    :param str name: The name of the network interface.
+    :param str network_interface_name: The name of the network interface.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
+    __args__['networkInterfaceName'] = network_interface_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

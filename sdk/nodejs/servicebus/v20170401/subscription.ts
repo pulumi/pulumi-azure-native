@@ -95,7 +95,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Value indicating if a subscription supports the concept of sessions.
      */
@@ -126,14 +126,14 @@ export class Subscription extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SubscriptionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.subscriptionName === undefined) {
+                throw new Error("Missing required property 'subscriptionName'");
             }
             if (!args || args.topicName === undefined) {
                 throw new Error("Missing required property 'topicName'");
@@ -148,16 +148,17 @@ export class Subscription extends pulumi.CustomResource {
             inputs["forwardTo"] = args ? args.forwardTo : undefined;
             inputs["lockDuration"] = args ? args.lockDuration : undefined;
             inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["requiresSession"] = args ? args.requiresSession : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["status"] = args ? args.status : undefined;
+            inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
             inputs["accessedAt"] = undefined /*out*/;
             inputs["countDetails"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["messageCount"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
@@ -219,10 +220,6 @@ export interface SubscriptionArgs {
      */
     readonly maxDeliveryCount?: pulumi.Input<number>;
     /**
-     * The subscription name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The namespace name
      */
     readonly namespaceName: pulumi.Input<string>;
@@ -238,6 +235,10 @@ export interface SubscriptionArgs {
      * Enumerates the possible values for the status of a messaging entity.
      */
     readonly status?: pulumi.Input<string>;
+    /**
+     * The subscription name.
+     */
+    readonly subscriptionName: pulumi.Input<string>;
     /**
      * The topic name.
      */

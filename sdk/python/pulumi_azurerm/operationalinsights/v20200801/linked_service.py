@@ -15,7 +15,7 @@ class LinkedService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 linked_service_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -30,7 +30,7 @@ class LinkedService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the linkedServices resource
+        :param pulumi.Input[str] linked_service_name: Name of the linkedServices resource
         :param pulumi.Input[str] provisioning_state: The provisioning state of the linked service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
@@ -55,9 +55,9 @@ class LinkedService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if linked_service_name is None:
+                raise TypeError("Missing required property 'linked_service_name'")
+            __props__['linked_service_name'] = linked_service_name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -68,6 +68,7 @@ class LinkedService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['write_access_resource_id'] = write_access_resource_id
+            __props__['name'] = None
             __props__['type'] = None
         super(LinkedService, __self__).__init__(
             'azurerm:operationalinsights/v20200801:LinkedService',

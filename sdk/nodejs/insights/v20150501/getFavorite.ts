@@ -15,7 +15,7 @@ export function getFavorite(args: GetFavoriteArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20150501:getFavorite", {
-        "name": args.name,
+        "favoriteId": args.favoriteId,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetFavoriteArgs {
     /**
      * The Id of a specific favorite defined in the Application Insights component
      */
-    readonly name: string;
+    readonly favoriteId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

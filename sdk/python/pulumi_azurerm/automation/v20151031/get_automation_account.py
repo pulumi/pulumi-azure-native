@@ -163,17 +163,17 @@ class AwaitableGetAutomationAccountResult(GetAutomationAccountResult):
             type=self.type)
 
 
-def get_automation_account(name: Optional[str] = None,
+def get_automation_account(automation_account_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationAccountResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the automation account.
+    :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

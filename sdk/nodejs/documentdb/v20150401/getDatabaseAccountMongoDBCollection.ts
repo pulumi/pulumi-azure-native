@@ -16,8 +16,8 @@ export function getDatabaseAccountMongoDBCollection(args: GetDatabaseAccountMong
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20150401:getDatabaseAccountMongoDBCollection", {
         "accountName": args.accountName,
+        "collectionName": args.collectionName,
         "databaseName": args.databaseName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetDatabaseAccountMongoDBCollectionArgs {
      */
     readonly accountName: string;
     /**
+     * Cosmos DB collection name.
+     */
+    readonly collectionName: string;
+    /**
      * Cosmos DB database name.
      */
     readonly databaseName: string;
-    /**
-     * Cosmos DB collection name.
-     */
-    readonly name: string;
     /**
      * Name of an Azure resource group.
      */

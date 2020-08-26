@@ -204,16 +204,16 @@ namespace Pulumi.AzureRM.Insights.V20180301
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         [Input("scopes")]
         private InputList<string>? _scopes;

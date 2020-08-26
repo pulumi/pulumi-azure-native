@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class GetEnvironmentSettingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the environment Setting.
+        /// </summary>
+        [Input("environmentSettingName", required: true)]
+        public string EnvironmentSettingName { get; set; } = null!;
+
+        /// <summary>
         /// Specify the $expand query. Example: 'properties($select=publishingState)'
         /// </summary>
         [Input("expand")]
@@ -35,12 +41,6 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         [Input("labName", required: true)]
         public string LabName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the environment Setting.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -18,7 +18,7 @@ func LookupSignalRPrivateEndpointConnection(ctx *pulumi.Context, args *LookupSig
 
 type LookupSignalRPrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection associated with the SignalR resource.
-	Name string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SignalR resource.

@@ -17,10 +17,10 @@ func LookupWCFRelay(ctx *pulumi.Context, args *LookupWCFRelayArgs, opts ...pulum
 }
 
 type LookupWCFRelayArgs struct {
-	// The relay name
-	Name string `pulumi:"name"`
 	// The Namespace Name
 	NamespaceName string `pulumi:"namespaceName"`
+	// The relay name
+	RelayName string `pulumi:"relayName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

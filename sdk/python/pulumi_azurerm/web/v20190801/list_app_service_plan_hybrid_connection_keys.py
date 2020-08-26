@@ -92,18 +92,21 @@ class AwaitableListAppServicePlanHybridConnectionKeysResult(ListAppServicePlanHy
 
 def list_app_service_plan_hybrid_connection_keys(name: Optional[str] = None,
                                                  namespace_name: Optional[str] = None,
+                                                 relay_name: Optional[str] = None,
                                                  resource_group_name: Optional[str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAppServicePlanHybridConnectionKeysResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the Service Bus relay.
+    :param str name: Name of the App Service plan.
     :param str namespace_name: The name of the Service Bus namespace.
+    :param str relay_name: The name of the Service Bus relay.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
+    __args__['relayName'] = relay_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

@@ -20,7 +20,7 @@ type LookupLabAccountArgs struct {
 	// Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'
 	Expand *string `pulumi:"expand"`
 	// The name of the lab Account.
-	Name string `pulumi:"name"`
+	LabAccountName string `pulumi:"labAccountName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

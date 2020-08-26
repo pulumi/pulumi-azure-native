@@ -18,7 +18,7 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 
 type LookupServiceArgs struct {
 	// The name of the Windows IoT Device Service.
-	Name string `pulumi:"name"`
+	DeviceName string `pulumi:"deviceName"`
 	// The name of the resource group that contains the Windows IoT Device Service.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

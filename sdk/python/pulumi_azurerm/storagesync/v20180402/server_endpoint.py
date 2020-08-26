@@ -18,8 +18,8 @@ class ServerEndpoint(pulumi.CustomResource):
                  cloud_tiering: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_endpoint_name: Optional[pulumi.Input[str]] = None,
                  server_local_path: Optional[pulumi.Input[str]] = None,
                  server_resource_id: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
@@ -37,8 +37,8 @@ class ServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] cloud_tiering: Cloud Tiering.
         :param pulumi.Input[str] friendly_name: Friendly Name
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-        :param pulumi.Input[str] name: Name of Server Endpoint object.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] server_endpoint_name: Name of Server Endpoint object.
         :param pulumi.Input[str] server_local_path: Server Local path.
         :param pulumi.Input[str] server_resource_id: Server Resource Id.
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
@@ -66,12 +66,12 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__['cloud_tiering'] = cloud_tiering
             __props__['friendly_name'] = friendly_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if server_endpoint_name is None:
+                raise TypeError("Missing required property 'server_endpoint_name'")
+            __props__['server_endpoint_name'] = server_endpoint_name
             __props__['server_local_path'] = server_local_path
             __props__['server_resource_id'] = server_resource_id
             if storage_sync_service_name is None:
@@ -84,6 +84,7 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__['volume_free_space_percent'] = volume_free_space_percent
             __props__['last_operation_name'] = None
             __props__['last_workflow_id'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['sync_status'] = None
             __props__['type'] = None

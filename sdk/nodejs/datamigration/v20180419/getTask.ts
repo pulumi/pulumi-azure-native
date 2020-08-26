@@ -17,9 +17,9 @@ export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise
     return pulumi.runtime.invoke("azurerm:datamigration/v20180419:getTask", {
         "expand": args.expand,
         "groupName": args.groupName,
-        "name": args.name,
         "projectName": args.projectName,
         "serviceName": args.serviceName,
+        "taskName": args.taskName,
     }, opts);
 }
 
@@ -33,10 +33,6 @@ export interface GetTaskArgs {
      */
     readonly groupName: string;
     /**
-     * Name of the Task
-     */
-    readonly name: string;
-    /**
      * Name of the project
      */
     readonly projectName: string;
@@ -44,6 +40,10 @@ export interface GetTaskArgs {
      * Name of the service
      */
     readonly serviceName: string;
+    /**
+     * Name of the Task
+     */
+    readonly taskName: string;
 }
 
 /**

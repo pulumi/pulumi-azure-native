@@ -16,7 +16,7 @@ export function getContentKeyPolicy(args: GetContentKeyPolicyArgs, opts?: pulumi
     }
     return pulumi.runtime.invoke("azurerm:media/v20180701:getContentKeyPolicy", {
         "accountName": args.accountName,
-        "name": args.name,
+        "contentKeyPolicyName": args.contentKeyPolicyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetContentKeyPolicyArgs {
     /**
      * The Content Key Policy name.
      */
-    readonly name: string;
+    readonly contentKeyPolicyName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */

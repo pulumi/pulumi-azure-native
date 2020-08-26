@@ -102,11 +102,11 @@ export class Endpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EndpointArgs | undefined;
+            if (!args || args.endpointName === undefined) {
+                throw new Error("Missing required property 'endpointName'");
+            }
             if (!args || args.endpointType === undefined) {
                 throw new Error("Missing required property 'endpointType'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
@@ -117,6 +117,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["customHeaders"] = args ? args.customHeaders : undefined;
             inputs["endpointLocation"] = args ? args.endpointLocation : undefined;
             inputs["endpointMonitorStatus"] = args ? args.endpointMonitorStatus : undefined;
+            inputs["endpointName"] = args ? args.endpointName : undefined;
             inputs["endpointStatus"] = args ? args.endpointStatus : undefined;
             inputs["endpointType"] = args ? args.endpointType : undefined;
             inputs["geoMapping"] = args ? args.geoMapping : undefined;
@@ -162,6 +163,10 @@ export interface EndpointArgs {
      */
     readonly endpointMonitorStatus?: pulumi.Input<string>;
     /**
+     * The name of the Traffic Manager endpoint to be created or updated.
+     */
+    readonly endpointName: pulumi.Input<string>;
+    /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */
     readonly endpointStatus?: pulumi.Input<string>;
@@ -182,9 +187,9 @@ export interface EndpointArgs {
      */
     readonly minChildEndpoints?: pulumi.Input<number>;
     /**
-     * The name of the Traffic Manager endpoint to be created or updated.
+     * The name of the resource
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
      */

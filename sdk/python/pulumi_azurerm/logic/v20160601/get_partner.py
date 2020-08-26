@@ -140,19 +140,19 @@ class AwaitableGetPartnerResult(GetPartnerResult):
 
 
 def get_partner(integration_account_name: Optional[str] = None,
-                name: Optional[str] = None,
+                partner_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str integration_account_name: The integration account name.
-    :param str name: The integration account partner name.
+    :param str partner_name: The integration account partner name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
-    __args__['name'] = name
+    __args__['partnerName'] = partner_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

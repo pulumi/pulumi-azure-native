@@ -71,7 +71,7 @@ export class Prediction extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Negative outcome expression.
      */
@@ -83,7 +83,7 @@ export class Prediction extends pulumi.CustomResource {
     /**
      * Name of the prediction.
      */
-    public /*out*/ readonly predictionName!: pulumi.Output<string | undefined>;
+    public readonly predictionName!: pulumi.Output<string | undefined>;
     /**
      * Primary profile type.
      */
@@ -135,14 +135,14 @@ export class Prediction extends pulumi.CustomResource {
             if (!args || args.mappings === undefined) {
                 throw new Error("Missing required property 'mappings'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.negativeOutcomeExpression === undefined) {
                 throw new Error("Missing required property 'negativeOutcomeExpression'");
             }
             if (!args || args.positiveOutcomeExpression === undefined) {
                 throw new Error("Missing required property 'positiveOutcomeExpression'");
+            }
+            if (!args || args.predictionName === undefined) {
+                throw new Error("Missing required property 'predictionName'");
             }
             if (!args || args.primaryProfileType === undefined) {
                 throw new Error("Missing required property 'primaryProfileType'");
@@ -165,14 +165,14 @@ export class Prediction extends pulumi.CustomResource {
             inputs["involvedKpiTypes"] = args ? args.involvedKpiTypes : undefined;
             inputs["involvedRelationships"] = args ? args.involvedRelationships : undefined;
             inputs["mappings"] = args ? args.mappings : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["negativeOutcomeExpression"] = args ? args.negativeOutcomeExpression : undefined;
             inputs["positiveOutcomeExpression"] = args ? args.positiveOutcomeExpression : undefined;
+            inputs["predictionName"] = args ? args.predictionName : undefined;
             inputs["primaryProfileType"] = args ? args.primaryProfileType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scopeExpression"] = args ? args.scopeExpression : undefined;
             inputs["scoreLabel"] = args ? args.scoreLabel : undefined;
-            inputs["predictionName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["systemGeneratedEntities"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
@@ -230,10 +230,6 @@ export interface PredictionArgs {
      */
     readonly mappings: pulumi.Input<inputs.customerinsights.v20170426.PredictionMappings>;
     /**
-     * Name of the prediction.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Negative outcome expression.
      */
     readonly negativeOutcomeExpression: pulumi.Input<string>;
@@ -241,6 +237,10 @@ export interface PredictionArgs {
      * Positive outcome expression.
      */
     readonly positiveOutcomeExpression: pulumi.Input<string>;
+    /**
+     * Name of the prediction.
+     */
+    readonly predictionName: pulumi.Input<string>;
     /**
      * Primary profile type.
      */

@@ -17,8 +17,8 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['JobDetailsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -30,8 +30,8 @@ class Job(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] job_name: The name of the import/export job.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the job should be created
-        :param pulumi.Input[str] name: The name of the import/export job.
         :param pulumi.Input[pulumi.InputType['JobDetailsArgs']] properties: Specifies the job properties
         :param pulumi.Input[str] resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
         :param pulumi.Input[Mapping[str, Any]] tags: Specifies the tags that will be assigned to the job.
@@ -53,16 +53,17 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if job_name is None:
+                raise TypeError("Missing required property 'job_name'")
+            __props__['job_name'] = job_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['identity'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:importexport/v20161101:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

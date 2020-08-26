@@ -98,8 +98,8 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as P2sVpnServerConfigurationArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.p2SVpnServerConfigurationName === undefined) {
+                throw new Error("Missing required property 'p2SVpnServerConfigurationName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -114,6 +114,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
             inputs["p2SVpnServerConfigRadiusServerRootCertificates"] = args ? args.p2SVpnServerConfigRadiusServerRootCertificates : undefined;
             inputs["p2SVpnServerConfigVpnClientRevokedCertificates"] = args ? args.p2SVpnServerConfigVpnClientRevokedCertificates : undefined;
             inputs["p2SVpnServerConfigVpnClientRootCertificates"] = args ? args.p2SVpnServerConfigVpnClientRootCertificates : undefined;
+            inputs["p2SVpnServerConfigurationName"] = args ? args.p2SVpnServerConfigurationName : undefined;
             inputs["radiusServerAddress"] = args ? args.radiusServerAddress : undefined;
             inputs["radiusServerSecret"] = args ? args.radiusServerSecret : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -149,9 +150,9 @@ export interface P2sVpnServerConfigurationArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the P2SVpnServerConfiguration.
+     * The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Radius client root certificate of P2SVpnServerConfiguration.
      */
@@ -168,6 +169,10 @@ export interface P2sVpnServerConfigurationArgs {
      * VPN client root certificate of P2SVpnServerConfiguration.
      */
     readonly p2SVpnServerConfigVpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190201.P2SVpnServerConfigVpnClientRootCertificate>[]>;
+    /**
+     * The name of the P2SVpnServerConfiguration.
+     */
+    readonly p2SVpnServerConfigurationName: pulumi.Input<string>;
     /**
      * The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
      */

@@ -334,12 +334,6 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the managed cluster resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Profile of network configuration.
         /// </summary>
         [Input("networkProfile")]
@@ -356,6 +350,12 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the managed cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.

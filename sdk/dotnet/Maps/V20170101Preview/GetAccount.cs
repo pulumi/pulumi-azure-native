@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Maps.V20170101Preview
         /// <summary>
         /// The name of the Maps Account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure Resource Group.

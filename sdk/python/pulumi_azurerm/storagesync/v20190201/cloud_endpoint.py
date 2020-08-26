@@ -16,7 +16,7 @@ class CloudEndpoint(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_file_share_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 cloud_endpoint_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_resource_id: Optional[pulumi.Input[str]] = None,
                  storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class CloudEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_file_share_name: Azure file share name
-        :param pulumi.Input[str] name: Name of Cloud Endpoint object.
+        :param pulumi.Input[str] cloud_endpoint_name: Name of Cloud Endpoint object.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_account_resource_id: Storage Account Resource Id
         :param pulumi.Input[str] storage_account_tenant_id: Storage Account Tenant Id
@@ -56,9 +56,9 @@ class CloudEndpoint(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['azure_file_share_name'] = azure_file_share_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if cloud_endpoint_name is None:
+                raise TypeError("Missing required property 'cloud_endpoint_name'")
+            __props__['cloud_endpoint_name'] = cloud_endpoint_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -74,6 +74,7 @@ class CloudEndpoint(pulumi.CustomResource):
             __props__['friendly_name'] = None
             __props__['last_operation_name'] = None
             __props__['last_workflow_id'] = None
+            __props__['name'] = None
             __props__['partnership_id'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

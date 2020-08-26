@@ -45,7 +45,7 @@ export class ApiSchema extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
@@ -74,11 +74,11 @@ export class ApiSchema extends pulumi.CustomResource {
             if (!args || args.contentType === undefined) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.schemaId === undefined) {
+                throw new Error("Missing required property 'schemaId'");
             }
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
@@ -86,10 +86,11 @@ export class ApiSchema extends pulumi.CustomResource {
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["definitions"] = args ? args.definitions : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["schemaId"] = args ? args.schemaId : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["value"] = args ? args.value : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -122,13 +123,13 @@ export interface ApiSchemaArgs {
      */
     readonly definitions?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Schema identifier within an API. Must be unique in the current API Management service instance.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Schema identifier within an API. Must be unique in the current API Management service instance.
+     */
+    readonly schemaId: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */

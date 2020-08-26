@@ -17,10 +17,10 @@ func LookupLoadBalancerBackendAddressPool(ctx *pulumi.Context, args *LookupLoadB
 }
 
 type LookupLoadBalancerBackendAddressPoolArgs struct {
+	// The name of the backend address pool.
+	BackendAddressPoolName string `pulumi:"backendAddressPoolName"`
 	// The name of the load balancer.
 	LoadBalancerName string `pulumi:"loadBalancerName"`
-	// The name of the backend address pool.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

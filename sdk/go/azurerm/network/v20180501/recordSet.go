@@ -55,11 +55,11 @@ type RecordSet struct {
 // NewRecordSet registers a new resource with the given unique name, arguments, and options.
 func NewRecordSet(ctx *pulumi.Context,
 	name string, args *RecordSetArgs, opts ...pulumi.ResourceOption) (*RecordSet, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.RecordType == nil {
 		return nil, errors.New("missing required argument 'RecordType'")
+	}
+	if args == nil || args.RelativeRecordSetName == nil {
+		return nil, errors.New("missing required argument 'RelativeRecordSetName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -200,14 +200,14 @@ type recordSetArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The list of MX records in the record set.
 	MxRecords []MxRecord `pulumi:"mxRecords"`
-	// The name of the record set, relative to the name of the zone.
-	Name string `pulumi:"name"`
 	// The list of NS records in the record set.
 	NsRecords []NsRecord `pulumi:"nsRecords"`
 	// The list of PTR records in the record set.
 	PtrRecords []PtrRecord `pulumi:"ptrRecords"`
 	// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
 	RecordType string `pulumi:"recordType"`
+	// The name of the record set, relative to the name of the zone.
+	RelativeRecordSetName string `pulumi:"relativeRecordSetName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SOA record in the record set.
@@ -240,14 +240,14 @@ type RecordSetArgs struct {
 	Metadata pulumi.StringMapInput
 	// The list of MX records in the record set.
 	MxRecords MxRecordArrayInput
-	// The name of the record set, relative to the name of the zone.
-	Name pulumi.StringInput
 	// The list of NS records in the record set.
 	NsRecords NsRecordArrayInput
 	// The list of PTR records in the record set.
 	PtrRecords PtrRecordArrayInput
 	// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
 	RecordType pulumi.StringInput
+	// The name of the record set, relative to the name of the zone.
+	RelativeRecordSetName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The SOA record in the record set.

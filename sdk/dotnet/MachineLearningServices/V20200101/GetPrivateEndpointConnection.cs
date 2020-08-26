@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200101
         /// <summary>
         /// The name of the private endpoint connection associated with the workspace
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group in which workspace is located.

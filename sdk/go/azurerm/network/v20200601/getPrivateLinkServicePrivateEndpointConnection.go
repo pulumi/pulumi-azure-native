@@ -20,7 +20,7 @@ type LookupPrivateLinkServicePrivateEndpointConnectionArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the private end point connection.
-	Name string `pulumi:"name"`
+	PeConnectionName string `pulumi:"peConnectionName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the private link service.

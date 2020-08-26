@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.EventHub.V20140901
     public sealed class GetConsumerGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The consumer group name
+        /// </summary>
+        [Input("consumerGroupName", required: true)]
+        public string ConsumerGroupName { get; set; } = null!;
+
+        /// <summary>
         /// The Event Hub name
         /// </summary>
         [Input("eventHubName", required: true)]
         public string EventHubName { get; set; } = null!;
-
-        /// <summary>
-        /// The consumer group name
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The Namespace name

@@ -235,6 +235,9 @@ export class WebAppSlot extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.slot === undefined) {
+                throw new Error("Missing required property 'slot'");
+            }
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             inputs["clientCertEnabled"] = args ? args.clientCertEnabled : undefined;
             inputs["clientCertExclusionPaths"] = args ? args.clientCertExclusionPaths : undefined;
@@ -259,6 +262,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["scmSiteAlsoStopped"] = args ? args.scmSiteAlsoStopped : undefined;
             inputs["serverFarmId"] = args ? args.serverFarmId : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
+            inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["availabilityState"] = undefined /*out*/;
             inputs["defaultHostName"] = undefined /*out*/;
@@ -368,7 +372,7 @@ export interface WebAppSlotArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+     * Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -395,6 +399,10 @@ export interface WebAppSlotArgs {
      * Configuration of the app.
      */
     readonly siteConfig?: pulumi.Input<inputs.web.v20181101.SiteConfig>;
+    /**
+     * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+     */
+    readonly slot: pulumi.Input<string>;
     /**
      * Resource tags.
      */

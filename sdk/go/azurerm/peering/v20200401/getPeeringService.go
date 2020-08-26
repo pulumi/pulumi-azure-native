@@ -18,7 +18,7 @@ func LookupPeeringService(ctx *pulumi.Context, args *LookupPeeringServiceArgs, o
 
 type LookupPeeringServiceArgs struct {
 	// The name of the peering.
-	Name string `pulumi:"name"`
+	PeeringServiceName string `pulumi:"peeringServiceName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

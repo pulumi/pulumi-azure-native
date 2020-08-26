@@ -18,7 +18,7 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 
 type LookupDeploymentArgs struct {
 	// The name of the deployment to get.
-	Name string `pulumi:"name"`
+	DeploymentName string `pulumi:"deploymentName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -43,7 +43,7 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
     /**
      * Resource Name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The migration item properties.
      */
@@ -69,8 +69,8 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.migrationItemName === undefined) {
+                throw new Error("Missing required property 'migrationItemName'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -85,12 +85,13 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["migrationItemName"] = args ? args.migrationItemName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["protectionContainerName"] = args ? args.protectionContainerName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -117,7 +118,7 @@ export interface ReplicationMigrationItemArgs {
     /**
      * Migration item name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly migrationItemName: pulumi.Input<string>;
     /**
      * Enable migration input properties.
      */

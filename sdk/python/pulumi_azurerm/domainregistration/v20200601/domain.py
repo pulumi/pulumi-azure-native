@@ -26,9 +26,9 @@ class Domain(pulumi.CustomResource):
                  contact_tech: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
                  dns_type: Optional[pulumi.Input[str]] = None,
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  privacy: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -49,9 +49,9 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_tech: Technical contact.
         :param pulumi.Input[str] dns_type: Current DNS type
         :param pulumi.Input[str] dns_zone_id: Azure DNS Zone to use
+        :param pulumi.Input[str] domain_name: Name of the domain.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Name of the domain.
         :param pulumi.Input[bool] privacy: <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -93,13 +93,13 @@ class Domain(pulumi.CustomResource):
             __props__['contact_tech'] = contact_tech
             __props__['dns_type'] = dns_type
             __props__['dns_zone_id'] = dns_zone_id
+            if domain_name is None:
+                raise TypeError("Missing required property 'domain_name'")
+            __props__['domain_name'] = domain_name
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['privacy'] = privacy
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -111,6 +111,7 @@ class Domain(pulumi.CustomResource):
             __props__['expiration_time'] = None
             __props__['last_renewed_time'] = None
             __props__['managed_host_names'] = None
+            __props__['name'] = None
             __props__['name_servers'] = None
             __props__['provisioning_state'] = None
             __props__['ready_for_dns_record_management'] = None

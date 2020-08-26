@@ -19,9 +19,9 @@ class JitRequest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_resource_id: Optional[pulumi.Input[str]] = None,
                  jit_authorization_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JitAuthorizationPoliciesArgs']]]]] = None,
+                 jit_request_name: Optional[pulumi.Input[str]] = None,
                  jit_scheduling_policy: Optional[pulumi.Input[pulumi.InputType['JitSchedulingPolicyArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -34,9 +34,9 @@ class JitRequest(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_resource_id: The parent application id.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JitAuthorizationPoliciesArgs']]]] jit_authorization_policies: The JIT authorization policies.
+        :param pulumi.Input[str] jit_request_name: The name of the JIT request.
         :param pulumi.Input[pulumi.InputType['JitSchedulingPolicyArgs']] jit_scheduling_policy: The JIT request properties.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the JIT request.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -63,19 +63,20 @@ class JitRequest(pulumi.CustomResource):
             if jit_authorization_policies is None:
                 raise TypeError("Missing required property 'jit_authorization_policies'")
             __props__['jit_authorization_policies'] = jit_authorization_policies
+            if jit_request_name is None:
+                raise TypeError("Missing required property 'jit_request_name'")
+            __props__['jit_request_name'] = jit_request_name
             if jit_scheduling_policy is None:
                 raise TypeError("Missing required property 'jit_scheduling_policy'")
             __props__['jit_scheduling_policy'] = jit_scheduling_policy
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['created_by'] = None
             __props__['jit_request_state'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['publisher_tenant_id'] = None
             __props__['type'] = None

@@ -138,12 +138,6 @@ namespace Pulumi.AzureRM.Authorization.V20190601
             set => _metadata = value;
         }
 
-        /// <summary>
-        /// The name of the policy set definition to create.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("parameters")]
         private InputMap<object>? _parameters;
 
@@ -167,6 +161,12 @@ namespace Pulumi.AzureRM.Authorization.V20190601
             get => _policyDefinitions ?? (_policyDefinitions = new InputList<Inputs.PolicyDefinitionReferenceArgs>());
             set => _policyDefinitions = value;
         }
+
+        /// <summary>
+        /// The name of the policy set definition to create.
+        /// </summary>
+        [Input("policySetDefinitionName", required: true)]
+        public Input<string> PolicySetDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

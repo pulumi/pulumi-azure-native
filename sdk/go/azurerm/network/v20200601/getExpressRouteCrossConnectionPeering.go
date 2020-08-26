@@ -20,7 +20,7 @@ type LookupExpressRouteCrossConnectionPeeringArgs struct {
 	// The name of the ExpressRouteCrossConnection.
 	CrossConnectionName string `pulumi:"crossConnectionName"`
 	// The name of the peering.
-	Name string `pulumi:"name"`
+	PeeringName string `pulumi:"peeringName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

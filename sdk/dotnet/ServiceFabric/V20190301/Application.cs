@@ -148,6 +148,12 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
     public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the application resource.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the cluster resource.
         /// </summary>
         [Input("clusterName", required: true)]
@@ -182,12 +188,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         /// </summary>
         [Input("minimumNodes")]
         public Input<int>? MinimumNodes { get; set; }
-
-        /// <summary>
-        /// The name of the application resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<string>? _parameters;

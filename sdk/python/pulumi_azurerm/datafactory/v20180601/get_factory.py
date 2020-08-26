@@ -163,17 +163,17 @@ class AwaitableGetFactoryResult(GetFactoryResult):
             version=self.version)
 
 
-def get_factory(name: Optional[str] = None,
+def get_factory(factory_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The factory name.
+    :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['factoryName'] = factory_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

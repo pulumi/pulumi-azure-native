@@ -68,19 +68,19 @@ class AwaitableGetRegistrationAssignmentResult(GetRegistrationAssignmentResult):
 
 
 def get_registration_assignment(expand_registration_definition: Optional[bool] = None,
-                                name: Optional[str] = None,
+                                registration_assignment_id: Optional[str] = None,
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationAssignmentResult:
     """
     Use this data source to access information about an existing resource.
 
     :param bool expand_registration_definition: Tells whether to return registration definition details also along with registration assignment details.
-    :param str name: Guid of the registration assignment.
+    :param str registration_assignment_id: Guid of the registration assignment.
     :param str scope: Scope of the resource.
     """
     __args__ = dict()
     __args__['expandRegistrationDefinition'] = expand_registration_definition
-    __args__['name'] = name
+    __args__['registrationAssignmentId'] = registration_assignment_id
     __args__['scope'] = scope
     if opts is None:
         opts = pulumi.InvokeOptions()

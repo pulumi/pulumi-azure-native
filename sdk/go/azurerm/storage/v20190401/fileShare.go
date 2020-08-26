@@ -34,11 +34,11 @@ func NewFileShare(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ShareName == nil {
+		return nil, errors.New("missing required argument 'ShareName'")
 	}
 	if args == nil {
 		args = &FileShareArgs{}
@@ -109,10 +109,10 @@ type fileShareArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// A name-value pair to associate with the share as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+	ShareName string `pulumi:"shareName"`
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
 	ShareQuota *int `pulumi:"shareQuota"`
 }
@@ -123,10 +123,10 @@ type FileShareArgs struct {
 	AccountName pulumi.StringInput
 	// A name-value pair to associate with the share as metadata.
 	Metadata pulumi.StringMapInput
-	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	Name pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+	ShareName pulumi.StringInput
 	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
 	ShareQuota pulumi.IntPtrInput
 }

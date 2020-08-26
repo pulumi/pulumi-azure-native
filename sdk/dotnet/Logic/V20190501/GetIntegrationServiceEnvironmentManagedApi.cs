@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class GetIntegrationServiceEnvironmentManagedApiArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The api name.
+        /// </summary>
+        [Input("apiName", required: true)]
+        public string ApiName { get; set; } = null!;
+
+        /// <summary>
         /// The integration service environment name.
         /// </summary>
         [Input("integrationServiceEnvironmentName", required: true)]
         public string IntegrationServiceEnvironmentName { get; set; } = null!;
-
-        /// <summary>
-        /// The api name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

@@ -25,11 +25,11 @@ type Function struct {
 // NewFunction registers a new resource with the given unique name, arguments, and options.
 func NewFunction(ctx *pulumi.Context,
 	name string, args *FunctionArgs, opts ...pulumi.ResourceOption) (*Function, error) {
+	if args == nil || args.FunctionName == nil {
+		return nil, errors.New("missing required argument 'FunctionName'")
+	}
 	if args == nil || args.JobName == nil {
 		return nil, errors.New("missing required argument 'JobName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -81,10 +81,12 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
+	// The name of the function.
+	FunctionName string `pulumi:"functionName"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
-	// The name of the function.
-	Name string `pulumi:"name"`
+	// Resource name
+	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.
 	Properties *FunctionProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -93,10 +95,12 @@ type functionArgs struct {
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
+	// The name of the function.
+	FunctionName pulumi.StringInput
 	// The name of the streaming job.
 	JobName pulumi.StringInput
-	// The name of the function.
-	Name pulumi.StringInput
+	// Resource name
+	Name pulumi.StringPtrInput
 	// The properties that are associated with a function.
 	Properties FunctionPropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

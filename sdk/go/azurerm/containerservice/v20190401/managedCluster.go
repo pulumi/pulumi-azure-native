@@ -64,11 +64,11 @@ func NewManagedCluster(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil {
 		args = &ManagedClusterArgs{}
@@ -253,14 +253,14 @@ type managedClusterArgs struct {
 	LinuxProfile *ContainerServiceLinuxProfile `pulumi:"linuxProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the managed cluster resource.
-	Name string `pulumi:"name"`
 	// Profile of network configuration.
 	NetworkProfile *ContainerServiceNetworkProfile `pulumi:"networkProfile"`
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the managed cluster resource.
+	ResourceName string `pulumi:"resourceName"`
 	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 	ServicePrincipalProfile *ManagedClusterServicePrincipalProfile `pulumi:"servicePrincipalProfile"`
 	// Resource tags
@@ -293,14 +293,14 @@ type ManagedClusterArgs struct {
 	LinuxProfile ContainerServiceLinuxProfilePtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the managed cluster resource.
-	Name pulumi.StringInput
 	// Profile of network configuration.
 	NetworkProfile ContainerServiceNetworkProfilePtrInput
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the managed cluster resource.
+	ResourceName pulumi.StringInput
 	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 	ServicePrincipalProfile ManagedClusterServicePrincipalProfilePtrInput
 	// Resource tags

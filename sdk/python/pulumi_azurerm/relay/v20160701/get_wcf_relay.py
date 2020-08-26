@@ -150,20 +150,20 @@ class AwaitableGetWCFRelayResult(GetWCFRelayResult):
             user_metadata=self.user_metadata)
 
 
-def get_wcf_relay(name: Optional[str] = None,
-                  namespace_name: Optional[str] = None,
+def get_wcf_relay(namespace_name: Optional[str] = None,
+                  relay_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWCFRelayResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The relay name
     :param str namespace_name: The Namespace Name
+    :param str relay_name: The relay name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['namespaceName'] = namespace_name
+    __args__['relayName'] = relay_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

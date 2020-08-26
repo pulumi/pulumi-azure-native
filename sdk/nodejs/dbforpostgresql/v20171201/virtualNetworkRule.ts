@@ -41,7 +41,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Virtual Network Rule State
      */
@@ -68,23 +68,24 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualNetworkRuleArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
+            if (!args || args.virtualNetworkRuleName === undefined) {
+                throw new Error("Missing required property 'virtualNetworkRuleName'");
+            }
             if (!args || args.virtualNetworkSubnetId === undefined) {
                 throw new Error("Missing required property 'virtualNetworkSubnetId'");
             }
             inputs["ignoreMissingVnetServiceEndpoint"] = args ? args.ignoreMissingVnetServiceEndpoint : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["virtualNetworkRuleName"] = args ? args.virtualNetworkRuleName : undefined;
             inputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -108,10 +109,6 @@ export interface VirtualNetworkRuleArgs {
      */
     readonly ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     /**
-     * The name of the virtual network rule.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -119,6 +116,10 @@ export interface VirtualNetworkRuleArgs {
      * The name of the server.
      */
     readonly serverName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network rule.
+     */
+    readonly virtualNetworkRuleName: pulumi.Input<string>;
     /**
      * The ARM resource id of the virtual network subnet.
      */

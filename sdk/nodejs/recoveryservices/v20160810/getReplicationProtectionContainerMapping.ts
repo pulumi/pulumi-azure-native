@@ -16,7 +16,7 @@ export function getReplicationProtectionContainerMapping(args: GetReplicationPro
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20160810:getReplicationProtectionContainerMapping", {
         "fabricName": args.fabricName,
-        "name": args.name,
+        "mappingName": args.mappingName,
         "protectionContainerName": args.protectionContainerName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
@@ -31,7 +31,7 @@ export interface GetReplicationProtectionContainerMappingArgs {
     /**
      * Protection Container mapping name.
      */
-    readonly name: string;
+    readonly mappingName: string;
     /**
      * Protection container name.
      */

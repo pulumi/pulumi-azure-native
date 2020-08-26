@@ -33,11 +33,11 @@ type Subnet struct {
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
 func NewSubnet(ctx *pulumi.Context,
 	name string, args *SubnetArgs, opts ...pulumi.ResourceOption) (*Subnet, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SubnetName == nil {
+		return nil, errors.New("missing required argument 'SubnetName'")
 	}
 	if args == nil || args.VirtualNetworkName == nil {
 		return nil, errors.New("missing required argument 'VirtualNetworkName'")
@@ -113,8 +113,8 @@ type subnetArgs struct {
 	Id *string `pulumi:"id"`
 	// Gets an array of references to the network interface IP configurations using subnet.
 	IpConfigurations []IPConfiguration `pulumi:"ipConfigurations"`
-	// The name of the subnet.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The reference of the NetworkSecurityGroup resource.
 	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
 	// The provisioning state of the resource.
@@ -123,6 +123,8 @@ type subnetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The reference of the RouteTable resource.
 	RouteTable *RouteTableType `pulumi:"routeTable"`
+	// The name of the subnet.
+	SubnetName string `pulumi:"subnetName"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
@@ -137,8 +139,8 @@ type SubnetArgs struct {
 	Id pulumi.StringPtrInput
 	// Gets an array of references to the network interface IP configurations using subnet.
 	IpConfigurations IPConfigurationArrayInput
-	// The name of the subnet.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The reference of the NetworkSecurityGroup resource.
 	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
 	// The provisioning state of the resource.
@@ -147,6 +149,8 @@ type SubnetArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The reference of the RouteTable resource.
 	RouteTable RouteTableTypePtrInput
+	// The name of the subnet.
+	SubnetName pulumi.StringInput
 	// The name of the virtual network.
 	VirtualNetworkName pulumi.StringInput
 }

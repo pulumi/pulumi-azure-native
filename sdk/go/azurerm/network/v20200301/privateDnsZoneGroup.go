@@ -27,8 +27,8 @@ type PrivateDnsZoneGroup struct {
 // NewPrivateDnsZoneGroup registers a new resource with the given unique name, arguments, and options.
 func NewPrivateDnsZoneGroup(ctx *pulumi.Context,
 	name string, args *PrivateDnsZoneGroupArgs, opts ...pulumi.ResourceOption) (*PrivateDnsZoneGroup, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PrivateDnsZoneGroupName == nil {
+		return nil, errors.New("missing required argument 'PrivateDnsZoneGroupName'")
 	}
 	if args == nil || args.PrivateEndpointName == nil {
 		return nil, errors.New("missing required argument 'PrivateEndpointName'")
@@ -101,10 +101,12 @@ func (PrivateDnsZoneGroupState) ElementType() reflect.Type {
 type privateDnsZoneGroupArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the private dns zone group.
-	Name string `pulumi:"name"`
+	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// A collection of private dns zone configurations of the private dns zone group.
 	PrivateDnsZoneConfigs []PrivateDnsZoneConfig `pulumi:"privateDnsZoneConfigs"`
+	// The name of the private dns zone group.
+	PrivateDnsZoneGroupName string `pulumi:"privateDnsZoneGroupName"`
 	// The name of the private endpoint.
 	PrivateEndpointName string `pulumi:"privateEndpointName"`
 	// The name of the resource group.
@@ -115,10 +117,12 @@ type privateDnsZoneGroupArgs struct {
 type PrivateDnsZoneGroupArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the private dns zone group.
-	Name pulumi.StringInput
+	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// A collection of private dns zone configurations of the private dns zone group.
 	PrivateDnsZoneConfigs PrivateDnsZoneConfigArrayInput
+	// The name of the private dns zone group.
+	PrivateDnsZoneGroupName pulumi.StringInput
 	// The name of the private endpoint.
 	PrivateEndpointName pulumi.StringInput
 	// The name of the resource group.

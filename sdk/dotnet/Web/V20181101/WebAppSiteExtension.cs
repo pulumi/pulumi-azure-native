@@ -202,7 +202,7 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class WebAppSiteExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Site extension name.
+        /// Site name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -212,6 +212,12 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Site extension name.
+        /// </summary>
+        [Input("siteExtensionId", required: true)]
+        public Input<string> SiteExtensionId { get; set; } = null!;
 
         public WebAppSiteExtensionArgs()
         {

@@ -326,12 +326,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the API Management service.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Email address from which the notification will be sent.
         /// </summary>
         [Input("notificationSenderEmail")]
@@ -354,6 +348,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         /// <summary>
         /// SKU properties of the API Management service.

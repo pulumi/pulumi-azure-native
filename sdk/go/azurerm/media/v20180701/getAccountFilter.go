@@ -20,7 +20,7 @@ type LookupAccountFilterArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
 	// The Account Filter name
-	Name string `pulumi:"name"`
+	FilterName string `pulumi:"filterName"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

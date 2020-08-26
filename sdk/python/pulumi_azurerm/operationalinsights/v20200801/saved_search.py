@@ -22,9 +22,9 @@ class SavedSearch(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  function_alias: Optional[pulumi.Input[str]] = None,
                  function_parameters: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 saved_search_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
                  version: Optional[pulumi.Input[float]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -41,9 +41,9 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The ETag of the saved search.
         :param pulumi.Input[str] function_alias: The function alias if query serves as a function.
         :param pulumi.Input[str] function_parameters: The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
-        :param pulumi.Input[str] name: The id of the saved search.
         :param pulumi.Input[str] query: The query expression for the saved search.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] saved_search_id: The id of the saved search.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TagArgs']]]] tags: The tags attached to the saved search.
         :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -74,20 +74,21 @@ class SavedSearch(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['function_alias'] = function_alias
             __props__['function_parameters'] = function_parameters
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if query is None:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if saved_search_id is None:
+                raise TypeError("Missing required property 'saved_search_id'")
+            __props__['saved_search_id'] = saved_search_id
             __props__['tags'] = tags
             __props__['version'] = version
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/v20150320:SavedSearch")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

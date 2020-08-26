@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// <summary>
         /// The Asset Filter name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("filterName", required: true)]
+        public string FilterName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

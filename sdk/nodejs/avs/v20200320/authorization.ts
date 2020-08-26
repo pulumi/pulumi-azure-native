@@ -45,7 +45,7 @@ export class Authorization extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The state of the  ExpressRoute Circuit Authorization provisioning
      */
@@ -68,8 +68,8 @@ export class Authorization extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AuthorizationArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.authorizationName === undefined) {
+                throw new Error("Missing required property 'authorizationName'");
             }
             if (!args || args.privateCloudName === undefined) {
                 throw new Error("Missing required property 'privateCloudName'");
@@ -77,11 +77,12 @@ export class Authorization extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["authorizationName"] = args ? args.authorizationName : undefined;
             inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["expressRouteAuthorizationId"] = undefined /*out*/;
             inputs["expressRouteAuthorizationKey"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -103,7 +104,7 @@ export interface AuthorizationArgs {
     /**
      * Name of the ExpressRoute Circuit Authorization in the private cloud
      */
-    readonly name: pulumi.Input<string>;
+    readonly authorizationName: pulumi.Input<string>;
     /**
      * The name of the private cloud.
      */

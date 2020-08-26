@@ -39,14 +39,14 @@ type Resource struct {
 // NewResource registers a new resource with the given unique name, arguments, and options.
 func NewResource(ctx *pulumi.Context,
 	name string, args *ResourceArgs, opts ...pulumi.ResourceOption) (*Resource, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ParentResourcePath == nil {
 		return nil, errors.New("missing required argument 'ParentResourcePath'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil || args.ResourceProviderNamespace == nil {
 		return nil, errors.New("missing required argument 'ResourceProviderNamespace'")
@@ -179,8 +179,6 @@ type resourceArgs struct {
 	Location *string `pulumi:"location"`
 	// ID of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
-	// The name of the resource to create.
-	Name string `pulumi:"name"`
 	// The parent resource identity.
 	ParentResourcePath string `pulumi:"parentResourcePath"`
 	// The plan of the resource.
@@ -189,6 +187,8 @@ type resourceArgs struct {
 	Properties map[string]interface{} `pulumi:"properties"`
 	// The name of the resource group for the resource. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the resource to create.
+	ResourceName string `pulumi:"resourceName"`
 	// The namespace of the resource provider.
 	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
 	// The resource type of the resource to create.
@@ -209,8 +209,6 @@ type ResourceArgs struct {
 	Location pulumi.StringPtrInput
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrInput
-	// The name of the resource to create.
-	Name pulumi.StringInput
 	// The parent resource identity.
 	ParentResourcePath pulumi.StringInput
 	// The plan of the resource.
@@ -219,6 +217,8 @@ type ResourceArgs struct {
 	Properties pulumi.MapInput
 	// The name of the resource group for the resource. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The name of the resource to create.
+	ResourceName pulumi.StringInput
 	// The namespace of the resource provider.
 	ResourceProviderNamespace pulumi.StringInput
 	// The resource type of the resource to create.

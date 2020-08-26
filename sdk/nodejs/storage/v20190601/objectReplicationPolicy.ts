@@ -47,7 +47,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * A unique id for object replication policy.
      */
@@ -84,8 +84,8 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
             if (!args || args.destinationAccount === undefined) {
                 throw new Error("Missing required property 'destinationAccount'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.objectReplicationPolicyId === undefined) {
+                throw new Error("Missing required property 'objectReplicationPolicyId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -95,11 +95,12 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["destinationAccount"] = args ? args.destinationAccount : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["objectReplicationPolicyId"] = args ? args.objectReplicationPolicyId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rules"] = args ? args.rules : undefined;
             inputs["sourceAccount"] = args ? args.sourceAccount : undefined;
             inputs["enabledTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["policyId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -129,7 +130,7 @@ export interface ObjectReplicationPolicyArgs {
     /**
      * The ID of object replication policy or 'default' if the policy ID is unknown.
      */
-    readonly name: pulumi.Input<string>;
+    readonly objectReplicationPolicyId: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

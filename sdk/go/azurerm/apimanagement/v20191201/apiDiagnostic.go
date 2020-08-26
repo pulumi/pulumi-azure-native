@@ -42,11 +42,11 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
+	if args == nil || args.DiagnosticId == nil {
+		return nil, errors.New("missing required argument 'DiagnosticId'")
+	}
 	if args == nil || args.LoggerId == nil {
 		return nil, errors.New("missing required argument 'LoggerId'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -147,6 +147,8 @@ type apiDiagnosticArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
 	Backend *PipelineDiagnosticSettings `pulumi:"backend"`
+	// Diagnostic identifier. Must be unique in the current API Management service instance.
+	DiagnosticId string `pulumi:"diagnosticId"`
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
 	Frontend *PipelineDiagnosticSettings `pulumi:"frontend"`
 	// Sets correlation protocol to use for Application Insights diagnostics.
@@ -155,8 +157,6 @@ type apiDiagnosticArgs struct {
 	LogClientIp *bool `pulumi:"logClientIp"`
 	// Resource Id of a target logger.
 	LoggerId string `pulumi:"loggerId"`
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sampling settings for Diagnostic.
@@ -175,6 +175,8 @@ type ApiDiagnosticArgs struct {
 	ApiId pulumi.StringInput
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
 	Backend PipelineDiagnosticSettingsPtrInput
+	// Diagnostic identifier. Must be unique in the current API Management service instance.
+	DiagnosticId pulumi.StringInput
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
 	Frontend PipelineDiagnosticSettingsPtrInput
 	// Sets correlation protocol to use for Application Insights diagnostics.
@@ -183,8 +185,6 @@ type ApiDiagnosticArgs struct {
 	LogClientIp pulumi.BoolPtrInput
 	// Resource Id of a target logger.
 	LoggerId pulumi.StringInput
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Sampling settings for Diagnostic.

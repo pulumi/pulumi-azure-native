@@ -130,6 +130,12 @@ namespace Pulumi.AzureRM.Network.V20200601
     public sealed class DdosCustomPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the DDoS custom policy.
+        /// </summary>
+        [Input("ddosCustomPolicyName", required: true)]
+        public Input<string> DdosCustomPolicyName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -140,12 +146,6 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the DDoS custom policy.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("protocolCustomSettings")]
         private InputList<Inputs.ProtocolCustomSettingsFormatArgs>? _protocolCustomSettings;

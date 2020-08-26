@@ -44,8 +44,8 @@ func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 	if args == nil || args.ManagedRules == nil {
 		return nil, errors.New("missing required argument 'ManagedRules'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyName == nil {
+		return nil, errors.New("missing required argument 'PolicyName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -176,7 +176,7 @@ type webApplicationFirewallPolicyArgs struct {
 	// Describes the managedRules structure
 	ManagedRules ManagedRulesDefinition `pulumi:"managedRules"`
 	// The name of the policy.
-	Name string `pulumi:"name"`
+	PolicyName string `pulumi:"policyName"`
 	// Describes policySettings for policy.
 	PolicySettings *PolicySettings `pulumi:"policySettings"`
 	// The name of the resource group.
@@ -198,7 +198,7 @@ type WebApplicationFirewallPolicyArgs struct {
 	// Describes the managedRules structure
 	ManagedRules ManagedRulesDefinitionInput
 	// The name of the policy.
-	Name pulumi.StringInput
+	PolicyName pulumi.StringInput
 	// Describes policySettings for policy.
 	PolicySettings PolicySettingsPtrInput
 	// The name of the resource group.

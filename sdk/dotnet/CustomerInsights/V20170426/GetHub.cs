@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <summary>
         /// The name of the hub.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("hubName", required: true)]
+        public string HubName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

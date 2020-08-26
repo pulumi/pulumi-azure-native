@@ -47,7 +47,7 @@ export class IotDpsResource extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Service specific properties for a provisioning service
      */
@@ -81,11 +81,11 @@ export class IotDpsResource extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
+            }
+            if (!args || args.provisioningServiceName === undefined) {
+                throw new Error("Missing required property 'provisioningServiceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -95,11 +95,12 @@ export class IotDpsResource extends pulumi.CustomResource {
             }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -128,13 +129,13 @@ export interface IotDpsResourceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Name of provisioning service to create or update.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Service specific properties for a provisioning service
      */
     readonly properties: pulumi.Input<inputs.devices.v20171115.IotDpsPropertiesDescription>;
+    /**
+     * Name of provisioning service to create or update.
+     */
+    readonly provisioningServiceName: pulumi.Input<string>;
     /**
      * Resource group identifier.
      */

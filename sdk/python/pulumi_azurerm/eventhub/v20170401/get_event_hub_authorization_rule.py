@@ -66,22 +66,22 @@ class AwaitableGetEventHubAuthorizationRuleResult(GetEventHubAuthorizationRuleRe
             type=self.type)
 
 
-def get_event_hub_authorization_rule(event_hub_name: Optional[str] = None,
-                                     name: Optional[str] = None,
+def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = None,
+                                     event_hub_name: Optional[str] = None,
                                      namespace_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubAuthorizationRuleResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str authorization_rule_name: The authorization rule name.
     :param str event_hub_name: The Event Hub name
-    :param str name: The authorization rule name.
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
     __args__ = dict()
+    __args__['authorizationRuleName'] = authorization_rule_name
     __args__['eventHubName'] = event_hub_name
-    __args__['name'] = name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

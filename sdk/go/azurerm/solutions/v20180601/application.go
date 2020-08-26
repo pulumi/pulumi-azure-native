@@ -47,14 +47,14 @@ type Application struct {
 // NewApplication registers a new resource with the given unique name, arguments, and options.
 func NewApplication(ctx *pulumi.Context,
 	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
+	if args == nil || args.ApplicationName == nil {
+		return nil, errors.New("missing required argument 'ApplicationName'")
+	}
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
 	}
 	if args == nil || args.ManagedResourceGroupId == nil {
 		return nil, errors.New("missing required argument 'ManagedResourceGroupId'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -161,6 +161,8 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	// The fully qualified path of managed application definition Id.
 	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
+	// The name of the managed application.
+	ApplicationName string `pulumi:"applicationName"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -171,8 +173,6 @@ type applicationArgs struct {
 	ManagedBy *string `pulumi:"managedBy"`
 	// The managed resource group Id.
 	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
-	// The name of the managed application.
-	Name string `pulumi:"name"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
 	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The plan information.
@@ -189,6 +189,8 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	// The fully qualified path of managed application definition Id.
 	ApplicationDefinitionId pulumi.StringPtrInput
+	// The name of the managed application.
+	ApplicationName pulumi.StringInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -199,8 +201,6 @@ type ApplicationArgs struct {
 	ManagedBy pulumi.StringPtrInput
 	// The managed resource group Id.
 	ManagedResourceGroupId pulumi.StringInput
-	// The name of the managed application.
-	Name pulumi.StringInput
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
 	Parameters pulumi.MapInput
 	// The plan information.

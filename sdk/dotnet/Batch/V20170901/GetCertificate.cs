@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Batch.V20170901
         /// <summary>
         /// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.

@@ -37,9 +37,6 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 	if args == nil || args.KeyspaceName == nil {
 		return nil, errors.New("missing required argument 'KeyspaceName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Options == nil {
 		return nil, errors.New("missing required argument 'Options'")
 	}
@@ -48,6 +45,9 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TableName == nil {
+		return nil, errors.New("missing required argument 'TableName'")
 	}
 	if args == nil {
 		args = &DatabaseAccountCassandraTableArgs{}
@@ -127,14 +127,14 @@ type databaseAccountCassandraTableArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB keyspace name.
 	KeyspaceName string `pulumi:"keyspaceName"`
-	// Cosmos DB table name.
-	Name string `pulumi:"name"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options map[string]string `pulumi:"options"`
 	// The standard JSON format of a Cassandra table
 	Resource CassandraTableResource `pulumi:"resource"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Cosmos DB table name.
+	TableName string `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a DatabaseAccountCassandraTable resource.
@@ -143,14 +143,14 @@ type DatabaseAccountCassandraTableArgs struct {
 	AccountName pulumi.StringInput
 	// Cosmos DB keyspace name.
 	KeyspaceName pulumi.StringInput
-	// Cosmos DB table name.
-	Name pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options pulumi.StringMapInput
 	// The standard JSON format of a Cassandra table
 	Resource CassandraTableResourceInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
+	// Cosmos DB table name.
+	TableName pulumi.StringInput
 }
 
 func (DatabaseAccountCassandraTableArgs) ElementType() reflect.Type {

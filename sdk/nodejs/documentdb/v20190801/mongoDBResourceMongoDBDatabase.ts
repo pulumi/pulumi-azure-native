@@ -43,7 +43,7 @@ export class MongoDBResourceMongoDBDatabase extends pulumi.CustomResource {
     /**
      * The name of the ARM resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly resource!: pulumi.Output<outputs.documentdb.v20190801.MongoDBDatabaseGetPropertiesResponseResource | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -70,8 +70,8 @@ export class MongoDBResourceMongoDBDatabase extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.databaseName === undefined) {
+                throw new Error("Missing required property 'databaseName'");
             }
             if (!args || args.options === undefined) {
                 throw new Error("Missing required property 'options'");
@@ -83,12 +83,13 @@ export class MongoDBResourceMongoDBDatabase extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,13 +114,13 @@ export interface MongoDBResourceMongoDBDatabaseArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * Cosmos DB database name.
+     */
+    readonly databaseName: pulumi.Input<string>;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * Cosmos DB database name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

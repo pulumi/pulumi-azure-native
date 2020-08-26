@@ -79,22 +79,22 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
             type=self.type)
 
 
-def get_assessment(group_name: Optional[str] = None,
-                   name: Optional[str] = None,
+def get_assessment(assessment_name: Optional[str] = None,
+                   group_name: Optional[str] = None,
                    project_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str assessment_name: Unique name of an assessment within a project.
     :param str group_name: Unique name of a group within a project.
-    :param str name: Unique name of an assessment within a project.
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
     __args__ = dict()
+    __args__['assessmentName'] = assessment_name
     __args__['groupName'] = group_name
-    __args__['name'] = name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

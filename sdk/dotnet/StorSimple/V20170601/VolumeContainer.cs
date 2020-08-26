@@ -162,12 +162,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the volume container.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -178,6 +172,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("storageAccountCredentialId", required: true)]
         public Input<string> StorageAccountCredentialId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the volume container.
+        /// </summary>
+        [Input("volumeContainerName", required: true)]
+        public Input<string> VolumeContainerName { get; set; } = null!;
 
         public VolumeContainerArgs()
         {

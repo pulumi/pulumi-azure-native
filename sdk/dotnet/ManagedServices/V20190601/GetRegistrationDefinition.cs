@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ManagedServices.V20190601
         /// <summary>
         /// Guid of the registration definition.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("registrationDefinitionId", required: true)]
+        public string RegistrationDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// Scope of the resource.

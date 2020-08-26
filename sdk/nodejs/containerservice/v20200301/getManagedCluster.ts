@@ -15,20 +15,20 @@ export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerservice/v20200301:getManagedCluster", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetManagedClusterArgs {
     /**
-     * The name of the managed cluster resource.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the managed cluster resource.
+     */
+    readonly resourceName: string;
 }
 
 /**

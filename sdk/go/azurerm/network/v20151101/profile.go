@@ -37,8 +37,8 @@ type Profile struct {
 // NewProfile registers a new resource with the given unique name, arguments, and options.
 func NewProfile(ctx *pulumi.Context,
 	name string, args *ProfileArgs, opts ...pulumi.ResourceOption) (*Profile, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ProfileName == nil {
+		return nil, errors.New("missing required argument 'ProfileName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -141,7 +141,7 @@ type profileArgs struct {
 	// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
 	MonitorConfig *MonitorConfig `pulumi:"monitorConfig"`
 	// The name of the Traffic Manager profile.
-	Name string `pulumi:"name"`
+	ProfileName string `pulumi:"profileName"`
 	// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
 	ProfileStatus *string `pulumi:"profileStatus"`
 	// The name of the resource group containing the Traffic Manager profile.
@@ -163,7 +163,7 @@ type ProfileArgs struct {
 	// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
 	MonitorConfig MonitorConfigPtrInput
 	// The name of the Traffic Manager profile.
-	Name pulumi.StringInput
+	ProfileName pulumi.StringInput
 	// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
 	ProfileStatus pulumi.StringPtrInput
 	// The name of the resource group containing the Traffic Manager profile.

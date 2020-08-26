@@ -55,7 +55,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the Namespace.
      */
@@ -101,8 +101,8 @@ export class Namespace extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.namespaceName === undefined) {
+                throw new Error("Missing required property 'namespaceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -110,7 +110,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["createdAt"] = args ? args.createdAt : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceBusEndpoint"] = args ? args.serviceBusEndpoint : undefined;
@@ -119,6 +119,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["updatedAt"] = args ? args.updatedAt : undefined;
             inputs["metricId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -153,7 +154,7 @@ export interface NamespaceArgs {
     /**
      * The Namespace name
      */
-    readonly name: pulumi.Input<string>;
+    readonly namespaceName: pulumi.Input<string>;
     /**
      * Provisioning state of the Namespace.
      */

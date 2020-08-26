@@ -17,6 +17,7 @@ class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assignment_name: Optional[pulumi.Input[str]] = None,
                  conflation_policies: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  connectors: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -25,7 +26,6 @@ class RoleAssignment(pulumi.CustomResource):
                  interactions: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  kpis: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  links: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  principals: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AssignmentPrincipalArgs']]]]] = None,
                  profiles: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  relationship_links: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
@@ -45,6 +45,7 @@ class RoleAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] assignment_name: The assignment name
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] conflation_policies: Widget types set for the assignment.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] connectors: Connectors set for the assignment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized description for the metadata.
@@ -53,7 +54,6 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] interactions: Interactions set for the assignment.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] kpis: Kpis set for the assignment.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] links: Links set for the assignment.
-        :param pulumi.Input[str] name: The assignment name
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AssignmentPrincipalArgs']]]] principals: The principals being assigned to.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] profiles: Profiles set for the assignment.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] relationship_links: The Role assignments set for the relationship links.
@@ -83,6 +83,9 @@ class RoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if assignment_name is None:
+                raise TypeError("Missing required property 'assignment_name'")
+            __props__['assignment_name'] = assignment_name
             __props__['conflation_policies'] = conflation_policies
             __props__['connectors'] = connectors
             __props__['description'] = description
@@ -93,9 +96,6 @@ class RoleAssignment(pulumi.CustomResource):
             __props__['interactions'] = interactions
             __props__['kpis'] = kpis
             __props__['links'] = links
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if principals is None:
                 raise TypeError("Missing required property 'principals'")
             __props__['principals'] = principals
@@ -113,7 +113,7 @@ class RoleAssignment(pulumi.CustomResource):
             __props__['segments'] = segments
             __props__['views'] = views
             __props__['widget_types'] = widget_types
-            __props__['assignment_name'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None

@@ -19,10 +19,10 @@ func LookupStreamingLocator(ctx *pulumi.Context, args *LookupStreamingLocatorArg
 type LookupStreamingLocatorArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
-	// The Streaming Locator name.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Streaming Locator name.
+	StreamingLocatorName string `pulumi:"streamingLocatorName"`
 }
 
 // A Streaming Locator resource

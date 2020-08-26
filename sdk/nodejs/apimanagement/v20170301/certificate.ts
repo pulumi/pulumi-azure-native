@@ -41,7 +41,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Subject attribute of the certificate.
      */
@@ -68,11 +68,11 @@ export class Certificate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CertificateArgs | undefined;
+            if (!args || args.certificateId === undefined) {
+                throw new Error("Missing required property 'certificateId'");
+            }
             if (!args || args.data === undefined) {
                 throw new Error("Missing required property 'data'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.password === undefined) {
                 throw new Error("Missing required property 'password'");
@@ -83,12 +83,13 @@ export class Certificate extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["certificateId"] = args ? args.certificateId : undefined;
             inputs["data"] = args ? args.data : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["expirationDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["subject"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -111,13 +112,13 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateArgs {
     /**
+     * Identifier of the certificate entity. Must be unique in the current API Management service instance.
+     */
+    readonly certificateId: pulumi.Input<string>;
+    /**
      * Base 64 encoded certificate using the application/x-pkcs12 representation.
      */
     readonly data: pulumi.Input<string>;
-    /**
-     * Identifier of the certificate entity. Must be unique in the current API Management service instance.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Password for the Certificate
      */

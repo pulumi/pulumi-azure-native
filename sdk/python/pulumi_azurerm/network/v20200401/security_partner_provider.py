@@ -19,8 +19,8 @@ class SecurityPartnerProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_partner_provider_name: Optional[pulumi.Input[str]] = None,
                  security_provider_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -34,8 +34,8 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the Security Partner Provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] security_partner_provider_name: The name of the Security Partner Provider.
         :param pulumi.Input[str] security_provider_name: The security provider name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
@@ -59,17 +59,18 @@ class SecurityPartnerProvider(pulumi.CustomResource):
 
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if security_partner_provider_name is None:
+                raise TypeError("Missing required property 'security_partner_provider_name'")
+            __props__['security_partner_provider_name'] = security_partner_provider_name
             __props__['security_provider_name'] = security_provider_name
             __props__['tags'] = tags
             __props__['virtual_hub'] = virtual_hub
             __props__['connection_status'] = None
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200301:SecurityPartnerProvider"), pulumi.Alias(type_="azurerm:network/v20200501:SecurityPartnerProvider"), pulumi.Alias(type_="azurerm:network/v20200601:SecurityPartnerProvider")])

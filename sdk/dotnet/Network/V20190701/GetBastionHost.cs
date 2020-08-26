@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// <summary>
         /// The name of the Bastion Host.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("bastionHostName", required: true)]
+        public string BastionHostName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

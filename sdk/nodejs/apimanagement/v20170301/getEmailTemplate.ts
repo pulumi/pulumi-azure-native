@@ -15,17 +15,13 @@ export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20170301:getEmailTemplate", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
+        "templateName": args.templateName,
     }, opts);
 }
 
 export interface GetEmailTemplateArgs {
-    /**
-     * Email Template Name Identifier.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */
@@ -34,6 +30,10 @@ export interface GetEmailTemplateArgs {
      * The name of the API Management service.
      */
     readonly serviceName: string;
+    /**
+     * Email Template Name Identifier.
+     */
+    readonly templateName: string;
 }
 
 /**

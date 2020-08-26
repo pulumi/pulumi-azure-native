@@ -45,8 +45,8 @@ type FlowLog struct {
 // NewFlowLog registers a new resource with the given unique name, arguments, and options.
 func NewFlowLog(ctx *pulumi.Context,
 	name string, args *FlowLogArgs, opts ...pulumi.ResourceOption) (*FlowLog, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.FlowLogName == nil {
+		return nil, errors.New("missing required argument 'FlowLogName'")
 	}
 	if args == nil || args.NetworkWatcherName == nil {
 		return nil, errors.New("missing required argument 'NetworkWatcherName'")
@@ -169,14 +169,14 @@ type flowLogArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Parameters that define the configuration of traffic analytics.
 	FlowAnalyticsConfiguration *TrafficAnalyticsProperties `pulumi:"flowAnalyticsConfiguration"`
+	// The name of the flow log.
+	FlowLogName string `pulumi:"flowLogName"`
 	// Parameters that define the flow log format.
 	Format *FlowLogFormatParameters `pulumi:"format"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the flow log.
-	Name string `pulumi:"name"`
 	// The name of the network watcher.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
 	// The name of the resource group.
@@ -197,14 +197,14 @@ type FlowLogArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Parameters that define the configuration of traffic analytics.
 	FlowAnalyticsConfiguration TrafficAnalyticsPropertiesPtrInput
+	// The name of the flow log.
+	FlowLogName pulumi.StringInput
 	// Parameters that define the flow log format.
 	Format FlowLogFormatParametersPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the flow log.
-	Name pulumi.StringInput
 	// The name of the network watcher.
 	NetworkWatcherName pulumi.StringInput
 	// The name of the resource group.

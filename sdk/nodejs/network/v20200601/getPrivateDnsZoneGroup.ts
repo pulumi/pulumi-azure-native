@@ -15,7 +15,7 @@ export function getPrivateDnsZoneGroup(args: GetPrivateDnsZoneGroupArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200601:getPrivateDnsZoneGroup", {
-        "name": args.name,
+        "privateDnsZoneGroupName": args.privateDnsZoneGroupName,
         "privateEndpointName": args.privateEndpointName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetPrivateDnsZoneGroupArgs {
     /**
      * The name of the private dns zone group.
      */
-    readonly name: string;
+    readonly privateDnsZoneGroupName: string;
     /**
      * The name of the private endpoint.
      */

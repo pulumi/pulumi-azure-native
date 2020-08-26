@@ -23,10 +23,10 @@ type LookupSqlResourceSqlStoredProcedureArgs struct {
 	ContainerName string `pulumi:"containerName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
-	// Cosmos DB storedProcedure name.
-	Name string `pulumi:"name"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Cosmos DB storedProcedure name.
+	StoredProcedureName string `pulumi:"storedProcedureName"`
 }
 
 // An Azure Cosmos DB storedProcedure.

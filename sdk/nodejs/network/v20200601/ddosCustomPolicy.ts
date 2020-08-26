@@ -47,7 +47,7 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The protocol-specific DDoS policy customization parameters.
      */
@@ -86,19 +86,20 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DdosCustomPolicyArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.ddosCustomPolicyName === undefined) {
+                throw new Error("Missing required property 'ddosCustomPolicyName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["ddosCustomPolicyName"] = args ? args.ddosCustomPolicyName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["protocolCustomSettings"] = args ? args.protocolCustomSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicIPAddresses"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
@@ -122,6 +123,10 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
  */
 export interface DdosCustomPolicyArgs {
     /**
+     * The name of the DDoS custom policy.
+     */
+    readonly ddosCustomPolicyName: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -129,10 +134,6 @@ export interface DdosCustomPolicyArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the DDoS custom policy.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The protocol-specific DDoS policy customization parameters.
      */

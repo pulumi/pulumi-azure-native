@@ -51,7 +51,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * The name of the object.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
@@ -84,22 +84,23 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.sslStatus === undefined) {
                 throw new Error("Missing required property 'sslStatus'");
             }
+            if (!args || args.storageAccountCredentialName === undefined) {
+                throw new Error("Missing required property 'storageAccountCredentialName'");
+            }
             inputs["accessKey"] = args ? args.accessKey : undefined;
             inputs["endPoint"] = args ? args.endPoint : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sslStatus"] = args ? args.sslStatus : undefined;
+            inputs["storageAccountCredentialName"] = args ? args.storageAccountCredentialName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["volumesCount"] = undefined /*out*/;
         }
@@ -135,10 +136,6 @@ export interface StorageAccountCredentialArgs {
      */
     readonly managerName: pulumi.Input<string>;
     /**
-     * The storage account credential name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -146,4 +143,8 @@ export interface StorageAccountCredentialArgs {
      * Signifies whether SSL needs to be enabled or not.
      */
     readonly sslStatus: pulumi.Input<string>;
+    /**
+     * The storage account credential name.
+     */
+    readonly storageAccountCredentialName: pulumi.Input<string>;
 }

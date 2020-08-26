@@ -62,14 +62,14 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	if args == nil || args.ConnectionType == nil {
 		return nil, errors.New("missing required argument 'ConnectionType'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.VirtualNetworkGateway1 == nil {
 		return nil, errors.New("missing required argument 'VirtualNetworkGateway1'")
+	}
+	if args == nil || args.VirtualNetworkGatewayConnectionName == nil {
+		return nil, errors.New("missing required argument 'VirtualNetworkGatewayConnectionName'")
 	}
 	if args == nil {
 		args = &VirtualNetworkGatewayConnectionArgs{}
@@ -296,8 +296,6 @@ type virtualNetworkGatewayConnectionArgs struct {
 	LocalNetworkGateway2 *LocalNetworkGatewayType `pulumi:"localNetworkGateway2"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the virtual network gateway connection.
-	Name string `pulumi:"name"`
 	// The reference to peerings resource.
 	Peer *SubResource `pulumi:"peer"`
 	// The name of the resource group.
@@ -314,6 +312,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 	VirtualNetworkGateway1 VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway1"`
 	// A common class for general resource information
 	VirtualNetworkGateway2 *VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway2"`
+	// The name of the virtual network gateway connection.
+	VirtualNetworkGatewayConnectionName string `pulumi:"virtualNetworkGatewayConnectionName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
@@ -332,8 +332,6 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	LocalNetworkGateway2 LocalNetworkGatewayTypePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the virtual network gateway connection.
-	Name pulumi.StringInput
 	// The reference to peerings resource.
 	Peer SubResourcePtrInput
 	// The name of the resource group.
@@ -350,6 +348,8 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	VirtualNetworkGateway1 VirtualNetworkGatewayTypeInput
 	// A common class for general resource information
 	VirtualNetworkGateway2 VirtualNetworkGatewayTypePtrInput
+	// The name of the virtual network gateway connection.
+	VirtualNetworkGatewayConnectionName pulumi.StringInput
 }
 
 func (VirtualNetworkGatewayConnectionArgs) ElementType() reflect.Type {

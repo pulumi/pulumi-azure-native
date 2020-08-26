@@ -108,6 +108,12 @@ namespace Pulumi.AzureRM.BotService.V20200602
     public sealed class BotConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the Bot Service Connection Setting resource.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
         /// Entity Tag
         /// </summary>
         [Input("etag")]
@@ -124,12 +130,6 @@ namespace Pulumi.AzureRM.BotService.V20200602
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the Bot Service Connection Setting resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The set of properties specific to bot channel resource

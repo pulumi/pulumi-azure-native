@@ -39,7 +39,7 @@ export class RegistrationDefinition extends pulumi.CustomResource {
     /**
      * Name of the registration definition.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Plan details for the managed services.
      */
@@ -66,16 +66,17 @@ export class RegistrationDefinition extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RegistrationDefinitionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.registrationDefinitionId === undefined) {
+                throw new Error("Missing required property 'registrationDefinitionId'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["name"] = args ? args.name : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["registrationDefinitionId"] = args ? args.registrationDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,10 +97,6 @@ export class RegistrationDefinition extends pulumi.CustomResource {
  */
 export interface RegistrationDefinitionArgs {
     /**
-     * Guid of the registration definition.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Plan details for the managed services.
      */
     readonly plan?: pulumi.Input<inputs.managedservices.v20190901.Plan>;
@@ -107,6 +104,10 @@ export interface RegistrationDefinitionArgs {
      * Properties of a registration definition.
      */
     readonly properties?: pulumi.Input<inputs.managedservices.v20190901.RegistrationDefinitionProperties>;
+    /**
+     * Guid of the registration definition.
+     */
+    readonly registrationDefinitionId: pulumi.Input<string>;
     /**
      * Scope of the resource.
      */

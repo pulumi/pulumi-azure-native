@@ -29,8 +29,8 @@ type DeploymentAtSubscriptionScope struct {
 // NewDeploymentAtSubscriptionScope registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 	name string, args *DeploymentAtSubscriptionScopeArgs, opts ...pulumi.ResourceOption) (*DeploymentAtSubscriptionScope, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DeploymentName == nil {
+		return nil, errors.New("missing required argument 'DeploymentName'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -114,10 +114,10 @@ func (DeploymentAtSubscriptionScopeState) ElementType() reflect.Type {
 }
 
 type deploymentAtSubscriptionScopeArgs struct {
+	// The name of the deployment.
+	DeploymentName string `pulumi:"deploymentName"`
 	// The location to store the deployment data.
 	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
 	// The deployment properties.
 	Properties DeploymentProperties `pulumi:"properties"`
 	// Deployment tags
@@ -126,10 +126,10 @@ type deploymentAtSubscriptionScopeArgs struct {
 
 // The set of arguments for constructing a DeploymentAtSubscriptionScope resource.
 type DeploymentAtSubscriptionScopeArgs struct {
+	// The name of the deployment.
+	DeploymentName pulumi.StringInput
 	// The location to store the deployment data.
 	Location pulumi.StringPtrInput
-	// The name of the deployment.
-	Name pulumi.StringInput
 	// The deployment properties.
 	Properties DeploymentPropertiesInput
 	// Deployment tags

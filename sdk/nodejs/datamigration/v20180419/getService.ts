@@ -16,7 +16,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:datamigration/v20180419:getService", {
         "groupName": args.groupName,
-        "name": args.name,
+        "serviceName": args.serviceName,
     }, opts);
 }
 
@@ -28,7 +28,7 @@ export interface GetServiceArgs {
     /**
      * Name of the service
      */
-    readonly name: string;
+    readonly serviceName: string;
 }
 
 /**

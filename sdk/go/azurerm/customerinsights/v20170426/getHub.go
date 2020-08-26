@@ -18,7 +18,7 @@ func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOp
 
 type LookupHubArgs struct {
 	// The name of the hub.
-	Name string `pulumi:"name"`
+	HubName string `pulumi:"hubName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

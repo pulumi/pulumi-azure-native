@@ -55,7 +55,7 @@ export class Export extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * If the export has an active schedule, provides an estimate of the next execution time.
      */
@@ -92,8 +92,8 @@ export class Export extends pulumi.CustomResource {
             if (!args || args.deliveryInfo === undefined) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.exportName === undefined) {
+                throw new Error("Missing required property 'exportName'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
@@ -101,10 +101,11 @@ export class Export extends pulumi.CustomResource {
             inputs["definition"] = args ? args.definition : undefined;
             inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["exportName"] = args ? args.exportName : undefined;
             inputs["format"] = args ? args.format : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["nextRunTimeEstimate"] = undefined /*out*/;
             inputs["runHistory"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -139,13 +140,13 @@ export interface ExportArgs {
      */
     readonly eTag?: pulumi.Input<string>;
     /**
+     * Export Name.
+     */
+    readonly exportName: pulumi.Input<string>;
+    /**
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */
     readonly format?: pulumi.Input<string>;
-    /**
-     * Export Name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Has schedule information for the export.
      */

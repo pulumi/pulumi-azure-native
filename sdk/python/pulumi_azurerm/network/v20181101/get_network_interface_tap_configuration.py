@@ -91,21 +91,21 @@ class AwaitableGetNetworkInterfaceTapConfigurationResult(GetNetworkInterfaceTapC
             virtual_network_tap=self.virtual_network_tap)
 
 
-def get_network_interface_tap_configuration(name: Optional[str] = None,
-                                            network_interface_name: Optional[str] = None,
+def get_network_interface_tap_configuration(network_interface_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
+                                            tap_configuration_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceTapConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the tap configuration.
     :param str network_interface_name: The name of the network interface.
     :param str resource_group_name: The name of the resource group.
+    :param str tap_configuration_name: The name of the tap configuration.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['networkInterfaceName'] = network_interface_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['tapConfigurationName'] = tap_configuration_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

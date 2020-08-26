@@ -47,8 +47,8 @@ type LoadBalancer struct {
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancer(ctx *pulumi.Context,
 	name string, args *LoadBalancerArgs, opts ...pulumi.ResourceOption) (*LoadBalancer, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LoadBalancerName == nil {
+		return nil, errors.New("missing required argument 'LoadBalancerName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -252,12 +252,12 @@ type loadBalancerArgs struct {
 	InboundNatPools []InboundNatPool `pulumi:"inboundNatPools"`
 	// Gets or sets list of inbound rules
 	InboundNatRules []InboundNatRule `pulumi:"inboundNatRules"`
+	// The name of the loadBalancer.
+	LoadBalancerName string `pulumi:"loadBalancerName"`
 	// Gets or sets load balancing rules
 	LoadBalancingRules []LoadBalancingRule `pulumi:"loadBalancingRules"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the loadBalancer.
-	Name string `pulumi:"name"`
 	// Gets or sets outbound NAT rules
 	OutboundNatRules []OutboundNatRule `pulumi:"outboundNatRules"`
 	// Gets or sets list of Load balancer probes
@@ -286,12 +286,12 @@ type LoadBalancerArgs struct {
 	InboundNatPools InboundNatPoolArrayInput
 	// Gets or sets list of inbound rules
 	InboundNatRules InboundNatRuleArrayInput
+	// The name of the loadBalancer.
+	LoadBalancerName pulumi.StringInput
 	// Gets or sets load balancing rules
 	LoadBalancingRules LoadBalancingRuleArrayInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the loadBalancer.
-	Name pulumi.StringInput
 	// Gets or sets outbound NAT rules
 	OutboundNatRules OutboundNatRuleArrayInput
 	// Gets or sets list of Load balancer probes

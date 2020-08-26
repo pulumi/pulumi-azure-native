@@ -95,12 +95,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
         public Input<string> FabricName { get; set; } = null!;
 
         /// <summary>
-        /// A name for the replication protected item.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Enable protection input properties.
         /// </summary>
         [Input("properties")]
@@ -111,6 +105,12 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
         /// </summary>
         [Input("protectionContainerName", required: true)]
         public Input<string> ProtectionContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// A name for the replication protected item.
+        /// </summary>
+        [Input("replicatedProtectedItemName", required: true)]
+        public Input<string> ReplicatedProtectedItemName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

@@ -18,11 +18,11 @@ class Resource(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parent_resource_path: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  resource_provider_namespace: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -35,11 +35,11 @@ class Resource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource identity.
         :param pulumi.Input[str] parent_resource_path: Resource identity.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Gets or sets the plan of the resource.
         :param pulumi.Input[Mapping[str, Any]] properties: Gets or sets the resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name_: Resource identity.
         :param pulumi.Input[str] resource_provider_namespace: Resource identity.
         :param pulumi.Input[str] resource_type: Resource identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -64,9 +64,6 @@ class Resource(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if parent_resource_path is None:
                 raise TypeError("Missing required property 'parent_resource_path'")
             __props__['parent_resource_path'] = parent_resource_path
@@ -75,6 +72,9 @@ class Resource(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             if resource_provider_namespace is None:
                 raise TypeError("Missing required property 'resource_provider_namespace'")
             __props__['resource_provider_namespace'] = resource_provider_namespace
@@ -82,6 +82,7 @@ class Resource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20160201:Resource"), pulumi.Alias(type_="azurerm:resources/v20160701:Resource"), pulumi.Alias(type_="azurerm:resources/v20160901:Resource"), pulumi.Alias(type_="azurerm:resources/v20170510:Resource"), pulumi.Alias(type_="azurerm:resources/v20180201:Resource"), pulumi.Alias(type_="azurerm:resources/v20180501:Resource"), pulumi.Alias(type_="azurerm:resources/v20190301:Resource"), pulumi.Alias(type_="azurerm:resources/v20190501:Resource"), pulumi.Alias(type_="azurerm:resources/v20190510:Resource"), pulumi.Alias(type_="azurerm:resources/v20190701:Resource"), pulumi.Alias(type_="azurerm:resources/v20190801:Resource"), pulumi.Alias(type_="azurerm:resources/v20191001:Resource"), pulumi.Alias(type_="azurerm:resources/v20200601:Resource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

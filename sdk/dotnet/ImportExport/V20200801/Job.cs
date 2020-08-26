@@ -100,16 +100,16 @@ namespace Pulumi.AzureRM.ImportExport.V20200801
     public sealed class JobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the import/export job.
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the job should be created
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the import/export job.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Specifies the job properties

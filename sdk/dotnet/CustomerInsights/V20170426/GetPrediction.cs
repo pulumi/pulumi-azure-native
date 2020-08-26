@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <summary>
         /// The name of the Prediction.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("predictionName", required: true)]
+        public string PredictionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

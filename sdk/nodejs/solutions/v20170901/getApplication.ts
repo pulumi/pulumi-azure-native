@@ -15,7 +15,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:solutions/v20170901:getApplication", {
-        "name": args.name,
+        "applicationName": args.applicationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetApplicationArgs {
     /**
      * The name of the managed application.
      */
-    readonly name: string;
+    readonly applicationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

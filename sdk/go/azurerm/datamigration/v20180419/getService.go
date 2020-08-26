@@ -20,7 +20,7 @@ type LookupServiceArgs struct {
 	// Name of the resource group
 	GroupName string `pulumi:"groupName"`
 	// Name of the service
-	Name string `pulumi:"name"`
+	ServiceName string `pulumi:"serviceName"`
 }
 
 // A Database Migration Service resource

@@ -51,7 +51,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The resource's provisioning state
      */
@@ -96,8 +96,8 @@ export class Service extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.serviceName === undefined) {
+                throw new Error("Missing required property 'serviceName'");
             }
             if (!args || args.virtualSubnetId === undefined) {
                 throw new Error("Missing required property 'virtualSubnetId'");
@@ -106,11 +106,12 @@ export class Service extends pulumi.CustomResource {
             inputs["groupName"] = args ? args.groupName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["publicKey"] = args ? args.publicKey : undefined;
+            inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualSubnetId"] = args ? args.virtualSubnetId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -146,13 +147,13 @@ export interface ServiceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Name of the service
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The public key of the service, used to encrypt secrets sent to the service
      */
     readonly publicKey?: pulumi.Input<string>;
+    /**
+     * Name of the service
+     */
+    readonly serviceName: pulumi.Input<string>;
     /**
      * Service SKU
      */

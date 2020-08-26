@@ -18,7 +18,7 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 type LookupCertificateArgs struct {
 	// The name of the certificate
-	Name string `pulumi:"name"`
+	CertificateName string `pulumi:"certificateName"`
 	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the IoT hub.

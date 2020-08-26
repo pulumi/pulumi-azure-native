@@ -22,7 +22,7 @@ type LookupJobDefinitionArgs struct {
 	// The data service name of the job definition
 	DataServiceName string `pulumi:"dataServiceName"`
 	// The job definition name that is being queried.
-	Name string `pulumi:"name"`
+	JobDefinitionName string `pulumi:"jobDefinitionName"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

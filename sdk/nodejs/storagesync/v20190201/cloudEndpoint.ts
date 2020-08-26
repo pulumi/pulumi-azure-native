@@ -57,7 +57,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Partnership Id
      */
@@ -92,8 +92,8 @@ export class CloudEndpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CloudEndpointArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.cloudEndpointName === undefined) {
+                throw new Error("Missing required property 'cloudEndpointName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -105,7 +105,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'syncGroupName'");
             }
             inputs["azureFileShareName"] = args ? args.azureFileShareName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["cloudEndpointName"] = args ? args.cloudEndpointName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
             inputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
@@ -115,6 +115,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
             inputs["friendlyName"] = undefined /*out*/;
             inputs["lastOperationName"] = undefined /*out*/;
             inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["partnershipId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -143,7 +144,7 @@ export interface CloudEndpointArgs {
     /**
      * Name of Cloud Endpoint object.
      */
-    readonly name: pulumi.Input<string>;
+    readonly cloudEndpointName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

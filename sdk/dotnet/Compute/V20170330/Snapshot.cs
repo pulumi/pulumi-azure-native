@@ -167,12 +167,6 @@ namespace Pulumi.AzureRM.Compute.V20170330
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The Operating System type.
         /// </summary>
         [Input("osType")]
@@ -189,6 +183,12 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// </summary>
         [Input("sku")]
         public Input<Inputs.DiskSkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+        /// </summary>
+        [Input("snapshotName", required: true)]
+        public Input<string> SnapshotName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

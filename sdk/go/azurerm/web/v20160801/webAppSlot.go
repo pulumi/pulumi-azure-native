@@ -108,6 +108,9 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Slot == nil {
+		return nil, errors.New("missing required argument 'Slot'")
+	}
 	if args == nil {
 		args = &WebAppSlotArgs{}
 	}
@@ -351,7 +354,7 @@ type webAppSlotArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
-	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name string `pulumi:"name"`
 	// <code>true</code> if reserved; otherwise, <code>false</code>.
 	Reserved *bool `pulumi:"reserved"`
@@ -368,6 +371,8 @@ type webAppSlotArgs struct {
 	// If true web app hostname is not registered with DNS on creation. This parameter is
 	//  only used for app creation.
 	SkipDnsRegistration *bool `pulumi:"skipDnsRegistration"`
+	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+	Slot string `pulumi:"slot"`
 	// If specified during app creation, the app is created from a previous snapshot.
 	SnapshotInfo *SnapshotRecoveryRequest `pulumi:"snapshotInfo"`
 	// Resource tags.
@@ -408,7 +413,7 @@ type WebAppSlotArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
-	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name pulumi.StringInput
 	// <code>true</code> if reserved; otherwise, <code>false</code>.
 	Reserved pulumi.BoolPtrInput
@@ -425,6 +430,8 @@ type WebAppSlotArgs struct {
 	// If true web app hostname is not registered with DNS on creation. This parameter is
 	//  only used for app creation.
 	SkipDnsRegistration pulumi.BoolPtrInput
+	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+	Slot pulumi.StringInput
 	// If specified during app creation, the app is created from a previous snapshot.
 	SnapshotInfo SnapshotRecoveryRequestPtrInput
 	// Resource tags.

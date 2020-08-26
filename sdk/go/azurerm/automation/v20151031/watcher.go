@@ -50,11 +50,11 @@ func NewWatcher(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.WatcherName == nil {
+		return nil, errors.New("missing required argument 'WatcherName'")
 	}
 	if args == nil {
 		args = &WatcherArgs{}
@@ -157,8 +157,6 @@ type watcherArgs struct {
 	ExecutionFrequencyInSeconds *int `pulumi:"executionFrequencyInSeconds"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
-	// The watcher name.
-	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
@@ -169,6 +167,8 @@ type watcherArgs struct {
 	ScriptRunOn *string `pulumi:"scriptRunOn"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The watcher name.
+	WatcherName string `pulumi:"watcherName"`
 }
 
 // The set of arguments for constructing a Watcher resource.
@@ -183,8 +183,6 @@ type WatcherArgs struct {
 	ExecutionFrequencyInSeconds pulumi.IntPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
-	// The watcher name.
-	Name pulumi.StringInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
@@ -195,6 +193,8 @@ type WatcherArgs struct {
 	ScriptRunOn pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The watcher name.
+	WatcherName pulumi.StringInput
 }
 
 func (WatcherArgs) ElementType() reflect.Type {

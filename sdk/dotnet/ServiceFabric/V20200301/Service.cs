@@ -196,12 +196,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the service resource in the format of {applicationName}~{serviceName}.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Describes how the service is partitioned.
         /// </summary>
         [Input("partitionDescription")]
@@ -242,6 +236,12 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
             get => _serviceLoadMetrics ?? (_serviceLoadMetrics = new InputList<Inputs.ServiceLoadMetricDescriptionArgs>());
             set => _serviceLoadMetrics = value;
         }
+
+        /// <summary>
+        /// The name of the service resource in the format of {applicationName}~{serviceName}.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         /// <summary>
         /// The activation Mode of the service package

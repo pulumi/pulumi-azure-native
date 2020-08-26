@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public sealed class GetQueueArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The queue name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The queue name.
+        /// </summary>
+        [Input("queueName", required: true)]
+        public string QueueName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

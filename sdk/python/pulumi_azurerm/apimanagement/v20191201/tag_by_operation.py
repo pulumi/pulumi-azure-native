@@ -16,10 +16,10 @@ class TagByOperation(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  operation_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 tag_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -29,10 +29,10 @@ class TagByOperation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        :param pulumi.Input[str] name: Tag identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -54,9 +54,6 @@ class TagByOperation(pulumi.CustomResource):
             if api_id is None:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if operation_id is None:
                 raise TypeError("Missing required property 'operation_id'")
             __props__['operation_id'] = operation_id
@@ -66,7 +63,11 @@ class TagByOperation(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            if tag_id is None:
+                raise TypeError("Missing required property 'tag_id'")
+            __props__['tag_id'] = tag_id
             __props__['display_name'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:TagByOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:TagByOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:TagByOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

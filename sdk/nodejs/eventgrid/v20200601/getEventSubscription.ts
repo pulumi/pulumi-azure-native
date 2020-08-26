@@ -15,7 +15,7 @@ export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:eventgrid/v20200601:getEventSubscription", {
-        "name": args.name,
+        "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetEventSubscriptionArgs {
     /**
      * Name of the event subscription.
      */
-    readonly name: string;
+    readonly eventSubscriptionName: string;
     /**
      * The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
      */

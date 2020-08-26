@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// The instance ID of the virtual machine.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("instanceId", required: true)]
+        public string InstanceId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

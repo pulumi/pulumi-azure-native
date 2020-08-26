@@ -63,7 +63,7 @@ export class EnvironmentSetting extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning status of the resource.
      */
@@ -106,14 +106,14 @@ export class EnvironmentSetting extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EnvironmentSettingArgs | undefined;
+            if (!args || args.environmentSettingName === undefined) {
+                throw new Error("Missing required property 'environmentSettingName'");
+            }
             if (!args || args.labAccountName === undefined) {
                 throw new Error("Missing required property 'labAccountName'");
             }
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -123,10 +123,10 @@ export class EnvironmentSetting extends pulumi.CustomResource {
             }
             inputs["configurationState"] = args ? args.configurationState : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["environmentSettingName"] = args ? args.environmentSettingName : undefined;
             inputs["labAccountName"] = args ? args.labAccountName : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceSettings"] = args ? args.resourceSettings : undefined;
@@ -136,6 +136,7 @@ export class EnvironmentSetting extends pulumi.CustomResource {
             inputs["lastChanged"] = undefined /*out*/;
             inputs["lastPublished"] = undefined /*out*/;
             inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["publishingState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -163,6 +164,10 @@ export interface EnvironmentSettingArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * The name of the environment Setting.
+     */
+    readonly environmentSettingName: pulumi.Input<string>;
+    /**
      * The name of the lab Account.
      */
     readonly labAccountName: pulumi.Input<string>;
@@ -174,10 +179,6 @@ export interface EnvironmentSettingArgs {
      * The location of the resource.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the environment Setting.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */

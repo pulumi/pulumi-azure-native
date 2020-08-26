@@ -22,9 +22,9 @@ class IotSecuritySolution(pulumi.CustomResource):
                  export: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  iot_hubs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  recommendations_configuration: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 solution_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unmasked_ip_logging_status: Optional[pulumi.Input[str]] = None,
@@ -43,9 +43,9 @@ class IotSecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[str]]] export: List of additional options for exporting to workspace data.
         :param pulumi.Input[List[pulumi.Input[str]]] iot_hubs: IoT Hub resource IDs
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The name of the IoT Security solution.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]] recommendations_configuration: List of the configuration status for each recommendation type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] solution_name: The name of the IoT Security solution.
         :param pulumi.Input[str] status: Status of the IoT Security solution.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] unmasked_ip_logging_status: Unmasked IP address logging status
@@ -78,19 +78,20 @@ class IotSecuritySolution(pulumi.CustomResource):
                 raise TypeError("Missing required property 'iot_hubs'")
             __props__['iot_hubs'] = iot_hubs
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['recommendations_configuration'] = recommendations_configuration
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if solution_name is None:
+                raise TypeError("Missing required property 'solution_name'")
+            __props__['solution_name'] = solution_name
             __props__['status'] = status
             __props__['tags'] = tags
             __props__['unmasked_ip_logging_status'] = unmasked_ip_logging_status
             __props__['user_defined_resources'] = user_defined_resources
             __props__['workspace'] = workspace
             __props__['auto_discovered_resources'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(IotSecuritySolution, __self__).__init__(
             'azurerm:security/v20190801:IotSecuritySolution',

@@ -17,12 +17,12 @@ func ListManagedClusterAccessProfile(ctx *pulumi.Context, args *ListManagedClust
 }
 
 type ListManagedClusterAccessProfileArgs struct {
-	// The name of the role for managed cluster accessProfile resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName string `pulumi:"resourceName"`
+	// The name of the role for managed cluster accessProfile resource.
+	RoleName string `pulumi:"roleName"`
 }
 
 // Managed cluster Access Profile.

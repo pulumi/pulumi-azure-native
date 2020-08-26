@@ -18,7 +18,7 @@ func LookupBotConnection(ctx *pulumi.Context, args *LookupBotConnectionArgs, opt
 
 type LookupBotConnectionArgs struct {
 	// The name of the Bot Service Connection Setting resource.
-	Name string `pulumi:"name"`
+	ConnectionName string `pulumi:"connectionName"`
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Bot resource.

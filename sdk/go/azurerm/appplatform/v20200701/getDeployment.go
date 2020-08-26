@@ -20,7 +20,7 @@ type LookupDeploymentArgs struct {
 	// The name of the App resource.
 	AppName string `pulumi:"appName"`
 	// The name of the Deployment resource.
-	Name string `pulumi:"name"`
+	DeploymentName string `pulumi:"deploymentName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Service resource.

@@ -17,7 +17,7 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  notification_hub_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]] = None,
@@ -30,7 +30,7 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Authorization Rule Name.
+        :param pulumi.Input[str] authorization_rule_name: Authorization Rule Name.
         :param pulumi.Input[str] namespace_name: The namespace name.
         :param pulumi.Input[str] notification_hub_name: The notification hub name.
         :param pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']] properties: Properties of the Namespace AuthorizationRules.
@@ -53,9 +53,9 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if authorization_rule_name is None:
+                raise TypeError("Missing required property 'authorization_rule_name'")
+            __props__['authorization_rule_name'] = authorization_rule_name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
@@ -74,6 +74,7 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
             __props__['key_name'] = None
             __props__['location'] = None
             __props__['modified_time'] = None
+            __props__['name'] = None
             __props__['primary_key'] = None
             __props__['revision'] = None
             __props__['rights'] = None

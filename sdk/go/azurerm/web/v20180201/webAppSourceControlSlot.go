@@ -41,6 +41,9 @@ func NewWebAppSourceControlSlot(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Slot == nil {
+		return nil, errors.New("missing required argument 'Slot'")
+	}
 	if args == nil {
 		args = &WebAppSourceControlSlotArgs{}
 	}
@@ -136,12 +139,14 @@ type webAppSourceControlSlotArgs struct {
 	IsMercurial *bool `pulumi:"isMercurial"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Repository or source control URL.
 	RepoUrl *string `pulumi:"repoUrl"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
+	Slot string `pulumi:"slot"`
 }
 
 // The set of arguments for constructing a WebAppSourceControlSlot resource.
@@ -156,12 +161,14 @@ type WebAppSourceControlSlotArgs struct {
 	IsMercurial pulumi.BoolPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
+	// Name of the app.
 	Name pulumi.StringInput
 	// Repository or source control URL.
 	RepoUrl pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
+	Slot pulumi.StringInput
 }
 
 func (WebAppSourceControlSlotArgs) ElementType() reflect.Type {

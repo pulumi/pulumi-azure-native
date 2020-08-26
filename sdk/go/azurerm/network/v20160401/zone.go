@@ -38,11 +38,11 @@ func NewZone(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ZoneName == nil {
+		return nil, errors.New("missing required argument 'ZoneName'")
 	}
 	if args == nil {
 		args = &ZoneArgs{}
@@ -129,14 +129,14 @@ type zoneArgs struct {
 	Location string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
-	// The name of the DNS zone (without a terminating dot).
-	Name string `pulumi:"name"`
 	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the DNS zone (without a terminating dot).
+	ZoneName string `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a Zone resource.
@@ -147,14 +147,14 @@ type ZoneArgs struct {
 	Location pulumi.StringInput
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	MaxNumberOfRecordSets pulumi.IntPtrInput
-	// The name of the DNS zone (without a terminating dot).
-	Name pulumi.StringInput
 	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	NumberOfRecordSets pulumi.IntPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The name of the DNS zone (without a terminating dot).
+	ZoneName pulumi.StringInput
 }
 
 func (ZoneArgs) ElementType() reflect.Type {

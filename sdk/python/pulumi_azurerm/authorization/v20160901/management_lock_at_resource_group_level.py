@@ -18,7 +18,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  level: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 lock_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  owners: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-        :param pulumi.Input[str] name: The lock name. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
+        :param pulumi.Input[str] lock_name: The lock name. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to lock.
@@ -56,14 +56,15 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
             if level is None:
                 raise TypeError("Missing required property 'level'")
             __props__['level'] = level
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if lock_name is None:
+                raise TypeError("Missing required property 'lock_name'")
+            __props__['lock_name'] = lock_name
             __props__['notes'] = notes
             __props__['owners'] = owners
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20150101:ManagementLockAtResourceGroupLevel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

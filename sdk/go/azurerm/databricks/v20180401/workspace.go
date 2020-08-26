@@ -57,11 +57,11 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args == nil || args.ManagedResourceGroupId == nil {
 		return nil, errors.New("missing required argument 'ManagedResourceGroupId'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.WorkspaceName == nil {
+		return nil, errors.New("missing required argument 'WorkspaceName'")
 	}
 	if args == nil {
 		args = &WorkspaceArgs{}
@@ -170,8 +170,6 @@ type workspaceArgs struct {
 	Location string `pulumi:"location"`
 	// The managed resource group Id.
 	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
-	// The name of the workspace.
-	Name string `pulumi:"name"`
 	// The workspace's custom parameters.
 	Parameters *WorkspaceCustomParameters `pulumi:"parameters"`
 	// The name of the resource group. The name is case insensitive.
@@ -182,6 +180,8 @@ type workspaceArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The blob URI where the UI definition file is located.
 	UiDefinitionUri *string `pulumi:"uiDefinitionUri"`
+	// The name of the workspace.
+	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -194,8 +194,6 @@ type WorkspaceArgs struct {
 	Location pulumi.StringInput
 	// The managed resource group Id.
 	ManagedResourceGroupId pulumi.StringInput
-	// The name of the workspace.
-	Name pulumi.StringInput
 	// The workspace's custom parameters.
 	Parameters WorkspaceCustomParametersPtrInput
 	// The name of the resource group. The name is case insensitive.
@@ -206,6 +204,8 @@ type WorkspaceArgs struct {
 	Tags pulumi.StringMapInput
 	// The blob URI where the UI definition file is located.
 	UiDefinitionUri pulumi.StringPtrInput
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

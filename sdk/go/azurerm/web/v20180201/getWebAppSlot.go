@@ -17,10 +17,12 @@ func LookupWebAppSlot(ctx *pulumi.Context, args *LookupWebAppSlotArgs, opts ...p
 }
 
 type LookupWebAppSlotArgs struct {
-	// Name of the deployment slot. By default, this API returns the production slot.
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the deployment slot. By default, this API returns the production slot.
+	Slot string `pulumi:"slot"`
 }
 
 // A web app, a mobile app backend, or an API app.

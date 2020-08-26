@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
         /// <summary>
         /// The name of the streaming job.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("jobName", required: true)]
+        public string JobName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

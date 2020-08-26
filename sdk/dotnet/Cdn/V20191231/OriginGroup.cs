@@ -127,8 +127,8 @@ namespace Pulumi.AzureRM.Cdn.V20191231
         /// <summary>
         /// Name of the origin group which is unique within the endpoint.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("originGroupName", required: true)]
+        public Input<string> OriginGroupName { get; set; } = null!;
 
         [Input("origins", required: true)]
         private InputList<Inputs.ResourceReferenceArgs>? _origins;

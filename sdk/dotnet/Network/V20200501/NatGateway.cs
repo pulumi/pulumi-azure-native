@@ -172,8 +172,8 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The name of the nat gateway.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("natGatewayName", required: true)]
+        public Input<string> NatGatewayName { get; set; } = null!;
 
         [Input("publicIpAddresses")]
         private InputList<Inputs.SubResourceArgs>? _publicIpAddresses;

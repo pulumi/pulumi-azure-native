@@ -116,19 +116,19 @@ class AwaitableGetDataStoreResult(GetDataStoreResult):
 
 
 def get_data_store(data_manager_name: Optional[str] = None,
-                   name: Optional[str] = None,
+                   data_store_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataStoreResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-    :param str name: The data store/repository name queried.
+    :param str data_store_name: The data store/repository name queried.
     :param str resource_group_name: The Resource Group Name
     """
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
-    __args__['name'] = name
+    __args__['dataStoreName'] = data_store_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

@@ -120,6 +120,12 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Input<string>? AuthorizationKey { get; set; }
 
         /// <summary>
+        /// The name of the connection subresource.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
         /// Enable internet security.
         /// </summary>
         [Input("enableInternetSecurity")]
@@ -144,7 +150,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the connection subresource.
+        /// The name of the resource.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

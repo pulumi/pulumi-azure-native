@@ -16,8 +16,8 @@ export function getTableResourceTable(args: GetTableResourceTableArgs, opts?: pu
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20200301:getTableResourceTable", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "tableName": args.tableName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetTableResourceTableArgs {
      */
     readonly accountName: string;
     /**
-     * Cosmos DB table name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Cosmos DB table name.
+     */
+    readonly tableName: string;
 }
 
 /**

@@ -31,16 +31,16 @@ namespace Pulumi.AzureRM.Compute.V20191201
         public string GalleryImageName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the gallery Image Version to be retrieved.
+        /// </summary>
+        [Input("galleryImageVersionName", required: true)]
+        public string GalleryImageVersionName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the Shared Image Gallery in which the Image Definition resides.
         /// </summary>
         [Input("galleryName", required: true)]
         public string GalleryName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the gallery Image Version to be retrieved.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

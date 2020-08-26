@@ -15,7 +15,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:dbforpostgresql/v20171201:getDatabase", {
-        "name": args.name,
+        "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetDatabaseArgs {
     /**
      * The name of the database.
      */
-    readonly name: string;
+    readonly databaseName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

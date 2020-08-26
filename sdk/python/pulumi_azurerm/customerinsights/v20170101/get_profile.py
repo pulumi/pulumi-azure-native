@@ -273,7 +273,7 @@ class AwaitableGetProfileResult(GetProfileResult):
 
 def get_profile(hub_name: Optional[str] = None,
                 locale_code: Optional[str] = None,
-                name: Optional[str] = None,
+                profile_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
@@ -281,13 +281,13 @@ def get_profile(hub_name: Optional[str] = None,
 
     :param str hub_name: The name of the hub.
     :param str locale_code: Locale of profile to retrieve, default is en-us.
-    :param str name: The name of the profile.
+    :param str profile_name: The name of the profile.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['localeCode'] = locale_code
-    __args__['name'] = name
+    __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

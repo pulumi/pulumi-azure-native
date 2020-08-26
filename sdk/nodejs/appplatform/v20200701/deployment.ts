@@ -39,7 +39,7 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the Deployment resource
      */
@@ -69,8 +69,8 @@ export class Deployment extends pulumi.CustomResource {
             if (!args || args.appName === undefined) {
                 throw new Error("Missing required property 'appName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.deploymentName === undefined) {
+                throw new Error("Missing required property 'deploymentName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -79,11 +79,12 @@ export class Deployment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["appName"] = args ? args.appName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["deploymentName"] = args ? args.deploymentName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,7 +109,7 @@ export interface DeploymentArgs {
     /**
      * The name of the Deployment resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly deploymentName: pulumi.Input<string>;
     /**
      * Properties of the Deployment resource
      */

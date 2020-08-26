@@ -31,11 +31,11 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ScheduleGroupName == nil {
+		return nil, errors.New("missing required argument 'ScheduleGroupName'")
 	}
 	if args == nil || args.StartTime == nil {
 		return nil, errors.New("missing required argument 'StartTime'")
@@ -91,10 +91,10 @@ type backupScheduleGroupArgs struct {
 	DeviceName string `pulumi:"deviceName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The name of the schedule group.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the schedule group.
+	ScheduleGroupName string `pulumi:"scheduleGroupName"`
 	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
 	StartTime Time `pulumi:"startTime"`
 }
@@ -105,10 +105,10 @@ type BackupScheduleGroupArgs struct {
 	DeviceName pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The name of the schedule group.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// The name of the schedule group.
+	ScheduleGroupName pulumi.StringInput
 	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
 	StartTime TimeInput
 }

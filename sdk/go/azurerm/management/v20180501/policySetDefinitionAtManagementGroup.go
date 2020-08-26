@@ -38,11 +38,11 @@ func NewPolicySetDefinitionAtManagementGroup(ctx *pulumi.Context,
 	if args == nil || args.ManagementGroupId == nil {
 		return nil, errors.New("missing required argument 'ManagementGroupId'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.PolicyDefinitions == nil {
 		return nil, errors.New("missing required argument 'PolicyDefinitions'")
+	}
+	if args == nil || args.PolicySetDefinitionName == nil {
+		return nil, errors.New("missing required argument 'PolicySetDefinitionName'")
 	}
 	if args == nil {
 		args = &PolicySetDefinitionAtManagementGroupArgs{}
@@ -134,12 +134,12 @@ type policySetDefinitionAtManagementGroupArgs struct {
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// The policy set definition metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The name of the policy set definition to create.
-	Name string `pulumi:"name"`
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters map[string]interface{} `pulumi:"parameters"`
 	// An array of policy definition references.
 	PolicyDefinitions []PolicyDefinitionReference `pulumi:"policyDefinitions"`
+	// The name of the policy set definition to create.
+	PolicySetDefinitionName string `pulumi:"policySetDefinitionName"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -154,12 +154,12 @@ type PolicySetDefinitionAtManagementGroupArgs struct {
 	ManagementGroupId pulumi.StringInput
 	// The policy set definition metadata.
 	Metadata pulumi.MapInput
-	// The name of the policy set definition to create.
-	Name pulumi.StringInput
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters pulumi.MapInput
 	// An array of policy definition references.
 	PolicyDefinitions PolicyDefinitionReferenceArrayInput
+	// The name of the policy set definition to create.
+	PolicySetDefinitionName pulumi.StringInput
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType pulumi.StringPtrInput
 }

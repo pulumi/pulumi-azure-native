@@ -17,7 +17,7 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  charset: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,7 +30,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] charset: The charset of the database.
         :param pulumi.Input[str] collation: The collation of the database.
-        :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
         """
@@ -53,15 +53,16 @@ class Database(pulumi.CustomResource):
 
             __props__['charset'] = charset
             __props__['collation'] = collation
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if database_name is None:
+                raise TypeError("Missing required property 'database_name'")
+            __props__['database_name'] = database_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
+            __props__['name'] = None
             __props__['type'] = None
         super(Database, __self__).__init__(
             'azurerm:dbformariadb/v20180601:Database',

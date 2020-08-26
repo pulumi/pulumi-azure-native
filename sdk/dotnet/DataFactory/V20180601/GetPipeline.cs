@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// <summary>
         /// The pipeline name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("pipelineName", required: true)]
+        public string PipelineName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

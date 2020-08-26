@@ -18,7 +18,7 @@ func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.Invo
 
 type LookupAliasArgs struct {
 	// Alias Name
-	Name string `pulumi:"name"`
+	AliasName string `pulumi:"aliasName"`
 }
 
 // Subscription Information with the alias.

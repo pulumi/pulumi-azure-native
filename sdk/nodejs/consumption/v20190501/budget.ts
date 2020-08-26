@@ -59,7 +59,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
@@ -93,11 +93,11 @@ export class Budget extends pulumi.CustomResource {
             if (!args || args.amount === undefined) {
                 throw new Error("Missing required property 'amount'");
             }
+            if (!args || args.budgetName === undefined) {
+                throw new Error("Missing required property 'budgetName'");
+            }
             if (!args || args.category === undefined) {
                 throw new Error("Missing required property 'category'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
@@ -109,15 +109,16 @@ export class Budget extends pulumi.CustomResource {
                 throw new Error("Missing required property 'timePeriod'");
             }
             inputs["amount"] = args ? args.amount : undefined;
+            inputs["budgetName"] = args ? args.budgetName : undefined;
             inputs["category"] = args ? args.category : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["filters"] = args ? args.filters : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["notifications"] = args ? args.notifications : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["timeGrain"] = args ? args.timeGrain : undefined;
             inputs["timePeriod"] = args ? args.timePeriod : undefined;
             inputs["currentSpend"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -142,6 +143,10 @@ export interface BudgetArgs {
      */
     readonly amount: pulumi.Input<number>;
     /**
+     * Budget Name.
+     */
+    readonly budgetName: pulumi.Input<string>;
+    /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
     readonly category: pulumi.Input<string>;
@@ -153,10 +158,6 @@ export interface BudgetArgs {
      * May be used to filter budgets by resource group, resource, or meter.
      */
     readonly filters?: pulumi.Input<inputs.consumption.v20190501.Filters>;
-    /**
-     * Budget Name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */

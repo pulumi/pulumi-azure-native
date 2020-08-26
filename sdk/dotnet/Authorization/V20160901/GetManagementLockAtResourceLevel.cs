@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Authorization.V20160901
         /// <summary>
         /// The name of lock.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("lockName", required: true)]
+        public string LockName { get; set; } = null!;
 
         /// <summary>
         /// An extra path parameter needed in some services, like SQL Databases.

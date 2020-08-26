@@ -127,19 +127,19 @@ class AwaitableGetChannelResult(GetChannelResult):
             type=self.type)
 
 
-def get_channel(name: Optional[str] = None,
+def get_channel(channel_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 resource_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the Bot resource.
+    :param str channel_name: The name of the Bot resource.
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     :param str resource_name: The name of the Bot resource.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['channelName'] = channel_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     if opts is None:

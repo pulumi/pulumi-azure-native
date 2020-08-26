@@ -18,10 +18,10 @@ class Budget(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount: Optional[pulumi.Input[float]] = None,
+                 budget_name: Optional[pulumi.Input[str]] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[pulumi.InputType['FiltersArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]]] = None,
                  time_grain: Optional[pulumi.Input[str]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']]] = None,
@@ -34,10 +34,10 @@ class Budget(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget
+        :param pulumi.Input[str] budget_name: Budget Name.
         :param pulumi.Input[str] category: The category of the budget, whether the budget tracks cost or usage.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[pulumi.InputType['FiltersArgs']] filters: May be used to filter budgets by resource group, resource, or meter.
-        :param pulumi.Input[str] name: Budget Name.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]] notifications: Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain.
         :param pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']] time_period: Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
@@ -62,14 +62,14 @@ class Budget(pulumi.CustomResource):
             if amount is None:
                 raise TypeError("Missing required property 'amount'")
             __props__['amount'] = amount
+            if budget_name is None:
+                raise TypeError("Missing required property 'budget_name'")
+            __props__['budget_name'] = budget_name
             if category is None:
                 raise TypeError("Missing required property 'category'")
             __props__['category'] = category
             __props__['e_tag'] = e_tag
             __props__['filters'] = filters
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['notifications'] = notifications
             if time_grain is None:
                 raise TypeError("Missing required property 'time_grain'")
@@ -78,6 +78,7 @@ class Budget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'time_period'")
             __props__['time_period'] = time_period
             __props__['current_spend'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:consumption/v20180131:Budget"), pulumi.Alias(type_="azurerm:consumption/v20180331:Budget"), pulumi.Alias(type_="azurerm:consumption/v20180831:Budget"), pulumi.Alias(type_="azurerm:consumption/v20181001:Budget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

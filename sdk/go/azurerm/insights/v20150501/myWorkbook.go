@@ -49,11 +49,11 @@ func NewMyWorkbook(ctx *pulumi.Context,
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil || args.SerializedData == nil {
 		return nil, errors.New("missing required argument 'SerializedData'")
@@ -151,10 +151,12 @@ type myWorkbookArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the Application Insights component resource.
-	Name string `pulumi:"name"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName string `pulumi:"resourceName"`
 	// Configuration of this particular private workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
 	// Optional resourceId for a source resource.
@@ -179,10 +181,12 @@ type MyWorkbookArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the Application Insights component resource.
-	Name pulumi.StringInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The name of the Application Insights component resource.
+	ResourceName pulumi.StringInput
 	// Configuration of this particular private workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringInput
 	// Optional resourceId for a source resource.

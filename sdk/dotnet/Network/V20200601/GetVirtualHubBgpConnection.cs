@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the VirtualHub.

@@ -132,6 +132,12 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
         public Input<Inputs.EventSubscriptionDestinationArgs>? Destination { get; set; }
 
         /// <summary>
+        /// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
+        /// </summary>
+        [Input("eventSubscriptionName", required: true)]
+        public Input<string> EventSubscriptionName { get; set; } = null!;
+
+        /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
         [Input("filter")]
@@ -148,12 +154,6 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
             get => _labels ?? (_labels = new InputList<string>());
             set => _labels = value;
         }
-
-        /// <summary>
-        /// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.

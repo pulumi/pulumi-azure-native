@@ -15,20 +15,20 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:keyvault/v20190901:getVault", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "vaultName": args.vaultName,
     }, opts);
 }
 
 export interface GetVaultArgs {
     /**
-     * The name of the vault.
-     */
-    readonly name: string;
-    /**
      * The name of the Resource Group to which the vault belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the vault.
+     */
+    readonly vaultName: string;
 }
 
 /**

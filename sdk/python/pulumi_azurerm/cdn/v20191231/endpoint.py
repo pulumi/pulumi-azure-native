@@ -20,12 +20,12 @@ class Endpoint(pulumi.CustomResource):
                  content_types_to_compress: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  default_origin_group: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  delivery_policy: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersDeliveryPolicyArgs']]] = None,
+                 endpoint_name: Optional[pulumi.Input[str]] = None,
                  geo_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GeoFilterArgs']]]]] = None,
                  is_compression_enabled: Optional[pulumi.Input[bool]] = None,
                  is_http_allowed: Optional[pulumi.Input[bool]] = None,
                  is_https_allowed: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  optimization_type: Optional[pulumi.Input[str]] = None,
                  origin_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginGroupArgs']]]]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
@@ -47,12 +47,12 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] default_origin_group: A reference to the origin group.
         :param pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersDeliveryPolicyArgs']] delivery_policy: A policy that specifies the delivery rules to be used for an endpoint.
+        :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GeoFilterArgs']]]] geo_filters: List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
         :param pulumi.Input[bool] is_http_allowed: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[bool] is_https_allowed: Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[str] optimization_type: Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginGroupArgs']]]] origin_groups: The origin groups comprising of origins that are used for load balancing the traffic based on availability.
         :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
@@ -84,6 +84,9 @@ class Endpoint(pulumi.CustomResource):
             __props__['content_types_to_compress'] = content_types_to_compress
             __props__['default_origin_group'] = default_origin_group
             __props__['delivery_policy'] = delivery_policy
+            if endpoint_name is None:
+                raise TypeError("Missing required property 'endpoint_name'")
+            __props__['endpoint_name'] = endpoint_name
             __props__['geo_filters'] = geo_filters
             __props__['is_compression_enabled'] = is_compression_enabled
             __props__['is_http_allowed'] = is_http_allowed
@@ -91,9 +94,6 @@ class Endpoint(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['optimization_type'] = optimization_type
             __props__['origin_groups'] = origin_groups
             __props__['origin_host_header'] = origin_host_header
@@ -111,6 +111,7 @@ class Endpoint(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['host_name'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None

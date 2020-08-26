@@ -19,8 +19,8 @@ class IscsiServer(pulumi.CustomResource):
                  chap_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
+                 iscsi_server_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_chap_id: Optional[pulumi.Input[str]] = None,
                  storage_domain_id: Optional[pulumi.Input[str]] = None,
@@ -36,8 +36,8 @@ class IscsiServer(pulumi.CustomResource):
         :param pulumi.Input[str] chap_id: The chap id.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input[str] iscsi_server_name: The iSCSI server name.
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[str] name: The iSCSI server name.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] reverse_chap_id: The reverse chap id.
         :param pulumi.Input[str] storage_domain_id: The storage domain id.
@@ -67,12 +67,12 @@ class IscsiServer(pulumi.CustomResource):
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
+            if iscsi_server_name is None:
+                raise TypeError("Missing required property 'iscsi_server_name'")
+            __props__['iscsi_server_name'] = iscsi_server_name
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -80,6 +80,7 @@ class IscsiServer(pulumi.CustomResource):
             if storage_domain_id is None:
                 raise TypeError("Missing required property 'storage_domain_id'")
             __props__['storage_domain_id'] = storage_domain_id
+            __props__['name'] = None
             __props__['type'] = None
         super(IscsiServer, __self__).__init__(
             'azurerm:storsimple/v20161001:IscsiServer',

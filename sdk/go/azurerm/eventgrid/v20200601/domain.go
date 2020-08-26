@@ -44,11 +44,11 @@ type Domain struct {
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
+	if args == nil || args.DomainName == nil {
+		return nil, errors.New("missing required argument 'DomainName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -144,6 +144,8 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	// Name of the domain.
+	DomainName string `pulumi:"domainName"`
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
 	InboundIpRules []InboundIpRule `pulumi:"inboundIpRules"`
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
@@ -152,8 +154,6 @@ type domainArgs struct {
 	InputSchemaMapping *InputSchemaMapping `pulumi:"inputSchemaMapping"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
-	// Name of the domain.
-	Name string `pulumi:"name"`
 	// List of private endpoint connections.
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
@@ -167,6 +167,8 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	// Name of the domain.
+	DomainName pulumi.StringInput
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
 	InboundIpRules InboundIpRuleArrayInput
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
@@ -175,8 +177,6 @@ type DomainArgs struct {
 	InputSchemaMapping InputSchemaMappingPtrInput
 	// Location of the resource.
 	Location pulumi.StringInput
-	// Name of the domain.
-	Name pulumi.StringInput
 	// List of private endpoint connections.
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
 	// This determines if traffic is allowed over public network. By default it is enabled.

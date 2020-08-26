@@ -45,7 +45,7 @@ export class AlertRuleAction extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Azure resource type
      */
@@ -68,11 +68,11 @@ export class AlertRuleAction extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AlertRuleActionArgs | undefined;
+            if (!args || args.actionId === undefined) {
+                throw new Error("Missing required property 'actionId'");
+            }
             if (!args || args.logicAppResourceId === undefined) {
                 throw new Error("Missing required property 'logicAppResourceId'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -83,13 +83,14 @@ export class AlertRuleAction extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["actionId"] = args ? args.actionId : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["logicAppResourceId"] = args ? args.logicAppResourceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["ruleId"] = args ? args.ruleId : undefined;
             inputs["triggerUri"] = args ? args.triggerUri : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["workflowId"] = undefined /*out*/;
         }
@@ -109,6 +110,10 @@ export class AlertRuleAction extends pulumi.CustomResource {
  */
 export interface AlertRuleActionArgs {
     /**
+     * Action ID
+     */
+    readonly actionId: pulumi.Input<string>;
+    /**
      * Etag of the azure resource
      */
     readonly etag?: pulumi.Input<string>;
@@ -116,10 +121,6 @@ export interface AlertRuleActionArgs {
      * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
      */
     readonly logicAppResourceId: pulumi.Input<string>;
-    /**
-     * Action ID
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

@@ -16,8 +16,8 @@ export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions):
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getSchedule", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "scheduleName": args.scheduleName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetScheduleArgs {
      */
     readonly automationAccountName: string;
     /**
-     * The schedule name.
-     */
-    readonly name: string;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The schedule name.
+     */
+    readonly scheduleName: string;
 }
 
 /**

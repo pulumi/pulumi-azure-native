@@ -17,10 +17,10 @@ func LookupConsumerGroup(ctx *pulumi.Context, args *LookupConsumerGroupArgs, opt
 }
 
 type LookupConsumerGroupArgs struct {
+	// The consumer group name
+	ConsumerGroupName string `pulumi:"consumerGroupName"`
 	// The Event Hub name
 	EventHubName string `pulumi:"eventHubName"`
-	// The consumer group name
-	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the resource group within the azure subscription.

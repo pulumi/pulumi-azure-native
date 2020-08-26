@@ -46,11 +46,11 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.BackupPolicyName == nil {
+		return nil, errors.New("missing required argument 'BackupPolicyName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -140,6 +140,8 @@ func (BackupPolicyState) ElementType() reflect.Type {
 type backupPolicyArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
+	// Backup policy Name which uniquely identify backup policy.
+	BackupPolicyName string `pulumi:"backupPolicyName"`
 	// Daily backups count to keep
 	DailyBackupsToKeep *int `pulumi:"dailyBackupsToKeep"`
 	// The property to decide policy is enabled or not
@@ -148,8 +150,6 @@ type backupPolicyArgs struct {
 	Location string `pulumi:"location"`
 	// Monthly backups count to keep
 	MonthlyBackupsToKeep *int `pulumi:"monthlyBackupsToKeep"`
-	// Backup policy Name which uniquely identify backup policy.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -168,6 +168,8 @@ type backupPolicyArgs struct {
 type BackupPolicyArgs struct {
 	// The name of the NetApp account
 	AccountName pulumi.StringInput
+	// Backup policy Name which uniquely identify backup policy.
+	BackupPolicyName pulumi.StringInput
 	// Daily backups count to keep
 	DailyBackupsToKeep pulumi.IntPtrInput
 	// The property to decide policy is enabled or not
@@ -176,8 +178,6 @@ type BackupPolicyArgs struct {
 	Location pulumi.StringInput
 	// Monthly backups count to keep
 	MonthlyBackupsToKeep pulumi.IntPtrInput
-	// Backup policy Name which uniquely identify backup policy.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

@@ -18,7 +18,7 @@ func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.
 
 type LookupProfileArgs struct {
 	// Name of the CDN profile which is unique within the resource group.
-	Name string `pulumi:"name"`
+	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

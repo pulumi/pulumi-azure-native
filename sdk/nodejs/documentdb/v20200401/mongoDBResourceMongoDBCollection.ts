@@ -43,7 +43,7 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
     /**
      * The name of the ARM resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly options!: pulumi.Output<outputs.documentdb.v20200401.MongoDBCollectionGetPropertiesResponseOptions | undefined>;
     public readonly resource!: pulumi.Output<outputs.documentdb.v20200401.MongoDBCollectionGetPropertiesResponseResource | undefined>;
     /**
@@ -71,11 +71,11 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.collectionName === undefined) {
+                throw new Error("Missing required property 'collectionName'");
+            }
             if (!args || args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.options === undefined) {
                 throw new Error("Missing required property 'options'");
@@ -87,13 +87,14 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["collectionName"] = args ? args.collectionName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -118,6 +119,10 @@ export interface MongoDBResourceMongoDBCollectionArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * Cosmos DB collection name.
+     */
+    readonly collectionName: pulumi.Input<string>;
+    /**
      * Cosmos DB database name.
      */
     readonly databaseName: pulumi.Input<string>;
@@ -125,10 +130,6 @@ export interface MongoDBResourceMongoDBCollectionArgs {
      * The location of the resource group to which the resource belongs.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * Cosmos DB collection name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

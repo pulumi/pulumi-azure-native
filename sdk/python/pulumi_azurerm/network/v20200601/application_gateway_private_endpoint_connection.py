@@ -18,6 +18,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_gateway_name: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
@@ -31,8 +32,9 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_gateway_name: The name of the application gateway.
+        :param pulumi.Input[str] connection_name: The name of the application gateway private endpoint connection.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the application gateway private endpoint connection.
+        :param pulumi.Input[str] name: Name of the private endpoint connection on an application gateway.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
@@ -56,9 +58,10 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
             if application_gateway_name is None:
                 raise TypeError("Missing required property 'application_gateway_name'")
             __props__['application_gateway_name'] = application_gateway_name
+            if connection_name is None:
+                raise TypeError("Missing required property 'connection_name'")
+            __props__['connection_name'] = connection_name
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
             if resource_group_name is None:

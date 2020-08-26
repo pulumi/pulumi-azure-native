@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ContainerService.V20200401
         /// <summary>
         /// The name of the agent pool.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("agentPoolName", required: true)]
+        public string AgentPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

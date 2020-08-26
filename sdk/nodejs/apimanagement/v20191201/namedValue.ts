@@ -41,7 +41,7 @@ export class NamedValue extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Determines whether the value is a secret and should be encrypted or not. Default value is false.
      */
@@ -75,8 +75,8 @@ export class NamedValue extends pulumi.CustomResource {
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.namedValueId === undefined) {
+                throw new Error("Missing required property 'namedValueId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -88,12 +88,13 @@ export class NamedValue extends pulumi.CustomResource {
                 throw new Error("Missing required property 'value'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["namedValueId"] = args ? args.namedValueId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["secret"] = args ? args.secret : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -118,7 +119,7 @@ export interface NamedValueArgs {
     /**
      * Identifier of the NamedValue.
      */
-    readonly name: pulumi.Input<string>;
+    readonly namedValueId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

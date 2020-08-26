@@ -31,8 +31,8 @@ type LinkedService struct {
 // NewLinkedService registers a new resource with the given unique name, arguments, and options.
 func NewLinkedService(ctx *pulumi.Context,
 	name string, args *LinkedServiceArgs, opts ...pulumi.ResourceOption) (*LinkedService, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LinkedServiceName == nil {
+		return nil, errors.New("missing required argument 'LinkedServiceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -100,7 +100,7 @@ func (LinkedServiceState) ElementType() reflect.Type {
 
 type linkedServiceArgs struct {
 	// Name of the linkedServices resource
-	Name string `pulumi:"name"`
+	LinkedServiceName string `pulumi:"linkedServiceName"`
 	// The provisioning state of the linked service.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
@@ -118,7 +118,7 @@ type linkedServiceArgs struct {
 // The set of arguments for constructing a LinkedService resource.
 type LinkedServiceArgs struct {
 	// Name of the linkedServices resource
-	Name pulumi.StringInput
+	LinkedServiceName pulumi.StringInput
 	// The provisioning state of the linked service.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

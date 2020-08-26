@@ -33,11 +33,11 @@ type RegisteredPrefix struct {
 // NewRegisteredPrefix registers a new resource with the given unique name, arguments, and options.
 func NewRegisteredPrefix(ctx *pulumi.Context,
 	name string, args *RegisteredPrefixArgs, opts ...pulumi.ResourceOption) (*RegisteredPrefix, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.PeeringName == nil {
 		return nil, errors.New("missing required argument 'PeeringName'")
+	}
+	if args == nil || args.RegisteredPrefixName == nil {
+		return nil, errors.New("missing required argument 'RegisteredPrefixName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -105,24 +105,24 @@ func (RegisteredPrefixState) ElementType() reflect.Type {
 }
 
 type registeredPrefixArgs struct {
-	// The name of the registered prefix.
-	Name string `pulumi:"name"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
 	// The customer's prefix from which traffic originates.
 	Prefix *string `pulumi:"prefix"`
+	// The name of the registered prefix.
+	RegisteredPrefixName string `pulumi:"registeredPrefixName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a RegisteredPrefix resource.
 type RegisteredPrefixArgs struct {
-	// The name of the registered prefix.
-	Name pulumi.StringInput
 	// The name of the peering.
 	PeeringName pulumi.StringInput
 	// The customer's prefix from which traffic originates.
 	Prefix pulumi.StringPtrInput
+	// The name of the registered prefix.
+	RegisteredPrefixName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

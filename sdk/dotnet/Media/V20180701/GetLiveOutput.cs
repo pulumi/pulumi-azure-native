@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// <summary>
         /// The name of the Live Output.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("liveOutputName", required: true)]
+        public string LiveOutputName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

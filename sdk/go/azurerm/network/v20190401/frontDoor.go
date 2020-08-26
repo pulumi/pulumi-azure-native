@@ -49,8 +49,8 @@ type FrontDoor struct {
 // NewFrontDoor registers a new resource with the given unique name, arguments, and options.
 func NewFrontDoor(ctx *pulumi.Context,
 	name string, args *FrontDoorArgs, opts ...pulumi.ResourceOption) (*FrontDoor, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.FrontDoorName == nil {
+		return nil, errors.New("missing required argument 'FrontDoorName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -173,6 +173,8 @@ type frontDoorArgs struct {
 	EnabledState *string `pulumi:"enabledState"`
 	// A friendly name for the frontDoor
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Name of the Front Door which is globally unique.
+	FrontDoorName string `pulumi:"frontDoorName"`
 	// Frontend endpoints available to routing rules.
 	FrontendEndpoints []FrontendEndpoint `pulumi:"frontendEndpoints"`
 	// Health probe settings associated with this Front Door instance.
@@ -181,8 +183,6 @@ type frontDoorArgs struct {
 	LoadBalancingSettings []LoadBalancingSettingsModel `pulumi:"loadBalancingSettings"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// Name of the Front Door which is globally unique.
-	Name string `pulumi:"name"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource status of the Front Door.
@@ -203,6 +203,8 @@ type FrontDoorArgs struct {
 	EnabledState pulumi.StringPtrInput
 	// A friendly name for the frontDoor
 	FriendlyName pulumi.StringPtrInput
+	// Name of the Front Door which is globally unique.
+	FrontDoorName pulumi.StringInput
 	// Frontend endpoints available to routing rules.
 	FrontendEndpoints FrontendEndpointArrayInput
 	// Health probe settings associated with this Front Door instance.
@@ -211,8 +213,6 @@ type FrontDoorArgs struct {
 	LoadBalancingSettings LoadBalancingSettingsModelArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// Name of the Front Door which is globally unique.
-	Name pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Resource status of the Front Door.

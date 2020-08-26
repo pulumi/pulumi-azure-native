@@ -59,11 +59,11 @@ type ApplicationDefinition struct {
 // NewApplicationDefinition registers a new resource with the given unique name, arguments, and options.
 func NewApplicationDefinition(ctx *pulumi.Context,
 	name string, args *ApplicationDefinitionArgs, opts ...pulumi.ResourceOption) (*ApplicationDefinition, error) {
+	if args == nil || args.ApplicationDefinitionName == nil {
+		return nil, errors.New("missing required argument 'ApplicationDefinitionName'")
+	}
 	if args == nil || args.LockLevel == nil {
 		return nil, errors.New("missing required argument 'LockLevel'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -192,6 +192,8 @@ func (ApplicationDefinitionState) ElementType() reflect.Type {
 }
 
 type applicationDefinitionArgs struct {
+	// The name of the managed application definition.
+	ApplicationDefinitionName string `pulumi:"applicationDefinitionName"`
 	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
 	Artifacts []ApplicationDefinitionArtifact `pulumi:"artifacts"`
 	// The managed application provider authorizations.
@@ -218,8 +220,6 @@ type applicationDefinitionArgs struct {
 	ManagedBy *string `pulumi:"managedBy"`
 	// The managed application management policy that determines publisher's access to the managed resource group.
 	ManagementPolicy *ApplicationManagementPolicy `pulumi:"managementPolicy"`
-	// The name of the managed application definition.
-	Name string `pulumi:"name"`
 	// The managed application notification policy.
 	NotificationPolicy *ApplicationNotificationPolicy `pulumi:"notificationPolicy"`
 	// The managed application definition package file Uri. Use this element
@@ -236,6 +236,8 @@ type applicationDefinitionArgs struct {
 
 // The set of arguments for constructing a ApplicationDefinition resource.
 type ApplicationDefinitionArgs struct {
+	// The name of the managed application definition.
+	ApplicationDefinitionName pulumi.StringInput
 	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
 	Artifacts ApplicationDefinitionArtifactArrayInput
 	// The managed application provider authorizations.
@@ -262,8 +264,6 @@ type ApplicationDefinitionArgs struct {
 	ManagedBy pulumi.StringPtrInput
 	// The managed application management policy that determines publisher's access to the managed resource group.
 	ManagementPolicy ApplicationManagementPolicyPtrInput
-	// The name of the managed application definition.
-	Name pulumi.StringInput
 	// The managed application notification policy.
 	NotificationPolicy ApplicationNotificationPolicyPtrInput
 	// The managed application definition package file Uri. Use this element

@@ -33,8 +33,8 @@ type PeerAsn struct {
 // NewPeerAsn registers a new resource with the given unique name, arguments, and options.
 func NewPeerAsn(ctx *pulumi.Context,
 	name string, args *PeerAsnArgs, opts ...pulumi.ResourceOption) (*PeerAsn, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PeerAsnName == nil {
+		return nil, errors.New("missing required argument 'PeerAsnName'")
 	}
 	if args == nil {
 		args = &PeerAsnArgs{}
@@ -99,10 +99,10 @@ func (PeerAsnState) ElementType() reflect.Type {
 }
 
 type peerAsnArgs struct {
-	// The peer ASN name.
-	Name string `pulumi:"name"`
 	// The Autonomous System Number (ASN) of the peer.
 	PeerAsn *int `pulumi:"peerAsn"`
+	// The peer ASN name.
+	PeerAsnName string `pulumi:"peerAsnName"`
 	// The contact details of the peer.
 	PeerContactDetail []ContactDetail `pulumi:"peerContactDetail"`
 	// The name of the peer.
@@ -113,10 +113,10 @@ type peerAsnArgs struct {
 
 // The set of arguments for constructing a PeerAsn resource.
 type PeerAsnArgs struct {
-	// The peer ASN name.
-	Name pulumi.StringInput
 	// The Autonomous System Number (ASN) of the peer.
 	PeerAsn pulumi.IntPtrInput
+	// The peer ASN name.
+	PeerAsnName pulumi.StringInput
 	// The contact details of the peer.
 	PeerContactDetail ContactDetailArrayInput
 	// The name of the peer.

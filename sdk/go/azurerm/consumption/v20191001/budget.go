@@ -42,11 +42,11 @@ func NewBudget(ctx *pulumi.Context,
 	if args == nil || args.Amount == nil {
 		return nil, errors.New("missing required argument 'Amount'")
 	}
+	if args == nil || args.BudgetName == nil {
+		return nil, errors.New("missing required argument 'BudgetName'")
+	}
 	if args == nil || args.Category == nil {
 		return nil, errors.New("missing required argument 'Category'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -146,14 +146,14 @@ func (BudgetState) ElementType() reflect.Type {
 type budgetArgs struct {
 	// The total amount of cost to track with the budget
 	Amount float64 `pulumi:"amount"`
+	// Budget Name.
+	BudgetName string `pulumi:"budgetName"`
 	// The category of the budget, whether the budget tracks cost or usage.
 	Category string `pulumi:"category"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
 	// May be used to filter budgets by resource group, resource, or meter.
 	Filter *BudgetFilter `pulumi:"filter"`
-	// Budget Name.
-	Name string `pulumi:"name"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
 	Notifications map[string]Notification `pulumi:"notifications"`
 	// The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
@@ -168,14 +168,14 @@ type budgetArgs struct {
 type BudgetArgs struct {
 	// The total amount of cost to track with the budget
 	Amount pulumi.Float64Input
+	// Budget Name.
+	BudgetName pulumi.StringInput
 	// The category of the budget, whether the budget tracks cost or usage.
 	Category pulumi.StringInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
 	// May be used to filter budgets by resource group, resource, or meter.
 	Filter BudgetFilterPtrInput
-	// Budget Name.
-	Name pulumi.StringInput
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
 	Notifications NotificationMapInput
 	// The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.

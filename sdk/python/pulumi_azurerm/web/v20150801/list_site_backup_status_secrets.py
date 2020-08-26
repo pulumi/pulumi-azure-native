@@ -236,7 +236,8 @@ class AwaitableListSiteBackupStatusSecretsResult(ListSiteBackupStatusSecretsResu
             website_size_in_bytes=self.website_size_in_bytes)
 
 
-def list_site_backup_status_secrets(backup_schedule: Optional[pulumi.InputType['BackupScheduleArgs']] = None,
+def list_site_backup_status_secrets(backup_id: Optional[str] = None,
+                                    backup_schedule: Optional[pulumi.InputType['BackupScheduleArgs']] = None,
                                     databases: Optional[List[pulumi.InputType['DatabaseBackupSettingArgs']]] = None,
                                     enabled: Optional[bool] = None,
                                     id: Optional[str] = None,
@@ -251,19 +252,21 @@ def list_site_backup_status_secrets(backup_schedule: Optional[pulumi.InputType['
     """
     Use this data source to access information about an existing resource.
 
+    :param str backup_id: Id of backup
     :param pulumi.InputType['BackupScheduleArgs'] backup_schedule: Schedule for the backup if it is executed periodically
     :param List[pulumi.InputType['DatabaseBackupSettingArgs']] databases: Databases included in the backup
     :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
     :param str id: Resource Id
     :param str kind: Kind of resource
     :param str location: Resource Location
-    :param str name: Id of backup
+    :param str name: Resource Name
     :param str resource_group_name: Name of resource group
     :param str storage_account_url: SAS URL to the container
     :param Mapping[str, str] tags: Resource tags
     :param str type: Resource type
     """
     __args__ = dict()
+    __args__['backupId'] = backup_id
     __args__['backupSchedule'] = backup_schedule
     __args__['databases'] = databases
     __args__['enabled'] = enabled

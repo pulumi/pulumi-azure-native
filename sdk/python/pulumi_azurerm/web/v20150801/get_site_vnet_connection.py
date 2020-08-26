@@ -166,16 +166,19 @@ class AwaitableGetSiteVNETConnectionResult(GetSiteVNETConnectionResult):
 
 def get_site_vnet_connection(name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
+                             vnet_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteVNETConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the Virtual Network
+    :param str name: The name of the web app
     :param str resource_group_name: The resource group name
+    :param str vnet_name: The name of the Virtual Network
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['vnetName'] = vnet_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

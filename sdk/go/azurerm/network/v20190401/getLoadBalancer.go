@@ -20,7 +20,7 @@ type LookupLoadBalancerArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the load balancer.
-	Name string `pulumi:"name"`
+	LoadBalancerName string `pulumi:"loadBalancerName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

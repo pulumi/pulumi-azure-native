@@ -64,14 +64,14 @@ func NewServer(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServerName == nil {
+		return nil, errors.New("missing required argument 'ServerName'")
 	}
 	if args == nil {
 		args = &ServerArgs{}
@@ -196,12 +196,12 @@ type serverArgs struct {
 	Identity *ResourceIdentity `pulumi:"identity"`
 	// The location the resource resides in.
 	Location string `pulumi:"location"`
-	// The name of the server.
-	Name string `pulumi:"name"`
 	// Properties of the server.
 	Properties ServerPropertiesForCreate `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName string `pulumi:"serverName"`
 	// The SKU (pricing tier) of the server.
 	Sku *Sku `pulumi:"sku"`
 	// Application-specific metadata in the form of key-value pairs.
@@ -214,12 +214,12 @@ type ServerArgs struct {
 	Identity ResourceIdentityPtrInput
 	// The location the resource resides in.
 	Location pulumi.StringInput
-	// The name of the server.
-	Name pulumi.StringInput
 	// Properties of the server.
 	Properties ServerPropertiesForCreateInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The name of the server.
+	ServerName pulumi.StringInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuPtrInput
 	// Application-specific metadata in the form of key-value pairs.

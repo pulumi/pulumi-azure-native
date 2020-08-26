@@ -15,17 +15,13 @@ export function getWebService(args: GetWebServiceArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:machinelearning/v20170101:getWebService", {
-        "name": args.name,
         "region": args.region,
         "resourceGroupName": args.resourceGroupName,
+        "webServiceName": args.webServiceName,
     }, opts);
 }
 
 export interface GetWebServiceArgs {
-    /**
-     * The name of the web service.
-     */
-    readonly name: string;
     /**
      * The region for which encrypted credential parameters are valid.
      */
@@ -34,6 +30,10 @@ export interface GetWebServiceArgs {
      * Name of the resource group in which the web service is located.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the web service.
+     */
+    readonly webServiceName: string;
 }
 
 /**

@@ -95,7 +95,7 @@ export class BlobContainer extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */
@@ -129,17 +129,17 @@ export class BlobContainer extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.containerName === undefined) {
+                throw new Error("Missing required property 'containerName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["containerName"] = args ? args.containerName : undefined;
             inputs["defaultEncryptionScope"] = args ? args.defaultEncryptionScope : undefined;
             inputs["denyEncryptionScopeOverride"] = args ? args.denyEncryptionScopeOverride : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["publicAccess"] = args ? args.publicAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["deleted"] = undefined /*out*/;
@@ -153,6 +153,7 @@ export class BlobContainer extends pulumi.CustomResource {
             inputs["leaseState"] = undefined /*out*/;
             inputs["leaseStatus"] = undefined /*out*/;
             inputs["legalHold"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["remainingRetentionDays"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -179,6 +180,10 @@ export interface BlobContainerArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+     */
+    readonly containerName: pulumi.Input<string>;
+    /**
      * Default the container to use specified encryption scope for all writes.
      */
     readonly defaultEncryptionScope?: pulumi.Input<string>;
@@ -190,10 +195,6 @@ export interface BlobContainerArgs {
      * A name-value pair to associate with the container as metadata.
      */
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */

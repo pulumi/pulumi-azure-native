@@ -47,8 +47,8 @@ func NewPolicy(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyName == nil {
+		return nil, errors.New("missing required argument 'PolicyName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -159,7 +159,7 @@ type policyArgs struct {
 	// Describes managed rules inside the policy.
 	ManagedRules *ManagedRuleSetList `pulumi:"managedRules"`
 	// The name of the CdnWebApplicationFirewallPolicy.
-	Name string `pulumi:"name"`
+	PolicyName string `pulumi:"policyName"`
 	// Describes  policySettings for policy
 	PolicySettings *PolicySettings `pulumi:"policySettings"`
 	// Describes rate limit rules inside the policy.
@@ -183,7 +183,7 @@ type PolicyArgs struct {
 	// Describes managed rules inside the policy.
 	ManagedRules ManagedRuleSetListPtrInput
 	// The name of the CdnWebApplicationFirewallPolicy.
-	Name pulumi.StringInput
+	PolicyName pulumi.StringInput
 	// Describes  policySettings for policy
 	PolicySettings PolicySettingsPtrInput
 	// Describes rate limit rules inside the policy.

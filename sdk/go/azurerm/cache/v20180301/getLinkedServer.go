@@ -18,6 +18,8 @@ func LookupLinkedServer(ctx *pulumi.Context, args *LookupLinkedServerArgs, opts 
 
 type LookupLinkedServerArgs struct {
 	// The name of the linked server.
+	LinkedServerName string `pulumi:"linkedServerName"`
+	// The name of the redis cache.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

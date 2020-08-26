@@ -17,7 +17,7 @@ class PolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 policy_assignment_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PolicyAssignmentPropertiesArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -28,7 +28,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Policy assignment name.
+        :param pulumi.Input[str] policy_assignment_name: Policy assignment name.
         :param pulumi.Input[pulumi.InputType['PolicyAssignmentPropertiesArgs']] properties: Gets or sets the policy assignment properties.
         :param pulumi.Input[str] scope: Scope.
         """
@@ -49,13 +49,14 @@ class PolicyAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if policy_assignment_name is None:
+                raise TypeError("Missing required property 'policy_assignment_name'")
+            __props__['policy_assignment_name'] = policy_assignment_name
             __props__['properties'] = properties
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['name'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20161201:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20180301:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20180501:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20190101:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20190601:PolicyAssignment"), pulumi.Alias(type_="azurerm:authorization/v20190901:PolicyAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyAssignment, __self__).__init__(

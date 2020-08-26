@@ -47,7 +47,7 @@ export class RoleDefinition extends pulumi.CustomResource {
     /**
      * The role definition name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Role definition permissions.
      */
@@ -78,19 +78,20 @@ export class RoleDefinition extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RoleDefinitionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.roleDefinitionId === undefined) {
+                throw new Error("Missing required property 'roleDefinitionId'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["assignableScopes"] = args ? args.assignableScopes : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["permissions"] = args ? args.permissions : undefined;
+            inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
             inputs["roleType"] = args ? args.roleType : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -117,13 +118,13 @@ export interface RoleDefinitionArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The ID of the role definition.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Role definition permissions.
      */
     readonly permissions?: pulumi.Input<pulumi.Input<inputs.authorization.v20150701.Permission>[]>;
+    /**
+     * The ID of the role definition.
+     */
+    readonly roleDefinitionId: pulumi.Input<string>;
     /**
      * The role name.
      */

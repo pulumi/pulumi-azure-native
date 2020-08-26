@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.Network.V20180101
     public sealed class GetVirtualNetworkPeeringArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the virtual network peering.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.Network.V20180101
         /// </summary>
         [Input("virtualNetworkName", required: true)]
         public string VirtualNetworkName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network peering.
+        /// </summary>
+        [Input("virtualNetworkPeeringName", required: true)]
+        public string VirtualNetworkPeeringName { get; set; } = null!;
 
         public GetVirtualNetworkPeeringArgs()
         {

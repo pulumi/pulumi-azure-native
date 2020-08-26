@@ -23,7 +23,6 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[str]] = None,
                  instance_view: Optional[pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -31,6 +30,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
+                 vm_extension_name: Optional[pulumi.Input[str]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -46,7 +46,6 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         :param pulumi.Input[str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[pulumi.InputType['VirtualMachineExtensionInstanceViewArgs']] instance_view: The virtual machine extension instance view.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the virtual machine extension.
         :param pulumi.Input[Mapping[str, Any]] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -54,6 +53,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
+        :param pulumi.Input[str] vm_extension_name: The name of the virtual machine extension.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set.
         """
         if __name__ is not None:
@@ -83,9 +83,6 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['protected_settings'] = protected_settings
             __props__['publisher'] = publisher
             if resource_group_name is None:
@@ -95,9 +92,13 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['type_handler_version'] = type_handler_version
+            if vm_extension_name is None:
+                raise TypeError("Missing required property 'vm_extension_name'")
+            __props__['vm_extension_name'] = vm_extension_name
             if vm_scale_set_name is None:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__['vm_scale_set_name'] = vm_scale_set_name
+            __props__['name'] = None
             __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20190701:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azurerm:compute/v20191201:VirtualMachineScaleSetVMExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

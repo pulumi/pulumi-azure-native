@@ -15,21 +15,21 @@ export function getStorageInsight(args: GetStorageInsightArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20150320:getStorageInsight", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "storageInsightName": args.storageInsightName,
         "workspaceName": args.workspaceName,
     }, opts);
 }
 
 export interface GetStorageInsightArgs {
     /**
-     * Name of the storageInsightsConfigs resource
-     */
-    readonly name: string;
-    /**
      * The Resource Group name.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the storageInsightsConfigs resource
+     */
+    readonly storageInsightName: string;
     /**
      * The Log Analytics Workspace name.
      */

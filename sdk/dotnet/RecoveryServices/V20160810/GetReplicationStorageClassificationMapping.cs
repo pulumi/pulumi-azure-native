@@ -25,12 +25,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
         public string FabricName { get; set; } = null!;
 
         /// <summary>
-        /// Storage classification mapping name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group where the recovery services vault is present.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -41,6 +35,12 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// Storage classification mapping name.
+        /// </summary>
+        [Input("storageClassificationMappingName", required: true)]
+        public string StorageClassificationMappingName { get; set; } = null!;
 
         /// <summary>
         /// Storage classification name.

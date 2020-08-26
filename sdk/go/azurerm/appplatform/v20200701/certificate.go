@@ -25,8 +25,8 @@ type Certificate struct {
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
 	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CertificateName == nil {
+		return nil, errors.New("missing required argument 'CertificateName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -82,7 +82,7 @@ func (CertificateState) ElementType() reflect.Type {
 
 type certificateArgs struct {
 	// The name of the certificate resource.
-	Name string `pulumi:"name"`
+	CertificateName string `pulumi:"certificateName"`
 	// Properties of the certificate resource payload.
 	Properties *CertificateProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -94,7 +94,7 @@ type certificateArgs struct {
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The name of the certificate resource.
-	Name pulumi.StringInput
+	CertificateName pulumi.StringInput
 	// Properties of the certificate resource payload.
 	Properties CertificatePropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

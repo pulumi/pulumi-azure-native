@@ -21,8 +21,8 @@ class Service(pulumi.CustomResource):
                  group_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -38,8 +38,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] kind: The resource kind. Only 'vm' (the default) is supported.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Name of the service
         :param pulumi.Input[str] public_key: The public key of the service, used to encrypt secrets sent to the service
+        :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: Service SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
@@ -69,15 +69,16 @@ class Service(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['public_key'] = public_key
+            if service_name is None:
+                raise TypeError("Missing required property 'service_name'")
+            __props__['service_name'] = service_name
             __props__['sku'] = sku
             __props__['tags'] = tags
             if virtual_subnet_id is None:
                 raise TypeError("Missing required property 'virtual_subnet_id'")
             __props__['virtual_subnet_id'] = virtual_subnet_id
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Service, __self__).__init__(

@@ -41,11 +41,11 @@ type BatchAccount struct {
 // NewBatchAccount registers a new resource with the given unique name, arguments, and options.
 func NewBatchAccount(ctx *pulumi.Context,
 	name string, args *BatchAccountArgs, opts ...pulumi.ResourceOption) (*BatchAccount, error) {
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -156,14 +156,14 @@ func (BatchAccountState) ElementType() reflect.Type {
 }
 
 type batchAccountArgs struct {
+	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+	AccountName string `pulumi:"accountName"`
 	// The properties related to the auto-storage account.
 	AutoStorage *AutoStorageBaseProperties `pulumi:"autoStorage"`
 	// A reference to the Azure key vault associated with the Batch account.
 	KeyVaultReference *KeyVaultReference `pulumi:"keyVaultReference"`
 	// The region in which to create the account.
 	Location string `pulumi:"location"`
-	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-	Name string `pulumi:"name"`
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
 	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
 	// The name of the resource group that contains the Batch account.
@@ -174,14 +174,14 @@ type batchAccountArgs struct {
 
 // The set of arguments for constructing a BatchAccount resource.
 type BatchAccountArgs struct {
+	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+	AccountName pulumi.StringInput
 	// The properties related to the auto-storage account.
 	AutoStorage AutoStorageBasePropertiesPtrInput
 	// A reference to the Azure key vault associated with the Batch account.
 	KeyVaultReference KeyVaultReferencePtrInput
 	// The region in which to create the account.
 	Location pulumi.StringInput
-	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-	Name pulumi.StringInput
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
 	PoolAllocationMode pulumi.StringPtrInput
 	// The name of the resource group that contains the Batch account.

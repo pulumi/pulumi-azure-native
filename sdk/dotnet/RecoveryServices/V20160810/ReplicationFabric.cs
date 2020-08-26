@@ -91,8 +91,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
         /// <summary>
         /// Name of the ASR fabric.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("fabricName", required: true)]
+        public Input<string> FabricName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

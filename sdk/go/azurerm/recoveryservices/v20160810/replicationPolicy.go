@@ -27,8 +27,8 @@ type ReplicationPolicy struct {
 // NewReplicationPolicy registers a new resource with the given unique name, arguments, and options.
 func NewReplicationPolicy(ctx *pulumi.Context,
 	name string, args *ReplicationPolicyArgs, opts ...pulumi.ResourceOption) (*ReplicationPolicy, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyName == nil {
+		return nil, errors.New("missing required argument 'PolicyName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -97,7 +97,7 @@ func (ReplicationPolicyState) ElementType() reflect.Type {
 
 type replicationPolicyArgs struct {
 	// Replication policy name
-	Name string `pulumi:"name"`
+	PolicyName string `pulumi:"policyName"`
 	// Policy creation properties.
 	Properties *CreatePolicyInputProperties `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
@@ -109,7 +109,7 @@ type replicationPolicyArgs struct {
 // The set of arguments for constructing a ReplicationPolicy resource.
 type ReplicationPolicyArgs struct {
 	// Replication policy name
-	Name pulumi.StringInput
+	PolicyName pulumi.StringInput
 	// Policy creation properties.
 	Properties CreatePolicyInputPropertiesPtrInput
 	// The name of the resource group where the recovery services vault is present.

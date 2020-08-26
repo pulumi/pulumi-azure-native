@@ -15,7 +15,7 @@ export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200601:getDscpConfiguration", {
-        "name": args.name,
+        "dscpConfigurationName": args.dscpConfigurationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDscpConfigurationArgs {
     /**
      * The name of the resource.
      */
-    readonly name: string;
+    readonly dscpConfigurationName: string;
     /**
      * The name of the resource group.
      */

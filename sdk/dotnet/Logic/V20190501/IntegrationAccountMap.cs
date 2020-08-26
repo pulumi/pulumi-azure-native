@@ -160,6 +160,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The integration account map name.
+        /// </summary>
+        [Input("mapName", required: true)]
+        public Input<string> MapName { get; set; } = null!;
+
+        /// <summary>
         /// The map type.
         /// </summary>
         [Input("mapType", required: true)]
@@ -176,12 +182,6 @@ namespace Pulumi.AzureRM.Logic.V20190501
             get => _metadata ?? (_metadata = new InputMap<object>());
             set => _metadata = value;
         }
-
-        /// <summary>
-        /// The integration account map name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The parameters schema of integration account map.

@@ -79,20 +79,20 @@ class AwaitableGetDatasetResult(GetDatasetResult):
             type=self.type)
 
 
-def get_dataset(factory_name: Optional[str] = None,
-                name: Optional[str] = None,
+def get_dataset(dataset_name: Optional[str] = None,
+                factory_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatasetResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str dataset_name: The dataset name.
     :param str factory_name: The factory name.
-    :param str name: The dataset name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
+    __args__['datasetName'] = dataset_name
     __args__['factoryName'] = factory_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

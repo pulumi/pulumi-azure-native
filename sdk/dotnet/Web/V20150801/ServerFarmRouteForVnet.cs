@@ -145,7 +145,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Name of the virtual network route
+        /// Resource Name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -155,6 +155,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the virtual network route
+        /// </summary>
+        [Input("routeName", required: true)]
+        public Input<string> RouteName { get; set; } = null!;
 
         /// <summary>
         /// The type of route this is:

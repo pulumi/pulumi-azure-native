@@ -18,7 +18,7 @@ class LinkedService(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 linked_service_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['LinkedServiceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,7 +30,7 @@ class LinkedService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.
-        :param pulumi.Input[str] name: The linked service name.
+        :param pulumi.Input[str] linked_service_name: The linked service name.
         :param pulumi.Input[pulumi.InputType['LinkedServiceArgs']] properties: Properties of linked service.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
@@ -54,9 +54,9 @@ class LinkedService(pulumi.CustomResource):
             if factory_name is None:
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if linked_service_name is None:
+                raise TypeError("Missing required property 'linked_service_name'")
+            __props__['linked_service_name'] = linked_service_name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
@@ -64,6 +64,7 @@ class LinkedService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(LinkedService, __self__).__init__(
             'azurerm:datafactory/v20180601:LinkedService',

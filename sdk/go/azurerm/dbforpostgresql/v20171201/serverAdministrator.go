@@ -37,11 +37,11 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	if args == nil || args.Login == nil {
 		return nil, errors.New("missing required argument 'Login'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServerName == nil {
+		return nil, errors.New("missing required argument 'ServerName'")
 	}
 	if args == nil || args.Sid == nil {
 		return nil, errors.New("missing required argument 'Sid'")
@@ -112,10 +112,10 @@ type serverAdministratorArgs struct {
 	AdministratorType string `pulumi:"administratorType"`
 	// The server administrator login account name.
 	Login string `pulumi:"login"`
-	// The name of the server.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the server.
+	ServerName string `pulumi:"serverName"`
 	// The server administrator Sid (Secure ID).
 	Sid string `pulumi:"sid"`
 	// The server Active Directory Administrator tenant id.
@@ -128,10 +128,10 @@ type ServerAdministratorArgs struct {
 	AdministratorType pulumi.StringInput
 	// The server administrator login account name.
 	Login pulumi.StringInput
-	// The name of the server.
-	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The name of the server.
+	ServerName pulumi.StringInput
 	// The server administrator Sid (Secure ID).
 	Sid pulumi.StringInput
 	// The server Active Directory Administrator tenant id.

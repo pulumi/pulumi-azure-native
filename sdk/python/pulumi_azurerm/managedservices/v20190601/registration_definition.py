@@ -17,9 +17,9 @@ class RegistrationDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']]] = None,
+                 registration_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -29,9 +29,9 @@ class RegistrationDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Guid of the registration definition.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Plan details for the managed services.
         :param pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']] properties: Properties of a registration definition.
+        :param pulumi.Input[str] registration_definition_id: Guid of the registration definition.
         :param pulumi.Input[str] scope: Scope of the resource.
         """
         if __name__ is not None:
@@ -51,14 +51,15 @@ class RegistrationDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['plan'] = plan
             __props__['properties'] = properties
+            if registration_definition_id is None:
+                raise TypeError("Missing required property 'registration_definition_id'")
+            __props__['registration_definition_id'] = registration_definition_id
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:managedservices/v20190901:RegistrationDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

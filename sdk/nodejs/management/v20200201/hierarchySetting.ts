@@ -41,7 +41,7 @@ export class HierarchySetting extends pulumi.CustomResource {
     /**
      * The name of the object. In this case, default.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
      */
@@ -68,12 +68,13 @@ export class HierarchySetting extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as HierarchySettingArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.groupId === undefined) {
+                throw new Error("Missing required property 'groupId'");
             }
             inputs["defaultManagementGroup"] = args ? args.defaultManagementGroup : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["groupId"] = args ? args.groupId : undefined;
             inputs["requireAuthorizationForGroupCreation"] = args ? args.requireAuthorizationForGroupCreation : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -101,7 +102,7 @@ export interface HierarchySettingArgs {
     /**
      * Management Group ID.
      */
-    readonly name: pulumi.Input<string>;
+    readonly groupId: pulumi.Input<string>;
     /**
      * Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
      */

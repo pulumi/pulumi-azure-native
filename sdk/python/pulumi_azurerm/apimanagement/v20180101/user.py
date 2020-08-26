@@ -22,12 +22,12 @@ class User(pulumi.CustomResource):
                  first_name: Optional[pulumi.Input[str]] = None,
                  identities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  note: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
+                 uid: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -41,12 +41,12 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] first_name: First name.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]] identities: Collection of user identities.
         :param pulumi.Input[str] last_name: Last name.
-        :param pulumi.Input[str] name: User identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] note: Optional note about a user set by the administrator.
         :param pulumi.Input[str] password: User Password. If no value is provided, a default password is generated.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] state: Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+        :param pulumi.Input[str] uid: User identifier. Must be unique in the current API Management service instance.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,9 +76,6 @@ class User(pulumi.CustomResource):
             if last_name is None:
                 raise TypeError("Missing required property 'last_name'")
             __props__['last_name'] = last_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['note'] = note
             __props__['password'] = password
             if resource_group_name is None:
@@ -88,7 +85,11 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['state'] = state
+            if uid is None:
+                raise TypeError("Missing required property 'uid'")
+            __props__['uid'] = uid
             __props__['groups'] = None
+            __props__['name'] = None
             __props__['registration_date'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:User"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:User"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:User")])

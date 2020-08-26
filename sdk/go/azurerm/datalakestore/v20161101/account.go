@@ -65,11 +65,11 @@ type Account struct {
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -201,6 +201,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// The name of the Data Lake Store account.
+	AccountName string `pulumi:"accountName"`
 	// The default owner group for all new folders and files created in the Data Lake Store account.
 	DefaultGroup *string `pulumi:"defaultGroup"`
 	// The Key Vault encryption configuration.
@@ -217,8 +219,6 @@ type accountArgs struct {
 	Identity *EncryptionIdentity `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
-	// The name of the Data Lake Store account.
-	Name string `pulumi:"name"`
 	// The commitment tier to use for next month.
 	NewTier *string `pulumi:"newTier"`
 	// The name of the Azure resource group.
@@ -235,6 +235,8 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// The name of the Data Lake Store account.
+	AccountName pulumi.StringInput
 	// The default owner group for all new folders and files created in the Data Lake Store account.
 	DefaultGroup pulumi.StringPtrInput
 	// The Key Vault encryption configuration.
@@ -251,8 +253,6 @@ type AccountArgs struct {
 	Identity EncryptionIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringInput
-	// The name of the Data Lake Store account.
-	Name pulumi.StringInput
 	// The commitment tier to use for next month.
 	NewTier pulumi.StringPtrInput
 	// The name of the Azure resource group.

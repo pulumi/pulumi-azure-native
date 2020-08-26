@@ -16,7 +16,7 @@ export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOpt
     }
     return pulumi.runtime.invoke("azurerm:cdn/v20191231:getOriginGroup", {
         "endpointName": args.endpointName,
-        "name": args.name,
+        "originGroupName": args.originGroupName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetOriginGroupArgs {
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    readonly name: string;
+    readonly originGroupName: string;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

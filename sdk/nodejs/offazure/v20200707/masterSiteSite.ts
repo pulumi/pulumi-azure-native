@@ -70,17 +70,18 @@ export class MasterSiteSite extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as MasterSiteSiteArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.siteName === undefined) {
+                throw new Error("Missing required property 'siteName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["siteName"] = args ? args.siteName : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,9 +108,9 @@ export interface MasterSiteSiteArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Site name.
+     * Name of the Master site.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Nested properties of Master site.
      */
@@ -118,4 +119,8 @@ export interface MasterSiteSiteArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Site name.
+     */
+    readonly siteName: pulumi.Input<string>;
 }

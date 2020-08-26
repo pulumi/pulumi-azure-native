@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <summary>
         /// The integration account map name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("mapName", required: true)]
+        public string MapName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

@@ -18,10 +18,10 @@ class AzureFirewall(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_rule_collections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureFirewallApplicationRuleCollectionArgs']]]]] = None,
+                 azure_firewall_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureFirewallIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_rule_collections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureFirewallNetworkRuleCollectionArgs']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -35,10 +35,10 @@ class AzureFirewall(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureFirewallApplicationRuleCollectionArgs']]]] application_rule_collections: Collection of application rule collections used by a Azure Firewall.
+        :param pulumi.Input[str] azure_firewall_name: The name of the Azure Firewall.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureFirewallIPConfigurationArgs']]]] ip_configurations: IP configuration of the Azure Firewall resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the Azure Firewall.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureFirewallNetworkRuleCollectionArgs']]]] network_rule_collections: Collection of network rule collections used by a Azure Firewall.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -62,12 +62,12 @@ class AzureFirewall(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['application_rule_collections'] = application_rule_collections
+            if azure_firewall_name is None:
+                raise TypeError("Missing required property 'azure_firewall_name'")
+            __props__['azure_firewall_name'] = azure_firewall_name
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_rule_collections'] = network_rule_collections
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
@@ -75,6 +75,7 @@ class AzureFirewall(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180601:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20180701:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20180801:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20181001:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20181101:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20181201:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190201:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190401:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190601:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190701:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190801:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20190901:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20191101:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20191201:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20200301:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20200401:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20200501:AzureFirewall"), pulumi.Alias(type_="azurerm:network/v20200601:AzureFirewall")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

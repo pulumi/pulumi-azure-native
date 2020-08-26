@@ -33,8 +33,8 @@ type ApplicationSecurityGroup struct {
 // NewApplicationSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewApplicationSecurityGroup(ctx *pulumi.Context,
 	name string, args *ApplicationSecurityGroupArgs, opts ...pulumi.ResourceOption) (*ApplicationSecurityGroup, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ApplicationSecurityGroupName == nil {
+		return nil, errors.New("missing required argument 'ApplicationSecurityGroupName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -174,12 +174,12 @@ func (ApplicationSecurityGroupState) ElementType() reflect.Type {
 }
 
 type applicationSecurityGroupArgs struct {
+	// The name of the application security group.
+	ApplicationSecurityGroupName string `pulumi:"applicationSecurityGroupName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the application security group.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -188,12 +188,12 @@ type applicationSecurityGroupArgs struct {
 
 // The set of arguments for constructing a ApplicationSecurityGroup resource.
 type ApplicationSecurityGroupArgs struct {
+	// The name of the application security group.
+	ApplicationSecurityGroupName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the application security group.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -167,12 +167,6 @@ namespace Pulumi.AzureRM.Network.V20190801
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the route filter.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("peerings")]
         private InputList<Inputs.ExpressRouteCircuitPeeringArgs>? _peerings;
 
@@ -190,6 +184,12 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the route filter.
+        /// </summary>
+        [Input("routeFilterName", required: true)]
+        public Input<string> RouteFilterName { get; set; } = null!;
 
         [Input("rules")]
         private InputList<Inputs.RouteFilterRuleArgs>? _rules;

@@ -19,10 +19,10 @@ func LookupMongoDBResourceMongoDBCollection(ctx *pulumi.Context, args *LookupMon
 type LookupMongoDBResourceMongoDBCollectionArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
+	// Cosmos DB collection name.
+	CollectionName string `pulumi:"collectionName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
-	// Cosmos DB collection name.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

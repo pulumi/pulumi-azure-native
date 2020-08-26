@@ -17,10 +17,10 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 }
 
 type LookupTopicArgs struct {
-	// Name of the topic.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the topic.
+	TopicName string `pulumi:"topicName"`
 }
 
 // EventGrid Topic

@@ -22,9 +22,9 @@ class LoadBalancer(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  inbound_nat_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]]] = None,
                  inbound_nat_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatRuleArgs']]]]] = None,
+                 load_balancer_name: Optional[pulumi.Input[str]] = None,
                  load_balancing_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  outbound_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OutboundRuleArgs']]]]] = None,
                  probes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ProbeArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -43,9 +43,9 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatPoolArgs']]]] inbound_nat_pools: Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundNatRuleArgs']]]] inbound_nat_rules: Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+        :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Object collection representing the load balancing rules Gets the provisioning.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the load balancer.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OutboundRuleArgs']]]] outbound_rules: The outbound rules.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ProbeArgs']]]] probes: Collection of probe objects used in the load balancer.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -74,11 +74,11 @@ class LoadBalancer(pulumi.CustomResource):
             __props__['id'] = id
             __props__['inbound_nat_pools'] = inbound_nat_pools
             __props__['inbound_nat_rules'] = inbound_nat_rules
+            if load_balancer_name is None:
+                raise TypeError("Missing required property 'load_balancer_name'")
+            __props__['load_balancer_name'] = load_balancer_name
             __props__['load_balancing_rules'] = load_balancing_rules
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['outbound_rules'] = outbound_rules
             __props__['probes'] = probes
             if resource_group_name is None:
@@ -87,6 +87,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None

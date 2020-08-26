@@ -15,20 +15,20 @@ export function getDeploymentAtManagementGroupScope(args: GetDeploymentAtManagem
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:management/v20190801:getDeploymentAtManagementGroupScope", {
+        "deploymentName": args.deploymentName,
         "groupId": args.groupId,
-        "name": args.name,
     }, opts);
 }
 
 export interface GetDeploymentAtManagementGroupScopeArgs {
     /**
+     * The name of the deployment.
+     */
+    readonly deploymentName: string;
+    /**
      * The management group ID.
      */
     readonly groupId: string;
-    /**
-     * The name of the deployment.
-     */
-    readonly name: string;
 }
 
 /**

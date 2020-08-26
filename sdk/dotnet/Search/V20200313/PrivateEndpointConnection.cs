@@ -80,8 +80,8 @@ namespace Pulumi.AzureRM.Search.V20200313
         /// <summary>
         /// The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.

@@ -15,7 +15,7 @@ export function getVirtualRouterPeering(args: GetVirtualRouterPeeringArgs, opts?
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200601:getVirtualRouterPeering", {
-        "name": args.name,
+        "peeringName": args.peeringName,
         "resourceGroupName": args.resourceGroupName,
         "virtualRouterName": args.virtualRouterName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetVirtualRouterPeeringArgs {
     /**
      * The name of the Virtual Router Peering.
      */
-    readonly name: string;
+    readonly peeringName: string;
     /**
      * The name of the resource group.
      */

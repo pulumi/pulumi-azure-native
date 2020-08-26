@@ -90,20 +90,20 @@ class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
             type=self.type)
 
 
-def get_access_policy(environment_name: Optional[str] = None,
-                      name: Optional[str] = None,
+def get_access_policy(access_policy_name: Optional[str] = None,
+                      environment_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str access_policy_name: The name of the Time Series Insights access policy associated with the specified environment.
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
-    :param str name: The name of the Time Series Insights access policy associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
     __args__ = dict()
+    __args__['accessPolicyName'] = access_policy_name
     __args__['environmentName'] = environment_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

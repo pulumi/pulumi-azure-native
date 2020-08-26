@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// <summary>
         /// The name of the connection monitor.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("connectionMonitorName", required: true)]
+        public string ConnectionMonitorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Network Watcher resource.

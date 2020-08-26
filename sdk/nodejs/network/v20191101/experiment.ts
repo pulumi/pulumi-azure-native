@@ -59,7 +59,7 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource status.
      */
@@ -94,8 +94,8 @@ export class Experiment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ExperimentArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.experimentName === undefined) {
+                throw new Error("Missing required property 'experimentName'");
             }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
@@ -107,12 +107,13 @@ export class Experiment extends pulumi.CustomResource {
             inputs["enabledState"] = args ? args.enabledState : undefined;
             inputs["endpointA"] = args ? args.endpointA : undefined;
             inputs["endpointB"] = args ? args.endpointB : undefined;
+            inputs["experimentName"] = args ? args.experimentName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceState"] = args ? args.resourceState : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["scriptFileUri"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -149,13 +150,13 @@ export interface ExperimentArgs {
      */
     readonly endpointB?: pulumi.Input<inputs.network.v20191101.Endpoint>;
     /**
+     * The Experiment identifier associated with the Experiment
+     */
+    readonly experimentName: pulumi.Input<string>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The Experiment identifier associated with the Experiment
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Profile identifier associated with the Tenant and Partner
      */

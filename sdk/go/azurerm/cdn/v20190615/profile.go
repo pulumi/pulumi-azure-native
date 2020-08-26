@@ -36,8 +36,8 @@ func NewProfile(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ProfileName == nil {
+		return nil, errors.New("missing required argument 'ProfileName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -141,7 +141,7 @@ type profileArgs struct {
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Name of the CDN profile which is unique within the resource group.
-	Name string `pulumi:"name"`
+	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
@@ -155,7 +155,7 @@ type ProfileArgs struct {
 	// Resource location.
 	Location pulumi.StringInput
 	// Name of the CDN profile which is unique within the resource group.
-	Name pulumi.StringInput
+	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.

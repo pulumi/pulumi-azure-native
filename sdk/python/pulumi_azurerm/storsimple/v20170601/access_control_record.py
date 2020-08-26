@@ -15,10 +15,10 @@ class AccessControlRecord(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_control_record_name: Optional[pulumi.Input[str]] = None,
                  initiator_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -28,10 +28,10 @@ class AccessControlRecord(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_control_record_name: The name of the access control record.
         :param pulumi.Input[str] initiator_name: The iSCSI initiator name (IQN).
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[str] name: The name of the access control record.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
         if __name__ is not None:
@@ -51,6 +51,9 @@ class AccessControlRecord(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if access_control_record_name is None:
+                raise TypeError("Missing required property 'access_control_record_name'")
+            __props__['access_control_record_name'] = access_control_record_name
             if initiator_name is None:
                 raise TypeError("Missing required property 'initiator_name'")
             __props__['initiator_name'] = initiator_name
@@ -58,12 +61,10 @@ class AccessControlRecord(pulumi.CustomResource):
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['type'] = None
             __props__['volume_count'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/v20161001:AccessControlRecord")])

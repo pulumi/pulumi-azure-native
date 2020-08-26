@@ -114,16 +114,16 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the peering service.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The PeeringServiceLocation of the Customer.
         /// </summary>
         [Input("peeringServiceLocation")]
         public Input<string>? PeeringServiceLocation { get; set; }
+
+        /// <summary>
+        /// The name of the peering service.
+        /// </summary>
+        [Input("peeringServiceName", required: true)]
+        public Input<string> PeeringServiceName { get; set; } = null!;
 
         /// <summary>
         /// The MAPS Provider Name.

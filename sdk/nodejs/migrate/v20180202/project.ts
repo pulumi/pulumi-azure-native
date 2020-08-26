@@ -73,7 +73,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Name of the project.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Number of assessments created in the project.
      */
@@ -116,8 +116,8 @@ export class Project extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ProjectArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.projectName === undefined) {
+                throw new Error("Missing required property 'projectName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -126,7 +126,7 @@ export class Project extends pulumi.CustomResource {
             inputs["customerWorkspaceLocation"] = args ? args.customerWorkspaceLocation : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["projectName"] = args ? args.projectName : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -135,6 +135,7 @@ export class Project extends pulumi.CustomResource {
             inputs["lastAssessmentTimestamp"] = undefined /*out*/;
             inputs["lastDiscoverySessionId"] = undefined /*out*/;
             inputs["lastDiscoveryTimestamp"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["numberOfAssessments"] = undefined /*out*/;
             inputs["numberOfGroups"] = undefined /*out*/;
             inputs["numberOfMachines"] = undefined /*out*/;
@@ -175,7 +176,7 @@ export interface ProjectArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    readonly name: pulumi.Input<string>;
+    readonly projectName: pulumi.Input<string>;
     /**
      * Provisioning state of the project.
      */

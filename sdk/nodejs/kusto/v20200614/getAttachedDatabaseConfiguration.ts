@@ -15,21 +15,21 @@ export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfig
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:kusto/v20200614:getAttachedDatabaseConfiguration", {
+        "attachedDatabaseConfigurationName": args.attachedDatabaseConfigurationName,
         "clusterName": args.clusterName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetAttachedDatabaseConfigurationArgs {
     /**
+     * The name of the attached database configuration.
+     */
+    readonly attachedDatabaseConfigurationName: string;
+    /**
      * The name of the Kusto cluster.
      */
     readonly clusterName: string;
-    /**
-     * The name of the attached database configuration.
-     */
-    readonly name: string;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

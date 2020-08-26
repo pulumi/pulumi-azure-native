@@ -17,7 +17,7 @@ export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignm
     return pulumi.runtime.invoke("azurerm:kusto/v20191109:getDatabasePrincipalAssignment", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,
-        "name": args.name,
+        "principalAssignmentName": args.principalAssignmentName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -34,7 +34,7 @@ export interface GetDatabasePrincipalAssignmentArgs {
     /**
      * The name of the Kusto principalAssignment.
      */
-    readonly name: string;
+    readonly principalAssignmentName: string;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

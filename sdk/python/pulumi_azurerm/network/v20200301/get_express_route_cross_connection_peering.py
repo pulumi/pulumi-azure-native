@@ -236,19 +236,19 @@ class AwaitableGetExpressRouteCrossConnectionPeeringResult(GetExpressRouteCrossC
 
 
 def get_express_route_cross_connection_peering(cross_connection_name: Optional[str] = None,
-                                               name: Optional[str] = None,
+                                               peering_name: Optional[str] = None,
                                                resource_group_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCrossConnectionPeeringResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str cross_connection_name: The name of the ExpressRouteCrossConnection.
-    :param str name: The name of the peering.
+    :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['crossConnectionName'] = cross_connection_name
-    __args__['name'] = name
+    __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

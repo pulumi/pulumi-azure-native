@@ -51,7 +51,7 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Has schedule information for the report config.
      */
@@ -84,8 +84,8 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
             if (!args || args.deliveryInfo === undefined) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.reportConfigName === undefined) {
+                throw new Error("Missing required property 'reportConfigName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -93,9 +93,10 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
             inputs["definition"] = args ? args.definition : undefined;
             inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
             inputs["format"] = args ? args.format : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["reportConfigName"] = args ? args.reportConfigName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -129,7 +130,7 @@ export interface ReportConfigByResourceGroupNameArgs {
     /**
      * Report Config Name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly reportConfigName: pulumi.Input<string>;
     /**
      * Azure Resource Group Name.
      */

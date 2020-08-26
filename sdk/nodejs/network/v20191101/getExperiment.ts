@@ -15,7 +15,7 @@ export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20191101:getExperiment", {
-        "name": args.name,
+        "experimentName": args.experimentName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetExperimentArgs {
     /**
      * The Experiment identifier associated with the Experiment
      */
-    readonly name: string;
+    readonly experimentName: string;
     /**
      * The Profile identifier associated with the Tenant and Partner
      */

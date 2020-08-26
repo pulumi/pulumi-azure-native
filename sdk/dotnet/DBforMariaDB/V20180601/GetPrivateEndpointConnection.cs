@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         /// <summary>
         /// The name of the private endpoint connection.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

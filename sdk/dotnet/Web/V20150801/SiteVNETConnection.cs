@@ -172,7 +172,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Network
+        /// Resource Name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -218,6 +218,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// The name of the Virtual Network
+        /// </summary>
+        [Input("vnetName", required: true)]
+        public Input<string> VnetName { get; set; } = null!;
 
         /// <summary>
         /// The vnet resource id

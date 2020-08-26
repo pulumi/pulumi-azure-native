@@ -208,12 +208,6 @@ namespace Pulumi.AzureRM.Network.V20160330
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the publicIpAddress.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         /// </summary>
         [Input("provisioningState")]
@@ -230,6 +224,12 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// </summary>
         [Input("publicIPAllocationMethod")]
         public Input<string>? PublicIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// The name of the publicIpAddress.
+        /// </summary>
+        [Input("publicIpAddressName", required: true)]
+        public Input<string> PublicIpAddressName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

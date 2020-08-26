@@ -28,8 +28,8 @@ func NewDomainTopic(ctx *pulumi.Context,
 	if args == nil || args.DomainName == nil {
 		return nil, errors.New("missing required argument 'DomainName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DomainTopicName == nil {
+		return nil, errors.New("missing required argument 'DomainTopicName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -90,7 +90,7 @@ type domainTopicArgs struct {
 	// Name of the domain.
 	DomainName string `pulumi:"domainName"`
 	// Name of the domain topic.
-	Name string `pulumi:"name"`
+	DomainTopicName string `pulumi:"domainTopicName"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -100,7 +100,7 @@ type DomainTopicArgs struct {
 	// Name of the domain.
 	DomainName pulumi.StringInput
 	// Name of the domain topic.
-	Name pulumi.StringInput
+	DomainTopicName pulumi.StringInput
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName pulumi.StringInput
 }

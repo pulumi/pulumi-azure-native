@@ -18,7 +18,7 @@ func LookupExperiment(ctx *pulumi.Context, args *LookupExperimentArgs, opts ...p
 
 type LookupExperimentArgs struct {
 	// The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	Name string `pulumi:"name"`
+	ExperimentName string `pulumi:"experimentName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.

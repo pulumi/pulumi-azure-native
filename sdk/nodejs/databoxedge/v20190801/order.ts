@@ -51,7 +51,7 @@ export class Order extends pulumi.CustomResource {
     /**
      * The object name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * List of status changes in the order.
      */
@@ -89,8 +89,8 @@ export class Order extends pulumi.CustomResource {
             if (!args || args.contactInformation === undefined) {
                 throw new Error("Missing required property 'contactInformation'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.deviceName === undefined) {
+                throw new Error("Missing required property 'deviceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -100,10 +100,11 @@ export class Order extends pulumi.CustomResource {
             }
             inputs["contactInformation"] = args ? args.contactInformation : undefined;
             inputs["currentStatus"] = args ? args.currentStatus : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shippingAddress"] = args ? args.shippingAddress : undefined;
             inputs["deliveryTrackingInfo"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["orderHistory"] = undefined /*out*/;
             inputs["returnTrackingInfo"] = undefined /*out*/;
             inputs["serialNumber"] = undefined /*out*/;
@@ -137,7 +138,7 @@ export interface OrderArgs {
     /**
      * The order details of a device.
      */
-    readonly name: pulumi.Input<string>;
+    readonly deviceName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

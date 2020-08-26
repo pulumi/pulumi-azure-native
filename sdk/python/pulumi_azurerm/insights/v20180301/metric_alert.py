@@ -24,8 +24,8 @@ class MetricAlert(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  severity: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -47,8 +47,8 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: the flag that indicates whether the metric alert is enabled.
         :param pulumi.Input[str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] rule_name: The name of the rule.
         :param pulumi.Input[List[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to.
         :param pulumi.Input[float] severity: Alert severity {0, 1, 2, 3, 4}
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -90,12 +90,12 @@ class MetricAlert(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if rule_name is None:
+                raise TypeError("Missing required property 'rule_name'")
+            __props__['rule_name'] = rule_name
             __props__['scopes'] = scopes
             if severity is None:
                 raise TypeError("Missing required property 'severity'")
@@ -107,6 +107,7 @@ class MetricAlert(pulumi.CustomResource):
                 raise TypeError("Missing required property 'window_size'")
             __props__['window_size'] = window_size
             __props__['last_updated_time'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(MetricAlert, __self__).__init__(
             'azurerm:insights/v20180301:MetricAlert',

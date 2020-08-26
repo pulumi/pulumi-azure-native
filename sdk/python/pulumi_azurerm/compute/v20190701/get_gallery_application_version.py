@@ -117,8 +117,8 @@ class AwaitableGetGalleryApplicationVersionResult(GetGalleryApplicationVersionRe
 
 def get_gallery_application_version(expand: Optional[str] = None,
                                     gallery_application_name: Optional[str] = None,
+                                    gallery_application_version_name: Optional[str] = None,
                                     gallery_name: Optional[str] = None,
-                                    name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryApplicationVersionResult:
     """
@@ -126,15 +126,15 @@ def get_gallery_application_version(expand: Optional[str] = None,
 
     :param str expand: The expand expression to apply on the operation.
     :param str gallery_application_name: The name of the gallery Application Definition in which the Application Version resides.
+    :param str gallery_application_version_name: The name of the gallery Application Version to be retrieved.
     :param str gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
-    :param str name: The name of the gallery Application Version to be retrieved.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['expand'] = expand
     __args__['galleryApplicationName'] = gallery_application_name
+    __args__['galleryApplicationVersionName'] = gallery_application_version_name
     __args__['galleryName'] = gallery_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

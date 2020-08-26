@@ -47,7 +47,7 @@ export class StorageDomain extends pulumi.CustomResource {
     /**
      * The name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The storage account credentials.
      */
@@ -76,21 +76,22 @@ export class StorageDomain extends pulumi.CustomResource {
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.storageAccountCredentialIds === undefined) {
                 throw new Error("Missing required property 'storageAccountCredentialIds'");
             }
+            if (!args || args.storageDomainName === undefined) {
+                throw new Error("Missing required property 'storageDomainName'");
+            }
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             inputs["encryptionStatus"] = args ? args.encryptionStatus : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountCredentialIds"] = args ? args.storageAccountCredentialIds : undefined;
+            inputs["storageDomainName"] = args ? args.storageDomainName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -121,10 +122,6 @@ export interface StorageDomainArgs {
      */
     readonly managerName: pulumi.Input<string>;
     /**
-     * The storage domain name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -132,4 +129,8 @@ export interface StorageDomainArgs {
      * The storage account credentials.
      */
     readonly storageAccountCredentialIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The storage domain name.
+     */
+    readonly storageDomainName: pulumi.Input<string>;
 }

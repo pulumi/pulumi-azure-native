@@ -16,7 +16,7 @@ class ReplicationFabric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 fabric_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -27,7 +27,7 @@ class ReplicationFabric(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the ASR fabric.
+        :param pulumi.Input[str] fabric_name: Name of the ASR fabric.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         """
@@ -48,9 +48,9 @@ class ReplicationFabric(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if fabric_name is None:
+                raise TypeError("Missing required property 'fabric_name'")
+            __props__['fabric_name'] = fabric_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -58,6 +58,7 @@ class ReplicationFabric(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['location'] = None
+            __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20180110:ReplicationFabric"), pulumi.Alias(type_="azurerm:recoveryservices/v20180710:ReplicationFabric")])

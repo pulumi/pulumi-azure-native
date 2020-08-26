@@ -19,9 +19,9 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_user_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
                  policies: Optional[pulumi.Input[pulumi.InputType['PoliciesArgs']]] = None,
+                 registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
@@ -36,9 +36,9 @@ class Registry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[str] name: The name of the container registry.
         :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_rule_set: The network rule set for a container registry.
         :param pulumi.Input[pulumi.InputType['PoliciesArgs']] policies: The policies for a container registry.
+        :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the container registry.
         :param pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']] storage_account: The properties of the storage account for the container registry. Only applicable to Classic SKU.
@@ -65,11 +65,11 @@ class Registry(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_rule_set'] = network_rule_set
             __props__['policies'] = policies
+            if registry_name is None:
+                raise TypeError("Missing required property 'registry_name'")
+            __props__['registry_name'] = registry_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -80,6 +80,7 @@ class Registry(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['creation_date'] = None
             __props__['login_server'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['status'] = None
             __props__['type'] = None

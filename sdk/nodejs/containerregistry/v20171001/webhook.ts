@@ -45,7 +45,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the webhook at the time the operation was called.
      */
@@ -86,9 +86,6 @@ export class Webhook extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.registryName === undefined) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -98,16 +95,20 @@ export class Webhook extends pulumi.CustomResource {
             if (!args || args.serviceUri === undefined) {
                 throw new Error("Missing required property 'serviceUri'");
             }
+            if (!args || args.webhookName === undefined) {
+                throw new Error("Missing required property 'webhookName'");
+            }
             inputs["actions"] = args ? args.actions : undefined;
             inputs["customHeaders"] = args ? args.customHeaders : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["serviceUri"] = args ? args.serviceUri : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["webhookName"] = args ? args.webhookName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -141,10 +142,6 @@ export interface WebhookArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the webhook.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the container registry.
      */
     readonly registryName: pulumi.Input<string>;
@@ -168,4 +165,8 @@ export interface WebhookArgs {
      * The tags for the webhook.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the webhook.
+     */
+    readonly webhookName: pulumi.Input<string>;
 }

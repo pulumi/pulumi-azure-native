@@ -116,19 +116,19 @@ class AwaitableGetConnectionTypeResult(GetConnectionTypeResult):
 
 
 def get_connection_type(automation_account_name: Optional[str] = None,
-                        name: Optional[str] = None,
+                        connection_type_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionTypeResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str automation_account_name: The name of the automation account.
-    :param str name: The name of connection type.
+    :param str connection_type_name: The name of connection type.
     :param str resource_group_name: Name of an Azure Resource group.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
-    __args__['name'] = name
+    __args__['connectionTypeName'] = connection_type_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

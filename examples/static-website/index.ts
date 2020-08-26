@@ -3,7 +3,7 @@ import * as azurerm from "../../sdk/nodejs";
 import { URL } from "url";
 
 const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
-    name: "azurerm-static-website",
+    resourceGroupName: "azurerm-static-website",
     location: "westus2",
     tags: {
         Owner: "mikhailshilkov",
@@ -14,7 +14,7 @@ const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
 // Create a Storage Account for our static website
 const storageAccount = new azurerm.storage.v20190601.StorageAccount("websitesa", {
     resourceGroupName: resourceGroup.name,
-    name: "pulumiswsa",
+    accountName: "pulumiswsa",
     location: "westus2",
     sku: {
         name: "Standard_LRS",
@@ -48,7 +48,7 @@ const staticHostname = staticEndpoint.apply(url => url ? new URL(url).hostname :
 // We can add a CDN in front of the website
 const cdn =  new azurerm.cdn.v20200331.Profile("website-cdn", {
     resourceGroupName: resourceGroup.name,
-    name: "pulumi-static-website",
+    profileName: "pulumi-static-website",
     location: "global",
     sku: {
           name: "Standard_Microsoft",
@@ -58,7 +58,7 @@ const cdn =  new azurerm.cdn.v20200331.Profile("website-cdn", {
 const endpoint = new azurerm.cdn.v20200331.Endpoint("website-cdn-ep", {
     resourceGroupName: resourceGroup.name,
     profileName: cdn.name,
-    name: "pulumi-static-website-ep",
+    endpointName: "pulumi-static-website-ep",
     location: "westus",
     originHostHeader: staticHostname,
     origins: [{

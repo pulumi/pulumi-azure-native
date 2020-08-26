@@ -21,6 +21,12 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// Hostname in the hostname binding.
         /// </summary>
+        [Input("hostName", required: true)]
+        public string HostName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the app.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

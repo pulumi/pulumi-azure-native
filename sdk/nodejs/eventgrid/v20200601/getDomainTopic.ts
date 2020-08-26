@@ -16,7 +16,7 @@ export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOpt
     }
     return pulumi.runtime.invoke("azurerm:eventgrid/v20200601:getDomainTopic", {
         "domainName": args.domainName,
-        "name": args.name,
+        "domainTopicName": args.domainTopicName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetDomainTopicArgs {
     /**
      * Name of the topic.
      */
-    readonly name: string;
+    readonly domainTopicName: string;
     /**
      * The name of the resource group within the user's subscription.
      */

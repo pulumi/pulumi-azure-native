@@ -25,6 +25,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
+                 vmss_extension_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,7 +36,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[str] force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-        :param pulumi.Input[str] name: The name of the VM scale set extension.
+        :param pulumi.Input[str] name: The name of the extension.
         :param pulumi.Input[Mapping[str, Any]] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -43,6 +44,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
+        :param pulumi.Input[str] vmss_extension_name: The name of the VM scale set extension.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,8 +65,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
             __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
             __props__['force_update_tag'] = force_update_tag
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['protected_settings'] = protected_settings
             __props__['publisher'] = publisher
@@ -77,6 +77,9 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             if vm_scale_set_name is None:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__['vm_scale_set_name'] = vm_scale_set_name
+            if vmss_extension_name is None:
+                raise TypeError("Missing required property 'vmss_extension_name'")
+            __props__['vmss_extension_name'] = vmss_extension_name
             __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20170330:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azurerm:compute/v20180401:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azurerm:compute/v20180601:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azurerm:compute/v20181001:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azurerm:compute/v20190301:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azurerm:compute/v20190701:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azurerm:compute/v20191201:VirtualMachineScaleSetExtension"), pulumi.Alias(type_="azurerm:compute/v20200601:VirtualMachineScaleSetExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

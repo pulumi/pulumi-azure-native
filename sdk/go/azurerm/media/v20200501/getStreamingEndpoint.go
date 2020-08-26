@@ -19,10 +19,10 @@ func LookupStreamingEndpoint(ctx *pulumi.Context, args *LookupStreamingEndpointA
 type LookupStreamingEndpointArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
-	// The name of the StreamingEndpoint.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the StreamingEndpoint.
+	StreamingEndpointName string `pulumi:"streamingEndpointName"`
 }
 
 // The StreamingEndpoint.

@@ -43,7 +43,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -81,14 +81,14 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             if (!args || args.galleryApplicationName === undefined) {
                 throw new Error("Missing required property 'galleryApplicationName'");
             }
+            if (!args || args.galleryApplicationVersionName === undefined) {
+                throw new Error("Missing required property 'galleryApplicationVersionName'");
+            }
             if (!args || args.galleryName === undefined) {
                 throw new Error("Missing required property 'galleryName'");
             }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.publishingProfile === undefined) {
                 throw new Error("Missing required property 'publishingProfile'");
@@ -97,12 +97,13 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;
+            inputs["galleryApplicationVersionName"] = args ? args.galleryApplicationVersionName : undefined;
             inputs["galleryName"] = args ? args.galleryName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["publishingProfile"] = args ? args.publishingProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["replicationStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -129,6 +130,10 @@ export interface GalleryApplicationVersionArgs {
      */
     readonly galleryApplicationName: pulumi.Input<string>;
     /**
+     * The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+     */
+    readonly galleryApplicationVersionName: pulumi.Input<string>;
+    /**
      * The name of the Shared Application Gallery in which the Application Definition resides.
      */
     readonly galleryName: pulumi.Input<string>;
@@ -136,10 +141,6 @@ export interface GalleryApplicationVersionArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The publishing profile of a gallery Image Version.
      */

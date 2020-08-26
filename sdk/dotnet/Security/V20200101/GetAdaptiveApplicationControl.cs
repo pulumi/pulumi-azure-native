@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// <summary>
         /// Name of an application control machine group
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("groupName", required: true)]
+        public string GroupName { get; set; } = null!;
 
         public GetAdaptiveApplicationControlArgs()
         {

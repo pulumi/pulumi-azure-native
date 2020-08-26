@@ -41,8 +41,8 @@ type ADCCatalog struct {
 // NewADCCatalog registers a new resource with the given unique name, arguments, and options.
 func NewADCCatalog(ctx *pulumi.Context,
 	name string, args *ADCCatalogArgs, opts ...pulumi.ResourceOption) (*ADCCatalog, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CatalogName == nil {
+		return nil, errors.New("missing required argument 'CatalogName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -128,14 +128,14 @@ func (ADCCatalogState) ElementType() reflect.Type {
 type adccatalogArgs struct {
 	// Azure data catalog admin list.
 	Admins []Principals `pulumi:"admins"`
+	// The name of the data catalog in the specified subscription and resource group.
+	CatalogName string `pulumi:"catalogName"`
 	// Automatic unit adjustment enabled or not.
 	EnableAutomaticUnitAdjustment *bool `pulumi:"enableAutomaticUnitAdjustment"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the data catalog in the specified subscription and resource group.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Azure data catalog SKU.
@@ -154,14 +154,14 @@ type adccatalogArgs struct {
 type ADCCatalogArgs struct {
 	// Azure data catalog admin list.
 	Admins PrincipalsArrayInput
+	// The name of the data catalog in the specified subscription and resource group.
+	CatalogName pulumi.StringInput
 	// Automatic unit adjustment enabled or not.
 	EnableAutomaticUnitAdjustment pulumi.BoolPtrInput
 	// Resource etag
 	Etag pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the data catalog in the specified subscription and resource group.
-	Name pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Azure data catalog SKU.

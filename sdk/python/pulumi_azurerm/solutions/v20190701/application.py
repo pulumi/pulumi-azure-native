@@ -18,13 +18,13 @@ class Application(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_id: Optional[pulumi.Input[str]] = None,
+                 application_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  jit_access_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationJitAccessPolicyArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -39,13 +39,13 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
+        :param pulumi.Input[str] application_name: The name of the managed application.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[pulumi.InputType['ApplicationJitAccessPolicyArgs']] jit_access_policy: The managed application Jit access policy.
         :param pulumi.Input[str] kind: The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
-        :param pulumi.Input[str] name: The name of the managed application.
         :param pulumi.Input[Mapping[str, Any]] parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: The plan information.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -70,6 +70,9 @@ class Application(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['application_definition_id'] = application_definition_id
+            if application_name is None:
+                raise TypeError("Missing required property 'application_name'")
+            __props__['application_name'] = application_name
             __props__['identity'] = identity
             __props__['jit_access_policy'] = jit_access_policy
             if kind is None:
@@ -78,9 +81,6 @@ class Application(pulumi.CustomResource):
             __props__['location'] = location
             __props__['managed_by'] = managed_by
             __props__['managed_resource_group_id'] = managed_resource_group_id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['parameters'] = parameters
             __props__['plan'] = plan
             if resource_group_name is None:
@@ -94,6 +94,7 @@ class Application(pulumi.CustomResource):
             __props__['created_by'] = None
             __props__['customer_support'] = None
             __props__['management_mode'] = None
+            __props__['name'] = None
             __props__['outputs'] = None
             __props__['provisioning_state'] = None
             __props__['publisher_tenant_id'] = None

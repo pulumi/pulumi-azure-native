@@ -67,7 +67,7 @@ export class Lab extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning status of the resource.
      */
@@ -113,16 +113,16 @@ export class Lab extends pulumi.CustomResource {
             if (!args || args.labAccountName === undefined) {
                 throw new Error("Missing required property 'labAccountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.labName === undefined) {
+                throw new Error("Missing required property 'labName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["labAccountName"] = args ? args.labAccountName : undefined;
+            inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxUsersInLab"] = args ? args.maxUsersInLab : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -134,6 +134,7 @@ export class Lab extends pulumi.CustomResource {
             inputs["createdDate"] = undefined /*out*/;
             inputs["invitationCode"] = undefined /*out*/;
             inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userQuota"] = undefined /*out*/;
         }
@@ -157,6 +158,10 @@ export interface LabArgs {
      */
     readonly labAccountName: pulumi.Input<string>;
     /**
+     * The name of the lab.
+     */
+    readonly labName: pulumi.Input<string>;
+    /**
      * The location of the resource.
      */
     readonly location?: pulumi.Input<string>;
@@ -164,10 +169,6 @@ export interface LabArgs {
      * Maximum number of users allowed in the lab.
      */
     readonly maxUsersInLab?: pulumi.Input<number>;
-    /**
-     * The name of the lab.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The provisioning status of the resource.
      */

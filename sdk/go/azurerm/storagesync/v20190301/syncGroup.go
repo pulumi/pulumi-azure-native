@@ -27,14 +27,14 @@ type SyncGroup struct {
 // NewSyncGroup registers a new resource with the given unique name, arguments, and options.
 func NewSyncGroup(ctx *pulumi.Context,
 	name string, args *SyncGroupArgs, opts ...pulumi.ResourceOption) (*SyncGroup, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.StorageSyncServiceName == nil {
 		return nil, errors.New("missing required argument 'StorageSyncServiceName'")
+	}
+	if args == nil || args.SyncGroupName == nil {
+		return nil, errors.New("missing required argument 'SyncGroupName'")
 	}
 	if args == nil {
 		args = &SyncGroupArgs{}
@@ -111,22 +111,22 @@ func (SyncGroupState) ElementType() reflect.Type {
 }
 
 type syncGroupArgs struct {
-	// Name of Sync Group resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
+	// Name of Sync Group resource.
+	SyncGroupName string `pulumi:"syncGroupName"`
 }
 
 // The set of arguments for constructing a SyncGroup resource.
 type SyncGroupArgs struct {
-	// Name of Sync Group resource.
-	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName pulumi.StringInput
+	// Name of Sync Group resource.
+	SyncGroupName pulumi.StringInput
 }
 
 func (SyncGroupArgs) ElementType() reflect.Type {

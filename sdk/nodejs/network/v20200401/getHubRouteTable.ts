@@ -15,21 +15,21 @@ export function getHubRouteTable(args: GetHubRouteTableArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200401:getHubRouteTable", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "routeTableName": args.routeTableName,
         "virtualHubName": args.virtualHubName,
     }, opts);
 }
 
 export interface GetHubRouteTableArgs {
     /**
-     * The name of the RouteTable.
-     */
-    readonly name: string;
-    /**
      * The resource group name of the VirtualHub.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the RouteTable.
+     */
+    readonly routeTableName: string;
     /**
      * The name of the VirtualHub.
      */

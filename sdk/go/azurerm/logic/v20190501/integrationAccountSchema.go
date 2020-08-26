@@ -50,11 +50,11 @@ func NewIntegrationAccountSchema(ctx *pulumi.Context,
 	if args == nil || args.IntegrationAccountName == nil {
 		return nil, errors.New("missing required argument 'IntegrationAccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SchemaName == nil {
+		return nil, errors.New("missing required argument 'SchemaName'")
 	}
 	if args == nil || args.SchemaType == nil {
 		return nil, errors.New("missing required argument 'SchemaType'")
@@ -170,10 +170,10 @@ type integrationAccountSchemaArgs struct {
 	Location *string `pulumi:"location"`
 	// The metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The integration account schema name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The integration account schema name.
+	SchemaName string `pulumi:"schemaName"`
 	// The schema type.
 	SchemaType string `pulumi:"schemaType"`
 	// The resource tags.
@@ -198,10 +198,10 @@ type IntegrationAccountSchemaArgs struct {
 	Location pulumi.StringPtrInput
 	// The metadata.
 	Metadata pulumi.MapInput
-	// The integration account schema name.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// The integration account schema name.
+	SchemaName pulumi.StringInput
 	// The schema type.
 	SchemaType pulumi.StringInput
 	// The resource tags.

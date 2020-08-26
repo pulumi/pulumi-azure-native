@@ -104,19 +104,19 @@ class AwaitableGetOutputResult(GetOutputResult):
 
 
 def get_output(job_name: Optional[str] = None,
-               name: Optional[str] = None,
+               output_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutputResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str job_name: The name of the streaming job.
-    :param str name: The name of the output.
+    :param str output_name: The name of the output.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
     __args__ = dict()
     __args__['jobName'] = job_name
-    __args__['name'] = name
+    __args__['outputName'] = output_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

@@ -138,6 +138,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Input<Inputs.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>? AutoScaleConfiguration { get; set; }
 
         /// <summary>
+        /// The name of the ExpressRoute gateway.
+        /// </summary>
+        [Input("expressRouteGatewayName", required: true)]
+        public Input<string> ExpressRouteGatewayName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -148,12 +154,6 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the ExpressRoute gateway.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

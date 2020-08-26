@@ -15,20 +15,20 @@ export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devices/v20180122:getIotHubResource", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetIotHubResourceArgs {
     /**
-     * The name of the IoT hub.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group that contains the IoT hub.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the IoT hub.
+     */
+    readonly resourceName: string;
 }
 
 /**

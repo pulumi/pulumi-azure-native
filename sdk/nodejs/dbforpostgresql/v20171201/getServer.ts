@@ -15,20 +15,20 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:dbforpostgresql/v20171201:getServer", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
     }, opts);
 }
 
 export interface GetServerArgs {
     /**
-     * The name of the server.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the server.
+     */
+    readonly serverName: string;
 }
 
 /**

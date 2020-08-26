@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
         /// <summary>
         /// Cosmos DB graph name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("graphName", required: true)]
+        public string GraphName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.

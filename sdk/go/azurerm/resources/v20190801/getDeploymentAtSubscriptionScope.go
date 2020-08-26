@@ -18,7 +18,7 @@ func LookupDeploymentAtSubscriptionScope(ctx *pulumi.Context, args *LookupDeploy
 
 type LookupDeploymentAtSubscriptionScopeArgs struct {
 	// The name of the deployment.
-	Name string `pulumi:"name"`
+	DeploymentName string `pulumi:"deploymentName"`
 }
 
 // Deployment information.

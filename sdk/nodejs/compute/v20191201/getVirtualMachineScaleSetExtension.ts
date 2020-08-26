@@ -16,9 +16,9 @@ export function getVirtualMachineScaleSetExtension(args: GetVirtualMachineScaleS
     }
     return pulumi.runtime.invoke("azurerm:compute/v20191201:getVirtualMachineScaleSetExtension", {
         "expand": args.expand,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "vmScaleSetName": args.vmScaleSetName,
+        "vmssExtensionName": args.vmssExtensionName,
     }, opts);
 }
 
@@ -28,10 +28,6 @@ export interface GetVirtualMachineScaleSetExtensionArgs {
      */
     readonly expand?: string;
     /**
-     * The name of the VM scale set extension.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
@@ -39,6 +35,10 @@ export interface GetVirtualMachineScaleSetExtensionArgs {
      * The name of the VM scale set containing the extension.
      */
     readonly vmScaleSetName: string;
+    /**
+     * The name of the VM scale set extension.
+     */
+    readonly vmssExtensionName: string;
 }
 
 /**

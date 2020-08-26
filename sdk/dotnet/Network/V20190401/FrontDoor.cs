@@ -186,6 +186,12 @@ namespace Pulumi.AzureRM.Network.V20190401
         [Input("friendlyName")]
         public Input<string>? FriendlyName { get; set; }
 
+        /// <summary>
+        /// Name of the Front Door which is globally unique.
+        /// </summary>
+        [Input("frontDoorName", required: true)]
+        public Input<string> FrontDoorName { get; set; } = null!;
+
         [Input("frontendEndpoints")]
         private InputList<Inputs.FrontendEndpointArgs>? _frontendEndpoints;
 
@@ -227,12 +233,6 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Name of the Front Door which is globally unique.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

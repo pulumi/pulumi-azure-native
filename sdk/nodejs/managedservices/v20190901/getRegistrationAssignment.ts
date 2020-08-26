@@ -16,7 +16,7 @@ export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, o
     }
     return pulumi.runtime.invoke("azurerm:managedservices/v20190901:getRegistrationAssignment", {
         "expandRegistrationDefinition": args.expandRegistrationDefinition,
-        "name": args.name,
+        "registrationAssignmentId": args.registrationAssignmentId,
         "scope": args.scope,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetRegistrationAssignmentArgs {
     /**
      * Guid of the registration assignment.
      */
-    readonly name: string;
+    readonly registrationAssignmentId: string;
     /**
      * Scope of the resource.
      */

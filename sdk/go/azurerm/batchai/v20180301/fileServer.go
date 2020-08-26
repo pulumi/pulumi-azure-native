@@ -44,11 +44,11 @@ func NewFileServer(ctx *pulumi.Context,
 	if args == nil || args.DataDisks == nil {
 		return nil, errors.New("missing required argument 'DataDisks'")
 	}
+	if args == nil || args.FileServerName == nil {
+		return nil, errors.New("missing required argument 'FileServerName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -140,10 +140,10 @@ func (FileServerState) ElementType() reflect.Type {
 type fileServerArgs struct {
 	// Settings for the data disk which would be created for the File Server.
 	DataDisks DataDisks `pulumi:"dataDisks"`
+	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+	FileServerName string `pulumi:"fileServerName"`
 	// The region in which to create the File Server.
 	Location string `pulumi:"location"`
-	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SSH configuration settings for the VM
@@ -160,10 +160,10 @@ type fileServerArgs struct {
 type FileServerArgs struct {
 	// Settings for the data disk which would be created for the File Server.
 	DataDisks DataDisksInput
+	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+	FileServerName pulumi.StringInput
 	// The region in which to create the File Server.
 	Location pulumi.StringInput
-	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	Name pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// SSH configuration settings for the VM

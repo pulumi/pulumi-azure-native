@@ -16,8 +16,8 @@ export function getServiceEndpointPolicy(args: GetServiceEndpointPolicyArgs, opt
     }
     return pulumi.runtime.invoke("azurerm:network/v20180701:getServiceEndpointPolicy", {
         "expand": args.expand,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serviceEndpointPolicyName": args.serviceEndpointPolicyName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetServiceEndpointPolicyArgs {
      */
     readonly expand?: string;
     /**
-     * The name of the service endpoint policy.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the service endpoint policy.
+     */
+    readonly serviceEndpointPolicyName: string;
 }
 
 /**

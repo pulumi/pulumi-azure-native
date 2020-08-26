@@ -128,19 +128,19 @@ class AwaitableGetReferenceDataSetResult(GetReferenceDataSetResult):
 
 
 def get_reference_data_set(environment_name: Optional[str] = None,
-                           name: Optional[str] = None,
+                           reference_data_set_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReferenceDataSetResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
-    :param str name: The name of the Time Series Insights reference data set associated with the specified environment.
+    :param str reference_data_set_name: The name of the Time Series Insights reference data set associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
     __args__ = dict()
     __args__['environmentName'] = environment_name
-    __args__['name'] = name
+    __args__['referenceDataSetName'] = reference_data_set_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

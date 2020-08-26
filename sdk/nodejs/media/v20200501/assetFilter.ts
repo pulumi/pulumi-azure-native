@@ -43,7 +43,7 @@ export class AssetFilter extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The presentation time range.
      */
@@ -76,19 +76,20 @@ export class AssetFilter extends pulumi.CustomResource {
             if (!args || args.assetName === undefined) {
                 throw new Error("Missing required property 'assetName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.filterName === undefined) {
+                throw new Error("Missing required property 'filterName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["assetName"] = args ? args.assetName : undefined;
+            inputs["filterName"] = args ? args.filterName : undefined;
             inputs["firstQuality"] = args ? args.firstQuality : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["presentationTimeRange"] = args ? args.presentationTimeRange : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tracks"] = args ? args.tracks : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -117,13 +118,13 @@ export interface AssetFilterArgs {
      */
     readonly assetName: pulumi.Input<string>;
     /**
+     * The Asset Filter name
+     */
+    readonly filterName: pulumi.Input<string>;
+    /**
      * The first quality.
      */
     readonly firstQuality?: pulumi.Input<inputs.media.v20200501.FirstQuality>;
-    /**
-     * The Asset Filter name
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The presentation time range.
      */

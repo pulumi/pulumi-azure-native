@@ -19,9 +19,9 @@ class IotHubResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['IotHubPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IotHubSkuInfoArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -34,9 +34,9 @@ class IotHubResource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The name of the IoT hub.
         :param pulumi.Input[pulumi.InputType['IotHubPropertiesArgs']] properties: IotHub properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
+        :param pulumi.Input[str] resource_name_: The name of the IoT hub.
         :param pulumi.Input[pulumi.InputType['IotHubSkuInfoArgs']] sku: IotHub SKU info
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -61,17 +61,18 @@ class IotHubResource(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devices/v20160203:IotHubResource"), pulumi.Alias(type_="azurerm:devices/v20170119:IotHubResource"), pulumi.Alias(type_="azurerm:devices/v20170701:IotHubResource"), pulumi.Alias(type_="azurerm:devices/v20180122:IotHubResource"), pulumi.Alias(type_="azurerm:devices/v20180401:IotHubResource"), pulumi.Alias(type_="azurerm:devices/v20190322:IotHubResource"), pulumi.Alias(type_="azurerm:devices/v20191104:IotHubResource"), pulumi.Alias(type_="azurerm:devices/v20200301:IotHubResource"), pulumi.Alias(type_="azurerm:devices/v20200615:IotHubResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

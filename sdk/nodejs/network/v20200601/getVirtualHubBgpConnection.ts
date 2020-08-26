@@ -15,7 +15,7 @@ export function getVirtualHubBgpConnection(args: GetVirtualHubBgpConnectionArgs,
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200601:getVirtualHubBgpConnection", {
-        "name": args.name,
+        "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
         "virtualHubName": args.virtualHubName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetVirtualHubBgpConnectionArgs {
     /**
      * The name of the connection.
      */
-    readonly name: string;
+    readonly connectionName: string;
     /**
      * The resource group name of the VirtualHub.
      */

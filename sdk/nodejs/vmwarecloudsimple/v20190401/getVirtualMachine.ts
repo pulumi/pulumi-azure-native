@@ -15,20 +15,20 @@ export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:vmwarecloudsimple/v20190401:getVirtualMachine", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "virtualMachineName": args.virtualMachineName,
     }, opts);
 }
 
 export interface GetVirtualMachineArgs {
     /**
-     * virtual machine name
-     */
-    readonly name: string;
-    /**
      * The name of the resource group
      */
     readonly resourceGroupName: string;
+    /**
+     * virtual machine name
+     */
+    readonly virtualMachineName: string;
 }
 
 /**

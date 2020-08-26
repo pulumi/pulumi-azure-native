@@ -102,6 +102,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// Comment identifier within an Issue. Must be unique in the current Issue.
+        /// </summary>
+        [Input("commentId", required: true)]
+        public Input<string> CommentId { get; set; } = null!;
+
+        /// <summary>
         /// Date and time when the comment was created.
         /// </summary>
         [Input("createdDate")]
@@ -112,12 +118,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// </summary>
         [Input("issueId", required: true)]
         public Input<string> IssueId { get; set; } = null!;
-
-        /// <summary>
-        /// Comment identifier within an Issue. Must be unique in the current Issue.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

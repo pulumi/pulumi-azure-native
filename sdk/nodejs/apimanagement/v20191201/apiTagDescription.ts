@@ -53,7 +53,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Identifier of the tag in the form of /tags/{tagId}
      */
@@ -79,23 +79,24 @@ export class ApiTagDescription extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.tagDescriptionId === undefined) {
+                throw new Error("Missing required property 'tagDescriptionId'");
+            }
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["externalDocsDescription"] = args ? args.externalDocsDescription : undefined;
             inputs["externalDocsUrl"] = args ? args.externalDocsUrl : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["tagDescriptionId"] = args ? args.tagDescriptionId : undefined;
             inputs["displayName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["tagId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -131,10 +132,6 @@ export interface ApiTagDescriptionArgs {
      */
     readonly externalDocsUrl?: pulumi.Input<string>;
     /**
-     * Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -142,4 +139,8 @@ export interface ApiTagDescriptionArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
+     */
+    readonly tagDescriptionId: pulumi.Input<string>;
 }

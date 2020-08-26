@@ -188,6 +188,12 @@ namespace Pulumi.AzureRM.Kusto.V20200215
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the Kusto cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
         /// A boolean value that indicates if the cluster's disks are encrypted.
         /// </summary>
         [Input("enableDiskEncryption")]
@@ -228,12 +234,6 @@ namespace Pulumi.AzureRM.Kusto.V20200215
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Kusto cluster.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Optimized auto scale definition.

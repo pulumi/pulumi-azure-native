@@ -39,7 +39,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * Gets or sets the policy assignment name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets the policy assignment properties.
      */
@@ -58,15 +58,16 @@ export class PolicyAssignment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PolicyAssignmentArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.policyAssignmentName === undefined) {
+                throw new Error("Missing required property 'policyAssignmentName'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["policyAssignmentName"] = args ? args.policyAssignmentName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["name"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -88,7 +89,7 @@ export interface PolicyAssignmentArgs {
     /**
      * Policy assignment name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly policyAssignmentName: pulumi.Input<string>;
     /**
      * Gets or sets the policy assignment properties.
      */

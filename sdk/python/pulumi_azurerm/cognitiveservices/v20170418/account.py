@@ -17,10 +17,10 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CognitiveServicesAccountPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -33,10 +33,10 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of Cognitive Services account.
         :param pulumi.Input[str] kind: The Kind of the resource.
         :param pulumi.Input[str] location: The location of the resource
-        :param pulumi.Input[str] name: The name of Cognitive Services account.
         :param pulumi.Input[pulumi.InputType['CognitiveServicesAccountPropertiesArgs']] properties: Properties of Cognitive Services account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of Cognitive Services account.
@@ -59,12 +59,12 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if account_name is None:
+                raise TypeError("Missing required property 'account_name'")
+            __props__['account_name'] = account_name
             __props__['identity'] = identity
             __props__['kind'] = kind
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -72,6 +72,7 @@ class Account(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(Account, __self__).__init__(
             'azurerm:cognitiveservices/v20170418:Account',

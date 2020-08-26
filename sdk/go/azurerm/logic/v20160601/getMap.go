@@ -20,7 +20,7 @@ type LookupMapArgs struct {
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The integration account map name.
-	Name string `pulumi:"name"`
+	MapName string `pulumi:"mapName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

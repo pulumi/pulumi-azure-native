@@ -17,10 +17,10 @@ func LookupDeploymentAtManagementGroupScope(ctx *pulumi.Context, args *LookupDep
 }
 
 type LookupDeploymentAtManagementGroupScopeArgs struct {
+	// The name of the deployment.
+	DeploymentName string `pulumi:"deploymentName"`
 	// The management group ID.
 	GroupId string `pulumi:"groupId"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
 }
 
 // Deployment information.

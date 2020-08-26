@@ -15,20 +15,20 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:sql/v20140401:getServer", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
     }, opts);
 }
 
 export interface GetServerArgs {
     /**
-     * The name of the server.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the server.
+     */
+    readonly serverName: string;
 }
 
 /**

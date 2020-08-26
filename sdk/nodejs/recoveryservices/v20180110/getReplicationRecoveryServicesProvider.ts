@@ -16,7 +16,7 @@ export function getReplicationRecoveryServicesProvider(args: GetReplicationRecov
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20180110:getReplicationRecoveryServicesProvider", {
         "fabricName": args.fabricName,
-        "name": args.name,
+        "providerName": args.providerName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetReplicationRecoveryServicesProviderArgs {
     /**
      * Recovery services provider name
      */
-    readonly name: string;
+    readonly providerName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

@@ -41,8 +41,8 @@ type Factory struct {
 // NewFactory registers a new resource with the given unique name, arguments, and options.
 func NewFactory(ctx *pulumi.Context,
 	name string, args *FactoryArgs, opts ...pulumi.ResourceOption) (*Factory, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.FactoryName == nil {
+		return nil, errors.New("missing required argument 'FactoryName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -126,14 +126,14 @@ func (FactoryState) ElementType() reflect.Type {
 }
 
 type factoryArgs struct {
+	// The factory name.
+	FactoryName string `pulumi:"factoryName"`
 	// List of parameters for factory.
 	GlobalParameters map[string]GlobalParameterSpecification `pulumi:"globalParameters"`
 	// Managed service identity of the factory.
 	Identity *FactoryIdentity `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
-	// The factory name.
-	Name string `pulumi:"name"`
 	// Git repo information of the factory.
 	RepoConfiguration *FactoryRepoConfiguration `pulumi:"repoConfiguration"`
 	// The resource group name.
@@ -144,14 +144,14 @@ type factoryArgs struct {
 
 // The set of arguments for constructing a Factory resource.
 type FactoryArgs struct {
+	// The factory name.
+	FactoryName pulumi.StringInput
 	// List of parameters for factory.
 	GlobalParameters GlobalParameterSpecificationMapInput
 	// Managed service identity of the factory.
 	Identity FactoryIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
-	// The factory name.
-	Name pulumi.StringInput
 	// Git repo information of the factory.
 	RepoConfiguration FactoryRepoConfigurationPtrInput
 	// The resource group name.

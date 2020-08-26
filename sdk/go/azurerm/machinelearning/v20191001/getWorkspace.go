@@ -17,10 +17,10 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 }
 
 type LookupWorkspaceArgs struct {
-	// The name of the machine learning workspace.
-	Name string `pulumi:"name"`
 	// The name of the resource group to which the machine learning workspace belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the machine learning workspace.
+	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // An object that represents a machine learning workspace.

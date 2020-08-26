@@ -17,8 +17,8 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
+                 hc_id: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  negotiate_client_certificate: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -32,8 +32,8 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: Identifier of Certificate entity that will be used for TLS connection establishment
         :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
+        :param pulumi.Input[str] hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
         :param pulumi.Input[str] hostname: Hostname value. Supports valid domain name, partial or full wildcard
-        :param pulumi.Input[str] name: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
         :param pulumi.Input[bool] negotiate_client_certificate: Determines whether gateway requests client certificate
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -59,10 +59,10 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             if gateway_id is None:
                 raise TypeError("Missing required property 'gateway_id'")
             __props__['gateway_id'] = gateway_id
+            if hc_id is None:
+                raise TypeError("Missing required property 'hc_id'")
+            __props__['hc_id'] = hc_id
             __props__['hostname'] = hostname
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['negotiate_client_certificate'] = negotiate_client_certificate
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -70,6 +70,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['name'] = None
             __props__['type'] = None
         super(GatewayHostnameConfiguration, __self__).__init__(
             'azurerm:apimanagement/v20191201:GatewayHostnameConfiguration',

@@ -18,7 +18,7 @@ func LookupPrivateCloud(ctx *pulumi.Context, args *LookupPrivateCloudArgs, opts 
 
 type LookupPrivateCloudArgs struct {
 	// Name of the private cloud
-	Name string `pulumi:"name"`
+	PrivateCloudName string `pulumi:"privateCloudName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

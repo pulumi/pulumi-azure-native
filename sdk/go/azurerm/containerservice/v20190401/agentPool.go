@@ -47,11 +47,11 @@ type AgentPool struct {
 // NewAgentPool registers a new resource with the given unique name, arguments, and options.
 func NewAgentPool(ctx *pulumi.Context,
 	name string, args *AgentPoolArgs, opts ...pulumi.ResourceOption) (*AgentPool, error) {
+	if args == nil || args.AgentPoolName == nil {
+		return nil, errors.New("missing required argument 'AgentPoolName'")
+	}
 	if args == nil || args.Count == nil {
 		return nil, errors.New("missing required argument 'Count'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -186,6 +186,8 @@ func (AgentPoolState) ElementType() reflect.Type {
 }
 
 type agentPoolArgs struct {
+	// The name of the agent pool.
+	AgentPoolName string `pulumi:"agentPoolName"`
 	// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
@@ -198,8 +200,6 @@ type agentPoolArgs struct {
 	MaxPods *int `pulumi:"maxPods"`
 	// Minimum number of nodes for auto-scaling
 	MinCount *int `pulumi:"minCount"`
-	// The name of the agent pool.
-	Name string `pulumi:"name"`
 	// Version of orchestrator specified when creating the managed cluster.
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
@@ -220,6 +220,8 @@ type agentPoolArgs struct {
 
 // The set of arguments for constructing a AgentPool resource.
 type AgentPoolArgs struct {
+	// The name of the agent pool.
+	AgentPoolName pulumi.StringInput
 	// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayInput
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
@@ -232,8 +234,6 @@ type AgentPoolArgs struct {
 	MaxPods pulumi.IntPtrInput
 	// Minimum number of nodes for auto-scaling
 	MinCount pulumi.IntPtrInput
-	// The name of the agent pool.
-	Name pulumi.StringInput
 	// Version of orchestrator specified when creating the managed cluster.
 	OrchestratorVersion pulumi.StringPtrInput
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.

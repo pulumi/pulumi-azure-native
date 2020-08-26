@@ -79,20 +79,20 @@ class AwaitableGetGuestConfigurationHCRPAssignmentResult(GetGuestConfigurationHC
             type=self.type)
 
 
-def get_guest_configuration_hcrpassignment(machine_name: Optional[str] = None,
-                                           name: Optional[str] = None,
+def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: Optional[str] = None,
+                                           machine_name: Optional[str] = None,
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationHCRPAssignmentResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str guest_configuration_assignment_name: The guest configuration assignment name.
     :param str machine_name: The name of the ARC machine.
-    :param str name: The guest configuration assignment name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
+    __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
     __args__['machineName'] = machine_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

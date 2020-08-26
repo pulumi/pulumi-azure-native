@@ -15,21 +15,21 @@ export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180801:getPacketCapture", {
-        "name": args.name,
         "networkWatcherName": args.networkWatcherName,
+        "packetCaptureName": args.packetCaptureName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetPacketCaptureArgs {
     /**
-     * The name of the packet capture session.
-     */
-    readonly name: string;
-    /**
      * The name of the network watcher.
      */
     readonly networkWatcherName: string;
+    /**
+     * The name of the packet capture session.
+     */
+    readonly packetCaptureName: string;
     /**
      * The name of the resource group.
      */

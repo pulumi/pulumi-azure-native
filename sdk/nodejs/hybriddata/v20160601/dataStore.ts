@@ -51,7 +51,7 @@ export class DataStore extends pulumi.CustomResource {
     /**
      * Name of the object.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Arm Id for the manager resource to which the data source is associated. This is optional.
      */
@@ -81,11 +81,11 @@ export class DataStore extends pulumi.CustomResource {
             if (!args || args.dataManagerName === undefined) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
+            if (!args || args.dataStoreName === undefined) {
+                throw new Error("Missing required property 'dataStoreName'");
+            }
             if (!args || args.dataStoreTypeId === undefined) {
                 throw new Error("Missing required property 'dataStoreTypeId'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -95,12 +95,13 @@ export class DataStore extends pulumi.CustomResource {
             }
             inputs["customerSecrets"] = args ? args.customerSecrets : undefined;
             inputs["dataManagerName"] = args ? args.dataManagerName : undefined;
+            inputs["dataStoreName"] = args ? args.dataStoreName : undefined;
             inputs["dataStoreTypeId"] = args ? args.dataStoreTypeId : undefined;
             inputs["extendedProperties"] = args ? args.extendedProperties : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["repositoryId"] = args ? args.repositoryId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["state"] = args ? args.state : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -129,6 +130,10 @@ export interface DataStoreArgs {
      */
     readonly dataManagerName: pulumi.Input<string>;
     /**
+     * The data store/repository name to be created or updated.
+     */
+    readonly dataStoreName: pulumi.Input<string>;
+    /**
      * The arm id of the data store type.
      */
     readonly dataStoreTypeId: pulumi.Input<string>;
@@ -136,10 +141,6 @@ export interface DataStoreArgs {
      * A generic json used differently by each data source type.
      */
     readonly extendedProperties?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * The data store/repository name to be created or updated.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Arm Id for the manager resource to which the data source is associated. This is optional.
      */

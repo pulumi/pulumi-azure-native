@@ -17,7 +17,7 @@ export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.Invok
     return pulumi.runtime.invoke("azurerm:hybriddata/v20190601:getJobDefinition", {
         "dataManagerName": args.dataManagerName,
         "dataServiceName": args.dataServiceName,
-        "name": args.name,
+        "jobDefinitionName": args.jobDefinitionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -34,7 +34,7 @@ export interface GetJobDefinitionArgs {
     /**
      * The job definition name that is being queried.
      */
-    readonly name: string;
+    readonly jobDefinitionName: string;
     /**
      * The Resource Group Name
      */

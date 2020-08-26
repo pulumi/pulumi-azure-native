@@ -103,7 +103,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The commitment tier for the next month.
      */
@@ -154,6 +154,9 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AccountArgs | undefined;
+            if (!args || args.accountName === undefined) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if (!args || args.dataLakeStoreAccounts === undefined) {
                 throw new Error("Missing required property 'dataLakeStoreAccounts'");
             }
@@ -163,12 +166,10 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["computePolicies"] = args ? args.computePolicies : undefined;
             inputs["dataLakeStoreAccounts"] = args ? args.dataLakeStoreAccounts : undefined;
             inputs["defaultDataLakeStoreAccount"] = args ? args.defaultDataLakeStoreAccount : undefined;
@@ -180,7 +181,6 @@ export class Account extends pulumi.CustomResource {
             inputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
             inputs["maxJobCount"] = args ? args.maxJobCount : undefined;
             inputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["newTier"] = args ? args.newTier : undefined;
             inputs["queryStoreRetention"] = args ? args.queryStoreRetention : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -191,6 +191,7 @@ export class Account extends pulumi.CustomResource {
             inputs["currentTier"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["systemMaxDegreeOfParallelism"] = undefined /*out*/;
@@ -212,6 +213,10 @@ export class Account extends pulumi.CustomResource {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * The name of the Data Lake Analytics account.
+     */
+    readonly accountName: pulumi.Input<string>;
     /**
      * The list of compute policies associated with this account.
      */
@@ -256,10 +261,6 @@ export interface AccountArgs {
      * The minimum supported priority per job for this account.
      */
     readonly minPriorityPerJob?: pulumi.Input<number>;
-    /**
-     * The name of the Data Lake Analytics account.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The commitment tier for the next month.
      */

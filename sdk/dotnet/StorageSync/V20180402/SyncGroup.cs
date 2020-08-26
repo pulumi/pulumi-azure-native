@@ -100,12 +100,6 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of Sync Group resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -116,6 +110,12 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
         /// </summary>
         [Input("storageSyncServiceName", required: true)]
         public Input<string> StorageSyncServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Sync Group resource.
+        /// </summary>
+        [Input("syncGroupName", required: true)]
+        public Input<string> SyncGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

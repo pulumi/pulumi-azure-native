@@ -143,6 +143,12 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
 
     public sealed class AgentPoolArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the agent pool.
+        /// </summary>
+        [Input("agentPoolName", required: true)]
+        public Input<string> AgentPoolName { get; set; } = null!;
+
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
 
@@ -190,12 +196,6 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
         /// </summary>
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
-
-        /// <summary>
-        /// The name of the agent pool.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Version of orchestrator specified when creating the managed cluster.

@@ -22,7 +22,7 @@ type LookupRemediationAtManagementGroupArgs struct {
 	// The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
 	ManagementGroupsNamespace string `pulumi:"managementGroupsNamespace"`
 	// The name of the remediation.
-	Name string `pulumi:"name"`
+	RemediationName string `pulumi:"remediationName"`
 }
 
 // The remediation definition.

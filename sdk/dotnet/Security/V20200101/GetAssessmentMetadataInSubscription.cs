@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// <summary>
         /// The Assessment Key - Unique key for the assessment type
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("assessmentMetadataName", required: true)]
+        public string AssessmentMetadataName { get; set; } = null!;
 
         public GetAssessmentMetadataInSubscriptionArgs()
         {

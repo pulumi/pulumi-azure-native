@@ -17,8 +17,10 @@ func LookupWebAppPublicCertificateSlot(ctx *pulumi.Context, args *LookupWebAppPu
 }
 
 type LookupWebAppPublicCertificateSlotArgs struct {
-	// Public certificate name.
+	// Name of the app.
 	Name string `pulumi:"name"`
+	// Public certificate name.
+	PublicCertificateName string `pulumi:"publicCertificateName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.

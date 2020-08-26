@@ -91,7 +91,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The object name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Serial Number of Data Box Edge/Gateway device.
      */
@@ -126,22 +126,22 @@ export class Device extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DeviceArgs | undefined;
+            if (!args || args.deviceName === undefined) {
+                throw new Error("Missing required property 'deviceName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["modelDescription"] = args ? args.modelDescription : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -152,6 +152,7 @@ export class Device extends pulumi.CustomResource {
             inputs["deviceModel"] = undefined /*out*/;
             inputs["deviceSoftwareVersion"] = undefined /*out*/;
             inputs["deviceType"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["serialNumber"] = undefined /*out*/;
             inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -182,6 +183,10 @@ export interface DeviceArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * The device name.
+     */
+    readonly deviceName: pulumi.Input<string>;
+    /**
      * The etag for the devices.
      */
     readonly etag?: pulumi.Input<string>;
@@ -197,10 +202,6 @@ export interface DeviceArgs {
      * The description of the Data Box Edge/Gateway device model.
      */
     readonly modelDescription?: pulumi.Input<string>;
-    /**
-     * The device name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name.
      */

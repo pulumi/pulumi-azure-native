@@ -125,16 +125,16 @@ namespace Pulumi.AzureRM.RecoveryServices.V20190615
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Item name to be backed up.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// ProtectedItemResource properties
         /// </summary>
         [Input("properties")]
         public Input<Inputs.ProtectedItemArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// Item name to be backed up.
+        /// </summary>
+        [Input("protectedItemName", required: true)]
+        public Input<string> ProtectedItemName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

@@ -114,6 +114,12 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
         public Input<Inputs.EventSubscriptionDestinationArgs>? Destination { get; set; }
 
         /// <summary>
+        /// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
+        /// </summary>
+        [Input("eventSubscriptionName", required: true)]
+        public Input<string> EventSubscriptionName { get; set; } = null!;
+
+        /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
         [Input("filter")]
@@ -130,12 +136,6 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
             get => _labels ?? (_labels = new InputList<string>());
             set => _labels = value;
         }
-
-        /// <summary>
-        /// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.

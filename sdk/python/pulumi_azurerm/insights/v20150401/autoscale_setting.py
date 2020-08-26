@@ -17,6 +17,7 @@ class AutoscaleSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 autoscale_setting_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -33,9 +34,10 @@ class AutoscaleSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] autoscale_setting_name: The autoscale setting name.
         :param pulumi.Input[bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The autoscale setting name.
+        :param pulumi.Input[str] name: the name of the autoscale setting.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleNotificationArgs']]]] notifications: the collection of notifications.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleProfileArgs']]]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -59,12 +61,13 @@ class AutoscaleSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if autoscale_setting_name is None:
+                raise TypeError("Missing required property 'autoscale_setting_name'")
+            __props__['autoscale_setting_name'] = autoscale_setting_name
             __props__['enabled'] = enabled
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['notifications'] = notifications
             if profiles is None:

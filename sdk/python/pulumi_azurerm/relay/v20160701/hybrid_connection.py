@@ -15,7 +15,7 @@ class HybridConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 hybrid_connection_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_client_authorization: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class HybridConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The hybrid connection name.
+        :param pulumi.Input[str] hybrid_connection_name: The hybrid connection name.
         :param pulumi.Input[str] namespace_name: The Namespace Name
         :param pulumi.Input[bool] requires_client_authorization: true if client authorization is needed for this HybridConnection; otherwise, false.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -51,9 +51,9 @@ class HybridConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if hybrid_connection_name is None:
+                raise TypeError("Missing required property 'hybrid_connection_name'")
+            __props__['hybrid_connection_name'] = hybrid_connection_name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
@@ -64,6 +64,7 @@ class HybridConnection(pulumi.CustomResource):
             __props__['user_metadata'] = user_metadata
             __props__['created_at'] = None
             __props__['listener_count'] = None
+            __props__['name'] = None
             __props__['type'] = None
             __props__['updated_at'] = None
         super(HybridConnection, __self__).__init__(

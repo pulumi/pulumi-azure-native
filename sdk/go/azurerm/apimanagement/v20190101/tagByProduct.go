@@ -25,9 +25,6 @@ type TagByProduct struct {
 // NewTagByProduct registers a new resource with the given unique name, arguments, and options.
 func NewTagByProduct(ctx *pulumi.Context,
 	name string, args *TagByProductArgs, opts ...pulumi.ResourceOption) (*TagByProduct, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ProductId == nil {
 		return nil, errors.New("missing required argument 'ProductId'")
 	}
@@ -36,6 +33,9 @@ func NewTagByProduct(ctx *pulumi.Context,
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.TagId == nil {
+		return nil, errors.New("missing required argument 'TagId'")
 	}
 	if args == nil {
 		args = &TagByProductArgs{}
@@ -96,26 +96,26 @@ func (TagByProductState) ElementType() reflect.Type {
 }
 
 type tagByProductArgs struct {
-	// Tag identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId string `pulumi:"productId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Tag identifier. Must be unique in the current API Management service instance.
+	TagId string `pulumi:"tagId"`
 }
 
 // The set of arguments for constructing a TagByProduct resource.
 type TagByProductArgs struct {
-	// Tag identifier. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Tag identifier. Must be unique in the current API Management service instance.
+	TagId pulumi.StringInput
 }
 
 func (TagByProductArgs) ElementType() reflect.Type {

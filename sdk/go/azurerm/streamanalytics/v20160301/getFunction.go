@@ -17,10 +17,10 @@ func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulum
 }
 
 type LookupFunctionArgs struct {
+	// The name of the function.
+	FunctionName string `pulumi:"functionName"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
-	// The name of the function.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -121,16 +121,16 @@ namespace Pulumi.AzureRM.CostManagement.V20190101
         public Input<Inputs.ExportDeliveryInfoArgs> DeliveryInfo { get; set; } = null!;
 
         /// <summary>
+        /// Export Name.
+        /// </summary>
+        [Input("exportName", required: true)]
+        public Input<string> ExportName { get; set; } = null!;
+
+        /// <summary>
         /// The format of the export being delivered.
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
-
-        /// <summary>
-        /// Export Name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Has schedule information for the export.

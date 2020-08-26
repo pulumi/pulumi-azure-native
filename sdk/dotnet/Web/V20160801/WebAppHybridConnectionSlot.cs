@@ -146,7 +146,7 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The name of the Service Bus relay.
+        /// The name of the web app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -168,6 +168,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         [Input("relayArmUri")]
         public Input<string>? RelayArmUri { get; set; }
+
+        /// <summary>
+        /// The name of the Service Bus relay.
+        /// </summary>
+        [Input("relayName", required: true)]
+        public Input<string> RelayName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

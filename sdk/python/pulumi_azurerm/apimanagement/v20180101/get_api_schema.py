@@ -79,22 +79,22 @@ class AwaitableGetApiSchemaResult(GetApiSchemaResult):
 
 
 def get_api_schema(api_id: Optional[str] = None,
-                   name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
+                   schema_id: Optional[str] = None,
                    service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiSchemaResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-    :param str name: Schema identifier within an API. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.
+    :param str schema_id: Schema identifier within an API. Must be unique in the current API Management service instance.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['schemaId'] = schema_id
     __args__['serviceName'] = service_name
     if opts is None:
         opts = pulumi.InvokeOptions()

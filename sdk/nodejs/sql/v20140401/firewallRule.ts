@@ -49,7 +49,7 @@ export class FirewallRule extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
      */
@@ -75,8 +75,8 @@ export class FirewallRule extends pulumi.CustomResource {
             if (!args || args.endIpAddress === undefined) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.firewallRuleName === undefined) {
+                throw new Error("Missing required property 'firewallRuleName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -88,12 +88,13 @@ export class FirewallRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'startIpAddress'");
             }
             inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["firewallRuleName"] = args ? args.firewallRuleName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -118,7 +119,7 @@ export interface FirewallRuleArgs {
     /**
      * The name of the firewall rule.
      */
-    readonly name: pulumi.Input<string>;
+    readonly firewallRuleName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

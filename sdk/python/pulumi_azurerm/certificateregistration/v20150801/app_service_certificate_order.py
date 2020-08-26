@@ -18,13 +18,13 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
+                 certificate_order_name: Optional[pulumi.Input[str]] = None,
                  certificates: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['AppServiceCertificateArgs']]]]] = None,
                  csr: Optional[pulumi.Input[str]] = None,
                  distinguished_name: Optional[pulumi.Input[str]] = None,
                  key_size: Optional[pulumi.Input[float]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  product_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -38,13 +38,13 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_renew: <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+        :param pulumi.Input[str] certificate_order_name: Name of the certificate order.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['AppServiceCertificateArgs']]]] certificates: State of the Key Vault secret.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: Certificate distinguished name.
         :param pulumi.Input[float] key_size: Certificate key size.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Name of the certificate order.
         :param pulumi.Input[str] product_type: Certificate product type.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -68,6 +68,9 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_renew'] = auto_renew
+            if certificate_order_name is None:
+                raise TypeError("Missing required property 'certificate_order_name'")
+            __props__['certificate_order_name'] = certificate_order_name
             __props__['certificates'] = certificates
             __props__['csr'] = csr
             __props__['distinguished_name'] = distinguished_name
@@ -76,9 +79,6 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if product_type is None:
                 raise TypeError("Missing required property 'product_type'")
             __props__['product_type'] = product_type
@@ -93,6 +93,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             __props__['intermediate'] = None
             __props__['is_private_key_external'] = None
             __props__['last_certificate_issuance_time'] = None
+            __props__['name'] = None
             __props__['next_auto_renewal_time_stamp'] = None
             __props__['provisioning_state'] = None
             __props__['root'] = None

@@ -17,18 +17,23 @@ export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs,
     return pulumi.runtime.invoke("azurerm:web/v20180201:getWebAppSourceControlSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
     }, opts);
 }
 
 export interface GetWebAppSourceControlSlotArgs {
     /**
-     * Name of the deployment slot. If a slot is not specified, the API will get the source control configuration for the production slot.
+     * Name of the app.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will get the source control configuration for the production slot.
+     */
+    readonly slot: string;
 }
 
 /**

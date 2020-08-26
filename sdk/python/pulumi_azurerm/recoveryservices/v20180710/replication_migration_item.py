@@ -18,7 +18,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 migration_item_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['EnableMigrationInputPropertiesArgs']]] = None,
                  protection_container_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
-        :param pulumi.Input[str] name: Migration item name.
+        :param pulumi.Input[str] migration_item_name: Migration item name.
         :param pulumi.Input[pulumi.InputType['EnableMigrationInputPropertiesArgs']] properties: Enable migration input properties.
         :param pulumi.Input[str] protection_container_name: Protection container name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
@@ -58,9 +58,9 @@ class ReplicationMigrationItem(pulumi.CustomResource):
             if fabric_name is None:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if migration_item_name is None:
+                raise TypeError("Missing required property 'migration_item_name'")
+            __props__['migration_item_name'] = migration_item_name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
@@ -74,6 +74,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['location'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20180110:ReplicationMigrationItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

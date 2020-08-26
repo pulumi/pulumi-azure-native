@@ -42,8 +42,8 @@ func NewNamespace(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.NamespaceName == nil {
+		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -132,7 +132,7 @@ type namespaceArgs struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// The Namespace Name
-	Name string `pulumi:"name"`
+	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sku of the Namespace.
@@ -146,7 +146,7 @@ type NamespaceArgs struct {
 	// Resource location
 	Location pulumi.StringInput
 	// The Namespace Name
-	Name pulumi.StringInput
+	NamespaceName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Sku of the Namespace.

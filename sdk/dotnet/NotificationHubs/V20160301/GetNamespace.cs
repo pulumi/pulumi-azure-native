@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         /// <summary>
         /// The namespace name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("namespaceName", required: true)]
+        public string NamespaceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

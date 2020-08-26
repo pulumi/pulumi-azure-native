@@ -20,7 +20,7 @@ type LookupPoolArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
 	// The name of the capacity pool
-	Name string `pulumi:"name"`
+	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

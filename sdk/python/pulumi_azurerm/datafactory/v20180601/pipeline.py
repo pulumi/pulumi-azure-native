@@ -23,8 +23,8 @@ class Pipeline(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[pulumi.InputType['PipelineFolderArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterSpecificationArgs']]]]] = None,
+                 pipeline_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['VariableSpecificationArgs']]]]] = None,
@@ -42,8 +42,8 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the pipeline.
         :param pulumi.Input[str] factory_name: The factory name.
         :param pulumi.Input[pulumi.InputType['PipelineFolderArgs']] folder: The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-        :param pulumi.Input[str] name: The pipeline name.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterSpecificationArgs']]]] parameters: List of parameters for pipeline.
+        :param pulumi.Input[str] pipeline_name: The pipeline name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] run_dimensions: Dimensions emitted by Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['VariableSpecificationArgs']]]] variables: List of variables for pipeline.
@@ -73,16 +73,17 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
             __props__['folder'] = folder
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['parameters'] = parameters
+            if pipeline_name is None:
+                raise TypeError("Missing required property 'pipeline_name'")
+            __props__['pipeline_name'] = pipeline_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['run_dimensions'] = run_dimensions
             __props__['variables'] = variables
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(Pipeline, __self__).__init__(
             'azurerm:datafactory/v20180601:Pipeline',

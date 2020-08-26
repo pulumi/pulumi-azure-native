@@ -38,11 +38,11 @@ func NewStorageTarget(ctx *pulumi.Context,
 	if args == nil || args.CacheName == nil {
 		return nil, errors.New("missing required argument 'CacheName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StorageTargetName == nil {
+		return nil, errors.New("missing required argument 'StorageTargetName'")
 	}
 	if args == nil {
 		args = &StorageTargetArgs{}
@@ -123,14 +123,14 @@ type storageTargetArgs struct {
 	Clfs *ClfsTarget `pulumi:"clfs"`
 	// List of Cache namespace junctions to target for namespace associations.
 	Junctions []NamespaceJunction `pulumi:"junctions"`
-	// Name of the Storage Target.
-	Name string `pulumi:"name"`
 	// Properties when targetType is nfs3.
 	Nfs3 *Nfs3Target `pulumi:"nfs3"`
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the Storage Target.
+	StorageTargetName string `pulumi:"storageTargetName"`
 	// Type of the Storage Target.
 	TargetType *string `pulumi:"targetType"`
 	// Properties when targetType is unknown.
@@ -145,14 +145,14 @@ type StorageTargetArgs struct {
 	Clfs ClfsTargetPtrInput
 	// List of Cache namespace junctions to target for namespace associations.
 	Junctions NamespaceJunctionArrayInput
-	// Name of the Storage Target.
-	Name pulumi.StringInput
 	// Properties when targetType is nfs3.
 	Nfs3 Nfs3TargetPtrInput
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState pulumi.StringPtrInput
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
+	// Name of the Storage Target.
+	StorageTargetName pulumi.StringInput
 	// Type of the Storage Target.
 	TargetType pulumi.StringPtrInput
 	// Properties when targetType is unknown.

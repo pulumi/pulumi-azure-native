@@ -207,8 +207,8 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The name of Network Virtual Appliance.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("networkVirtualApplianceName", required: true)]
+        public Input<string> NetworkVirtualApplianceName { get; set; } = null!;
 
         /// <summary>
         /// Network Virtual Appliance SKU.

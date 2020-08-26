@@ -30,8 +30,8 @@ func NewFirewallRule(ctx *pulumi.Context,
 	if args == nil || args.EndIpAddress == nil {
 		return nil, errors.New("missing required argument 'EndIpAddress'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.FirewallRuleName == nil {
+		return nil, errors.New("missing required argument 'FirewallRuleName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,7 +96,7 @@ type firewallRuleArgs struct {
 	// The end IP address of the server firewall rule. Must be IPv4 format.
 	EndIpAddress string `pulumi:"endIpAddress"`
 	// The name of the server firewall rule.
-	Name string `pulumi:"name"`
+	FirewallRuleName string `pulumi:"firewallRuleName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -110,7 +110,7 @@ type FirewallRuleArgs struct {
 	// The end IP address of the server firewall rule. Must be IPv4 format.
 	EndIpAddress pulumi.StringInput
 	// The name of the server firewall rule.
-	Name pulumi.StringInput
+	FirewallRuleName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

@@ -19,12 +19,12 @@ func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.
 type LookupTriggerArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
-	// The name of the trigger.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the shareSubscription.
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
+	// The name of the trigger.
+	TriggerName string `pulumi:"triggerName"`
 }
 
 // A Trigger data transfer object.

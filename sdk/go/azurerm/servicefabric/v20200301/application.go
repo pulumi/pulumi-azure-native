@@ -51,11 +51,11 @@ type Application struct {
 // NewApplication registers a new resource with the given unique name, arguments, and options.
 func NewApplication(ctx *pulumi.Context,
 	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
+	if args == nil || args.ApplicationName == nil {
+		return nil, errors.New("missing required argument 'ApplicationName'")
+	}
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -165,6 +165,8 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
+	// The name of the application resource.
+	ApplicationName string `pulumi:"applicationName"`
 	// The name of the cluster resource.
 	ClusterName string `pulumi:"clusterName"`
 	// Describes the managed identities for an Azure resource.
@@ -179,8 +181,6 @@ type applicationArgs struct {
 	Metrics []ApplicationMetricDescription `pulumi:"metrics"`
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
 	MinimumNodes *int `pulumi:"minimumNodes"`
-	// The name of the application resource.
-	Name string `pulumi:"name"`
 	// List of application parameters with overridden values from their default values specified in the application manifest.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Remove the current application capacity settings.
@@ -199,6 +199,8 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
+	// The name of the application resource.
+	ApplicationName pulumi.StringInput
 	// The name of the cluster resource.
 	ClusterName pulumi.StringInput
 	// Describes the managed identities for an Azure resource.
@@ -213,8 +215,6 @@ type ApplicationArgs struct {
 	Metrics ApplicationMetricDescriptionArrayInput
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
 	MinimumNodes pulumi.IntPtrInput
-	// The name of the application resource.
-	Name pulumi.StringInput
 	// List of application parameters with overridden values from their default values specified in the application manifest.
 	Parameters pulumi.StringMapInput
 	// Remove the current application capacity settings.

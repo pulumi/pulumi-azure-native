@@ -18,9 +18,9 @@ class Snapshot(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 snapshot_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,9 +33,9 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] file_system_id: UUID v4 used to identify the FileSystem
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the mount target
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] snapshot_name: The name of the mount target
         :param pulumi.Input[str] volume_name: The name of the volume
         """
         if __name__ is not None:
@@ -62,19 +62,20 @@ class Snapshot(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if pool_name is None:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if snapshot_name is None:
+                raise TypeError("Missing required property 'snapshot_name'")
+            __props__['snapshot_name'] = snapshot_name
             if volume_name is None:
                 raise TypeError("Missing required property 'volume_name'")
             __props__['volume_name'] = volume_name
             __props__['created'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['snapshot_id'] = None
             __props__['type'] = None

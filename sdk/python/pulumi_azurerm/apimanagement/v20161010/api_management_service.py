@@ -26,6 +26,7 @@ class ApiManagementService(pulumi.CustomResource):
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpn_type: Optional[pulumi.Input[str]] = None,
@@ -43,10 +44,11 @@ class ApiManagementService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service, like disabling TLS 1.0.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the API Management service.
+        :param pulumi.Input[str] name: Resource name.
         :param pulumi.Input[str] publisher_email: Publisher email.
         :param pulumi.Input[str] publisher_name: Publisher name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']] sku: SKU properties of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vpn_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
@@ -76,8 +78,6 @@ class ApiManagementService(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if publisher_email is None:
                 raise TypeError("Missing required property 'publisher_email'")
@@ -88,6 +88,9 @@ class ApiManagementService(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if service_name is None:
+                raise TypeError("Missing required property 'service_name'")
+            __props__['service_name'] = service_name
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku

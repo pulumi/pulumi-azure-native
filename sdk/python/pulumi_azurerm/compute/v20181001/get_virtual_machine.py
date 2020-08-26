@@ -272,20 +272,20 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
 
 
 def get_virtual_machine(expand: Optional[str] = None,
-                        name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
+                        vm_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str expand: The expand expression to apply on the operation.
-    :param str name: The name of the virtual machine.
     :param str resource_group_name: The name of the resource group.
+    :param str vm_name: The name of the virtual machine.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['vmName'] = vm_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

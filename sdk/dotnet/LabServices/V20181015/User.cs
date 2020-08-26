@@ -150,12 +150,6 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the user.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The provisioning status of the resource.
         /// </summary>
         [Input("provisioningState")]
@@ -184,6 +178,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         [Input("uniqueIdentifier")]
         public Input<string>? UniqueIdentifier { get; set; }
+
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
 
         public UserArgs()
         {

@@ -19,9 +19,9 @@ class FileShare(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  enabled_protocols: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  root_squash: Optional[pulumi.Input[str]] = None,
+                 share_name: Optional[pulumi.Input[str]] = None,
                  share_quota: Optional[pulumi.Input[float]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,9 +35,9 @@ class FileShare(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] enabled_protocols: The authentication protocol that is used for the file share. Can only be specified when creating a share.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the share as metadata.
-        :param pulumi.Input[str] name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] root_squash: The property is for NFS share only. The default is NoRootSquash.
+        :param pulumi.Input[str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[float] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
         """
         if __name__ is not None:
@@ -63,13 +63,13 @@ class FileShare(pulumi.CustomResource):
             __props__['account_name'] = account_name
             __props__['enabled_protocols'] = enabled_protocols
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['root_squash'] = root_squash
+            if share_name is None:
+                raise TypeError("Missing required property 'share_name'")
+            __props__['share_name'] = share_name
             __props__['share_quota'] = share_quota
             __props__['access_tier_change_time'] = None
             __props__['access_tier_status'] = None
@@ -77,6 +77,7 @@ class FileShare(pulumi.CustomResource):
             __props__['deleted_time'] = None
             __props__['etag'] = None
             __props__['last_modified_time'] = None
+            __props__['name'] = None
             __props__['remaining_retention_days'] = None
             __props__['share_usage_bytes'] = None
             __props__['type'] = None

@@ -26,7 +26,6 @@ class Volume(pulumi.CustomResource):
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mount_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  protocol_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -38,6 +37,7 @@ class Volume(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mibps: Optional[pulumi.Input[float]] = None,
                  usage_threshold: Optional[pulumi.Input[float]] = None,
+                 volume_name: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -56,7 +56,6 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]] mount_targets: List of mount targets
-        :param pulumi.Input[str] name: The name of the volume
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[List[pulumi.Input[str]]] protocol_types: Set of protocol types
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -67,6 +66,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] volume_type: What type of volume is this
         """
         if __name__ is not None:
@@ -101,9 +101,6 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['mount_targets'] = mount_targets
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if pool_name is None:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
@@ -123,9 +120,13 @@ class Volume(pulumi.CustomResource):
             if usage_threshold is None:
                 raise TypeError("Missing required property 'usage_threshold'")
             __props__['usage_threshold'] = usage_threshold
+            if volume_name is None:
+                raise TypeError("Missing required property 'volume_name'")
+            __props__['volume_name'] = volume_name
             __props__['volume_type'] = volume_type
             __props__['baremetal_tenant_id'] = None
             __props__['file_system_id'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:netapp/v20190501:Volume"), pulumi.Alias(type_="azurerm:netapp/v20190601:Volume"), pulumi.Alias(type_="azurerm:netapp/v20190701:Volume"), pulumi.Alias(type_="azurerm:netapp/v20190801:Volume"), pulumi.Alias(type_="azurerm:netapp/v20191001:Volume"), pulumi.Alias(type_="azurerm:netapp/v20191101:Volume"), pulumi.Alias(type_="azurerm:netapp/v20200201:Volume")])

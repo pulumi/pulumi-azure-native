@@ -43,7 +43,7 @@ export class LinkedService extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of linked service.
      */
@@ -69,8 +69,8 @@ export class LinkedService extends pulumi.CustomResource {
             if (!args || args.factoryName === undefined) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.linkedServiceName === undefined) {
+                throw new Error("Missing required property 'linkedServiceName'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -79,10 +79,11 @@ export class LinkedService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["factoryName"] = args ? args.factoryName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,7 +108,7 @@ export interface LinkedServiceArgs {
     /**
      * The linked service name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly linkedServiceName: pulumi.Input<string>;
     /**
      * Properties of linked service.
      */

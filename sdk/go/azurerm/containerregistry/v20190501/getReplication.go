@@ -17,10 +17,10 @@ func LookupReplication(ctx *pulumi.Context, args *LookupReplicationArgs, opts ..
 }
 
 type LookupReplicationArgs struct {
-	// The name of the replication.
-	Name string `pulumi:"name"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
+	// The name of the replication.
+	ReplicationName string `pulumi:"replicationName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

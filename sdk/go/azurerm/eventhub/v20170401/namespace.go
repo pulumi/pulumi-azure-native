@@ -45,8 +45,8 @@ type Namespace struct {
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
 func NewNamespace(ctx *pulumi.Context,
 	name string, args *NamespaceArgs, opts ...pulumi.ResourceOption) (*Namespace, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.NamespaceName == nil {
+		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -156,7 +156,7 @@ type namespaceArgs struct {
 	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
 	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
 	// The Namespace name
-	Name string `pulumi:"name"`
+	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Properties of sku resource
@@ -176,7 +176,7 @@ type NamespaceArgs struct {
 	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
 	MaximumThroughputUnits pulumi.IntPtrInput
 	// The Namespace name
-	Name pulumi.StringInput
+	NamespaceName pulumi.StringInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Properties of sku resource

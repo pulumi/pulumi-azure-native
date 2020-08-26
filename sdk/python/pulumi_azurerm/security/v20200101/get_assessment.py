@@ -139,20 +139,20 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
             type=self.type)
 
 
-def get_assessment(expand: Optional[str] = None,
-                   name: Optional[str] = None,
+def get_assessment(assessment_name: Optional[str] = None,
+                   expand: Optional[str] = None,
                    resource_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str assessment_name: The Assessment Key - Unique key for the assessment type
     :param str expand: OData expand. Optional.
-    :param str name: The Assessment Key - Unique key for the assessment type
     :param str resource_id: The identifier of the resource.
     """
     __args__ = dict()
+    __args__['assessmentName'] = assessment_name
     __args__['expand'] = expand
-    __args__['name'] = name
     __args__['resourceId'] = resource_id
     if opts is None:
         opts = pulumi.InvokeOptions()

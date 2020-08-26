@@ -126,16 +126,22 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class AutomationAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the automation account.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
         /// Gets or sets the location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the automation account.
+        /// Gets or sets name of the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

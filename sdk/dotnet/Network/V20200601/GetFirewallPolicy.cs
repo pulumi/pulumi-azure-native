@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The name of the Firewall Policy.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("firewallPolicyName", required: true)]
+        public string FirewallPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

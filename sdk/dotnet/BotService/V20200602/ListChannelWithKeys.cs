@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.BotService.V20200602
         /// <summary>
         /// The name of the Channel resource.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("channelName", required: true)]
+        public string ChannelName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Bot resource group in the user subscription.

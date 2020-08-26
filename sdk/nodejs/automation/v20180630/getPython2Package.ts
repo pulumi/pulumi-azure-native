@@ -16,7 +16,7 @@ export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:automation/v20180630:getPython2Package", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
+        "packageName": args.packageName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetPython2PackageArgs {
     /**
      * The python package name.
      */
-    readonly name: string;
+    readonly packageName: string;
     /**
      * Name of an Azure Resource group.
      */

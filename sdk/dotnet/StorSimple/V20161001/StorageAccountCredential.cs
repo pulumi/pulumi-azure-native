@@ -120,6 +120,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Input<string> CloudType { get; set; } = null!;
 
         /// <summary>
+        /// The credential name.
+        /// </summary>
+        [Input("credentialName", required: true)]
+        public Input<string> CredentialName { get; set; } = null!;
+
+        /// <summary>
         /// SSL needs to be enabled or not
         /// </summary>
         [Input("enableSSL", required: true)]
@@ -148,12 +154,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// </summary>
         [Input("managerName", required: true)]
         public Input<string> ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The credential name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

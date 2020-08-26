@@ -43,7 +43,7 @@ export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
     /**
      * The name of the database account.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -69,8 +69,8 @@ export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.keyspaceName === undefined) {
+                throw new Error("Missing required property 'keyspaceName'");
             }
             if (!args || args.options === undefined) {
                 throw new Error("Missing required property 'options'");
@@ -82,11 +82,12 @@ export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["keyspaceName"] = args ? args.keyspaceName : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -114,7 +115,7 @@ export interface DatabaseAccountCassandraKeyspaceArgs {
     /**
      * Cosmos DB keyspace name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly keyspaceName: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

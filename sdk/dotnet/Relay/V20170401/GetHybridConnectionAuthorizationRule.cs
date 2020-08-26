@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Relay.V20170401
     public sealed class GetHybridConnectionAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public string AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
         /// The hybrid connection name.
         /// </summary>
         [Input("hybridConnectionName", required: true)]
         public string HybridConnectionName { get; set; } = null!;
-
-        /// <summary>
-        /// The authorization rule name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The namespace name

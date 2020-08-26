@@ -211,17 +211,17 @@ class AwaitableGetCacheResult(GetCacheResult):
             upgrade_status=self.upgrade_status)
 
 
-def get_cache(name: Optional[str] = None,
+def get_cache(cache_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+    :param str cache_name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

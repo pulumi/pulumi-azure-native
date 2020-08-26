@@ -15,7 +15,7 @@ export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:botservice/v20200602:listChannelWithKeys", {
-        "name": args.name,
+        "channelName": args.channelName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface ListChannelWithKeysArgs {
     /**
      * The name of the Channel resource.
      */
-    readonly name: string;
+    readonly channelName: string;
     /**
      * The name of the Bot resource group in the user subscription.
      */

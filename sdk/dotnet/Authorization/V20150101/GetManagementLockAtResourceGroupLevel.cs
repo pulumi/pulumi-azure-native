@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Authorization.V20150101
         /// <summary>
         /// The lock name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("lockName", required: true)]
+        public string LockName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

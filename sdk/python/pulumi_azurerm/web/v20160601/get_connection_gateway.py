@@ -100,17 +100,17 @@ class AwaitableGetConnectionGatewayResult(GetConnectionGatewayResult):
             type=self.type)
 
 
-def get_connection_gateway(name: Optional[str] = None,
+def get_connection_gateway(connection_gateway_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionGatewayResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The connection gateway name
+    :param str connection_gateway_name: The connection gateway name
     :param str resource_group_name: The resource group
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['connectionGatewayName'] = connection_gateway_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

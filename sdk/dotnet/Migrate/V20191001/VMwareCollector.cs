@@ -72,12 +72,6 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         public Input<string>? ETag { get; set; }
 
         /// <summary>
-        /// Unique name of a VMware collector within a project.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
         [Input("projectName", required: true)]
@@ -91,6 +85,12 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Unique name of a VMware collector within a project.
+        /// </summary>
+        [Input("vmWareCollectorName", required: true)]
+        public Input<string> VmWareCollectorName { get; set; } = null!;
 
         public VMwareCollectorArgs()
         {

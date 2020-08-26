@@ -15,20 +15,20 @@ export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180501:getZone", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "zoneName": args.zoneName,
     }, opts);
 }
 
 export interface GetZoneArgs {
     /**
-     * The name of the DNS zone (without a terminating dot).
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the DNS zone (without a terminating dot).
+     */
+    readonly zoneName: string;
 }
 
 /**

@@ -19,12 +19,12 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_vault_identifier_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  owner_email: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_storage_account_id: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,12 +35,12 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_vault_identifier_id: The key vault identifier used for encrypted workspaces.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[str] name: The name of the machine learning workspace.
         :param pulumi.Input[str] owner_email: The email id of the owner for this workspace.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the machine learning workspace belongs.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_storage_account_id: The fully qualified arm id of the storage account associated with this workspace.
+        :param pulumi.Input[str] workspace_name: The name of the machine learning workspace.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,9 +63,6 @@ class Workspace(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if owner_email is None:
                 raise TypeError("Missing required property 'owner_email'")
             __props__['owner_email'] = owner_email
@@ -77,7 +74,11 @@ class Workspace(pulumi.CustomResource):
             if user_storage_account_id is None:
                 raise TypeError("Missing required property 'user_storage_account_id'")
             __props__['user_storage_account_id'] = user_storage_account_id
+            if workspace_name is None:
+                raise TypeError("Missing required property 'workspace_name'")
+            __props__['workspace_name'] = workspace_name
             __props__['creation_time'] = None
+            __props__['name'] = None
             __props__['studio_endpoint'] = None
             __props__['type'] = None
             __props__['workspace_id'] = None

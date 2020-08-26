@@ -19,8 +19,8 @@ class ElasticPool(pulumi.CustomResource):
                  database_dtu_min: Optional[pulumi.Input[float]] = None,
                  dtu: Optional[pulumi.Input[float]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
+                 elastic_pool_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[float]] = None,
@@ -38,8 +38,8 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[float] database_dtu_min: The minimum DTU all databases are guaranteed.
         :param pulumi.Input[float] dtu: The total shared DTU for the database elastic pool.
         :param pulumi.Input[str] edition: The edition of the elastic pool.
+        :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool to be operated on (updated or created).
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the elastic pool to be operated on (updated or created).
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[float] storage_mb: Gets storage limit for the database elastic pool in MB.
@@ -67,12 +67,12 @@ class ElasticPool(pulumi.CustomResource):
             __props__['database_dtu_min'] = database_dtu_min
             __props__['dtu'] = dtu
             __props__['edition'] = edition
+            if elastic_pool_name is None:
+                raise TypeError("Missing required property 'elastic_pool_name'")
+            __props__['elastic_pool_name'] = elastic_pool_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -84,6 +84,7 @@ class ElasticPool(pulumi.CustomResource):
             __props__['zone_redundant'] = zone_redundant
             __props__['creation_date'] = None
             __props__['kind'] = None
+            __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
         super(ElasticPool, __self__).__init__(

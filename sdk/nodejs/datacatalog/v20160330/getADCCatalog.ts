@@ -15,7 +15,7 @@ export function getADCCatalog(args: GetADCCatalogArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:datacatalog/v20160330:getADCCatalog", {
-        "name": args.name,
+        "catalogName": args.catalogName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetADCCatalogArgs {
     /**
      * The name of the data catalog in the specified subscription and resource group.
      */
-    readonly name: string;
+    readonly catalogName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

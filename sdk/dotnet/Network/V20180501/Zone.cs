@@ -143,12 +143,6 @@ namespace Pulumi.AzureRM.Network.V20180501
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the DNS zone (without a terminating dot).
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("registrationVirtualNetworks")]
         private InputList<Inputs.SubResourceArgs>? _registrationVirtualNetworks;
 
@@ -190,6 +184,12 @@ namespace Pulumi.AzureRM.Network.V20180501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the DNS zone (without a terminating dot).
+        /// </summary>
+        [Input("zoneName", required: true)]
+        public Input<string> ZoneName { get; set; } = null!;
 
         /// <summary>
         /// The type of this DNS zone (Public or Private).

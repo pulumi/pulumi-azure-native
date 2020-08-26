@@ -67,6 +67,9 @@ type Assessment struct {
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
 func NewAssessment(ctx *pulumi.Context,
 	name string, args *AssessmentArgs, opts ...pulumi.ResourceOption) (*Assessment, error) {
+	if args == nil || args.AssessmentName == nil {
+		return nil, errors.New("missing required argument 'AssessmentName'")
+	}
 	if args == nil || args.AzureHybridUseBenefit == nil {
 		return nil, errors.New("missing required argument 'AzureHybridUseBenefit'")
 	}
@@ -90,9 +93,6 @@ func NewAssessment(ctx *pulumi.Context,
 	}
 	if args == nil || args.GroupName == nil {
 		return nil, errors.New("missing required argument 'GroupName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Percentile == nil {
 		return nil, errors.New("missing required argument 'Percentile'")
@@ -246,6 +246,8 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
+	// Unique name of an assessment within a project.
+	AssessmentName string `pulumi:"assessmentName"`
 	// AHUB discount on windows virtual machines.
 	AzureHybridUseBenefit string `pulumi:"azureHybridUseBenefit"`
 	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
@@ -264,8 +266,6 @@ type assessmentArgs struct {
 	ETag *string `pulumi:"eTag"`
 	// Unique name of a group within a project.
 	GroupName string `pulumi:"groupName"`
-	// Unique name of an assessment within a project.
-	Name string `pulumi:"name"`
 	// Percentile of performance data used to recommend Azure size.
 	Percentile string `pulumi:"percentile"`
 	// Name of the Azure Migrate project.
@@ -284,6 +284,8 @@ type assessmentArgs struct {
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
+	// Unique name of an assessment within a project.
+	AssessmentName pulumi.StringInput
 	// AHUB discount on windows virtual machines.
 	AzureHybridUseBenefit pulumi.StringInput
 	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
@@ -302,8 +304,6 @@ type AssessmentArgs struct {
 	ETag pulumi.StringPtrInput
 	// Unique name of a group within a project.
 	GroupName pulumi.StringInput
-	// Unique name of an assessment within a project.
-	Name pulumi.StringInput
 	// Percentile of performance data used to recommend Azure size.
 	Percentile pulumi.StringInput
 	// Name of the Azure Migrate project.

@@ -59,7 +59,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * Azure resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * List of application parameters with overridden values from their default values specified in the application manifest.
      */
@@ -106,21 +106,21 @@ export class Application extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ApplicationArgs | undefined;
+            if (!args || args.applicationName === undefined) {
+                throw new Error("Missing required property 'applicationName'");
+            }
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["applicationName"] = args ? args.applicationName : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maximumNodes"] = args ? args.maximumNodes : undefined;
             inputs["metrics"] = args ? args.metrics : undefined;
             inputs["minimumNodes"] = args ? args.minimumNodes : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["removeApplicationCapacity"] = args ? args.removeApplicationCapacity : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -129,6 +129,7 @@ export class Application extends pulumi.CustomResource {
             inputs["typeVersion"] = args ? args.typeVersion : undefined;
             inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -150,6 +151,10 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationArgs {
     /**
+     * The name of the application resource.
+     */
+    readonly applicationName: pulumi.Input<string>;
+    /**
      * The name of the cluster resource.
      */
     readonly clusterName: pulumi.Input<string>;
@@ -169,10 +174,6 @@ export interface ApplicationArgs {
      * The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
      */
     readonly minimumNodes?: pulumi.Input<number>;
-    /**
-     * The name of the application resource.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * List of application parameters with overridden values from their default values specified in the application manifest.
      */

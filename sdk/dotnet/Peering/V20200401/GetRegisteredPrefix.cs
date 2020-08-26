@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class GetRegisteredPrefixArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the registered prefix.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the peering.
         /// </summary>
         [Input("peeringName", required: true)]
         public string PeeringName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the registered prefix.
+        /// </summary>
+        [Input("registeredPrefixName", required: true)]
+        public string RegisteredPrefixName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

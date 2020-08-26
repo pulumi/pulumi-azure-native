@@ -59,7 +59,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
@@ -102,8 +102,8 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NetworkVirtualApplianceArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.networkVirtualApplianceName === undefined) {
+                throw new Error("Missing required property 'networkVirtualApplianceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -113,13 +113,14 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualApplianceAsn"] = args ? args.virtualApplianceAsn : undefined;
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualApplianceNics"] = undefined /*out*/;
@@ -164,7 +165,7 @@ export interface NetworkVirtualApplianceArgs {
     /**
      * The name of Network Virtual Appliance.
      */
-    readonly name: pulumi.Input<string>;
+    readonly networkVirtualApplianceName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

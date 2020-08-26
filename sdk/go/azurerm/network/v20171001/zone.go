@@ -38,11 +38,11 @@ func NewZone(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ZoneName == nil {
+		return nil, errors.New("missing required argument 'ZoneName'")
 	}
 	if args == nil {
 		args = &ZoneArgs{}
@@ -127,12 +127,12 @@ type zoneArgs struct {
 	Etag *string `pulumi:"etag"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the DNS zone (without a terminating dot).
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the DNS zone (without a terminating dot).
+	ZoneName string `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a Zone resource.
@@ -141,12 +141,12 @@ type ZoneArgs struct {
 	Etag pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The name of the DNS zone (without a terminating dot).
-	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The name of the DNS zone (without a terminating dot).
+	ZoneName pulumi.StringInput
 }
 
 func (ZoneArgs) ElementType() reflect.Type {

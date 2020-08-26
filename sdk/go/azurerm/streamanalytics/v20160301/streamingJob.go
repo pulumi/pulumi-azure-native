@@ -65,8 +65,8 @@ type StreamingJob struct {
 // NewStreamingJob registers a new resource with the given unique name, arguments, and options.
 func NewStreamingJob(ctx *pulumi.Context,
 	name string, args *StreamingJobArgs, opts ...pulumi.ResourceOption) (*StreamingJob, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.JobName == nil {
+		return nil, errors.New("missing required argument 'JobName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -212,10 +212,10 @@ type streamingJobArgs struct {
 	Functions []FunctionType `pulumi:"functions"`
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
 	Inputs []InputType `pulumi:"inputs"`
+	// The name of the streaming job.
+	JobName string `pulumi:"jobName"`
 	// Resource location. Required on PUT (CreateOrReplace) requests.
 	Location *string `pulumi:"location"`
-	// The name of the streaming job.
-	Name string `pulumi:"name"`
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 	OutputErrorPolicy *string `pulumi:"outputErrorPolicy"`
 	// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
@@ -250,10 +250,10 @@ type StreamingJobArgs struct {
 	Functions FunctionTypeArrayInput
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
 	Inputs InputTypeArrayInput
+	// The name of the streaming job.
+	JobName pulumi.StringInput
 	// Resource location. Required on PUT (CreateOrReplace) requests.
 	Location pulumi.StringPtrInput
-	// The name of the streaming job.
-	Name pulumi.StringInput
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 	OutputErrorPolicy pulumi.StringPtrInput
 	// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.

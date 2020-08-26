@@ -49,11 +49,11 @@ func NewJitRequest(ctx *pulumi.Context,
 	if args == nil || args.JitAuthorizationPolicies == nil {
 		return nil, errors.New("missing required argument 'JitAuthorizationPolicies'")
 	}
+	if args == nil || args.JitRequestName == nil {
+		return nil, errors.New("missing required argument 'JitRequestName'")
+	}
 	if args == nil || args.JitSchedulingPolicy == nil {
 		return nil, errors.New("missing required argument 'JitSchedulingPolicy'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -145,12 +145,12 @@ type jitRequestArgs struct {
 	ApplicationResourceId string `pulumi:"applicationResourceId"`
 	// The JIT authorization policies.
 	JitAuthorizationPolicies []JitAuthorizationPolicies `pulumi:"jitAuthorizationPolicies"`
+	// The name of the JIT request.
+	JitRequestName string `pulumi:"jitRequestName"`
 	// The JIT request properties.
 	JitSchedulingPolicy JitSchedulingPolicy `pulumi:"jitSchedulingPolicy"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the JIT request.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -163,12 +163,12 @@ type JitRequestArgs struct {
 	ApplicationResourceId pulumi.StringInput
 	// The JIT authorization policies.
 	JitAuthorizationPolicies JitAuthorizationPoliciesArrayInput
+	// The name of the JIT request.
+	JitRequestName pulumi.StringInput
 	// The JIT request properties.
 	JitSchedulingPolicy JitSchedulingPolicyInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the JIT request.
-	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

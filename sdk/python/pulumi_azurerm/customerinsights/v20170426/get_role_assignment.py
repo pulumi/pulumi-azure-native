@@ -295,20 +295,20 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
             widget_types=self.widget_types)
 
 
-def get_role_assignment(hub_name: Optional[str] = None,
-                        name: Optional[str] = None,
+def get_role_assignment(assignment_name: Optional[str] = None,
+                        hub_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str assignment_name: The name of the role assignment.
     :param str hub_name: The name of the hub.
-    :param str name: The name of the role assignment.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['assignmentName'] = assignment_name
     __args__['hubName'] = hub_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

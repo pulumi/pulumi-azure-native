@@ -45,7 +45,7 @@ export class DataConnector extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Azure resource type
      */
@@ -64,11 +64,11 @@ export class DataConnector extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DataConnectorArgs | undefined;
+            if (!args || args.dataConnectorId === undefined) {
+                throw new Error("Missing required property 'dataConnectorId'");
+            }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -76,11 +76,12 @@ export class DataConnector extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +100,10 @@ export class DataConnector extends pulumi.CustomResource {
  */
 export interface DataConnectorArgs {
     /**
+     * Connector ID
+     */
+    readonly dataConnectorId: pulumi.Input<string>;
+    /**
      * Etag of the azure resource
      */
     readonly etag?: pulumi.Input<string>;
@@ -106,10 +111,6 @@ export interface DataConnectorArgs {
      * The data connector kind
      */
     readonly kind: pulumi.Input<string>;
-    /**
-     * Connector ID
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

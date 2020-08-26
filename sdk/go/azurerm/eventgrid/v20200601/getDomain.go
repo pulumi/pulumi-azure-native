@@ -18,7 +18,7 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 
 type LookupDomainArgs struct {
 	// Name of the domain.
-	Name string `pulumi:"name"`
+	DomainName string `pulumi:"domainName"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

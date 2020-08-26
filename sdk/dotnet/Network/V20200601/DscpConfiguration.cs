@@ -174,6 +174,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         }
 
         /// <summary>
+        /// The name of the resource.
+        /// </summary>
+        [Input("dscpConfigurationName", required: true)]
+        public Input<string> DscpConfigurationName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -196,12 +202,6 @@ namespace Pulumi.AzureRM.Network.V20200601
             get => _markings ?? (_markings = new InputList<int>());
             set => _markings = value;
         }
-
-        /// <summary>
-        /// The name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// RNM supported protocol types.

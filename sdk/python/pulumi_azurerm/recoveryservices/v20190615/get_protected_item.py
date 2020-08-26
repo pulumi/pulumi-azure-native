@@ -106,7 +106,7 @@ class AwaitableGetProtectedItemResult(GetProtectedItemResult):
 def get_protected_item(container_name: Optional[str] = None,
                        fabric_name: Optional[str] = None,
                        filter: Optional[str] = None,
-                       name: Optional[str] = None,
+                       protected_item_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        vault_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectedItemResult:
@@ -116,7 +116,7 @@ def get_protected_item(container_name: Optional[str] = None,
     :param str container_name: Container name associated with the backed up item.
     :param str fabric_name: Fabric name associated with the backed up item.
     :param str filter: OData filter options.
-    :param str name: Backed up item name whose details are to be fetched.
+    :param str protected_item_name: Backed up item name whose details are to be fetched.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
@@ -124,7 +124,7 @@ def get_protected_item(container_name: Optional[str] = None,
     __args__['containerName'] = container_name
     __args__['fabricName'] = fabric_name
     __args__['filter'] = filter
-    __args__['name'] = name
+    __args__['protectedItemName'] = protected_item_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
     if opts is None:

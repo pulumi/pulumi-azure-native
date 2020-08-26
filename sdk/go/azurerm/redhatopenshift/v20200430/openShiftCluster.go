@@ -48,11 +48,11 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil {
 		args = &OpenShiftClusterArgs{}
@@ -153,14 +153,14 @@ type openShiftClusterArgs struct {
 	Location string `pulumi:"location"`
 	// The cluster master profile.
 	MasterProfile *MasterProfile `pulumi:"masterProfile"`
-	// The name of the OpenShift cluster resource.
-	Name string `pulumi:"name"`
 	// The cluster network profile.
 	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
 	// The cluster provisioning state (immutable).
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the OpenShift cluster resource.
+	ResourceName string `pulumi:"resourceName"`
 	// The cluster service principal profile.
 	ServicePrincipalProfile *ServicePrincipalProfile `pulumi:"servicePrincipalProfile"`
 	// Resource tags.
@@ -183,14 +183,14 @@ type OpenShiftClusterArgs struct {
 	Location pulumi.StringInput
 	// The cluster master profile.
 	MasterProfile MasterProfilePtrInput
-	// The name of the OpenShift cluster resource.
-	Name pulumi.StringInput
 	// The cluster network profile.
 	NetworkProfile NetworkProfilePtrInput
 	// The cluster provisioning state (immutable).
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The name of the OpenShift cluster resource.
+	ResourceName pulumi.StringInput
 	// The cluster service principal profile.
 	ServicePrincipalProfile ServicePrincipalProfilePtrInput
 	// Resource tags.

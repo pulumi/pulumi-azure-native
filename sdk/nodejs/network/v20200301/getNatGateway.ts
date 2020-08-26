@@ -16,7 +16,7 @@ export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptio
     }
     return pulumi.runtime.invoke("azurerm:network/v20200301:getNatGateway", {
         "expand": args.expand,
-        "name": args.name,
+        "natGatewayName": args.natGatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetNatGatewayArgs {
     /**
      * The name of the nat gateway.
      */
-    readonly name: string;
+    readonly natGatewayName: string;
     /**
      * The name of the resource group.
      */

@@ -17,7 +17,7 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[float]] = None,
@@ -32,7 +32,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the capacity pool
+        :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_level: The service level of the file system
         :param pulumi.Input[float] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
@@ -61,9 +61,9 @@ class Pool(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if pool_name is None:
+                raise TypeError("Missing required property 'pool_name'")
+            __props__['pool_name'] = pool_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -74,6 +74,7 @@ class Pool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'size'")
             __props__['size'] = size
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['pool_id'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

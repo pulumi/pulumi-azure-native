@@ -49,7 +49,7 @@ export class BackupPolicy extends pulumi.CustomResource {
     /**
      * The name of the object.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The time of the next backup for the backup policy.
      */
@@ -88,14 +88,14 @@ export class BackupPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as BackupPolicyArgs | undefined;
+            if (!args || args.backupPolicyName === undefined) {
+                throw new Error("Missing required property 'backupPolicyName'");
+            }
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -103,14 +103,15 @@ export class BackupPolicy extends pulumi.CustomResource {
             if (!args || args.volumeIds === undefined) {
                 throw new Error("Missing required property 'volumeIds'");
             }
+            inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["volumeIds"] = args ? args.volumeIds : undefined;
             inputs["backupPolicyCreationType"] = undefined /*out*/;
             inputs["lastBackupTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["nextBackupTime"] = undefined /*out*/;
             inputs["scheduledBackupStatus"] = undefined /*out*/;
             inputs["schedulesCount"] = undefined /*out*/;
@@ -133,6 +134,10 @@ export class BackupPolicy extends pulumi.CustomResource {
  */
 export interface BackupPolicyArgs {
     /**
+     * The name of the backup policy to be created/updated.
+     */
+    readonly backupPolicyName: pulumi.Input<string>;
+    /**
      * The device name
      */
     readonly deviceName: pulumi.Input<string>;
@@ -144,10 +149,6 @@ export interface BackupPolicyArgs {
      * The manager name
      */
     readonly managerName: pulumi.Input<string>;
-    /**
-     * The name of the backup policy to be created/updated.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name
      */

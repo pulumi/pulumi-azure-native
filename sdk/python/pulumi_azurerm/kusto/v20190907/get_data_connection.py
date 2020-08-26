@@ -79,22 +79,22 @@ class AwaitableGetDataConnectionResult(GetDataConnectionResult):
 
 
 def get_data_connection(cluster_name: Optional[str] = None,
+                        data_connection_name: Optional[str] = None,
                         database_name: Optional[str] = None,
-                        name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str cluster_name: The name of the Kusto cluster.
+    :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str name: The name of the data connection.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
+    __args__['dataConnectionName'] = data_connection_name
     __args__['databaseName'] = database_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

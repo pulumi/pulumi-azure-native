@@ -27,8 +27,8 @@ type Policy struct {
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
 func NewPolicy(ctx *pulumi.Context,
 	name string, args *PolicyArgs, opts ...pulumi.ResourceOption) (*Policy, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyId == nil {
+		return nil, errors.New("missing required argument 'PolicyId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -105,7 +105,7 @@ type policyArgs struct {
 	// Format of the policyContent.
 	Format *string `pulumi:"format"`
 	// The identifier of the Policy.
-	Name string `pulumi:"name"`
+	PolicyId string `pulumi:"policyId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -119,7 +119,7 @@ type PolicyArgs struct {
 	// Format of the policyContent.
 	Format pulumi.StringPtrInput
 	// The identifier of the Policy.
-	Name pulumi.StringInput
+	PolicyId pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

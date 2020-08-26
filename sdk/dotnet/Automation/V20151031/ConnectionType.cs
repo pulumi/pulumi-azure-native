@@ -107,6 +107,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
         [Input("automationAccountName", required: true)]
         public Input<string> AutomationAccountName { get; set; } = null!;
 
+        /// <summary>
+        /// The parameters supplied to the create or update connection type operation.
+        /// </summary>
+        [Input("connectionTypeName", required: true)]
+        public Input<string> ConnectionTypeName { get; set; } = null!;
+
         [Input("fieldDefinitions", required: true)]
         private InputMap<Inputs.FieldDefinitionArgs>? _fieldDefinitions;
 
@@ -126,7 +132,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<bool>? IsGlobal { get; set; }
 
         /// <summary>
-        /// The parameters supplied to the create or update connection type operation.
+        /// Gets or sets the name of the connection type.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

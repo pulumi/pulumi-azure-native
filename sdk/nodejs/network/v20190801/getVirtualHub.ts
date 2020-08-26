@@ -15,20 +15,20 @@ export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20190801:getVirtualHub", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "virtualHubName": args.virtualHubName,
     }, opts);
 }
 
 export interface GetVirtualHubArgs {
     /**
-     * The name of the VirtualHub.
-     */
-    readonly name: string;
-    /**
      * The resource group name of the VirtualHub.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the VirtualHub.
+     */
+    readonly virtualHubName: string;
 }
 
 /**

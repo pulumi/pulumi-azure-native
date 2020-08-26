@@ -115,20 +115,20 @@ class AwaitableGetIntegrationAccountSessionResult(GetIntegrationAccountSessionRe
 
 
 def get_integration_account_session(integration_account_name: Optional[str] = None,
-                                    name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
+                                    session_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountSessionResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str integration_account_name: The integration account name.
-    :param str name: The integration account session name.
     :param str resource_group_name: The resource group name.
+    :param str session_name: The integration account session name.
     """
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['sessionName'] = session_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

@@ -20,9 +20,9 @@ class RegisteredServer(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  last_heart_beat: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_certificate: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
                  server_os_version: Optional[pulumi.Input[str]] = None,
                  server_role: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
@@ -39,9 +39,9 @@ class RegisteredServer(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Registered Server clusterName
         :param pulumi.Input[str] friendly_name: Friendly Name
         :param pulumi.Input[str] last_heart_beat: Registered Server last heart beat
-        :param pulumi.Input[str] name: Registered Server serverId
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_certificate: Registered Server Certificate
+        :param pulumi.Input[str] server_id: Registered Server serverId
         :param pulumi.Input[str] server_os_version: Registered Server OS Version
         :param pulumi.Input[str] server_role: Registered Server serverRole
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
@@ -68,13 +68,13 @@ class RegisteredServer(pulumi.CustomResource):
             __props__['cluster_name'] = cluster_name
             __props__['friendly_name'] = friendly_name
             __props__['last_heart_beat'] = last_heart_beat
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['server_certificate'] = server_certificate
+            if server_id is None:
+                raise TypeError("Missing required property 'server_id'")
+            __props__['server_id'] = server_id
             __props__['server_os_version'] = server_os_version
             __props__['server_role'] = server_role
             if storage_sync_service_name is None:
@@ -86,9 +86,9 @@ class RegisteredServer(pulumi.CustomResource):
             __props__['management_endpoint_uri'] = None
             __props__['monitoring_configuration'] = None
             __props__['monitoring_endpoint_uri'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_location'] = None
-            __props__['server_id'] = None
             __props__['server_management_error_code'] = None
             __props__['service_location'] = None
             __props__['storage_sync_service_uid'] = None

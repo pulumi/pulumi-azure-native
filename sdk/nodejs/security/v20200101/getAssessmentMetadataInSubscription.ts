@@ -15,7 +15,7 @@ export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataI
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:security/v20200101:getAssessmentMetadataInSubscription", {
-        "name": args.name,
+        "assessmentMetadataName": args.assessmentMetadataName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetAssessmentMetadataInSubscriptionArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    readonly name: string;
+    readonly assessmentMetadataName: string;
 }
 
 /**

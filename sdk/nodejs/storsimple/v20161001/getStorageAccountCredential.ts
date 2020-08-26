@@ -15,21 +15,21 @@ export function getStorageAccountCredential(args: GetStorageAccountCredentialArg
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20161001:getStorageAccountCredential", {
+        "credentialName": args.credentialName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetStorageAccountCredentialArgs {
     /**
+     * The name of storage account credential to be fetched.
+     */
+    readonly credentialName: string;
+    /**
      * The manager name
      */
     readonly managerName: string;
-    /**
-     * The name of storage account credential to be fetched.
-     */
-    readonly name: string;
     /**
      * The resource group name
      */

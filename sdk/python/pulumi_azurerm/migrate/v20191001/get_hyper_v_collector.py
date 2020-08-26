@@ -64,19 +64,19 @@ class AwaitableGetHyperVCollectorResult(GetHyperVCollectorResult):
             type=self.type)
 
 
-def get_hyper_v_collector(name: Optional[str] = None,
+def get_hyper_v_collector(hyper_v_collector_name: Optional[str] = None,
                           project_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHyperVCollectorResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Unique name of a Hyper-V collector within a project.
+    :param str hyper_v_collector_name: Unique name of a Hyper-V collector within a project.
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['hyperVCollectorName'] = hyper_v_collector_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

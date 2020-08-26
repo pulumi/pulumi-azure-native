@@ -17,12 +17,12 @@ func LookupRouteFilterRule(ctx *pulumi.Context, args *LookupRouteFilterRuleArgs,
 }
 
 type LookupRouteFilterRuleArgs struct {
-	// The name of the rule.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the route filter.
 	RouteFilterName string `pulumi:"routeFilterName"`
+	// The name of the rule.
+	RuleName string `pulumi:"ruleName"`
 }
 
 // Route Filter Rule Resource.

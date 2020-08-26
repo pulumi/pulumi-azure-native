@@ -17,10 +17,10 @@ func LookupExpressRouteCircuitAuthorization(ctx *pulumi.Context, args *LookupExp
 }
 
 type LookupExpressRouteCircuitAuthorizationArgs struct {
+	// The name of the authorization.
+	AuthorizationName string `pulumi:"authorizationName"`
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
-	// The name of the authorization.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

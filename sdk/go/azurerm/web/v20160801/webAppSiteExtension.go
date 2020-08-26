@@ -67,6 +67,9 @@ func NewWebAppSiteExtension(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.SiteExtensionId == nil {
+		return nil, errors.New("missing required argument 'SiteExtensionId'")
+	}
 	if args == nil {
 		args = &WebAppSiteExtensionArgs{}
 	}
@@ -201,18 +204,22 @@ func (WebAppSiteExtensionState) ElementType() reflect.Type {
 }
 
 type webAppSiteExtensionArgs struct {
-	// Site extension name.
+	// Site name.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Site extension name.
+	SiteExtensionId string `pulumi:"siteExtensionId"`
 }
 
 // The set of arguments for constructing a WebAppSiteExtension resource.
 type WebAppSiteExtensionArgs struct {
-	// Site extension name.
+	// Site name.
 	Name pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Site extension name.
+	SiteExtensionId pulumi.StringInput
 }
 
 func (WebAppSiteExtensionArgs) ElementType() reflect.Type {

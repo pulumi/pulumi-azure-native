@@ -45,7 +45,7 @@ export class DataConnection extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -67,24 +67,25 @@ export class DataConnection extends pulumi.CustomResource {
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
+            if (!args || args.dataConnectionName === undefined) {
+                throw new Error("Missing required property 'dataConnectionName'");
+            }
             if (!args || args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
             }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,6 +110,10 @@ export interface DataConnectionArgs {
      */
     readonly clusterName: pulumi.Input<string>;
     /**
+     * The name of the data connection.
+     */
+    readonly dataConnectionName: pulumi.Input<string>;
+    /**
      * The name of the database in the Kusto cluster.
      */
     readonly databaseName: pulumi.Input<string>;
@@ -120,10 +125,6 @@ export interface DataConnectionArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the data connection.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

@@ -27,8 +27,8 @@ type Database struct {
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
 func NewDatabase(ctx *pulumi.Context,
 	name string, args *DatabaseArgs, opts ...pulumi.ResourceOption) (*Database, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DatabaseName == nil {
+		return nil, errors.New("missing required argument 'DatabaseName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -92,7 +92,7 @@ type databaseArgs struct {
 	// The collation of the database.
 	Collation *string `pulumi:"collation"`
 	// The name of the database.
-	Name string `pulumi:"name"`
+	DatabaseName string `pulumi:"databaseName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -106,7 +106,7 @@ type DatabaseArgs struct {
 	// The collation of the database.
 	Collation pulumi.StringPtrInput
 	// The name of the database.
-	Name pulumi.StringInput
+	DatabaseName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

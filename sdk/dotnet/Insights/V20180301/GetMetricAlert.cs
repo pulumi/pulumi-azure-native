@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Insights.V20180301
     public sealed class GetMetricAlertArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public string RuleName { get; set; } = null!;
 
         public GetMetricAlertArgs()
         {

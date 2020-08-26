@@ -35,8 +35,8 @@ type IpGroup struct {
 // NewIpGroup registers a new resource with the given unique name, arguments, and options.
 func NewIpGroup(ctx *pulumi.Context,
 	name string, args *IpGroupArgs, opts ...pulumi.ResourceOption) (*IpGroup, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.IpGroupsName == nil {
+		return nil, errors.New("missing required argument 'IpGroupsName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -133,10 +133,10 @@ type ipGroupArgs struct {
 	Id *string `pulumi:"id"`
 	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
 	IpAddresses []string `pulumi:"ipAddresses"`
+	// The name of the ipGroups.
+	IpGroupsName string `pulumi:"ipGroupsName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the ipGroups.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -149,10 +149,10 @@ type IpGroupArgs struct {
 	Id pulumi.StringPtrInput
 	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
 	IpAddresses pulumi.StringArrayInput
+	// The name of the ipGroups.
+	IpGroupsName pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the ipGroups.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

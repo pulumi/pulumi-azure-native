@@ -16,7 +16,7 @@ export function getApplicationGatewayPrivateEndpointConnection(args: GetApplicat
     }
     return pulumi.runtime.invoke("azurerm:network/v20200501:getApplicationGatewayPrivateEndpointConnection", {
         "applicationGatewayName": args.applicationGatewayName,
-        "name": args.name,
+        "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetApplicationGatewayPrivateEndpointConnectionArgs {
     /**
      * The name of the application gateway private endpoint connection.
      */
-    readonly name: string;
+    readonly connectionName: string;
     /**
      * The name of the resource group.
      */

@@ -41,8 +41,8 @@ type Experiment struct {
 // NewExperiment registers a new resource with the given unique name, arguments, and options.
 func NewExperiment(ctx *pulumi.Context,
 	name string, args *ExperimentArgs, opts ...pulumi.ResourceOption) (*Experiment, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ExperimentName == nil {
+		return nil, errors.New("missing required argument 'ExperimentName'")
 	}
 	if args == nil || args.ProfileName == nil {
 		return nil, errors.New("missing required argument 'ProfileName'")
@@ -137,10 +137,10 @@ type experimentArgs struct {
 	EndpointA *Endpoint `pulumi:"endpointA"`
 	// The endpoint B of an experiment
 	EndpointB *Endpoint `pulumi:"endpointB"`
+	// The Experiment identifier associated with the Experiment
+	ExperimentName string `pulumi:"experimentName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The Experiment identifier associated with the Experiment
-	Name string `pulumi:"name"`
 	// The Profile identifier associated with the Tenant and Partner
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
@@ -161,10 +161,10 @@ type ExperimentArgs struct {
 	EndpointA EndpointPtrInput
 	// The endpoint B of an experiment
 	EndpointB EndpointPtrInput
+	// The Experiment identifier associated with the Experiment
+	ExperimentName pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The Experiment identifier associated with the Experiment
-	Name pulumi.StringInput
 	// The Profile identifier associated with the Tenant and Partner
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.

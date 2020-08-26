@@ -79,7 +79,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * {virtualMachineName}
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The list of Virtual NICs
      */
@@ -160,9 +160,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.numberOfCores === undefined) {
                 throw new Error("Missing required property 'numberOfCores'");
             }
@@ -172,12 +169,14 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.virtualMachineName === undefined) {
+                throw new Error("Missing required property 'virtualMachineName'");
+            }
             inputs["amountOfRam"] = args ? args.amountOfRam : undefined;
             inputs["customization"] = args ? args.customization : undefined;
             inputs["disks"] = args ? args.disks : undefined;
             inputs["exposeToGuestVM"] = args ? args.exposeToGuestVM : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["nics"] = args ? args.nics : undefined;
             inputs["numberOfCores"] = args ? args.numberOfCores : undefined;
             inputs["password"] = args ? args.password : undefined;
@@ -188,11 +187,13 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["templateId"] = args ? args.templateId : undefined;
             inputs["username"] = args ? args.username : undefined;
             inputs["vSphereNetworks"] = args ? args.vSphereNetworks : undefined;
+            inputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
             inputs["controllers"] = undefined /*out*/;
             inputs["dnsname"] = undefined /*out*/;
             inputs["folder"] = undefined /*out*/;
             inputs["guestOS"] = undefined /*out*/;
             inputs["guestOSType"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicIP"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -236,10 +237,6 @@ export interface VirtualMachineArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * virtual machine name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The list of Virtual NICs
      */
     readonly nics?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualNic>[]>;
@@ -279,4 +276,8 @@ export interface VirtualMachineArgs {
      * The list of Virtual VSphere Networks
      */
     readonly vSphereNetworks?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * virtual machine name
+     */
+    readonly virtualMachineName: pulumi.Input<string>;
 }

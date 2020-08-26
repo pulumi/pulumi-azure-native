@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Peering.V20200401
         /// <summary>
         /// The peer ASN name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("peerAsnName", required: true)]
+        public string PeerAsnName { get; set; } = null!;
 
         public GetPeerAsnArgs()
         {

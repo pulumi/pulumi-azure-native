@@ -94,11 +94,11 @@ export class InboundNatRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as InboundNatRuleArgs | undefined;
+            if (!args || args.inboundNatRuleName === undefined) {
+                throw new Error("Missing required property 'inboundNatRuleName'");
+            }
             if (!args || args.loadBalancerName === undefined) {
                 throw new Error("Missing required property 'loadBalancerName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -111,6 +111,7 @@ export class InboundNatRule extends pulumi.CustomResource {
             inputs["frontendPort"] = args ? args.frontendPort : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            inputs["inboundNatRuleName"] = args ? args.inboundNatRuleName : undefined;
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
@@ -168,13 +169,17 @@ export interface InboundNatRuleArgs {
      */
     readonly idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
+     * The name of the inbound nat rule.
+     */
+    readonly inboundNatRuleName: pulumi.Input<string>;
+    /**
      * The name of the load balancer.
      */
     readonly loadBalancerName: pulumi.Input<string>;
     /**
-     * The name of the inbound nat rule.
+     * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
      */

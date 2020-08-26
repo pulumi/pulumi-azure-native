@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class GetSiteSourceControlSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of web app slot. If not specified then will default to production slot.
+        /// Name of web app
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -29,6 +29,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public string Slot { get; set; } = null!;
 
         public GetSiteSourceControlSlotArgs()
         {

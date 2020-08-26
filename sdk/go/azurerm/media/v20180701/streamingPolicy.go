@@ -38,11 +38,11 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StreamingPolicyName == nil {
+		return nil, errors.New("missing required argument 'StreamingPolicyName'")
 	}
 	if args == nil {
 		args = &StreamingPolicyArgs{}
@@ -127,12 +127,12 @@ type streamingPolicyArgs struct {
 	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
 	// Configuration of EnvelopeEncryption
 	EnvelopeEncryption *EnvelopeEncryption `pulumi:"envelopeEncryption"`
-	// The Streaming Policy name.
-	Name string `pulumi:"name"`
 	// Configurations of NoEncryption
 	NoEncryption *NoEncryption `pulumi:"noEncryption"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Streaming Policy name.
+	StreamingPolicyName string `pulumi:"streamingPolicyName"`
 }
 
 // The set of arguments for constructing a StreamingPolicy resource.
@@ -147,12 +147,12 @@ type StreamingPolicyArgs struct {
 	DefaultContentKeyPolicyName pulumi.StringPtrInput
 	// Configuration of EnvelopeEncryption
 	EnvelopeEncryption EnvelopeEncryptionPtrInput
-	// The Streaming Policy name.
-	Name pulumi.StringInput
 	// Configurations of NoEncryption
 	NoEncryption NoEncryptionPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The Streaming Policy name.
+	StreamingPolicyName pulumi.StringInput
 }
 
 func (StreamingPolicyArgs) ElementType() reflect.Type {

@@ -58,6 +58,9 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 	if args == nil || args.AuthorizationEndpoint == nil {
 		return nil, errors.New("missing required argument 'AuthorizationEndpoint'")
 	}
+	if args == nil || args.Authsid == nil {
+		return nil, errors.New("missing required argument 'Authsid'")
+	}
 	if args == nil || args.ClientId == nil {
 		return nil, errors.New("missing required argument 'ClientId'")
 	}
@@ -69,9 +72,6 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 	}
 	if args == nil || args.GrantTypes == nil {
 		return nil, errors.New("missing required argument 'GrantTypes'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -208,6 +208,8 @@ type authorizationServerArgs struct {
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
 	// HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
 	AuthorizationMethods []string `pulumi:"authorizationMethods"`
+	// Identifier of the authorization server.
+	Authsid string `pulumi:"authsid"`
 	// Specifies the mechanism by which access token is passed to the API.
 	BearerTokenSendingMethods []string `pulumi:"bearerTokenSendingMethods"`
 	// Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
@@ -226,8 +228,6 @@ type authorizationServerArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Form of an authorization grant, which the client uses to request the access token.
 	GrantTypes []string `pulumi:"grantTypes"`
-	// Identifier of the authorization server.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
@@ -250,6 +250,8 @@ type AuthorizationServerArgs struct {
 	AuthorizationEndpoint pulumi.StringInput
 	// HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
 	AuthorizationMethods pulumi.StringArrayInput
+	// Identifier of the authorization server.
+	Authsid pulumi.StringInput
 	// Specifies the mechanism by which access token is passed to the API.
 	BearerTokenSendingMethods pulumi.StringArrayInput
 	// Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
@@ -268,8 +270,6 @@ type AuthorizationServerArgs struct {
 	DisplayName pulumi.StringInput
 	// Form of an authorization grant, which the client uses to request the access token.
 	GrantTypes pulumi.StringArrayInput
-	// Identifier of the authorization server.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.

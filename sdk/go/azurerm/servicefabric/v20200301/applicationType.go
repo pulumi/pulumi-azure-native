@@ -31,11 +31,11 @@ type ApplicationType struct {
 // NewApplicationType registers a new resource with the given unique name, arguments, and options.
 func NewApplicationType(ctx *pulumi.Context,
 	name string, args *ApplicationTypeArgs, opts ...pulumi.ResourceOption) (*ApplicationType, error) {
+	if args == nil || args.ApplicationTypeName == nil {
+		return nil, errors.New("missing required argument 'ApplicationTypeName'")
+	}
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -105,12 +105,12 @@ func (ApplicationTypeState) ElementType() reflect.Type {
 }
 
 type applicationTypeArgs struct {
+	// The name of the application type name resource.
+	ApplicationTypeName string `pulumi:"applicationTypeName"`
 	// The name of the cluster resource.
 	ClusterName string `pulumi:"clusterName"`
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location *string `pulumi:"location"`
-	// The name of the application type name resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Azure resource tags.
@@ -119,12 +119,12 @@ type applicationTypeArgs struct {
 
 // The set of arguments for constructing a ApplicationType resource.
 type ApplicationTypeArgs struct {
+	// The name of the application type name resource.
+	ApplicationTypeName pulumi.StringInput
 	// The name of the cluster resource.
 	ClusterName pulumi.StringInput
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location pulumi.StringPtrInput
-	// The name of the application type name resource.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Azure resource tags.

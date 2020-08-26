@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// The name of the circuit.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("circuitName", required: true)]
+        public string CircuitName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

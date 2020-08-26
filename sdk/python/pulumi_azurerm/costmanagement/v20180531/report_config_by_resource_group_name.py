@@ -20,7 +20,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[pulumi.InputType['ReportConfigDefinitionArgs']]] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['ReportConfigDeliveryInfoArgs']]] = None,
                  format: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 report_config_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']]] = None,
                  __props__=None,
@@ -34,7 +34,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ReportConfigDefinitionArgs']] definition: Has definition for the report config.
         :param pulumi.Input[pulumi.InputType['ReportConfigDeliveryInfoArgs']] delivery_info: Has delivery information for the report config.
         :param pulumi.Input[str] format: The format of the report being delivered.
-        :param pulumi.Input[str] name: Report Config Name.
+        :param pulumi.Input[str] report_config_name: Report Config Name.
         :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
         :param pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']] schedule: Has schedule information for the report config.
         """
@@ -62,13 +62,14 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
                 raise TypeError("Missing required property 'delivery_info'")
             __props__['delivery_info'] = delivery_info
             __props__['format'] = format
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if report_config_name is None:
+                raise TypeError("Missing required property 'report_config_name'")
+            __props__['report_config_name'] = report_config_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['schedule'] = schedule
+            __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(ReportConfigByResourceGroupName, __self__).__init__(

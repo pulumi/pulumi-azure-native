@@ -136,18 +136,18 @@ class AwaitableGetVirtualWANResult(GetVirtualWANResult):
             vpn_sites=self.vpn_sites)
 
 
-def get_virtual_wan(name: Optional[str] = None,
-                    resource_group_name: Optional[str] = None,
+def get_virtual_wan(resource_group_name: Optional[str] = None,
+                    virtual_wan_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualWANResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the VirtualWAN being retrieved.
     :param str resource_group_name: The resource group name of the VirtualWan.
+    :param str virtual_wan_name: The name of the VirtualWAN being retrieved.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualWANName'] = virtual_wan_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

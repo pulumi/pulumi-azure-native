@@ -100,6 +100,12 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
     public sealed class ApplicationTypeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the application type name resource.
+        /// </summary>
+        [Input("applicationTypeName", required: true)]
+        public Input<string> ApplicationTypeName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the cluster resource.
         /// </summary>
         [Input("clusterName", required: true)]
@@ -110,12 +116,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the application type name resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -33,6 +33,9 @@ type ExpressRouteConnection struct {
 // NewExpressRouteConnection registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteConnection(ctx *pulumi.Context,
 	name string, args *ExpressRouteConnectionArgs, opts ...pulumi.ResourceOption) (*ExpressRouteConnection, error) {
+	if args == nil || args.ConnectionName == nil {
+		return nil, errors.New("missing required argument 'ConnectionName'")
+	}
 	if args == nil || args.ExpressRouteCircuitPeering == nil {
 		return nil, errors.New("missing required argument 'ExpressRouteCircuitPeering'")
 	}
@@ -158,6 +161,8 @@ func (ExpressRouteConnectionState) ElementType() reflect.Type {
 type expressRouteConnectionArgs struct {
 	// Authorization key to establish the connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The name of the connection subresource.
+	ConnectionName string `pulumi:"connectionName"`
 	// Enable internet security.
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ExpressRoute circuit peering.
@@ -166,7 +171,7 @@ type expressRouteConnectionArgs struct {
 	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the connection subresource.
+	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -180,6 +185,8 @@ type expressRouteConnectionArgs struct {
 type ExpressRouteConnectionArgs struct {
 	// Authorization key to establish the connection.
 	AuthorizationKey pulumi.StringPtrInput
+	// The name of the connection subresource.
+	ConnectionName pulumi.StringInput
 	// Enable internet security.
 	EnableInternetSecurity pulumi.BoolPtrInput
 	// The ExpressRoute circuit peering.
@@ -188,7 +195,7 @@ type ExpressRouteConnectionArgs struct {
 	ExpressRouteGatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the connection subresource.
+	// The name of the resource.
 	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput

@@ -17,10 +17,10 @@ func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, o
 }
 
 type LookupRoleAssignmentArgs struct {
+	// The name of the role assignment.
+	AssignmentName string `pulumi:"assignmentName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
-	// The name of the role assignment.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

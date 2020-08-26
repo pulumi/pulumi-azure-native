@@ -16,7 +16,7 @@ export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.Invok
     }
     return pulumi.runtime.invoke("azurerm:datalakeanalytics/v20161101:getComputePolicy", {
         "accountName": args.accountName,
-        "name": args.name,
+        "computePolicyName": args.computePolicyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetComputePolicyArgs {
     /**
      * The name of the compute policy to retrieve.
      */
-    readonly name: string;
+    readonly computePolicyName: string;
     /**
      * The name of the Azure resource group.
      */

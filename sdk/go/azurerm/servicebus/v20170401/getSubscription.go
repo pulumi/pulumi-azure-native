@@ -17,12 +17,12 @@ func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts 
 }
 
 type LookupSubscriptionArgs struct {
-	// The subscription name.
-	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The subscription name.
+	SubscriptionName string `pulumi:"subscriptionName"`
 	// The topic name.
 	TopicName string `pulumi:"topicName"`
 }

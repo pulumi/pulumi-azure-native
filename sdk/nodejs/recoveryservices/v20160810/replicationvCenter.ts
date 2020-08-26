@@ -43,7 +43,7 @@ export class ReplicationvCenter extends pulumi.CustomResource {
     /**
      * Resource Name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * VCenter related data.
      */
@@ -69,21 +69,22 @@ export class ReplicationvCenter extends pulumi.CustomResource {
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
+            if (!args || args.vCenterName === undefined) {
+                throw new Error("Missing required property 'vCenterName'");
+            }
             inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["vCenterName"] = args ? args.vCenterName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,10 +109,6 @@ export interface ReplicationvCenterArgs {
      */
     readonly fabricName: pulumi.Input<string>;
     /**
-     * vCenter name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The properties of an add vCenter request.
      */
     readonly properties?: pulumi.Input<inputs.recoveryservices.v20160810.AddVCenterRequestProperties>;
@@ -123,4 +120,8 @@ export interface ReplicationvCenterArgs {
      * The name of the recovery services vault.
      */
     readonly resourceName: pulumi.Input<string>;
+    /**
+     * vCenter name.
+     */
+    readonly vCenterName: pulumi.Input<string>;
 }

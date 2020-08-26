@@ -37,11 +37,11 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
     /**
      * Linked storage accounts type.
      */
-    public /*out*/ readonly dataSourceType!: pulumi.Output<string>;
+    public readonly dataSourceType!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Linked storage accounts resources ids.
      */
@@ -64,8 +64,8 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as LinkedStorageAccountArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.dataSourceType === undefined) {
+                throw new Error("Missing required property 'dataSourceType'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -73,11 +73,11 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["dataSourceType"] = args ? args.dataSourceType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountIds"] = args ? args.storageAccountIds : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["dataSourceType"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,7 +98,7 @@ export interface LinkedStorageAccountArgs {
     /**
      * Linked storage accounts type.
      */
-    readonly name: pulumi.Input<string>;
+    readonly dataSourceType: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

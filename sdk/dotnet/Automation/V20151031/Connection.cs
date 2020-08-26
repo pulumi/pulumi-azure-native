@@ -108,6 +108,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
+        /// The parameters supplied to the create or update connection operation.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
         /// Gets or sets the connectionType of the connection.
         /// </summary>
         [Input("connectionType", required: true)]
@@ -132,7 +138,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         }
 
         /// <summary>
-        /// The parameters supplied to the create or update connection operation.
+        /// Gets or sets the name of the connection.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -91,7 +91,7 @@ export class StreamingJob extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
      */
@@ -142,8 +142,8 @@ export class StreamingJob extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as StreamingJobArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.jobName === undefined) {
+                throw new Error("Missing required property 'jobName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -155,8 +155,8 @@ export class StreamingJob extends pulumi.CustomResource {
             inputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
             inputs["functions"] = args ? args.functions : undefined;
             inputs["inputs"] = args ? args.inputs : undefined;
+            inputs["jobName"] = args ? args.jobName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
             inputs["outputStartMode"] = args ? args.outputStartMode : undefined;
             inputs["outputStartTime"] = args ? args.outputStartTime : undefined;
@@ -170,6 +170,7 @@ export class StreamingJob extends pulumi.CustomResource {
             inputs["jobId"] = undefined /*out*/;
             inputs["jobState"] = undefined /*out*/;
             inputs["lastOutputEventTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -217,13 +218,13 @@ export interface StreamingJobArgs {
      */
     readonly inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.v20160301.Input>[]>;
     /**
+     * The name of the streaming job.
+     */
+    readonly jobName: pulumi.Input<string>;
+    /**
      * Resource location. Required on PUT (CreateOrReplace) requests.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the streaming job.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
      */

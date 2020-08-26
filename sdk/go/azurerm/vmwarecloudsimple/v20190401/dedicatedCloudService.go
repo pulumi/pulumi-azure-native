@@ -35,14 +35,14 @@ type DedicatedCloudService struct {
 // NewDedicatedCloudService registers a new resource with the given unique name, arguments, and options.
 func NewDedicatedCloudService(ctx *pulumi.Context,
 	name string, args *DedicatedCloudServiceArgs, opts ...pulumi.ResourceOption) (*DedicatedCloudService, error) {
+	if args == nil || args.DedicatedCloudServiceName == nil {
+		return nil, errors.New("missing required argument 'DedicatedCloudServiceName'")
+	}
 	if args == nil || args.GatewaySubnet == nil {
 		return nil, errors.New("missing required argument 'GatewaySubnet'")
 	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -114,12 +114,12 @@ func (DedicatedCloudServiceState) ElementType() reflect.Type {
 }
 
 type dedicatedCloudServiceArgs struct {
+	// dedicated cloud Service name
+	DedicatedCloudServiceName string `pulumi:"dedicatedCloudServiceName"`
 	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
 	GatewaySubnet string `pulumi:"gatewaySubnet"`
 	// Azure region
 	Location string `pulumi:"location"`
-	// dedicated cloud Service name
-	Name string `pulumi:"name"`
 	// The name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of tags
@@ -128,12 +128,12 @@ type dedicatedCloudServiceArgs struct {
 
 // The set of arguments for constructing a DedicatedCloudService resource.
 type DedicatedCloudServiceArgs struct {
+	// dedicated cloud Service name
+	DedicatedCloudServiceName pulumi.StringInput
 	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
 	GatewaySubnet pulumi.StringInput
 	// Azure region
 	Location pulumi.StringInput
-	// dedicated cloud Service name
-	Name pulumi.StringInput
 	// The name of the resource group
 	ResourceGroupName pulumi.StringInput
 	// The list of tags

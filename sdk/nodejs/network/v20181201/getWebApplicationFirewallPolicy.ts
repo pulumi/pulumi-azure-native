@@ -15,7 +15,7 @@ export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallP
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20181201:getWebApplicationFirewallPolicy", {
-        "name": args.name,
+        "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetWebApplicationFirewallPolicyArgs {
     /**
      * The name of the policy
      */
-    readonly name: string;
+    readonly policyName: string;
     /**
      * The name of the resource group.
      */

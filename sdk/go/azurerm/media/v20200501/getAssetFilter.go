@@ -22,7 +22,7 @@ type LookupAssetFilterArgs struct {
 	// The Asset name.
 	AssetName string `pulumi:"assetName"`
 	// The Asset Filter name
-	Name string `pulumi:"name"`
+	FilterName string `pulumi:"filterName"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

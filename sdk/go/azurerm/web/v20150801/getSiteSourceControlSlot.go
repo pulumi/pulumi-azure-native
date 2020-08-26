@@ -17,10 +17,12 @@ func LookupSiteSourceControlSlot(ctx *pulumi.Context, args *LookupSiteSourceCont
 }
 
 type LookupSiteSourceControlSlotArgs struct {
-	// Name of web app slot. If not specified then will default to production slot.
+	// Name of web app
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot string `pulumi:"slot"`
 }
 
 // Describes the source control configuration for web app

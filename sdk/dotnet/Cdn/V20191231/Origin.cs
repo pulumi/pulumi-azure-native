@@ -168,16 +168,16 @@ namespace Pulumi.AzureRM.Cdn.V20191231
         public Input<int>? HttpsPort { get; set; }
 
         /// <summary>
-        /// Name of the origin that is unique within the endpoint.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
         /// </summary>
         [Input("originHostHeader")]
         public Input<string>? OriginHostHeader { get; set; }
+
+        /// <summary>
+        /// Name of the origin that is unique within the endpoint.
+        /// </summary>
+        [Input("originName", required: true)]
+        public Input<string> OriginName { get; set; } = null!;
 
         /// <summary>
         /// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5

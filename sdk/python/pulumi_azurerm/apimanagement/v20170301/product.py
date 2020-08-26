@@ -18,7 +18,7 @@ class Product(pulumi.CustomResource):
                  approval_required: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 product_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[bool] approval_required: whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
         :param pulumi.Input[str] description: Product description. May include HTML formatting tags.
         :param pulumi.Input[str] display_name: Product name.
-        :param pulumi.Input[str] name: Product identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] product_id: Product identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] state: whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
@@ -66,9 +66,9 @@ class Product(pulumi.CustomResource):
             if display_name is None:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if product_id is None:
+                raise TypeError("Missing required property 'product_id'")
+            __props__['product_id'] = product_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -79,6 +79,7 @@ class Product(pulumi.CustomResource):
             __props__['subscription_required'] = subscription_required
             __props__['subscriptions_limit'] = subscriptions_limit
             __props__['terms'] = terms
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Product"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Product"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Product"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Product"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Product")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

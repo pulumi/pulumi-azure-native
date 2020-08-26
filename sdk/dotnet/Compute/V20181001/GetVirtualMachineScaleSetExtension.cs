@@ -25,12 +25,6 @@ namespace Pulumi.AzureRM.Compute.V20181001
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the VM scale set extension.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -41,6 +35,12 @@ namespace Pulumi.AzureRM.Compute.V20181001
         /// </summary>
         [Input("vmScaleSetName", required: true)]
         public string VmScaleSetName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VM scale set extension.
+        /// </summary>
+        [Input("vmssExtensionName", required: true)]
+        public string VmssExtensionName { get; set; } = null!;
 
         public GetVirtualMachineScaleSetExtensionArgs()
         {

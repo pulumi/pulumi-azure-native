@@ -16,7 +16,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getCertificate", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
+        "certificateName": args.certificateName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetCertificateArgs {
     /**
      * The name of certificate.
      */
-    readonly name: string;
+    readonly certificateName: string;
     /**
      * Name of an Azure Resource group.
      */

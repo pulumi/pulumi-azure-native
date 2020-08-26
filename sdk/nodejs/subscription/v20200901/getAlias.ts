@@ -15,7 +15,7 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:subscription/v20200901:getAlias", {
-        "name": args.name,
+        "aliasName": args.aliasName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetAliasArgs {
     /**
      * Alias Name
      */
-    readonly name: string;
+    readonly aliasName: string;
 }
 
 /**

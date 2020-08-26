@@ -20,7 +20,7 @@ type LookupNetworkVirtualApplianceArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of Network Virtual Appliance.
-	Name string `pulumi:"name"`
+	NetworkVirtualApplianceName string `pulumi:"networkVirtualApplianceName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

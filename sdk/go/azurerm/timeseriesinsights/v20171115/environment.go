@@ -48,11 +48,11 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args == nil || args.DataRetentionTime == nil {
 		return nil, errors.New("missing required argument 'DataRetentionTime'")
 	}
+	if args == nil || args.EnvironmentName == nil {
+		return nil, errors.New("missing required argument 'EnvironmentName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -155,10 +155,10 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 	DataRetentionTime string `pulumi:"dataRetentionTime"`
+	// Name of the environment
+	EnvironmentName string `pulumi:"environmentName"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
-	// Name of the environment
-	Name string `pulumi:"name"`
 	// The list of partition keys according to which the data in the environment will be ordered.
 	PartitionKeyProperties []PartitionKeyProperty `pulumi:"partitionKeyProperties"`
 	// Name of an Azure Resource group.
@@ -175,10 +175,10 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 	DataRetentionTime pulumi.StringInput
+	// Name of the environment
+	EnvironmentName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringInput
-	// Name of the environment
-	Name pulumi.StringInput
 	// The list of partition keys according to which the data in the environment will be ordered.
 	PartitionKeyProperties PartitionKeyPropertyArrayInput
 	// Name of an Azure Resource group.

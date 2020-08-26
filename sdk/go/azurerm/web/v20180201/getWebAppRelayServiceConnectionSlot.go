@@ -18,6 +18,8 @@ func LookupWebAppRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupWeb
 
 type LookupWebAppRelayServiceConnectionSlotArgs struct {
 	// Name of the hybrid connection.
+	EntityName string `pulumi:"entityName"`
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

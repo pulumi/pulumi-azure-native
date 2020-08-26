@@ -142,12 +142,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the container registry.
         /// </summary>
         [Input("registryName", required: true)]
@@ -188,6 +182,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the webhook.
+        /// </summary>
+        [Input("webhookName", required: true)]
+        public Input<string> WebhookName { get; set; } = null!;
 
         public WebhookArgs()
         {

@@ -33,8 +33,8 @@ type RoleDefinition struct {
 // NewRoleDefinition registers a new resource with the given unique name, arguments, and options.
 func NewRoleDefinition(ctx *pulumi.Context,
 	name string, args *RoleDefinitionArgs, opts ...pulumi.ResourceOption) (*RoleDefinition, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.RoleDefinitionId == nil {
+		return nil, errors.New("missing required argument 'RoleDefinitionId'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -106,10 +106,10 @@ type roleDefinitionArgs struct {
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// The role definition description.
 	Description *string `pulumi:"description"`
-	// The ID of the role definition.
-	Name string `pulumi:"name"`
 	// Role definition permissions.
 	Permissions []Permission `pulumi:"permissions"`
+	// The ID of the role definition.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 	// The role name.
 	RoleName *string `pulumi:"roleName"`
 	// The role type.
@@ -124,10 +124,10 @@ type RoleDefinitionArgs struct {
 	AssignableScopes pulumi.StringArrayInput
 	// The role definition description.
 	Description pulumi.StringPtrInput
-	// The ID of the role definition.
-	Name pulumi.StringInput
 	// Role definition permissions.
 	Permissions PermissionArrayInput
+	// The ID of the role definition.
+	RoleDefinitionId pulumi.StringInput
 	// The role name.
 	RoleName pulumi.StringPtrInput
 	// The role type.

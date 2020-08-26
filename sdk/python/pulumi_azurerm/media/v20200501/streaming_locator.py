@@ -24,10 +24,10 @@ class StreamingLocator(pulumi.CustomResource):
                  default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  streaming_locator_id: Optional[pulumi.Input[str]] = None,
+                 streaming_locator_name: Optional[pulumi.Input[str]] = None,
                  streaming_policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -44,10 +44,10 @@ class StreamingLocator(pulumi.CustomResource):
         :param pulumi.Input[str] default_content_key_policy_name: Name of the default ContentKeyPolicy used by this Streaming Locator.
         :param pulumi.Input[str] end_time: The end time of the Streaming Locator.
         :param pulumi.Input[List[pulumi.Input[str]]] filters: A list of asset or account filters which apply to this streaming locator
-        :param pulumi.Input[str] name: The Streaming Locator name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] start_time: The start time of the Streaming Locator.
         :param pulumi.Input[str] streaming_locator_id: The StreamingLocatorId of the Streaming Locator.
+        :param pulumi.Input[str] streaming_locator_name: The Streaming Locator name.
         :param pulumi.Input[str] streaming_policy_name: Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
         """
         if __name__ is not None:
@@ -78,18 +78,19 @@ class StreamingLocator(pulumi.CustomResource):
             __props__['default_content_key_policy_name'] = default_content_key_policy_name
             __props__['end_time'] = end_time
             __props__['filters'] = filters
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['start_time'] = start_time
             __props__['streaming_locator_id'] = streaming_locator_id
+            if streaming_locator_name is None:
+                raise TypeError("Missing required property 'streaming_locator_name'")
+            __props__['streaming_locator_name'] = streaming_locator_name
             if streaming_policy_name is None:
                 raise TypeError("Missing required property 'streaming_policy_name'")
             __props__['streaming_policy_name'] = streaming_policy_name
             __props__['created'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20180701:StreamingLocator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -49,11 +49,11 @@ func NewVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VmExtensionName == nil {
+		return nil, errors.New("missing required argument 'VmExtensionName'")
 	}
 	if args == nil || args.VmScaleSetName == nil {
 		return nil, errors.New("missing required argument 'VmScaleSetName'")
@@ -160,8 +160,6 @@ type virtualMachineScaleSetVMExtensionArgs struct {
 	InstanceView *VirtualMachineExtensionInstanceView `pulumi:"instanceView"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the virtual machine extension.
-	Name string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
 	// The name of the extension handler publisher.
@@ -176,6 +174,8 @@ type virtualMachineScaleSetVMExtensionArgs struct {
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	// The name of the virtual machine extension.
+	VmExtensionName string `pulumi:"vmExtensionName"`
 	// The name of the VM scale set.
 	VmScaleSetName string `pulumi:"vmScaleSetName"`
 }
@@ -192,8 +192,6 @@ type VirtualMachineScaleSetVMExtensionArgs struct {
 	InstanceView VirtualMachineExtensionInstanceViewPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the virtual machine extension.
-	Name pulumi.StringInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings pulumi.MapInput
 	// The name of the extension handler publisher.
@@ -208,6 +206,8 @@ type VirtualMachineScaleSetVMExtensionArgs struct {
 	Type pulumi.StringPtrInput
 	// Specifies the version of the script handler.
 	TypeHandlerVersion pulumi.StringPtrInput
+	// The name of the virtual machine extension.
+	VmExtensionName pulumi.StringInput
 	// The name of the VM scale set.
 	VmScaleSetName pulumi.StringInput
 }

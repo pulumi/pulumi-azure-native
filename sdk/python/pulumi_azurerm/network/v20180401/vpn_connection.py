@@ -17,6 +17,7 @@ class VpnConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  connection_status: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
@@ -36,12 +37,13 @@ class VpnConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_name: The name of the connection.
         :param pulumi.Input[str] connection_status: The connection status.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] ipsec_policies: The IPSec Policies to be considered by this connection.
-        :param pulumi.Input[str] name: The name of the connection.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_vpn_site: Id of the connected vpn site.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
@@ -65,6 +67,9 @@ class VpnConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if connection_name is None:
+                raise TypeError("Missing required property 'connection_name'")
+            __props__['connection_name'] = connection_name
             __props__['connection_status'] = connection_status
             __props__['enable_bgp'] = enable_bgp
             if gateway_name is None:
@@ -72,8 +77,6 @@ class VpnConnection(pulumi.CustomResource):
             __props__['gateway_name'] = gateway_name
             __props__['id'] = id
             __props__['ipsec_policies'] = ipsec_policies
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             __props__['remote_vpn_site'] = remote_vpn_site

@@ -113,8 +113,8 @@ export class DscConfiguration extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.configurationName === undefined) {
+                throw new Error("Missing required property 'configurationName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -123,6 +123,7 @@ export class DscConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'source'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["configurationName"] = args ? args.configurationName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["logProgress"] = args ? args.logProgress : undefined;
@@ -161,6 +162,10 @@ export interface DscConfigurationArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * The create or update parameters for configuration.
+     */
+    readonly configurationName: pulumi.Input<string>;
+    /**
      * Gets or sets the description of the configuration.
      */
     readonly description?: pulumi.Input<string>;
@@ -177,9 +182,9 @@ export interface DscConfigurationArgs {
      */
     readonly logVerbose?: pulumi.Input<boolean>;
     /**
-     * The create or update parameters for configuration.
+     * Gets or sets name of the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Gets or sets the configuration parameters.
      */

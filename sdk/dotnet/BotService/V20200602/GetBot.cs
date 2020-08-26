@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.BotService.V20200602
     public sealed class GetBotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Bot resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Bot resource group in the user subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Bot resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetBotArgs()
         {

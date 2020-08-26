@@ -20,8 +20,8 @@ class Origin(pulumi.CustomResource):
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[float]] = None,
                  https_port: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
+                 origin_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[float]] = None,
                  private_link_alias: Optional[pulumi.Input[str]] = None,
                  private_link_approval_message: Optional[pulumi.Input[str]] = None,
@@ -43,8 +43,8 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         :param pulumi.Input[float] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[float] https_port: The value of the HTTPS port. Must be between 1 and 65535.
-        :param pulumi.Input[str] name: Name of the origin that is unique within the endpoint.
         :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        :param pulumi.Input[str] origin_name: Name of the origin that is unique within the endpoint.
         :param pulumi.Input[float] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         :param pulumi.Input[str] private_link_alias: The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
         :param pulumi.Input[str] private_link_approval_message: A custom message to be included in the approval request to connect to the Private Link.
@@ -80,10 +80,10 @@ class Origin(pulumi.CustomResource):
             __props__['host_name'] = host_name
             __props__['http_port'] = http_port
             __props__['https_port'] = https_port
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['origin_host_header'] = origin_host_header
+            if origin_name is None:
+                raise TypeError("Missing required property 'origin_name'")
+            __props__['origin_name'] = origin_name
             __props__['priority'] = priority
             __props__['private_link_alias'] = private_link_alias
             __props__['private_link_approval_message'] = private_link_approval_message
@@ -96,6 +96,7 @@ class Origin(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['weight'] = weight
+            __props__['name'] = None
             __props__['private_endpoint_status'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None

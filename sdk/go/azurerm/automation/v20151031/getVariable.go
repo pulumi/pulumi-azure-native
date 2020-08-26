@@ -19,10 +19,10 @@ func LookupVariable(ctx *pulumi.Context, args *LookupVariableArgs, opts ...pulum
 type LookupVariableArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The name of variable.
-	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of variable.
+	VariableName string `pulumi:"variableName"`
 }
 
 // Definition of the variable.

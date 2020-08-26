@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Network.V20170801
         public string? Expand { get; set; }
 
         /// <summary>
+        /// The name of the inbound nat rule.
+        /// </summary>
+        [Input("inboundNatRuleName", required: true)]
+        public string InboundNatRuleName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the load balancer.
         /// </summary>
         [Input("loadBalancerName", required: true)]
         public string LoadBalancerName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the inbound nat rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

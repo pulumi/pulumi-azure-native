@@ -21,10 +21,10 @@ type LookupApplicationPackageArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the application. This must be unique within the account.
 	ApplicationName string `pulumi:"applicationName"`
-	// The version of the application.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The version of the application.
+	VersionName string `pulumi:"versionName"`
 }
 
 // An application package which represents a particular version of an application.

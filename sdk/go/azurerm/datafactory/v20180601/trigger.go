@@ -30,14 +30,14 @@ func NewTrigger(ctx *pulumi.Context,
 	if args == nil || args.FactoryName == nil {
 		return nil, errors.New("missing required argument 'FactoryName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TriggerName == nil {
+		return nil, errors.New("missing required argument 'TriggerName'")
 	}
 	if args == nil {
 		args = &TriggerArgs{}
@@ -92,24 +92,24 @@ func (TriggerState) ElementType() reflect.Type {
 type triggerArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
-	// The trigger name.
-	Name string `pulumi:"name"`
 	// Properties of the trigger.
 	Properties TriggerType `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The trigger name.
+	TriggerName string `pulumi:"triggerName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
 	// The factory name.
 	FactoryName pulumi.StringInput
-	// The trigger name.
-	Name pulumi.StringInput
 	// Properties of the trigger.
 	Properties TriggerTypeInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// The trigger name.
+	TriggerName pulumi.StringInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {

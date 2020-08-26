@@ -17,9 +17,9 @@ class Share(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_kind: Optional[pulumi.Input[str]] = None,
+                 share_name: Optional[pulumi.Input[str]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,9 +31,9 @@ class Share(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] description: Share description.
-        :param pulumi.Input[str] name: The name of the share.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_kind: Share kind.
+        :param pulumi.Input[str] share_name: The name of the share.
         :param pulumi.Input[str] terms: Share terms.
         """
         if __name__ is not None:
@@ -57,15 +57,16 @@ class Share(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['description'] = description
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['share_kind'] = share_kind
+            if share_name is None:
+                raise TypeError("Missing required property 'share_name'")
+            __props__['share_name'] = share_name
             __props__['terms'] = terms
             __props__['created_at'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['user_email'] = None

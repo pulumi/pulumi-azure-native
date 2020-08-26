@@ -41,7 +41,7 @@ export class ApiPolicy extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
@@ -67,8 +67,8 @@ export class ApiPolicy extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.policyId === undefined) {
+                throw new Error("Missing required property 'policyId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -81,10 +81,11 @@ export class ApiPolicy extends pulumi.CustomResource {
             }
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["format"] = args ? args.format : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["policyId"] = args ? args.policyId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["value"] = args ? args.value : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,7 +116,7 @@ export interface ApiPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    readonly name: pulumi.Input<string>;
+    readonly policyId: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

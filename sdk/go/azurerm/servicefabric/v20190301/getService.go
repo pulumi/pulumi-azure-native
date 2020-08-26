@@ -21,10 +21,10 @@ type LookupServiceArgs struct {
 	ApplicationName string `pulumi:"applicationName"`
 	// The name of the cluster resource.
 	ClusterName string `pulumi:"clusterName"`
-	// The name of the service resource in the format of {applicationName}~{serviceName}.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the service resource in the format of {applicationName}~{serviceName}.
+	ServiceName string `pulumi:"serviceName"`
 }
 
 // The service resource.

@@ -15,21 +15,21 @@ export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storagesync/v20200301:getRegisteredServer", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serverId": args.serverId,
         "storageSyncServiceName": args.storageSyncServiceName,
     }, opts);
 }
 
 export interface GetRegisteredServerArgs {
     /**
-     * GUID identifying the on-premises server.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * GUID identifying the on-premises server.
+     */
+    readonly serverId: string;
     /**
      * Name of Storage Sync Service resource.
      */

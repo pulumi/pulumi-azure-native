@@ -18,7 +18,7 @@ func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, o
 
 type LookupStorageAccountArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	Name string `pulumi:"name"`
+	AccountName string `pulumi:"accountName"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -208,16 +208,16 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         public Input<string> HubName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the connector mapping.
+        /// </summary>
+        [Input("mappingName", required: true)]
+        public Input<string> MappingName { get; set; } = null!;
+
+        /// <summary>
         /// The properties of the mapping.
         /// </summary>
         [Input("mappingProperties", required: true)]
         public Input<Inputs.ConnectorMappingPropertiesArgs> MappingProperties { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the connector mapping.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

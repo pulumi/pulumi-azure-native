@@ -16,9 +16,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
+                 virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -28,9 +28,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
-        :param pulumi.Input[str] name: The name of the virtual network rule to create or update.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[str] subnet_id: The resource identifier for the subnet.
+        :param pulumi.Input[str] virtual_network_rule_name: The name of the virtual network rule to create or update.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -52,15 +52,16 @@ class VirtualNetworkRule(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if subnet_id is None:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
+            if virtual_network_rule_name is None:
+                raise TypeError("Missing required property 'virtual_network_rule_name'")
+            __props__['virtual_network_rule_name'] = virtual_network_rule_name
+            __props__['name'] = None
             __props__['type'] = None
         super(VirtualNetworkRule, __self__).__init__(
             'azurerm:datalakestore/v20161101:VirtualNetworkRule',

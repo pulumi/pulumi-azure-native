@@ -82,11 +82,11 @@ func NewJob(ctx *pulumi.Context,
 	if args == nil || args.Cluster == nil {
 		return nil, errors.New("missing required argument 'Cluster'")
 	}
+	if args == nil || args.JobName == nil {
+		return nil, errors.New("missing required argument 'JobName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.NodeCount == nil {
 		return nil, errors.New("missing required argument 'NodeCount'")
@@ -273,14 +273,14 @@ type jobArgs struct {
 	// Describe the experiment information of the job
 	ExperimentName   *string          `pulumi:"experimentName"`
 	InputDirectories []InputDirectory `pulumi:"inputDirectories"`
+	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+	JobName string `pulumi:"jobName"`
 	// The specified actions will run on all the nodes that are part of the job
 	JobPreparation *JobPreparation `pulumi:"jobPreparation"`
 	// The region in which to create the job.
 	Location string `pulumi:"location"`
 	// These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
 	MountVolumes *MountVolumes `pulumi:"mountVolumes"`
-	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	Name string `pulumi:"name"`
 	// The job will be gang scheduled on that many compute nodes
 	NodeCount         int               `pulumi:"nodeCount"`
 	OutputDirectories []OutputDirectory `pulumi:"outputDirectories"`
@@ -323,14 +323,14 @@ type JobArgs struct {
 	// Describe the experiment information of the job
 	ExperimentName   pulumi.StringPtrInput
 	InputDirectories InputDirectoryArrayInput
+	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+	JobName pulumi.StringInput
 	// The specified actions will run on all the nodes that are part of the job
 	JobPreparation JobPreparationPtrInput
 	// The region in which to create the job.
 	Location pulumi.StringInput
 	// These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
 	MountVolumes MountVolumesPtrInput
-	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	Name pulumi.StringInput
 	// The job will be gang scheduled on that many compute nodes
 	NodeCount         pulumi.IntInput
 	OutputDirectories OutputDirectoryArrayInput

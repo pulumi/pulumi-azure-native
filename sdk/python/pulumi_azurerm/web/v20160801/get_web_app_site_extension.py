@@ -284,16 +284,19 @@ class AwaitableGetWebAppSiteExtensionResult(GetWebAppSiteExtensionResult):
 
 def get_web_app_site_extension(name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
+                               site_extension_id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteExtensionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Site extension name.
+    :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
+    :param str site_extension_id: Site extension name.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['siteExtensionId'] = site_extension_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

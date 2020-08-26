@@ -20,7 +20,7 @@ type LookupKpiArgs struct {
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// The name of the KPI.
-	Name string `pulumi:"name"`
+	KpiName string `pulumi:"kpiName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

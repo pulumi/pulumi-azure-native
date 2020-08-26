@@ -37,11 +37,11 @@ type Prefix struct {
 // NewPrefix registers a new resource with the given unique name, arguments, and options.
 func NewPrefix(ctx *pulumi.Context,
 	name string, args *PrefixArgs, opts ...pulumi.ResourceOption) (*Prefix, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.PeeringServiceName == nil {
 		return nil, errors.New("missing required argument 'PeeringServiceName'")
+	}
+	if args == nil || args.PrefixName == nil {
+		return nil, errors.New("missing required argument 'PrefixName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -117,28 +117,28 @@ func (PrefixState) ElementType() reflect.Type {
 }
 
 type prefixArgs struct {
-	// The name of the prefix.
-	Name string `pulumi:"name"`
 	// The name of the peering service.
 	PeeringServiceName string `pulumi:"peeringServiceName"`
 	// The peering service prefix key
 	PeeringServicePrefixKey *string `pulumi:"peeringServicePrefixKey"`
 	// The prefix from which your traffic originates.
 	Prefix *string `pulumi:"prefix"`
+	// The name of the prefix.
+	PrefixName string `pulumi:"prefixName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Prefix resource.
 type PrefixArgs struct {
-	// The name of the prefix.
-	Name pulumi.StringInput
 	// The name of the peering service.
 	PeeringServiceName pulumi.StringInput
 	// The peering service prefix key
 	PeeringServicePrefixKey pulumi.StringPtrInput
 	// The prefix from which your traffic originates.
 	Prefix pulumi.StringPtrInput
+	// The name of the prefix.
+	PrefixName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

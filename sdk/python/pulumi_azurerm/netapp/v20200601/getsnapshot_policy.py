@@ -139,20 +139,20 @@ class AwaitableGetsnapshotPolicyResult(GetsnapshotPolicyResult):
 
 
 def getsnapshot_policy(account_name: Optional[str] = None,
-                       name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
+                       snapshot_policy_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetsnapshotPolicyResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the NetApp account
-    :param str name: The name of the snapshot policy target
     :param str resource_group_name: The name of the resource group.
+    :param str snapshot_policy_name: The name of the snapshot policy target
     """
     __args__ = dict()
     __args__['accountName'] = account_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['snapshotPolicyName'] = snapshot_policy_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

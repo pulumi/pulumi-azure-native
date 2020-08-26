@@ -27,11 +27,11 @@ type ReplicationRecoveryPlan struct {
 // NewReplicationRecoveryPlan registers a new resource with the given unique name, arguments, and options.
 func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 	name string, args *ReplicationRecoveryPlanArgs, opts ...pulumi.ResourceOption) (*ReplicationRecoveryPlan, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
+	}
+	if args == nil || args.RecoveryPlanName == nil {
+		return nil, errors.New("missing required argument 'RecoveryPlanName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -99,10 +99,10 @@ func (ReplicationRecoveryPlanState) ElementType() reflect.Type {
 }
 
 type replicationRecoveryPlanArgs struct {
-	// Recovery plan name.
-	Name string `pulumi:"name"`
 	// Recovery plan creation properties.
 	Properties CreateRecoveryPlanInputProperties `pulumi:"properties"`
+	// Recovery plan name.
+	RecoveryPlanName string `pulumi:"recoveryPlanName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
@@ -111,10 +111,10 @@ type replicationRecoveryPlanArgs struct {
 
 // The set of arguments for constructing a ReplicationRecoveryPlan resource.
 type ReplicationRecoveryPlanArgs struct {
-	// Recovery plan name.
-	Name pulumi.StringInput
 	// Recovery plan creation properties.
 	Properties CreateRecoveryPlanInputPropertiesInput
+	// Recovery plan name.
+	RecoveryPlanName pulumi.StringInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of the recovery services vault.

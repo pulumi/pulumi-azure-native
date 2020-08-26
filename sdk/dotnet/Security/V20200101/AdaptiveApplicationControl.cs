@@ -128,8 +128,8 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// <summary>
         /// Name of an application control machine group
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
 
         [Input("pathRecommendations")]
         private InputList<Inputs.PathRecommendationArgs>? _pathRecommendations;

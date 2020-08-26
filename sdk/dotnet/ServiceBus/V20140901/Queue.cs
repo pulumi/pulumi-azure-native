@@ -293,16 +293,22 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         public Input<int>? MaxSizeInMegabytes { get; set; }
 
         /// <summary>
-        /// The queue name.
+        /// Queue name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The queue name.
+        /// </summary>
+        [Input("queueName", required: true)]
+        public Input<string> QueueName { get; set; } = null!;
 
         /// <summary>
         /// A value indicating if this queue requires duplicate detection.

@@ -165,6 +165,12 @@ namespace Pulumi.AzureRM.ContainerInstance.V20181001
 
     public sealed class ContainerGroupArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the container group.
+        /// </summary>
+        [Input("containerGroupName", required: true)]
+        public Input<string> ContainerGroupName { get; set; } = null!;
+
         [Input("containers", required: true)]
         private InputList<Inputs.ContainerArgs>? _containers;
 
@@ -218,12 +224,6 @@ namespace Pulumi.AzureRM.ContainerInstance.V20181001
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the container group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The network profile information for a container group.

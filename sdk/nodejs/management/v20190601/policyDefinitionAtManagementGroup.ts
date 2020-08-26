@@ -53,7 +53,7 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**
      * The name of the policy definition.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Required if a parameter is used in policy rule.
      */
@@ -87,18 +87,19 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
             if (!args || args.managementGroupId === undefined) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.policyDefinitionName === undefined) {
+                throw new Error("Missing required property 'policyDefinitionName'");
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["mode"] = args ? args.mode : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["policyDefinitionName"] = args ? args.policyDefinitionName : undefined;
             inputs["policyRule"] = args ? args.policyRule : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -139,13 +140,13 @@ export interface PolicyDefinitionAtManagementGroupArgs {
      */
     readonly mode?: pulumi.Input<string>;
     /**
-     * The name of the policy definition to create.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Required if a parameter is used in policy rule.
      */
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The name of the policy definition to create.
+     */
+    readonly policyDefinitionName: pulumi.Input<string>;
     /**
      * The policy rule.
      */

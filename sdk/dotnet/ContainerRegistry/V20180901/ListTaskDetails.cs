@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180901
     public sealed class ListTaskDetailsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the container registry task.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the container registry.
         /// </summary>
         [Input("registryName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180901
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the container registry task.
+        /// </summary>
+        [Input("taskName", required: true)]
+        public string TaskName { get; set; } = null!;
 
         public ListTaskDetailsArgs()
         {

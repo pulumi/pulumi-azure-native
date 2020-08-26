@@ -18,7 +18,7 @@ func LookupMigrationConfig(ctx *pulumi.Context, args *LookupMigrationConfigArgs,
 
 type LookupMigrationConfigArgs struct {
 	// The configuration name. Should always be "$default".
-	Name string `pulumi:"name"`
+	ConfigName string `pulumi:"configName"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.

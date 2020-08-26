@@ -38,8 +38,8 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ProximityPlacementGroupName == nil {
+		return nil, errors.New("missing required argument 'ProximityPlacementGroupName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -135,7 +135,7 @@ type proximityPlacementGroupArgs struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the proximity placement group.
-	Name string `pulumi:"name"`
+	ProximityPlacementGroupName string `pulumi:"proximityPlacementGroupName"`
 	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
 	ProximityPlacementGroupType *string `pulumi:"proximityPlacementGroupType"`
 	// The name of the resource group.
@@ -149,7 +149,7 @@ type ProximityPlacementGroupArgs struct {
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the proximity placement group.
-	Name pulumi.StringInput
+	ProximityPlacementGroupName pulumi.StringInput
 	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
 	ProximityPlacementGroupType pulumi.StringPtrInput
 	// The name of the resource group.

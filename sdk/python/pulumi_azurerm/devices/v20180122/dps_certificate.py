@@ -17,7 +17,7 @@ class DpsCertificate(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -29,7 +29,7 @@ class DpsCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
-        :param pulumi.Input[str] name: The name of the certificate create or update.
+        :param pulumi.Input[str] certificate_name: The name of the certificate create or update.
         :param pulumi.Input[str] provisioning_service_name: The name of the provisioning service.
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
         """
@@ -51,9 +51,9 @@ class DpsCertificate(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['certificate'] = certificate
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if certificate_name is None:
+                raise TypeError("Missing required property 'certificate_name'")
+            __props__['certificate_name'] = certificate_name
             if provisioning_service_name is None:
                 raise TypeError("Missing required property 'provisioning_service_name'")
             __props__['provisioning_service_name'] = provisioning_service_name
@@ -61,6 +61,7 @@ class DpsCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devices/v20171115:DpsCertificate"), pulumi.Alias(type_="azurerm:devices/v20200101:DpsCertificate")])

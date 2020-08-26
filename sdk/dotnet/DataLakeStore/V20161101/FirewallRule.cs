@@ -98,8 +98,8 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         /// <summary>
         /// The name of the firewall rule to create or update.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("firewallRuleName", required: true)]
+        public Input<string> FirewallRuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.

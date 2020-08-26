@@ -18,7 +18,7 @@ func LookupBudget(ctx *pulumi.Context, args *LookupBudgetArgs, opts ...pulumi.In
 
 type LookupBudgetArgs struct {
 	// Budget Name.
-	Name string `pulumi:"name"`
+	BudgetName string `pulumi:"budgetName"`
 }
 
 // A budget resource.

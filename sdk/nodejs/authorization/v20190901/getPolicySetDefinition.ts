@@ -15,7 +15,7 @@ export function getPolicySetDefinition(args: GetPolicySetDefinitionArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization/v20190901:getPolicySetDefinition", {
-        "name": args.name,
+        "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetPolicySetDefinitionArgs {
     /**
      * The name of the policy set definition to get.
      */
-    readonly name: string;
+    readonly policySetDefinitionName: string;
 }
 
 /**

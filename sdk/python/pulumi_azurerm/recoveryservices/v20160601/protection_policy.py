@@ -21,6 +21,7 @@ class ProtectionPolicy(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ProtectionPolicyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,7 +38,8 @@ class ProtectionPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[str] id: Resource ID represents the complete path to the resource.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The backup policy to be created.
+        :param pulumi.Input[str] name: Resource name associated with the resource.
+        :param pulumi.Input[str] policy_name: The backup policy to be created.
         :param pulumi.Input[pulumi.InputType['ProtectionPolicyArgs']] properties: The base class for a backup policy. Workload-specific backup policies are derived from this class.
         :param pulumi.Input[str] resource_group_name: The name of the resource group associated with the Recovery Services vault.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -64,9 +66,10 @@ class ProtectionPolicy(pulumi.CustomResource):
             __props__['e_tag'] = e_tag
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if policy_name is None:
+                raise TypeError("Missing required property 'policy_name'")
+            __props__['policy_name'] = policy_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

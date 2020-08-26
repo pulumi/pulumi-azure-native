@@ -45,7 +45,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The server administrator Sid (Secure ID).
      */
@@ -78,11 +78,11 @@ export class ServerAdministrator extends pulumi.CustomResource {
             if (!args || args.login === undefined) {
                 throw new Error("Missing required property 'login'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.serverName === undefined) {
+                throw new Error("Missing required property 'serverName'");
             }
             if (!args || args.sid === undefined) {
                 throw new Error("Missing required property 'sid'");
@@ -92,10 +92,11 @@ export class ServerAdministrator extends pulumi.CustomResource {
             }
             inputs["administratorType"] = args ? args.administratorType : undefined;
             inputs["login"] = args ? args.login : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sid"] = args ? args.sid : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -122,13 +123,13 @@ export interface ServerAdministratorArgs {
      */
     readonly login: pulumi.Input<string>;
     /**
-     * The name of the server.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    readonly serverName: pulumi.Input<string>;
     /**
      * The server administrator Sid (Secure ID).
      */

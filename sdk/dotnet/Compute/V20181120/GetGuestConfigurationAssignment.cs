@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Compute.V20181120
         /// <summary>
         /// The guest configuration assignment name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("guestConfigurationAssignmentName", required: true)]
+        public string GuestConfigurationAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

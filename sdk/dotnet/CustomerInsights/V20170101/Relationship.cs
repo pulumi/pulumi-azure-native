@@ -214,12 +214,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         }
 
         /// <summary>
-        /// The name of the Relationship.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Profile type.
         /// </summary>
         [Input("profileType", required: true)]
@@ -230,6 +224,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// </summary>
         [Input("relatedProfileType", required: true)]
         public Input<string> RelatedProfileType { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Relationship.
+        /// </summary>
+        [Input("relationshipName", required: true)]
+        public Input<string> RelationshipName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

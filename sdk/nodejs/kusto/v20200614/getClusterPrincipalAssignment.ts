@@ -16,7 +16,7 @@ export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmen
     }
     return pulumi.runtime.invoke("azurerm:kusto/v20200614:getClusterPrincipalAssignment", {
         "clusterName": args.clusterName,
-        "name": args.name,
+        "principalAssignmentName": args.principalAssignmentName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetClusterPrincipalAssignmentArgs {
     /**
      * The name of the Kusto principalAssignment.
      */
-    readonly name: string;
+    readonly principalAssignmentName: string;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

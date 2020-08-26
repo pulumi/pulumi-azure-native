@@ -71,7 +71,7 @@ export class Map extends pulumi.CustomResource {
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The parameters schema of integration account map.
      */
@@ -101,11 +101,11 @@ export class Map extends pulumi.CustomResource {
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
+            if (!args || args.mapName === undefined) {
+                throw new Error("Missing required property 'mapName'");
+            }
             if (!args || args.mapType === undefined) {
                 throw new Error("Missing required property 'mapType'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -114,15 +114,16 @@ export class Map extends pulumi.CustomResource {
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mapName"] = args ? args.mapName : undefined;
             inputs["mapType"] = args ? args.mapType : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parametersSchema"] = args ? args.parametersSchema : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["changedTime"] = undefined /*out*/;
             inputs["contentLink"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -159,6 +160,10 @@ export interface MapArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The integration account map name.
+     */
+    readonly mapName: pulumi.Input<string>;
+    /**
      * The map type.
      */
     readonly mapType: pulumi.Input<string>;
@@ -166,10 +171,6 @@ export interface MapArgs {
      * The metadata.
      */
     readonly metadata?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * The integration account map name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The parameters schema of integration account map.
      */

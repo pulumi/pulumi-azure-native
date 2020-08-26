@@ -20,11 +20,11 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_definitions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyDefinitionArgs']]]]] = None,
+                 service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,11 +37,11 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the service endpoint policy.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the service endpoint policy resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyDefinitionArgs']]]] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
+        :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -64,16 +64,17 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid
             __props__['service_endpoint_policy_definitions'] = service_endpoint_policy_definitions
+            if service_endpoint_policy_name is None:
+                raise TypeError("Missing required property 'service_endpoint_policy_name'")
+            __props__['service_endpoint_policy_name'] = service_endpoint_policy_name
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180801:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20181001:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20181101:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20181201:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20190201:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20190401:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20190601:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20190701:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20190801:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20190901:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20191101:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20191201:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20200301:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20200401:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20200501:ServiceEndpointPolicy"), pulumi.Alias(type_="azurerm:network/v20200601:ServiceEndpointPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

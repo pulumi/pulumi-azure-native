@@ -20,7 +20,7 @@ type LookupDataStoreArgs struct {
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName string `pulumi:"dataManagerName"`
 	// The data store/repository name queried.
-	Name string `pulumi:"name"`
+	DataStoreName string `pulumi:"dataStoreName"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

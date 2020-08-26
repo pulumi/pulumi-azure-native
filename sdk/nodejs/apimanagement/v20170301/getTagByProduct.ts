@@ -15,18 +15,14 @@ export function getTagByProduct(args: GetTagByProductArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20170301:getTagByProduct", {
-        "name": args.name,
         "productId": args.productId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
+        "tagId": args.tagId,
     }, opts);
 }
 
 export interface GetTagByProductArgs {
-    /**
-     * Tag identifier. Must be unique in the current API Management service instance.
-     */
-    readonly name: string;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
@@ -39,6 +35,10 @@ export interface GetTagByProductArgs {
      * The name of the API Management service.
      */
     readonly serviceName: string;
+    /**
+     * Tag identifier. Must be unique in the current API Management service instance.
+     */
+    readonly tagId: string;
 }
 
 /**

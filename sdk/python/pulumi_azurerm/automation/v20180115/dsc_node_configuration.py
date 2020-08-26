@@ -21,6 +21,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[pulumi.InputType['DscConfigurationAssociationPropertyArgs']]] = None,
                  increment_node_configuration_build: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 node_configuration_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ContentSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -35,7 +36,8 @@ class DscNodeConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[pulumi.InputType['DscConfigurationAssociationPropertyArgs']] configuration: Gets or sets the configuration of the node.
         :param pulumi.Input[bool] increment_node_configuration_build: If a new build version of NodeConfiguration is required.
-        :param pulumi.Input[str] name: The Dsc node configuration name.
+        :param pulumi.Input[str] name: Name of the node configuration.
+        :param pulumi.Input[str] node_configuration_name: The Dsc node configuration name.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[pulumi.InputType['ContentSourceArgs']] source: Gets or sets the source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
@@ -64,9 +66,10 @@ class DscNodeConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'configuration'")
             __props__['configuration'] = configuration
             __props__['increment_node_configuration_build'] = increment_node_configuration_build
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if node_configuration_name is None:
+                raise TypeError("Missing required property 'node_configuration_name'")
+            __props__['node_configuration_name'] = node_configuration_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

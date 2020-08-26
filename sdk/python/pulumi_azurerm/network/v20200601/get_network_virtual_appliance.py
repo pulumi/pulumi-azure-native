@@ -236,19 +236,19 @@ class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult
 
 
 def get_network_virtual_appliance(expand: Optional[str] = None,
-                                  name: Optional[str] = None,
+                                  network_virtual_appliance_name: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkVirtualApplianceResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str expand: Expands referenced resources.
-    :param str name: The name of Network Virtual Appliance.
+    :param str network_virtual_appliance_name: The name of Network Virtual Appliance.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
+    __args__['networkVirtualApplianceName'] = network_virtual_appliance_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

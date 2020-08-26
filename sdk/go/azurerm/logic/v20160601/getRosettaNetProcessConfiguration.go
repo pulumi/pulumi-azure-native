@@ -19,10 +19,10 @@ func LookupRosettaNetProcessConfiguration(ctx *pulumi.Context, args *LookupRoset
 type LookupRosettaNetProcessConfigurationArgs struct {
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The integration account RosettaNetProcessConfiguration name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The integration account RosettaNetProcessConfiguration name.
+	RosettaNetProcessConfigurationName string `pulumi:"rosettaNetProcessConfigurationName"`
 }
 
 // The integration account RosettaNet process configuration.

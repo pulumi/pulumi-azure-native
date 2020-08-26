@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Relay.V20170401
         /// <summary>
         /// The hybrid connection name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("hybridConnectionName", required: true)]
+        public string HybridConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The namespace name

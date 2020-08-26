@@ -36,11 +36,11 @@ func NewIotDpsResource(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
+	}
+	if args == nil || args.ProvisioningServiceName == nil {
+		return nil, errors.New("missing required argument 'ProvisioningServiceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -124,10 +124,10 @@ type iotDpsResourceArgs struct {
 	Etag *string `pulumi:"etag"`
 	// The resource location.
 	Location string `pulumi:"location"`
-	// Name of provisioning service to create or update.
-	Name string `pulumi:"name"`
 	// Service specific properties for a provisioning service
 	Properties IotDpsPropertiesDescription `pulumi:"properties"`
+	// Name of provisioning service to create or update.
+	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
 	// Resource group identifier.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sku info for a provisioning Service.
@@ -142,10 +142,10 @@ type IotDpsResourceArgs struct {
 	Etag pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringInput
-	// Name of provisioning service to create or update.
-	Name pulumi.StringInput
 	// Service specific properties for a provisioning service
 	Properties IotDpsPropertiesDescriptionInput
+	// Name of provisioning service to create or update.
+	ProvisioningServiceName pulumi.StringInput
 	// Resource group identifier.
 	ResourceGroupName pulumi.StringInput
 	// Sku info for a provisioning Service.

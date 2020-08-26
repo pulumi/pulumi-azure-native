@@ -18,7 +18,7 @@ func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pul
 
 type LookupNamespaceArgs struct {
 	// The namespace name.
-	Name string `pulumi:"name"`
+	NamespaceName string `pulumi:"namespaceName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

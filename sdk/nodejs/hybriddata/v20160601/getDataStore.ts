@@ -16,7 +16,7 @@ export function getDataStore(args: GetDataStoreArgs, opts?: pulumi.InvokeOptions
     }
     return pulumi.runtime.invoke("azurerm:hybriddata/v20160601:getDataStore", {
         "dataManagerName": args.dataManagerName,
-        "name": args.name,
+        "dataStoreName": args.dataStoreName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetDataStoreArgs {
     /**
      * The data store/repository name queried.
      */
-    readonly name: string;
+    readonly dataStoreName: string;
     /**
      * The Resource Group Name
      */

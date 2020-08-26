@@ -96,16 +96,16 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public Input<int>? Asn { get; set; }
 
         /// <summary>
-        /// The name of the ASN.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the peering.
         /// </summary>
         [Input("peeringName", required: true)]
         public Input<string> PeeringName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the ASN.
+        /// </summary>
+        [Input("registeredAsnName", required: true)]
+        public Input<string> RegisteredAsnName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -16,7 +16,7 @@ export function getDataSetMapping(args: GetDataSetMappingArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:datashare/v20191101:getDataSetMapping", {
         "accountName": args.accountName,
-        "name": args.name,
+        "dataSetMappingName": args.dataSetMappingName,
         "resourceGroupName": args.resourceGroupName,
         "shareSubscriptionName": args.shareSubscriptionName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetDataSetMappingArgs {
     /**
      * The name of the dataSetMapping.
      */
-    readonly name: string;
+    readonly dataSetMappingName: string;
     /**
      * The resource group name.
      */

@@ -18,7 +18,7 @@ func LookupAzureFirewall(ctx *pulumi.Context, args *LookupAzureFirewallArgs, opt
 
 type LookupAzureFirewallArgs struct {
 	// The name of the Azure Firewall.
-	Name string `pulumi:"name"`
+	AzureFirewallName string `pulumi:"azureFirewallName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

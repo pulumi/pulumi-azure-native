@@ -29,11 +29,11 @@ type VirtualHubRouteTableV2 struct {
 // NewVirtualHubRouteTableV2 registers a new resource with the given unique name, arguments, and options.
 func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 	name string, args *VirtualHubRouteTableV2Args, opts ...pulumi.ResourceOption) (*VirtualHubRouteTableV2, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RouteTableName == nil {
+		return nil, errors.New("missing required argument 'RouteTableName'")
 	}
 	if args == nil || args.VirtualHubName == nil {
 		return nil, errors.New("missing required argument 'VirtualHubName'")
@@ -118,10 +118,12 @@ type virtualHubRouteTableV2Args struct {
 	AttachedConnections []string `pulumi:"attachedConnections"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the VirtualHubRouteTableV2.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the VirtualHubRouteTableV2.
+	RouteTableName string `pulumi:"routeTableName"`
 	// List of all routes.
 	Routes []VirtualHubRouteV2 `pulumi:"routes"`
 	// The name of the VirtualHub.
@@ -134,10 +136,12 @@ type VirtualHubRouteTableV2Args struct {
 	AttachedConnections pulumi.StringArrayInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the VirtualHubRouteTableV2.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
+	// The name of the VirtualHubRouteTableV2.
+	RouteTableName pulumi.StringInput
 	// List of all routes.
 	Routes VirtualHubRouteV2ArrayInput
 	// The name of the VirtualHub.

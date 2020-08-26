@@ -16,8 +16,8 @@ export function getRosettaNetProcessConfiguration(args: GetRosettaNetProcessConf
     }
     return pulumi.runtime.invoke("azurerm:logic/v20160601:getRosettaNetProcessConfiguration", {
         "integrationAccountName": args.integrationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "rosettaNetProcessConfigurationName": args.rosettaNetProcessConfigurationName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetRosettaNetProcessConfigurationArgs {
      */
     readonly integrationAccountName: string;
     /**
-     * The integration account RosettaNetProcessConfiguration name.
-     */
-    readonly name: string;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: string;
+    /**
+     * The integration account RosettaNetProcessConfiguration name.
+     */
+    readonly rosettaNetProcessConfigurationName: string;
 }
 
 /**

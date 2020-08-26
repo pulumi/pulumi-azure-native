@@ -31,11 +31,11 @@ type Account struct {
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -123,12 +123,12 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// The name of the NetApp account
+	AccountName string `pulumi:"accountName"`
 	// Active Directories
 	ActiveDirectories []ActiveDirectory `pulumi:"activeDirectories"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the NetApp account
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -137,12 +137,12 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// The name of the NetApp account
+	AccountName pulumi.StringInput
 	// Active Directories
 	ActiveDirectories ActiveDirectoryArrayInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the NetApp account
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

@@ -103,22 +103,22 @@ class AwaitableGetContainerResult(GetContainerResult):
             type=self.type)
 
 
-def get_container(device_name: Optional[str] = None,
-                  name: Optional[str] = None,
+def get_container(container_name: Optional[str] = None,
+                  device_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   storage_account_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str container_name: The container Name
     :param str device_name: The device name.
-    :param str name: The container Name
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The Storage Account Name
     """
     __args__ = dict()
+    __args__['containerName'] = container_name
     __args__['deviceName'] = device_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageAccountName'] = storage_account_name
     if opts is None:

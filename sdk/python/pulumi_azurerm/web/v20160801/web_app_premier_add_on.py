@@ -20,6 +20,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
                  marketplace_offer: Optional[pulumi.Input[str]] = None,
                  marketplace_publisher: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 premier_add_on_name: Optional[pulumi.Input[str]] = None,
                  product: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -37,7 +38,8 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] marketplace_offer: Premier add on Marketplace offer.
         :param pulumi.Input[str] marketplace_publisher: Premier add on Marketplace publisher.
-        :param pulumi.Input[str] name: Premier add on Name.
+        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] premier_add_on_name: Premier add on Name.
         :param pulumi.Input[str] product: Premier add on Product.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] sku: Premier add on SKU.
@@ -70,6 +72,9 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if premier_add_on_name is None:
+                raise TypeError("Missing required property 'premier_add_on_name'")
+            __props__['premier_add_on_name'] = premier_add_on_name
             __props__['product'] = product
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -77,7 +82,6 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['vendor'] = vendor
-            __props__['premier_add_on_name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppPremierAddOn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

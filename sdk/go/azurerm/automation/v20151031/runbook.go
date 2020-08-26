@@ -62,11 +62,11 @@ func NewRunbook(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RunbookName == nil {
+		return nil, errors.New("missing required argument 'RunbookName'")
 	}
 	if args == nil || args.RunbookType == nil {
 		return nil, errors.New("missing required argument 'RunbookType'")
@@ -206,12 +206,14 @@ type runbookArgs struct {
 	LogProgress *bool `pulumi:"logProgress"`
 	// Gets or sets verbose log option.
 	LogVerbose *bool `pulumi:"logVerbose"`
-	// The runbook name.
-	Name string `pulumi:"name"`
+	// Gets or sets the name of the resource.
+	Name *string `pulumi:"name"`
 	// Gets or sets the published runbook content link.
 	PublishContentLink *ContentLink `pulumi:"publishContentLink"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The runbook name.
+	RunbookName string `pulumi:"runbookName"`
 	// Gets or sets the type of the runbook.
 	RunbookType string `pulumi:"runbookType"`
 	// Gets or sets the tags attached to the resource.
@@ -234,12 +236,14 @@ type RunbookArgs struct {
 	LogProgress pulumi.BoolPtrInput
 	// Gets or sets verbose log option.
 	LogVerbose pulumi.BoolPtrInput
-	// The runbook name.
-	Name pulumi.StringInput
+	// Gets or sets the name of the resource.
+	Name pulumi.StringPtrInput
 	// Gets or sets the published runbook content link.
 	PublishContentLink ContentLinkPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// The runbook name.
+	RunbookName pulumi.StringInput
 	// Gets or sets the type of the runbook.
 	RunbookType pulumi.StringInput
 	// Gets or sets the tags attached to the resource.

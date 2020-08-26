@@ -16,7 +16,7 @@ class FirewallRule(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_ip_address: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 firewall_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  start_ip_address: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,7 @@ class FirewallRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
-        :param pulumi.Input[str] name: The name of the server firewall rule.
+        :param pulumi.Input[str] firewall_rule_name: The name of the server firewall rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] start_ip_address: The start IP address of the server firewall rule. Must be IPv4 format.
@@ -54,9 +54,9 @@ class FirewallRule(pulumi.CustomResource):
             if end_ip_address is None:
                 raise TypeError("Missing required property 'end_ip_address'")
             __props__['end_ip_address'] = end_ip_address
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if firewall_rule_name is None:
+                raise TypeError("Missing required property 'firewall_rule_name'")
+            __props__['firewall_rule_name'] = firewall_rule_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -66,6 +66,7 @@ class FirewallRule(pulumi.CustomResource):
             if start_ip_address is None:
                 raise TypeError("Missing required property 'start_ip_address'")
             __props__['start_ip_address'] = start_ip_address
+            __props__['name'] = None
             __props__['type'] = None
         super(FirewallRule, __self__).__init__(
             'azurerm:dbforpostgresql/v20171201:FirewallRule',

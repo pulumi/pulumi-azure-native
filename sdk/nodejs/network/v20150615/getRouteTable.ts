@@ -16,8 +16,8 @@ export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptio
     }
     return pulumi.runtime.invoke("azurerm:network/v20150615:getRouteTable", {
         "expand": args.expand,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "routeTableName": args.routeTableName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetRouteTableArgs {
      */
     readonly expand?: string;
     /**
-     * The name of the route table.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the route table.
+     */
+    readonly routeTableName: string;
 }
 
 /**

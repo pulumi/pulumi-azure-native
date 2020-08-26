@@ -114,19 +114,19 @@ class AwaitableGetVirtualHubBgpConnectionResult(GetVirtualHubBgpConnectionResult
             type=self.type)
 
 
-def get_virtual_hub_bgp_connection(name: Optional[str] = None,
+def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    virtual_hub_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubBgpConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the connection.
+    :param str connection_name: The name of the connection.
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualHubName'] = virtual_hub_name
     if opts is None:

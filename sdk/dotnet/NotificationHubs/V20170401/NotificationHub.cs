@@ -191,16 +191,22 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         public Input<Inputs.MpnsCredentialArgs>? MpnsCredential { get; set; }
 
         /// <summary>
-        /// The notification hub name.
+        /// The NotificationHub name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The namespace name.
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The notification hub name.
+        /// </summary>
+        [Input("notificationHubName", required: true)]
+        public Input<string> NotificationHubName { get; set; } = null!;
 
         /// <summary>
         /// The RegistrationTtl of the created NotificationHub

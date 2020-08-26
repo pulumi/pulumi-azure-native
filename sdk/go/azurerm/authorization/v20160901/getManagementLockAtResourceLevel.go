@@ -18,7 +18,7 @@ func LookupManagementLockAtResourceLevel(ctx *pulumi.Context, args *LookupManage
 
 type LookupManagementLockAtResourceLevelArgs struct {
 	// The name of lock.
-	Name string `pulumi:"name"`
+	LockName string `pulumi:"lockName"`
 	// An extra path parameter needed in some services, like SQL Databases.
 	ParentResourcePath string `pulumi:"parentResourcePath"`
 	// The name of the resource group.

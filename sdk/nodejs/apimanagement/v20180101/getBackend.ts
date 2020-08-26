@@ -15,7 +15,7 @@ export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20180101:getBackend", {
-        "name": args.name,
+        "backendid": args.backendid,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetBackendArgs {
     /**
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
-    readonly name: string;
+    readonly backendid: string;
     /**
      * The name of the resource group.
      */

@@ -45,7 +45,7 @@ export class ShareSubscription extends pulumi.CustomResource {
     /**
      * Name of the azure resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Email of the provider who created the resource
      */
@@ -118,21 +118,22 @@ export class ShareSubscription extends pulumi.CustomResource {
             if (!args || args.invitationId === undefined) {
                 throw new Error("Missing required property 'invitationId'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.shareSubscriptionName === undefined) {
+                throw new Error("Missing required property 'shareSubscriptionName'");
             }
             if (!args || args.sourceShareLocation === undefined) {
                 throw new Error("Missing required property 'sourceShareLocation'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["invitationId"] = args ? args.invitationId : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
             inputs["sourceShareLocation"] = args ? args.sourceShareLocation : undefined;
             inputs["createdAt"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["providerEmail"] = undefined /*out*/;
             inputs["providerName"] = undefined /*out*/;
             inputs["providerTenantName"] = undefined /*out*/;
@@ -170,13 +171,13 @@ export interface ShareSubscriptionArgs {
      */
     readonly invitationId: pulumi.Input<string>;
     /**
-     * The name of the shareSubscription.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the shareSubscription.
+     */
+    readonly shareSubscriptionName: pulumi.Input<string>;
     /**
      * Source share location.
      */

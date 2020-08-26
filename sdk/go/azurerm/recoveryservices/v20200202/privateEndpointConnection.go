@@ -31,8 +31,8 @@ type PrivateEndpointConnection struct {
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *PrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -104,7 +104,7 @@ type privateEndpointConnectionArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the private endpoint connection.
-	Name string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// PrivateEndpointConnectionResource properties
 	Properties *PrivateEndpointConnectionType `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
@@ -122,7 +122,7 @@ type PrivateEndpointConnectionArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the private endpoint connection.
-	Name pulumi.StringInput
+	PrivateEndpointConnectionName pulumi.StringInput
 	// PrivateEndpointConnectionResource properties
 	Properties PrivateEndpointConnectionTypePtrInput
 	// The name of the resource group where the recovery services vault is present.

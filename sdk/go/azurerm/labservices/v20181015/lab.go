@@ -52,8 +52,8 @@ func NewLab(ctx *pulumi.Context,
 	if args == nil || args.LabAccountName == nil {
 		return nil, errors.New("missing required argument 'LabAccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LabName == nil {
+		return nil, errors.New("missing required argument 'LabName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -155,12 +155,12 @@ func (LabState) ElementType() reflect.Type {
 type labArgs struct {
 	// The name of the lab Account.
 	LabAccountName string `pulumi:"labAccountName"`
+	// The name of the lab.
+	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// Maximum number of users allowed in the lab.
 	MaxUsersInLab *int `pulumi:"maxUsersInLab"`
-	// The name of the lab.
-	Name string `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -179,12 +179,12 @@ type labArgs struct {
 type LabArgs struct {
 	// The name of the lab Account.
 	LabAccountName pulumi.StringInput
+	// The name of the lab.
+	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// Maximum number of users allowed in the lab.
 	MaxUsersInLab pulumi.IntPtrInput
-	// The name of the lab.
-	Name pulumi.StringInput
 	// The provisioning status of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

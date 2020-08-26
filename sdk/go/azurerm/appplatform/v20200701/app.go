@@ -29,8 +29,8 @@ type App struct {
 // NewApp registers a new resource with the given unique name, arguments, and options.
 func NewApp(ctx *pulumi.Context,
 	name string, args *AppArgs, opts ...pulumi.ResourceOption) (*App, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AppName == nil {
+		return nil, errors.New("missing required argument 'AppName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,12 +93,12 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
+	// The name of the App resource.
+	AppName string `pulumi:"appName"`
 	// The Managed Identity type of the app resource
 	Identity *ManagedIdentityProperties `pulumi:"identity"`
 	// The GEO location of the application, always the same with its parent resource
 	Location *string `pulumi:"location"`
-	// The name of the App resource.
-	Name string `pulumi:"name"`
 	// Properties of the App resource
 	Properties *AppResourceProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -109,12 +109,12 @@ type appArgs struct {
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
+	// The name of the App resource.
+	AppName pulumi.StringInput
 	// The Managed Identity type of the app resource
 	Identity ManagedIdentityPropertiesPtrInput
 	// The GEO location of the application, always the same with its parent resource
 	Location pulumi.StringPtrInput
-	// The name of the App resource.
-	Name pulumi.StringInput
 	// Properties of the App resource
 	Properties AppResourcePropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

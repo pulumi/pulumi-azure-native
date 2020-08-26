@@ -49,8 +49,8 @@ type Cache struct {
 // NewCache registers a new resource with the given unique name, arguments, and options.
 func NewCache(ctx *pulumi.Context,
 	name string, args *CacheArgs, opts ...pulumi.ResourceOption) (*Cache, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CacheName == nil {
+		return nil, errors.New("missing required argument 'CacheName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -156,6 +156,8 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
+	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	CacheName string `pulumi:"cacheName"`
 	// The size of this Cache, in GB.
 	CacheSizeGB *int `pulumi:"cacheSizeGB"`
 	// Specifies encryption settings of the cache.
@@ -164,8 +166,6 @@ type cacheArgs struct {
 	Identity *CacheIdentity `pulumi:"identity"`
 	// Region name string.
 	Location *string `pulumi:"location"`
-	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-	Name string `pulumi:"name"`
 	// Specifies network settings of the cache.
 	NetworkSettings *CacheNetworkSettings `pulumi:"networkSettings"`
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
@@ -184,6 +184,8 @@ type cacheArgs struct {
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
+	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
+	CacheName pulumi.StringInput
 	// The size of this Cache, in GB.
 	CacheSizeGB pulumi.IntPtrInput
 	// Specifies encryption settings of the cache.
@@ -192,8 +194,6 @@ type CacheArgs struct {
 	Identity CacheIdentityPtrInput
 	// Region name string.
 	Location pulumi.StringPtrInput
-	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-	Name pulumi.StringInput
 	// Specifies network settings of the cache.
 	NetworkSettings CacheNetworkSettingsPtrInput
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property

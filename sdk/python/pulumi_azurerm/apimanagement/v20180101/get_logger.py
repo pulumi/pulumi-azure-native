@@ -103,19 +103,19 @@ class AwaitableGetLoggerResult(GetLoggerResult):
             type=self.type)
 
 
-def get_logger(name: Optional[str] = None,
+def get_logger(loggerid: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                service_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoggerResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Logger identifier. Must be unique in the API Management service instance.
+    :param str loggerid: Logger identifier. Must be unique in the API Management service instance.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['loggerid'] = loggerid
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     if opts is None:

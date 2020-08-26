@@ -57,9 +57,6 @@ func NewWebTest(ctx *pulumi.Context,
 	if args == nil || args.Locations == nil {
 		return nil, errors.New("missing required argument 'Locations'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -68,6 +65,9 @@ func NewWebTest(ctx *pulumi.Context,
 	}
 	if args == nil || args.WebTestKind == nil {
 		return nil, errors.New("missing required argument 'WebTestKind'")
+	}
+	if args == nil || args.WebTestName == nil {
+		return nil, errors.New("missing required argument 'WebTestName'")
 	}
 	if args == nil {
 		args = &WebTestArgs{}
@@ -182,8 +182,6 @@ type webTestArgs struct {
 	Location string `pulumi:"location"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	Locations []WebTestGeolocation `pulumi:"locations"`
-	// User defined name if this WebTest.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Allow for retries should this WebTest fail.
@@ -196,6 +194,8 @@ type webTestArgs struct {
 	Timeout *int `pulumi:"timeout"`
 	// The kind of web test this is, valid choices are ping and multistep.
 	WebTestKind string `pulumi:"webTestKind"`
+	// User defined name if this WebTest.
+	WebTestName string `pulumi:"webTestName"`
 }
 
 // The set of arguments for constructing a WebTest resource.
@@ -214,8 +214,6 @@ type WebTestArgs struct {
 	Location pulumi.StringInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	Locations WebTestGeolocationArrayInput
-	// User defined name if this WebTest.
-	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Allow for retries should this WebTest fail.
@@ -228,6 +226,8 @@ type WebTestArgs struct {
 	Timeout pulumi.IntPtrInput
 	// The kind of web test this is, valid choices are ping and multistep.
 	WebTestKind pulumi.StringInput
+	// User defined name if this WebTest.
+	WebTestName pulumi.StringInput
 }
 
 func (WebTestArgs) ElementType() reflect.Type {

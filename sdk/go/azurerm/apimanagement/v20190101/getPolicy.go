@@ -20,7 +20,7 @@ type LookupPolicyArgs struct {
 	// Policy Export Format.
 	Format *string `pulumi:"format"`
 	// The identifier of the Policy.
-	Name string `pulumi:"name"`
+	PolicyId string `pulumi:"policyId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

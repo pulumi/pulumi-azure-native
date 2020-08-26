@@ -37,11 +37,11 @@ type PacketCapture struct {
 // NewPacketCapture registers a new resource with the given unique name, arguments, and options.
 func NewPacketCapture(ctx *pulumi.Context,
 	name string, args *PacketCaptureArgs, opts ...pulumi.ResourceOption) (*PacketCapture, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NetworkWatcherName == nil {
 		return nil, errors.New("missing required argument 'NetworkWatcherName'")
+	}
+	if args == nil || args.PacketCaptureName == nil {
+		return nil, errors.New("missing required argument 'PacketCaptureName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -213,10 +213,10 @@ type packetCaptureArgs struct {
 	// Number of bytes captured per packet, the remaining bytes are truncated.
 	BytesToCapturePerPacket *int                  `pulumi:"bytesToCapturePerPacket"`
 	Filters                 []PacketCaptureFilter `pulumi:"filters"`
-	// The name of the packet capture session.
-	Name string `pulumi:"name"`
 	// The name of the network watcher.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
+	// The name of the packet capture session.
+	PacketCaptureName string `pulumi:"packetCaptureName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Describes the storage location for a packet capture session.
@@ -234,10 +234,10 @@ type PacketCaptureArgs struct {
 	// Number of bytes captured per packet, the remaining bytes are truncated.
 	BytesToCapturePerPacket pulumi.IntPtrInput
 	Filters                 PacketCaptureFilterArrayInput
-	// The name of the packet capture session.
-	Name pulumi.StringInput
 	// The name of the network watcher.
 	NetworkWatcherName pulumi.StringInput
+	// The name of the packet capture session.
+	PacketCaptureName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Describes the storage location for a packet capture session.

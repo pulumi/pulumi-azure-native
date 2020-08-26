@@ -17,8 +17,8 @@ class LabAccount(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled_region_selection: Optional[pulumi.Input[bool]] = None,
+                 lab_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,8 +32,8 @@ class LabAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled_region_selection: Represents if region selection is enabled
+        :param pulumi.Input[str] lab_account_name: The name of the lab Account.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the lab Account.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
@@ -57,10 +57,10 @@ class LabAccount(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enabled_region_selection'] = enabled_region_selection
+            if lab_account_name is None:
+                raise TypeError("Missing required property 'lab_account_name'")
+            __props__['lab_account_name'] = lab_account_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -68,6 +68,7 @@ class LabAccount(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
             __props__['latest_operation_result'] = None
+            __props__['name'] = None
             __props__['size_configuration'] = None
             __props__['type'] = None
         super(LabAccount, __self__).__init__(

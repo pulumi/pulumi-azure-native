@@ -17,10 +17,10 @@ func LookupContainer(ctx *pulumi.Context, args *LookupContainerArgs, opts ...pul
 }
 
 type LookupContainerArgs struct {
+	// The container Name
+	ContainerName string `pulumi:"containerName"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
-	// The container Name
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Storage Account Name

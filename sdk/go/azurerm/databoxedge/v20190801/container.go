@@ -31,14 +31,14 @@ type Container struct {
 // NewContainer registers a new resource with the given unique name, arguments, and options.
 func NewContainer(ctx *pulumi.Context,
 	name string, args *ContainerArgs, opts ...pulumi.ResourceOption) (*Container, error) {
+	if args == nil || args.ContainerName == nil {
+		return nil, errors.New("missing required argument 'ContainerName'")
+	}
 	if args == nil || args.DataFormat == nil {
 		return nil, errors.New("missing required argument 'DataFormat'")
 	}
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -105,12 +105,12 @@ func (ContainerState) ElementType() reflect.Type {
 }
 
 type containerArgs struct {
+	// The container name.
+	ContainerName string `pulumi:"containerName"`
 	// DataFormat for Container
 	DataFormat string `pulumi:"dataFormat"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
-	// The container name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Storage Account Name
@@ -119,12 +119,12 @@ type containerArgs struct {
 
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
+	// The container name.
+	ContainerName pulumi.StringInput
 	// DataFormat for Container
 	DataFormat pulumi.StringInput
 	// The device name.
 	DeviceName pulumi.StringInput
-	// The container name.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The Storage Account Name

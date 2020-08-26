@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Logic.V20160601
         public string IntegrationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The integration account RosettaNetProcessConfiguration name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account RosettaNetProcessConfiguration name.
+        /// </summary>
+        [Input("rosettaNetProcessConfigurationName", required: true)]
+        public string RosettaNetProcessConfigurationName { get; set; } = null!;
 
         public GetRosettaNetProcessConfigurationArgs()
         {

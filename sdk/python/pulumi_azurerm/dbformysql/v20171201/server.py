@@ -19,9 +19,9 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesForCreateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -34,9 +34,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] location: The location the resource resides in.
-        :param pulumi.Input[str] name: The name of the server.
         :param pulumi.Input[pulumi.InputType['ServerPropertiesForCreateArgs']] properties: Properties of the server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (pricing tier) of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata in the form of key-value pairs.
         """
@@ -61,15 +61,15 @@ class Server(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if server_name is None:
+                raise TypeError("Missing required property 'server_name'")
+            __props__['server_name'] = server_name
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['administrator_login'] = None
@@ -79,6 +79,7 @@ class Server(pulumi.CustomResource):
             __props__['infrastructure_encryption'] = None
             __props__['master_server_id'] = None
             __props__['minimal_tls_version'] = None
+            __props__['name'] = None
             __props__['private_endpoint_connections'] = None
             __props__['public_network_access'] = None
             __props__['replica_capacity'] = None

@@ -18,6 +18,7 @@ class MachineExtension(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 extension_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  instance_view: Optional[pulumi.Input[pulumi.InputType['MachineExtensionPropertiesInstanceViewArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -38,10 +39,11 @@ class MachineExtension(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[str] extension_name: The name of the machine extension.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[pulumi.InputType['MachineExtensionPropertiesInstanceViewArgs']] instance_view: The machine extension instance view.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the machine extension.
+        :param pulumi.Input[str] name: The name of the machine where the extension should be created or updated.
         :param pulumi.Input[Mapping[str, Any]] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -68,6 +70,9 @@ class MachineExtension(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
+            if extension_name is None:
+                raise TypeError("Missing required property 'extension_name'")
+            __props__['extension_name'] = extension_name
             __props__['force_update_tag'] = force_update_tag
             __props__['instance_view'] = instance_view
             if location is None:

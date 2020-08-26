@@ -15,7 +15,7 @@ export function getConnectionGateway(args: GetConnectionGatewayArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20160601:getConnectionGateway", {
-        "name": args.name,
+        "connectionGatewayName": args.connectionGatewayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetConnectionGatewayArgs {
     /**
      * The connection gateway name
      */
-    readonly name: string;
+    readonly connectionGatewayName: string;
     /**
      * The resource group
      */

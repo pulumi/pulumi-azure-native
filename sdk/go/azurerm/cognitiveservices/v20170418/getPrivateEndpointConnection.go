@@ -20,7 +20,7 @@ type LookupPrivateEndpointConnectionArgs struct {
 	// The name of Cognitive Services account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the private endpoint connection associated with the Cognitive Services Account
-	Name string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

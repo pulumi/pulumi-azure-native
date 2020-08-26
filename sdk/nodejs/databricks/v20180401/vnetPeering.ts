@@ -59,7 +59,7 @@ export class VNetPeering extends pulumi.CustomResource {
     /**
      * Name of the virtual network peering resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The status of the virtual network peering.
      */
@@ -98,8 +98,8 @@ export class VNetPeering extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VNetPeeringArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.peeringName === undefined) {
+                throw new Error("Missing required property 'peeringName'");
             }
             if (!args || args.remoteVirtualNetwork === undefined) {
                 throw new Error("Missing required property 'remoteVirtualNetwork'");
@@ -115,12 +115,13 @@ export class VNetPeering extends pulumi.CustomResource {
             inputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
             inputs["databricksAddressSpace"] = args ? args.databricksAddressSpace : undefined;
             inputs["databricksVirtualNetwork"] = args ? args.databricksVirtualNetwork : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
             inputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["peeringState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -163,7 +164,7 @@ export interface VNetPeeringArgs {
     /**
      * The name of the workspace vNet peering.
      */
-    readonly name: pulumi.Input<string>;
+    readonly peeringName: pulumi.Input<string>;
     /**
      * The reference to the remote virtual network address space.
      */

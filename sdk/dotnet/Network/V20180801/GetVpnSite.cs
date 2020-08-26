@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20180801
     public sealed class GetVpnSiteArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the VpnSite being retrieved.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name of the VpnSite.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the VpnSite being retrieved.
+        /// </summary>
+        [Input("vpnSiteName", required: true)]
+        public string VpnSiteName { get; set; } = null!;
 
         public GetVpnSiteArgs()
         {

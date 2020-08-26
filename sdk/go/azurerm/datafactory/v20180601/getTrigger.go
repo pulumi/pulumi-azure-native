@@ -19,10 +19,10 @@ func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.
 type LookupTriggerArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
-	// The trigger name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The trigger name.
+	TriggerName string `pulumi:"triggerName"`
 }
 
 // Trigger resource type.

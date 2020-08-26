@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     public sealed class GetApplicationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The constant value for the application name.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public string ApplicationName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
-
-        /// <summary>
-        /// The constant value for the application name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -17,7 +17,7 @@ class Certificate(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -29,7 +29,7 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
-        :param pulumi.Input[str] name: The name of the certificate
+        :param pulumi.Input[str] certificate_name: The name of the certificate
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
         :param pulumi.Input[str] resource_name_: The name of the IoT hub.
         """
@@ -51,9 +51,9 @@ class Certificate(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['certificate'] = certificate
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if certificate_name is None:
+                raise TypeError("Missing required property 'certificate_name'")
+            __props__['certificate_name'] = certificate_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -61,6 +61,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devices/v20170701:Certificate"), pulumi.Alias(type_="azurerm:devices/v20180122:Certificate"), pulumi.Alias(type_="azurerm:devices/v20180401:Certificate"), pulumi.Alias(type_="azurerm:devices/v20190322:Certificate"), pulumi.Alias(type_="azurerm:devices/v20191104:Certificate"), pulumi.Alias(type_="azurerm:devices/v20200301:Certificate"), pulumi.Alias(type_="azurerm:devices/v20200615:Certificate")])

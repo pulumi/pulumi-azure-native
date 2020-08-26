@@ -47,7 +47,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
      */
@@ -86,23 +86,24 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualNetworkLinkArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.privateZoneName === undefined) {
                 throw new Error("Missing required property 'privateZoneName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.virtualNetworkLinkName === undefined) {
+                throw new Error("Missing required property 'virtualNetworkLinkName'");
+            }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["privateZoneName"] = args ? args.privateZoneName : undefined;
             inputs["registrationEnabled"] = args ? args.registrationEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
+            inputs["virtualNetworkLinkName"] = args ? args.virtualNetworkLinkName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetworkLinkState"] = undefined /*out*/;
@@ -131,10 +132,6 @@ export interface VirtualNetworkLinkArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the virtual network link.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the Private DNS zone (without a terminating dot).
      */
     readonly privateZoneName: pulumi.Input<string>;
@@ -154,4 +151,8 @@ export interface VirtualNetworkLinkArgs {
      * The reference of the virtual network.
      */
     readonly virtualNetwork?: pulumi.Input<inputs.network.v20180901.SubResource>;
+    /**
+     * The name of the virtual network link.
+     */
+    readonly virtualNetworkLinkName: pulumi.Input<string>;
 }

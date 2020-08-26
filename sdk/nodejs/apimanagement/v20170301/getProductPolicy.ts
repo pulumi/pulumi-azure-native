@@ -15,7 +15,7 @@ export function getProductPolicy(args: GetProductPolicyArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20170301:getProductPolicy", {
-        "name": args.name,
+        "policyId": args.policyId,
         "productId": args.productId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
@@ -26,7 +26,7 @@ export interface GetProductPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    readonly name: string;
+    readonly policyId: string;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

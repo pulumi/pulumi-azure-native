@@ -19,8 +19,8 @@ class ProtectionIntent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
+                 intent_object_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ProtectionIntentArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -35,8 +35,8 @@ class ProtectionIntent(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[str] fabric_name: Fabric name associated with the backup item.
+        :param pulumi.Input[str] intent_object_name: Intent object name.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Intent object name.
         :param pulumi.Input[pulumi.InputType['ProtectionIntentArgs']] properties: ProtectionIntentResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -63,10 +63,10 @@ class ProtectionIntent(pulumi.CustomResource):
             if fabric_name is None:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
+            if intent_object_name is None:
+                raise TypeError("Missing required property 'intent_object_name'")
+            __props__['intent_object_name'] = intent_object_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -75,6 +75,7 @@ class ProtectionIntent(pulumi.CustomResource):
             if vault_name is None:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
+            __props__['name'] = None
             __props__['type'] = None
         super(ProtectionIntent, __self__).__init__(
             'azurerm:recoveryservices/v20170701:ProtectionIntent',

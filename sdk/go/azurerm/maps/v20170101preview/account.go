@@ -31,11 +31,11 @@ type Account struct {
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -108,10 +108,10 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// The name of the Maps Account.
+	AccountName string `pulumi:"accountName"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
-	// The name of the Maps Account.
-	Name string `pulumi:"name"`
 	// The name of the Azure Resource Group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of this account.
@@ -122,10 +122,10 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// The name of the Maps Account.
+	AccountName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringInput
-	// The name of the Maps Account.
-	Name pulumi.StringInput
 	// The name of the Azure Resource Group.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of this account.

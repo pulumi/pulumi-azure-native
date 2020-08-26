@@ -225,22 +225,22 @@ class AwaitableGetServiceResult(GetServiceResult):
 
 def get_service(application_name: Optional[str] = None,
                 cluster_name: Optional[str] = None,
-                name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
+                service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str application_name: The name of the application resource.
     :param str cluster_name: The name of the cluster resource.
-    :param str name: The name of the service resource in the format of {applicationName}~{serviceName}.
     :param str resource_group_name: The name of the resource group.
+    :param str service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
     """
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['clusterName'] = cluster_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

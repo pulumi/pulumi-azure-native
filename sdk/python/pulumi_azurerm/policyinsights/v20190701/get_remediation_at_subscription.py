@@ -151,15 +151,15 @@ class AwaitableGetRemediationAtSubscriptionResult(GetRemediationAtSubscriptionRe
             type=self.type)
 
 
-def get_remediation_at_subscription(name: Optional[str] = None,
+def get_remediation_at_subscription(remediation_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtSubscriptionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the remediation.
+    :param str remediation_name: The name of the remediation.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['remediationName'] = remediation_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

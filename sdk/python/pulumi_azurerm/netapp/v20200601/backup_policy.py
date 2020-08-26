@@ -18,11 +18,11 @@ class BackupPolicy(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 backup_policy_name: Optional[pulumi.Input[str]] = None,
                  daily_backups_to_keep: Optional[pulumi.Input[float]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  monthly_backups_to_keep: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_backups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VolumeBackupsArgs']]]]] = None,
@@ -38,11 +38,11 @@ class BackupPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
+        :param pulumi.Input[str] backup_policy_name: Backup policy Name which uniquely identify backup policy.
         :param pulumi.Input[float] daily_backups_to_keep: Daily backups count to keep
         :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[float] monthly_backups_to_keep: Monthly backups count to keep
-        :param pulumi.Input[str] name: Backup policy Name which uniquely identify backup policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VolumeBackupsArgs']]]] volume_backups: A list of volumes assigned to this policy
@@ -70,15 +70,15 @@ class BackupPolicy(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if backup_policy_name is None:
+                raise TypeError("Missing required property 'backup_policy_name'")
+            __props__['backup_policy_name'] = backup_policy_name
             __props__['daily_backups_to_keep'] = daily_backups_to_keep
             __props__['enabled'] = enabled
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['monthly_backups_to_keep'] = monthly_backups_to_keep
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -87,6 +87,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__['volumes_assigned'] = volumes_assigned
             __props__['weekly_backups_to_keep'] = weekly_backups_to_keep
             __props__['yearly_backups_to_keep'] = yearly_backups_to_keep
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(BackupPolicy, __self__).__init__(

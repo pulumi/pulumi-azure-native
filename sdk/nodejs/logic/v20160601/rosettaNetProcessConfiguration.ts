@@ -67,7 +67,7 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The integration account RosettaNet process code.
      */
@@ -115,9 +115,6 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.processCode === undefined) {
                 throw new Error("Missing required property 'processCode'");
             }
@@ -133,21 +130,25 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
             if (!args || args.responderRoleSettings === undefined) {
                 throw new Error("Missing required property 'responderRoleSettings'");
             }
+            if (!args || args.rosettaNetProcessConfigurationName === undefined) {
+                throw new Error("Missing required property 'rosettaNetProcessConfigurationName'");
+            }
             inputs["activitySettings"] = args ? args.activitySettings : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["initiatorRoleSettings"] = args ? args.initiatorRoleSettings : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["processCode"] = args ? args.processCode : undefined;
             inputs["processName"] = args ? args.processName : undefined;
             inputs["processVersion"] = args ? args.processVersion : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["responderRoleSettings"] = args ? args.responderRoleSettings : undefined;
+            inputs["rosettaNetProcessConfigurationName"] = args ? args.rosettaNetProcessConfigurationName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["changedTime"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -190,10 +191,6 @@ export interface RosettaNetProcessConfigurationArgs {
      */
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The integration account RosettaNet ProcessConfiguration name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The integration account RosettaNet process code.
      */
     readonly processCode: pulumi.Input<string>;
@@ -213,6 +210,10 @@ export interface RosettaNetProcessConfigurationArgs {
      * The RosettaNet responder role settings.
      */
     readonly responderRoleSettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipRoleSettings>;
+    /**
+     * The integration account RosettaNet ProcessConfiguration name.
+     */
+    readonly rosettaNetProcessConfigurationName: pulumi.Input<string>;
     /**
      * The resource tags.
      */

@@ -43,7 +43,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Unique name of an assessment.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the assessment.
      */
@@ -66,11 +66,11 @@ export class Assessment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AssessmentArgs | undefined;
+            if (!args || args.assessmentName === undefined) {
+                throw new Error("Missing required property 'assessmentName'");
+            }
             if (!args || args.groupName === undefined) {
                 throw new Error("Missing required property 'groupName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.projectName === undefined) {
                 throw new Error("Missing required property 'projectName'");
@@ -81,12 +81,13 @@ export class Assessment extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["assessmentName"] = args ? args.assessmentName : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +106,10 @@ export class Assessment extends pulumi.CustomResource {
  */
 export interface AssessmentArgs {
     /**
+     * Unique name of an assessment within a project.
+     */
+    readonly assessmentName: pulumi.Input<string>;
+    /**
      * For optimistic concurrency control.
      */
     readonly eTag?: pulumi.Input<string>;
@@ -112,10 +117,6 @@ export interface AssessmentArgs {
      * Unique name of a group within a project.
      */
     readonly groupName: pulumi.Input<string>;
-    /**
-     * Unique name of an assessment within a project.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */

@@ -19,10 +19,10 @@ func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.In
 type LookupSubnetArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
-	// The name of the subnet.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the subnet.
+	SubnetName string `pulumi:"subnetName"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }

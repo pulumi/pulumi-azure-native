@@ -15,8 +15,8 @@ export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:migrate/v20191001:getAssessment", {
+        "assessmentName": args.assessmentName,
         "groupName": args.groupName,
-        "name": args.name,
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,13 +24,13 @@ export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptio
 
 export interface GetAssessmentArgs {
     /**
+     * Unique name of an assessment within a project.
+     */
+    readonly assessmentName: string;
+    /**
      * Unique name of a group within a project.
      */
     readonly groupName: string;
-    /**
-     * Unique name of an assessment within a project.
-     */
-    readonly name: string;
     /**
      * Name of the Azure Migrate project.
      */

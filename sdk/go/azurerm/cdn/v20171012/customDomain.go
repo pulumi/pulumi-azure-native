@@ -35,14 +35,14 @@ type CustomDomain struct {
 // NewCustomDomain registers a new resource with the given unique name, arguments, and options.
 func NewCustomDomain(ctx *pulumi.Context,
 	name string, args *CustomDomainArgs, opts ...pulumi.ResourceOption) (*CustomDomain, error) {
+	if args == nil || args.CustomDomainName == nil {
+		return nil, errors.New("missing required argument 'CustomDomainName'")
+	}
 	if args == nil || args.EndpointName == nil {
 		return nil, errors.New("missing required argument 'EndpointName'")
 	}
 	if args == nil || args.HostName == nil {
 		return nil, errors.New("missing required argument 'HostName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ProfileName == nil {
 		return nil, errors.New("missing required argument 'ProfileName'")
@@ -147,12 +147,12 @@ func (CustomDomainState) ElementType() reflect.Type {
 }
 
 type customDomainArgs struct {
+	// Name of the custom domain within an endpoint.
+	CustomDomainName string `pulumi:"customDomainName"`
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName string `pulumi:"endpointName"`
 	// The host name of the custom domain. Must be a domain name.
 	HostName string `pulumi:"hostName"`
-	// Name of the custom domain within an endpoint.
-	Name string `pulumi:"name"`
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
@@ -161,12 +161,12 @@ type customDomainArgs struct {
 
 // The set of arguments for constructing a CustomDomain resource.
 type CustomDomainArgs struct {
+	// Name of the custom domain within an endpoint.
+	CustomDomainName pulumi.StringInput
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName pulumi.StringInput
 	// The host name of the custom domain. Must be a domain name.
 	HostName pulumi.StringInput
-	// Name of the custom domain within an endpoint.
-	Name pulumi.StringInput
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.

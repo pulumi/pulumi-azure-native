@@ -15,7 +15,7 @@ export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTempl
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:virtualmachineimages/v20200214:getVirtualMachineImageTemplate", {
-        "name": args.name,
+        "imageTemplateName": args.imageTemplateName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetVirtualMachineImageTemplateArgs {
     /**
      * The name of the image Template
      */
-    readonly name: string;
+    readonly imageTemplateName: string;
     /**
      * The name of the resource group.
      */

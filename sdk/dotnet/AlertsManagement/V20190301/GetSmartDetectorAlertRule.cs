@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
     public sealed class GetSmartDetectorAlertRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the alert rule.
+        /// </summary>
+        [Input("alertRuleName", required: true)]
+        public string AlertRuleName { get; set; } = null!;
+
+        /// <summary>
         /// Indicates if Smart Detector should be expanded.
         /// </summary>
         [Input("expandDetector")]
         public bool? ExpandDetector { get; set; }
-
-        /// <summary>
-        /// The name of the alert rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

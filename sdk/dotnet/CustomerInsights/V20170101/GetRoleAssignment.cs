@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class GetRoleAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the role assignment.
+        /// </summary>
+        [Input("assignmentName", required: true)]
+        public string AssignmentName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the hub.
         /// </summary>
         [Input("hubName", required: true)]
         public string HubName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the role assignment.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

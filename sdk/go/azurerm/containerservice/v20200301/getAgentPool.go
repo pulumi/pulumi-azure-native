@@ -18,7 +18,7 @@ func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pul
 
 type LookupAgentPoolArgs struct {
 	// The name of the agent pool.
-	Name string `pulumi:"name"`
+	AgentPoolName string `pulumi:"agentPoolName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.

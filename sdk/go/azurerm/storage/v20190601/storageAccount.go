@@ -81,14 +81,14 @@ type StorageAccount struct {
 // NewStorageAccount registers a new resource with the given unique name, arguments, and options.
 func NewStorageAccount(ctx *pulumi.Context,
 	name string, args *StorageAccountArgs, opts ...pulumi.ResourceOption) (*StorageAccount, error) {
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
+	}
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
 	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -290,6 +290,8 @@ func (StorageAccountState) ElementType() reflect.Type {
 type storageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
 	AccessTier *string `pulumi:"accessTier"`
+	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+	AccountName string `pulumi:"accountName"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
 	// Provides the identity based authentication settings for Azure Files.
@@ -312,8 +314,6 @@ type storageAccountArgs struct {
 	Location string `pulumi:"location"`
 	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	Name string `pulumi:"name"`
 	// Network rule set
 	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -330,6 +330,8 @@ type storageAccountArgs struct {
 type StorageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
 	AccessTier pulumi.StringPtrInput
+	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+	AccountName pulumi.StringInput
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess pulumi.BoolPtrInput
 	// Provides the identity based authentication settings for Azure Files.
@@ -352,8 +354,6 @@ type StorageAccountArgs struct {
 	Location pulumi.StringInput
 	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	Name pulumi.StringInput
 	// Network rule set
 	NetworkRuleSet NetworkRuleSetPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

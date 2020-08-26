@@ -36,11 +36,11 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil {
 		args = &UserAssignedIdentityArgs{}
@@ -107,10 +107,10 @@ func (UserAssignedIdentityState) ElementType() reflect.Type {
 type userAssignedIdentityArgs struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the identity resource.
-	Name string `pulumi:"name"`
 	// The name of the Resource Group to which the identity belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the identity resource.
+	ResourceName string `pulumi:"resourceName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -119,10 +119,10 @@ type userAssignedIdentityArgs struct {
 type UserAssignedIdentityArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The name of the identity resource.
-	Name pulumi.StringInput
 	// The name of the Resource Group to which the identity belongs.
 	ResourceGroupName pulumi.StringInput
+	// The name of the identity resource.
+	ResourceName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

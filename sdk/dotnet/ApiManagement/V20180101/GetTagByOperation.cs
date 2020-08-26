@@ -25,12 +25,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         public string ApiId { get; set; } = null!;
 
         /// <summary>
-        /// Tag identifier. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Operation identifier within an API. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("operationId", required: true)]
@@ -47,6 +41,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Tag identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("tagId", required: true)]
+        public string TagId { get; set; } = null!;
 
         public GetTagByOperationArgs()
         {

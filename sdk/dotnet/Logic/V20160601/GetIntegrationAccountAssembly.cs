@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class GetIntegrationAccountAssemblyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The assembly artifact name.
+        /// </summary>
+        [Input("assemblyArtifactName", required: true)]
+        public string AssemblyArtifactName { get; set; } = null!;
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
         public string IntegrationAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// The assembly artifact name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

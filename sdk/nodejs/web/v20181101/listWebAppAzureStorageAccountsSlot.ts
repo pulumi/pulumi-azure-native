@@ -17,18 +17,23 @@ export function listWebAppAzureStorageAccountsSlot(args: ListWebAppAzureStorageA
     return pulumi.runtime.invoke("azurerm:web/v20181101:listWebAppAzureStorageAccountsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
     }, opts);
 }
 
 export interface ListWebAppAzureStorageAccountsSlotArgs {
     /**
-     * Name of the deployment slot. If a slot is not specified, the API will update the Azure storage account configurations for the production slot.
+     * Name of the app.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of the deployment slot. If a slot is not specified, the API will update the Azure storage account configurations for the production slot.
+     */
+    readonly slot: string;
 }
 
 /**

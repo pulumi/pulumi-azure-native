@@ -18,6 +18,8 @@ func ListWebAppFunctionKeys(ctx *pulumi.Context, args *ListWebAppFunctionKeysArg
 
 type ListWebAppFunctionKeysArgs struct {
 	// Function name.
+	FunctionName string `pulumi:"functionName"`
+	// Site name.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

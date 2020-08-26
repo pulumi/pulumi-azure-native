@@ -18,8 +18,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
+                 managed_private_endpoint_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ManagedPrivateEndpointArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -31,8 +31,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.
+        :param pulumi.Input[str] managed_private_endpoint_name: Managed private endpoint name
         :param pulumi.Input[str] managed_virtual_network_name: Managed virtual network name
-        :param pulumi.Input[str] name: Managed private endpoint name
         :param pulumi.Input[pulumi.InputType['ManagedPrivateEndpointArgs']] properties: Managed private endpoint properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
@@ -56,12 +56,12 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             if factory_name is None:
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
+            if managed_private_endpoint_name is None:
+                raise TypeError("Missing required property 'managed_private_endpoint_name'")
+            __props__['managed_private_endpoint_name'] = managed_private_endpoint_name
             if managed_virtual_network_name is None:
                 raise TypeError("Missing required property 'managed_virtual_network_name'")
             __props__['managed_virtual_network_name'] = managed_virtual_network_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
@@ -69,6 +69,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(ManagedPrivateEndpoint, __self__).__init__(
             'azurerm:datafactory/v20180601:ManagedPrivateEndpoint',

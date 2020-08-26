@@ -21,10 +21,10 @@ class GalleryImage(pulumi.CustomResource):
                  disallowed: Optional[pulumi.Input[pulumi.InputType['DisallowedArgs']]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
+                 gallery_image_name: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  os_state: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
@@ -45,10 +45,10 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DisallowedArgs']] disallowed: Describes the disallowed disk types.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[str] eula: The Eula agreement for the gallery Image Definition.
+        :param pulumi.Input[str] gallery_image_name: The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition is to be created.
         :param pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']] identifier: This is the gallery Image Definition identifier.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         :param pulumi.Input[str] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
@@ -79,6 +79,9 @@ class GalleryImage(pulumi.CustomResource):
             __props__['disallowed'] = disallowed
             __props__['end_of_life_date'] = end_of_life_date
             __props__['eula'] = eula
+            if gallery_image_name is None:
+                raise TypeError("Missing required property 'gallery_image_name'")
+            __props__['gallery_image_name'] = gallery_image_name
             if gallery_name is None:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__['gallery_name'] = gallery_name
@@ -88,9 +91,6 @@ class GalleryImage(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if os_state is None:
                 raise TypeError("Missing required property 'os_state'")
             __props__['os_state'] = os_state
@@ -105,6 +105,7 @@ class GalleryImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryImage")])

@@ -79,7 +79,7 @@ export class Agreement extends pulumi.CustomResource {
     /**
      * Gets the resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The resource tags.
      */
@@ -102,6 +102,9 @@ export class Agreement extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AgreementArgs | undefined;
+            if (!args || args.agreementName === undefined) {
+                throw new Error("Missing required property 'agreementName'");
+            }
             if (!args || args.agreementType === undefined) {
                 throw new Error("Missing required property 'agreementType'");
             }
@@ -123,12 +126,10 @@ export class Agreement extends pulumi.CustomResource {
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["agreementName"] = args ? args.agreementName : undefined;
             inputs["agreementType"] = args ? args.agreementType : undefined;
             inputs["content"] = args ? args.content : undefined;
             inputs["guestIdentity"] = args ? args.guestIdentity : undefined;
@@ -138,11 +139,11 @@ export class Agreement extends pulumi.CustomResource {
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["changedTime"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -162,6 +163,10 @@ export class Agreement extends pulumi.CustomResource {
  * The set of arguments for constructing a Agreement resource.
  */
 export interface AgreementArgs {
+    /**
+     * The integration account agreement name.
+     */
+    readonly agreementName: pulumi.Input<string>;
     /**
      * The agreement type.
      */
@@ -198,10 +203,6 @@ export interface AgreementArgs {
      * The metadata.
      */
     readonly metadata?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * The integration account agreement name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name.
      */

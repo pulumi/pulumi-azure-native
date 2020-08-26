@@ -17,10 +17,10 @@ class Channel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 channel_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ChannelArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -34,10 +34,10 @@ class Channel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] channel_name: The name of the Channel resource.
         :param pulumi.Input[str] etag: Entity Tag
         :param pulumi.Input[str] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[str] name: The name of the Channel resource.
         :param pulumi.Input[pulumi.InputType['ChannelArgs']] properties: The set of properties specific to bot channel resource
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
         :param pulumi.Input[str] resource_name_: The name of the Bot resource.
@@ -61,12 +61,12 @@ class Channel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if channel_name is None:
+                raise TypeError("Missing required property 'channel_name'")
+            __props__['channel_name'] = channel_name
             __props__['etag'] = etag
             __props__['kind'] = kind
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -76,6 +76,7 @@ class Channel(pulumi.CustomResource):
             __props__['resource_name'] = resource_name_
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         super(Channel, __self__).__init__(
             'azurerm:botservice/v20200602:Channel',

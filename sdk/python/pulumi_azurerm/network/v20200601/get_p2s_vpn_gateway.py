@@ -175,17 +175,17 @@ class AwaitableGetP2sVpnGatewayResult(GetP2sVpnGatewayResult):
             vpn_server_configuration=self.vpn_server_configuration)
 
 
-def get_p2s_vpn_gateway(name: Optional[str] = None,
+def get_p2s_vpn_gateway(gateway_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the gateway.
+    :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the P2SVpnGateway.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['gatewayName'] = gateway_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

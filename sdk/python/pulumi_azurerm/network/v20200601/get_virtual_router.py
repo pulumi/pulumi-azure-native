@@ -164,20 +164,20 @@ class AwaitableGetVirtualRouterResult(GetVirtualRouterResult):
 
 
 def get_virtual_router(expand: Optional[str] = None,
-                       name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
+                       virtual_router_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRouterResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str expand: Expands referenced resources.
-    :param str name: The name of the Virtual Router.
     :param str resource_group_name: The name of the resource group.
+    :param str virtual_router_name: The name of the Virtual Router.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualRouterName'] = virtual_router_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

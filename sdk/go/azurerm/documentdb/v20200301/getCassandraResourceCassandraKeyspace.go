@@ -20,7 +20,7 @@ type LookupCassandraResourceCassandraKeyspaceArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB keyspace name.
-	Name string `pulumi:"name"`
+	KeyspaceName string `pulumi:"keyspaceName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

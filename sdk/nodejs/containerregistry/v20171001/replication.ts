@@ -43,7 +43,7 @@ export class Replication extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the replication at the time the operation was called.
      */
@@ -77,20 +77,21 @@ export class Replication extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.registryName === undefined) {
                 throw new Error("Missing required property 'registryName'");
+            }
+            if (!args || args.replicationName === undefined) {
+                throw new Error("Missing required property 'replicationName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
+            inputs["replicationName"] = args ? args.replicationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -117,13 +118,13 @@ export interface ReplicationArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the replication.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the container registry.
      */
     readonly registryName: pulumi.Input<string>;
+    /**
+     * The name of the replication.
+     */
+    readonly replicationName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

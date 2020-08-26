@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// <summary>
         /// Name of the HCX Enterprise Site in the private cloud
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("hcxEnterpriseSiteName", required: true)]
+        public string HcxEnterpriseSiteName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud

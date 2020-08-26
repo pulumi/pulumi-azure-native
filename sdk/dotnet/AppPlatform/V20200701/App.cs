@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
     public sealed class AppArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the App resource.
+        /// </summary>
+        [Input("appName", required: true)]
+        public Input<string> AppName { get; set; } = null!;
+
+        /// <summary>
         /// The Managed Identity type of the app resource
         /// </summary>
         [Input("identity")]
@@ -100,12 +106,6 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the App resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Properties of the App resource

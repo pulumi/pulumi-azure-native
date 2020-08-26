@@ -53,8 +53,8 @@ type PublicIPAddress struct {
 // NewPublicIPAddress registers a new resource with the given unique name, arguments, and options.
 func NewPublicIPAddress(ctx *pulumi.Context,
 	name string, args *PublicIPAddressArgs, opts ...pulumi.ResourceOption) (*PublicIPAddress, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PublicIpAddressName == nil {
+		return nil, errors.New("missing required argument 'PublicIpAddressName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -272,8 +272,6 @@ type publicIPAddressArgs struct {
 	IpTags []IpTag `pulumi:"ipTags"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the public IP address.
-	Name string `pulumi:"name"`
 	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
@@ -282,6 +280,8 @@ type publicIPAddressArgs struct {
 	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
 	// The Public IP Prefix this Public IP Address should be allocated from.
 	PublicIPPrefix *SubResource `pulumi:"publicIPPrefix"`
+	// The name of the public IP address.
+	PublicIpAddressName string `pulumi:"publicIpAddressName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the public IP resource.
@@ -310,8 +310,6 @@ type PublicIPAddressArgs struct {
 	IpTags IpTagArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the public IP address.
-	Name pulumi.StringInput
 	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState pulumi.StringPtrInput
 	// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
@@ -320,6 +318,8 @@ type PublicIPAddressArgs struct {
 	PublicIPAllocationMethod pulumi.StringPtrInput
 	// The Public IP Prefix this Public IP Address should be allocated from.
 	PublicIPPrefix SubResourcePtrInput
+	// The name of the public IP address.
+	PublicIpAddressName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource GUID property of the public IP resource.

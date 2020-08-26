@@ -16,8 +16,8 @@ export function getStreamingPolicy(args: GetStreamingPolicyArgs, opts?: pulumi.I
     }
     return pulumi.runtime.invoke("azurerm:media/v20200501:getStreamingPolicy", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "streamingPolicyName": args.streamingPolicyName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetStreamingPolicyArgs {
      */
     readonly accountName: string;
     /**
-     * The Streaming Policy name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: string;
+    /**
+     * The Streaming Policy name.
+     */
+    readonly streamingPolicyName: string;
 }
 
 /**

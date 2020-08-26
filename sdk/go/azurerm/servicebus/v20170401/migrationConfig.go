@@ -33,8 +33,8 @@ type MigrationConfig struct {
 // NewMigrationConfig registers a new resource with the given unique name, arguments, and options.
 func NewMigrationConfig(ctx *pulumi.Context,
 	name string, args *MigrationConfigArgs, opts ...pulumi.ResourceOption) (*MigrationConfig, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ConfigName == nil {
+		return nil, errors.New("missing required argument 'ConfigName'")
 	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
@@ -112,7 +112,7 @@ func (MigrationConfigState) ElementType() reflect.Type {
 
 type migrationConfigArgs struct {
 	// The configuration name. Should always be "$default".
-	Name string `pulumi:"name"`
+	ConfigName string `pulumi:"configName"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name to access Standard Namespace after migration
@@ -126,7 +126,7 @@ type migrationConfigArgs struct {
 // The set of arguments for constructing a MigrationConfig resource.
 type MigrationConfigArgs struct {
 	// The configuration name. Should always be "$default".
-	Name pulumi.StringInput
+	ConfigName pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Name to access Standard Namespace after migration

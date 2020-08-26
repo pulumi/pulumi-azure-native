@@ -15,7 +15,7 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:migrate/v20191001:getProject", {
-        "name": args.name,
+        "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetProjectArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    readonly name: string;
+    readonly projectName: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

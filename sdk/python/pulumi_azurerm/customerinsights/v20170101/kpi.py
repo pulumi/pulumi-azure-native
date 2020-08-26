@@ -30,7 +30,7 @@ class Kpi(pulumi.CustomResource):
                  function: Optional[pulumi.Input[str]] = None,
                  group_by: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 kpi_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  thres_holds: Optional[pulumi.Input[pulumi.InputType['KpiThresholdsArgs']]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
@@ -55,7 +55,7 @@ class Kpi(pulumi.CustomResource):
         :param pulumi.Input[str] function: The computation function for the KPI.
         :param pulumi.Input[List[pulumi.Input[str]]] group_by: the group by properties for the KPI.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[str] name: The name of the KPI.
+        :param pulumi.Input[str] kpi_name: The name of the KPI.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['KpiThresholdsArgs']] thres_holds: The KPI thresholds.
         :param pulumi.Input[str] unit: The unit of measurement for the KPI.
@@ -102,16 +102,16 @@ class Kpi(pulumi.CustomResource):
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if kpi_name is None:
+                raise TypeError("Missing required property 'kpi_name'")
+            __props__['kpi_name'] = kpi_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['thres_holds'] = thres_holds
             __props__['unit'] = unit
             __props__['group_by_metadata'] = None
-            __props__['kpi_name'] = None
+            __props__['name'] = None
             __props__['participant_profiles_metadata'] = None
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None

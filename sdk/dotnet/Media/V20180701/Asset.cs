@@ -136,6 +136,12 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Input<string>? AlternateId { get; set; }
 
         /// <summary>
+        /// The Asset name.
+        /// </summary>
+        [Input("assetName", required: true)]
+        public Input<string> AssetName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the asset blob container.
         /// </summary>
         [Input("container")]
@@ -146,12 +152,6 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The Asset name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

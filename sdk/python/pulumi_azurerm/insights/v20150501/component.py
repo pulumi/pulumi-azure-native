@@ -24,9 +24,9 @@ class Component(pulumi.CustomResource):
                  ingestion_mode: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  request_source: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[float]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -46,9 +46,9 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[str] ingestion_mode: Indicates the flow of the ingestion.
         :param pulumi.Input[str] kind: The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the Application Insights component resource.
         :param pulumi.Input[str] request_source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[float] retention_in_days: Retention period in days.
         :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -84,13 +84,13 @@ class Component(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['request_source'] = request_source
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['retention_in_days'] = retention_in_days
             __props__['sampling_percentage'] = sampling_percentage
             __props__['tags'] = tags
@@ -100,6 +100,7 @@ class Component(pulumi.CustomResource):
             __props__['creation_date'] = None
             __props__['hockey_app_token'] = None
             __props__['instrumentation_key'] = None
+            __props__['name'] = None
             __props__['private_link_scoped_resources'] = None
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None

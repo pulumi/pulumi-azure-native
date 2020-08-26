@@ -29,11 +29,11 @@ type Application struct {
 // NewApplication registers a new resource with the given unique name, arguments, and options.
 func NewApplication(ctx *pulumi.Context,
 	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
+	if args == nil || args.ApplicationName == nil {
+		return nil, errors.New("missing required argument 'ApplicationName'")
+	}
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,12 +93,12 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
+	// The constant value for the application name.
+	ApplicationName string `pulumi:"applicationName"`
 	// The name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The ETag for the application
 	Etag *string `pulumi:"etag"`
-	// The constant value for the application name.
-	Name string `pulumi:"name"`
 	// The properties of the application.
 	Properties *ApplicationProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -109,12 +109,12 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
+	// The constant value for the application name.
+	ApplicationName pulumi.StringInput
 	// The name of the cluster.
 	ClusterName pulumi.StringInput
 	// The ETag for the application
 	Etag pulumi.StringPtrInput
-	// The constant value for the application name.
-	Name pulumi.StringInput
 	// The properties of the application.
 	Properties ApplicationPropertiesPtrInput
 	// The name of the resource group.

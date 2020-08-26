@@ -17,9 +17,9 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_updates: Optional[pulumi.Input[bool]] = None,
+                 application_name: Optional[pulumi.Input[str]] = None,
                  default_version: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,9 +31,9 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
         :param pulumi.Input[bool] allow_updates: A value indicating whether packages within the application may be overwritten using the same version string.
+        :param pulumi.Input[str] application_name: The name of the application. This must be unique within the account.
         :param pulumi.Input[str] default_version: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
         :param pulumi.Input[str] display_name: The display name for the application.
-        :param pulumi.Input[str] name: The name of the application. This must be unique within the account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         """
         if __name__ is not None:
@@ -57,15 +57,16 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['allow_updates'] = allow_updates
+            if application_name is None:
+                raise TypeError("Missing required property 'application_name'")
+            __props__['application_name'] = application_name
             __props__['default_version'] = default_version
             __props__['display_name'] = display_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:batch/v20181201:Application"), pulumi.Alias(type_="azurerm:batch/v20190401:Application"), pulumi.Alias(type_="azurerm:batch/v20200301:Application"), pulumi.Alias(type_="azurerm:batch/v20200501:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

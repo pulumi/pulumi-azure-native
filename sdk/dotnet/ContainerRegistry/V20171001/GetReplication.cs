@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
     public sealed class GetReplicationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the replication.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the container registry.
         /// </summary>
         [Input("registryName", required: true)]
         public string RegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the replication.
+        /// </summary>
+        [Input("replicationName", required: true)]
+        public string ReplicationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

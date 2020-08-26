@@ -15,7 +15,7 @@ export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20180601:getAvailabilitySet", {
-        "name": args.name,
+        "availabilitySetName": args.availabilitySetName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetAvailabilitySetArgs {
     /**
      * The name of the availability set.
      */
-    readonly name: string;
+    readonly availabilitySetName: string;
     /**
      * The name of the resource group.
      */

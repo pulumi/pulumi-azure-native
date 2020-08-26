@@ -15,7 +15,7 @@ class Authorization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 authorization_name: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -26,7 +26,7 @@ class Authorization(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the ExpressRoute Circuit Authorization in the private cloud
+        :param pulumi.Input[str] authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -47,9 +47,9 @@ class Authorization(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if authorization_name is None:
+                raise TypeError("Missing required property 'authorization_name'")
+            __props__['authorization_name'] = authorization_name
             if private_cloud_name is None:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__['private_cloud_name'] = private_cloud_name
@@ -58,6 +58,7 @@ class Authorization(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['express_route_authorization_id'] = None
             __props__['express_route_authorization_key'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Authorization, __self__).__init__(

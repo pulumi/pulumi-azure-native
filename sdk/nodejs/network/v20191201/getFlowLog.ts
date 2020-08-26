@@ -15,7 +15,7 @@ export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20191201:getFlowLog", {
-        "name": args.name,
+        "flowLogName": args.flowLogName,
         "networkWatcherName": args.networkWatcherName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetFlowLogArgs {
     /**
      * The name of the flow log resource.
      */
-    readonly name: string;
+    readonly flowLogName: string;
     /**
      * The name of the network watcher.
      */

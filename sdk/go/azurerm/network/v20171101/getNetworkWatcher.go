@@ -18,7 +18,7 @@ func LookupNetworkWatcher(ctx *pulumi.Context, args *LookupNetworkWatcherArgs, o
 
 type LookupNetworkWatcherArgs struct {
 	// The name of the network watcher.
-	Name string `pulumi:"name"`
+	NetworkWatcherName string `pulumi:"networkWatcherName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

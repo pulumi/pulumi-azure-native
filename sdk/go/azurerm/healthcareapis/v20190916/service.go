@@ -41,11 +41,11 @@ func NewService(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil {
 		args = &ServiceArgs{}
@@ -122,12 +122,12 @@ type serviceArgs struct {
 	Kind string `pulumi:"kind"`
 	// The resource location.
 	Location string `pulumi:"location"`
-	// The name of the service instance.
-	Name string `pulumi:"name"`
 	// The common properties of a service.
 	Properties *ServicesProperties `pulumi:"properties"`
 	// The name of the resource group that contains the service instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the service instance.
+	ResourceName string `pulumi:"resourceName"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -142,12 +142,12 @@ type ServiceArgs struct {
 	Kind pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringInput
-	// The name of the service instance.
-	Name pulumi.StringInput
 	// The common properties of a service.
 	Properties ServicesPropertiesPtrInput
 	// The name of the resource group that contains the service instance.
 	ResourceGroupName pulumi.StringInput
+	// The name of the service instance.
+	ResourceName pulumi.StringInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 }

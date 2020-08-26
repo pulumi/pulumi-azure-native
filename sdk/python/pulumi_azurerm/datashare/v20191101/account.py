@@ -17,9 +17,9 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -30,9 +30,9 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity Info on the Account
         :param pulumi.Input[str] location: Location of the azure resource.
-        :param pulumi.Input[str] name: The name of the share account.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags on the azure resource.
         """
@@ -53,18 +53,19 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if account_name is None:
+                raise TypeError("Missing required property 'account_name'")
+            __props__['account_name'] = account_name
             if identity is None:
                 raise TypeError("Missing required property 'identity'")
             __props__['identity'] = identity
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['created_at'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['user_email'] = None

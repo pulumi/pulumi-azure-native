@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.StorageSync.V20190301
     public sealed class GetServerEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of Server Endpoint object.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Server Endpoint object.
+        /// </summary>
+        [Input("serverEndpointName", required: true)]
+        public string ServerEndpointName { get; set; } = null!;
 
         /// <summary>
         /// Name of Storage Sync Service resource.

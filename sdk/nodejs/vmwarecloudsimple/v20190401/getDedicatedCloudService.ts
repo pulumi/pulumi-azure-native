@@ -15,7 +15,7 @@ export function getDedicatedCloudService(args: GetDedicatedCloudServiceArgs, opt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:vmwarecloudsimple/v20190401:getDedicatedCloudService", {
-        "name": args.name,
+        "dedicatedCloudServiceName": args.dedicatedCloudServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDedicatedCloudServiceArgs {
     /**
      * dedicated cloud Service name
      */
-    readonly name: string;
+    readonly dedicatedCloudServiceName: string;
     /**
      * The name of the resource group
      */

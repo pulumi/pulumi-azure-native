@@ -31,16 +31,16 @@ namespace Pulumi.AzureRM.Batch.V20190401
         public string ApplicationName { get; set; } = null!;
 
         /// <summary>
-        /// The version of the application.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group that contains the Batch account.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The version of the application.
+        /// </summary>
+        [Input("versionName", required: true)]
+        public string VersionName { get; set; } = null!;
 
         public GetApplicationPackageArgs()
         {

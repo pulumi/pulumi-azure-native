@@ -128,6 +128,12 @@ namespace Pulumi.AzureRM.Network.V20171001
     public sealed class ApplicationSecurityGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the application security group.
+        /// </summary>
+        [Input("applicationSecurityGroupName", required: true)]
+        public Input<string> ApplicationSecurityGroupName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -138,12 +144,6 @@ namespace Pulumi.AzureRM.Network.V20171001
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the application security group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

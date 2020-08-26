@@ -63,7 +63,7 @@ export class Bookmark extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The notes of the bookmark
      */
@@ -102,11 +102,11 @@ export class Bookmark extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as BookmarkArgs | undefined;
+            if (!args || args.bookmarkId === undefined) {
+                throw new Error("Missing required property 'bookmarkId'");
+            }
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.query === undefined) {
                 throw new Error("Missing required property 'query'");
@@ -117,13 +117,13 @@ export class Bookmark extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["bookmarkId"] = args ? args.bookmarkId : undefined;
             inputs["created"] = args ? args.created : undefined;
             inputs["createdBy"] = args ? args.createdBy : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["incidentInfo"] = args ? args.incidentInfo : undefined;
             inputs["labels"] = args ? args.labels : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["notes"] = args ? args.notes : undefined;
             inputs["query"] = args ? args.query : undefined;
             inputs["queryResult"] = args ? args.queryResult : undefined;
@@ -131,6 +131,7 @@ export class Bookmark extends pulumi.CustomResource {
             inputs["updated"] = args ? args.updated : undefined;
             inputs["updatedBy"] = args ? args.updatedBy : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -148,6 +149,10 @@ export class Bookmark extends pulumi.CustomResource {
  * The set of arguments for constructing a Bookmark resource.
  */
 export interface BookmarkArgs {
+    /**
+     * Bookmark ID
+     */
+    readonly bookmarkId: pulumi.Input<string>;
     /**
      * The time the bookmark was created
      */
@@ -172,10 +177,6 @@ export interface BookmarkArgs {
      * List of labels relevant to this bookmark
      */
     readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Bookmark ID
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The notes of the bookmark
      */

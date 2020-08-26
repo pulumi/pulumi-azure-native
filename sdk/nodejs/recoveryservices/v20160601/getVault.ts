@@ -15,20 +15,20 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20160601:getVault", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "vaultName": args.vaultName,
     }, opts);
 }
 
 export interface GetVaultArgs {
     /**
-     * The name of the recovery services vault.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group where the recovery services vault is present.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the recovery services vault.
+     */
+    readonly vaultName: string;
 }
 
 /**

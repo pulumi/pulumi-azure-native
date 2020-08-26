@@ -17,12 +17,12 @@ func LookupTask(ctx *pulumi.Context, args *LookupTaskArgs, opts ...pulumi.Invoke
 }
 
 type LookupTaskArgs struct {
-	// The name of the container registry task.
-	Name string `pulumi:"name"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the container registry task.
+	TaskName string `pulumi:"taskName"`
 }
 
 // The task that has the ARM resource and task properties.

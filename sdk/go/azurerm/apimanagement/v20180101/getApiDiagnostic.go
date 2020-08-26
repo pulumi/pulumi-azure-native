@@ -20,7 +20,7 @@ type LookupApiDiagnosticArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
+	DiagnosticId string `pulumi:"diagnosticId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

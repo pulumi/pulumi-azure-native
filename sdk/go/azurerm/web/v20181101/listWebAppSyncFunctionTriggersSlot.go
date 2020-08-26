@@ -17,10 +17,12 @@ func ListWebAppSyncFunctionTriggersSlot(ctx *pulumi.Context, args *ListWebAppSyn
 }
 
 type ListWebAppSyncFunctionTriggersSlotArgs struct {
-	// Name of the deployment slot. If a slot is not specified, the API will restore a backup of the production slot.
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the deployment slot. If a slot is not specified, the API will restore a backup of the production slot.
+	Slot string `pulumi:"slot"`
 }
 
 // Function secrets.

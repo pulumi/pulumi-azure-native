@@ -18,7 +18,7 @@ func LookupADCCatalog(ctx *pulumi.Context, args *LookupADCCatalogArgs, opts ...p
 
 type LookupADCCatalogArgs struct {
 	// The name of the data catalog in the specified subscription and resource group.
-	Name string `pulumi:"name"`
+	CatalogName string `pulumi:"catalogName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

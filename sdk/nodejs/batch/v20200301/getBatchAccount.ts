@@ -15,7 +15,7 @@ export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:batch/v20200301:getBatchAccount", {
-        "name": args.name,
+        "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetBatchAccountArgs {
     /**
      * The name of the Batch account.
      */
-    readonly name: string;
+    readonly accountName: string;
     /**
      * The name of the resource group that contains the Batch account.
      */

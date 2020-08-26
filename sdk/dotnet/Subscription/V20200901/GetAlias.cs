@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Subscription.V20200901
         /// <summary>
         /// Alias Name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("aliasName", required: true)]
+        public string AliasName { get; set; } = null!;
 
         public GetAliasArgs()
         {

@@ -162,6 +162,12 @@ namespace Pulumi.AzureRM.Insights.V20190301
 
     public sealed class ActionGroupArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the action group.
+        /// </summary>
+        [Input("actionGroupName", required: true)]
+        public Input<string> ActionGroupName { get; set; } = null!;
+
         [Input("armRoleReceivers")]
         private InputList<Inputs.ArmRoleReceiverArgs>? _armRoleReceivers;
 
@@ -263,12 +269,6 @@ namespace Pulumi.AzureRM.Insights.V20190301
             get => _logicAppReceivers ?? (_logicAppReceivers = new InputList<Inputs.LogicAppReceiverArgs>());
             set => _logicAppReceivers = value;
         }
-
-        /// <summary>
-        /// The name of the action group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

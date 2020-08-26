@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -112,6 +112,12 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
 
         /// <summary>
         /// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.

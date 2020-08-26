@@ -15,6 +15,7 @@ export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConne
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20190801:getWebAppRelayServiceConnection", {
+        "entityName": args.entityName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -23,6 +24,10 @@ export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConne
 export interface GetWebAppRelayServiceConnectionArgs {
     /**
      * Name of the hybrid connection.
+     */
+    readonly entityName: string;
+    /**
+     * Name of the app.
      */
     readonly name: string;
     /**

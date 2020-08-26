@@ -51,7 +51,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Key Policy options.
      */
@@ -81,8 +81,8 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.contentKeyPolicyName === undefined) {
+                throw new Error("Missing required property 'contentKeyPolicyName'");
             }
             if (!args || args.options === undefined) {
                 throw new Error("Missing required property 'options'");
@@ -91,12 +91,13 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["contentKeyPolicyName"] = args ? args.contentKeyPolicyName : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["created"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["policyId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -122,13 +123,13 @@ export interface ContentKeyPolicyArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The Content Key Policy name.
+     */
+    readonly contentKeyPolicyName: pulumi.Input<string>;
+    /**
      * A description for the Policy.
      */
     readonly description?: pulumi.Input<string>;
-    /**
-     * The Content Key Policy name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Key Policy options.
      */

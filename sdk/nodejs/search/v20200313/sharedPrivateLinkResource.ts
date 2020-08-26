@@ -39,7 +39,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
      * The name of the shared private link resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
      */
@@ -62,19 +62,20 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SharedPrivateLinkResourceArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.searchServiceName === undefined) {
                 throw new Error("Missing required property 'searchServiceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            if (!args || args.sharedPrivateLinkResourceName === undefined) {
+                throw new Error("Missing required property 'sharedPrivateLinkResourceName'");
+            }
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["searchServiceName"] = args ? args.searchServiceName : undefined;
+            inputs["sharedPrivateLinkResourceName"] = args ? args.sharedPrivateLinkResourceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,10 +94,6 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
  */
 export interface SharedPrivateLinkResourceArgs {
     /**
-     * The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
      */
     readonly properties?: pulumi.Input<inputs.search.v20200313.SharedPrivateLinkResourceProperties>;
@@ -108,4 +105,8 @@ export interface SharedPrivateLinkResourceArgs {
      * The name of the Azure Cognitive Search service associated with the specified resource group.
      */
     readonly searchServiceName: pulumi.Input<string>;
+    /**
+     * The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+     */
+    readonly sharedPrivateLinkResourceName: pulumi.Input<string>;
 }

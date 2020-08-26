@@ -98,8 +98,8 @@ namespace Pulumi.AzureRM.Authorization.V20160901
         /// <summary>
         /// The name of lock.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("lockName", required: true)]
+        public Input<string> LockName { get; set; } = null!;
 
         /// <summary>
         /// Notes about the lock. Maximum of 512 characters.

@@ -15,7 +15,7 @@ export function getP2sVpnServerConfiguration(args: GetP2sVpnServerConfigurationA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20181001:getP2sVpnServerConfiguration", {
-        "name": args.name,
+        "p2SVpnServerConfigurationName": args.p2SVpnServerConfigurationName,
         "resourceGroupName": args.resourceGroupName,
         "virtualWanName": args.virtualWanName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetP2sVpnServerConfigurationArgs {
     /**
      * The name of the P2SVpnServerConfiguration.
      */
-    readonly name: string;
+    readonly p2SVpnServerConfigurationName: string;
     /**
      * The resource group name of the P2SVpnServerConfiguration.
      */

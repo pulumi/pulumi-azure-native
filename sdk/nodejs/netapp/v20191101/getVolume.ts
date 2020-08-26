@@ -16,9 +16,9 @@ export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pro
     }
     return pulumi.runtime.invoke("azurerm:netapp/v20191101:getVolume", {
         "accountName": args.accountName,
-        "name": args.name,
         "poolName": args.poolName,
         "resourceGroupName": args.resourceGroupName,
+        "volumeName": args.volumeName,
     }, opts);
 }
 
@@ -28,10 +28,6 @@ export interface GetVolumeArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the volume
-     */
-    readonly name: string;
-    /**
      * The name of the capacity pool
      */
     readonly poolName: string;
@@ -39,6 +35,10 @@ export interface GetVolumeArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the volume
+     */
+    readonly volumeName: string;
 }
 
 /**

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// The name of the Web Application Firewall Policy.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("policyName", required: true)]
+        public string PolicyName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

@@ -18,7 +18,7 @@ func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, o
 
 type LookupRoleAssignmentArgs struct {
 	// The name of the role assignment to get.
-	Name string `pulumi:"name"`
+	RoleAssignmentName string `pulumi:"roleAssignmentName"`
 	// The scope of the role assignment.
 	Scope string `pulumi:"scope"`
 }

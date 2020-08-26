@@ -24,8 +24,8 @@ class ConnectorMapping(pulumi.CustomResource):
                  entity_type: Optional[pulumi.Input[str]] = None,
                  entity_type_name: Optional[pulumi.Input[str]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
+                 mapping_name: Optional[pulumi.Input[str]] = None,
                  mapping_properties: Optional[pulumi.Input[pulumi.InputType['ConnectorMappingPropertiesArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -42,8 +42,8 @@ class ConnectorMapping(pulumi.CustomResource):
         :param pulumi.Input[str] entity_type: Defines which entity type the file should map to.
         :param pulumi.Input[str] entity_type_name: The mapping entity name.
         :param pulumi.Input[str] hub_name: The name of the hub.
+        :param pulumi.Input[str] mapping_name: The name of the connector mapping.
         :param pulumi.Input[pulumi.InputType['ConnectorMappingPropertiesArgs']] mapping_properties: The properties of the mapping.
-        :param pulumi.Input[str] name: The name of the connector mapping.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         if __name__ is not None:
@@ -78,12 +78,12 @@ class ConnectorMapping(pulumi.CustomResource):
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
+            if mapping_name is None:
+                raise TypeError("Missing required property 'mapping_name'")
+            __props__['mapping_name'] = mapping_name
             if mapping_properties is None:
                 raise TypeError("Missing required property 'mapping_properties'")
             __props__['mapping_properties'] = mapping_properties
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -91,6 +91,7 @@ class ConnectorMapping(pulumi.CustomResource):
             __props__['created'] = None
             __props__['data_format_id'] = None
             __props__['last_modified'] = None
+            __props__['name'] = None
             __props__['next_run_time'] = None
             __props__['run_id'] = None
             __props__['state'] = None

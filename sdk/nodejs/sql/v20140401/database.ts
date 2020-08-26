@@ -121,7 +121,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
      */
@@ -212,11 +212,11 @@ export class Database extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DatabaseArgs | undefined;
+            if (!args || args.databaseName === undefined) {
+                throw new Error("Missing required property 'databaseName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -226,11 +226,11 @@ export class Database extends pulumi.CustomResource {
             }
             inputs["collation"] = args ? args.collation : undefined;
             inputs["createMode"] = args ? args.createMode : undefined;
+            inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["edition"] = args ? args.edition : undefined;
             inputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["readScale"] = args ? args.readScale : undefined;
             inputs["recoveryServicesRecoveryPointResourceId"] = args ? args.recoveryServicesRecoveryPointResourceId : undefined;
             inputs["requestedServiceObjectiveId"] = args ? args.requestedServiceObjectiveId : undefined;
@@ -251,6 +251,7 @@ export class Database extends pulumi.CustomResource {
             inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["failoverGroupId"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["recommendedIndex"] = undefined /*out*/;
             inputs["serviceLevelObjective"] = undefined /*out*/;
             inputs["serviceTierAdvisors"] = undefined /*out*/;
@@ -298,6 +299,10 @@ export interface DatabaseArgs {
      */
     readonly createMode?: pulumi.Input<string>;
     /**
+     * The name of the database to be operated on (updated or created).
+     */
+    readonly databaseName: pulumi.Input<string>;
+    /**
      * The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
      * 
      * The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
@@ -323,10 +328,6 @@ export interface DatabaseArgs {
      * The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
      */
     readonly maxSizeBytes?: pulumi.Input<string>;
-    /**
-     * The name of the database to be operated on (updated or created).
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
      */

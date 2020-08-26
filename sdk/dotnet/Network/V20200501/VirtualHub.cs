@@ -243,12 +243,6 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the VirtualHub.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The P2SVpnGateway associated with this VirtualHub.
         /// </summary>
         [Input("p2SVpnGateway")]
@@ -301,6 +295,12 @@ namespace Pulumi.AzureRM.Network.V20200501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the VirtualHub.
+        /// </summary>
+        [Input("virtualHubName", required: true)]
+        public Input<string> VirtualHubName { get; set; } = null!;
 
         [Input("virtualHubRouteTableV2s")]
         private InputList<Inputs.VirtualHubRouteTableV2Args>? _virtualHubRouteTableV2s;

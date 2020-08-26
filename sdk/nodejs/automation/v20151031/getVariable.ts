@@ -16,8 +16,8 @@ export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions):
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getVariable", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "variableName": args.variableName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetVariableArgs {
      */
     readonly automationAccountName: string;
     /**
-     * The name of variable.
-     */
-    readonly name: string;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of variable.
+     */
+    readonly variableName: string;
 }
 
 /**

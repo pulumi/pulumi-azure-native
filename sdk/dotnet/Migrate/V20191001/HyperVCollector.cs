@@ -74,8 +74,8 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         /// <summary>
         /// Unique name of a Hyper-V collector within a project.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("hyperVCollectorName", required: true)]
+        public Input<string> HyperVCollectorName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Migrate project.

@@ -18,9 +18,9 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gallery_application_name: Optional[pulumi.Input[str]] = None,
+                 gallery_application_version_name: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  publishing_profile: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,9 +33,9 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gallery_application_name: The name of the gallery Application Definition in which the Application Version is to be created.
+        :param pulumi.Input[str] gallery_application_version_name: The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
         :param pulumi.Input[str] gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
         :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery Image Version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -60,15 +60,15 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             if gallery_application_name is None:
                 raise TypeError("Missing required property 'gallery_application_name'")
             __props__['gallery_application_name'] = gallery_application_name
+            if gallery_application_version_name is None:
+                raise TypeError("Missing required property 'gallery_application_version_name'")
+            __props__['gallery_application_version_name'] = gallery_application_version_name
             if gallery_name is None:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__['gallery_name'] = gallery_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if publishing_profile is None:
                 raise TypeError("Missing required property 'publishing_profile'")
             __props__['publishing_profile'] = publishing_profile
@@ -76,6 +76,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['replication_status'] = None
             __props__['type'] = None

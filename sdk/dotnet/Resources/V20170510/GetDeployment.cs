@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Resources.V20170510
         /// <summary>
         /// The name of the deployment to get.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("deploymentName", required: true)]
+        public string DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

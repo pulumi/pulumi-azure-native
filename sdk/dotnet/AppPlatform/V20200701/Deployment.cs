@@ -92,8 +92,8 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         /// <summary>
         /// The name of the Deployment resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// Properties of the Deployment resource

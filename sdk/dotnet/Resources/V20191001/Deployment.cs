@@ -106,16 +106,16 @@ namespace Pulumi.AzureRM.Resources.V20191001
     public sealed class DeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the deployment.
+        /// </summary>
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
+
+        /// <summary>
         /// The location to store the deployment data.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the deployment.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The deployment properties.

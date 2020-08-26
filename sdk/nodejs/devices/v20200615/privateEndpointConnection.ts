@@ -39,7 +39,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The properties of a private endpoint connection
      */
@@ -62,8 +62,8 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrivateEndpointConnectionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.privateEndpointConnectionName === undefined) {
+                throw new Error("Missing required property 'privateEndpointConnectionName'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -74,10 +74,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,7 +101,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection
      */
-    readonly name: pulumi.Input<string>;
+    readonly privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * The properties of a private endpoint connection
      */

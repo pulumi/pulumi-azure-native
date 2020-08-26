@@ -88,12 +88,6 @@ namespace Pulumi.AzureRM.ManagedServices.V20190901
     public sealed class RegistrationDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Guid of the registration definition.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Plan details for the managed services.
         /// </summary>
         [Input("plan")]
@@ -104,6 +98,12 @@ namespace Pulumi.AzureRM.ManagedServices.V20190901
         /// </summary>
         [Input("properties")]
         public Input<Inputs.RegistrationDefinitionPropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// Guid of the registration definition.
+        /// </summary>
+        [Input("registrationDefinitionId", required: true)]
+        public Input<string> RegistrationDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// Scope of the resource.

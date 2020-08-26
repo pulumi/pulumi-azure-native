@@ -24,6 +24,7 @@ class Domain(pulumi.CustomResource):
                  contact_registrant: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
                  contact_tech: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
                  domain_not_renewable_reasons: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  expiration_time: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -55,6 +56,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_registrant: Registrant contact information
         :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_tech: Technical contact information
         :param pulumi.Input[str] created_time: Domain creation timestamp
+        :param pulumi.Input[str] domain_name: Name of the domain
         :param pulumi.Input[List[pulumi.Input[str]]] domain_not_renewable_reasons: Reasons why domain is not renewable
         :param pulumi.Input[str] expiration_time: Domain expiration timestamp
         :param pulumi.Input[str] id: Resource Id
@@ -62,7 +64,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] last_renewed_time: Timestamp when the domain was renewed last time
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HostNameArgs']]]] managed_host_names: All hostnames derived from the domain and assigned to Azure resources
-        :param pulumi.Input[str] name: Name of the domain
+        :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[List[pulumi.Input[str]]] name_servers: Name servers
         :param pulumi.Input[bool] privacy: If true then domain privacy is enabled for this domain
         :param pulumi.Input[str] provisioning_state: Domain provisioning state
@@ -96,6 +98,9 @@ class Domain(pulumi.CustomResource):
             __props__['contact_registrant'] = contact_registrant
             __props__['contact_tech'] = contact_tech
             __props__['created_time'] = created_time
+            if domain_name is None:
+                raise TypeError("Missing required property 'domain_name'")
+            __props__['domain_name'] = domain_name
             __props__['domain_not_renewable_reasons'] = domain_not_renewable_reasons
             __props__['expiration_time'] = expiration_time
             __props__['id'] = id
@@ -105,8 +110,6 @@ class Domain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['managed_host_names'] = managed_host_names
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['name_servers'] = name_servers
             __props__['privacy'] = privacy

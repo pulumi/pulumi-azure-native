@@ -90,16 +90,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the Policy.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Json escaped Xml Encoded contents of the Policy.
         /// </summary>
         [Input("policyContent", required: true)]
         public Input<string> PolicyContent { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier of the Policy.
+        /// </summary>
+        [Input("policyId", required: true)]
+        public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -125,6 +125,12 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
 
     public sealed class FactoryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The factory name.
+        /// </summary>
+        [Input("factoryName", required: true)]
+        public Input<string> FactoryName { get; set; } = null!;
+
         [Input("globalParameters")]
         private InputMap<Inputs.GlobalParameterSpecificationArgs>? _globalParameters;
 
@@ -148,12 +154,6 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The factory name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Git repo information of the factory.

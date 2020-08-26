@@ -46,11 +46,11 @@ func NewVirtualWan(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VirtualWANName == nil {
+		return nil, errors.New("missing required argument 'VirtualWANName'")
 	}
 	if args == nil {
 		args = &VirtualWanArgs{}
@@ -202,8 +202,6 @@ type virtualWanArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the VirtualWAN being created or updated.
-	Name string `pulumi:"name"`
 	// The office local breakout category.
 	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
 	// The provisioning state of the virtual WAN resource.
@@ -212,6 +210,8 @@ type virtualWanArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the VirtualWAN being created or updated.
+	VirtualWANName string `pulumi:"virtualWANName"`
 }
 
 // The set of arguments for constructing a VirtualWan resource.
@@ -226,8 +226,6 @@ type VirtualWanArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the VirtualWAN being created or updated.
-	Name pulumi.StringInput
 	// The office local breakout category.
 	Office365LocalBreakoutCategory pulumi.StringPtrInput
 	// The provisioning state of the virtual WAN resource.
@@ -236,6 +234,8 @@ type VirtualWanArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The name of the VirtualWAN being created or updated.
+	VirtualWANName pulumi.StringInput
 }
 
 func (VirtualWanArgs) ElementType() reflect.Type {

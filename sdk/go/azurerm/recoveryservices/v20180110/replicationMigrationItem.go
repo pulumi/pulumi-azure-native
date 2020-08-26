@@ -30,8 +30,8 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 	if args == nil || args.FabricName == nil {
 		return nil, errors.New("missing required argument 'FabricName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.MigrationItemName == nil {
+		return nil, errors.New("missing required argument 'MigrationItemName'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -105,7 +105,7 @@ type replicationMigrationItemArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
 	// Migration item name.
-	Name string `pulumi:"name"`
+	MigrationItemName string `pulumi:"migrationItemName"`
 	// Enable migration input properties.
 	Properties EnableMigrationInputProperties `pulumi:"properties"`
 	// Protection container name.
@@ -121,7 +121,7 @@ type ReplicationMigrationItemArgs struct {
 	// Fabric name.
 	FabricName pulumi.StringInput
 	// Migration item name.
-	Name pulumi.StringInput
+	MigrationItemName pulumi.StringInput
 	// Enable migration input properties.
 	Properties EnableMigrationInputPropertiesInput
 	// Protection container name.

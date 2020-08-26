@@ -17,10 +17,10 @@ func LookupHybridConnectionAuthorizationRule(ctx *pulumi.Context, args *LookupHy
 }
 
 type LookupHybridConnectionAuthorizationRuleArgs struct {
+	// The authorizationRule name.
+	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// The hybrid connection name.
 	HybridConnectionName string `pulumi:"hybridConnectionName"`
-	// The authorizationRule name.
-	Name string `pulumi:"name"`
 	// The Namespace Name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.

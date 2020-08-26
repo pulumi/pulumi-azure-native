@@ -178,12 +178,6 @@ namespace Pulumi.AzureRM.Compute.V20200601
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the virtual machine extension.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("protectedSettings")]
         private InputMap<object>? _protectedSettings;
 
@@ -243,6 +237,12 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }
+
+        /// <summary>
+        /// The name of the virtual machine extension.
+        /// </summary>
+        [Input("vmExtensionName", required: true)]
+        public Input<string> VmExtensionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the VM scale set.

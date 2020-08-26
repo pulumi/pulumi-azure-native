@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// <summary>
         /// The name of the proximity placement group.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("proximityPlacementGroupName", required: true)]
+        public string ProximityPlacementGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

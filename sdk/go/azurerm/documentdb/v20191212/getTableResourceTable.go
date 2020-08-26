@@ -19,10 +19,10 @@ func LookupTableResourceTable(ctx *pulumi.Context, args *LookupTableResourceTabl
 type LookupTableResourceTableArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
-	// Cosmos DB table name.
-	Name string `pulumi:"name"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Cosmos DB table name.
+	TableName string `pulumi:"tableName"`
 }
 
 // An Azure Cosmos DB Table.

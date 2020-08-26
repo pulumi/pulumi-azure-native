@@ -22,11 +22,11 @@ class PublicIPPrefix(pulumi.CustomResource):
                  ip_prefix: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[float]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_ip_address_version: Optional[pulumi.Input[str]] = None,
                  public_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReferencedPublicIpAddressArgs']]]]] = None,
+                 public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['PublicIPPrefixSkuArgs']]] = None,
@@ -45,11 +45,11 @@ class PublicIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] ip_prefix: The allocated Prefix
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpTagArgs']]]] ip_tags: The list of tags associated with the public IP prefix.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the public IP prefix.
         :param pulumi.Input[float] prefix_length: The Length of the Public IP Prefix.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] public_ip_address_version: The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReferencedPublicIpAddressArgs']]]] public_ip_addresses: The list of all referenced PublicIPAddresses
+        :param pulumi.Input[str] public_ip_prefix_name: The name of the public IP prefix.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the public IP prefix resource.
         :param pulumi.Input[pulumi.InputType['PublicIPPrefixSkuArgs']] sku: The public IP prefix SKU.
@@ -78,13 +78,13 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__['ip_prefix'] = ip_prefix
             __props__['ip_tags'] = ip_tags
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['prefix_length'] = prefix_length
             __props__['provisioning_state'] = provisioning_state
             __props__['public_ip_address_version'] = public_ip_address_version
             __props__['public_ip_addresses'] = public_ip_addresses
+            if public_ip_prefix_name is None:
+                raise TypeError("Missing required property 'public_ip_prefix_name'")
+            __props__['public_ip_prefix_name'] = public_ip_prefix_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -93,6 +93,7 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['zones'] = zones
             __props__['load_balancer_frontend_ip_configuration'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azurerm:network/v20200601:PublicIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -20,7 +20,7 @@ type LookupLiveEventArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
 	// The name of the Live Event.
-	Name string `pulumi:"name"`
+	LiveEventName string `pulumi:"liveEventName"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

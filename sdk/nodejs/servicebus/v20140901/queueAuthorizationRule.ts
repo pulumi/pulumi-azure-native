@@ -92,8 +92,8 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as QueueAuthorizationRuleArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.authorizationRuleName === undefined) {
+                throw new Error("Missing required property 'authorizationRuleName'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -107,6 +107,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.rights === undefined) {
                 throw new Error("Missing required property 'rights'");
             }
+            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
             inputs["claimType"] = args ? args.claimType : undefined;
             inputs["claimValue"] = args ? args.claimValue : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
@@ -140,6 +141,10 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
  */
 export interface QueueAuthorizationRuleArgs {
     /**
+     * The authorization rule name.
+     */
+    readonly authorizationRuleName: pulumi.Input<string>;
+    /**
      * A string that describes Claim Type for authorization rule.
      */
     readonly claimType?: pulumi.Input<string>;
@@ -156,9 +161,9 @@ export interface QueueAuthorizationRuleArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The authorization rule name.
+     * Name of the authorization rule.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The namespace name
      */

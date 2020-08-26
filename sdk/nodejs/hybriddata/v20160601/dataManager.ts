@@ -49,7 +49,7 @@ export class DataManager extends pulumi.CustomResource {
     /**
      * The Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The sku type.
      */
@@ -77,21 +77,22 @@ export class DataManager extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DataManagerArgs | undefined;
+            if (!args || args.dataManagerName === undefined) {
+                throw new Error("Missing required property 'dataManagerName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dataManagerName"] = args ? args.dataManagerName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,6 +113,10 @@ export class DataManager extends pulumi.CustomResource {
  */
 export interface DataManagerArgs {
     /**
+     * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+     */
+    readonly dataManagerName: pulumi.Input<string>;
+    /**
      * Etag of the Resource.
      */
     readonly etag?: pulumi.Input<string>;
@@ -121,10 +126,6 @@ export interface DataManagerArgs {
      * region is specified on update the request will succeed.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Resource Group Name
      */

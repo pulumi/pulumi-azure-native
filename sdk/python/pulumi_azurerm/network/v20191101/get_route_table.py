@@ -140,20 +140,20 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
 
 
 def get_route_table(expand: Optional[str] = None,
-                    name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
+                    route_table_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str expand: Expands referenced resources.
-    :param str name: The name of the route table.
     :param str resource_group_name: The name of the resource group.
+    :param str route_table_name: The name of the route table.
     """
     __args__ = dict()
     __args__['expand'] = expand
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['routeTableName'] = route_table_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

@@ -19,10 +19,10 @@ func LookupSqlResourceSqlContainer(ctx *pulumi.Context, args *LookupSqlResourceS
 type LookupSqlResourceSqlContainerArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
+	// Cosmos DB container name.
+	ContainerName string `pulumi:"containerName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
-	// Cosmos DB container name.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

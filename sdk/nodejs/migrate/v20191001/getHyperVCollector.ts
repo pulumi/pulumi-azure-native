@@ -15,7 +15,7 @@ export function getHyperVCollector(args: GetHyperVCollectorArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:migrate/v20191001:getHyperVCollector", {
-        "name": args.name,
+        "hyperVCollectorName": args.hyperVCollectorName,
         "projectName": args.projectName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetHyperVCollectorArgs {
     /**
      * Unique name of a Hyper-V collector within a project.
      */
-    readonly name: string;
+    readonly hyperVCollectorName: string;
     /**
      * Name of the Azure Migrate project.
      */

@@ -18,7 +18,7 @@ func LookupFileServer(ctx *pulumi.Context, args *LookupFileServerArgs, opts ...p
 
 type LookupFileServerArgs struct {
 	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-	Name string `pulumi:"name"`
+	FileServerName string `pulumi:"fileServerName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

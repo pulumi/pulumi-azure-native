@@ -16,9 +16,9 @@ class Topic(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -28,9 +28,9 @@ class Topic(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource
-        :param pulumi.Input[str] name: Name of the topic
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource
+        :param pulumi.Input[str] topic_name: Name of the topic
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -52,14 +52,15 @@ class Topic(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if topic_name is None:
+                raise TypeError("Missing required property 'topic_name'")
+            __props__['topic_name'] = topic_name
             __props__['endpoint'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventgrid/v20180101:Topic"), pulumi.Alias(type_="azurerm:eventgrid/v20190601:Topic"), pulumi.Alias(type_="azurerm:eventgrid/v20200601:Topic")])

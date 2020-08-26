@@ -15,20 +15,20 @@ export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:logic/v20160601:getWorkflow", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "workflowName": args.workflowName,
     }, opts);
 }
 
 export interface GetWorkflowArgs {
     /**
-     * The workflow name.
-     */
-    readonly name: string;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: string;
+    /**
+     * The workflow name.
+     */
+    readonly workflowName: string;
 }
 
 /**

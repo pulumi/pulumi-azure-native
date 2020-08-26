@@ -31,16 +31,16 @@ namespace Pulumi.AzureRM.Compute.V20200601
         public string InstanceId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual machine extension.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual machine extension.
+        /// </summary>
+        [Input("vmExtensionName", required: true)]
+        public string VmExtensionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the VM scale set.

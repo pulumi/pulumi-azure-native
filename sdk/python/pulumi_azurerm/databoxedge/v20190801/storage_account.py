@@ -18,9 +18,9 @@ class StorageAccount(pulumi.CustomResource):
                  data_policy: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_credential_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_account_status: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,9 +33,9 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[str] data_policy: Data policy of the storage Account.
         :param pulumi.Input[str] description: Description for the storage Account.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[str] name: The StorageAccount name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] storage_account_credential_id: Storage Account Credential Id
+        :param pulumi.Input[str] storage_account_name: The StorageAccount name.
         :param pulumi.Input[str] storage_account_status: Current status of the storage account
         """
         if __name__ is not None:
@@ -60,16 +60,17 @@ class StorageAccount(pulumi.CustomResource):
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_account_credential_id'] = storage_account_credential_id
+            if storage_account_name is None:
+                raise TypeError("Missing required property 'storage_account_name'")
+            __props__['storage_account_name'] = storage_account_name
             __props__['storage_account_status'] = storage_account_status
             __props__['blob_endpoint'] = None
             __props__['container_count'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(StorageAccount, __self__).__init__(
             'azurerm:databoxedge/v20190801:StorageAccount',

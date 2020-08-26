@@ -16,7 +16,7 @@ export function getVirtualMachineScaleSetVM(args: GetVirtualMachineScaleSetVMArg
     }
     return pulumi.runtime.invoke("azurerm:compute/v20190701:getVirtualMachineScaleSetVM", {
         "expand": args.expand,
-        "name": args.name,
+        "instanceId": args.instanceId,
         "resourceGroupName": args.resourceGroupName,
         "vmScaleSetName": args.vmScaleSetName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetVirtualMachineScaleSetVMArgs {
     /**
      * The instance ID of the virtual machine.
      */
-    readonly name: string;
+    readonly instanceId: string;
     /**
      * The name of the resource group.
      */

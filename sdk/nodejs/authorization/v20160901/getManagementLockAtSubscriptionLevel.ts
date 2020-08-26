@@ -15,7 +15,7 @@ export function getManagementLockAtSubscriptionLevel(args: GetManagementLockAtSu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization/v20160901:getManagementLockAtSubscriptionLevel", {
-        "name": args.name,
+        "lockName": args.lockName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetManagementLockAtSubscriptionLevelArgs {
     /**
      * The name of the lock to get.
      */
-    readonly name: string;
+    readonly lockName: string;
 }
 
 /**

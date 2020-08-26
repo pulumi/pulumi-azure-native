@@ -59,7 +59,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets list of peerings
      */
@@ -110,19 +110,19 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ExpressRouteCircuitArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.circuitName === undefined) {
+                throw new Error("Missing required property 'circuitName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
             inputs["authorizations"] = args ? args.authorizations : undefined;
+            inputs["circuitName"] = args ? args.circuitName : undefined;
             inputs["circuitProvisioningState"] = args ? args.circuitProvisioningState : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["peerings"] = args ? args.peerings : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -132,6 +132,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["serviceProviderProvisioningState"] = args ? args.serviceProviderProvisioningState : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -160,6 +161,10 @@ export interface ExpressRouteCircuitArgs {
      */
     readonly authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20160330.ExpressRouteCircuitAuthorization>[]>;
     /**
+     * The name of the circuit.
+     */
+    readonly circuitName: pulumi.Input<string>;
+    /**
      * Gets or sets CircuitProvisioningState state of the resource 
      */
     readonly circuitProvisioningState?: pulumi.Input<string>;
@@ -175,10 +180,6 @@ export interface ExpressRouteCircuitArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the circuit.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Gets or sets list of peerings
      */

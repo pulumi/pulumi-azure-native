@@ -20,6 +20,7 @@ class Module(pulumi.CustomResource):
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 module_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -34,7 +35,8 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] content_link: Gets or sets the module content link.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
-        :param pulumi.Input[str] name: The name of module.
+        :param pulumi.Input[str] module_name: The name of module.
+        :param pulumi.Input[str] name: Gets or sets name of the resource.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
@@ -62,8 +64,9 @@ class Module(pulumi.CustomResource):
                 raise TypeError("Missing required property 'content_link'")
             __props__['content_link'] = content_link
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
+            if module_name is None:
+                raise TypeError("Missing required property 'module_name'")
+            __props__['module_name'] = module_name
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

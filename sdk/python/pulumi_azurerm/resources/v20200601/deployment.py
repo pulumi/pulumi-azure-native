@@ -17,8 +17,8 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -30,8 +30,8 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] deployment_name: The name of the deployment.
         :param pulumi.Input[str] location: The location to store the deployment data.
-        :param pulumi.Input[str] name: The name of the deployment.
         :param pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']] properties: The deployment properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to deploy the resources to. The name is case insensitive. The resource group must already exist.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deployment tags
@@ -53,10 +53,10 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if deployment_name is None:
+                raise TypeError("Missing required property 'deployment_name'")
+            __props__['deployment_name'] = deployment_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
@@ -64,6 +64,7 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/v20151101:Deployment"), pulumi.Alias(type_="azurerm:resources/v20160201:Deployment"), pulumi.Alias(type_="azurerm:resources/v20160701:Deployment"), pulumi.Alias(type_="azurerm:resources/v20160901:Deployment"), pulumi.Alias(type_="azurerm:resources/v20170510:Deployment"), pulumi.Alias(type_="azurerm:resources/v20180201:Deployment"), pulumi.Alias(type_="azurerm:resources/v20180501:Deployment"), pulumi.Alias(type_="azurerm:resources/v20190301:Deployment"), pulumi.Alias(type_="azurerm:resources/v20190501:Deployment"), pulumi.Alias(type_="azurerm:resources/v20190510:Deployment"), pulumi.Alias(type_="azurerm:resources/v20190701:Deployment"), pulumi.Alias(type_="azurerm:resources/v20190801:Deployment"), pulumi.Alias(type_="azurerm:resources/v20191001:Deployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

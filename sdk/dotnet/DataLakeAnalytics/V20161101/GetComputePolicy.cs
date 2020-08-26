@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
         /// <summary>
         /// The name of the compute policy to retrieve.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("computePolicyName", required: true)]
+        public string ComputePolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.

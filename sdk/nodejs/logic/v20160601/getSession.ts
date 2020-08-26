@@ -16,8 +16,8 @@ export function getSession(args: GetSessionArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:logic/v20160601:getSession", {
         "integrationAccountName": args.integrationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "sessionName": args.sessionName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetSessionArgs {
      */
     readonly integrationAccountName: string;
     /**
-     * The integration account session name.
-     */
-    readonly name: string;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: string;
+    /**
+     * The integration account session name.
+     */
+    readonly sessionName: string;
 }
 
 /**

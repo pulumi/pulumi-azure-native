@@ -187,19 +187,19 @@ class AwaitableGetFlowLogResult(GetFlowLogResult):
             type=self.type)
 
 
-def get_flow_log(name: Optional[str] = None,
+def get_flow_log(flow_log_name: Optional[str] = None,
                  network_watcher_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowLogResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the flow log resource.
+    :param str flow_log_name: The name of the flow log resource.
     :param str network_watcher_name: The name of the network watcher.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['flowLogName'] = flow_log_name
     __args__['networkWatcherName'] = network_watcher_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

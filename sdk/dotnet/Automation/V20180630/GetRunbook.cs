@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Automation.V20180630
         public string AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The runbook name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The runbook name.
+        /// </summary>
+        [Input("runbookName", required: true)]
+        public string RunbookName { get; set; } = null!;
 
         public GetRunbookArgs()
         {

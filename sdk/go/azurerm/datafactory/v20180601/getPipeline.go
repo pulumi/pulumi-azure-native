@@ -20,7 +20,7 @@ type LookupPipelineArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// The pipeline name.
-	Name string `pulumi:"name"`
+	PipelineName string `pulumi:"pipelineName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

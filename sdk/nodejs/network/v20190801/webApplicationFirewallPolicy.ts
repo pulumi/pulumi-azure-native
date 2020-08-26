@@ -59,7 +59,7 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Describes policySettings for policy.
      */
@@ -97,8 +97,8 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             if (!args || args.managedRules === undefined) {
                 throw new Error("Missing required property 'managedRules'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.policyName === undefined) {
+                throw new Error("Missing required property 'policyName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -108,11 +108,12 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedRules"] = args ? args.managedRules : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["policyName"] = args ? args.policyName : undefined;
             inputs["policySettings"] = args ? args.policySettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["applicationGateways"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -157,7 +158,7 @@ export interface WebApplicationFirewallPolicyArgs {
     /**
      * The name of the policy.
      */
-    readonly name: pulumi.Input<string>;
+    readonly policyName: pulumi.Input<string>;
     /**
      * Describes policySettings for policy.
      */

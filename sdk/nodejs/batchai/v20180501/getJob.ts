@@ -16,7 +16,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
     }
     return pulumi.runtime.invoke("azurerm:batchai/v20180501:getJob", {
         "experimentName": args.experimentName,
-        "name": args.name,
+        "jobName": args.jobName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -30,7 +30,7 @@ export interface GetJobArgs {
     /**
      * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly name: string;
+    readonly jobName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

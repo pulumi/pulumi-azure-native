@@ -17,6 +17,7 @@ class ApplicationGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 application_gateway_name: Optional[pulumi.Input[str]] = None,
                  authentication_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayAuthenticationCertificateArgs']]]]] = None,
                  autoscale_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']]] = None,
                  backend_address_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]]] = None,
@@ -30,7 +31,6 @@ class ApplicationGateway(pulumi.CustomResource):
                  http_listeners: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  probes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  redirect_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]]] = None,
@@ -52,6 +52,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_gateway_name: The name of the application gateway.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayAuthenticationCertificateArgs']]]] authentication_certificates: Authentication certificates of the application gateway resource.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']] autoscale_configuration: Autoscale Configuration.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]] backend_address_pools: Backend address pool of the application gateway resource.
@@ -65,7 +66,6 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]] http_listeners: Http listeners of the application gateway resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the application gateway.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]] probes: Probes of the application gateway resource.
         :param pulumi.Input[str] provisioning_state: Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]] redirect_configurations: Redirect configurations of the application gateway resource.
@@ -97,6 +97,9 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if application_gateway_name is None:
+                raise TypeError("Missing required property 'application_gateway_name'")
+            __props__['application_gateway_name'] = application_gateway_name
             __props__['authentication_certificates'] = authentication_certificates
             __props__['autoscale_configuration'] = autoscale_configuration
             __props__['backend_address_pools'] = backend_address_pools
@@ -110,9 +113,6 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__['http_listeners'] = http_listeners
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['probes'] = probes
             __props__['provisioning_state'] = provisioning_state
             __props__['redirect_configurations'] = redirect_configurations
@@ -128,6 +128,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__['url_path_maps'] = url_path_maps
             __props__['web_application_firewall_configuration'] = web_application_firewall_configuration
             __props__['zones'] = zones
+            __props__['name'] = None
             __props__['operational_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20150615:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20160330:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20160601:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20160901:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20161201:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20170301:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20170601:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20170801:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20170901:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20171001:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20171101:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20180101:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20180201:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20180401:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20180601:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20180801:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20181001:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20181101:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20181201:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20190201:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20190401:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20190601:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20190701:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20190801:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20190901:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20191101:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20191201:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20200301:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20200401:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20200501:ApplicationGateway"), pulumi.Alias(type_="azurerm:network/v20200601:ApplicationGateway")])

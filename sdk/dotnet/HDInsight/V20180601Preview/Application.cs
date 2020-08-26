@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The constant value for the application name.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the cluster.
         /// </summary>
         [Input("clusterName", required: true)]
@@ -100,12 +106,6 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// The constant value for the application name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The properties of the application.

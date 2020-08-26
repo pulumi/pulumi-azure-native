@@ -72,11 +72,11 @@ func NewQueue(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
+	}
+	if args == nil || args.QueueName == nil {
+		return nil, errors.New("missing required argument 'QueueName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -251,10 +251,12 @@ type queueArgs struct {
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
-	// The queue name.
-	Name string `pulumi:"name"`
+	// Queue name.
+	Name *string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
+	// The queue name.
+	QueueName string `pulumi:"queueName"`
 	// A value indicating if this queue requires duplicate detection.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// A value that indicates whether the queue supports the concept of sessions.
@@ -295,10 +297,12 @@ type QueueArgs struct {
 	MaxDeliveryCount pulumi.IntPtrInput
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
 	MaxSizeInMegabytes pulumi.IntPtrInput
-	// The queue name.
-	Name pulumi.StringInput
+	// Queue name.
+	Name pulumi.StringPtrInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
+	// The queue name.
+	QueueName pulumi.StringInput
 	// A value indicating if this queue requires duplicate detection.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// A value that indicates whether the queue supports the concept of sessions.

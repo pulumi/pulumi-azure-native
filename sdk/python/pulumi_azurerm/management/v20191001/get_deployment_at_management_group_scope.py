@@ -91,18 +91,18 @@ class AwaitableGetDeploymentAtManagementGroupScopeResult(GetDeploymentAtManageme
             type=self.type)
 
 
-def get_deployment_at_management_group_scope(group_id: Optional[str] = None,
-                                             name: Optional[str] = None,
+def get_deployment_at_management_group_scope(deployment_name: Optional[str] = None,
+                                             group_id: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtManagementGroupScopeResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str deployment_name: The name of the deployment.
     :param str group_id: The management group ID.
-    :param str name: The name of the deployment.
     """
     __args__ = dict()
+    __args__['deploymentName'] = deployment_name
     __args__['groupId'] = group_id
-    __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

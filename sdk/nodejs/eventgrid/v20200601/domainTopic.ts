@@ -37,7 +37,7 @@ export class DomainTopic extends pulumi.CustomResource {
     /**
      * Name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the domain topic.
      */
@@ -63,15 +63,16 @@ export class DomainTopic extends pulumi.CustomResource {
             if (!args || args.domainName === undefined) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.domainTopicName === undefined) {
+                throw new Error("Missing required property 'domainTopicName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["domainTopicName"] = args ? args.domainTopicName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -99,7 +100,7 @@ export interface DomainTopicArgs {
     /**
      * Name of the domain topic.
      */
-    readonly name: pulumi.Input<string>;
+    readonly domainTopicName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */

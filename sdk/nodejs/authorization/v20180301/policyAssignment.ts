@@ -51,7 +51,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * The name of the policy assignment.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The policy's excluded scopes.
      */
@@ -90,8 +90,8 @@ export class PolicyAssignment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PolicyAssignmentArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.policyAssignmentName === undefined) {
+                throw new Error("Missing required property 'policyAssignmentName'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
@@ -99,12 +99,13 @@ export class PolicyAssignment extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["notScopes"] = args ? args.notScopes : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["policyAssignmentName"] = args ? args.policyAssignmentName : undefined;
             inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -137,10 +138,6 @@ export interface PolicyAssignmentArgs {
      */
     readonly metadata?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The name of the policy assignment.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The policy's excluded scopes.
      */
     readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -148,6 +145,10 @@ export interface PolicyAssignmentArgs {
      * Required if a parameter is used in policy rule.
      */
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The name of the policy assignment.
+     */
+    readonly policyAssignmentName: pulumi.Input<string>;
     /**
      * The ID of the policy definition or policy set definition being assigned.
      */

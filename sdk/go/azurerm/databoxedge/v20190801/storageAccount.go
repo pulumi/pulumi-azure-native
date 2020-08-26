@@ -38,11 +38,11 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StorageAccountName == nil {
+		return nil, errors.New("missing required argument 'StorageAccountName'")
 	}
 	if args == nil {
 		args = &StorageAccountArgs{}
@@ -117,12 +117,12 @@ type storageAccountArgs struct {
 	Description *string `pulumi:"description"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
-	// The StorageAccount name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Storage Account Credential Id
 	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
+	// The StorageAccount name.
+	StorageAccountName string `pulumi:"storageAccountName"`
 	// Current status of the storage account
 	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
 }
@@ -135,12 +135,12 @@ type StorageAccountArgs struct {
 	Description pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
-	// The StorageAccount name.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Storage Account Credential Id
 	StorageAccountCredentialId pulumi.StringPtrInput
+	// The StorageAccount name.
+	StorageAccountName pulumi.StringInput
 	// Current status of the storage account
 	StorageAccountStatus pulumi.StringPtrInput
 }

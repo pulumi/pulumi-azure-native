@@ -39,8 +39,8 @@ func NewReportConfig(ctx *pulumi.Context,
 	if args == nil || args.DeliveryInfo == nil {
 		return nil, errors.New("missing required argument 'DeliveryInfo'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ReportConfigName == nil {
+		return nil, errors.New("missing required argument 'ReportConfigName'")
 	}
 	if args == nil {
 		args = &ReportConfigArgs{}
@@ -112,7 +112,7 @@ type reportConfigArgs struct {
 	// The format of the report being delivered.
 	Format *string `pulumi:"format"`
 	// Report Config Name.
-	Name string `pulumi:"name"`
+	ReportConfigName string `pulumi:"reportConfigName"`
 	// Has schedule information for the report config.
 	Schedule *ReportConfigSchedule `pulumi:"schedule"`
 }
@@ -126,7 +126,7 @@ type ReportConfigArgs struct {
 	// The format of the report being delivered.
 	Format pulumi.StringPtrInput
 	// Report Config Name.
-	Name pulumi.StringInput
+	ReportConfigName pulumi.StringInput
 	// Has schedule information for the report config.
 	Schedule ReportConfigSchedulePtrInput
 }

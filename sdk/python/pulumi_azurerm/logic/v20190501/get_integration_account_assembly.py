@@ -91,20 +91,20 @@ class AwaitableGetIntegrationAccountAssemblyResult(GetIntegrationAccountAssembly
             type=self.type)
 
 
-def get_integration_account_assembly(integration_account_name: Optional[str] = None,
-                                     name: Optional[str] = None,
+def get_integration_account_assembly(assembly_artifact_name: Optional[str] = None,
+                                     integration_account_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountAssemblyResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str assembly_artifact_name: The assembly artifact name.
     :param str integration_account_name: The integration account name.
-    :param str name: The assembly artifact name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
+    __args__['assemblyArtifactName'] = assembly_artifact_name
     __args__['integrationAccountName'] = integration_account_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

@@ -37,16 +37,16 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
         public string DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Cosmos DB trigger name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB trigger name.
+        /// </summary>
+        [Input("triggerName", required: true)]
+        public string TriggerName { get; set; } = null!;
 
         public GetSqlResourceSqlTriggerArgs()
         {

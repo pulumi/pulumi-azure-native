@@ -15,21 +15,21 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20170301:getRoute", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "routeName": args.routeName,
         "routeTableName": args.routeTableName,
     }, opts);
 }
 
 export interface GetRouteArgs {
     /**
-     * The name of the route.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the route.
+     */
+    readonly routeName: string;
     /**
      * The name of the route table.
      */

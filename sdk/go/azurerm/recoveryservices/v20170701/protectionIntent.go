@@ -34,8 +34,8 @@ func NewProtectionIntent(ctx *pulumi.Context,
 	if args == nil || args.FabricName == nil {
 		return nil, errors.New("missing required argument 'FabricName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.IntentObjectName == nil {
+		return nil, errors.New("missing required argument 'IntentObjectName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -106,10 +106,10 @@ type protectionIntentArgs struct {
 	ETag *string `pulumi:"eTag"`
 	// Fabric name associated with the backup item.
 	FabricName string `pulumi:"fabricName"`
+	// Intent object name.
+	IntentObjectName string `pulumi:"intentObjectName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// Intent object name.
-	Name string `pulumi:"name"`
 	// ProtectionIntentResource properties
 	Properties *ProtectionIntentType `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
@@ -126,10 +126,10 @@ type ProtectionIntentArgs struct {
 	ETag pulumi.StringPtrInput
 	// Fabric name associated with the backup item.
 	FabricName pulumi.StringInput
+	// Intent object name.
+	IntentObjectName pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// Intent object name.
-	Name pulumi.StringInput
 	// ProtectionIntentResource properties
 	Properties ProtectionIntentTypePtrInput
 	// The name of the resource group where the recovery services vault is present.

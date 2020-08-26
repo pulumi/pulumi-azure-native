@@ -103,20 +103,20 @@ class AwaitableGetExpressRouteConnectionResult(GetExpressRouteConnectionResult):
             routing_weight=self.routing_weight)
 
 
-def get_express_route_connection(express_route_gateway_name: Optional[str] = None,
-                                 name: Optional[str] = None,
+def get_express_route_connection(connection_name: Optional[str] = None,
+                                 express_route_gateway_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str connection_name: The name of the ExpressRoute connection.
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
-    :param str name: The name of the ExpressRoute connection.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['connectionName'] = connection_name
     __args__['expressRouteGatewayName'] = express_route_gateway_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

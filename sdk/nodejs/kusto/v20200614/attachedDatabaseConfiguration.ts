@@ -57,7 +57,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioned state of the resource.
      */
@@ -80,6 +80,9 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AttachedDatabaseConfigurationArgs | undefined;
+            if (!args || args.attachedDatabaseConfigurationName === undefined) {
+                throw new Error("Missing required property 'attachedDatabaseConfigurationName'");
+            }
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -92,20 +95,18 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             if (!args || args.defaultPrincipalsModificationKind === undefined) {
                 throw new Error("Missing required property 'defaultPrincipalsModificationKind'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["attachedDatabaseConfigurationName"] = args ? args.attachedDatabaseConfigurationName : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["clusterResourceId"] = args ? args.clusterResourceId : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["defaultPrincipalsModificationKind"] = args ? args.defaultPrincipalsModificationKind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["attachedDatabaseNames"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -127,6 +128,10 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
  */
 export interface AttachedDatabaseConfigurationArgs {
     /**
+     * The name of the attached database configuration.
+     */
+    readonly attachedDatabaseConfigurationName: pulumi.Input<string>;
+    /**
      * The name of the Kusto cluster.
      */
     readonly clusterName: pulumi.Input<string>;
@@ -146,10 +151,6 @@ export interface AttachedDatabaseConfigurationArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the attached database configuration.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

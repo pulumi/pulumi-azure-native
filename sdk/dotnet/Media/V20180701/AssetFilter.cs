@@ -106,16 +106,16 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Input<string> AssetName { get; set; } = null!;
 
         /// <summary>
+        /// The Asset Filter name
+        /// </summary>
+        [Input("filterName", required: true)]
+        public Input<string> FilterName { get; set; } = null!;
+
+        /// <summary>
         /// The first quality.
         /// </summary>
         [Input("firstQuality")]
         public Input<Inputs.FirstQualityArgs>? FirstQuality { get; set; }
-
-        /// <summary>
-        /// The Asset Filter name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The presentation time range.

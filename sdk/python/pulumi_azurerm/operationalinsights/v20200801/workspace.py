@@ -19,7 +19,6 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  public_network_access_for_ingestion: Optional[pulumi.Input[str]] = None,
                  public_network_access_for_query: Optional[pulumi.Input[str]] = None,
@@ -28,6 +27,7 @@ class Workspace(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_capping: Optional[pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,7 +38,6 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: The ETag of the workspace.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the workspace.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the workspace.
         :param pulumi.Input[str] public_network_access_for_ingestion: The network access type for accessing Log Analytics ingestion.
         :param pulumi.Input[str] public_network_access_for_query: The network access type for accessing Log Analytics query.
@@ -47,6 +46,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']] sku: The SKU of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']] workspace_capping: The daily volume cap for ingestion.
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,9 +69,6 @@ class Workspace(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             __props__['public_network_access_for_ingestion'] = public_network_access_for_ingestion
             __props__['public_network_access_for_query'] = public_network_access_for_query
@@ -82,7 +79,11 @@ class Workspace(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['workspace_capping'] = workspace_capping
+            if workspace_name is None:
+                raise TypeError("Missing required property 'workspace_name'")
+            __props__['workspace_name'] = workspace_name
             __props__['customer_id'] = None
+            __props__['name'] = None
             __props__['private_link_scoped_resources'] = None
             __props__['type'] = None
         super(Workspace, __self__).__init__(

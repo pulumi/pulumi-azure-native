@@ -15,7 +15,7 @@ export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:consumption/v20180630:getBudget", {
-        "name": args.name,
+        "budgetName": args.budgetName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetBudgetArgs {
     /**
      * Budget Name.
      */
-    readonly name: string;
+    readonly budgetName: string;
 }
 
 /**

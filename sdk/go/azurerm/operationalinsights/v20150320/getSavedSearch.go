@@ -17,10 +17,10 @@ func LookupSavedSearch(ctx *pulumi.Context, args *LookupSavedSearchArgs, opts ..
 }
 
 type LookupSavedSearchArgs struct {
-	// The id of the saved search.
-	Name string `pulumi:"name"`
 	// The Resource Group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The id of the saved search.
+	SavedSearchId string `pulumi:"savedSearchId"`
 	// The Log Analytics Workspace name.
 	WorkspaceName string `pulumi:"workspaceName"`
 }

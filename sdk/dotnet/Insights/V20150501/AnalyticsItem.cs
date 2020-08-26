@@ -120,10 +120,10 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// The user-defined name of the item.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
@@ -154,6 +154,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
+
+        /// <summary>
+        /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// </summary>
+        [Input("scopePath", required: true)]
+        public Input<string> ScopePath { get; set; } = null!;
 
         /// <summary>
         /// Enum indicating the type of the Analytics item.

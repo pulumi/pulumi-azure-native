@@ -16,7 +16,7 @@ export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions
     }
     return pulumi.runtime.invoke("azurerm:media/v20200501:getLiveEvent", {
         "accountName": args.accountName,
-        "name": args.name,
+        "liveEventName": args.liveEventName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetLiveEventArgs {
     /**
      * The name of the Live Event.
      */
-    readonly name: string;
+    readonly liveEventName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */

@@ -19,10 +19,10 @@ func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulum
 type LookupScheduleArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The schedule name.
-	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The schedule name.
+	ScheduleName string `pulumi:"scheduleName"`
 }
 
 // Definition of the schedule.

@@ -18,7 +18,7 @@ func LookupDscpConfiguration(ctx *pulumi.Context, args *LookupDscpConfigurationA
 
 type LookupDscpConfigurationArgs struct {
 	// The name of the resource.
-	Name string `pulumi:"name"`
+	DscpConfigurationName string `pulumi:"dscpConfigurationName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

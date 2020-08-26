@@ -18,7 +18,7 @@ func LookupBatchAccount(ctx *pulumi.Context, args *LookupBatchAccountArgs, opts 
 
 type LookupBatchAccountArgs struct {
 	// The name of the Batch account.
-	Name string `pulumi:"name"`
+	AccountName string `pulumi:"accountName"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

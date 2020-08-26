@@ -78,6 +78,9 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ExpressRouteConnectionArgs | undefined;
+            if (!args || args.connectionName === undefined) {
+                throw new Error("Missing required property 'connectionName'");
+            }
             if (!args || args.expressRouteCircuitPeering === undefined) {
                 throw new Error("Missing required property 'expressRouteCircuitPeering'");
             }
@@ -91,6 +94,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
             inputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
             inputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
@@ -123,6 +127,10 @@ export interface ExpressRouteConnectionArgs {
      */
     readonly authorizationKey?: pulumi.Input<string>;
     /**
+     * The name of the connection subresource.
+     */
+    readonly connectionName: pulumi.Input<string>;
+    /**
      * Enable internet security.
      */
     readonly enableInternetSecurity?: pulumi.Input<boolean>;
@@ -139,7 +147,7 @@ export interface ExpressRouteConnectionArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the connection subresource.
+     * The name of the resource.
      */
     readonly name: pulumi.Input<string>;
     /**

@@ -31,14 +31,14 @@ type Route struct {
 // NewRoute registers a new resource with the given unique name, arguments, and options.
 func NewRoute(ctx *pulumi.Context,
 	name string, args *RouteArgs, opts ...pulumi.ResourceOption) (*Route, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NextHopType == nil {
 		return nil, errors.New("missing required argument 'NextHopType'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RouteName == nil {
+		return nil, errors.New("missing required argument 'RouteName'")
 	}
 	if args == nil || args.RouteTableName == nil {
 		return nil, errors.New("missing required argument 'RouteTableName'")
@@ -204,8 +204,8 @@ type routeArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the route.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
 	NextHopIpAddress *string `pulumi:"nextHopIpAddress"`
 	// The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
@@ -214,6 +214,8 @@ type routeArgs struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the route.
+	RouteName string `pulumi:"routeName"`
 	// The name of the route table.
 	RouteTableName string `pulumi:"routeTableName"`
 }
@@ -226,8 +228,8 @@ type RouteArgs struct {
 	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the route.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
 	NextHopIpAddress pulumi.StringPtrInput
 	// The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
@@ -236,6 +238,8 @@ type RouteArgs struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the route.
+	RouteName pulumi.StringInput
 	// The name of the route table.
 	RouteTableName pulumi.StringInput
 }

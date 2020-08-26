@@ -21,12 +21,12 @@ type LookupTaskArgs struct {
 	Expand *string `pulumi:"expand"`
 	// Name of the resource group
 	GroupName string `pulumi:"groupName"`
-	// Name of the Task
-	Name string `pulumi:"name"`
 	// Name of the project
 	ProjectName string `pulumi:"projectName"`
 	// Name of the service
 	ServiceName string `pulumi:"serviceName"`
+	// Name of the Task
+	TaskName string `pulumi:"taskName"`
 }
 
 // A task resource

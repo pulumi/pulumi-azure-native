@@ -102,12 +102,6 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class RegisteredPrefixArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the registered prefix.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the peering.
         /// </summary>
         [Input("peeringName", required: true)]
@@ -118,6 +112,12 @@ namespace Pulumi.AzureRM.Peering.V20200401
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
+
+        /// <summary>
+        /// The name of the registered prefix.
+        /// </summary>
+        [Input("registeredPrefixName", required: true)]
+        public Input<string> RegisteredPrefixName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

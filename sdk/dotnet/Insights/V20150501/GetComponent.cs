@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Insights.V20150501
     public sealed class GetComponentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Application Insights component resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Application Insights component resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetComponentArgs()
         {

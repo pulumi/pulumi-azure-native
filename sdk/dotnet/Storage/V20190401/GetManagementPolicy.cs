@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Storage.V20190401
         /// <summary>
         /// The name of the Storage Account Management Policy. It should always be 'default'
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("managementPolicyName", required: true)]
+        public string ManagementPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

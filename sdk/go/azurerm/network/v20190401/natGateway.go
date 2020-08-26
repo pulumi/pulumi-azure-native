@@ -45,8 +45,8 @@ type NatGateway struct {
 // NewNatGateway registers a new resource with the given unique name, arguments, and options.
 func NewNatGateway(ctx *pulumi.Context,
 	name string, args *NatGatewayArgs, opts ...pulumi.ResourceOption) (*NatGateway, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.NatGatewayName == nil {
+		return nil, errors.New("missing required argument 'NatGatewayName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -183,7 +183,7 @@ type natGatewayArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the nat gateway.
-	Name string `pulumi:"name"`
+	NatGatewayName string `pulumi:"natGatewayName"`
 	// The provisioning state of the NatGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// An array of public ip addresses associated with the nat gateway resource.
@@ -213,7 +213,7 @@ type NatGatewayArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the nat gateway.
-	Name pulumi.StringInput
+	NatGatewayName pulumi.StringInput
 	// The provisioning state of the NatGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState pulumi.StringPtrInput
 	// An array of public ip addresses associated with the nat gateway resource.

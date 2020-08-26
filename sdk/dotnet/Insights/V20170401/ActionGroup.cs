@@ -138,6 +138,12 @@ namespace Pulumi.AzureRM.Insights.V20170401
 
     public sealed class ActionGroupArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the action group.
+        /// </summary>
+        [Input("actionGroupName", required: true)]
+        public Input<string> ActionGroupName { get; set; } = null!;
+
         [Input("automationRunbookReceivers")]
         private InputList<Inputs.AutomationRunbookReceiverArgs>? _automationRunbookReceivers;
 
@@ -203,12 +209,6 @@ namespace Pulumi.AzureRM.Insights.V20170401
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the action group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

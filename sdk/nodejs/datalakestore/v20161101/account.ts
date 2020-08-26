@@ -95,7 +95,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The commitment tier to use for next month.
      */
@@ -142,15 +142,16 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AccountArgs | undefined;
+            if (!args || args.accountName === undefined) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["defaultGroup"] = args ? args.defaultGroup : undefined;
             inputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             inputs["encryptionState"] = args ? args.encryptionState : undefined;
@@ -159,7 +160,6 @@ export class Account extends pulumi.CustomResource {
             inputs["firewallState"] = args ? args.firewallState : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["newTier"] = args ? args.newTier : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -172,6 +172,7 @@ export class Account extends pulumi.CustomResource {
             inputs["encryptionProvisioningState"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -191,6 +192,10 @@ export class Account extends pulumi.CustomResource {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * The name of the Data Lake Store account.
+     */
+    readonly accountName: pulumi.Input<string>;
     /**
      * The default owner group for all new folders and files created in the Data Lake Store account.
      */
@@ -223,10 +228,6 @@ export interface AccountArgs {
      * The resource location.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the Data Lake Store account.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The commitment tier to use for next month.
      */

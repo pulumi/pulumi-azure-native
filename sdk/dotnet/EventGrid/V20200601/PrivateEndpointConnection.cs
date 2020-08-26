@@ -105,12 +105,6 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         }
 
         /// <summary>
-        /// The name of the private endpoint connection connection.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the parent resource (namely, either, the topic name or domain name).
         /// </summary>
         [Input("parentName", required: true)]
@@ -127,6 +121,12 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// </summary>
         [Input("privateEndpoint")]
         public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// The name of the private endpoint connection connection.
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Details about the state of the connection.

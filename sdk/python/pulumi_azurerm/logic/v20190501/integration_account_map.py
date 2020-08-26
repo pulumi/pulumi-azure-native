@@ -21,9 +21,9 @@ class IntegrationAccountMap(pulumi.CustomResource):
                  content_type: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 map_name: Optional[pulumi.Input[str]] = None,
                  map_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parameters_schema: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountMapPropertiesParametersSchemaArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -39,9 +39,9 @@ class IntegrationAccountMap(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: The content type.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[str] map_name: The integration account map name.
         :param pulumi.Input[str] map_type: The map type.
         :param pulumi.Input[Mapping[str, Any]] metadata: The metadata.
-        :param pulumi.Input[str] name: The integration account map name.
         :param pulumi.Input[pulumi.InputType['IntegrationAccountMapPropertiesParametersSchemaArgs']] parameters_schema: The parameters schema of integration account map.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -69,13 +69,13 @@ class IntegrationAccountMap(pulumi.CustomResource):
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
+            if map_name is None:
+                raise TypeError("Missing required property 'map_name'")
+            __props__['map_name'] = map_name
             if map_type is None:
                 raise TypeError("Missing required property 'map_type'")
             __props__['map_type'] = map_type
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['parameters_schema'] = parameters_schema
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -84,6 +84,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
             __props__['changed_time'] = None
             __props__['content_link'] = None
             __props__['created_time'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountMap")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

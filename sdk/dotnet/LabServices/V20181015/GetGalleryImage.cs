@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public string? Expand { get; set; }
 
         /// <summary>
+        /// The name of the gallery Image.
+        /// </summary>
+        [Input("galleryImageName", required: true)]
+        public string GalleryImageName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the lab Account.
         /// </summary>
         [Input("labAccountName", required: true)]
         public string LabAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the gallery Image.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

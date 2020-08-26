@@ -189,12 +189,6 @@ namespace Pulumi.AzureRM.Network.V20180601
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the VpnSite being created or updated.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
         [Input("provisioningState")]
@@ -229,6 +223,12 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// </summary>
         [Input("virtualWAN")]
         public Input<Inputs.SubResourceArgs>? VirtualWAN { get; set; }
+
+        /// <summary>
+        /// The name of the VpnSite being created or updated.
+        /// </summary>
+        [Input("vpnSiteName", required: true)]
+        public Input<string> VpnSiteName { get; set; } = null!;
 
         public VpnSiteArgs()
         {

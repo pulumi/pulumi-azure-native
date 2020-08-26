@@ -16,7 +16,7 @@ export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:logic/v20160601:getPartner", {
         "integrationAccountName": args.integrationAccountName,
-        "name": args.name,
+        "partnerName": args.partnerName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetPartnerArgs {
     /**
      * The integration account partner name.
      */
-    readonly name: string;
+    readonly partnerName: string;
     /**
      * The resource group name.
      */

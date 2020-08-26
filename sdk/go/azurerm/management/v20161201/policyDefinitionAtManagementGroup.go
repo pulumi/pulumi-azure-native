@@ -38,8 +38,8 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	if args == nil || args.ManagementGroupId == nil {
 		return nil, errors.New("missing required argument 'ManagementGroupId'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyDefinitionName == nil {
+		return nil, errors.New("missing required argument 'PolicyDefinitionName'")
 	}
 	if args == nil {
 		args = &PolicyDefinitionAtManagementGroupArgs{}
@@ -136,10 +136,10 @@ type policyDefinitionAtManagementGroupArgs struct {
 	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
 	Mode *string `pulumi:"mode"`
-	// The name of the policy definition to create.
-	Name string `pulumi:"name"`
 	// Required if a parameter is used in policy rule.
 	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The name of the policy definition to create.
+	PolicyDefinitionName string `pulumi:"policyDefinitionName"`
 	// The policy rule.
 	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -158,10 +158,10 @@ type PolicyDefinitionAtManagementGroupArgs struct {
 	Metadata pulumi.MapInput
 	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
 	Mode pulumi.StringPtrInput
-	// The name of the policy definition to create.
-	Name pulumi.StringInput
 	// Required if a parameter is used in policy rule.
 	Parameters pulumi.MapInput
+	// The name of the policy definition to create.
+	PolicyDefinitionName pulumi.StringInput
 	// The policy rule.
 	PolicyRule pulumi.MapInput
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

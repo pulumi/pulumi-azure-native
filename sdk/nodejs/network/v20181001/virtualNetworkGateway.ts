@@ -71,7 +71,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -114,11 +114,11 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualNetworkGatewayArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.virtualNetworkGatewayName === undefined) {
+                throw new Error("Missing required property 'virtualNetworkGatewayName'");
             }
             inputs["activeActive"] = args ? args.activeActive : undefined;
             inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
@@ -129,13 +129,14 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkGatewayName"] = args ? args.virtualNetworkGatewayName : undefined;
             inputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
             inputs["vpnType"] = args ? args.vpnType : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -193,10 +194,6 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the virtual network gateway.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -212,6 +209,10 @@ export interface VirtualNetworkGatewayArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the virtual network gateway.
+     */
+    readonly virtualNetworkGatewayName: pulumi.Input<string>;
     /**
      * The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */

@@ -16,8 +16,8 @@ export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeO
     }
     return pulumi.runtime.invoke("azurerm:labservices/v20181015:getGalleryImage", {
         "expand": args.expand,
+        "galleryImageName": args.galleryImageName,
         "labAccountName": args.labAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetGalleryImageArgs {
      */
     readonly expand?: string;
     /**
+     * The name of the gallery Image.
+     */
+    readonly galleryImageName: string;
+    /**
      * The name of the lab Account.
      */
     readonly labAccountName: string;
-    /**
-     * The name of the gallery Image.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

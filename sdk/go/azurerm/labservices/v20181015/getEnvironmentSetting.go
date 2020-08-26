@@ -17,14 +17,14 @@ func LookupEnvironmentSetting(ctx *pulumi.Context, args *LookupEnvironmentSettin
 }
 
 type LookupEnvironmentSettingArgs struct {
+	// The name of the environment Setting.
+	EnvironmentSettingName string `pulumi:"environmentSettingName"`
 	// Specify the $expand query. Example: 'properties($select=publishingState)'
 	Expand *string `pulumi:"expand"`
 	// The name of the lab Account.
 	LabAccountName string `pulumi:"labAccountName"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
-	// The name of the environment Setting.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

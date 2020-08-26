@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     public sealed class GetDataFlowArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The data flow name.
+        /// </summary>
+        [Input("dataFlowName", required: true)]
+        public string DataFlowName { get; set; } = null!;
+
+        /// <summary>
         /// The factory name.
         /// </summary>
         [Input("factoryName", required: true)]
         public string FactoryName { get; set; } = null!;
-
-        /// <summary>
-        /// The data flow name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

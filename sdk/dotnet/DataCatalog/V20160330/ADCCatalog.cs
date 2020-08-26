@@ -138,6 +138,12 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
         }
 
         /// <summary>
+        /// The name of the data catalog in the specified subscription and resource group.
+        /// </summary>
+        [Input("catalogName", required: true)]
+        public Input<string> CatalogName { get; set; } = null!;
+
+        /// <summary>
         /// Automatic unit adjustment enabled or not.
         /// </summary>
         [Input("enableAutomaticUnitAdjustment")]
@@ -154,12 +160,6 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the data catalog in the specified subscription and resource group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

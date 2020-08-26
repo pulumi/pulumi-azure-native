@@ -18,9 +18,9 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_scope: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,9 +33,9 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
         :param pulumi.Input[str] location: Gets or sets location of the resource
         :param pulumi.Input[str] maintenance_scope: Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-        :param pulumi.Input[str] name: Resource Identifier
         :param pulumi.Input[str] namespace: Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         :param pulumi.Input[str] resource_group_name: Resource Group Name
+        :param pulumi.Input[str] resource_name_: Resource Identifier
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets tags of the resource
         """
         if __name__ is not None:
@@ -58,14 +58,15 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             __props__['extension_properties'] = extension_properties
             __props__['location'] = location
             __props__['maintenance_scope'] = maintenance_scope
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['namespace'] = namespace
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         super(MaintenanceConfiguration, __self__).__init__(
             'azurerm:maintenance/v20200401:MaintenanceConfiguration',

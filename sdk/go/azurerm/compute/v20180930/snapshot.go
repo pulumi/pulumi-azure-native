@@ -51,11 +51,11 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SnapshotName == nil {
+		return nil, errors.New("missing required argument 'SnapshotName'")
 	}
 	if args == nil {
 		args = &SnapshotArgs{}
@@ -181,14 +181,14 @@ type snapshotArgs struct {
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-	Name string `pulumi:"name"`
 	// The Operating System type.
 	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 	Sku *SnapshotSku `pulumi:"sku"`
+	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+	SnapshotName string `pulumi:"snapshotName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -205,14 +205,14 @@ type SnapshotArgs struct {
 	HyperVGeneration pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-	Name pulumi.StringInput
 	// The Operating System type.
 	OsType pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 	Sku SnapshotSkuPtrInput
+	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+	SnapshotName pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

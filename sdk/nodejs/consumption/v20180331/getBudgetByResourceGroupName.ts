@@ -15,7 +15,7 @@ export function getBudgetByResourceGroupName(args: GetBudgetByResourceGroupNameA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:consumption/v20180331:getBudgetByResourceGroupName", {
-        "name": args.name,
+        "budgetName": args.budgetName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetBudgetByResourceGroupNameArgs {
     /**
      * Budget Name.
      */
-    readonly name: string;
+    readonly budgetName: string;
     /**
      * Azure Resource Group Name.
      */

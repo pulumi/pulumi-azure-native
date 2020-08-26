@@ -17,18 +17,23 @@ export function getSiteVNETConnection(args: GetSiteVNETConnectionArgs, opts?: pu
     return pulumi.runtime.invoke("azurerm:web/v20150801:getSiteVNETConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "vnetName": args.vnetName,
     }, opts);
 }
 
 export interface GetSiteVNETConnectionArgs {
     /**
-     * The name of the Virtual Network
+     * The name of the web app
      */
     readonly name: string;
     /**
      * The resource group name
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the Virtual Network
+     */
+    readonly vnetName: string;
 }
 
 /**

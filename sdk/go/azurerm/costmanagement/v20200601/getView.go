@@ -18,7 +18,7 @@ func LookupView(ctx *pulumi.Context, args *LookupViewArgs, opts ...pulumi.Invoke
 
 type LookupViewArgs struct {
 	// View name
-	Name string `pulumi:"name"`
+	ViewName string `pulumi:"viewName"`
 }
 
 // States and configurations of Cost Analysis.

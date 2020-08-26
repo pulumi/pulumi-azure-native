@@ -18,7 +18,7 @@ func LookupDedicatedCloudNode(ctx *pulumi.Context, args *LookupDedicatedCloudNod
 
 type LookupDedicatedCloudNodeArgs struct {
 	// dedicated cloud node name
-	Name string `pulumi:"name"`
+	DedicatedCloudNodeName string `pulumi:"dedicatedCloudNodeName"`
 	// The name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

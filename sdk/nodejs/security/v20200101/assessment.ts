@@ -55,7 +55,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Data regarding 3rd party partner integration
      */
@@ -86,8 +86,8 @@ export class Assessment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AssessmentArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.assessmentName === undefined) {
+                throw new Error("Missing required property 'assessmentName'");
             }
             if (!args || args.resourceDetails === undefined) {
                 throw new Error("Missing required property 'resourceDetails'");
@@ -99,14 +99,15 @@ export class Assessment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'status'");
             }
             inputs["additionalData"] = args ? args.additionalData : undefined;
+            inputs["assessmentName"] = args ? args.assessmentName : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["partnersData"] = args ? args.partnersData : undefined;
             inputs["resourceDetails"] = args ? args.resourceDetails : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["displayName"] = undefined /*out*/;
             inputs["links"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -129,13 +130,13 @@ export interface AssessmentArgs {
      */
     readonly additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The Assessment Key - Unique key for the assessment type
+     */
+    readonly assessmentName: pulumi.Input<string>;
+    /**
      * Describes properties of an assessment metadata.
      */
     readonly metadata?: pulumi.Input<inputs.security.v20200101.SecurityAssessmentMetadataProperties>;
-    /**
-     * The Assessment Key - Unique key for the assessment type
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Data regarding 3rd party partner integration
      */

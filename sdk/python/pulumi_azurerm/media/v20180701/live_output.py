@@ -23,8 +23,8 @@ class LiveOutput(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  hls: Optional[pulumi.Input[pulumi.InputType['HlsArgs']]] = None,
                  live_event_name: Optional[pulumi.Input[str]] = None,
+                 live_output_name: Optional[pulumi.Input[str]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  output_snap_time: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -41,8 +41,8 @@ class LiveOutput(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Live Output.
         :param pulumi.Input[pulumi.InputType['HlsArgs']] hls: The HLS configuration.
         :param pulumi.Input[str] live_event_name: The name of the Live Event.
+        :param pulumi.Input[str] live_output_name: The name of the Live Output.
         :param pulumi.Input[str] manifest_name: The manifest file name.  If not provided, the service will generate one automatically.
-        :param pulumi.Input[str] name: The name of the Live Output.
         :param pulumi.Input[float] output_snap_time: The output snapshot time.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         """
@@ -77,16 +77,17 @@ class LiveOutput(pulumi.CustomResource):
             if live_event_name is None:
                 raise TypeError("Missing required property 'live_event_name'")
             __props__['live_event_name'] = live_event_name
+            if live_output_name is None:
+                raise TypeError("Missing required property 'live_output_name'")
+            __props__['live_output_name'] = live_output_name
             __props__['manifest_name'] = manifest_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['output_snap_time'] = output_snap_time
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['created'] = None
             __props__['last_modified'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None

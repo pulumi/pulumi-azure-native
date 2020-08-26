@@ -16,7 +16,7 @@ export function getDscConfiguration(args: GetDscConfigurationArgs, opts?: pulumi
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getDscConfiguration", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
+        "configurationName": args.configurationName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetDscConfigurationArgs {
     /**
      * The configuration name.
      */
-    readonly name: string;
+    readonly configurationName: string;
     /**
      * Name of an Azure Resource group.
      */

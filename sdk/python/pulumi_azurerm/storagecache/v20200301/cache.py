@@ -17,11 +17,11 @@ class Cache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cache_name: Optional[pulumi.Input[str]] = None,
                  cache_size_gb: Optional[pulumi.Input[float]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['CacheEncryptionSettingsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_settings: Optional[pulumi.Input[pulumi.InputType['CacheNetworkSettingsArgs']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -37,11 +37,11 @@ class Cache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cache_name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
         :param pulumi.Input[float] cache_size_gb: The size of this Cache, in GB.
         :param pulumi.Input[pulumi.InputType['CacheEncryptionSettingsArgs']] encryption_settings: Specifies encryption settings of the cache.
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: The identity of the cache, if configured.
         :param pulumi.Input[str] location: Region name string.
-        :param pulumi.Input[str] name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
         :param pulumi.Input[pulumi.InputType['CacheNetworkSettingsArgs']] network_settings: Specifies network settings of the cache.
         :param pulumi.Input[str] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
@@ -67,13 +67,13 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if cache_name is None:
+                raise TypeError("Missing required property 'cache_name'")
+            __props__['cache_name'] = cache_name
             __props__['cache_size_gb'] = cache_size_gb
             __props__['encryption_settings'] = encryption_settings
             __props__['identity'] = identity
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_settings'] = network_settings
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
@@ -85,6 +85,7 @@ class Cache(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['health'] = None
             __props__['mount_addresses'] = None
+            __props__['name'] = None
             __props__['type'] = None
             __props__['upgrade_status'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storagecache/v20191101:Cache")])

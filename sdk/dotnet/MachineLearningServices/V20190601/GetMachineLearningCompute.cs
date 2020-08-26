@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190601
         /// <summary>
         /// Name of the Azure Machine Learning compute.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("computeName", required: true)]
+        public string ComputeName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group in which workspace is located.

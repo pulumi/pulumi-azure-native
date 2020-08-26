@@ -15,17 +15,13 @@ export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20200401:getRouteFilterRule", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "routeFilterName": args.routeFilterName,
+        "ruleName": args.ruleName,
     }, opts);
 }
 
 export interface GetRouteFilterRuleArgs {
-    /**
-     * The name of the rule.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */
@@ -34,6 +30,10 @@ export interface GetRouteFilterRuleArgs {
      * The name of the route filter.
      */
     readonly routeFilterName: string;
+    /**
+     * The name of the rule.
+     */
+    readonly ruleName: string;
 }
 
 /**

@@ -144,16 +144,16 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Name of the service
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The public key of the service, used to encrypt secrets sent to the service
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
+
+        /// <summary>
+        /// Name of the service
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         /// <summary>
         /// Service SKU

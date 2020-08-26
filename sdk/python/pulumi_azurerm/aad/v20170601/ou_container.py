@@ -18,7 +18,7 @@ class OuContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  domain_service_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 ou_container_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  spn: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class OuContainer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The account name
         :param pulumi.Input[str] domain_service_name: The name of the domain service.
-        :param pulumi.Input[str] name: The name of the OuContainer.
+        :param pulumi.Input[str] ou_container_name: The name of the OuContainer.
         :param pulumi.Input[str] password: The account password
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] spn: The account spn
@@ -58,9 +58,9 @@ class OuContainer(pulumi.CustomResource):
             if domain_service_name is None:
                 raise TypeError("Missing required property 'domain_service_name'")
             __props__['domain_service_name'] = domain_service_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if ou_container_name is None:
+                raise TypeError("Missing required property 'ou_container_name'")
+            __props__['ou_container_name'] = ou_container_name
             __props__['password'] = password
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -72,6 +72,7 @@ class OuContainer(pulumi.CustomResource):
             __props__['domain_name'] = None
             __props__['etag'] = None
             __props__['location'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['service_status'] = None
             __props__['tags'] = None

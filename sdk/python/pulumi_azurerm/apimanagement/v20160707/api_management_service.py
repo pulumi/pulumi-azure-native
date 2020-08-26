@@ -23,10 +23,10 @@ class ApiManagementService(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  hostname_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpn_type: Optional[pulumi.Input[str]] = None,
@@ -45,10 +45,10 @@ class ApiManagementService(pulumi.CustomResource):
         :param pulumi.Input[str] etag: ETag of the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input[str] location: Datacenter location of the API Management service.
-        :param pulumi.Input[str] name: The name of the API Management service.
         :param pulumi.Input[str] publisher_email: Publisher email.
         :param pulumi.Input[str] publisher_name: Publisher name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']] sku: SKU properties of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
         :param pulumi.Input[str] vpn_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
@@ -79,9 +79,6 @@ class ApiManagementService(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if publisher_email is None:
                 raise TypeError("Missing required property 'publisher_email'")
             __props__['publisher_email'] = publisher_email
@@ -91,6 +88,9 @@ class ApiManagementService(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if service_name is None:
+                raise TypeError("Missing required property 'service_name'")
+            __props__['service_name'] = service_name
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
@@ -99,6 +99,7 @@ class ApiManagementService(pulumi.CustomResource):
             __props__['vpnconfiguration'] = vpnconfiguration
             __props__['created_at_utc'] = None
             __props__['management_api_url'] = None
+            __props__['name'] = None
             __props__['portal_url'] = None
             __props__['provisioning_state'] = None
             __props__['runtime_url'] = None

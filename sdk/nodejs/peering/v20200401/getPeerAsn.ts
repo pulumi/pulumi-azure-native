@@ -15,7 +15,7 @@ export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:peering/v20200401:getPeerAsn", {
-        "name": args.name,
+        "peerAsnName": args.peerAsnName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetPeerAsnArgs {
     /**
      * The peer ASN name.
      */
-    readonly name: string;
+    readonly peerAsnName: string;
 }
 
 /**

@@ -27,8 +27,8 @@ type Group struct {
 // NewGroup registers a new resource with the given unique name, arguments, and options.
 func NewGroup(ctx *pulumi.Context,
 	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.GroupName == nil {
+		return nil, errors.New("missing required argument 'GroupName'")
 	}
 	if args == nil || args.ProjectName == nil {
 		return nil, errors.New("missing required argument 'ProjectName'")
@@ -90,7 +90,7 @@ type groupArgs struct {
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
 	// Unique name of a group within a project.
-	Name string `pulumi:"name"`
+	GroupName string `pulumi:"groupName"`
 	// Name of the Azure Migrate project.
 	ProjectName string `pulumi:"projectName"`
 	// Name of the Azure Resource Group that project is part of.
@@ -102,7 +102,7 @@ type GroupArgs struct {
 	// For optimistic concurrency control.
 	ETag pulumi.StringPtrInput
 	// Unique name of a group within a project.
-	Name pulumi.StringInput
+	GroupName pulumi.StringInput
 	// Name of the Azure Migrate project.
 	ProjectName pulumi.StringInput
 	// Name of the Azure Resource Group that project is part of.

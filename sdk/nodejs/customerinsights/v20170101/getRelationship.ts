@@ -16,7 +16,7 @@ export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeO
     }
     return pulumi.runtime.invoke("azurerm:customerinsights/v20170101:getRelationship", {
         "hubName": args.hubName,
-        "name": args.name,
+        "relationshipName": args.relationshipName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetRelationshipArgs {
     /**
      * The name of the relationship.
      */
-    readonly name: string;
+    readonly relationshipName: string;
     /**
      * The name of the resource group.
      */

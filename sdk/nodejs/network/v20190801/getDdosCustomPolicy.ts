@@ -15,7 +15,7 @@ export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20190801:getDdosCustomPolicy", {
-        "name": args.name,
+        "ddosCustomPolicyName": args.ddosCustomPolicyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDdosCustomPolicyArgs {
     /**
      * The name of the DDoS custom policy.
      */
-    readonly name: string;
+    readonly ddosCustomPolicyName: string;
     /**
      * The name of the resource group.
      */

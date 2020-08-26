@@ -15,18 +15,14 @@ export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:servicebus/v20140901:getSubscription", {
-        "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
+        "subscriptionName": args.subscriptionName,
         "topicName": args.topicName,
     }, opts);
 }
 
 export interface GetSubscriptionArgs {
-    /**
-     * The subscription name.
-     */
-    readonly name: string;
     /**
      * The namespace name
      */
@@ -35,6 +31,10 @@ export interface GetSubscriptionArgs {
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: string;
+    /**
+     * The subscription name.
+     */
+    readonly subscriptionName: string;
     /**
      * The topic name.
      */

@@ -19,7 +19,7 @@ class Order(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_information: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
                  current_status: Optional[pulumi.Input[pulumi.InputType['OrderStatusArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shipping_address: Optional[pulumi.Input[pulumi.InputType['AddressArgs']]] = None,
                  __props__=None,
@@ -32,7 +32,7 @@ class Order(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ContactDetailsArgs']] contact_information: The contact details.
         :param pulumi.Input[pulumi.InputType['OrderStatusArgs']] current_status: Current status of the order.
-        :param pulumi.Input[str] name: The device name.
+        :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[pulumi.InputType['AddressArgs']] shipping_address: The shipping address.
         """
@@ -57,9 +57,9 @@ class Order(pulumi.CustomResource):
                 raise TypeError("Missing required property 'contact_information'")
             __props__['contact_information'] = contact_information
             __props__['current_status'] = current_status
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if device_name is None:
+                raise TypeError("Missing required property 'device_name'")
+            __props__['device_name'] = device_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -67,6 +67,7 @@ class Order(pulumi.CustomResource):
                 raise TypeError("Missing required property 'shipping_address'")
             __props__['shipping_address'] = shipping_address
             __props__['delivery_tracking_info'] = None
+            __props__['name'] = None
             __props__['order_history'] = None
             __props__['return_tracking_info'] = None
             __props__['serial_number'] = None

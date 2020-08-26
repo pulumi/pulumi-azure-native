@@ -28,8 +28,8 @@ class Queue(pulumi.CustomResource):
                  lock_duration: Optional[pulumi.Input[str]] = None,
                  max_delivery_count: Optional[pulumi.Input[float]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 queue_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -54,8 +54,8 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] lock_duration: ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
         :param pulumi.Input[float] max_delivery_count: The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
         :param pulumi.Input[float] max_size_in_megabytes: The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
-        :param pulumi.Input[str] name: The queue name.
         :param pulumi.Input[str] namespace_name: The namespace name
+        :param pulumi.Input[str] queue_name: The queue name.
         :param pulumi.Input[bool] requires_duplicate_detection: A value indicating if this queue requires duplicate detection.
         :param pulumi.Input[bool] requires_session: A value that indicates whether the queue supports the concept of sessions.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -90,12 +90,12 @@ class Queue(pulumi.CustomResource):
             __props__['lock_duration'] = lock_duration
             __props__['max_delivery_count'] = max_delivery_count
             __props__['max_size_in_megabytes'] = max_size_in_megabytes
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
+            if queue_name is None:
+                raise TypeError("Missing required property 'queue_name'")
+            __props__['queue_name'] = queue_name
             __props__['requires_duplicate_detection'] = requires_duplicate_detection
             __props__['requires_session'] = requires_session
             if resource_group_name is None:
@@ -106,6 +106,7 @@ class Queue(pulumi.CustomResource):
             __props__['count_details'] = None
             __props__['created_at'] = None
             __props__['message_count'] = None
+            __props__['name'] = None
             __props__['size_in_bytes'] = None
             __props__['type'] = None
             __props__['updated_at'] = None

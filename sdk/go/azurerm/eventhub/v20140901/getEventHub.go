@@ -18,7 +18,7 @@ func LookupEventHub(ctx *pulumi.Context, args *LookupEventHubArgs, opts ...pulum
 
 type LookupEventHubArgs struct {
 	// The Event Hub name
-	Name string `pulumi:"name"`
+	EventHubName string `pulumi:"eventHubName"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the resource group within the azure subscription.

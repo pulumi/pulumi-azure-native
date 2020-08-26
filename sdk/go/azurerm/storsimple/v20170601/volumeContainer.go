@@ -47,14 +47,14 @@ func NewVolumeContainer(ctx *pulumi.Context,
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.StorageAccountCredentialId == nil {
 		return nil, errors.New("missing required argument 'StorageAccountCredentialId'")
+	}
+	if args == nil || args.VolumeContainerName == nil {
+		return nil, errors.New("missing required argument 'VolumeContainerName'")
 	}
 	if args == nil {
 		args = &VolumeContainerArgs{}
@@ -147,12 +147,12 @@ type volumeContainerArgs struct {
 	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The name of the volume container.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The path ID of storage account associated with the volume container.
 	StorageAccountCredentialId string `pulumi:"storageAccountCredentialId"`
+	// The name of the volume container.
+	VolumeContainerName string `pulumi:"volumeContainerName"`
 }
 
 // The set of arguments for constructing a VolumeContainer resource.
@@ -169,12 +169,12 @@ type VolumeContainerArgs struct {
 	Kind pulumi.StringPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The name of the volume container.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The path ID of storage account associated with the volume container.
 	StorageAccountCredentialId pulumi.StringInput
+	// The name of the volume container.
+	VolumeContainerName pulumi.StringInput
 }
 
 func (VolumeContainerArgs) ElementType() reflect.Type {

@@ -15,17 +15,13 @@ export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20191201:getSecurityRule", {
-        "name": args.name,
         "networkSecurityGroupName": args.networkSecurityGroupName,
         "resourceGroupName": args.resourceGroupName,
+        "securityRuleName": args.securityRuleName,
     }, opts);
 }
 
 export interface GetSecurityRuleArgs {
-    /**
-     * The name of the security rule.
-     */
-    readonly name: string;
     /**
      * The name of the network security group.
      */
@@ -34,6 +30,10 @@ export interface GetSecurityRuleArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the security rule.
+     */
+    readonly securityRuleName: string;
 }
 
 /**

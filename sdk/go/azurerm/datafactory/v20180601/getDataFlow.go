@@ -17,10 +17,10 @@ func LookupDataFlow(ctx *pulumi.Context, args *LookupDataFlowArgs, opts ...pulum
 }
 
 type LookupDataFlowArgs struct {
+	// The data flow name.
+	DataFlowName string `pulumi:"dataFlowName"`
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
-	// The data flow name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

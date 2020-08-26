@@ -15,7 +15,7 @@ export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:aad/v20170601:getDomainService", {
-        "name": args.name,
+        "domainServiceName": args.domainServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDomainServiceArgs {
     /**
      * The name of the domain service.
      */
-    readonly name: string;
+    readonly domainServiceName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

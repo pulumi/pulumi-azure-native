@@ -139,17 +139,17 @@ class AwaitableGetActivityLogAlertResult(GetActivityLogAlertResult):
             type=self.type)
 
 
-def get_activity_log_alert(name: Optional[str] = None,
+def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityLogAlertResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the activity log alert.
+    :param str activity_log_alert_name: The name of the activity log alert.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['activityLogAlertName'] = activity_log_alert_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

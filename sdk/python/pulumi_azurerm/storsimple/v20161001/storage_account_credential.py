@@ -19,12 +19,12 @@ class StorageAccountCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  cloud_type: Optional[pulumi.Input[str]] = None,
+                 credential_name: Optional[pulumi.Input[str]] = None,
                  enable_ssl: Optional[pulumi.Input[str]] = None,
                  end_point: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  login: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -36,12 +36,12 @@ class StorageAccountCredential(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] access_key: The details of the storage account password
         :param pulumi.Input[str] cloud_type: The cloud service provider
+        :param pulumi.Input[str] credential_name: The credential name.
         :param pulumi.Input[str] enable_ssl: SSL needs to be enabled or not
         :param pulumi.Input[str] end_point: The storage endpoint
         :param pulumi.Input[str] location: The storage account's geo location
         :param pulumi.Input[str] login: The storage account login
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[str] name: The credential name.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
         if __name__ is not None:
@@ -65,6 +65,9 @@ class StorageAccountCredential(pulumi.CustomResource):
             if cloud_type is None:
                 raise TypeError("Missing required property 'cloud_type'")
             __props__['cloud_type'] = cloud_type
+            if credential_name is None:
+                raise TypeError("Missing required property 'credential_name'")
+            __props__['credential_name'] = credential_name
             if enable_ssl is None:
                 raise TypeError("Missing required property 'enable_ssl'")
             __props__['enable_ssl'] = enable_ssl
@@ -78,12 +81,10 @@ class StorageAccountCredential(pulumi.CustomResource):
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['type'] = None
         super(StorageAccountCredential, __self__).__init__(
             'azurerm:storsimple/v20161001:StorageAccountCredential',

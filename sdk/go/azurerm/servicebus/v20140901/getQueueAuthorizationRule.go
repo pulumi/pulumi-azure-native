@@ -18,7 +18,7 @@ func LookupQueueAuthorizationRule(ctx *pulumi.Context, args *LookupQueueAuthoriz
 
 type LookupQueueAuthorizationRuleArgs struct {
 	// The authorization rule name.
-	Name string `pulumi:"name"`
+	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// The queue name.

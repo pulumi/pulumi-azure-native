@@ -15,7 +15,7 @@ export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20191201:getCache", {
-        "name": args.name,
+        "cacheId": args.cacheId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetCacheArgs {
     /**
      * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
      */
-    readonly name: string;
+    readonly cacheId: string;
     /**
      * The name of the resource group.
      */

@@ -43,7 +43,7 @@ export class ReplicationPolicy extends pulumi.CustomResource {
     /**
      * Resource Name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The custom data.
      */
@@ -66,8 +66,8 @@ export class ReplicationPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ReplicationPolicyArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.policyName === undefined) {
+                throw new Error("Missing required property 'policyName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -75,11 +75,12 @@ export class ReplicationPolicy extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["policyName"] = args ? args.policyName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,7 +103,7 @@ export interface ReplicationPolicyArgs {
     /**
      * Replication policy name
      */
-    readonly name: pulumi.Input<string>;
+    readonly policyName: pulumi.Input<string>;
     /**
      * Policy creation properties.
      */

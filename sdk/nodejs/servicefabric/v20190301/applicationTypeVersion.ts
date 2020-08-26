@@ -53,7 +53,7 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
     /**
      * Azure resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The current deployment or provisioning state, which only appears in the response
      */
@@ -89,21 +89,22 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.version === undefined) {
+                throw new Error("Missing required property 'version'");
             }
             inputs["appPackageUrl"] = args ? args.appPackageUrl : undefined;
             inputs["applicationTypeName"] = args ? args.applicationTypeName : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["version"] = args ? args.version : undefined;
             inputs["defaultParameterList"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -141,10 +142,6 @@ export interface ApplicationTypeVersionArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The application type version.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -152,4 +149,8 @@ export interface ApplicationTypeVersionArgs {
      * Azure resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The application type version.
+     */
+    readonly version: pulumi.Input<string>;
 }

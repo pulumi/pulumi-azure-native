@@ -331,20 +331,20 @@ class AwaitableGetQueueResult(GetQueueResult):
             updated_at=self.updated_at)
 
 
-def get_queue(name: Optional[str] = None,
-              namespace_name: Optional[str] = None,
+def get_queue(namespace_name: Optional[str] = None,
+              queue_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The queue name.
     :param str namespace_name: The namespace name
+    :param str queue_name: The queue name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['namespaceName'] = namespace_name
+    __args__['queueName'] = queue_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

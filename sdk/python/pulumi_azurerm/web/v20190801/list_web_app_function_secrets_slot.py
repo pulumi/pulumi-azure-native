@@ -90,18 +90,21 @@ class AwaitableListWebAppFunctionSecretsSlotResult(ListWebAppFunctionSecretsSlot
             type=self.type)
 
 
-def list_web_app_function_secrets_slot(name: Optional[str] = None,
+def list_web_app_function_secrets_slot(function_name: Optional[str] = None,
+                                       name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionSecretsSlotResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Function name.
+    :param str function_name: Function name.
+    :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot.
     """
     __args__ = dict()
+    __args__['functionName'] = function_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot

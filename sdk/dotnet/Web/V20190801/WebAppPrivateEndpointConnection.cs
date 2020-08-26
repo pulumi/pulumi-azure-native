@@ -102,8 +102,14 @@ namespace Pulumi.AzureRM.Web.V20190801
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// Name of the site.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The state of a private link connection

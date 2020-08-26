@@ -53,7 +53,7 @@ export class Registration extends pulumi.CustomResource {
     /**
      * Name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The object identifier associated with the Azure Stack connecting to Azure.
      */
@@ -83,8 +83,8 @@ export class Registration extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.registrationName === undefined) {
+                throw new Error("Missing required property 'registrationName'");
             }
             if (!args || args.registrationToken === undefined) {
                 throw new Error("Missing required property 'registrationToken'");
@@ -93,12 +93,13 @@ export class Registration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["registrationName"] = args ? args.registrationName : undefined;
             inputs["registrationToken"] = args ? args.registrationToken : undefined;
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             inputs["billingModel"] = undefined /*out*/;
             inputs["cloudId"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["objectId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -125,7 +126,7 @@ export interface RegistrationArgs {
     /**
      * Name of the Azure Stack registration.
      */
-    readonly name: pulumi.Input<string>;
+    readonly registrationName: pulumi.Input<string>;
     /**
      * The token identifying registered Azure Stack
      */

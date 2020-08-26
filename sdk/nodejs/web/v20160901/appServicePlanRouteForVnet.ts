@@ -87,6 +87,9 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.routeName === undefined) {
+                throw new Error("Missing required property 'routeName'");
+            }
             if (!args || args.vnetName === undefined) {
                 throw new Error("Missing required property 'vnetName'");
             }
@@ -94,6 +97,7 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routeName"] = args ? args.routeName : undefined;
             inputs["routeType"] = args ? args.routeType : undefined;
             inputs["startAddress"] = args ? args.startAddress : undefined;
             inputs["vnetName"] = args ? args.vnetName : undefined;
@@ -126,13 +130,17 @@ export interface AppServicePlanRouteForVnetArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the Virtual Network route.
+     * Name of the App Service plan.
      */
     readonly name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Virtual Network route.
+     */
+    readonly routeName: pulumi.Input<string>;
     /**
      * The type of route this is:
      * DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918

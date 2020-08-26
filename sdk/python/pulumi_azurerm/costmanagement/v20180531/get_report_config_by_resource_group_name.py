@@ -115,17 +115,17 @@ class AwaitableGetReportConfigByResourceGroupNameResult(GetReportConfigByResourc
             type=self.type)
 
 
-def get_report_config_by_resource_group_name(name: Optional[str] = None,
+def get_report_config_by_resource_group_name(report_config_name: Optional[str] = None,
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportConfigByResourceGroupNameResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Report Config Name.
+    :param str report_config_name: Report Config Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['reportConfigName'] = report_config_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

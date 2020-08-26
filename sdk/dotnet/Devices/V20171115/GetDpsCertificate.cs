@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Devices.V20171115
         /// <summary>
         /// Name of the certificate to retrieve.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
 
         /// <summary>
         /// Name of the provisioning service the certificate is associated with.

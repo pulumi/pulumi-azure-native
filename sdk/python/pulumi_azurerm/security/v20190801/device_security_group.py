@@ -19,7 +19,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowlist_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]]] = None,
                  denylist_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DenylistCustomAlertRuleArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 device_security_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  threshold_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ThresholdCustomAlertRuleArgs']]]]] = None,
                  time_window_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeWindowCustomAlertRuleArgs']]]]] = None,
@@ -33,7 +33,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]] allowlist_rules: The allow-list custom alert rules.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DenylistCustomAlertRuleArgs']]]] denylist_rules: The deny-list custom alert rules.
-        :param pulumi.Input[str] name: The name of the device security group. Note that the name of the device security group is case insensitive.
+        :param pulumi.Input[str] device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
         :param pulumi.Input[str] resource_id: The identifier of the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ThresholdCustomAlertRuleArgs']]]] threshold_rules: The list of custom alert threshold rules.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeWindowCustomAlertRuleArgs']]]] time_window_rules: The list of custom alert time-window rules.
@@ -57,14 +57,15 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
             __props__['allowlist_rules'] = allowlist_rules
             __props__['denylist_rules'] = denylist_rules
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if device_security_group_name is None:
+                raise TypeError("Missing required property 'device_security_group_name'")
+            __props__['device_security_group_name'] = device_security_group_name
             if resource_id is None:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
             __props__['threshold_rules'] = threshold_rules
             __props__['time_window_rules'] = time_window_rules
+            __props__['name'] = None
             __props__['type'] = None
         super(DeviceSecurityGroup, __self__).__init__(
             'azurerm:security/v20190801:DeviceSecurityGroup',

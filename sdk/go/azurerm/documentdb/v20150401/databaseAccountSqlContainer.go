@@ -46,11 +46,11 @@ func NewDatabaseAccountSqlContainer(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.ContainerName == nil {
+		return nil, errors.New("missing required argument 'ContainerName'")
+	}
 	if args == nil || args.DatabaseName == nil {
 		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Options == nil {
 		return nil, errors.New("missing required argument 'Options'")
@@ -161,10 +161,10 @@ func (DatabaseAccountSqlContainerState) ElementType() reflect.Type {
 type databaseAccountSqlContainerArgs struct {
 	// Cosmos DB database account name.
 	AccountName string `pulumi:"accountName"`
+	// Cosmos DB container name.
+	ContainerName string `pulumi:"containerName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
-	// Cosmos DB container name.
-	Name string `pulumi:"name"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options map[string]string `pulumi:"options"`
 	// The standard JSON format of a container
@@ -177,10 +177,10 @@ type databaseAccountSqlContainerArgs struct {
 type DatabaseAccountSqlContainerArgs struct {
 	// Cosmos DB database account name.
 	AccountName pulumi.StringInput
+	// Cosmos DB container name.
+	ContainerName pulumi.StringInput
 	// Cosmos DB database name.
 	DatabaseName pulumi.StringInput
-	// Cosmos DB container name.
-	Name pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
 	Options pulumi.StringMapInput
 	// The standard JSON format of a container

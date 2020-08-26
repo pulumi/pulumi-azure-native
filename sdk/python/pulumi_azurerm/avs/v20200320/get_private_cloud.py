@@ -259,17 +259,17 @@ class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
             vmotion_network=self.vmotion_network)
 
 
-def get_private_cloud(name: Optional[str] = None,
+def get_private_cloud(private_cloud_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateCloudResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the private cloud
+    :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

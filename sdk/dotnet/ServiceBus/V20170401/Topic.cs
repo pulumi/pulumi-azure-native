@@ -215,12 +215,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         public Input<int>? MaxSizeInMegabytes { get; set; }
 
         /// <summary>
-        /// The topic name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
@@ -249,6 +243,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// </summary>
         [Input("supportOrdering")]
         public Input<bool>? SupportOrdering { get; set; }
+
+        /// <summary>
+        /// The topic name.
+        /// </summary>
+        [Input("topicName", required: true)]
+        public Input<string> TopicName { get; set; } = null!;
 
         public TopicArgs()
         {

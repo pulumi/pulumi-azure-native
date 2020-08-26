@@ -18,7 +18,7 @@ func LookupPolicyAssignment(ctx *pulumi.Context, args *LookupPolicyAssignmentArg
 
 type LookupPolicyAssignmentArgs struct {
 	// Policy assignment name.
-	Name string `pulumi:"name"`
+	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
 	// Scope.
 	Scope string `pulumi:"scope"`
 }

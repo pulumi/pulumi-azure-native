@@ -27,6 +27,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
+                 peering_name: Optional[pulumi.Input[str]] = None,
                  peering_type: Optional[pulumi.Input[str]] = None,
                  primary_azure_port: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -55,8 +56,9 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']] ipv6_peering_config: The IPv6 peering configuration.
         :param pulumi.Input[str] last_modified_by: Gets whether the provider or the customer last modified the peering.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']] microsoft_peering_config: The Microsoft peering configuration.
-        :param pulumi.Input[str] name: The name of the peering.
+        :param pulumi.Input[str] name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[float] peer_asn: The peer ASN.
+        :param pulumi.Input[str] peering_name: The name of the peering.
         :param pulumi.Input[str] peering_type: The peering type.
         :param pulumi.Input[str] primary_azure_port: The primary port.
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
@@ -97,10 +99,11 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__['ipv6_peering_config'] = ipv6_peering_config
             __props__['last_modified_by'] = last_modified_by
             __props__['microsoft_peering_config'] = microsoft_peering_config
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['peer_asn'] = peer_asn
+            if peering_name is None:
+                raise TypeError("Missing required property 'peering_name'")
+            __props__['peering_name'] = peering_name
             __props__['peering_type'] = peering_type
             __props__['primary_azure_port'] = primary_azure_port
             __props__['primary_peer_address_prefix'] = primary_peer_address_prefix

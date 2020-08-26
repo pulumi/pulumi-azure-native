@@ -93,6 +93,12 @@ namespace Pulumi.AzureRM.Web.V20160601
     public sealed class ConnectionGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The connection gateway name
+        /// </summary>
+        [Input("connectionGatewayName", required: true)]
+        public Input<string> ConnectionGatewayName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ETag
         /// </summary>
         [Input("etag")]
@@ -103,12 +109,6 @@ namespace Pulumi.AzureRM.Web.V20160601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The connection gateway name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("properties")]
         public Input<Inputs.ConnectionGatewayDefinitionPropertiesArgs>? Properties { get; set; }

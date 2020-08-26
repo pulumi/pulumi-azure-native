@@ -15,14 +15,18 @@ export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20170601:getBackupPolicy", {
+        "backupPolicyName": args.backupPolicyName,
         "deviceName": args.deviceName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetBackupPolicyArgs {
+    /**
+     * The name of backup policy to be fetched.
+     */
+    readonly backupPolicyName: string;
     /**
      * The device name
      */
@@ -31,10 +35,6 @@ export interface GetBackupPolicyArgs {
      * The manager name
      */
     readonly managerName: string;
-    /**
-     * The name of backup policy to be fetched.
-     */
-    readonly name: string;
     /**
      * The resource group name
      */

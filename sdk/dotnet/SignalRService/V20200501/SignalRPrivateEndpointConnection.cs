@@ -90,16 +90,16 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
     public sealed class SignalRPrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the SignalR resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Private endpoint associated with the private endpoint connection
         /// </summary>
         [Input("privateEndpoint")]
         public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// The name of the private endpoint connection associated with the SignalR resource.
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Connection state

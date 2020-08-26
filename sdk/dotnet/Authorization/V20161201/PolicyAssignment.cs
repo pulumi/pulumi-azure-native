@@ -125,8 +125,8 @@ namespace Pulumi.AzureRM.Authorization.V20161201
         /// <summary>
         /// The name of the policy assignment.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputMap<object>? _parameters;
@@ -139,6 +139,12 @@ namespace Pulumi.AzureRM.Authorization.V20161201
             get => _parameters ?? (_parameters = new InputMap<object>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// The name of the policy assignment.
+        /// </summary>
+        [Input("policyAssignmentName", required: true)]
+        public Input<string> PolicyAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The ID of the policy definition.

@@ -22,7 +22,7 @@ type LookupApiIssueArgs struct {
 	// Expand the comment attachments.
 	ExpandCommentsAttachments *bool `pulumi:"expandCommentsAttachments"`
 	// Issue identifier. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
+	IssueId string `pulumi:"issueId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

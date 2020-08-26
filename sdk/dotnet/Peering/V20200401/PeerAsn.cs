@@ -102,16 +102,16 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class PeerAsnArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The peer ASN name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The Autonomous System Number (ASN) of the peer.
         /// </summary>
         [Input("peerAsn")]
         public Input<int>? PeerAsn { get; set; }
+
+        /// <summary>
+        /// The peer ASN name.
+        /// </summary>
+        [Input("peerAsnName", required: true)]
+        public Input<string> PeerAsnName { get; set; } = null!;
 
         [Input("peerContactDetail")]
         private InputList<Inputs.ContactDetailArgs>? _peerContactDetail;

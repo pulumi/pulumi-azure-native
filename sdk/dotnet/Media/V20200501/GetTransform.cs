@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Media.V20200501
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The Transform name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Transform name.
+        /// </summary>
+        [Input("transformName", required: true)]
+        public string TransformName { get; set; } = null!;
 
         public GetTransformArgs()
         {

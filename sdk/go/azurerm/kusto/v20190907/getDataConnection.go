@@ -19,10 +19,10 @@ func LookupDataConnection(ctx *pulumi.Context, args *LookupDataConnectionArgs, o
 type LookupDataConnectionArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
+	// The name of the data connection.
+	DataConnectionName string `pulumi:"dataConnectionName"`
 	// The name of the database in the Kusto cluster.
 	DatabaseName string `pulumi:"databaseName"`
-	// The name of the data connection.
-	Name string `pulumi:"name"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

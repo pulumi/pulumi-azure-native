@@ -84,16 +84,16 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     public sealed class DataFlowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The data flow name.
+        /// </summary>
+        [Input("dataFlowName", required: true)]
+        public Input<string> DataFlowName { get; set; } = null!;
+
+        /// <summary>
         /// The factory name.
         /// </summary>
         [Input("factoryName", required: true)]
         public Input<string> FactoryName { get; set; } = null!;
-
-        /// <summary>
-        /// The data flow name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Data flow properties.

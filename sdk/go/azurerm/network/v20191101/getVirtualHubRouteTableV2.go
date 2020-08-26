@@ -17,10 +17,10 @@ func LookupVirtualHubRouteTableV2(ctx *pulumi.Context, args *LookupVirtualHubRou
 }
 
 type LookupVirtualHubRouteTableV2Args struct {
-	// The name of the VirtualHubRouteTableV2.
-	Name string `pulumi:"name"`
 	// The resource group name of the VirtualHubRouteTableV2.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the VirtualHubRouteTableV2.
+	RouteTableName string `pulumi:"routeTableName"`
 	// The name of the VirtualHub.
 	VirtualHubName string `pulumi:"virtualHubName"`
 }

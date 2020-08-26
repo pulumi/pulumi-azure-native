@@ -140,17 +140,17 @@ class AwaitableGetPolicySetDefinitionAtManagementGroupResult(GetPolicySetDefinit
 
 
 def get_policy_set_definition_at_management_group(management_group_id: Optional[str] = None,
-                                                  name: Optional[str] = None,
+                                                  policy_set_definition_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionAtManagementGroupResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str management_group_id: The ID of the management group.
-    :param str name: The name of the policy set definition to get.
+    :param str policy_set_definition_name: The name of the policy set definition to get.
     """
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
-    __args__['name'] = name
+    __args__['policySetDefinitionName'] = policy_set_definition_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

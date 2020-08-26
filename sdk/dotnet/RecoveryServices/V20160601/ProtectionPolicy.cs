@@ -120,10 +120,16 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Resource name associated with the resource.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The backup policy to be created.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
         /// The base class for a backup policy. Workload-specific backup policies are derived from this class.

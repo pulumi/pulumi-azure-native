@@ -16,7 +16,7 @@ export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs,
     }
     return pulumi.runtime.invoke("azurerm:network/v20200601:getNetworkVirtualAppliance", {
         "expand": args.expand,
-        "name": args.name,
+        "networkVirtualApplianceName": args.networkVirtualApplianceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetNetworkVirtualApplianceArgs {
     /**
      * The name of Network Virtual Appliance.
      */
-    readonly name: string;
+    readonly networkVirtualApplianceName: string;
     /**
      * The name of the resource group.
      */

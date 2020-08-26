@@ -57,7 +57,7 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
     /**
      * Premier add on Name.
      */
-    public /*out*/ readonly premierAddOnName!: pulumi.Output<string | undefined>;
+    public readonly premierAddOnName!: pulumi.Output<string | undefined>;
     /**
      * Premier add on Product.
      */
@@ -98,6 +98,9 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.premierAddOnName === undefined) {
+                throw new Error("Missing required property 'premierAddOnName'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -109,13 +112,13 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
             inputs["marketplaceOffer"] = args ? args.marketplaceOffer : undefined;
             inputs["marketplacePublisher"] = args ? args.marketplacePublisher : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["premierAddOnName"] = args ? args.premierAddOnName : undefined;
             inputs["product"] = args ? args.product : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vendor"] = args ? args.vendor : undefined;
-            inputs["premierAddOnName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -152,9 +155,13 @@ export interface WebAppPremierAddOnSlotArgs {
      */
     readonly marketplacePublisher?: pulumi.Input<string>;
     /**
-     * Premier add on Name.
+     * Name of the app.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * Premier add on Name.
+     */
+    readonly premierAddOnName: pulumi.Input<string>;
     /**
      * Premier add on Product.
      */

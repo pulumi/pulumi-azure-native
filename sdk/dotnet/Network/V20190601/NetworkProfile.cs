@@ -176,8 +176,8 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// <summary>
         /// The name of the network profile.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("networkProfileName", required: true)]
+        public Input<string> NetworkProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

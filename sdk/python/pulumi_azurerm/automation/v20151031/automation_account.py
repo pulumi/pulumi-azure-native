@@ -17,6 +17,7 @@ class AutomationAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -30,8 +31,9 @@ class AutomationAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
-        :param pulumi.Input[str] name: The name of the automation account.
+        :param pulumi.Input[str] name: Gets or sets name of the resource.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets account SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
@@ -53,9 +55,10 @@ class AutomationAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if automation_account_name is None:
+                raise TypeError("Missing required property 'automation_account_name'")
+            __props__['automation_account_name'] = automation_account_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

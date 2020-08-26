@@ -49,11 +49,11 @@ func NewStreamingLocator(ctx *pulumi.Context,
 	if args == nil || args.AssetName == nil {
 		return nil, errors.New("missing required argument 'AssetName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StreamingLocatorName == nil {
+		return nil, errors.New("missing required argument 'StreamingLocatorName'")
 	}
 	if args == nil || args.StreamingPolicyName == nil {
 		return nil, errors.New("missing required argument 'StreamingPolicyName'")
@@ -161,14 +161,14 @@ type streamingLocatorArgs struct {
 	EndTime *string `pulumi:"endTime"`
 	// A list of asset or account filters which apply to this streaming locator
 	Filters []string `pulumi:"filters"`
-	// The Streaming Locator name.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The start time of the Streaming Locator.
 	StartTime *string `pulumi:"startTime"`
 	// The StreamingLocatorId of the Streaming Locator.
 	StreamingLocatorId *string `pulumi:"streamingLocatorId"`
+	// The Streaming Locator name.
+	StreamingLocatorName string `pulumi:"streamingLocatorName"`
 	// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
 	StreamingPolicyName string `pulumi:"streamingPolicyName"`
 }
@@ -189,14 +189,14 @@ type StreamingLocatorArgs struct {
 	EndTime pulumi.StringPtrInput
 	// A list of asset or account filters which apply to this streaming locator
 	Filters pulumi.StringArrayInput
-	// The Streaming Locator name.
-	Name pulumi.StringInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The start time of the Streaming Locator.
 	StartTime pulumi.StringPtrInput
 	// The StreamingLocatorId of the Streaming Locator.
 	StreamingLocatorId pulumi.StringPtrInput
+	// The Streaming Locator name.
+	StreamingLocatorName pulumi.StringInput
 	// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
 	StreamingPolicyName pulumi.StringInput
 }

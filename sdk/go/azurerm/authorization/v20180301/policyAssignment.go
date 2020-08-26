@@ -39,8 +39,8 @@ type PolicyAssignment struct {
 // NewPolicyAssignment registers a new resource with the given unique name, arguments, and options.
 func NewPolicyAssignment(ctx *pulumi.Context,
 	name string, args *PolicyAssignmentArgs, opts ...pulumi.ResourceOption) (*PolicyAssignment, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyAssignmentName == nil {
+		return nil, errors.New("missing required argument 'PolicyAssignmentName'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -147,12 +147,12 @@ type policyAssignmentArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The policy assignment metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
-	// The name of the policy assignment.
-	Name string `pulumi:"name"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
 	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The name of the policy assignment.
+	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -169,12 +169,12 @@ type PolicyAssignmentArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The policy assignment metadata.
 	Metadata pulumi.MapInput
-	// The name of the policy assignment.
-	Name pulumi.StringInput
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput
 	// Required if a parameter is used in policy rule.
 	Parameters pulumi.MapInput
+	// The name of the policy assignment.
+	PolicyAssignmentName pulumi.StringInput
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The scope for the policy assignment.

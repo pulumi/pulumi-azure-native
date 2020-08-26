@@ -31,11 +31,11 @@ type DataSource struct {
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
 func NewDataSource(ctx *pulumi.Context,
 	name string, args *DataSourceArgs, opts ...pulumi.ResourceOption) (*DataSource, error) {
+	if args == nil || args.DataSourceName == nil {
+		return nil, errors.New("missing required argument 'DataSourceName'")
+	}
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -105,12 +105,12 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
+	// The name of the datasource resource.
+	DataSourceName string `pulumi:"dataSourceName"`
 	// The ETag of the data source.
 	Etag *string `pulumi:"etag"`
 	// The kind of the DataSource.
 	Kind string `pulumi:"kind"`
-	// The name of the datasource resource.
-	Name string `pulumi:"name"`
 	// The data source properties in raw json format, each kind of data source have it's own schema.
 	Properties map[string]interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -123,12 +123,12 @@ type dataSourceArgs struct {
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
+	// The name of the datasource resource.
+	DataSourceName pulumi.StringInput
 	// The ETag of the data source.
 	Etag pulumi.StringPtrInput
 	// The kind of the DataSource.
 	Kind pulumi.StringInput
-	// The name of the datasource resource.
-	Name pulumi.StringInput
 	// The data source properties in raw json format, each kind of data source have it's own schema.
 	Properties pulumi.MapInput
 	// The name of the resource group. The name is case insensitive.

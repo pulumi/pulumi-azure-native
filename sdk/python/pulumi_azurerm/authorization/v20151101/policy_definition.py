@@ -18,6 +18,7 @@ class PolicyDefinition(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policy_definition_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PolicyDefinitionPropertiesArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -27,7 +28,8 @@ class PolicyDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The policy definition name.
+        :param pulumi.Input[str] name: Gets or sets the policy definition name.
+        :param pulumi.Input[str] policy_definition_name: The policy definition name.
         :param pulumi.Input[pulumi.InputType['PolicyDefinitionPropertiesArgs']] properties: Gets or sets the policy definition properties.
         """
         if __name__ is not None:
@@ -47,9 +49,10 @@ class PolicyDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if policy_definition_name is None:
+                raise TypeError("Missing required property 'policy_definition_name'")
+            __props__['policy_definition_name'] = policy_definition_name
             __props__['properties'] = properties
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20160401:PolicyDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

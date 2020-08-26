@@ -15,7 +15,7 @@ export function getDedicatedCloudNode(args: GetDedicatedCloudNodeArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:vmwarecloudsimple/v20190401:getDedicatedCloudNode", {
-        "name": args.name,
+        "dedicatedCloudNodeName": args.dedicatedCloudNodeName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDedicatedCloudNodeArgs {
     /**
      * dedicated cloud node name
      */
-    readonly name: string;
+    readonly dedicatedCloudNodeName: string;
     /**
      * The name of the resource group
      */

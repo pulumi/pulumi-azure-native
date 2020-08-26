@@ -102,16 +102,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> GatewayId { get; set; } = null!;
 
         /// <summary>
+        /// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+        /// </summary>
+        [Input("hcId", required: true)]
+        public Input<string> HcId { get; set; } = null!;
+
+        /// <summary>
         /// Hostname value. Supports valid domain name, partial or full wildcard
         /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
-
-        /// <summary>
-        /// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Determines whether gateway requests client certificate

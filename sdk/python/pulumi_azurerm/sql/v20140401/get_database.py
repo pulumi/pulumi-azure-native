@@ -441,22 +441,22 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             zone_redundant=self.zone_redundant)
 
 
-def get_database(expand: Optional[str] = None,
-                 name: Optional[str] = None,
+def get_database(database_name: Optional[str] = None,
+                 expand: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  server_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str database_name: The name of the database to be retrieved.
     :param str expand: A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.
-    :param str name: The name of the database to be retrieved.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
     __args__ = dict()
+    __args__['databaseName'] = database_name
     __args__['expand'] = expand
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
     if opts is None:

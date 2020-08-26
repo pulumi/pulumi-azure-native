@@ -103,17 +103,17 @@ class AwaitableGetMediaServiceResult(GetMediaServiceResult):
             type=self.type)
 
 
-def get_media_service(name: Optional[str] = None,
+def get_media_service(media_service_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMediaServiceResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the Media Service.
+    :param str media_service_name: Name of the Media Service.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['mediaServiceName'] = media_service_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

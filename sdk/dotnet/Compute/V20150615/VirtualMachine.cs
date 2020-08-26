@@ -193,12 +193,6 @@ namespace Pulumi.AzureRM.Compute.V20150615
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual machine.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Specifies the network interfaces of the virtual machine.
         /// </summary>
         [Input("networkProfile")]
@@ -239,6 +233,12 @@ namespace Pulumi.AzureRM.Compute.V20150615
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the virtual machine.
+        /// </summary>
+        [Input("vmName", required: true)]
+        public Input<string> VmName { get; set; } = null!;
 
         public VirtualMachineArgs()
         {

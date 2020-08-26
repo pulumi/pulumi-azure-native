@@ -19,10 +19,10 @@ func LookupFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context, args *LookupFi
 type LookupFirewallPolicyRuleCollectionGroupArgs struct {
 	// The name of the Firewall Policy.
 	FirewallPolicyName string `pulumi:"firewallPolicyName"`
-	// The name of the FirewallPolicyRuleCollectionGroup.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the FirewallPolicyRuleCollectionGroup.
+	RuleCollectionGroupName string `pulumi:"ruleCollectionGroupName"`
 }
 
 // Rule Collection Group resource.

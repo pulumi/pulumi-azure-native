@@ -43,6 +43,9 @@ type MachineExtension struct {
 // NewMachineExtension registers a new resource with the given unique name, arguments, and options.
 func NewMachineExtension(ctx *pulumi.Context,
 	name string, args *MachineExtensionArgs, opts ...pulumi.ResourceOption) (*MachineExtension, error) {
+	if args == nil || args.ExtensionName == nil {
+		return nil, errors.New("missing required argument 'ExtensionName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -137,13 +140,15 @@ func (MachineExtensionState) ElementType() reflect.Type {
 type machineExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// The name of the machine extension.
+	ExtensionName string `pulumi:"extensionName"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The machine extension instance view.
 	InstanceView *MachineExtensionPropertiesInstanceView `pulumi:"instanceView"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the machine extension.
+	// The name of the machine where the extension should be created or updated.
 	Name string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
@@ -165,13 +170,15 @@ type machineExtensionArgs struct {
 type MachineExtensionArgs struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// The name of the machine extension.
+	ExtensionName pulumi.StringInput
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The machine extension instance view.
 	InstanceView MachineExtensionPropertiesInstanceViewPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The name of the machine extension.
+	// The name of the machine where the extension should be created or updated.
 	Name pulumi.StringInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings pulumi.MapInput

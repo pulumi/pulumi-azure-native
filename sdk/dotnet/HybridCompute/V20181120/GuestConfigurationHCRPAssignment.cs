@@ -88,6 +88,12 @@ namespace Pulumi.AzureRM.HybridCompute.V20181120
     public sealed class GuestConfigurationHCRPAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the guest configuration assignment.
+        /// </summary>
+        [Input("guestConfigurationAssignmentName", required: true)]
+        public Input<string> GuestConfigurationAssignmentName { get; set; } = null!;
+
+        /// <summary>
         /// Region where the VM is located.
         /// </summary>
         [Input("location")]
@@ -102,8 +108,8 @@ namespace Pulumi.AzureRM.HybridCompute.V20181120
         /// <summary>
         /// Name of the guest configuration assignment.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Properties of the Guest configuration assignment.

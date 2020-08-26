@@ -41,8 +41,8 @@ type NetworkSecurityGroup struct {
 // NewNetworkSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewNetworkSecurityGroup(ctx *pulumi.Context,
 	name string, args *NetworkSecurityGroupArgs, opts ...pulumi.ResourceOption) (*NetworkSecurityGroup, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.NetworkSecurityGroupName == nil {
+		return nil, errors.New("missing required argument 'NetworkSecurityGroupName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -230,10 +230,10 @@ type networkSecurityGroupArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the network security group.
-	Name string `pulumi:"name"`
 	// Gets collection of references to Network Interfaces
 	NetworkInterfaces []NetworkInterfaceType `pulumi:"networkInterfaces"`
+	// The name of the network security group.
+	NetworkSecurityGroupName string `pulumi:"networkSecurityGroupName"`
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
@@ -258,10 +258,10 @@ type NetworkSecurityGroupArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the network security group.
-	Name pulumi.StringInput
 	// Gets collection of references to Network Interfaces
 	NetworkInterfaces NetworkInterfaceTypeArrayInput
+	// The name of the network security group.
+	NetworkSecurityGroupName pulumi.StringInput
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.

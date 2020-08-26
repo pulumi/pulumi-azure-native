@@ -16,7 +16,7 @@ export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promi
     }
     return pulumi.runtime.invoke("azurerm:media/v20180701:getAsset", {
         "accountName": args.accountName,
-        "name": args.name,
+        "assetName": args.assetName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetAssetArgs {
     /**
      * The Asset name.
      */
-    readonly name: string;
+    readonly assetName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */

@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// <summary>
         /// The name of the image.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("imageName", required: true)]
+        public string ImageName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

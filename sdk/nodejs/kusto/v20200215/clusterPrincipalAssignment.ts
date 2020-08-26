@@ -37,7 +37,7 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
      */
@@ -87,8 +87,8 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.principalAssignmentName === undefined) {
+                throw new Error("Missing required property 'principalAssignmentName'");
             }
             if (!args || args.principalId === undefined) {
                 throw new Error("Missing required property 'principalId'");
@@ -103,12 +103,13 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'role'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["principalAssignmentName"] = args ? args.principalAssignmentName : undefined;
             inputs["principalId"] = args ? args.principalId : undefined;
             inputs["principalType"] = args ? args.principalType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["role"] = args ? args.role : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["principalName"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tenantName"] = undefined /*out*/;
@@ -138,7 +139,7 @@ export interface ClusterPrincipalAssignmentArgs {
     /**
      * The name of the Kusto principalAssignment.
      */
-    readonly name: pulumi.Input<string>;
+    readonly principalAssignmentName: pulumi.Input<string>;
     /**
      * The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
      */

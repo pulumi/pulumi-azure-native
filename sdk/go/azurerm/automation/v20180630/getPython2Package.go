@@ -20,7 +20,7 @@ type LookupPython2PackageArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The python package name.
-	Name string `pulumi:"name"`
+	PackageName string `pulumi:"packageName"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

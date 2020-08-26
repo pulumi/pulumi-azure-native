@@ -18,8 +18,8 @@ class Server(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -33,8 +33,8 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] version: The version of the server.
         """
@@ -60,18 +60,19 @@ class Server(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if server_name is None:
+                raise TypeError("Missing required property 'server_name'")
+            __props__['server_name'] = server_name
             __props__['tags'] = tags
             __props__['version'] = version
             __props__['external_administrator_login'] = None
             __props__['external_administrator_sid'] = None
             __props__['fully_qualified_domain_name'] = None
             __props__['kind'] = None
+            __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
         super(Server, __self__).__init__(

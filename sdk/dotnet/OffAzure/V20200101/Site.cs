@@ -109,10 +109,10 @@ namespace Pulumi.AzureRM.OffAzure.V20200101
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Site name.
+        /// Name of the VMware site.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Nested properties of VMWare site.
@@ -125,6 +125,12 @@ namespace Pulumi.AzureRM.OffAzure.V20200101
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Site name.
+        /// </summary>
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

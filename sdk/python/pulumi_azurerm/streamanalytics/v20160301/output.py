@@ -20,6 +20,7 @@ class Output(pulumi.CustomResource):
                  datasource: Optional[pulumi.Input[pulumi.InputType['OutputDataSourceArgs']]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[pulumi.InputType['SerializationArgs']]] = None,
                  __props__=None,
@@ -32,7 +33,8 @@ class Output(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['OutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] job_name: The name of the streaming job.
-        :param pulumi.Input[str] name: The name of the output.
+        :param pulumi.Input[str] name: Resource name
+        :param pulumi.Input[str] output_name: The name of the output.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[pulumi.InputType['SerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
@@ -57,9 +59,10 @@ class Output(pulumi.CustomResource):
             if job_name is None:
                 raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if output_name is None:
+                raise TypeError("Missing required property 'output_name'")
+            __props__['output_name'] = output_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

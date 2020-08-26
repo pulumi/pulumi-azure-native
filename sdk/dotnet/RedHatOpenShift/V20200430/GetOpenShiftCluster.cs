@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
     public sealed class GetOpenShiftClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the OpenShift cluster resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the OpenShift cluster resource.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetOpenShiftClusterArgs()
         {

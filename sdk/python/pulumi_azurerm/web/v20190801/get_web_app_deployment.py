@@ -174,16 +174,19 @@ class AwaitableGetWebAppDeploymentResult(GetWebAppDeploymentResult):
             type=self.type)
 
 
-def get_web_app_deployment(name: Optional[str] = None,
+def get_web_app_deployment(id: Optional[str] = None,
+                           name: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDeploymentResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Deployment ID.
+    :param str id: Deployment ID.
+    :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

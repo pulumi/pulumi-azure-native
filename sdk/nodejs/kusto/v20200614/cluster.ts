@@ -75,7 +75,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Optimized auto scale definition.
      */
@@ -134,11 +134,11 @@ export class Cluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ClusterArgs | undefined;
+            if (!args || args.clusterName === undefined) {
+                throw new Error("Missing required property 'clusterName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -146,6 +146,7 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
             inputs["enableDoubleEncryption"] = args ? args.enableDoubleEncryption : undefined;
             inputs["enablePurge"] = args ? args.enablePurge : undefined;
@@ -153,7 +154,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -163,6 +163,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["dataIngestionUri"] = undefined /*out*/;
             inputs["languageExtensions"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["stateReason"] = undefined /*out*/;
@@ -186,6 +187,10 @@ export class Cluster extends pulumi.CustomResource {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * The name of the Kusto cluster.
+     */
+    readonly clusterName: pulumi.Input<string>;
     /**
      * A boolean value that indicates if the cluster's disks are encrypted.
      */
@@ -214,10 +219,6 @@ export interface ClusterArgs {
      * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the Kusto cluster.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Optimized auto scale definition.
      */

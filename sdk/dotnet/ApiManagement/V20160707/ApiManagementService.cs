@@ -254,12 +254,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20160707
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the API Management service.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Publisher email.
         /// </summary>
         [Input("publisherEmail", required: true)]
@@ -276,6 +270,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20160707
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         /// <summary>
         /// SKU properties of the API Management service.

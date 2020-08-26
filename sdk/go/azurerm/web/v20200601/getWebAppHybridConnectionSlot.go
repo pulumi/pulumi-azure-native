@@ -17,10 +17,12 @@ func LookupWebAppHybridConnectionSlot(ctx *pulumi.Context, args *LookupWebAppHyb
 }
 
 type LookupWebAppHybridConnectionSlotArgs struct {
-	// The relay name for this hybrid connection.
+	// The name of the web app.
 	Name string `pulumi:"name"`
 	// The namespace for this hybrid connection.
 	NamespaceName string `pulumi:"namespaceName"`
+	// The relay name for this hybrid connection.
+	RelayName string `pulumi:"relayName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the slot for the web app.

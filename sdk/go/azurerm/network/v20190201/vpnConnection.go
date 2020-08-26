@@ -51,11 +51,11 @@ type VpnConnection struct {
 // NewVpnConnection registers a new resource with the given unique name, arguments, and options.
 func NewVpnConnection(ctx *pulumi.Context,
 	name string, args *VpnConnectionArgs, opts ...pulumi.ResourceOption) (*VpnConnection, error) {
+	if args == nil || args.ConnectionName == nil {
+		return nil, errors.New("missing required argument 'ConnectionName'")
+	}
 	if args == nil || args.GatewayName == nil {
 		return nil, errors.New("missing required argument 'GatewayName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -218,6 +218,8 @@ func (VpnConnectionState) ElementType() reflect.Type {
 type vpnConnectionArgs struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
+	// The name of the connection.
+	ConnectionName string `pulumi:"connectionName"`
 	// The connection status.
 	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// EnableBgp flag
@@ -232,8 +234,8 @@ type vpnConnectionArgs struct {
 	Id *string `pulumi:"id"`
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies []IpsecPolicy `pulumi:"ipsecPolicies"`
-	// The name of the connection.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Id of the connected vpn site.
@@ -254,6 +256,8 @@ type vpnConnectionArgs struct {
 type VpnConnectionArgs struct {
 	// Expected bandwidth in MBPS.
 	ConnectionBandwidth pulumi.IntPtrInput
+	// The name of the connection.
+	ConnectionName pulumi.StringInput
 	// The connection status.
 	ConnectionStatus pulumi.StringPtrInput
 	// EnableBgp flag
@@ -268,8 +272,8 @@ type VpnConnectionArgs struct {
 	Id pulumi.StringPtrInput
 	// The IPSec Policies to be considered by this connection.
 	IpsecPolicies IpsecPolicyArrayInput
-	// The name of the connection.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// Id of the connected vpn site.

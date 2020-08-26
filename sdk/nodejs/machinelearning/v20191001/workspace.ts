@@ -51,7 +51,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The email id of the owner for this workspace.
      */
@@ -105,9 +105,6 @@ export class Workspace extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.ownerEmail === undefined) {
                 throw new Error("Missing required property 'ownerEmail'");
             }
@@ -117,15 +114,19 @@ export class Workspace extends pulumi.CustomResource {
             if (!args || args.userStorageAccountId === undefined) {
                 throw new Error("Missing required property 'userStorageAccountId'");
             }
+            if (!args || args.workspaceName === undefined) {
+                throw new Error("Missing required property 'workspaceName'");
+            }
             inputs["keyVaultIdentifierId"] = args ? args.keyVaultIdentifierId : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["ownerEmail"] = args ? args.ownerEmail : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userStorageAccountId"] = args ? args.userStorageAccountId : undefined;
+            inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["creationTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["studioEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
@@ -158,10 +159,6 @@ export interface WorkspaceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the machine learning workspace.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The email id of the owner for this workspace.
      */
     readonly ownerEmail: pulumi.Input<string>;
@@ -181,4 +178,8 @@ export interface WorkspaceArgs {
      * The fully qualified arm id of the storage account associated with this workspace.
      */
     readonly userStorageAccountId: pulumi.Input<string>;
+    /**
+     * The name of the machine learning workspace.
+     */
+    readonly workspaceName: pulumi.Input<string>;
 }

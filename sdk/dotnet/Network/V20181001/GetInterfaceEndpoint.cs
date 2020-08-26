@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// <summary>
         /// The name of the interface endpoint.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("interfaceEndpointName", required: true)]
+        public string InterfaceEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -25,14 +25,14 @@ type ChapSetting struct {
 // NewChapSetting registers a new resource with the given unique name, arguments, and options.
 func NewChapSetting(ctx *pulumi.Context,
 	name string, args *ChapSettingArgs, opts ...pulumi.ResourceOption) (*ChapSetting, error) {
+	if args == nil || args.ChapUserName == nil {
+		return nil, errors.New("missing required argument 'ChapUserName'")
+	}
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
 	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Password == nil {
 		return nil, errors.New("missing required argument 'Password'")
@@ -87,12 +87,12 @@ func (ChapSettingState) ElementType() reflect.Type {
 }
 
 type chapSettingArgs struct {
+	// The chap user name.
+	ChapUserName string `pulumi:"chapUserName"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The chap user name.
-	Name string `pulumi:"name"`
 	// The chap password.
 	Password AsymmetricEncryptedSecret `pulumi:"password"`
 	// The resource group name
@@ -101,12 +101,12 @@ type chapSettingArgs struct {
 
 // The set of arguments for constructing a ChapSetting resource.
 type ChapSettingArgs struct {
+	// The chap user name.
+	ChapUserName pulumi.StringInput
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The chap user name.
-	Name pulumi.StringInput
 	// The chap password.
 	Password AsymmetricEncryptedSecretInput
 	// The resource group name

@@ -29,8 +29,8 @@ type HierarchySetting struct {
 // NewHierarchySetting registers a new resource with the given unique name, arguments, and options.
 func NewHierarchySetting(ctx *pulumi.Context,
 	name string, args *HierarchySettingArgs, opts ...pulumi.ResourceOption) (*HierarchySetting, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.GroupId == nil {
+		return nil, errors.New("missing required argument 'GroupId'")
 	}
 	if args == nil {
 		args = &HierarchySettingArgs{}
@@ -96,7 +96,7 @@ type hierarchySettingArgs struct {
 	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
 	DefaultManagementGroup *string `pulumi:"defaultManagementGroup"`
 	// Management Group ID.
-	Name string `pulumi:"name"`
+	GroupId string `pulumi:"groupId"`
 	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
 	RequireAuthorizationForGroupCreation *bool `pulumi:"requireAuthorizationForGroupCreation"`
 }
@@ -106,7 +106,7 @@ type HierarchySettingArgs struct {
 	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
 	DefaultManagementGroup pulumi.StringPtrInput
 	// Management Group ID.
-	Name pulumi.StringInput
+	GroupId pulumi.StringInput
 	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
 	RequireAuthorizationForGroupCreation pulumi.BoolPtrInput
 }

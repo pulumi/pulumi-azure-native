@@ -215,6 +215,12 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         public Input<string>? ApplicationDefinitionId { get; set; }
 
         /// <summary>
+        /// The name of the managed application.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
@@ -249,12 +255,6 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// </summary>
         [Input("managedResourceGroupId")]
         public Input<string>? ManagedResourceGroupId { get; set; }
-
-        /// <summary>
-        /// The name of the managed application.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<object>? _parameters;

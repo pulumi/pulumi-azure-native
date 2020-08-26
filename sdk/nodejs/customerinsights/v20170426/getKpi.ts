@@ -16,7 +16,7 @@ export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<G
     }
     return pulumi.runtime.invoke("azurerm:customerinsights/v20170426:getKpi", {
         "hubName": args.hubName,
-        "name": args.name,
+        "kpiName": args.kpiName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetKpiArgs {
     /**
      * The name of the KPI.
      */
-    readonly name: string;
+    readonly kpiName: string;
     /**
      * The name of the resource group.
      */

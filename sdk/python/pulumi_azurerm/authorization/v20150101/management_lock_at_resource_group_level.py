@@ -16,6 +16,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  level: Optional[pulumi.Input[str]] = None,
+                 lock_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +29,8 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] level: The lock level of the management lock.
-        :param pulumi.Input[str] name: The lock name.
+        :param pulumi.Input[str] lock_name: The lock name.
+        :param pulumi.Input[str] name: The name of the lock.
         :param pulumi.Input[str] notes: The notes of the management lock.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
@@ -50,8 +52,9 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['level'] = level
-            if name is None:
-                raise TypeError("Missing required property 'name'")
+            if lock_name is None:
+                raise TypeError("Missing required property 'lock_name'")
+            __props__['lock_name'] = lock_name
             __props__['name'] = name
             __props__['notes'] = notes
             if resource_group_name is None:

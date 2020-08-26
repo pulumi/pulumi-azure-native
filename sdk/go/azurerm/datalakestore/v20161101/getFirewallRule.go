@@ -20,7 +20,7 @@ type LookupFirewallRuleArgs struct {
 	// The name of the Data Lake Store account.
 	AccountName string `pulumi:"accountName"`
 	// The name of the firewall rule to retrieve.
-	Name string `pulumi:"name"`
+	FirewallRuleName string `pulumi:"firewallRuleName"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

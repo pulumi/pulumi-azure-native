@@ -198,7 +198,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         }
 
         /// <summary>
-        /// The schedule name.
+        /// Gets or sets the name of the Schedule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -208,6 +208,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The schedule name.
+        /// </summary>
+        [Input("scheduleName", required: true)]
+        public Input<string> ScheduleName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the start time of the schedule.

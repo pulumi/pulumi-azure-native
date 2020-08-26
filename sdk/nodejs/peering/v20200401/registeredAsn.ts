@@ -41,7 +41,7 @@ export class RegisteredAsn extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The peering service prefix key that is to be shared with the customer.
      */
@@ -68,19 +68,20 @@ export class RegisteredAsn extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RegisteredAsnArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.peeringName === undefined) {
                 throw new Error("Missing required property 'peeringName'");
+            }
+            if (!args || args.registeredAsnName === undefined) {
+                throw new Error("Missing required property 'registeredAsnName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["asn"] = args ? args.asn : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["peeringName"] = args ? args.peeringName : undefined;
+            inputs["registeredAsnName"] = args ? args.registeredAsnName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["peeringServicePrefixKey"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -105,13 +106,13 @@ export interface RegisteredAsnArgs {
      */
     readonly asn?: pulumi.Input<number>;
     /**
-     * The name of the ASN.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the peering.
      */
     readonly peeringName: pulumi.Input<string>;
+    /**
+     * The name of the ASN.
+     */
+    readonly registeredAsnName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

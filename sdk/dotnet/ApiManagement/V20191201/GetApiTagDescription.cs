@@ -25,12 +25,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public string ApiId { get; set; } = null!;
 
         /// <summary>
-        /// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -41,6 +35,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
+        /// </summary>
+        [Input("tagDescriptionId", required: true)]
+        public string TagDescriptionId { get; set; } = null!;
 
         public GetApiTagDescriptionArgs()
         {

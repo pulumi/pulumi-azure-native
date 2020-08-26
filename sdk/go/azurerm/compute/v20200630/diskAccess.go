@@ -33,11 +33,11 @@ type DiskAccess struct {
 // NewDiskAccess registers a new resource with the given unique name, arguments, and options.
 func NewDiskAccess(ctx *pulumi.Context,
 	name string, args *DiskAccessArgs, opts ...pulumi.ResourceOption) (*DiskAccess, error) {
+	if args == nil || args.DiskAccessName == nil {
+		return nil, errors.New("missing required argument 'DiskAccessName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -111,10 +111,10 @@ func (DiskAccessState) ElementType() reflect.Type {
 }
 
 type diskAccessArgs struct {
+	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	DiskAccessName string `pulumi:"diskAccessName"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -123,10 +123,10 @@ type diskAccessArgs struct {
 
 // The set of arguments for constructing a DiskAccess resource.
 type DiskAccessArgs struct {
+	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+	DiskAccessName pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

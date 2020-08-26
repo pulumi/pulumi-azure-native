@@ -214,12 +214,6 @@ namespace Pulumi.AzureRM.Network.V20171101
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the virtual network.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
         [Input("provisioningState")]
@@ -260,6 +254,12 @@ namespace Pulumi.AzureRM.Network.V20171101
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the virtual network.
+        /// </summary>
+        [Input("virtualNetworkName", required: true)]
+        public Input<string> VirtualNetworkName { get; set; } = null!;
 
         [Input("virtualNetworkPeerings")]
         private InputList<Inputs.VirtualNetworkPeeringArgs>? _virtualNetworkPeerings;

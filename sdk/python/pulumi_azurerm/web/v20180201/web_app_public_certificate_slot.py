@@ -19,6 +19,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_certificate_location: Optional[pulumi.Input[str]] = None,
+                 public_certificate_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -31,8 +32,9 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blob: Public Certificate byte array
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Public certificate name.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] public_certificate_location: Public Certificate Location
+        :param pulumi.Input[str] public_certificate_name: Public certificate name.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
         """
@@ -59,6 +61,9 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['public_certificate_location'] = public_certificate_location
+            if public_certificate_name is None:
+                raise TypeError("Missing required property 'public_certificate_name'")
+            __props__['public_certificate_name'] = public_certificate_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

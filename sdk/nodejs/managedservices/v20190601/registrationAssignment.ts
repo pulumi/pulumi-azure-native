@@ -39,7 +39,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
     /**
      * Name of the registration assignment.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of a registration assignment.
      */
@@ -62,15 +62,16 @@ export class RegistrationAssignment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RegistrationAssignmentArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.registrationAssignmentId === undefined) {
+                throw new Error("Missing required property 'registrationAssignmentId'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["registrationAssignmentId"] = args ? args.registrationAssignmentId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -91,13 +92,13 @@ export class RegistrationAssignment extends pulumi.CustomResource {
  */
 export interface RegistrationAssignmentArgs {
     /**
-     * Guid of the registration assignment.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Properties of a registration assignment.
      */
     readonly properties?: pulumi.Input<inputs.managedservices.v20190601.RegistrationAssignmentProperties>;
+    /**
+     * Guid of the registration assignment.
+     */
+    readonly registrationAssignmentId: pulumi.Input<string>;
     /**
      * Scope of the resource.
      */

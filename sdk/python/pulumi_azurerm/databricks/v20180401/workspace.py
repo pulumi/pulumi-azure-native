@@ -21,12 +21,12 @@ class Workspace(pulumi.CustomResource):
                  created_date_time: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ui_definition_uri: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -39,12 +39,12 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] created_date_time: Specifies the date and time when the workspace is created.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
-        :param pulumi.Input[str] name: The name of the workspace.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']] parameters: The workspace's custom parameters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,9 +71,6 @@ class Workspace(pulumi.CustomResource):
             if managed_resource_group_id is None:
                 raise TypeError("Missing required property 'managed_resource_group_id'")
             __props__['managed_resource_group_id'] = managed_resource_group_id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['parameters'] = parameters
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -81,7 +78,11 @@ class Workspace(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['ui_definition_uri'] = ui_definition_uri
+            if workspace_name is None:
+                raise TypeError("Missing required property 'workspace_name'")
+            __props__['workspace_name'] = workspace_name
             __props__['created_by'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['storage_account_identity'] = None
             __props__['type'] = None

@@ -17,10 +17,10 @@ func LookupMetricAlert(ctx *pulumi.Context, args *LookupMetricAlertArgs, opts ..
 }
 
 type LookupMetricAlertArgs struct {
-	// The name of the rule.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the rule.
+	RuleName string `pulumi:"ruleName"`
 }
 
 // The metric alert resource.

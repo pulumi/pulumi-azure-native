@@ -35,6 +35,9 @@ type AttachedDatabaseConfiguration struct {
 // NewAttachedDatabaseConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	name string, args *AttachedDatabaseConfigurationArgs, opts ...pulumi.ResourceOption) (*AttachedDatabaseConfiguration, error) {
+	if args == nil || args.AttachedDatabaseConfigurationName == nil {
+		return nil, errors.New("missing required argument 'AttachedDatabaseConfigurationName'")
+	}
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
 	}
@@ -46,9 +49,6 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	}
 	if args == nil || args.DefaultPrincipalsModificationKind == nil {
 		return nil, errors.New("missing required argument 'DefaultPrincipalsModificationKind'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -132,6 +132,8 @@ func (AttachedDatabaseConfigurationState) ElementType() reflect.Type {
 }
 
 type attachedDatabaseConfigurationArgs struct {
+	// The name of the attached database configuration.
+	AttachedDatabaseConfigurationName string `pulumi:"attachedDatabaseConfigurationName"`
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The resource id of the cluster where the databases you would like to attach reside.
@@ -142,14 +144,14 @@ type attachedDatabaseConfigurationArgs struct {
 	DefaultPrincipalsModificationKind string `pulumi:"defaultPrincipalsModificationKind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the attached database configuration.
-	Name string `pulumi:"name"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a AttachedDatabaseConfiguration resource.
 type AttachedDatabaseConfigurationArgs struct {
+	// The name of the attached database configuration.
+	AttachedDatabaseConfigurationName pulumi.StringInput
 	// The name of the Kusto cluster.
 	ClusterName pulumi.StringInput
 	// The resource id of the cluster where the databases you would like to attach reside.
@@ -160,8 +162,6 @@ type AttachedDatabaseConfigurationArgs struct {
 	DefaultPrincipalsModificationKind pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the attached database configuration.
-	Name pulumi.StringInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
 }

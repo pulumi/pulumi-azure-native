@@ -31,8 +31,8 @@ type IntegrationServiceEnvironment struct {
 // NewIntegrationServiceEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationServiceEnvironment(ctx *pulumi.Context,
 	name string, args *IntegrationServiceEnvironmentArgs, opts ...pulumi.ResourceOption) (*IntegrationServiceEnvironment, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.IntegrationServiceEnvironmentName == nil {
+		return nil, errors.New("missing required argument 'IntegrationServiceEnvironmentName'")
 	}
 	if args == nil || args.ResourceGroup == nil {
 		return nil, errors.New("missing required argument 'ResourceGroup'")
@@ -96,10 +96,10 @@ func (IntegrationServiceEnvironmentState) ElementType() reflect.Type {
 }
 
 type integrationServiceEnvironmentArgs struct {
+	// The integration service environment name.
+	IntegrationServiceEnvironmentName string `pulumi:"integrationServiceEnvironmentName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
-	// The integration service environment name.
-	Name string `pulumi:"name"`
 	// The integration service environment properties.
 	Properties *IntegrationServiceEnvironmentProperties `pulumi:"properties"`
 	// The resource group.
@@ -112,10 +112,10 @@ type integrationServiceEnvironmentArgs struct {
 
 // The set of arguments for constructing a IntegrationServiceEnvironment resource.
 type IntegrationServiceEnvironmentArgs struct {
+	// The integration service environment name.
+	IntegrationServiceEnvironmentName pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
-	// The integration service environment name.
-	Name pulumi.StringInput
 	// The integration service environment properties.
 	Properties IntegrationServiceEnvironmentPropertiesPtrInput
 	// The resource group.

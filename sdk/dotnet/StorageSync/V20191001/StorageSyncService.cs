@@ -111,12 +111,6 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// Name of Storage Sync Service resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("properties")]
         private InputMap<object>? _properties;
         public InputMap<object> Properties
@@ -130,6 +124,12 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Storage Sync Service resource.
+        /// </summary>
+        [Input("storageSyncServiceName", required: true)]
+        public Input<string> StorageSyncServiceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

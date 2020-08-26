@@ -84,6 +84,12 @@ namespace Pulumi.AzureRM.Migrate.V20191001
     public sealed class AssessmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Unique name of an assessment within a project.
+        /// </summary>
+        [Input("assessmentName", required: true)]
+        public Input<string> AssessmentName { get; set; } = null!;
+
+        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         [Input("eTag")]
@@ -94,12 +100,6 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Unique name of an assessment within a project.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Migrate project.

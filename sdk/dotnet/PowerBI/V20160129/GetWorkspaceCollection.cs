@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.PowerBI.V20160129
     public sealed class GetWorkspaceCollectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Power BI Embedded Workspace Collection name
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Azure resource group
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Power BI Embedded Workspace Collection name
+        /// </summary>
+        [Input("workspaceCollectionName", required: true)]
+        public string WorkspaceCollectionName { get; set; } = null!;
 
         public GetWorkspaceCollectionArgs()
         {

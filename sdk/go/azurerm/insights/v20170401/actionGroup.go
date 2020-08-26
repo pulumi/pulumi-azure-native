@@ -43,6 +43,9 @@ type ActionGroup struct {
 // NewActionGroup registers a new resource with the given unique name, arguments, and options.
 func NewActionGroup(ctx *pulumi.Context,
 	name string, args *ActionGroupArgs, opts ...pulumi.ResourceOption) (*ActionGroup, error) {
+	if args == nil || args.ActionGroupName == nil {
+		return nil, errors.New("missing required argument 'ActionGroupName'")
+	}
 	if args == nil || args.Enabled == nil {
 		return nil, errors.New("missing required argument 'Enabled'")
 	}
@@ -51,9 +54,6 @@ func NewActionGroup(ctx *pulumi.Context,
 	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -156,6 +156,8 @@ func (ActionGroupState) ElementType() reflect.Type {
 }
 
 type actionGroupArgs struct {
+	// The name of the action group.
+	ActionGroupName string `pulumi:"actionGroupName"`
 	// The list of AutomationRunbook receivers that are part of this action group.
 	AutomationRunbookReceivers []AutomationRunbookReceiver `pulumi:"automationRunbookReceivers"`
 	// The list of AzureAppPush receivers that are part of this action group.
@@ -170,8 +172,6 @@ type actionGroupArgs struct {
 	ItsmReceivers []ItsmReceiver `pulumi:"itsmReceivers"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the action group.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of SMS receivers that are part of this action group.
@@ -184,6 +184,8 @@ type actionGroupArgs struct {
 
 // The set of arguments for constructing a ActionGroup resource.
 type ActionGroupArgs struct {
+	// The name of the action group.
+	ActionGroupName pulumi.StringInput
 	// The list of AutomationRunbook receivers that are part of this action group.
 	AutomationRunbookReceivers AutomationRunbookReceiverArrayInput
 	// The list of AzureAppPush receivers that are part of this action group.
@@ -198,8 +200,6 @@ type ActionGroupArgs struct {
 	ItsmReceivers ItsmReceiverArrayInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the action group.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The list of SMS receivers that are part of this action group.

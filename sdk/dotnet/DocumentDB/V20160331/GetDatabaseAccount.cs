@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
         /// <summary>
         /// Cosmos DB database account name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.

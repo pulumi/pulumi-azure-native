@@ -53,7 +53,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
@@ -107,9 +107,6 @@ export class Subscription extends pulumi.CustomResource {
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.productId === undefined) {
                 throw new Error("Missing required property 'productId'");
             }
@@ -119,21 +116,25 @@ export class Subscription extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.sid === undefined) {
+                throw new Error("Missing required property 'sid'");
+            }
             if (!args || args.userId === undefined) {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["primaryKey"] = args ? args.primaryKey : undefined;
             inputs["productId"] = args ? args.productId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["secondaryKey"] = args ? args.secondaryKey : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["sid"] = args ? args.sid : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["userId"] = args ? args.userId : undefined;
             inputs["createdDate"] = undefined /*out*/;
             inputs["endDate"] = undefined /*out*/;
             inputs["expirationDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["notificationDate"] = undefined /*out*/;
             inputs["startDate"] = undefined /*out*/;
             inputs["stateComment"] = undefined /*out*/;
@@ -161,10 +162,6 @@ export interface SubscriptionArgs {
      */
     readonly displayName: pulumi.Input<string>;
     /**
-     * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Primary subscription key. If not specified during request key will be generated automatically.
      */
     readonly primaryKey?: pulumi.Input<string>;
@@ -184,6 +181,10 @@ export interface SubscriptionArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+     */
+    readonly sid: pulumi.Input<string>;
     /**
      * Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
      */

@@ -164,19 +164,19 @@ class AwaitableGetPipelineResult(GetPipelineResult):
 
 
 def get_pipeline(factory_name: Optional[str] = None,
-                 name: Optional[str] = None,
+                 pipeline_name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str factory_name: The factory name.
-    :param str name: The pipeline name.
+    :param str pipeline_name: The pipeline name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
     __args__['factoryName'] = factory_name
-    __args__['name'] = name
+    __args__['pipelineName'] = pipeline_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

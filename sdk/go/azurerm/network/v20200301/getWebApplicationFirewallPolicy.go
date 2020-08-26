@@ -18,7 +18,7 @@ func LookupWebApplicationFirewallPolicy(ctx *pulumi.Context, args *LookupWebAppl
 
 type LookupWebApplicationFirewallPolicyArgs struct {
 	// The name of the policy.
-	Name string `pulumi:"name"`
+	PolicyName string `pulumi:"policyName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

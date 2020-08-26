@@ -25,6 +25,7 @@ class Schedule(pulumi.CustomResource):
                  interval: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schedule_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -41,8 +42,9 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
         :param pulumi.Input[str] frequency: Gets or sets the frequency of the schedule.
         :param pulumi.Input[Mapping[str, Any]] interval: Gets or sets the interval of the schedule.
-        :param pulumi.Input[str] name: The schedule name.
+        :param pulumi.Input[str] name: Gets or sets the name of the Schedule.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] schedule_name: The schedule name.
         :param pulumi.Input[str] start_time: Gets or sets the start time of the schedule.
         :param pulumi.Input[str] time_zone: Gets or sets the time zone of the schedule.
         """
@@ -79,6 +81,9 @@ class Schedule(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if schedule_name is None:
+                raise TypeError("Missing required property 'schedule_name'")
+            __props__['schedule_name'] = schedule_name
             if start_time is None:
                 raise TypeError("Missing required property 'start_time'")
             __props__['start_time'] = start_time

@@ -38,8 +38,8 @@ func NewExpressRouteCircuitConnection(ctx *pulumi.Context,
 	if args == nil || args.CircuitName == nil {
 		return nil, errors.New("missing required argument 'CircuitName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ConnectionName == nil {
+		return nil, errors.New("missing required argument 'ConnectionName'")
 	}
 	if args == nil || args.PeeringName == nil {
 		return nil, errors.New("missing required argument 'PeeringName'")
@@ -182,12 +182,14 @@ type expressRouteCircuitConnectionArgs struct {
 	CircuitConnectionStatus *string `pulumi:"circuitConnectionStatus"`
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
+	// The name of the express route circuit connection.
+	ConnectionName string `pulumi:"connectionName"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
 	ExpressRouteCircuitPeering *SubResource `pulumi:"expressRouteCircuitPeering"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the express route circuit connection.
-	Name string `pulumi:"name"`
+	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
 	PeerExpressRouteCircuitPeering *SubResource `pulumi:"peerExpressRouteCircuitPeering"`
 	// The name of the peering.
@@ -206,12 +208,14 @@ type ExpressRouteCircuitConnectionArgs struct {
 	CircuitConnectionStatus pulumi.StringPtrInput
 	// The name of the express route circuit.
 	CircuitName pulumi.StringInput
+	// The name of the express route circuit connection.
+	ConnectionName pulumi.StringInput
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
 	ExpressRouteCircuitPeering SubResourcePtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the express route circuit connection.
-	Name pulumi.StringInput
+	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
 	PeerExpressRouteCircuitPeering SubResourcePtrInput
 	// The name of the peering.

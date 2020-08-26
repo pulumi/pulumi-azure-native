@@ -18,7 +18,7 @@ func LookupContainerGroup(ctx *pulumi.Context, args *LookupContainerGroupArgs, o
 
 type LookupContainerGroupArgs struct {
 	// The name of the container group.
-	Name string `pulumi:"name"`
+	ContainerGroupName string `pulumi:"containerGroupName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -28,11 +28,11 @@ func NewDataSet(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.DataSetName == nil {
+		return nil, errors.New("missing required argument 'DataSetName'")
+	}
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -89,10 +89,10 @@ func (DataSetState) ElementType() reflect.Type {
 type dataSetArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
+	// The name of the dataSet.
+	DataSetName string `pulumi:"dataSetName"`
 	// Kind of data set.
 	Kind string `pulumi:"kind"`
-	// The name of the dataSet.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share to add the data set to.
@@ -103,10 +103,10 @@ type dataSetArgs struct {
 type DataSetArgs struct {
 	// The name of the share account.
 	AccountName pulumi.StringInput
+	// The name of the dataSet.
+	DataSetName pulumi.StringInput
 	// Kind of data set.
 	Kind pulumi.StringInput
-	// The name of the dataSet.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The name of the share to add the data set to.

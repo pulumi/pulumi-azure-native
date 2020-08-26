@@ -27,8 +27,8 @@ type ProductPolicy struct {
 // NewProductPolicy registers a new resource with the given unique name, arguments, and options.
 func NewProductPolicy(ctx *pulumi.Context,
 	name string, args *ProductPolicyArgs, opts ...pulumi.ResourceOption) (*ProductPolicy, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyId == nil {
+		return nil, errors.New("missing required argument 'PolicyId'")
 	}
 	if args == nil || args.ProductId == nil {
 		return nil, errors.New("missing required argument 'ProductId'")
@@ -108,7 +108,7 @@ type productPolicyArgs struct {
 	// Format of the policyContent.
 	Format *string `pulumi:"format"`
 	// The identifier of the Policy.
-	Name string `pulumi:"name"`
+	PolicyId string `pulumi:"policyId"`
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId string `pulumi:"productId"`
 	// The name of the resource group.
@@ -124,7 +124,7 @@ type ProductPolicyArgs struct {
 	// Format of the policyContent.
 	Format pulumi.StringPtrInput
 	// The identifier of the Policy.
-	Name pulumi.StringInput
+	PolicyId pulumi.StringInput
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId pulumi.StringInput
 	// The name of the resource group.

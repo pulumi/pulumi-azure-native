@@ -18,7 +18,7 @@ func LookupManager(ctx *pulumi.Context, args *LookupManagerArgs, opts ...pulumi.
 
 type LookupManagerArgs struct {
 	// The manager name
-	Name string `pulumi:"name"`
+	ManagerName string `pulumi:"managerName"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -61,11 +61,11 @@ type SignalR struct {
 // NewSignalR registers a new resource with the given unique name, arguments, and options.
 func NewSignalR(ctx *pulumi.Context,
 	name string, args *SignalRArgs, opts ...pulumi.ResourceOption) (*SignalR, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil {
 		args = &SignalRArgs{}
@@ -208,12 +208,12 @@ type signalRArgs struct {
 	Kind *string `pulumi:"kind"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
 	Location *string `pulumi:"location"`
-	// The name of the SignalR resource.
-	Name string `pulumi:"name"`
 	// Network ACLs
 	NetworkACLs *SignalRNetworkACLs `pulumi:"networkACLs"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the SignalR resource.
+	ResourceName string `pulumi:"resourceName"`
 	// The billing information of the resource.(e.g. Free, Standard)
 	Sku *ResourceSku `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
@@ -240,12 +240,12 @@ type SignalRArgs struct {
 	Kind pulumi.StringPtrInput
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
 	Location pulumi.StringPtrInput
-	// The name of the SignalR resource.
-	Name pulumi.StringInput
 	// Network ACLs
 	NetworkACLs SignalRNetworkACLsPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
+	// The name of the SignalR resource.
+	ResourceName pulumi.StringInput
 	// The billing information of the resource.(e.g. Free, Standard)
 	Sku ResourceSkuPtrInput
 	// Tags of the service which is a list of key value pairs that describe the resource.

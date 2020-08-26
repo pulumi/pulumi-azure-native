@@ -15,7 +15,7 @@ export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssig
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20200625:getGuestConfigurationAssignment", {
-        "name": args.name,
+        "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
         "resourceGroupName": args.resourceGroupName,
         "vmName": args.vmName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetGuestConfigurationAssignmentArgs {
     /**
      * The guest configuration assignment name.
      */
-    readonly name: string;
+    readonly guestConfigurationAssignmentName: string;
     /**
      * The resource group name.
      */

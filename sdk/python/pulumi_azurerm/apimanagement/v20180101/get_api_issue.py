@@ -127,7 +127,7 @@ class AwaitableGetApiIssueResult(GetApiIssueResult):
 
 
 def get_api_issue(api_id: Optional[str] = None,
-                  name: Optional[str] = None,
+                  issue_id: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   service_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiIssueResult:
@@ -135,13 +135,13 @@ def get_api_issue(api_id: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
-    :param str name: Issue identifier. Must be unique in the current API Management service instance.
+    :param str issue_id: Issue identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
-    __args__['name'] = name
+    __args__['issueId'] = issue_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     if opts is None:

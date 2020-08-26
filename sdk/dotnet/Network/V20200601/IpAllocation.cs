@@ -156,6 +156,12 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// The name of the IpAllocation.
+        /// </summary>
+        [Input("ipAllocationName", required: true)]
+        public Input<string> IpAllocationName { get; set; } = null!;
+
+        /// <summary>
         /// The IPAM allocation ID.
         /// </summary>
         [Input("ipamAllocationId")]
@@ -166,12 +172,6 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the IpAllocation.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The address prefix for the IpAllocation.

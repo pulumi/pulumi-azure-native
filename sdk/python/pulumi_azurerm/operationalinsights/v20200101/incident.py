@@ -23,9 +23,9 @@ class Incident(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  first_activity_time_utc: Optional[pulumi.Input[str]] = None,
+                 incident_id: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]]] = None,
                  last_activity_time_utc: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
@@ -46,9 +46,9 @@ class Incident(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the incident
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] first_activity_time_utc: The time of the first activity in the incident
+        :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]] labels: List of labels relevant to this incident
         :param pulumi.Input[str] last_activity_time_utc: The time of the last activity in the incident
-        :param pulumi.Input[str] name: Incident ID
         :param pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']] owner: Describes a user that the incident is assigned to
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] severity: The severity of the incident
@@ -79,11 +79,11 @@ class Incident(pulumi.CustomResource):
             __props__['description'] = description
             __props__['etag'] = etag
             __props__['first_activity_time_utc'] = first_activity_time_utc
+            if incident_id is None:
+                raise TypeError("Missing required property 'incident_id'")
+            __props__['incident_id'] = incident_id
             __props__['labels'] = labels
             __props__['last_activity_time_utc'] = last_activity_time_utc
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['owner'] = owner
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -105,6 +105,7 @@ class Incident(pulumi.CustomResource):
             __props__['incident_number'] = None
             __props__['incident_url'] = None
             __props__['last_modified_time_utc'] = None
+            __props__['name'] = None
             __props__['related_analytic_rule_ids'] = None
             __props__['type'] = None
         super(Incident, __self__).__init__(

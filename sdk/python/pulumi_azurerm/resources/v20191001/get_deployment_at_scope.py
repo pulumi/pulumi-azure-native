@@ -91,17 +91,17 @@ class AwaitableGetDeploymentAtScopeResult(GetDeploymentAtScopeResult):
             type=self.type)
 
 
-def get_deployment_at_scope(name: Optional[str] = None,
+def get_deployment_at_scope(deployment_name: Optional[str] = None,
                             scope: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtScopeResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the deployment.
+    :param str deployment_name: The name of the deployment.
     :param str scope: The resource scope.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['deploymentName'] = deployment_name
     __args__['scope'] = scope
     if opts is None:
         opts = pulumi.InvokeOptions()

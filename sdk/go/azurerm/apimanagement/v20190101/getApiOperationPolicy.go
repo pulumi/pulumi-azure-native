@@ -21,10 +21,10 @@ type LookupApiOperationPolicyArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// Policy Export Format.
 	Format *string `pulumi:"format"`
-	// The identifier of the Policy.
-	Name string `pulumi:"name"`
 	// Operation identifier within an API. Must be unique in the current API Management service instance.
 	OperationId string `pulumi:"operationId"`
+	// The identifier of the Policy.
+	PolicyId string `pulumi:"policyId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

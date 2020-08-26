@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.Network.V20180401
     public sealed class GetRouteFilterRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// </summary>
         [Input("routeFilterName", required: true)]
         public string RouteFilterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public string RuleName { get; set; } = null!;
 
         public GetRouteFilterRuleArgs()
         {

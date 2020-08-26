@@ -203,10 +203,16 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// The name of the namespace.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The namespace name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
         /// The namespace type.

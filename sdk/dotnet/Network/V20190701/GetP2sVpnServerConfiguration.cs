@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// <summary>
         /// The name of the P2SVpnServerConfiguration.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("p2SVpnServerConfigurationName", required: true)]
+        public string P2SVpnServerConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the P2SVpnServerConfiguration.

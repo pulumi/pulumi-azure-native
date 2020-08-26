@@ -109,6 +109,9 @@ export class Workbook extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             if (!args || args.serializedData === undefined) {
                 throw new Error("Missing required property 'serializedData'");
             }
@@ -126,6 +129,7 @@ export class Workbook extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["serializedData"] = args ? args.serializedData : undefined;
             inputs["sharedTypeKind"] = args ? args.sharedTypeKind : undefined;
             inputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
@@ -164,13 +168,17 @@ export interface WorkbookArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Application Insights component resource.
+     * The user-defined name of the workbook.
      */
     readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Application Insights component resource.
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */

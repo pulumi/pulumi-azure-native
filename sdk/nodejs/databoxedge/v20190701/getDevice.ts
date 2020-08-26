@@ -15,7 +15,7 @@ export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:databoxedge/v20190701:getDevice", {
-        "name": args.name,
+        "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDeviceArgs {
     /**
      * The device name.
      */
-    readonly name: string;
+    readonly deviceName: string;
     /**
      * The resource group name.
      */

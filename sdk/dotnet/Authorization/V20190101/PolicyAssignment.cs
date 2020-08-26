@@ -176,12 +176,6 @@ namespace Pulumi.AzureRM.Authorization.V20190101
             set => _metadata = value;
         }
 
-        /// <summary>
-        /// The name of the policy assignment.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("notScopes")]
         private InputList<string>? _notScopes;
 
@@ -205,6 +199,12 @@ namespace Pulumi.AzureRM.Authorization.V20190101
             get => _parameters ?? (_parameters = new InputMap<object>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// The name of the policy assignment.
+        /// </summary>
+        [Input("policyAssignmentName", required: true)]
+        public Input<string> PolicyAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The ID of the policy definition or policy set definition being assigned.

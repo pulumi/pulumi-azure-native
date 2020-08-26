@@ -84,11 +84,11 @@ export class EventHub extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EventHubArgs | undefined;
+            if (!args || args.eventHubName === undefined) {
+                throw new Error("Missing required property 'eventHubName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -96,6 +96,7 @@ export class EventHub extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["messageRetentionInDays"] = args ? args.messageRetentionInDays : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -126,6 +127,10 @@ export class EventHub extends pulumi.CustomResource {
  */
 export interface EventHubArgs {
     /**
+     * The Event Hub name
+     */
+    readonly eventHubName: pulumi.Input<string>;
+    /**
      * Location of the resource.
      */
     readonly location: pulumi.Input<string>;
@@ -134,9 +139,9 @@ export interface EventHubArgs {
      */
     readonly messageRetentionInDays?: pulumi.Input<number>;
     /**
-     * The Event Hub name
+     * Name of the Event Hub.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The Namespace name
      */

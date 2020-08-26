@@ -15,21 +15,21 @@ export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:notificationhubs/v20170401:getNotificationHub", {
-        "name": args.name,
         "namespaceName": args.namespaceName,
+        "notificationHubName": args.notificationHubName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetNotificationHubArgs {
     /**
-     * The notification hub name.
-     */
-    readonly name: string;
-    /**
      * The namespace name.
      */
     readonly namespaceName: string;
+    /**
+     * The notification hub name.
+     */
+    readonly notificationHubName: string;
     /**
      * The name of the resource group.
      */

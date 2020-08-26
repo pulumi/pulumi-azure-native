@@ -18,8 +18,8 @@ class IntegrationAccountSession(pulumi.CustomResource):
                  content: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 session_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -32,8 +32,8 @@ class IntegrationAccountSession(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] content: The session content.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The integration account session name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] session_name: The integration account session name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
@@ -58,15 +58,16 @@ class IntegrationAccountSession(pulumi.CustomResource):
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if session_name is None:
+                raise TypeError("Missing required property 'session_name'")
+            __props__['session_name'] = session_name
             __props__['tags'] = tags
             __props__['changed_time'] = None
             __props__['created_time'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountSession")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -59,7 +59,7 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the flow log.
      */
@@ -102,8 +102,8 @@ export class FlowLog extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as FlowLogArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.flowLogName === undefined) {
+                throw new Error("Missing required property 'flowLogName'");
             }
             if (!args || args.networkWatcherName === undefined) {
                 throw new Error("Missing required property 'networkWatcherName'");
@@ -119,10 +119,10 @@ export class FlowLog extends pulumi.CustomResource {
             }
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["flowAnalyticsConfiguration"] = args ? args.flowAnalyticsConfiguration : undefined;
+            inputs["flowLogName"] = args ? args.flowLogName : undefined;
             inputs["format"] = args ? args.format : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
@@ -130,6 +130,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["targetResourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -160,6 +161,10 @@ export interface FlowLogArgs {
      */
     readonly flowAnalyticsConfiguration?: pulumi.Input<inputs.network.v20191101.TrafficAnalyticsProperties>;
     /**
+     * The name of the flow log.
+     */
+    readonly flowLogName: pulumi.Input<string>;
+    /**
      * Parameters that define the flow log format.
      */
     readonly format?: pulumi.Input<inputs.network.v20191101.FlowLogFormatParameters>;
@@ -171,10 +176,6 @@ export interface FlowLogArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the flow log.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the network watcher.
      */

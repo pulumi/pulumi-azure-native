@@ -27,6 +27,9 @@ type WebAppDomainOwnershipIdentifierSlot struct {
 // NewWebAppDomainOwnershipIdentifierSlot registers a new resource with the given unique name, arguments, and options.
 func NewWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context,
 	name string, args *WebAppDomainOwnershipIdentifierSlotArgs, opts ...pulumi.ResourceOption) (*WebAppDomainOwnershipIdentifierSlot, error) {
+	if args == nil || args.DomainOwnershipIdentifierName == nil {
+		return nil, errors.New("missing required argument 'DomainOwnershipIdentifierName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -102,9 +105,11 @@ func (WebAppDomainOwnershipIdentifierSlotState) ElementType() reflect.Type {
 }
 
 type webAppDomainOwnershipIdentifierSlotArgs struct {
+	// Name of domain ownership identifier.
+	DomainOwnershipIdentifierName string `pulumi:"domainOwnershipIdentifierName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of domain ownership identifier.
+	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -116,9 +121,11 @@ type webAppDomainOwnershipIdentifierSlotArgs struct {
 
 // The set of arguments for constructing a WebAppDomainOwnershipIdentifierSlot resource.
 type WebAppDomainOwnershipIdentifierSlotArgs struct {
+	// Name of domain ownership identifier.
+	DomainOwnershipIdentifierName pulumi.StringInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of domain ownership identifier.
+	// Name of the app.
 	Name pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput

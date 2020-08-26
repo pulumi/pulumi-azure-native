@@ -157,8 +157,8 @@ namespace Pulumi.AzureRM.EventHub.V20150801
         /// <summary>
         /// The Namespace name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
         /// Provisioning state of the Namespace.

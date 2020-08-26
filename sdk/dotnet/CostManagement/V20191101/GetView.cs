@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.CostManagement.V20191101
         /// <summary>
         /// View name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("viewName", required: true)]
+        public string ViewName { get; set; } = null!;
 
         public GetViewArgs()
         {

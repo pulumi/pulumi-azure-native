@@ -22,9 +22,9 @@ class SignalR(pulumi.CustomResource):
                  host_name_prefix: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upstream: Optional[pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']]] = None,
@@ -47,9 +47,9 @@ class SignalR(pulumi.CustomResource):
                The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
         :param pulumi.Input[str] kind: The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         :param pulumi.Input[str] location: The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-        :param pulumi.Input[str] name: The name of the SignalR resource.
         :param pulumi.Input[pulumi.InputType['SignalRNetworkACLsArgs']] network_acls: Network ACLs
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_name_: The name of the SignalR resource.
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.(e.g. Free, Standard)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
         :param pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']] upstream: Upstream settings when the Azure SignalR is in server-less mode.
@@ -76,18 +76,19 @@ class SignalR(pulumi.CustomResource):
             __props__['host_name_prefix'] = host_name_prefix
             __props__['kind'] = kind
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_acls'] = network_acls
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['upstream'] = upstream
             __props__['external_ip'] = None
             __props__['host_name'] = None
+            __props__['name'] = None
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['public_port'] = None

@@ -120,8 +120,8 @@ export class Module extends pulumi.CustomResource {
             if (!args || args.contentLink === undefined) {
                 throw new Error("Missing required property 'contentLink'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.moduleName === undefined) {
+                throw new Error("Missing required property 'moduleName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -129,6 +129,7 @@ export class Module extends pulumi.CustomResource {
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["contentLink"] = args ? args.contentLink : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["moduleName"] = args ? args.moduleName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -175,7 +176,11 @@ export interface ModuleArgs {
     /**
      * The name of module.
      */
-    readonly name: pulumi.Input<string>;
+    readonly moduleName: pulumi.Input<string>;
+    /**
+     * Gets or sets name of the resource.
+     */
+    readonly name?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

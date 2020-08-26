@@ -24,10 +24,10 @@ class PublicIPAddress(pulumi.CustomResource):
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_tags: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpTagArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  public_ip_address_version: Optional[pulumi.Input[str]] = None,
                  public_ip_allocation_method: Optional[pulumi.Input[str]] = None,
                  public_ip_prefix: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
+                 public_ip_address_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -47,10 +47,10 @@ class PublicIPAddress(pulumi.CustomResource):
         :param pulumi.Input[str] ip_address: The IP address associated with the public IP address resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpTagArgs']]]] ip_tags: The list of tags associated with the public IP address.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the public IP address.
         :param pulumi.Input[str] public_ip_address_version: The public IP address version.
         :param pulumi.Input[str] public_ip_allocation_method: The public IP address allocation method.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
+        :param pulumi.Input[str] public_ip_address_name: The name of the public IP address.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['PublicIPAddressSkuArgs']] sku: The public IP address SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -80,12 +80,12 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__['ip_address'] = ip_address
             __props__['ip_tags'] = ip_tags
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['public_ip_address_version'] = public_ip_address_version
             __props__['public_ip_allocation_method'] = public_ip_allocation_method
             __props__['public_ip_prefix'] = public_ip_prefix
+            if public_ip_address_name is None:
+                raise TypeError("Missing required property 'public_ip_address_name'")
+            __props__['public_ip_address_name'] = public_ip_address_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -94,6 +94,7 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__['zones'] = zones
             __props__['etag'] = None
             __props__['ip_configuration'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None

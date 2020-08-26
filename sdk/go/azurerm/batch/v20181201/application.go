@@ -34,8 +34,8 @@ func NewApplication(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ApplicationName == nil {
+		return nil, errors.New("missing required argument 'ApplicationName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -118,12 +118,12 @@ type applicationArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// A value indicating whether packages within the application may be overwritten using the same version string.
 	AllowUpdates *bool `pulumi:"allowUpdates"`
+	// The name of the application. This must be unique within the account.
+	ApplicationName string `pulumi:"applicationName"`
 	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
 	DefaultVersion *string `pulumi:"defaultVersion"`
 	// The display name for the application.
 	DisplayName *string `pulumi:"displayName"`
-	// The name of the application. This must be unique within the account.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -134,12 +134,12 @@ type ApplicationArgs struct {
 	AccountName pulumi.StringInput
 	// A value indicating whether packages within the application may be overwritten using the same version string.
 	AllowUpdates pulumi.BoolPtrInput
+	// The name of the application. This must be unique within the account.
+	ApplicationName pulumi.StringInput
 	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
 	DefaultVersion pulumi.StringPtrInput
 	// The display name for the application.
 	DisplayName pulumi.StringPtrInput
-	// The name of the application. This must be unique within the account.
-	Name pulumi.StringInput
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
 }

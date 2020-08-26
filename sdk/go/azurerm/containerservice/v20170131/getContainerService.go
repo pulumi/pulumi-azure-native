@@ -18,7 +18,7 @@ func LookupContainerService(ctx *pulumi.Context, args *LookupContainerServiceArg
 
 type LookupContainerServiceArgs struct {
 	// The name of the container service in the specified subscription and resource group.
-	Name string `pulumi:"name"`
+	ContainerServiceName string `pulumi:"containerServiceName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

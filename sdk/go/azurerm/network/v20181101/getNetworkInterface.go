@@ -20,7 +20,7 @@ type LookupNetworkInterfaceArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
 	// The name of the network interface.
-	Name string `pulumi:"name"`
+	NetworkInterfaceName string `pulumi:"networkInterfaceName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -124,6 +124,9 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Input("entityConnectionString")]
         public Input<string>? EntityConnectionString { get; set; }
 
+        [Input("entityName", required: true)]
+        public Input<string> EntityName { get; set; } = null!;
+
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
 
@@ -145,6 +148,9 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
+        /// <summary>
+        /// Resource Name
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

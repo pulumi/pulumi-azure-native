@@ -15,21 +15,21 @@ export function getIntegrationAccountAssembly(args: GetIntegrationAccountAssembl
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:logic/v20160601:getIntegrationAccountAssembly", {
+        "assemblyArtifactName": args.assemblyArtifactName,
         "integrationAccountName": args.integrationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetIntegrationAccountAssemblyArgs {
     /**
+     * The assembly artifact name.
+     */
+    readonly assemblyArtifactName: string;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: string;
-    /**
-     * The assembly artifact name.
-     */
-    readonly name: string;
     /**
      * The resource group name.
      */

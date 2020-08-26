@@ -16,7 +16,7 @@ export function getDatabaseAccountGremlinDatabase(args: GetDatabaseAccountGremli
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20160331:getDatabaseAccountGremlinDatabase", {
         "accountName": args.accountName,
-        "name": args.name,
+        "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetDatabaseAccountGremlinDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    readonly name: string;
+    readonly databaseName: string;
     /**
      * Name of an Azure resource group.
      */

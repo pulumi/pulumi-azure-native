@@ -31,14 +31,14 @@ type ServerAzureADAdministrator struct {
 // NewServerAzureADAdministrator registers a new resource with the given unique name, arguments, and options.
 func NewServerAzureADAdministrator(ctx *pulumi.Context,
 	name string, args *ServerAzureADAdministratorArgs, opts ...pulumi.ResourceOption) (*ServerAzureADAdministrator, error) {
+	if args == nil || args.AdministratorName == nil {
+		return nil, errors.New("missing required argument 'AdministratorName'")
+	}
 	if args == nil || args.AdministratorType == nil {
 		return nil, errors.New("missing required argument 'AdministratorType'")
 	}
 	if args == nil || args.Login == nil {
 		return nil, errors.New("missing required argument 'Login'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -111,12 +111,12 @@ func (ServerAzureADAdministratorState) ElementType() reflect.Type {
 }
 
 type serverAzureADAdministratorArgs struct {
+	// Name of the server administrator resource.
+	AdministratorName string `pulumi:"administratorName"`
 	// The type of administrator.
 	AdministratorType string `pulumi:"administratorType"`
 	// The server administrator login value.
 	Login string `pulumi:"login"`
-	// Name of the server administrator resource.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -129,12 +129,12 @@ type serverAzureADAdministratorArgs struct {
 
 // The set of arguments for constructing a ServerAzureADAdministrator resource.
 type ServerAzureADAdministratorArgs struct {
+	// Name of the server administrator resource.
+	AdministratorName pulumi.StringInput
 	// The type of administrator.
 	AdministratorType pulumi.StringInput
 	// The server administrator login value.
 	Login pulumi.StringInput
-	// Name of the server administrator resource.
-	Name pulumi.StringInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

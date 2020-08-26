@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// The name of the application gateway private endpoint connection.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

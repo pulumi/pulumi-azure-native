@@ -25,6 +25,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public string BackupPolicyName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the backup schedule to be fetched
+        /// </summary>
+        [Input("backupScheduleName", required: true)]
+        public string BackupScheduleName { get; set; } = null!;
+
+        /// <summary>
         /// The device name
         /// </summary>
         [Input("deviceName", required: true)]
@@ -35,12 +41,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("managerName", required: true)]
         public string ManagerName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the backup schedule to be fetched
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

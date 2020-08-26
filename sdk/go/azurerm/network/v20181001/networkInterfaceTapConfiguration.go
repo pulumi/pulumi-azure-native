@@ -29,14 +29,14 @@ type NetworkInterfaceTapConfiguration struct {
 // NewNetworkInterfaceTapConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceTapConfigurationArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceTapConfiguration, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NetworkInterfaceName == nil {
 		return nil, errors.New("missing required argument 'NetworkInterfaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TapConfigurationName == nil {
+		return nil, errors.New("missing required argument 'TapConfigurationName'")
 	}
 	if args == nil {
 		args = &NetworkInterfaceTapConfigurationArgs{}
@@ -145,12 +145,14 @@ type networkInterfaceTapConfigurationArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the tap configuration.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// The name of the network interface.
 	NetworkInterfaceName string `pulumi:"networkInterfaceName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the tap configuration.
+	TapConfigurationName string `pulumi:"tapConfigurationName"`
 	// The reference of the Virtual Network Tap resource.
 	VirtualNetworkTap *VirtualNetworkTapType `pulumi:"virtualNetworkTap"`
 }
@@ -161,12 +163,14 @@ type NetworkInterfaceTapConfigurationArgs struct {
 	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the tap configuration.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// The name of the network interface.
 	NetworkInterfaceName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the tap configuration.
+	TapConfigurationName pulumi.StringInput
 	// The reference of the Virtual Network Tap resource.
 	VirtualNetworkTap VirtualNetworkTapTypePtrInput
 }

@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.StorageSync.V20180701
     public sealed class GetSyncGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of Sync Group resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.StorageSync.V20180701
         /// </summary>
         [Input("storageSyncServiceName", required: true)]
         public string StorageSyncServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of Sync Group resource.
+        /// </summary>
+        [Input("syncGroupName", required: true)]
+        public string SyncGroupName { get; set; } = null!;
 
         public GetSyncGroupArgs()
         {

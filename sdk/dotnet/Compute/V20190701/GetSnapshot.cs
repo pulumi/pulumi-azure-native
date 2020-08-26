@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Compute.V20190701
     public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+        /// </summary>
+        [Input("snapshotName", required: true)]
+        public string SnapshotName { get; set; } = null!;
 
         public GetSnapshotArgs()
         {

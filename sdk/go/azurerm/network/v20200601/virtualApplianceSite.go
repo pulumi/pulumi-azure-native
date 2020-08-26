@@ -31,14 +31,14 @@ type VirtualApplianceSite struct {
 // NewVirtualApplianceSite registers a new resource with the given unique name, arguments, and options.
 func NewVirtualApplianceSite(ctx *pulumi.Context,
 	name string, args *VirtualApplianceSiteArgs, opts ...pulumi.ResourceOption) (*VirtualApplianceSite, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.NetworkVirtualApplianceName == nil {
 		return nil, errors.New("missing required argument 'NetworkVirtualApplianceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SiteName == nil {
+		return nil, errors.New("missing required argument 'SiteName'")
 	}
 	if args == nil {
 		args = &VirtualApplianceSiteArgs{}
@@ -109,14 +109,16 @@ type virtualApplianceSiteArgs struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the site.
-	Name string `pulumi:"name"`
+	// Name of the virtual appliance site.
+	Name *string `pulumi:"name"`
 	// The name of the Network Virtual Appliance.
 	NetworkVirtualApplianceName string `pulumi:"networkVirtualApplianceName"`
 	// Office 365 Policy.
 	O365Policy *Office365PolicyProperties `pulumi:"o365Policy"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the site.
+	SiteName string `pulumi:"siteName"`
 }
 
 // The set of arguments for constructing a VirtualApplianceSite resource.
@@ -125,14 +127,16 @@ type VirtualApplianceSiteArgs struct {
 	AddressPrefix pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the site.
-	Name pulumi.StringInput
+	// Name of the virtual appliance site.
+	Name pulumi.StringPtrInput
 	// The name of the Network Virtual Appliance.
 	NetworkVirtualApplianceName pulumi.StringInput
 	// Office 365 Policy.
 	O365Policy Office365PolicyPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the site.
+	SiteName pulumi.StringInput
 }
 
 func (VirtualApplianceSiteArgs) ElementType() reflect.Type {

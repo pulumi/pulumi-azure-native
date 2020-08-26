@@ -15,7 +15,7 @@ export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:servicebus/v20150801:getTopicAuthorizationRule", {
-        "name": args.name,
+        "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
         "topicName": args.topicName,
@@ -26,7 +26,7 @@ export interface GetTopicAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly name: string;
+    readonly authorizationRuleName: string;
     /**
      * The namespace name
      */

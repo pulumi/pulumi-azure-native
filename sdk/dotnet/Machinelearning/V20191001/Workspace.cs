@@ -154,12 +154,6 @@ namespace Pulumi.AzureRM.MachineLearning.V20191001
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the machine learning workspace.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The email id of the owner for this workspace.
         /// </summary>
         [Input("ownerEmail", required: true)]
@@ -194,6 +188,12 @@ namespace Pulumi.AzureRM.MachineLearning.V20191001
         /// </summary>
         [Input("userStorageAccountId", required: true)]
         public Input<string> UserStorageAccountId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the machine learning workspace.
+        /// </summary>
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
 
         public WorkspaceArgs()
         {

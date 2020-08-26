@@ -18,7 +18,7 @@ func LookupOrder(ctx *pulumi.Context, args *LookupOrderArgs, opts ...pulumi.Invo
 
 type LookupOrderArgs struct {
 	// The device name.
-	Name string `pulumi:"name"`
+	DeviceName string `pulumi:"deviceName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -19,10 +19,10 @@ class FlowLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  flow_analytics_configuration: Optional[pulumi.Input[pulumi.InputType['TrafficAnalyticsPropertiesArgs']]] = None,
+                 flow_log_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[pulumi.InputType['FlowLogFormatParametersArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input[pulumi.InputType['RetentionPolicyParametersArgs']]] = None,
@@ -39,10 +39,10 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Flag to enable/disable flow logging.
         :param pulumi.Input[pulumi.InputType['TrafficAnalyticsPropertiesArgs']] flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
+        :param pulumi.Input[str] flow_log_name: The name of the flow log.
         :param pulumi.Input[pulumi.InputType['FlowLogFormatParametersArgs']] format: Parameters that define the flow log format.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the flow log.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['RetentionPolicyParametersArgs']] retention_policy: Parameters that define the retention policy for flow log.
@@ -69,12 +69,12 @@ class FlowLog(pulumi.CustomResource):
 
             __props__['enabled'] = enabled
             __props__['flow_analytics_configuration'] = flow_analytics_configuration
+            if flow_log_name is None:
+                raise TypeError("Missing required property 'flow_log_name'")
+            __props__['flow_log_name'] = flow_log_name
             __props__['format'] = format
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if network_watcher_name is None:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
@@ -90,6 +90,7 @@ class FlowLog(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_resource_id'")
             __props__['target_resource_id'] = target_resource_id
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['target_resource_guid'] = None
             __props__['type'] = None

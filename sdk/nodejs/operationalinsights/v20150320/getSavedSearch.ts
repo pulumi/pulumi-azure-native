@@ -15,21 +15,21 @@ export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20150320:getSavedSearch", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "savedSearchId": args.savedSearchId,
         "workspaceName": args.workspaceName,
     }, opts);
 }
 
 export interface GetSavedSearchArgs {
     /**
-     * The id of the saved search.
-     */
-    readonly name: string;
-    /**
      * The Resource Group name.
      */
     readonly resourceGroupName: string;
+    /**
+     * The id of the saved search.
+     */
+    readonly savedSearchId: string;
     /**
      * The Log Analytics Workspace name.
      */

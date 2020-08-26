@@ -18,13 +18,13 @@ class Webhook(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  service_uri: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 webhook_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,13 +36,13 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[str]]] actions: The list of actions that trigger the webhook to post notifications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_headers: Custom headers that will be added to the webhook notifications.
         :param pulumi.Input[str] location: The location of the webhook. This cannot be changed after the resource is created.
-        :param pulumi.Input[str] name: The name of the webhook.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[str] scope: The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
         :param pulumi.Input[str] service_uri: The service URI for the webhook to post notifications.
         :param pulumi.Input[str] status: The status of the webhook at the time the operation was called.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the webhook.
+        :param pulumi.Input[str] webhook_name: The name of the webhook.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,9 +68,6 @@ class Webhook(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if registry_name is None:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
@@ -83,6 +80,10 @@ class Webhook(pulumi.CustomResource):
             __props__['service_uri'] = service_uri
             __props__['status'] = status
             __props__['tags'] = tags
+            if webhook_name is None:
+                raise TypeError("Missing required property 'webhook_name'")
+            __props__['webhook_name'] = webhook_name
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/v20171001:Webhook")])

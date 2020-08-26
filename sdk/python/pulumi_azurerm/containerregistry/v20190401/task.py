@@ -21,13 +21,13 @@ class Task(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[pulumi.InputType['CredentialsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  step: Optional[pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 task_name: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[float]] = None,
                  trigger: Optional[pulumi.Input[pulumi.InputType['TriggerPropertiesArgs']]] = None,
                  __props__=None,
@@ -43,13 +43,13 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CredentialsArgs']] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[str] name: The name of the container registry task.
         :param pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']] platform: The platform properties against which the run has to happen.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[str] status: The current status of task.
         :param pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']] step: The properties of a task step.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[str] task_name: The name of the container registry task.
         :param pulumi.Input[float] timeout: Run timeout in seconds.
         :param pulumi.Input[pulumi.InputType['TriggerPropertiesArgs']] trigger: The properties that describe all triggers for the task.
         """
@@ -76,9 +76,6 @@ class Task(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if platform is None:
                 raise TypeError("Missing required property 'platform'")
             __props__['platform'] = platform
@@ -93,9 +90,13 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'step'")
             __props__['step'] = step
             __props__['tags'] = tags
+            if task_name is None:
+                raise TypeError("Missing required property 'task_name'")
+            __props__['task_name'] = task_name
             __props__['timeout'] = timeout
             __props__['trigger'] = trigger
             __props__['creation_date'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/v20180901:Task")])

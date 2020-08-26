@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<bool>? IsEncrypted { get; set; }
 
         /// <summary>
-        /// The variable name.
+        /// Gets or sets the name of the variable.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -136,6 +136,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
+
+        /// <summary>
+        /// The variable name.
+        /// </summary>
+        [Input("variableName", required: true)]
+        public Input<string> VariableName { get; set; } = null!;
 
         public VariableArgs()
         {

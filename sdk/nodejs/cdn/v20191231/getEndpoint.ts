@@ -15,7 +15,7 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:cdn/v20191231:getEndpoint", {
-        "name": args.name,
+        "endpointName": args.endpointName,
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetEndpointArgs {
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
-    readonly name: string;
+    readonly endpointName: string;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

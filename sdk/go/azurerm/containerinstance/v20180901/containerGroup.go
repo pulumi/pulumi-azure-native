@@ -50,11 +50,11 @@ type ContainerGroup struct {
 // NewContainerGroup registers a new resource with the given unique name, arguments, and options.
 func NewContainerGroup(ctx *pulumi.Context,
 	name string, args *ContainerGroupArgs, opts ...pulumi.ResourceOption) (*ContainerGroup, error) {
+	if args == nil || args.ContainerGroupName == nil {
+		return nil, errors.New("missing required argument 'ContainerGroupName'")
+	}
 	if args == nil || args.Containers == nil {
 		return nil, errors.New("missing required argument 'Containers'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.OsType == nil {
 		return nil, errors.New("missing required argument 'OsType'")
@@ -174,6 +174,8 @@ func (ContainerGroupState) ElementType() reflect.Type {
 }
 
 type containerGroupArgs struct {
+	// The name of the container group.
+	ContainerGroupName string `pulumi:"containerGroupName"`
 	// The containers within the container group.
 	Containers []Container `pulumi:"containers"`
 	// The diagnostic information for a container group.
@@ -184,8 +186,6 @@ type containerGroupArgs struct {
 	IpAddress *IpAddress `pulumi:"ipAddress"`
 	// The resource location.
 	Location *string `pulumi:"location"`
-	// The name of the container group.
-	Name string `pulumi:"name"`
 	// The network profile information for a container group.
 	NetworkProfile *ContainerGroupNetworkProfile `pulumi:"networkProfile"`
 	// The operating system type required by the containers in the container group.
@@ -205,6 +205,8 @@ type containerGroupArgs struct {
 
 // The set of arguments for constructing a ContainerGroup resource.
 type ContainerGroupArgs struct {
+	// The name of the container group.
+	ContainerGroupName pulumi.StringInput
 	// The containers within the container group.
 	Containers ContainerArrayInput
 	// The diagnostic information for a container group.
@@ -215,8 +217,6 @@ type ContainerGroupArgs struct {
 	IpAddress IpAddressPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
-	// The name of the container group.
-	Name pulumi.StringInput
 	// The network profile information for a container group.
 	NetworkProfile ContainerGroupNetworkProfilePtrInput
 	// The operating system type required by the containers in the container group.

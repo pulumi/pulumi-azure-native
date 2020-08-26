@@ -79,7 +79,7 @@ export class ContainerGroup extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The network profile information for a container group.
      */
@@ -129,11 +129,11 @@ export class ContainerGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ContainerGroupArgs | undefined;
+            if (!args || args.containerGroupName === undefined) {
+                throw new Error("Missing required property 'containerGroupName'");
+            }
             if (!args || args.containers === undefined) {
                 throw new Error("Missing required property 'containers'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.osType === undefined) {
                 throw new Error("Missing required property 'osType'");
@@ -141,6 +141,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["containerGroupName"] = args ? args.containerGroupName : undefined;
             inputs["containers"] = args ? args.containers : undefined;
             inputs["diagnostics"] = args ? args.diagnostics : undefined;
             inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
@@ -150,7 +151,6 @@ export class ContainerGroup extends pulumi.CustomResource {
             inputs["initContainers"] = args ? args.initContainers : undefined;
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -159,6 +159,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["volumes"] = args ? args.volumes : undefined;
             inputs["instanceView"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -179,6 +180,10 @@ export class ContainerGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ContainerGroup resource.
  */
 export interface ContainerGroupArgs {
+    /**
+     * The name of the container group.
+     */
+    readonly containerGroupName: pulumi.Input<string>;
     /**
      * The containers within the container group.
      */
@@ -215,10 +220,6 @@ export interface ContainerGroupArgs {
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the container group.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The network profile information for a container group.
      */

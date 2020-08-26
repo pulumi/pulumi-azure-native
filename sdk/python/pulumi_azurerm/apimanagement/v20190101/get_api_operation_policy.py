@@ -80,8 +80,8 @@ class AwaitableGetApiOperationPolicyResult(GetApiOperationPolicyResult):
 
 def get_api_operation_policy(api_id: Optional[str] = None,
                              format: Optional[str] = None,
-                             name: Optional[str] = None,
                              operation_id: Optional[str] = None,
+                             policy_id: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              service_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiOperationPolicyResult:
@@ -90,16 +90,16 @@ def get_api_operation_policy(api_id: Optional[str] = None,
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param str format: Policy Export Format.
-    :param str name: The identifier of the Policy.
     :param str operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
+    :param str policy_id: The identifier of the Policy.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['format'] = format
-    __args__['name'] = name
     __args__['operationId'] = operation_id
+    __args__['policyId'] = policy_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     if opts is None:

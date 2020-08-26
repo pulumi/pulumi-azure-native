@@ -15,7 +15,7 @@ export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20180101:getIdentityProvider", {
-        "name": args.name,
+        "identityProviderName": args.identityProviderName,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetIdentityProviderArgs {
     /**
      * Identity Provider Type identifier.
      */
-    readonly name: string;
+    readonly identityProviderName: string;
     /**
      * The name of the resource group.
      */

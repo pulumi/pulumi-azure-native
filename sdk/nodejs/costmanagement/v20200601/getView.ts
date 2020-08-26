@@ -15,7 +15,7 @@ export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:costmanagement/v20200601:getView", {
-        "name": args.name,
+        "viewName": args.viewName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetViewArgs {
     /**
      * View name
      */
-    readonly name: string;
+    readonly viewName: string;
 }
 
 /**

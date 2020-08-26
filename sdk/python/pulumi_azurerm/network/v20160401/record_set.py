@@ -28,6 +28,7 @@ class RecordSet(pulumi.CustomResource):
                  ns_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NsRecordArgs']]]]] = None,
                  ptr_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]]] = None,
                  record_type: Optional[pulumi.Input[str]] = None,
+                 relative_record_set_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  soa_record: Optional[pulumi.Input[pulumi.InputType['SoaRecordArgs']]] = None,
                  srv_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
@@ -50,10 +51,11 @@ class RecordSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The ID of the record set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata attached to the record set.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MxRecordArgs']]]] mx_records: The list of MX records in the record set.
-        :param pulumi.Input[str] name: The name of the record set, relative to the name of the zone.
+        :param pulumi.Input[str] name: The name of the record set.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NsRecordArgs']]]] ns_records: The list of NS records in the record set.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]] ptr_records: The list of PTR records in the record set.
         :param pulumi.Input[str] record_type: The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
+        :param pulumi.Input[str] relative_record_set_name: The name of the record set, relative to the name of the zone.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SoaRecordArgs']] soa_record: The SOA record in the record set.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]] srv_records: The list of SRV records in the record set.
@@ -86,14 +88,15 @@ class RecordSet(pulumi.CustomResource):
             __props__['id'] = id
             __props__['metadata'] = metadata
             __props__['mx_records'] = mx_records
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['ns_records'] = ns_records
             __props__['ptr_records'] = ptr_records
             if record_type is None:
                 raise TypeError("Missing required property 'record_type'")
             __props__['record_type'] = record_type
+            if relative_record_set_name is None:
+                raise TypeError("Missing required property 'relative_record_set_name'")
+            __props__['relative_record_set_name'] = relative_record_set_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

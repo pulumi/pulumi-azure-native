@@ -67,7 +67,7 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */
@@ -99,7 +99,7 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * User defined name if this WebTest.
      */
-    public /*out*/ readonly webTestName!: pulumi.Output<string>;
+    public readonly webTestName!: pulumi.Output<string>;
 
     /**
      * Create a WebTest resource with the given unique name, arguments, and options.
@@ -120,9 +120,6 @@ export class WebTest extends pulumi.CustomResource {
             if (!args || args.locations === undefined) {
                 throw new Error("Missing required property 'locations'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,6 +129,9 @@ export class WebTest extends pulumi.CustomResource {
             if (!args || args.webTestKind === undefined) {
                 throw new Error("Missing required property 'webTestKind'");
             }
+            if (!args || args.webTestName === undefined) {
+                throw new Error("Missing required property 'webTestName'");
+            }
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -139,16 +139,16 @@ export class WebTest extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["locations"] = args ? args.locations : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["retryEnabled"] = args ? args.retryEnabled : undefined;
             inputs["syntheticMonitorId"] = args ? args.syntheticMonitorId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["webTestKind"] = args ? args.webTestKind : undefined;
+            inputs["webTestName"] = args ? args.webTestName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["webTestName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -194,10 +194,6 @@ export interface WebTestArgs {
      */
     readonly locations: pulumi.Input<pulumi.Input<inputs.insights.v20150501.WebTestGeolocation>[]>;
     /**
-     * User defined name if this WebTest.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -221,4 +217,8 @@ export interface WebTestArgs {
      * The kind of web test this is, valid choices are ping and multistep.
      */
     readonly webTestKind: pulumi.Input<string>;
+    /**
+     * User defined name if this WebTest.
+     */
+    readonly webTestName: pulumi.Input<string>;
 }

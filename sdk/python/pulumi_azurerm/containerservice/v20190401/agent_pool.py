@@ -15,13 +15,13 @@ class AgentPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  count: Optional[pulumi.Input[float]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  max_count: Optional[pulumi.Input[float]] = None,
                  max_pods: Optional[pulumi.Input[float]] = None,
                  min_count: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[float]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -38,13 +38,13 @@ class AgentPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
         :param pulumi.Input[List[pulumi.Input[str]]] availability_zones: (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         :param pulumi.Input[float] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[float] max_count: Maximum number of nodes for auto-scaling
         :param pulumi.Input[float] max_pods: Maximum number of pods that can run on a node.
         :param pulumi.Input[float] min_count: Minimum number of nodes for auto-scaling
-        :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[float] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -71,6 +71,9 @@ class AgentPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if agent_pool_name is None:
+                raise TypeError("Missing required property 'agent_pool_name'")
+            __props__['agent_pool_name'] = agent_pool_name
             __props__['availability_zones'] = availability_zones
             if count is None:
                 raise TypeError("Missing required property 'count'")
@@ -79,9 +82,6 @@ class AgentPool(pulumi.CustomResource):
             __props__['max_count'] = max_count
             __props__['max_pods'] = max_pods
             __props__['min_count'] = min_count
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['orchestrator_version'] = orchestrator_version
             __props__['os_disk_size_gb'] = os_disk_size_gb
             __props__['os_type'] = os_type
@@ -96,6 +96,7 @@ class AgentPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
             __props__['vnet_subnet_id'] = vnet_subnet_id
+            __props__['name'] = None
             __props__['provisioning_state'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200701:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

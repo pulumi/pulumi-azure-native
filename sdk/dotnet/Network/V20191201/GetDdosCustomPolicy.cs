@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// The name of the DDoS custom policy.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("ddosCustomPolicyName", required: true)]
+        public string DdosCustomPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

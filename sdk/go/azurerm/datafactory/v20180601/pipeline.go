@@ -44,8 +44,8 @@ func NewPipeline(ctx *pulumi.Context,
 	if args == nil || args.FactoryName == nil {
 		return nil, errors.New("missing required argument 'FactoryName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PipelineName == nil {
+		return nil, errors.New("missing required argument 'PipelineName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -141,10 +141,10 @@ type pipelineArgs struct {
 	FactoryName string `pulumi:"factoryName"`
 	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
 	Folder *PipelineFolder `pulumi:"folder"`
-	// The pipeline name.
-	Name string `pulumi:"name"`
 	// List of parameters for pipeline.
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// The pipeline name.
+	PipelineName string `pulumi:"pipelineName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Dimensions emitted by Pipeline.
@@ -167,10 +167,10 @@ type PipelineArgs struct {
 	FactoryName pulumi.StringInput
 	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
 	Folder PipelineFolderPtrInput
-	// The pipeline name.
-	Name pulumi.StringInput
 	// List of parameters for pipeline.
 	Parameters ParameterSpecificationMapInput
+	// The pipeline name.
+	PipelineName pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Dimensions emitted by Pipeline.

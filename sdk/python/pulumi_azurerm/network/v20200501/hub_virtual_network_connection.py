@@ -19,6 +19,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_hub_to_remote_vnet_transit: Optional[pulumi.Input[bool]] = None,
                  allow_remote_vnet_to_use_hub_vnet_gateways: Optional[pulumi.Input[bool]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -36,9 +37,10 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_hub_to_remote_vnet_transit: Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
         :param pulumi.Input[bool] allow_remote_vnet_to_use_hub_vnet_gateways: Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+        :param pulumi.Input[str] connection_name: The name of the HubVirtualNetworkConnection.
         :param pulumi.Input[bool] enable_internet_security: Enable internet security.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the HubVirtualNetworkConnection.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] remote_virtual_network: Reference to the remote virtual network.
         :param pulumi.Input[str] resource_group_name: The resource group name of the HubVirtualNetworkConnection.
         :param pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
@@ -63,10 +65,11 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
             __props__['allow_hub_to_remote_vnet_transit'] = allow_hub_to_remote_vnet_transit
             __props__['allow_remote_vnet_to_use_hub_vnet_gateways'] = allow_remote_vnet_to_use_hub_vnet_gateways
+            if connection_name is None:
+                raise TypeError("Missing required property 'connection_name'")
+            __props__['connection_name'] = connection_name
             __props__['enable_internet_security'] = enable_internet_security
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['remote_virtual_network'] = remote_virtual_network
             if resource_group_name is None:

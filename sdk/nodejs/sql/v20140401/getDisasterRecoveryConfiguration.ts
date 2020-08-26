@@ -15,7 +15,7 @@ export function getDisasterRecoveryConfiguration(args: GetDisasterRecoveryConfig
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:sql/v20140401:getDisasterRecoveryConfiguration", {
-        "name": args.name,
+        "disasterRecoveryConfigurationName": args.disasterRecoveryConfigurationName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetDisasterRecoveryConfigurationArgs {
     /**
      * The name of the disaster recovery configuration.
      */
-    readonly name: string;
+    readonly disasterRecoveryConfigurationName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -43,7 +43,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Managed private endpoint properties.
      */
@@ -69,11 +69,11 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             if (!args || args.factoryName === undefined) {
                 throw new Error("Missing required property 'factoryName'");
             }
+            if (!args || args.managedPrivateEndpointName === undefined) {
+                throw new Error("Missing required property 'managedPrivateEndpointName'");
+            }
             if (!args || args.managedVirtualNetworkName === undefined) {
                 throw new Error("Missing required property 'managedVirtualNetworkName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -82,11 +82,12 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["factoryName"] = args ? args.factoryName : undefined;
+            inputs["managedPrivateEndpointName"] = args ? args.managedPrivateEndpointName : undefined;
             inputs["managedVirtualNetworkName"] = args ? args.managedVirtualNetworkName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,13 +110,13 @@ export interface ManagedPrivateEndpointArgs {
      */
     readonly factoryName: pulumi.Input<string>;
     /**
+     * Managed private endpoint name
+     */
+    readonly managedPrivateEndpointName: pulumi.Input<string>;
+    /**
      * Managed virtual network name
      */
     readonly managedVirtualNetworkName: pulumi.Input<string>;
-    /**
-     * Managed private endpoint name
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Managed private endpoint properties.
      */

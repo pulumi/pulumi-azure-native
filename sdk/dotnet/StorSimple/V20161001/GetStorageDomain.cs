@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public string ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The storage domain name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The storage domain name.
+        /// </summary>
+        [Input("storageDomainName", required: true)]
+        public string StorageDomainName { get; set; } = null!;
 
         public GetStorageDomainArgs()
         {

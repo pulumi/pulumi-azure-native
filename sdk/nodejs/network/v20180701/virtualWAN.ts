@@ -51,7 +51,7 @@ export class VirtualWAN extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
@@ -86,20 +86,21 @@ export class VirtualWAN extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.virtualWANName === undefined) {
+                throw new Error("Missing required property 'virtualWANName'");
             }
             inputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualWANName"] = args ? args.virtualWANName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualHubs"] = undefined /*out*/;
             inputs["vpnSites"] = undefined /*out*/;
@@ -134,10 +135,6 @@ export interface VirtualWANArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the VirtualWAN being created or updated.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The provisioning state of the resource.
      */
     readonly provisioningState?: pulumi.Input<string>;
@@ -149,4 +146,8 @@ export interface VirtualWANArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the VirtualWAN being created or updated.
+     */
+    readonly virtualWANName: pulumi.Input<string>;
 }

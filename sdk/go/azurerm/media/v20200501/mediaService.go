@@ -36,11 +36,11 @@ type MediaService struct {
 // NewMediaService registers a new resource with the given unique name, arguments, and options.
 func NewMediaService(ctx *pulumi.Context,
 	name string, args *MediaServiceArgs, opts ...pulumi.ResourceOption) (*MediaService, error) {
+	if args == nil || args.AccountName == nil {
+		return nil, errors.New("missing required argument 'AccountName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -120,14 +120,14 @@ func (MediaServiceState) ElementType() reflect.Type {
 }
 
 type mediaServiceArgs struct {
+	// The Media Services account name.
+	AccountName string `pulumi:"accountName"`
 	// The account encryption properties.
 	Encryption *AccountEncryption `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The Media Services account name.
-	Name string `pulumi:"name"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The storage accounts for this resource.
@@ -139,14 +139,14 @@ type mediaServiceArgs struct {
 
 // The set of arguments for constructing a MediaService resource.
 type MediaServiceArgs struct {
+	// The Media Services account name.
+	AccountName pulumi.StringInput
 	// The account encryption properties.
 	Encryption AccountEncryptionPtrInput
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The Media Services account name.
-	Name pulumi.StringInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The storage accounts for this resource.

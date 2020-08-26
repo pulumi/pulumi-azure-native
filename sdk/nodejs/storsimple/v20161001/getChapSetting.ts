@@ -15,14 +15,18 @@ export function getChapSetting(args: GetChapSettingArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20161001:getChapSetting", {
+        "chapUserName": args.chapUserName,
         "deviceName": args.deviceName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetChapSettingArgs {
+    /**
+     * The user name of chap to be fetched.
+     */
+    readonly chapUserName: string;
     /**
      * The device name.
      */
@@ -31,10 +35,6 @@ export interface GetChapSettingArgs {
      * The manager name
      */
     readonly managerName: string;
-    /**
-     * The user name of chap to be fetched.
-     */
-    readonly name: string;
     /**
      * The resource group name
      */

@@ -27,11 +27,11 @@ type DeploymentAtManagementGroupScope struct {
 // NewDeploymentAtManagementGroupScope registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 	name string, args *DeploymentAtManagementGroupScopeArgs, opts ...pulumi.ResourceOption) (*DeploymentAtManagementGroupScope, error) {
+	if args == nil || args.DeploymentName == nil {
+		return nil, errors.New("missing required argument 'DeploymentName'")
+	}
 	if args == nil || args.GroupId == nil {
 		return nil, errors.New("missing required argument 'GroupId'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -105,24 +105,24 @@ func (DeploymentAtManagementGroupScopeState) ElementType() reflect.Type {
 }
 
 type deploymentAtManagementGroupScopeArgs struct {
+	// The name of the deployment.
+	DeploymentName string `pulumi:"deploymentName"`
 	// The management group ID.
 	GroupId string `pulumi:"groupId"`
 	// The location to store the deployment data.
 	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
 	// The deployment properties.
 	Properties DeploymentProperties `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a DeploymentAtManagementGroupScope resource.
 type DeploymentAtManagementGroupScopeArgs struct {
+	// The name of the deployment.
+	DeploymentName pulumi.StringInput
 	// The management group ID.
 	GroupId pulumi.StringInput
 	// The location to store the deployment data.
 	Location pulumi.StringPtrInput
-	// The name of the deployment.
-	Name pulumi.StringInput
 	// The deployment properties.
 	Properties DeploymentPropertiesInput
 }

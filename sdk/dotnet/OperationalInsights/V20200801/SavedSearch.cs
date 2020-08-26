@@ -154,12 +154,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         public Input<string>? FunctionParameters { get; set; }
 
         /// <summary>
-        /// The id of the saved search.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The query expression for the saved search.
         /// </summary>
         [Input("query", required: true)]
@@ -170,6 +164,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The id of the saved search.
+        /// </summary>
+        [Input("savedSearchId", required: true)]
+        public Input<string> SavedSearchId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.TagArgs>? _tags;

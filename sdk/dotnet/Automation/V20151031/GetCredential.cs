@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// <summary>
         /// The name of credential.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("credentialName", required: true)]
+        public string CredentialName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

@@ -31,16 +31,16 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public string ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the volume container.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the volume container.
+        /// </summary>
+        [Input("volumeContainerName", required: true)]
+        public string VolumeContainerName { get; set; } = null!;
 
         public GetVolumeContainerArgs()
         {

@@ -71,7 +71,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Specifies the network interfaces of the virtual machine.
      */
@@ -133,11 +133,11 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.vmName === undefined) {
+                throw new Error("Missing required property 'vmName'");
             }
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
             inputs["availabilitySet"] = args ? args.availabilitySet : undefined;
@@ -146,7 +146,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["osProfile"] = args ? args.osProfile : undefined;
             inputs["plan"] = args ? args.plan : undefined;
@@ -154,8 +153,10 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vmName"] = args ? args.vmName : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["instanceView"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resources"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -207,10 +208,6 @@ export interface VirtualMachineArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the virtual machine.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Specifies the network interfaces of the virtual machine.
      */
     readonly networkProfile?: pulumi.Input<inputs.compute.v20180601.NetworkProfile>;
@@ -238,6 +235,10 @@ export interface VirtualMachineArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the virtual machine.
+     */
+    readonly vmName: pulumi.Input<string>;
     /**
      * The virtual machine zones.
      */

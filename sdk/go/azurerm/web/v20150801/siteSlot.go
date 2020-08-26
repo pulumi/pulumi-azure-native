@@ -98,6 +98,9 @@ func NewSiteSlot(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Slot == nil {
+		return nil, errors.New("missing required argument 'Slot'")
+	}
 	if args == nil {
 		args = &SiteSlotArgs{}
 	}
@@ -323,7 +326,7 @@ type siteSlotArgs struct {
 	//             This only applies to function container
 	MaxNumberOfWorkers *int    `pulumi:"maxNumberOfWorkers"`
 	MicroService       *string `pulumi:"microService"`
-	// Name of web app slot. If not specified then will default to production slot.
+	// Resource Name
 	Name string `pulumi:"name"`
 	// Name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -337,6 +340,8 @@ type siteSlotArgs struct {
 	// If true web app hostname is not registered with DNS on creation. This parameter is
 	//             only used for app creation
 	SkipDnsRegistration *string `pulumi:"skipDnsRegistration"`
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot string `pulumi:"slot"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Time to live in seconds for web app's default domain name
@@ -379,7 +384,7 @@ type SiteSlotArgs struct {
 	//             This only applies to function container
 	MaxNumberOfWorkers pulumi.IntPtrInput
 	MicroService       pulumi.StringPtrInput
-	// Name of web app slot. If not specified then will default to production slot.
+	// Resource Name
 	Name pulumi.StringInput
 	// Name of the resource group
 	ResourceGroupName pulumi.StringInput
@@ -393,6 +398,8 @@ type SiteSlotArgs struct {
 	// If true web app hostname is not registered with DNS on creation. This parameter is
 	//             only used for app creation
 	SkipDnsRegistration pulumi.StringPtrInput
+	// Name of web app slot. If not specified then will default to production slot.
+	Slot pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Time to live in seconds for web app's default domain name

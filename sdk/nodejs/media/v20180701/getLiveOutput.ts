@@ -17,7 +17,7 @@ export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptio
     return pulumi.runtime.invoke("azurerm:media/v20180701:getLiveOutput", {
         "accountName": args.accountName,
         "liveEventName": args.liveEventName,
-        "name": args.name,
+        "liveOutputName": args.liveOutputName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -34,7 +34,7 @@ export interface GetLiveOutputArgs {
     /**
      * The name of the Live Output.
      */
-    readonly name: string;
+    readonly liveOutputName: string;
     /**
      * The name of the resource group within the Azure subscription.
      */

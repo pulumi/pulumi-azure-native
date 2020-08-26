@@ -19,10 +19,10 @@ func LookupIntegrationAccountSchema(ctx *pulumi.Context, args *LookupIntegration
 type LookupIntegrationAccountSchemaArgs struct {
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The integration account schema name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The integration account schema name.
+	SchemaName string `pulumi:"schemaName"`
 }
 
 // The integration account schema.

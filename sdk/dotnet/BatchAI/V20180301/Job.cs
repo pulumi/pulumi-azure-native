@@ -314,6 +314,12 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         }
 
         /// <summary>
+        /// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        /// </summary>
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
+
+        /// <summary>
         /// The specified actions will run on all the nodes that are part of the job
         /// </summary>
         [Input("jobPreparation")]
@@ -330,12 +336,6 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// </summary>
         [Input("mountVolumes")]
         public Input<Inputs.MountVolumesArgs>? MountVolumes { get; set; }
-
-        /// <summary>
-        /// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The job will be gang scheduled on that many compute nodes

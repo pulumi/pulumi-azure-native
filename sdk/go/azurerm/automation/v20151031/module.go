@@ -57,8 +57,8 @@ func NewModule(ctx *pulumi.Context,
 	if args == nil || args.ContentLink == nil {
 		return nil, errors.New("missing required argument 'ContentLink'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ModuleName == nil {
+		return nil, errors.New("missing required argument 'ModuleName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -169,7 +169,9 @@ type moduleArgs struct {
 	// Gets or sets the location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of module.
-	Name string `pulumi:"name"`
+	ModuleName string `pulumi:"moduleName"`
+	// Gets or sets name of the resource.
+	Name *string `pulumi:"name"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets the tags attached to the resource.
@@ -185,7 +187,9 @@ type ModuleArgs struct {
 	// Gets or sets the location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of module.
-	Name pulumi.StringInput
+	ModuleName pulumi.StringInput
+	// Gets or sets name of the resource.
+	Name pulumi.StringPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets the tags attached to the resource.

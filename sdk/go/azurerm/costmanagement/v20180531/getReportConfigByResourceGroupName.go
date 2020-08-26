@@ -18,7 +18,7 @@ func LookupReportConfigByResourceGroupName(ctx *pulumi.Context, args *LookupRepo
 
 type LookupReportConfigByResourceGroupNameArgs struct {
 	// Report Config Name.
-	Name string `pulumi:"name"`
+	ReportConfigName string `pulumi:"reportConfigName"`
 	// Azure Resource Group Name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

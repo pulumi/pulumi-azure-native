@@ -15,8 +15,8 @@ export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:databoxedge/v20190801:getContainer", {
+        "containerName": args.containerName,
         "deviceName": args.deviceName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "storageAccountName": args.storageAccountName,
     }, opts);
@@ -24,13 +24,13 @@ export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions
 
 export interface GetContainerArgs {
     /**
+     * The container Name
+     */
+    readonly containerName: string;
+    /**
      * The device name.
      */
     readonly deviceName: string;
-    /**
-     * The container Name
-     */
-    readonly name: string;
     /**
      * The resource group name.
      */

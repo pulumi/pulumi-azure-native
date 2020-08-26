@@ -51,7 +51,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Resource name associated with the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the vault.
      */
@@ -85,19 +85,20 @@ export class Vault extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.vaultName === undefined) {
+                throw new Error("Missing required property 'vaultName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vaultName"] = args ? args.vaultName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -129,10 +130,6 @@ export interface VaultArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the recovery services vault.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group where the recovery services vault is present.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -144,4 +141,8 @@ export interface VaultArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the recovery services vault.
+     */
+    readonly vaultName: pulumi.Input<string>;
 }

@@ -57,14 +57,14 @@ func NewFileShare(ctx *pulumi.Context,
 	if args == nil || args.MonitoringStatus == nil {
 		return nil, errors.New("missing required argument 'MonitoringStatus'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ProvisionedCapacityInBytes == nil {
 		return nil, errors.New("missing required argument 'ProvisionedCapacityInBytes'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ShareName == nil {
+		return nil, errors.New("missing required argument 'ShareName'")
 	}
 	if args == nil || args.ShareStatus == nil {
 		return nil, errors.New("missing required argument 'ShareStatus'")
@@ -158,12 +158,12 @@ type fileShareArgs struct {
 	ManagerName string `pulumi:"managerName"`
 	// The monitoring status
 	MonitoringStatus string `pulumi:"monitoringStatus"`
-	// The file share name.
-	Name string `pulumi:"name"`
 	// The total provisioned capacity in Bytes
 	ProvisionedCapacityInBytes int `pulumi:"provisionedCapacityInBytes"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The file share name.
+	ShareName string `pulumi:"shareName"`
 	// The Share Status
 	ShareStatus string `pulumi:"shareStatus"`
 }
@@ -184,12 +184,12 @@ type FileShareArgs struct {
 	ManagerName pulumi.StringInput
 	// The monitoring status
 	MonitoringStatus pulumi.StringInput
-	// The file share name.
-	Name pulumi.StringInput
 	// The total provisioned capacity in Bytes
 	ProvisionedCapacityInBytes pulumi.IntInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// The file share name.
+	ShareName pulumi.StringInput
 	// The Share Status
 	ShareStatus pulumi.StringInput
 }

@@ -62,8 +62,8 @@ func NewProfile(ctx *pulumi.Context,
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ProfileName == nil {
+		return nil, errors.New("missing required argument 'ProfileName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -212,7 +212,7 @@ type profileArgs struct {
 	// Medium Image associated with the Property or EntityType.
 	MediumImage *string `pulumi:"mediumImage"`
 	// The name of the profile.
-	Name string `pulumi:"name"`
+	ProfileName string `pulumi:"profileName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The schema org link. This helps ACI identify and suggest semantic models.
@@ -252,7 +252,7 @@ type ProfileArgs struct {
 	// Medium Image associated with the Property or EntityType.
 	MediumImage pulumi.StringPtrInput
 	// The name of the profile.
-	Name pulumi.StringInput
+	ProfileName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The schema org link. This helps ACI identify and suggest semantic models.

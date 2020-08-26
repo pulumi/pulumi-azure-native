@@ -150,19 +150,19 @@ class AwaitableGetDisasterRecoveryConfigurationResult(GetDisasterRecoveryConfigu
             type=self.type)
 
 
-def get_disaster_recovery_configuration(name: Optional[str] = None,
+def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         server_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDisasterRecoveryConfigurationResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the disaster recovery configuration.
+    :param str disaster_recovery_configuration_name: The name of the disaster recovery configuration.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['disasterRecoveryConfigurationName'] = disaster_recovery_configuration_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
     if opts is None:

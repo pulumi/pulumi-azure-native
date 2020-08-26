@@ -15,7 +15,7 @@ export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20160810:getReplicationFabric", {
-        "name": args.name,
+        "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetReplicationFabricArgs {
     /**
      * Fabric name.
      */
-    readonly name: string;
+    readonly fabricName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

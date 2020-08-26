@@ -23,7 +23,7 @@ class NetworkInterface(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 network_interface_name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -41,7 +41,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the network interface.
+        :param pulumi.Input[str] network_interface_name: The name of the network interface.
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference of the NetworkSecurityGroup resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -69,9 +69,9 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if network_interface_name is None:
+                raise TypeError("Missing required property 'network_interface_name'")
+            __props__['network_interface_name'] = network_interface_name
             __props__['network_security_group'] = network_security_group
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -80,6 +80,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['hosted_workloads'] = None
             __props__['mac_address'] = None
+            __props__['name'] = None
             __props__['primary'] = None
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None

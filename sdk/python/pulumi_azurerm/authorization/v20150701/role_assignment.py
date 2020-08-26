@@ -17,8 +17,8 @@ class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']]] = None,
+                 role_assignment_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -28,8 +28,8 @@ class RoleAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the role assignment to create. It can be any valid GUID.
         :param pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']] properties: Role assignment properties.
+        :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
         """
         if __name__ is not None:
@@ -49,15 +49,16 @@ class RoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
+            if role_assignment_name is None:
+                raise TypeError("Missing required property 'role_assignment_name'")
+            __props__['role_assignment_name'] = role_assignment_name
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['name'] = None
             __props__['type'] = None
         super(RoleAssignment, __self__).__init__(
             'azurerm:authorization/v20150701:RoleAssignment',

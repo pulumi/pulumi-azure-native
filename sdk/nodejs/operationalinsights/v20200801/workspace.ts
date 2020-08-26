@@ -51,7 +51,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * List of linked private link scope resources.
      */
@@ -105,15 +105,14 @@ export class Workspace extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.workspaceName === undefined) {
+                throw new Error("Missing required property 'workspaceName'");
+            }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
             inputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
@@ -122,7 +121,9 @@ export class Workspace extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceCapping"] = args ? args.workspaceCapping : undefined;
+            inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["customerId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -149,10 +150,6 @@ export interface WorkspaceArgs {
      * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the workspace.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The provisioning state of the workspace.
      */
@@ -185,4 +182,8 @@ export interface WorkspaceArgs {
      * The daily volume cap for ingestion.
      */
     readonly workspaceCapping?: pulumi.Input<inputs.operationalinsights.v20200801.WorkspaceCapping>;
+    /**
+     * The name of the workspace.
+     */
+    readonly workspaceName: pulumi.Input<string>;
 }

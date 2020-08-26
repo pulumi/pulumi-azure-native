@@ -21,11 +21,11 @@ class FrontDoor(pulumi.CustomResource):
                  backend_pools_settings: Optional[pulumi.Input[pulumi.InputType['BackendPoolsSettingsArgs']]] = None,
                  enabled_state: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
+                 front_door_name: Optional[pulumi.Input[str]] = None,
                  frontend_endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontendEndpointArgs']]]]] = None,
                  health_probe_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HealthProbeSettingsModelArgs']]]]] = None,
                  load_balancing_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingSettingsModelArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_state: Optional[pulumi.Input[str]] = None,
                  routing_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]]] = None,
@@ -42,11 +42,11 @@ class FrontDoor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['BackendPoolsSettingsArgs']] backend_pools_settings: Settings for all backendPools
         :param pulumi.Input[str] enabled_state: Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[str] friendly_name: A friendly name for the frontDoor
+        :param pulumi.Input[str] front_door_name: Name of the Front Door which is globally unique.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontendEndpointArgs']]]] frontend_endpoints: Frontend endpoints available to routing rules.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HealthProbeSettingsModelArgs']]]] health_probe_settings: Health probe settings associated with this Front Door instance.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingSettingsModelArgs']]]] load_balancing_settings: Load balancing settings associated with this Front Door instance.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Name of the Front Door which is globally unique.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] resource_state: Resource status of the Front Door.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]] routing_rules: Routing rules associated with this Front Door.
@@ -73,13 +73,13 @@ class FrontDoor(pulumi.CustomResource):
             __props__['backend_pools_settings'] = backend_pools_settings
             __props__['enabled_state'] = enabled_state
             __props__['friendly_name'] = friendly_name
+            if front_door_name is None:
+                raise TypeError("Missing required property 'front_door_name'")
+            __props__['front_door_name'] = front_door_name
             __props__['frontend_endpoints'] = frontend_endpoints
             __props__['health_probe_settings'] = health_probe_settings
             __props__['load_balancing_settings'] = load_balancing_settings
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -87,6 +87,7 @@ class FrontDoor(pulumi.CustomResource):
             __props__['routing_rules'] = routing_rules
             __props__['tags'] = tags
             __props__['cname'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20190401:FrontDoor"), pulumi.Alias(type_="azurerm:network/v20200101:FrontDoor"), pulumi.Alias(type_="azurerm:network/v20200401:FrontDoor"), pulumi.Alias(type_="azurerm:network/v20200501:FrontDoor")])

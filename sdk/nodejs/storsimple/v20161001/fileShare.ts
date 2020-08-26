@@ -57,7 +57,7 @@ export class FileShare extends pulumi.CustomResource {
     /**
      * The name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The total provisioned capacity in Bytes
      */
@@ -106,14 +106,14 @@ export class FileShare extends pulumi.CustomResource {
             if (!args || args.monitoringStatus === undefined) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.provisionedCapacityInBytes === undefined) {
                 throw new Error("Missing required property 'provisionedCapacityInBytes'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.shareName === undefined) {
+                throw new Error("Missing required property 'shareName'");
             }
             if (!args || args.shareStatus === undefined) {
                 throw new Error("Missing required property 'shareStatus'");
@@ -125,11 +125,12 @@ export class FileShare extends pulumi.CustomResource {
             inputs["fileServerName"] = args ? args.fileServerName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisionedCapacityInBytes"] = args ? args.provisionedCapacityInBytes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["shareName"] = args ? args.shareName : undefined;
             inputs["shareStatus"] = args ? args.shareStatus : undefined;
             inputs["localUsedCapacityInBytes"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["usedCapacityInBytes"] = undefined /*out*/;
         }
@@ -177,10 +178,6 @@ export interface FileShareArgs {
      */
     readonly monitoringStatus: pulumi.Input<string>;
     /**
-     * The file share name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The total provisioned capacity in Bytes
      */
     readonly provisionedCapacityInBytes: pulumi.Input<number>;
@@ -188,6 +185,10 @@ export interface FileShareArgs {
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The file share name.
+     */
+    readonly shareName: pulumi.Input<string>;
     /**
      * The Share Status
      */

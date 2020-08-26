@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
         /// <summary>
         /// The backup policy name used in this GET operation.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("policyName", required: true)]
+        public string PolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group associated with the Recovery Services vault.

@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
+        /// </summary>
+        [Input("tableName", required: true)]
+        public string TableName { get; set; } = null!;
 
         public GetTableArgs()
         {

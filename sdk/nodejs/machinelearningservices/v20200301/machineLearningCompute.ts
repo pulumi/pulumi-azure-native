@@ -47,7 +47,7 @@ export class MachineLearningCompute extends pulumi.CustomResource {
     /**
      * Specifies the name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Compute properties
      */
@@ -78,8 +78,8 @@ export class MachineLearningCompute extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as MachineLearningComputeArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.computeName === undefined) {
+                throw new Error("Missing required property 'computeName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -87,14 +87,15 @@ export class MachineLearningCompute extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["computeName"] = args ? args.computeName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +116,10 @@ export class MachineLearningCompute extends pulumi.CustomResource {
  */
 export interface MachineLearningComputeArgs {
     /**
+     * Name of the Azure Machine Learning compute.
+     */
+    readonly computeName: pulumi.Input<string>;
+    /**
      * The identity of the resource.
      */
     readonly identity?: pulumi.Input<inputs.machinelearningservices.v20200301.Identity>;
@@ -122,10 +127,6 @@ export interface MachineLearningComputeArgs {
      * Specifies the location of the resource.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * Name of the Azure Machine Learning compute.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Compute properties
      */

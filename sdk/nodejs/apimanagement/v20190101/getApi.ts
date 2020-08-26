@@ -15,7 +15,7 @@ export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getApi", {
-        "name": args.name,
+        "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetApiArgs {
     /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    readonly name: string;
+    readonly apiId: string;
     /**
      * The name of the resource group.
      */

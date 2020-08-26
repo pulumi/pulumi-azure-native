@@ -29,8 +29,8 @@ func NewQueue(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.QueueName == nil {
+		return nil, errors.New("missing required argument 'QueueName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -91,7 +91,7 @@ type queueArgs struct {
 	// A name-value pair that represents queue metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
-	Name string `pulumi:"name"`
+	QueueName string `pulumi:"queueName"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -103,7 +103,7 @@ type QueueArgs struct {
 	// A name-value pair that represents queue metadata.
 	Metadata pulumi.StringMapInput
 	// A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
-	Name pulumi.StringInput
+	QueueName pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

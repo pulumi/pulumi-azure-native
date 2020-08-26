@@ -96,10 +96,10 @@ namespace Pulumi.AzureRM.Network.V20200601
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the private dns zone group.
+        /// Name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("privateDnsZoneConfigs")]
         private InputList<Inputs.PrivateDnsZoneConfigArgs>? _privateDnsZoneConfigs;
@@ -112,6 +112,12 @@ namespace Pulumi.AzureRM.Network.V20200601
             get => _privateDnsZoneConfigs ?? (_privateDnsZoneConfigs = new InputList<Inputs.PrivateDnsZoneConfigArgs>());
             set => _privateDnsZoneConfigs = value;
         }
+
+        /// <summary>
+        /// The name of the private dns zone group.
+        /// </summary>
+        [Input("privateDnsZoneGroupName", required: true)]
+        public Input<string> PrivateDnsZoneGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the private endpoint.

@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The storage domain name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -130,6 +124,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
             get => _storageAccountCredentialIds ?? (_storageAccountCredentialIds = new InputList<string>());
             set => _storageAccountCredentialIds = value;
         }
+
+        /// <summary>
+        /// The storage domain name.
+        /// </summary>
+        [Input("storageDomainName", required: true)]
+        public Input<string> StorageDomainName { get; set; } = null!;
 
         public StorageDomainArgs()
         {

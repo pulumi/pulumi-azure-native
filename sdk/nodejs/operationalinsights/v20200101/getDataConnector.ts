@@ -15,7 +15,7 @@ export function getDataConnector(args: GetDataConnectorArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20200101:getDataConnector", {
-        "name": args.name,
+        "dataConnectorId": args.dataConnectorId,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetDataConnectorArgs {
     /**
      * Connector ID
      */
-    readonly name: string;
+    readonly dataConnectorId: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

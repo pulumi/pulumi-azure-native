@@ -22,8 +22,8 @@ class ManagedCluster(pulumi.CustomResource):
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  service_principal_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceServicePrincipalProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -39,8 +39,8 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the managed cluster.
         :param pulumi.Input[pulumi.InputType['ContainerServiceLinuxProfileArgs']] linux_profile: Profile for Linux VMs in the container service cluster.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the managed cluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
         :param pulumi.Input[pulumi.InputType['ContainerServiceServicePrincipalProfileArgs']] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -68,15 +68,16 @@ class ManagedCluster(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['service_principal_profile'] = service_principal_profile
             __props__['tags'] = tags
             __props__['fqdn'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20180331:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190201:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190401:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190601:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190801:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20191001:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20191101:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200101:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200201:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200301:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200401:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200601:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200701:ManagedCluster")])

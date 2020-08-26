@@ -23,8 +23,8 @@ type PolicyAssignment struct {
 // NewPolicyAssignment registers a new resource with the given unique name, arguments, and options.
 func NewPolicyAssignment(ctx *pulumi.Context,
 	name string, args *PolicyAssignmentArgs, opts ...pulumi.ResourceOption) (*PolicyAssignment, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyAssignmentName == nil {
+		return nil, errors.New("missing required argument 'PolicyAssignmentName'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -94,7 +94,7 @@ func (PolicyAssignmentState) ElementType() reflect.Type {
 
 type policyAssignmentArgs struct {
 	// Policy assignment name.
-	Name string `pulumi:"name"`
+	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
 	// Gets or sets the policy assignment properties.
 	Properties *PolicyAssignmentProperties `pulumi:"properties"`
 	// Scope.
@@ -104,7 +104,7 @@ type policyAssignmentArgs struct {
 // The set of arguments for constructing a PolicyAssignment resource.
 type PolicyAssignmentArgs struct {
 	// Policy assignment name.
-	Name pulumi.StringInput
+	PolicyAssignmentName pulumi.StringInput
 	// Gets or sets the policy assignment properties.
 	Properties PolicyAssignmentPropertiesPtrInput
 	// Scope.

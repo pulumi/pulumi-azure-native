@@ -35,11 +35,11 @@ type RouteTable struct {
 // NewRouteTable registers a new resource with the given unique name, arguments, and options.
 func NewRouteTable(ctx *pulumi.Context,
 	name string, args *RouteTableArgs, opts ...pulumi.ResourceOption) (*RouteTable, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RouteTableName == nil {
+		return nil, errors.New("missing required argument 'RouteTableName'")
 	}
 	if args == nil {
 		args = &RouteTableArgs{}
@@ -210,12 +210,12 @@ type routeTableArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the route table.
-	Name string `pulumi:"name"`
 	// Gets provisioning state of the resource Updating/Deleting/Failed
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the route table.
+	RouteTableName string `pulumi:"routeTableName"`
 	// Gets or sets Routes in a Route Table
 	Routes []RouteType `pulumi:"routes"`
 	// Resource tags
@@ -230,12 +230,12 @@ type RouteTableArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the route table.
-	Name pulumi.StringInput
 	// Gets provisioning state of the resource Updating/Deleting/Failed
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the route table.
+	RouteTableName pulumi.StringInput
 	// Gets or sets Routes in a Route Table
 	Routes RouteTypeArrayInput
 	// Resource tags

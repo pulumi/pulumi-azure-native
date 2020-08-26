@@ -100,16 +100,16 @@ namespace Pulumi.AzureRM.Media.V20180701
     public sealed class MediaServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Media Services account name.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
         /// The Azure Region of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The Media Services account name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

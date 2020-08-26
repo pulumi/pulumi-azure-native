@@ -79,7 +79,7 @@ export class Topic extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Value indicating if this topic requires duplicate detection.
      */
@@ -122,14 +122,14 @@ export class Topic extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as TopicArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.topicName === undefined) {
+                throw new Error("Missing required property 'topicName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
             inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
@@ -138,15 +138,16 @@ export class Topic extends pulumi.CustomResource {
             inputs["enableExpress"] = args ? args.enableExpress : undefined;
             inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
+            inputs["topicName"] = args ? args.topicName : undefined;
             inputs["accessedAt"] = undefined /*out*/;
             inputs["countDetails"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["sizeInBytes"] = undefined /*out*/;
             inputs["subscriptionCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -198,10 +199,6 @@ export interface TopicArgs {
      */
     readonly maxSizeInMegabytes?: pulumi.Input<number>;
     /**
-     * The topic name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The namespace name
      */
     readonly namespaceName: pulumi.Input<string>;
@@ -221,4 +218,8 @@ export interface TopicArgs {
      * Value that indicates whether the topic supports ordering.
      */
     readonly supportOrdering?: pulumi.Input<boolean>;
+    /**
+     * The topic name.
+     */
+    readonly topicName: pulumi.Input<string>;
 }

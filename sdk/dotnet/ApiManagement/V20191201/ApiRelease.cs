@@ -108,16 +108,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// Release identifier within an API. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Release Notes
         /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
+
+        /// <summary>
+        /// Release identifier within an API. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("releaseId", required: true)]
+        public Input<string> ReleaseId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

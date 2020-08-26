@@ -17,10 +17,10 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupAppArgs struct {
-	// The ARM resource name of the IoT Central application.
-	Name string `pulumi:"name"`
 	// The name of the resource group that contains the IoT Central application.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The ARM resource name of the IoT Central application.
+	ResourceName string `pulumi:"resourceName"`
 }
 
 // The IoT Central application.

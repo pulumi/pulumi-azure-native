@@ -16,7 +16,7 @@ export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Pro
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getModule", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
+        "moduleName": args.moduleName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetModuleArgs {
     /**
      * The module name.
      */
-    readonly name: string;
+    readonly moduleName: string;
     /**
      * Name of an Azure Resource group.
      */

@@ -67,17 +67,17 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
             type=self.type)
 
 
-def get_role_assignment(name: Optional[str] = None,
+def get_role_assignment(role_assignment_name: Optional[str] = None,
                         scope: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the role assignment to get.
+    :param str role_assignment_name: The name of the role assignment to get.
     :param str scope: The scope of the role assignment.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['roleAssignmentName'] = role_assignment_name
     __args__['scope'] = scope
     if opts is None:
         opts = pulumi.InvokeOptions()

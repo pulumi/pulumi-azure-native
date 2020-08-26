@@ -166,12 +166,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> LastName { get; set; } = null!;
 
         /// <summary>
-        /// User identifier. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Optional note about a user set by the administrator.
         /// </summary>
         [Input("note")]
@@ -206,6 +200,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// User identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("userId", required: true)]
+        public Input<string> UserId { get; set; } = null!;
 
         public UserArgs()
         {

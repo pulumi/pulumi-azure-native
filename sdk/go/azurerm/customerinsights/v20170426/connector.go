@@ -45,6 +45,9 @@ type Connector struct {
 // NewConnector registers a new resource with the given unique name, arguments, and options.
 func NewConnector(ctx *pulumi.Context,
 	name string, args *ConnectorArgs, opts ...pulumi.ResourceOption) (*Connector, error) {
+	if args == nil || args.ConnectorName == nil {
+		return nil, errors.New("missing required argument 'ConnectorName'")
+	}
 	if args == nil || args.ConnectorProperties == nil {
 		return nil, errors.New("missing required argument 'ConnectorProperties'")
 	}
@@ -53,9 +56,6 @@ func NewConnector(ctx *pulumi.Context,
 	}
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -153,6 +153,8 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
+	// Name of the connector.
+	ConnectorName string `pulumi:"connectorName"`
 	// The connector properties.
 	ConnectorProperties map[string]map[string]interface{} `pulumi:"connectorProperties"`
 	// Type of connector.
@@ -165,14 +167,14 @@ type connectorArgs struct {
 	HubName string `pulumi:"hubName"`
 	// If this is an internal connector.
 	IsInternal *bool `pulumi:"isInternal"`
-	// Name of the connector.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
+	// Name of the connector.
+	ConnectorName pulumi.StringInput
 	// The connector properties.
 	ConnectorProperties pulumi.MapMapInput
 	// Type of connector.
@@ -185,8 +187,6 @@ type ConnectorArgs struct {
 	HubName pulumi.StringInput
 	// If this is an internal connector.
 	IsInternal pulumi.BoolPtrInput
-	// Name of the connector.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

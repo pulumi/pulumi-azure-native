@@ -59,11 +59,11 @@ type ServerEndpoint struct {
 // NewServerEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewServerEndpoint(ctx *pulumi.Context,
 	name string, args *ServerEndpointArgs, opts ...pulumi.ResourceOption) (*ServerEndpoint, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServerEndpointName == nil {
+		return nil, errors.New("missing required argument 'ServerEndpointName'")
 	}
 	if args == nil || args.StorageSyncServiceName == nil {
 		return nil, errors.New("missing required argument 'StorageSyncServiceName'")
@@ -218,14 +218,14 @@ type serverEndpointArgs struct {
 	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
 	// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
 	LocalCacheMode *string `pulumi:"localCacheMode"`
-	// Name of Server Endpoint object.
-	Name string `pulumi:"name"`
 	// Offline data transfer
 	OfflineDataTransfer *string `pulumi:"offlineDataTransfer"`
 	// Offline data transfer share name
 	OfflineDataTransferShareName *string `pulumi:"offlineDataTransferShareName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of Server Endpoint object.
+	ServerEndpointName string `pulumi:"serverEndpointName"`
 	// Server Local path.
 	ServerLocalPath *string `pulumi:"serverLocalPath"`
 	// Server Resource Id.
@@ -250,14 +250,14 @@ type ServerEndpointArgs struct {
 	InitialDownloadPolicy pulumi.StringPtrInput
 	// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
 	LocalCacheMode pulumi.StringPtrInput
-	// Name of Server Endpoint object.
-	Name pulumi.StringInput
 	// Offline data transfer
 	OfflineDataTransfer pulumi.StringPtrInput
 	// Offline data transfer share name
 	OfflineDataTransferShareName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Name of Server Endpoint object.
+	ServerEndpointName pulumi.StringInput
 	// Server Local path.
 	ServerLocalPath pulumi.StringPtrInput
 	// Server Resource Id.

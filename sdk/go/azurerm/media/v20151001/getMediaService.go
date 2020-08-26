@@ -18,7 +18,7 @@ func LookupMediaService(ctx *pulumi.Context, args *LookupMediaServiceArgs, opts 
 
 type LookupMediaServiceArgs struct {
 	// Name of the Media Service.
-	Name string `pulumi:"name"`
+	MediaServiceName string `pulumi:"mediaServiceName"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

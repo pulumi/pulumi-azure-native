@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.OffAzure.V20200101
     public sealed class GetSiteArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Site name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Site name.
+        /// </summary>
+        [Input("siteName", required: true)]
+        public string SiteName { get; set; } = null!;
 
         public GetSiteArgs()
         {

@@ -127,20 +127,20 @@ class AwaitableGetHubRouteTableResult(GetHubRouteTableResult):
             type=self.type)
 
 
-def get_hub_route_table(name: Optional[str] = None,
-                        resource_group_name: Optional[str] = None,
+def get_hub_route_table(resource_group_name: Optional[str] = None,
+                        route_table_name: Optional[str] = None,
                         virtual_hub_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubRouteTableResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the RouteTable.
     :param str resource_group_name: The resource group name of the VirtualHub.
+    :param str route_table_name: The name of the RouteTable.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['routeTableName'] = route_table_name
     __args__['virtualHubName'] = virtual_hub_name
     if opts is None:
         opts = pulumi.InvokeOptions()

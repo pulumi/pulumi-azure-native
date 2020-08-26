@@ -139,20 +139,20 @@ class AwaitableGetIntegrationAccountCertificateResult(GetIntegrationAccountCerti
             type=self.type)
 
 
-def get_integration_account_certificate(integration_account_name: Optional[str] = None,
-                                        name: Optional[str] = None,
+def get_integration_account_certificate(certificate_name: Optional[str] = None,
+                                        integration_account_name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountCertificateResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str certificate_name: The integration account certificate name.
     :param str integration_account_name: The integration account name.
-    :param str name: The integration account certificate name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
+    __args__['certificateName'] = certificate_name
     __args__['integrationAccountName'] = integration_account_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

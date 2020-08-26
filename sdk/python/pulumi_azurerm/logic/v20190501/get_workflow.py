@@ -235,18 +235,18 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             version=self.version)
 
 
-def get_workflow(name: Optional[str] = None,
-                 resource_group_name: Optional[str] = None,
+def get_workflow(resource_group_name: Optional[str] = None,
+                 workflow_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The workflow name.
     :param str resource_group_name: The resource group name.
+    :param str workflow_name: The workflow name.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['workflowName'] = workflow_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

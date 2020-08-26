@@ -43,7 +43,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Name of the key vault resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the vault
      */
@@ -73,20 +73,21 @@ export class Vault extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.vaultName === undefined) {
+                throw new Error("Missing required property 'vaultName'");
+            }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vaultName"] = args ? args.vaultName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -111,10 +112,6 @@ export interface VaultArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Name of the vault
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Properties of the vault
      */
     readonly properties: pulumi.Input<inputs.keyvault.v20180214.VaultProperties>;
@@ -126,4 +123,8 @@ export interface VaultArgs {
      * The tags that will be assigned to the key vault.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the vault
+     */
+    readonly vaultName: pulumi.Input<string>;
 }

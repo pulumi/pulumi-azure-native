@@ -88,17 +88,17 @@ class AwaitableGetJobCollectionResult(GetJobCollectionResult):
             type=self.type)
 
 
-def get_job_collection(name: Optional[str] = None,
+def get_job_collection(job_collection_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobCollectionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The job collection name.
+    :param str job_collection_name: The job collection name.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['jobCollectionName'] = job_collection_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

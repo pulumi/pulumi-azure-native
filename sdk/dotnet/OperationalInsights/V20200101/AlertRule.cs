@@ -96,16 +96,16 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Alert rule ID
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Alert rule ID
+        /// </summary>
+        [Input("ruleId", required: true)]
+        public Input<string> RuleId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

@@ -23,11 +23,11 @@ class Workflow(pulumi.CustomResource):
                  integration_account: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  integration_service_environment: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -42,11 +42,11 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_account: The integration account.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] integration_service_environment: The integration service environment.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The workflow name.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]] parameters: The parameters.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] state: The state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        :param pulumi.Input[str] workflow_name: The workflow name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,18 +71,19 @@ class Workflow(pulumi.CustomResource):
             __props__['integration_account'] = integration_account
             __props__['integration_service_environment'] = integration_service_environment
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['parameters'] = parameters
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['state'] = state
             __props__['tags'] = tags
+            if workflow_name is None:
+                raise TypeError("Missing required property 'workflow_name'")
+            __props__['workflow_name'] = workflow_name
             __props__['access_endpoint'] = None
             __props__['changed_time'] = None
             __props__['created_time'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['sku'] = None
             __props__['type'] = None

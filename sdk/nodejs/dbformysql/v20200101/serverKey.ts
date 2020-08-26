@@ -45,7 +45,7 @@ export class ServerKey extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The key type like 'AzureKeyVault'.
      */
@@ -72,8 +72,8 @@ export class ServerKey extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ServerKeyArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.keyName === undefined) {
+                throw new Error("Missing required property 'keyName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -84,13 +84,14 @@ export class ServerKey extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["keyName"] = args ? args.keyName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverKeyType"] = args ? args.serverKeyType : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["uri"] = args ? args.uri : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -111,7 +112,7 @@ export interface ServerKeyArgs {
     /**
      * The name of the MySQL Server key to be operated on (updated or created).
      */
-    readonly name: pulumi.Input<string>;
+    readonly keyName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

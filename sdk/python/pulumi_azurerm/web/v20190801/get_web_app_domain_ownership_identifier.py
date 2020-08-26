@@ -78,16 +78,19 @@ class AwaitableGetWebAppDomainOwnershipIdentifierResult(GetWebAppDomainOwnership
             value=self.value)
 
 
-def get_web_app_domain_ownership_identifier(name: Optional[str] = None,
+def get_web_app_domain_ownership_identifier(domain_ownership_identifier_name: Optional[str] = None,
+                                            name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDomainOwnershipIdentifierResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of domain ownership identifier.
+    :param str domain_ownership_identifier_name: Name of domain ownership identifier.
+    :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
+    __args__['domainOwnershipIdentifierName'] = domain_ownership_identifier_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

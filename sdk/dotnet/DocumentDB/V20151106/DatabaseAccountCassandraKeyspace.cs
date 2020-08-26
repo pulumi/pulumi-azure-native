@@ -99,8 +99,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
         /// <summary>
         /// Cosmos DB keyspace name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("keyspaceName", required: true)]
+        public Input<string> KeyspaceName { get; set; } = null!;
 
         [Input("options", required: true)]
         private InputMap<string>? _options;

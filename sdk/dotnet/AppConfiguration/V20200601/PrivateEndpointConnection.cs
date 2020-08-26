@@ -96,16 +96,16 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         public Input<string> ConfigStoreName { get; set; } = null!;
 
         /// <summary>
-        /// Private endpoint connection name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource of private endpoint.
         /// </summary>
         [Input("privateEndpoint")]
         public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// Private endpoint connection name
+        /// </summary>
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

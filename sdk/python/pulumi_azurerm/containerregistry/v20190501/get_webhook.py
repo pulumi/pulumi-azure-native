@@ -126,21 +126,21 @@ class AwaitableGetWebhookResult(GetWebhookResult):
             type=self.type)
 
 
-def get_webhook(name: Optional[str] = None,
-                registry_name: Optional[str] = None,
+def get_webhook(registry_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
+                webhook_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the webhook.
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str webhook_name: The name of the webhook.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['webhookName'] = webhook_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

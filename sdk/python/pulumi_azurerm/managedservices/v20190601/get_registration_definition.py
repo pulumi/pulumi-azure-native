@@ -79,17 +79,17 @@ class AwaitableGetRegistrationDefinitionResult(GetRegistrationDefinitionResult):
             type=self.type)
 
 
-def get_registration_definition(name: Optional[str] = None,
+def get_registration_definition(registration_definition_id: Optional[str] = None,
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationDefinitionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Guid of the registration definition.
+    :param str registration_definition_id: Guid of the registration definition.
     :param str scope: Scope of the resource.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['registrationDefinitionId'] = registration_definition_id
     __args__['scope'] = scope
     if opts is None:
         opts = pulumi.InvokeOptions()

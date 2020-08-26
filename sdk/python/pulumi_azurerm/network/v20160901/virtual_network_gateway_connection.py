@@ -24,7 +24,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  local_network_gateway2: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  peer: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
@@ -33,6 +32,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_gateway1: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
                  virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
+                 virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -48,7 +48,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayArgs']] local_network_gateway2: A common class for general resource information
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the virtual network gateway connection.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] peer: The reference to peerings resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the VirtualNetworkGatewayConnection resource.
@@ -57,6 +56,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway1: A common class for general resource information
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway2: A common class for general resource information
+        :param pulumi.Input[str] virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,9 +84,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['id'] = id
             __props__['local_network_gateway2'] = local_network_gateway2
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['peer'] = peer
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -99,9 +96,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_network_gateway1'")
             __props__['virtual_network_gateway1'] = virtual_network_gateway1
             __props__['virtual_network_gateway2'] = virtual_network_gateway2
+            if virtual_network_gateway_connection_name is None:
+                raise TypeError("Missing required property 'virtual_network_gateway_connection_name'")
+            __props__['virtual_network_gateway_connection_name'] = virtual_network_gateway_connection_name
             __props__['connection_status'] = None
             __props__['egress_bytes_transferred'] = None
             __props__['ingress_bytes_transferred'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['tunnel_connection_status'] = None
             __props__['type'] = None

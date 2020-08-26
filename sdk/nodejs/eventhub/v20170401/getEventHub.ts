@@ -15,7 +15,7 @@ export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:eventhub/v20170401:getEventHub", {
-        "name": args.name,
+        "eventHubName": args.eventHubName,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetEventHubArgs {
     /**
      * The Event Hub name
      */
-    readonly name: string;
+    readonly eventHubName: string;
     /**
      * The Namespace name
      */

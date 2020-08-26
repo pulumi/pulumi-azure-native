@@ -16,8 +16,8 @@ export function getFileServer(args: GetFileServerArgs, opts?: pulumi.InvokeOptio
     }
     return pulumi.runtime.invoke("azurerm:storsimple/v20161001:getFileServer", {
         "deviceName": args.deviceName,
+        "fileServerName": args.fileServerName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetFileServerArgs {
      */
     readonly deviceName: string;
     /**
+     * The file server name.
+     */
+    readonly fileServerName: string;
+    /**
      * The manager name
      */
     readonly managerName: string;
-    /**
-     * The file server name.
-     */
-    readonly name: string;
     /**
      * The resource group name
      */

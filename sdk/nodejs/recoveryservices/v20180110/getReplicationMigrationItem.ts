@@ -16,7 +16,7 @@ export function getReplicationMigrationItem(args: GetReplicationMigrationItemArg
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20180110:getReplicationMigrationItem", {
         "fabricName": args.fabricName,
-        "name": args.name,
+        "migrationItemName": args.migrationItemName,
         "protectionContainerName": args.protectionContainerName,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
@@ -31,7 +31,7 @@ export interface GetReplicationMigrationItemArgs {
     /**
      * Migration item name.
      */
-    readonly name: string;
+    readonly migrationItemName: string;
     /**
      * Protection container name.
      */

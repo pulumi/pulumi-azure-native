@@ -18,7 +18,7 @@ func LookupProperty(ctx *pulumi.Context, args *LookupPropertyArgs, opts ...pulum
 
 type LookupPropertyArgs struct {
 	// Identifier of the property.
-	Name string `pulumi:"name"`
+	PropId string `pulumi:"propId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

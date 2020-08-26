@@ -190,16 +190,22 @@ namespace Pulumi.AzureRM.Network.V20180201
         public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         /// <summary>
+        /// The name of the inbound nat rule.
+        /// </summary>
+        [Input("inboundNatRuleName", required: true)]
+        public Input<string> InboundNatRuleName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the load balancer.
         /// </summary>
         [Input("loadBalancerName", required: true)]
         public Input<string> LoadBalancerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the inbound nat rule.
+        /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.

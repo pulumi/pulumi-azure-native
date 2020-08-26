@@ -17,8 +17,8 @@ export function getCassandraResourceCassandraTable(args: GetCassandraResourceCas
     return pulumi.runtime.invoke("azurerm:documentdb/v20200301:getCassandraResourceCassandraTable", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "tableName": args.tableName,
     }, opts);
 }
 
@@ -32,13 +32,13 @@ export interface GetCassandraResourceCassandraTableArgs {
      */
     readonly keyspaceName: string;
     /**
-     * Cosmos DB table name.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * Cosmos DB table name.
+     */
+    readonly tableName: string;
 }
 
 /**

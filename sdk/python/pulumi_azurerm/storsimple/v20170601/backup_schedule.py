@@ -18,11 +18,11 @@ class BackupSchedule(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
+                 backup_schedule_name: Optional[pulumi.Input[str]] = None,
                  backup_type: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_count: Optional[pulumi.Input[float]] = None,
                  schedule_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
@@ -37,11 +37,11 @@ class BackupSchedule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_name: The backup policy name.
+        :param pulumi.Input[str] backup_schedule_name: The backup schedule name.
         :param pulumi.Input[str] backup_type: The type of backup which needs to be taken.
         :param pulumi.Input[str] device_name: The device name
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[str] name: The backup schedule name.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[float] retention_count: The number of backups to be retained.
         :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']] schedule_recurrence: The schedule recurrence.
@@ -68,6 +68,9 @@ class BackupSchedule(pulumi.CustomResource):
             if backup_policy_name is None:
                 raise TypeError("Missing required property 'backup_policy_name'")
             __props__['backup_policy_name'] = backup_policy_name
+            if backup_schedule_name is None:
+                raise TypeError("Missing required property 'backup_schedule_name'")
+            __props__['backup_schedule_name'] = backup_schedule_name
             if backup_type is None:
                 raise TypeError("Missing required property 'backup_type'")
             __props__['backup_type'] = backup_type
@@ -78,9 +81,6 @@ class BackupSchedule(pulumi.CustomResource):
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -97,6 +97,7 @@ class BackupSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'start_time'")
             __props__['start_time'] = start_time
             __props__['last_successful_run'] = None
+            __props__['name'] = None
             __props__['type'] = None
         super(BackupSchedule, __self__).__init__(
             'azurerm:storsimple/v20170601:BackupSchedule',

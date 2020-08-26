@@ -16,8 +16,8 @@ class ProductPolicy(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_format: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  policy_content: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
                  product_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -30,8 +30,8 @@ class ProductPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_format: Format of the policyContent.
-        :param pulumi.Input[str] name: The identifier of the Policy.
         :param pulumi.Input[str] policy_content: Json escaped Xml Encoded contents of the Policy.
+        :param pulumi.Input[str] policy_id: The identifier of the Policy.
         :param pulumi.Input[str] product_id: Product identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -54,12 +54,12 @@ class ProductPolicy(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['content_format'] = content_format
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if policy_content is None:
                 raise TypeError("Missing required property 'policy_content'")
             __props__['policy_content'] = policy_content
+            if policy_id is None:
+                raise TypeError("Missing required property 'policy_id'")
+            __props__['policy_id'] = policy_id
             if product_id is None:
                 raise TypeError("Missing required property 'product_id'")
             __props__['product_id'] = product_id
@@ -69,6 +69,7 @@ class ProductPolicy(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:ProductPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ProductPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ProductPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

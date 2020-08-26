@@ -17,8 +17,8 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CreateRecoveryPlanInputPropertiesArgs']]] = None,
+                 recovery_plan_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -29,8 +29,8 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Recovery plan name.
         :param pulumi.Input[pulumi.InputType['CreateRecoveryPlanInputPropertiesArgs']] properties: Recovery plan creation properties.
+        :param pulumi.Input[str] recovery_plan_name: Recovery plan name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         """
@@ -51,12 +51,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
+            if recovery_plan_name is None:
+                raise TypeError("Missing required property 'recovery_plan_name'")
+            __props__['recovery_plan_name'] = recovery_plan_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -64,6 +64,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['location'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20180110:ReplicationRecoveryPlan"), pulumi.Alias(type_="azurerm:recoveryservices/v20180710:ReplicationRecoveryPlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public string AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The webhook name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The webhook name.
+        /// </summary>
+        [Input("webhookName", required: true)]
+        public string WebhookName { get; set; } = null!;
 
         public GetWebhookArgs()
         {

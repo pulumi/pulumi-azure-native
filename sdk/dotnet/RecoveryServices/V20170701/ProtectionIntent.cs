@@ -108,16 +108,16 @@ namespace Pulumi.AzureRM.RecoveryServices.V20170701
         public Input<string> FabricName { get; set; } = null!;
 
         /// <summary>
+        /// Intent object name.
+        /// </summary>
+        [Input("intentObjectName", required: true)]
+        public Input<string> IntentObjectName { get; set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Intent object name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// ProtectionIntentResource properties

@@ -88,8 +88,8 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             if (!args || args.configuration === undefined) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.nodeConfigurationName === undefined) {
+                throw new Error("Missing required property 'nodeConfigurationName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -101,6 +101,7 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["incrementNodeConfigurationBuild"] = args ? args.incrementNodeConfigurationBuild : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["nodeConfigurationName"] = args ? args.nodeConfigurationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -139,9 +140,13 @@ export interface DscNodeConfigurationArgs {
      */
     readonly incrementNodeConfigurationBuild?: pulumi.Input<boolean>;
     /**
+     * Name of the node configuration.
+     */
+    readonly name?: pulumi.Input<string>;
+    /**
      * The Dsc node configuration name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly nodeConfigurationName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

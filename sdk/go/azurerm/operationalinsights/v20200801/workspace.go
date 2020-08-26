@@ -48,11 +48,11 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.WorkspaceName == nil {
+		return nil, errors.New("missing required argument 'WorkspaceName'")
 	}
 	if args == nil {
 		args = &WorkspaceArgs{}
@@ -145,8 +145,6 @@ type workspaceArgs struct {
 	ETag *string `pulumi:"eTag"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the workspace.
-	Name string `pulumi:"name"`
 	// The provisioning state of the workspace.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The network access type for accessing Log Analytics ingestion.
@@ -163,6 +161,8 @@ type workspaceArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The daily volume cap for ingestion.
 	WorkspaceCapping *WorkspaceCapping `pulumi:"workspaceCapping"`
+	// The name of the workspace.
+	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -171,8 +171,6 @@ type WorkspaceArgs struct {
 	ETag pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The name of the workspace.
-	Name pulumi.StringInput
 	// The provisioning state of the workspace.
 	ProvisioningState pulumi.StringPtrInput
 	// The network access type for accessing Log Analytics ingestion.
@@ -189,6 +187,8 @@ type WorkspaceArgs struct {
 	Tags pulumi.StringMapInput
 	// The daily volume cap for ingestion.
 	WorkspaceCapping WorkspaceCappingPtrInput
+	// The name of the workspace.
+	WorkspaceName pulumi.StringInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

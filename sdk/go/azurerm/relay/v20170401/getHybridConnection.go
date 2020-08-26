@@ -18,7 +18,7 @@ func LookupHybridConnection(ctx *pulumi.Context, args *LookupHybridConnectionArg
 
 type LookupHybridConnectionArgs struct {
 	// The hybrid connection name.
-	Name string `pulumi:"name"`
+	HybridConnectionName string `pulumi:"hybridConnectionName"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.

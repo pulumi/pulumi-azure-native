@@ -80,7 +80,7 @@ class AwaitableGetReplicationNetworkMappingResult(GetReplicationNetworkMappingRe
 
 
 def get_replication_network_mapping(fabric_name: Optional[str] = None,
-                                    name: Optional[str] = None,
+                                    network_mapping_name: Optional[str] = None,
                                     network_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     resource_name: Optional[str] = None,
@@ -89,14 +89,14 @@ def get_replication_network_mapping(fabric_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str fabric_name: Primary fabric name.
-    :param str name: Network mapping name.
+    :param str network_mapping_name: Network mapping name.
     :param str network_name: Primary network name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
     __args__ = dict()
     __args__['fabricName'] = fabric_name
-    __args__['name'] = name
+    __args__['networkMappingName'] = network_mapping_name
     __args__['networkName'] = network_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

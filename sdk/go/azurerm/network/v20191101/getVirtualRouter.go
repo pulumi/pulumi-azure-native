@@ -19,10 +19,10 @@ func LookupVirtualRouter(ctx *pulumi.Context, args *LookupVirtualRouterArgs, opt
 type LookupVirtualRouterArgs struct {
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
-	// The name of the Virtual Router.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Virtual Router.
+	VirtualRouterName string `pulumi:"virtualRouterName"`
 }
 
 // VirtualRouter Resource.

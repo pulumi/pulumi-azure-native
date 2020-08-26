@@ -74,8 +74,8 @@ export class ProtectionPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ProtectionPolicyArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.policyName === undefined) {
+                throw new Error("Missing required property 'policyName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -87,6 +87,7 @@ export class ProtectionPolicy extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["policyName"] = args ? args.policyName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -123,9 +124,13 @@ export interface ProtectionPolicyArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * Resource name associated with the resource.
+     */
+    readonly name?: pulumi.Input<string>;
+    /**
      * The backup policy to be created.
      */
-    readonly name: pulumi.Input<string>;
+    readonly policyName: pulumi.Input<string>;
     /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */

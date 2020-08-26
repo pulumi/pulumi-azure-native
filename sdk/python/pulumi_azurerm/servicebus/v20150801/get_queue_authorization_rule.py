@@ -78,7 +78,7 @@ class AwaitableGetQueueAuthorizationRuleResult(GetQueueAuthorizationRuleResult):
             type=self.type)
 
 
-def get_queue_authorization_rule(name: Optional[str] = None,
+def get_queue_authorization_rule(authorization_rule_name: Optional[str] = None,
                                  namespace_name: Optional[str] = None,
                                  queue_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
@@ -86,13 +86,13 @@ def get_queue_authorization_rule(name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The authorization rule name.
+    :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
     :param str queue_name: The queue name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name
     __args__['queueName'] = queue_name
     __args__['resourceGroupName'] = resource_group_name

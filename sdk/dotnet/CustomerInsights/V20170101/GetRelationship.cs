@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// <summary>
         /// The name of the relationship.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("relationshipName", required: true)]
+        public string RelationshipName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

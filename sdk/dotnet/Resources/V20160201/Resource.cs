@@ -162,12 +162,6 @@ namespace Pulumi.AzureRM.Resources.V20160201
         /// <summary>
         /// Resource identity.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Resource identity.
-        /// </summary>
         [Input("parentResourcePath", required: true)]
         public Input<string> ParentResourcePath { get; set; } = null!;
 
@@ -194,6 +188,12 @@ namespace Pulumi.AzureRM.Resources.V20160201
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource identity.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// Resource identity.

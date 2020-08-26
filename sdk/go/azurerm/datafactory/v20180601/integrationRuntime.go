@@ -30,8 +30,8 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	if args == nil || args.FactoryName == nil {
 		return nil, errors.New("missing required argument 'FactoryName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.IntegrationRuntimeName == nil {
+		return nil, errors.New("missing required argument 'IntegrationRuntimeName'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -93,7 +93,7 @@ type integrationRuntimeArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// The integration runtime name.
-	Name string `pulumi:"name"`
+	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
 	// Integration runtime properties.
 	Properties IntegrationRuntimeType `pulumi:"properties"`
 	// The resource group name.
@@ -105,7 +105,7 @@ type IntegrationRuntimeArgs struct {
 	// The factory name.
 	FactoryName pulumi.StringInput
 	// The integration runtime name.
-	Name pulumi.StringInput
+	IntegrationRuntimeName pulumi.StringInput
 	// Integration runtime properties.
 	Properties IntegrationRuntimeTypeInput
 	// The resource group name.

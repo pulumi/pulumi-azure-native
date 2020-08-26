@@ -15,7 +15,7 @@ export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:operationalinsights/v20200101:getIncident", {
-        "name": args.name,
+        "incidentId": args.incidentId,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetIncidentArgs {
     /**
      * Incident ID
      */
-    readonly name: string;
+    readonly incidentId: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

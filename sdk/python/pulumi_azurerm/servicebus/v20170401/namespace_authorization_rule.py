@@ -15,7 +15,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rights: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -27,7 +27,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The authorization rule name.
+        :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[List[pulumi.Input[str]]] rights: The rights associated with the rule.
@@ -49,9 +49,9 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if authorization_rule_name is None:
+                raise TypeError("Missing required property 'authorization_rule_name'")
+            __props__['authorization_rule_name'] = authorization_rule_name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
@@ -61,6 +61,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             if rights is None:
                 raise TypeError("Missing required property 'rights'")
             __props__['rights'] = rights
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicebus/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azurerm:servicebus/v20150801:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

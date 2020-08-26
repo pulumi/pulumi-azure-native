@@ -41,8 +41,8 @@ type Cache struct {
 // NewCache registers a new resource with the given unique name, arguments, and options.
 func NewCache(ctx *pulumi.Context,
 	name string, args *CacheArgs, opts ...pulumi.ResourceOption) (*Cache, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.CacheName == nil {
+		return nil, errors.New("missing required argument 'CacheName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -132,12 +132,12 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
+	// Name of Cache.
+	CacheName string `pulumi:"cacheName"`
 	// The size of this Cache, in GB.
 	CacheSizeGB *int `pulumi:"cacheSizeGB"`
 	// Region name string.
 	Location *string `pulumi:"location"`
-	// Name of Cache.
-	Name string `pulumi:"name"`
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Target resource group.
@@ -152,12 +152,12 @@ type cacheArgs struct {
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
+	// Name of Cache.
+	CacheName pulumi.StringInput
 	// The size of this Cache, in GB.
 	CacheSizeGB pulumi.IntPtrInput
 	// Region name string.
 	Location pulumi.StringPtrInput
-	// Name of Cache.
-	Name pulumi.StringInput
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState pulumi.StringPtrInput
 	// Target resource group.

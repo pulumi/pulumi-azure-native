@@ -37,7 +37,7 @@ export class ContentItem extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
@@ -56,11 +56,11 @@ export class ContentItem extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ContentItemArgs | undefined;
+            if (!args || args.contentItemId === undefined) {
+                throw new Error("Missing required property 'contentItemId'");
+            }
             if (!args || args.contentTypeId === undefined) {
                 throw new Error("Missing required property 'contentTypeId'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -68,10 +68,11 @@ export class ContentItem extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["contentItemId"] = args ? args.contentItemId : undefined;
             inputs["contentTypeId"] = args ? args.contentTypeId : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -90,13 +91,13 @@ export class ContentItem extends pulumi.CustomResource {
  */
 export interface ContentItemArgs {
     /**
+     * Content item identifier.
+     */
+    readonly contentItemId: pulumi.Input<string>;
+    /**
      * Content type identifier.
      */
     readonly contentTypeId: pulumi.Input<string>;
-    /**
-     * Content item identifier.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

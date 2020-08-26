@@ -198,21 +198,21 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             user_id=self.user_id)
 
 
-def get_subscription(name: Optional[str] = None,
-                     resource_group_name: Optional[str] = None,
+def get_subscription(resource_group_name: Optional[str] = None,
                      service_name: Optional[str] = None,
+                     sid: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
+    :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
+    __args__['sid'] = sid
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

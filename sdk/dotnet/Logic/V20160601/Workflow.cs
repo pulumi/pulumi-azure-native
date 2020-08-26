@@ -165,12 +165,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// The workflow name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("parameters")]
         private InputMap<Inputs.WorkflowParameterArgs>? _parameters;
 
@@ -212,6 +206,12 @@ namespace Pulumi.AzureRM.Logic.V20160601
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The workflow name.
+        /// </summary>
+        [Input("workflowName", required: true)]
+        public Input<string> WorkflowName { get; set; } = null!;
 
         public WorkflowArgs()
         {

@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.Network.V20190201
     public sealed class GetNetworkInterfaceTapConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the tap configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the network interface.
         /// </summary>
         [Input("networkInterfaceName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the tap configuration.
+        /// </summary>
+        [Input("tapConfigurationName", required: true)]
+        public string TapConfigurationName { get; set; } = null!;
 
         public GetNetworkInterfaceTapConfigurationArgs()
         {

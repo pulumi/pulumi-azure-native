@@ -112,16 +112,22 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> ApplicationGatewayName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the application gateway private endpoint connection.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the application gateway private endpoint connection.
+        /// Name of the private endpoint connection on an application gateway.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

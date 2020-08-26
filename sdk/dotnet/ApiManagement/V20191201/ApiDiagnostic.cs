@@ -144,6 +144,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<Inputs.PipelineDiagnosticSettingsArgs>? Backend { get; set; }
 
         /// <summary>
+        /// Diagnostic identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("diagnosticId", required: true)]
+        public Input<string> DiagnosticId { get; set; } = null!;
+
+        /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         /// </summary>
         [Input("frontend")]
@@ -166,12 +172,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("loggerId", required: true)]
         public Input<string> LoggerId { get; set; } = null!;
-
-        /// <summary>
-        /// Diagnostic identifier. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

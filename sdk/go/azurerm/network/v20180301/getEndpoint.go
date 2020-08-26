@@ -17,10 +17,10 @@ func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulum
 }
 
 type LookupEndpointArgs struct {
+	// The name of the Traffic Manager endpoint.
+	EndpointName string `pulumi:"endpointName"`
 	// The type of the Traffic Manager endpoint.
 	EndpointType string `pulumi:"endpointType"`
-	// The name of the Traffic Manager endpoint.
-	Name string `pulumi:"name"`
 	// The name of the Traffic Manager profile.
 	ProfileName string `pulumi:"profileName"`
 	// The name of the resource group containing the Traffic Manager endpoint.

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180401
         /// <summary>
         /// The name of the container group.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("containerGroupName", required: true)]
+        public string ContainerGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

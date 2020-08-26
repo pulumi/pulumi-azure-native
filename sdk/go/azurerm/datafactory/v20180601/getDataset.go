@@ -17,10 +17,10 @@ func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.
 }
 
 type LookupDatasetArgs struct {
+	// The dataset name.
+	DatasetName string `pulumi:"datasetName"`
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
-	// The dataset name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

@@ -18,7 +18,7 @@ func LookupReplicationFabric(ctx *pulumi.Context, args *LookupReplicationFabricA
 
 type LookupReplicationFabricArgs struct {
 	// Fabric name.
-	Name string `pulumi:"name"`
+	FabricName string `pulumi:"fabricName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.

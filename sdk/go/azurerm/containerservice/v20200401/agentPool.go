@@ -67,8 +67,8 @@ type AgentPool struct {
 // NewAgentPool registers a new resource with the given unique name, arguments, and options.
 func NewAgentPool(ctx *pulumi.Context,
 	name string, args *AgentPoolArgs, opts ...pulumi.ResourceOption) (*AgentPool, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AgentPoolName == nil {
+		return nil, errors.New("missing required argument 'AgentPoolName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -240,6 +240,8 @@ func (AgentPoolState) ElementType() reflect.Type {
 }
 
 type agentPoolArgs struct {
+	// The name of the agent pool.
+	AgentPoolName string `pulumi:"agentPoolName"`
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
@@ -256,8 +258,6 @@ type agentPoolArgs struct {
 	MinCount *int `pulumi:"minCount"`
 	// AgentPoolMode represents mode of an agent pool
 	Mode *string `pulumi:"mode"`
-	// The name of the agent pool.
-	Name string `pulumi:"name"`
 	// Version of node image
 	NodeImageVersion *string `pulumi:"nodeImageVersion"`
 	// Agent pool node labels to be persisted across all nodes in agent pool.
@@ -294,6 +294,8 @@ type agentPoolArgs struct {
 
 // The set of arguments for constructing a AgentPool resource.
 type AgentPoolArgs struct {
+	// The name of the agent pool.
+	AgentPoolName pulumi.StringInput
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones pulumi.StringArrayInput
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
@@ -310,8 +312,6 @@ type AgentPoolArgs struct {
 	MinCount pulumi.IntPtrInput
 	// AgentPoolMode represents mode of an agent pool
 	Mode pulumi.StringPtrInput
-	// The name of the agent pool.
-	Name pulumi.StringInput
 	// Version of node image
 	NodeImageVersion pulumi.StringPtrInput
 	// Agent pool node labels to be persisted across all nodes in agent pool.

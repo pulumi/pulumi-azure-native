@@ -43,7 +43,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the Service resource
      */
@@ -74,18 +74,19 @@ export class Service extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ServiceArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.serviceName === undefined) {
+                throw new Error("Missing required property 'serviceName'");
+            }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,10 +109,6 @@ export interface ServiceArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Service resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Properties of the Service resource
      */
     readonly properties?: pulumi.Input<inputs.appplatform.v20200701.ClusterResourceProperties>;
@@ -119,6 +116,10 @@ export interface ServiceArgs {
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Service resource.
+     */
+    readonly serviceName: pulumi.Input<string>;
     /**
      * Sku of the Service resource
      */

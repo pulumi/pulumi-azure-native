@@ -115,15 +115,15 @@ class AwaitableGetReportConfigResult(GetReportConfigResult):
             type=self.type)
 
 
-def get_report_config(name: Optional[str] = None,
+def get_report_config(report_config_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportConfigResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Report Config Name.
+    :param str report_config_name: Report Config Name.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['reportConfigName'] = report_config_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

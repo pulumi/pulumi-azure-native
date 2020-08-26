@@ -126,16 +126,16 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The ARM resource name of the IoT Central application.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group that contains the IoT Central application.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The ARM resource name of the IoT Central application.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// A valid instance SKU.

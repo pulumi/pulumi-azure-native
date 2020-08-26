@@ -18,11 +18,11 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  read_scale: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_resource_id: Optional[pulumi.Input[str]] = None,
                  requested_service_objective_id: Optional[pulumi.Input[str]] = None,
@@ -61,6 +61,7 @@ class Database(pulumi.CustomResource):
                RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
                
                Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+        :param pulumi.Input[str] database_name: The name of the database to be operated on (updated or created).
         :param pulumi.Input[str] edition: The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
                
                The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
@@ -75,7 +76,6 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] max_size_bytes: The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
-        :param pulumi.Input[str] name: The name of the database to be operated on (updated or created).
         :param pulumi.Input[str] read_scale: Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
         :param pulumi.Input[str] recovery_services_recovery_point_resource_id: Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
         :param pulumi.Input[str] requested_service_objective_id: The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
@@ -120,15 +120,15 @@ class Database(pulumi.CustomResource):
 
             __props__['collation'] = collation
             __props__['create_mode'] = create_mode
+            if database_name is None:
+                raise TypeError("Missing required property 'database_name'")
+            __props__['database_name'] = database_name
             __props__['edition'] = edition
             __props__['elastic_pool_name'] = elastic_pool_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_size_bytes'] = max_size_bytes
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['read_scale'] = read_scale
             __props__['recovery_services_recovery_point_resource_id'] = recovery_services_recovery_point_resource_id
             __props__['requested_service_objective_id'] = requested_service_objective_id
@@ -153,6 +153,7 @@ class Database(pulumi.CustomResource):
             __props__['earliest_restore_date'] = None
             __props__['failover_group_id'] = None
             __props__['kind'] = None
+            __props__['name'] = None
             __props__['recommended_index'] = None
             __props__['service_level_objective'] = None
             __props__['service_tier_advisors'] = None

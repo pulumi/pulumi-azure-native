@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20170901
     public sealed class GetRecordSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the record set, relative to the name of the zone.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The type of DNS record in this record set.
         /// </summary>
         [Input("recordType", required: true)]
         public string RecordType { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the record set, relative to the name of the zone.
+        /// </summary>
+        [Input("relativeRecordSetName", required: true)]
+        public string RelativeRecordSetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

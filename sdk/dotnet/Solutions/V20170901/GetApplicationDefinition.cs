@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Solutions.V20170901
         /// <summary>
         /// The name of the managed application definition.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("applicationDefinitionName", required: true)]
+        public string ApplicationDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

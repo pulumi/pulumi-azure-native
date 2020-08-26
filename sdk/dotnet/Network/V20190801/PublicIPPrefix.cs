@@ -205,12 +205,6 @@ namespace Pulumi.AzureRM.Network.V20190801
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the public IP prefix.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The Length of the Public IP Prefix.
         /// </summary>
         [Input("prefixLength")]
@@ -239,6 +233,12 @@ namespace Pulumi.AzureRM.Network.V20190801
             get => _publicIPAddresses ?? (_publicIPAddresses = new InputList<Inputs.ReferencedPublicIpAddressArgs>());
             set => _publicIPAddresses = value;
         }
+
+        /// <summary>
+        /// The name of the public IP prefix.
+        /// </summary>
+        [Input("publicIpPrefixName", required: true)]
+        public Input<string> PublicIpPrefixName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

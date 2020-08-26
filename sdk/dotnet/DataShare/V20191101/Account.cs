@@ -114,6 +114,12 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the share account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
         /// Identity Info on the Account
         /// </summary>
         [Input("identity", required: true)]
@@ -124,12 +130,6 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the share account.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

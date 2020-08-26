@@ -15,7 +15,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:machinelearningservices/v20200301:getPrivateEndpointConnection", {
-        "name": args.name,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the workspace
      */
-    readonly name: string;
+    readonly privateEndpointConnectionName: string;
     /**
      * Name of the resource group in which workspace is located.
      */

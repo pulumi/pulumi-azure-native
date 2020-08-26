@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20170801
     public sealed class GetVirtualNetworkGatewayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the virtual network gateway.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network gateway.
+        /// </summary>
+        [Input("virtualNetworkGatewayName", required: true)]
+        public string VirtualNetworkGatewayName { get; set; } = null!;
 
         public GetVirtualNetworkGatewayArgs()
         {

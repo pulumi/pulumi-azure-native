@@ -120,6 +120,12 @@ namespace Pulumi.AzureRM.Insights.V20170401
         public Input<Inputs.ActivityLogAlertActionListArgs> Actions { get; set; } = null!;
 
         /// <summary>
+        /// The name of the activity log alert.
+        /// </summary>
+        [Input("activityLogAlertName", required: true)]
+        public Input<string> ActivityLogAlertName { get; set; } = null!;
+
+        /// <summary>
         /// The condition that will cause this alert to activate.
         /// </summary>
         [Input("condition", required: true)]
@@ -142,12 +148,6 @@ namespace Pulumi.AzureRM.Insights.V20170401
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the activity log alert.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

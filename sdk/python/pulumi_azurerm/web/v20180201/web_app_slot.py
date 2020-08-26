@@ -41,6 +41,7 @@ class WebAppSlot(pulumi.CustomResource):
                  scm_site_also_stopped: Optional[pulumi.Input[bool]] = None,
                  server_farm_id: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['SiteConfigArgs']]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -69,13 +70,14 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] is_xenon: Obsolete: Hyper-V sandbox.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        :param pulumi.Input[str] name: Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
         :param pulumi.Input[str] redundancy_mode: Site redundancy mode
         :param pulumi.Input[bool] reserved: <code>true</code> if reserved; otherwise, <code>false</code>.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input[pulumi.InputType['SiteConfigArgs']] site_config: Configuration of the app.
+        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -125,6 +127,9 @@ class WebAppSlot(pulumi.CustomResource):
             __props__['scm_site_also_stopped'] = scm_site_also_stopped
             __props__['server_farm_id'] = server_farm_id
             __props__['site_config'] = site_config
+            if slot is None:
+                raise TypeError("Missing required property 'slot'")
+            __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['availability_state'] = None
             __props__['default_host_name'] = None

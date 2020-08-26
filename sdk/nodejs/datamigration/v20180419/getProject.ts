@@ -16,7 +16,7 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:datamigration/v20180419:getProject", {
         "groupName": args.groupName,
-        "name": args.name,
+        "projectName": args.projectName,
         "serviceName": args.serviceName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetProjectArgs {
     /**
      * Name of the project
      */
-    readonly name: string;
+    readonly projectName: string;
     /**
      * Name of the service
      */

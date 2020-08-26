@@ -63,7 +63,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
      */
@@ -110,11 +110,11 @@ export class Endpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EndpointArgs | undefined;
+            if (!args || args.endpointName === undefined) {
+                throw new Error("Missing required property 'endpointName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.origins === undefined) {
                 throw new Error("Missing required property 'origins'");
@@ -126,11 +126,11 @@ export class Endpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["contentTypesToCompress"] = args ? args.contentTypesToCompress : undefined;
+            inputs["endpointName"] = args ? args.endpointName : undefined;
             inputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
             inputs["isHttpAllowed"] = args ? args.isHttpAllowed : undefined;
             inputs["isHttpsAllowed"] = args ? args.isHttpsAllowed : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
             inputs["originPath"] = args ? args.originPath : undefined;
             inputs["origins"] = args ? args.origins : undefined;
@@ -139,6 +139,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["hostName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -165,6 +166,10 @@ export interface EndpointArgs {
      */
     readonly contentTypesToCompress?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Name of the endpoint within the CDN profile.
+     */
+    readonly endpointName: pulumi.Input<string>;
+    /**
      * Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
      */
     readonly isCompressionEnabled?: pulumi.Input<boolean>;
@@ -180,10 +185,6 @@ export interface EndpointArgs {
      * Endpoint location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of the endpoint within the CDN profile.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
      */

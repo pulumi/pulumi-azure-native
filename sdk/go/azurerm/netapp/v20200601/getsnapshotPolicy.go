@@ -19,10 +19,10 @@ func GetsnapshotPolicy(ctx *pulumi.Context, args *GetsnapshotPolicyArgs, opts ..
 type GetsnapshotPolicyArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
-	// The name of the snapshot policy target
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the snapshot policy target
+	SnapshotPolicyName string `pulumi:"snapshotPolicyName"`
 }
 
 // Snapshot policy information

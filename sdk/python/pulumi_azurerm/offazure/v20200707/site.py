@@ -22,6 +22,7 @@ class Site(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['SitePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 site_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,9 +34,10 @@ class Site(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: eTag for concurrency control.
         :param pulumi.Input[str] location: Azure location in which Sites is created.
-        :param pulumi.Input[str] name: Site name.
+        :param pulumi.Input[str] name: Name of the VMware site.
         :param pulumi.Input[pulumi.InputType['SitePropertiesArgs']] properties: Nested properties of VMWare site.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] site_name: Site name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,13 +58,14 @@ class Site(pulumi.CustomResource):
 
             __props__['e_tag'] = e_tag
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if site_name is None:
+                raise TypeError("Missing required property 'site_name'")
+            __props__['site_name'] = site_name
             __props__['tags'] = tags
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:offazure/v20200101:Site")])

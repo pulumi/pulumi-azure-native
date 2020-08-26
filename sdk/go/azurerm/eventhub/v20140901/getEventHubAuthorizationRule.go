@@ -17,10 +17,10 @@ func LookupEventHubAuthorizationRule(ctx *pulumi.Context, args *LookupEventHubAu
 }
 
 type LookupEventHubAuthorizationRuleArgs struct {
+	// The authorization rule name.
+	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
 	// The Event Hub name
 	EventHubName string `pulumi:"eventHubName"`
-	// The authorization rule name.
-	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the resource group within the azure subscription.

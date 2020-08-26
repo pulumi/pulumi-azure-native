@@ -34,11 +34,11 @@ func NewFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 	if args == nil || args.FirewallPolicyName == nil {
 		return nil, errors.New("missing required argument 'FirewallPolicyName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RuleCollectionGroupName == nil {
+		return nil, errors.New("missing required argument 'RuleCollectionGroupName'")
 	}
 	if args == nil {
 		args = &FirewallPolicyRuleCollectionGroupArgs{}
@@ -109,12 +109,14 @@ type firewallPolicyRuleCollectionGroupArgs struct {
 	FirewallPolicyName string `pulumi:"firewallPolicyName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the FirewallPolicyRuleCollectionGroup.
-	Name string `pulumi:"name"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
 	// Priority of the Firewall Policy Rule Collection Group resource.
 	Priority *int `pulumi:"priority"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the FirewallPolicyRuleCollectionGroup.
+	RuleCollectionGroupName string `pulumi:"ruleCollectionGroupName"`
 	// Group of Firewall Policy rule collections.
 	RuleCollections []FirewallPolicyRuleCollection `pulumi:"ruleCollections"`
 }
@@ -125,12 +127,14 @@ type FirewallPolicyRuleCollectionGroupArgs struct {
 	FirewallPolicyName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the FirewallPolicyRuleCollectionGroup.
-	Name pulumi.StringInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
 	// Priority of the Firewall Policy Rule Collection Group resource.
 	Priority pulumi.IntPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the FirewallPolicyRuleCollectionGroup.
+	RuleCollectionGroupName pulumi.StringInput
 	// Group of Firewall Policy rule collections.
 	RuleCollections FirewallPolicyRuleCollectionArrayInput
 }

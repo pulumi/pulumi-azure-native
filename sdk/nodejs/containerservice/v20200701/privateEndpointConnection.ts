@@ -39,7 +39,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The name of the private endpoint connection.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The resource of private endpoint.
      */
@@ -70,8 +70,8 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrivateEndpointConnectionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.privateEndpointConnectionName === undefined) {
+                throw new Error("Missing required property 'privateEndpointConnectionName'");
             }
             if (!args || args.privateLinkServiceConnectionState === undefined) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
@@ -82,11 +82,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
             inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
+            inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -108,13 +109,13 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface PrivateEndpointConnectionArgs {
     /**
-     * The name of the private endpoint connection.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource of private endpoint.
      */
     readonly privateEndpoint?: pulumi.Input<inputs.containerservice.v20200701.PrivateEndpoint>;
+    /**
+     * The name of the private endpoint connection.
+     */
+    readonly privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

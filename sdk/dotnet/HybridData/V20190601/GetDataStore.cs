@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.HybridData.V20190601
         /// <summary>
         /// The data store/repository name queried.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("dataStoreName", required: true)]
+        public string DataStoreName { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name

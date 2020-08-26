@@ -71,7 +71,7 @@ export class ApiManagementService extends pulumi.CustomResource {
     /**
      * Name of the API Management service.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Publisher portal endpoint Url of the API Management service.
      */
@@ -141,9 +141,6 @@ export class ApiManagementService extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.publisherEmail === undefined) {
                 throw new Error("Missing required property 'publisherEmail'");
             }
@@ -152,6 +149,9 @@ export class ApiManagementService extends pulumi.CustomResource {
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.serviceName === undefined) {
+                throw new Error("Missing required property 'serviceName'");
             }
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
@@ -162,16 +162,17 @@ export class ApiManagementService extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
             inputs["publisherName"] = args ? args.publisherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpnType"] = args ? args.vpnType : undefined;
             inputs["vpnconfiguration"] = args ? args.vpnconfiguration : undefined;
             inputs["createdAtUtc"] = undefined /*out*/;
             inputs["managementApiUrl"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["portalUrl"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["runtimeUrl"] = undefined /*out*/;
@@ -222,10 +223,6 @@ export interface ApiManagementServiceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the API Management service.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Publisher email.
      */
     readonly publisherEmail: pulumi.Input<string>;
@@ -237,6 +234,10 @@ export interface ApiManagementServiceArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the API Management service.
+     */
+    readonly serviceName: pulumi.Input<string>;
     /**
      * SKU properties of the API Management service.
      */

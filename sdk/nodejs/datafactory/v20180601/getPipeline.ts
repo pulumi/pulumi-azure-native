@@ -16,7 +16,7 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
     }
     return pulumi.runtime.invoke("azurerm:datafactory/v20180601:getPipeline", {
         "factoryName": args.factoryName,
-        "name": args.name,
+        "pipelineName": args.pipelineName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetPipelineArgs {
     /**
      * The pipeline name.
      */
-    readonly name: string;
+    readonly pipelineName: string;
     /**
      * The resource group name.
      */

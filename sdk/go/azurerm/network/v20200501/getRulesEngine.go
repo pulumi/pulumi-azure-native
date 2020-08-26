@@ -19,10 +19,10 @@ func LookupRulesEngine(ctx *pulumi.Context, args *LookupRulesEngineArgs, opts ..
 type LookupRulesEngineArgs struct {
 	// Name of the Front Door which is globally unique.
 	FrontDoorName string `pulumi:"frontDoorName"`
-	// Name of the Rules Engine which is unique within the Front Door.
-	Name string `pulumi:"name"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the Rules Engine which is unique within the Front Door.
+	RulesEngineName string `pulumi:"rulesEngineName"`
 }
 
 // A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.

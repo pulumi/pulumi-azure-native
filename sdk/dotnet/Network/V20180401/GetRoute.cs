@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20180401
     public sealed class GetRouteArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the route.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the route.
+        /// </summary>
+        [Input("routeName", required: true)]
+        public string RouteName { get; set; } = null!;
 
         /// <summary>
         /// The name of the route table.

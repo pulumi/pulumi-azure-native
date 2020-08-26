@@ -47,11 +47,11 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RuleName == nil {
+		return nil, errors.New("missing required argument 'RuleName'")
 	}
 	if args == nil || args.Source == nil {
 		return nil, errors.New("missing required argument 'Source'")
@@ -143,10 +143,10 @@ type scheduledQueryRuleArgs struct {
 	Enabled *string `pulumi:"enabled"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the rule.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the rule.
+	RuleName string `pulumi:"ruleName"`
 	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
 	Schedule *Schedule `pulumi:"schedule"`
 	// Data Source against which rule will Query Data
@@ -165,10 +165,10 @@ type ScheduledQueryRuleArgs struct {
 	Enabled pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the rule.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the rule.
+	RuleName pulumi.StringInput
 	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
 	Schedule SchedulePtrInput
 	// Data Source against which rule will Query Data

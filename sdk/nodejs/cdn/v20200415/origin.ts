@@ -53,7 +53,7 @@ export class Origin extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
@@ -118,8 +118,8 @@ export class Origin extends pulumi.CustomResource {
             if (!args || args.hostName === undefined) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.originName === undefined) {
+                throw new Error("Missing required property 'originName'");
             }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
@@ -132,8 +132,8 @@ export class Origin extends pulumi.CustomResource {
             inputs["hostName"] = args ? args.hostName : undefined;
             inputs["httpPort"] = args ? args.httpPort : undefined;
             inputs["httpsPort"] = args ? args.httpsPort : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
+            inputs["originName"] = args ? args.originName : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["privateLinkAlias"] = args ? args.privateLinkAlias : undefined;
             inputs["privateLinkApprovalMessage"] = args ? args.privateLinkApprovalMessage : undefined;
@@ -142,6 +142,7 @@ export class Origin extends pulumi.CustomResource {
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["weight"] = args ? args.weight : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["privateEndpointStatus"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
@@ -185,13 +186,13 @@ export interface OriginArgs {
      */
     readonly httpsPort?: pulumi.Input<number>;
     /**
-     * Name of the origin that is unique within the endpoint.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
     readonly originHostHeader?: pulumi.Input<string>;
+    /**
+     * Name of the origin that is unique within the endpoint.
+     */
+    readonly originName: pulumi.Input<string>;
     /**
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
      */

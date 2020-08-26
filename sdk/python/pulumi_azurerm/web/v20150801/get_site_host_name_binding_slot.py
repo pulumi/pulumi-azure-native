@@ -162,18 +162,21 @@ class AwaitableGetSiteHostNameBindingSlotResult(GetSiteHostNameBindingSlotResult
             type=self.type)
 
 
-def get_site_host_name_binding_slot(name: Optional[str] = None,
+def get_site_host_name_binding_slot(host_name: Optional[str] = None,
+                                    name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     slot: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteHostNameBindingSlotResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of host
+    :param str host_name: Name of host
+    :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     """
     __args__ = dict()
+    __args__['hostName'] = host_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot

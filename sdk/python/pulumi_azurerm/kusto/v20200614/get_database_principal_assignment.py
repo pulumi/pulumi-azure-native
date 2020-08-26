@@ -140,7 +140,7 @@ class AwaitableGetDatabasePrincipalAssignmentResult(GetDatabasePrincipalAssignme
 
 def get_database_principal_assignment(cluster_name: Optional[str] = None,
                                       database_name: Optional[str] = None,
-                                      name: Optional[str] = None,
+                                      principal_assignment_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasePrincipalAssignmentResult:
     """
@@ -148,13 +148,13 @@ def get_database_principal_assignment(cluster_name: Optional[str] = None,
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str name: The name of the Kusto principalAssignment.
+    :param str principal_assignment_name: The name of the Kusto principalAssignment.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['databaseName'] = database_name
-    __args__['name'] = name
+    __args__['principalAssignmentName'] = principal_assignment_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

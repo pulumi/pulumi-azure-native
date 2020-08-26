@@ -59,7 +59,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Configurations of NoEncryption
      */
@@ -85,21 +85,22 @@ export class StreamingPolicy extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.streamingPolicyName === undefined) {
+                throw new Error("Missing required property 'streamingPolicyName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["commonEncryptionCbcs"] = args ? args.commonEncryptionCbcs : undefined;
             inputs["commonEncryptionCenc"] = args ? args.commonEncryptionCenc : undefined;
             inputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
             inputs["envelopeEncryption"] = args ? args.envelopeEncryption : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["noEncryption"] = args ? args.noEncryption : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
             inputs["created"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -140,10 +141,6 @@ export interface StreamingPolicyArgs {
      */
     readonly envelopeEncryption?: pulumi.Input<inputs.media.v20180701.EnvelopeEncryption>;
     /**
-     * The Streaming Policy name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Configurations of NoEncryption
      */
     readonly noEncryption?: pulumi.Input<inputs.media.v20180701.NoEncryption>;
@@ -151,4 +148,8 @@ export interface StreamingPolicyArgs {
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Streaming Policy name.
+     */
+    readonly streamingPolicyName: pulumi.Input<string>;
 }

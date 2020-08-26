@@ -162,7 +162,7 @@ class AwaitableGetCloudEndpointResult(GetCloudEndpointResult):
             type=self.type)
 
 
-def get_cloud_endpoint(name: Optional[str] = None,
+def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        storage_sync_service_name: Optional[str] = None,
                        sync_group_name: Optional[str] = None,
@@ -170,13 +170,13 @@ def get_cloud_endpoint(name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of Cloud Endpoint object.
+    :param str cloud_endpoint_name: Name of Cloud Endpoint object.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['cloudEndpointName'] = cloud_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageSyncServiceName'] = storage_sync_service_name
     __args__['syncGroupName'] = sync_group_name

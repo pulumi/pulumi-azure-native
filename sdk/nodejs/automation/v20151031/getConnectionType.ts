@@ -16,7 +16,7 @@ export function getConnectionType(args: GetConnectionTypeArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getConnectionType", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
+        "connectionTypeName": args.connectionTypeName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetConnectionTypeArgs {
     /**
      * The name of connection type.
      */
-    readonly name: string;
+    readonly connectionTypeName: string;
     /**
      * Name of an Azure Resource group.
      */

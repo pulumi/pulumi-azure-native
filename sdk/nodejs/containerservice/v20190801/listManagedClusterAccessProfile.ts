@@ -15,17 +15,13 @@ export function listManagedClusterAccessProfile(args: ListManagedClusterAccessPr
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerservice/v20190801:listManagedClusterAccessProfile", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
+        "roleName": args.roleName,
     }, opts);
 }
 
 export interface ListManagedClusterAccessProfileArgs {
-    /**
-     * The name of the role for managed cluster accessProfile resource.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */
@@ -34,6 +30,10 @@ export interface ListManagedClusterAccessProfileArgs {
      * The name of the managed cluster resource.
      */
     readonly resourceName: string;
+    /**
+     * The name of the role for managed cluster accessProfile resource.
+     */
+    readonly roleName: string;
 }
 
 /**

@@ -41,7 +41,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
     /**
      * Name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Tenant Id.
      */
@@ -64,8 +64,8 @@ export class CustomerSubscription extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CustomerSubscriptionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.customerSubscriptionName === undefined) {
+                throw new Error("Missing required property 'customerSubscriptionName'");
             }
             if (!args || args.registrationName === undefined) {
                 throw new Error("Missing required property 'registrationName'");
@@ -73,11 +73,12 @@ export class CustomerSubscription extends pulumi.CustomResource {
             if (!args || args.resourceGroup === undefined) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
+            inputs["customerSubscriptionName"] = args ? args.customerSubscriptionName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["registrationName"] = args ? args.registrationName : undefined;
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,13 +97,13 @@ export class CustomerSubscription extends pulumi.CustomResource {
  */
 export interface CustomerSubscriptionArgs {
     /**
+     * Name of the product.
+     */
+    readonly customerSubscriptionName: pulumi.Input<string>;
+    /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */
     readonly etag?: pulumi.Input<string>;
-    /**
-     * Name of the product.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Name of the Azure Stack registration.
      */

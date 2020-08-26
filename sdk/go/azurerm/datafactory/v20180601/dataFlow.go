@@ -27,11 +27,11 @@ type DataFlow struct {
 // NewDataFlow registers a new resource with the given unique name, arguments, and options.
 func NewDataFlow(ctx *pulumi.Context,
 	name string, args *DataFlowArgs, opts ...pulumi.ResourceOption) (*DataFlow, error) {
+	if args == nil || args.DataFlowName == nil {
+		return nil, errors.New("missing required argument 'DataFlowName'")
+	}
 	if args == nil || args.FactoryName == nil {
 		return nil, errors.New("missing required argument 'FactoryName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -90,10 +90,10 @@ func (DataFlowState) ElementType() reflect.Type {
 }
 
 type dataFlowArgs struct {
+	// The data flow name.
+	DataFlowName string `pulumi:"dataFlowName"`
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
-	// The data flow name.
-	Name string `pulumi:"name"`
 	// Data flow properties.
 	Properties DataFlowType `pulumi:"properties"`
 	// The resource group name.
@@ -102,10 +102,10 @@ type dataFlowArgs struct {
 
 // The set of arguments for constructing a DataFlow resource.
 type DataFlowArgs struct {
+	// The data flow name.
+	DataFlowName pulumi.StringInput
 	// The factory name.
 	FactoryName pulumi.StringInput
-	// The data flow name.
-	Name pulumi.StringInput
 	// Data flow properties.
 	Properties DataFlowTypeInput
 	// The resource group name.

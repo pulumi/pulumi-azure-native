@@ -45,7 +45,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -64,8 +64,8 @@ export class Database extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DatabaseArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.databaseName === undefined) {
+                throw new Error("Missing required property 'databaseName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -75,9 +75,10 @@ export class Database extends pulumi.CustomResource {
             }
             inputs["charset"] = args ? args.charset : undefined;
             inputs["collation"] = args ? args.collation : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,7 +107,7 @@ export interface DatabaseArgs {
     /**
      * The name of the database.
      */
-    readonly name: pulumi.Input<string>;
+    readonly databaseName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

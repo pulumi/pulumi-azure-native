@@ -18,7 +18,7 @@ func LookupIdentityProvider(ctx *pulumi.Context, args *LookupIdentityProviderArg
 
 type LookupIdentityProviderArgs struct {
 	// Identity Provider Type identifier.
-	Name string `pulumi:"name"`
+	IdentityProviderName string `pulumi:"identityProviderName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.

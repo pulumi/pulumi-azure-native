@@ -30,6 +30,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
+                 virtual_network_peering_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -43,7 +44,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_virtual_network_access: Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the peering.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] peering_state: The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] remote_address_space: The reference of the remote virtual network address space.
@@ -51,6 +52,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
+        :param pulumi.Input[str] virtual_network_peering_name: The name of the peering.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,8 +76,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             __props__['allow_virtual_network_access'] = allow_virtual_network_access
             __props__['etag'] = etag
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['peering_state'] = peering_state
             __props__['provisioning_state'] = provisioning_state
@@ -88,6 +88,9 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             if virtual_network_name is None:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name
+            if virtual_network_peering_name is None:
+                raise TypeError("Missing required property 'virtual_network_peering_name'")
+            __props__['virtual_network_peering_name'] = virtual_network_peering_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20160601:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20160901:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20161201:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20170301:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20170601:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20170801:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20170901:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20171001:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20171101:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20180101:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20180201:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20180601:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20180701:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20180801:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20181001:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20181101:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20181201:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20190201:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20190401:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20190601:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20190701:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20190801:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20190901:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20191101:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20191201:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20200301:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20200401:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20200501:VirtualNetworkPeering"), pulumi.Alias(type_="azurerm:network/v20200601:VirtualNetworkPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkPeering, __self__).__init__(

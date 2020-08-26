@@ -27,8 +27,8 @@ type RegistrationDefinition struct {
 // NewRegistrationDefinition registers a new resource with the given unique name, arguments, and options.
 func NewRegistrationDefinition(ctx *pulumi.Context,
 	name string, args *RegistrationDefinitionArgs, opts ...pulumi.ResourceOption) (*RegistrationDefinition, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.RegistrationDefinitionId == nil {
+		return nil, errors.New("missing required argument 'RegistrationDefinitionId'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -90,24 +90,24 @@ func (RegistrationDefinitionState) ElementType() reflect.Type {
 }
 
 type registrationDefinitionArgs struct {
-	// Guid of the registration definition.
-	Name string `pulumi:"name"`
 	// Plan details for the managed services.
 	Plan *Plan `pulumi:"plan"`
 	// Properties of a registration definition.
 	Properties *RegistrationDefinitionProperties `pulumi:"properties"`
+	// Guid of the registration definition.
+	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
 	// Scope of the resource.
 	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RegistrationDefinition resource.
 type RegistrationDefinitionArgs struct {
-	// Guid of the registration definition.
-	Name pulumi.StringInput
 	// Plan details for the managed services.
 	Plan PlanPtrInput
 	// Properties of a registration definition.
 	Properties RegistrationDefinitionPropertiesPtrInput
+	// Guid of the registration definition.
+	RegistrationDefinitionId pulumi.StringInput
 	// Scope of the resource.
 	Scope pulumi.StringInput
 }

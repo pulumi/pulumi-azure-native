@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the prefix.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the peering service.
         /// </summary>
         [Input("peeringServiceName", required: true)]
         public string PeeringServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the prefix.
+        /// </summary>
+        [Input("prefixName", required: true)]
+        public string PrefixName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

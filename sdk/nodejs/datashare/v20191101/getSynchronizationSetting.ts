@@ -16,9 +16,9 @@ export function getSynchronizationSetting(args: GetSynchronizationSettingArgs, o
     }
     return pulumi.runtime.invoke("azurerm:datashare/v20191101:getSynchronizationSetting", {
         "accountName": args.accountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "shareName": args.shareName,
+        "synchronizationSettingName": args.synchronizationSettingName,
     }, opts);
 }
 
@@ -28,10 +28,6 @@ export interface GetSynchronizationSettingArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the synchronizationSetting.
-     */
-    readonly name: string;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: string;
@@ -39,6 +35,10 @@ export interface GetSynchronizationSettingArgs {
      * The name of the share.
      */
     readonly shareName: string;
+    /**
+     * The name of the synchronizationSetting.
+     */
+    readonly synchronizationSettingName: string;
 }
 
 /**

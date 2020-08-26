@@ -204,12 +204,6 @@ namespace Pulumi.AzureRM.AVS.V20200320
         public Input<Inputs.ManagementClusterArgs> ManagementCluster { get; set; } = null!;
 
         /// <summary>
-        /// Name of the private cloud
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
         /// </summary>
         [Input("networkBlock", required: true)]
@@ -220,6 +214,12 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// </summary>
         [Input("nsxtPassword")]
         public Input<string>? NsxtPassword { get; set; }
+
+        /// <summary>
+        /// Name of the private cloud
+        /// </summary>
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

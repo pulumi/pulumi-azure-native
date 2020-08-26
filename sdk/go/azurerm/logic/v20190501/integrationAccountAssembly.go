@@ -29,11 +29,11 @@ type IntegrationAccountAssembly struct {
 // NewIntegrationAccountAssembly registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountAssembly(ctx *pulumi.Context,
 	name string, args *IntegrationAccountAssemblyArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountAssembly, error) {
+	if args == nil || args.AssemblyArtifactName == nil {
+		return nil, errors.New("missing required argument 'AssemblyArtifactName'")
+	}
 	if args == nil || args.IntegrationAccountName == nil {
 		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -102,12 +102,12 @@ func (IntegrationAccountAssemblyState) ElementType() reflect.Type {
 }
 
 type integrationAccountAssemblyArgs struct {
+	// The assembly artifact name.
+	AssemblyArtifactName string `pulumi:"assemblyArtifactName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
-	// The assembly artifact name.
-	Name string `pulumi:"name"`
 	// The assembly properties.
 	Properties AssemblyProperties `pulumi:"properties"`
 	// The resource group name.
@@ -118,12 +118,12 @@ type integrationAccountAssemblyArgs struct {
 
 // The set of arguments for constructing a IntegrationAccountAssembly resource.
 type IntegrationAccountAssemblyArgs struct {
+	// The assembly artifact name.
+	AssemblyArtifactName pulumi.StringInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
-	// The assembly artifact name.
-	Name pulumi.StringInput
 	// The assembly properties.
 	Properties AssemblyPropertiesInput
 	// The resource group name.

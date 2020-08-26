@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Devices.V20200615
     public sealed class GetIotHubResourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the IoT hub.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group that contains the IoT hub.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the IoT hub.
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public string ResourceName { get; set; } = null!;
 
         public GetIotHubResourceArgs()
         {

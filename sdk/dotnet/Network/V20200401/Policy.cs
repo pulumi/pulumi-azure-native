@@ -160,8 +160,8 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// The name of the Web Application Firewall Policy.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
         /// Describes settings for the policy.

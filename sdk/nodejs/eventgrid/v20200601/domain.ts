@@ -63,7 +63,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * List of private endpoint connections.
      */
@@ -99,26 +99,27 @@ export class Domain extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DomainArgs | undefined;
+            if (!args || args.domainName === undefined) {
+                throw new Error("Missing required property 'domainName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["domainName"] = args ? args.domainName : undefined;
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             inputs["inputSchema"] = args ? args.inputSchema : undefined;
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["endpoint"] = undefined /*out*/;
             inputs["metricResourceId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -140,6 +141,10 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainArgs {
     /**
+     * Name of the domain.
+     */
+    readonly domainName: pulumi.Input<string>;
+    /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
     readonly inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200601.InboundIpRule>[]>;
@@ -155,10 +160,6 @@ export interface DomainArgs {
      * Location of the resource.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of the domain.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * List of private endpoint connections.
      */

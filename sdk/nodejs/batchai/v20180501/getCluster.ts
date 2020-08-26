@@ -15,7 +15,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:batchai/v20180501:getCluster", {
-        "name": args.name,
+        "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetClusterArgs {
     /**
      * The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
-    readonly name: string;
+    readonly clusterName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

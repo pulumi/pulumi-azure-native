@@ -174,6 +174,12 @@ namespace Pulumi.AzureRM.Cdn.V20160402
         }
 
         /// <summary>
+        /// Name of the endpoint within the CDN profile.
+        /// </summary>
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
         /// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
         /// </summary>
         [Input("isCompressionEnabled")]
@@ -196,12 +202,6 @@ namespace Pulumi.AzureRM.Cdn.V20160402
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the endpoint within the CDN profile.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.

@@ -15,7 +15,7 @@ export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:resources/v20191001:getResourceGroup", {
-        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -23,7 +23,7 @@ export interface GetResourceGroupArgs {
     /**
      * The name of the resource group to get. The name is case insensitive.
      */
-    readonly name: string;
+    readonly resourceGroupName: string;
 }
 
 /**

@@ -15,9 +15,9 @@ class CustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_domain_name: Optional[pulumi.Input[str]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -28,9 +28,9 @@ class CustomDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] custom_domain_name: Name of the custom domain within an endpoint.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[str] host_name: The host name of the custom domain. Must be a domain name.
-        :param pulumi.Input[str] name: Name of the custom domain within an endpoint.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         """
@@ -51,15 +51,15 @@ class CustomDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if custom_domain_name is None:
+                raise TypeError("Missing required property 'custom_domain_name'")
+            __props__['custom_domain_name'] = custom_domain_name
             if endpoint_name is None:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             if host_name is None:
                 raise TypeError("Missing required property 'host_name'")
             __props__['host_name'] = host_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if profile_name is None:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
@@ -68,6 +68,7 @@ class CustomDomain(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['custom_https_provisioning_state'] = None
             __props__['location'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['tags'] = None

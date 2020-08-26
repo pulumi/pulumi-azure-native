@@ -55,7 +55,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * Name of Cache.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
@@ -94,15 +94,15 @@ export class Cache extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CacheArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.cacheName === undefined) {
+                throw new Error("Missing required property 'cacheName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["cacheName"] = args ? args.cacheName : undefined;
             inputs["cacheSizeGB"] = args ? args.cacheSizeGB : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -110,6 +110,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["health"] = undefined /*out*/;
             inputs["mountAddresses"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["upgradeStatus"] = undefined /*out*/;
         }
@@ -131,6 +132,10 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheArgs {
     /**
+     * Name of Cache.
+     */
+    readonly cacheName: pulumi.Input<string>;
+    /**
      * The size of this Cache, in GB.
      */
     readonly cacheSizeGB?: pulumi.Input<number>;
@@ -138,10 +143,6 @@ export interface CacheArgs {
      * Region name string.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * Name of Cache.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */

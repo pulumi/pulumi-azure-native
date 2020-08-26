@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20190901
     public sealed class GetVpnConnectionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the vpn connection.
+        /// </summary>
+        [Input("connectionName", required: true)]
+        public string ConnectionName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the gateway.
         /// </summary>
         [Input("gatewayName", required: true)]
         public string GatewayName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the vpn connection.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name of the VpnGateway.

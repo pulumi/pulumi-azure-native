@@ -79,7 +79,7 @@ export class Python2Package extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets the provisioning state of the module.
      */
@@ -120,15 +120,15 @@ export class Python2Package extends pulumi.CustomResource {
             if (!args || args.contentLink === undefined) {
                 throw new Error("Missing required property 'contentLink'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.packageName === undefined) {
+                throw new Error("Missing required property 'packageName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["contentLink"] = args ? args.contentLink : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["packageName"] = args ? args.packageName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["activityCount"] = undefined /*out*/;
@@ -140,6 +140,7 @@ export class Python2Package extends pulumi.CustomResource {
             inputs["isGlobal"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["sizeInBytes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -171,7 +172,7 @@ export interface Python2PackageArgs {
     /**
      * The name of python package.
      */
-    readonly name: pulumi.Input<string>;
+    readonly packageName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

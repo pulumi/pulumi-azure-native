@@ -116,6 +116,9 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Slot == nil {
+		return nil, errors.New("missing required argument 'Slot'")
+	}
 	if args == nil {
 		args = &WebAppSlotArgs{}
 	}
@@ -379,7 +382,7 @@ type webAppSlotArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
-	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name string `pulumi:"name"`
 	// Site redundancy mode
 	RedundancyMode *string `pulumi:"redundancyMode"`
@@ -393,6 +396,8 @@ type webAppSlotArgs struct {
 	ServerFarmId *string `pulumi:"serverFarmId"`
 	// Configuration of the app.
 	SiteConfig *SiteConfig `pulumi:"siteConfig"`
+	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+	Slot string `pulumi:"slot"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -433,7 +438,7 @@ type WebAppSlotArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
-	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name pulumi.StringInput
 	// Site redundancy mode
 	RedundancyMode pulumi.StringPtrInput
@@ -447,6 +452,8 @@ type WebAppSlotArgs struct {
 	ServerFarmId pulumi.StringPtrInput
 	// Configuration of the app.
 	SiteConfig SiteConfigPtrInput
+	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+	Slot pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

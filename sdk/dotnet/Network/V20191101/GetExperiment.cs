@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// The Experiment identifier associated with the Experiment
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("experimentName", required: true)]
+        public string ExperimentName { get; set; } = null!;
 
         /// <summary>
         /// The Profile identifier associated with the Tenant and Partner

@@ -18,7 +18,7 @@ func LookupVirtualHubIpConfiguration(ctx *pulumi.Context, args *LookupVirtualHub
 
 type LookupVirtualHubIpConfigurationArgs struct {
 	// The name of the ipconfig.
-	Name string `pulumi:"name"`
+	IpConfigName string `pulumi:"ipConfigName"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the VirtualHub.

@@ -17,8 +17,8 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointArgs']]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -30,8 +30,8 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the private endpoint connection associated with the SignalR resource.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: Private endpoint associated with the private endpoint connection
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the SignalR resource.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: Connection state
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the SignalR resource.
@@ -53,10 +53,10 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['private_endpoint'] = private_endpoint
+            if private_endpoint_connection_name is None:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
+            __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -64,6 +64,7 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
             if resource_name_ is None:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         super(SignalRPrivateEndpointConnection, __self__).__init__(

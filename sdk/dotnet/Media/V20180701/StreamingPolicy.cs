@@ -142,12 +142,6 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Input<Inputs.EnvelopeEncryptionArgs>? EnvelopeEncryption { get; set; }
 
         /// <summary>
-        /// The Streaming Policy name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// Configurations of NoEncryption
         /// </summary>
         [Input("noEncryption")]
@@ -158,6 +152,12 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Streaming Policy name.
+        /// </summary>
+        [Input("streamingPolicyName", required: true)]
+        public Input<string> StreamingPolicyName { get; set; } = null!;
 
         public StreamingPolicyArgs()
         {

@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         /// <summary>
         /// The name of the firewall rule to retrieve.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("firewallRuleName", required: true)]
+        public string FirewallRuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.

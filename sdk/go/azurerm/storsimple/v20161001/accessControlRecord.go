@@ -25,14 +25,14 @@ type AccessControlRecord struct {
 // NewAccessControlRecord registers a new resource with the given unique name, arguments, and options.
 func NewAccessControlRecord(ctx *pulumi.Context,
 	name string, args *AccessControlRecordArgs, opts ...pulumi.ResourceOption) (*AccessControlRecord, error) {
+	if args == nil || args.AccessControlRecordName == nil {
+		return nil, errors.New("missing required argument 'AccessControlRecordName'")
+	}
 	if args == nil || args.InitiatorName == nil {
 		return nil, errors.New("missing required argument 'InitiatorName'")
 	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -90,24 +90,24 @@ func (AccessControlRecordState) ElementType() reflect.Type {
 }
 
 type accessControlRecordArgs struct {
+	// The name of the access control record.
+	AccessControlRecordName string `pulumi:"accessControlRecordName"`
 	// The Iscsi initiator name (IQN)
 	InitiatorName string `pulumi:"initiatorName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The name of the access control record.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a AccessControlRecord resource.
 type AccessControlRecordArgs struct {
+	// The name of the access control record.
+	AccessControlRecordName pulumi.StringInput
 	// The Iscsi initiator name (IQN)
 	InitiatorName pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The name of the access control record.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 }

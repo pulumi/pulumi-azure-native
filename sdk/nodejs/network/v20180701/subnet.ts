@@ -90,11 +90,11 @@ export class Subnet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SubnetArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.subnetName === undefined) {
+                throw new Error("Missing required property 'subnetName'");
             }
             if (!args || args.virtualNetworkName === undefined) {
                 throw new Error("Missing required property 'virtualNetworkName'");
@@ -110,6 +110,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["routeTable"] = args ? args.routeTable : undefined;
             inputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
+            inputs["subnetName"] = args ? args.subnetName : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["ipConfigurations"] = undefined /*out*/;
         }
@@ -143,9 +144,9 @@ export interface SubnetArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the subnet.
+     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The reference of the NetworkSecurityGroup resource.
      */
@@ -174,6 +175,10 @@ export interface SubnetArgs {
      * An array of service endpoints.
      */
     readonly serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.v20180701.ServiceEndpointPropertiesFormat>[]>;
+    /**
+     * The name of the subnet.
+     */
+    readonly subnetName: pulumi.Input<string>;
     /**
      * The name of the virtual network.
      */

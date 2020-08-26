@@ -17,10 +17,10 @@ func LookupStorageInsight(ctx *pulumi.Context, args *LookupStorageInsightArgs, o
 }
 
 type LookupStorageInsightArgs struct {
-	// Name of the storageInsightsConfigs resource
-	Name string `pulumi:"name"`
 	// The Resource Group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the storageInsightsConfigs resource
+	StorageInsightName string `pulumi:"storageInsightName"`
 	// The Log Analytics Workspace name.
 	WorkspaceName string `pulumi:"workspaceName"`
 }

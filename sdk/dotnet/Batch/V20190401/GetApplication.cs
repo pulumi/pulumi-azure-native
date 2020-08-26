@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.Batch.V20190401
         /// <summary>
         /// The name of the application. This must be unique within the account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("applicationName", required: true)]
+        public string ApplicationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.

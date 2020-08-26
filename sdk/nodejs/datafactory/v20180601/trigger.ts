@@ -43,7 +43,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the trigger.
      */
@@ -69,20 +69,21 @@ export class Trigger extends pulumi.CustomResource {
             if (!args || args.factoryName === undefined) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.triggerName === undefined) {
+                throw new Error("Missing required property 'triggerName'");
+            }
             inputs["factoryName"] = args ? args.factoryName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["triggerName"] = args ? args.triggerName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,10 +106,6 @@ export interface TriggerArgs {
      */
     readonly factoryName: pulumi.Input<string>;
     /**
-     * The trigger name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Properties of the trigger.
      */
     readonly properties: pulumi.Input<inputs.datafactory.v20180601.Trigger>;
@@ -116,4 +113,8 @@ export interface TriggerArgs {
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The trigger name.
+     */
+    readonly triggerName: pulumi.Input<string>;
 }

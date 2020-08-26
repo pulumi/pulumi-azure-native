@@ -117,7 +117,7 @@ class AwaitableGetManagementGroupResult(GetManagementGroupResult):
 
 def get_management_group(expand: Optional[str] = None,
                          filter: Optional[str] = None,
-                         name: Optional[str] = None,
+                         group_id: Optional[str] = None,
                          recurse: Optional[bool] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupResult:
     """
@@ -125,13 +125,13 @@ def get_management_group(expand: Optional[str] = None,
 
     :param str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
     :param str filter: A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
-    :param str name: Management Group ID.
+    :param str group_id: Management Group ID.
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
     """
     __args__ = dict()
     __args__['expand'] = expand
     __args__['filter'] = filter
-    __args__['name'] = name
+    __args__['groupId'] = group_id
     __args__['recurse'] = recurse
     if opts is None:
         opts = pulumi.InvokeOptions()

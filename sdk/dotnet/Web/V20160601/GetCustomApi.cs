@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Web.V20160601
         /// <summary>
         /// API name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("apiName", required: true)]
+        public string ApiName { get; set; } = null!;
 
         /// <summary>
         /// The resource group

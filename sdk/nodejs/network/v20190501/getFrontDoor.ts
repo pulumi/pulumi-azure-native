@@ -15,7 +15,7 @@ export function getFrontDoor(args: GetFrontDoorArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20190501:getFrontDoor", {
-        "name": args.name,
+        "frontDoorName": args.frontDoorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetFrontDoorArgs {
     /**
      * Name of the Front Door which is globally unique.
      */
-    readonly name: string;
+    readonly frontDoorName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */

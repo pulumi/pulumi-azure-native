@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
     public sealed class GetVirtualNetworkRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the virtual network rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
         /// </summary>
         [Input("serverName", required: true)]
         public string ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network rule.
+        /// </summary>
+        [Input("virtualNetworkRuleName", required: true)]
+        public string VirtualNetworkRuleName { get; set; } = null!;
 
         public GetVirtualNetworkRuleArgs()
         {

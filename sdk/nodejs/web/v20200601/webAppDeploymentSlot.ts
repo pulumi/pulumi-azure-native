@@ -96,6 +96,9 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WebAppDeploymentSlotArgs | undefined;
+            if (!args || args.id === undefined) {
+                throw new Error("Missing required property 'id'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -111,6 +114,7 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
             inputs["deployer"] = args ? args.deployer : undefined;
             inputs["details"] = args ? args.details : undefined;
             inputs["endTime"] = args ? args.endTime : undefined;
+            inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["message"] = args ? args.message : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -162,6 +166,10 @@ export interface WebAppDeploymentSlotArgs {
      */
     readonly endTime?: pulumi.Input<string>;
     /**
+     * ID of an existing deployment.
+     */
+    readonly id: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -170,7 +178,7 @@ export interface WebAppDeploymentSlotArgs {
      */
     readonly message?: pulumi.Input<string>;
     /**
-     * ID of an existing deployment.
+     * Name of the app.
      */
     readonly name: pulumi.Input<string>;
     /**

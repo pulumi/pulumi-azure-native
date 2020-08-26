@@ -100,6 +100,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         public Input<string> EnvironmentName { get; set; } = null!;
 
         /// <summary>
+        /// Name of the event source.
+        /// </summary>
+        [Input("eventSourceName", required: true)]
+        public Input<string> EventSourceName { get; set; } = null!;
+
+        /// <summary>
         /// The kind of the event source.
         /// </summary>
         [Input("kind", required: true)]
@@ -110,12 +116,6 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the event source.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

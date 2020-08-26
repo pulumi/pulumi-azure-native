@@ -39,14 +39,14 @@ type BackupPolicy struct {
 // NewBackupPolicy registers a new resource with the given unique name, arguments, and options.
 func NewBackupPolicy(ctx *pulumi.Context,
 	name string, args *BackupPolicyArgs, opts ...pulumi.ResourceOption) (*BackupPolicy, error) {
+	if args == nil || args.BackupPolicyName == nil {
+		return nil, errors.New("missing required argument 'BackupPolicyName'")
+	}
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
 	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -129,14 +129,14 @@ func (BackupPolicyState) ElementType() reflect.Type {
 }
 
 type backupPolicyArgs struct {
+	// The name of the backup policy to be created/updated.
+	BackupPolicyName string `pulumi:"backupPolicyName"`
 	// The device name
 	DeviceName string `pulumi:"deviceName"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The name of the backup policy to be created/updated.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The path IDs of the volumes which are part of the backup policy.
@@ -145,14 +145,14 @@ type backupPolicyArgs struct {
 
 // The set of arguments for constructing a BackupPolicy resource.
 type BackupPolicyArgs struct {
+	// The name of the backup policy to be created/updated.
+	BackupPolicyName pulumi.StringInput
 	// The device name
 	DeviceName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The name of the backup policy to be created/updated.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The path IDs of the volumes which are part of the backup policy.

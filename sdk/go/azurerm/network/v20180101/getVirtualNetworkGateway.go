@@ -17,10 +17,10 @@ func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetwork
 }
 
 type LookupVirtualNetworkGatewayArgs struct {
-	// The name of the virtual network gateway.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the virtual network gateway.
+	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
 }
 
 // A common class for general resource information

@@ -20,8 +20,8 @@ class RouteTable(pulumi.CustomResource):
                  disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_table_name: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RouteArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -35,8 +35,8 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_bgp_route_propagation: Whether to disable the routes learned by BGP on that route table. True means disable.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the route table.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] route_table_name: The name of the route table.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RouteArgs']]]] routes: Collection of routes contained within a route table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -60,15 +60,16 @@ class RouteTable(pulumi.CustomResource):
             __props__['disable_bgp_route_propagation'] = disable_bgp_route_propagation
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if route_table_name is None:
+                raise TypeError("Missing required property 'route_table_name'")
+            __props__['route_table_name'] = route_table_name
             __props__['routes'] = routes
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['subnets'] = None
             __props__['type'] = None

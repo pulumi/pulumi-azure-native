@@ -19,11 +19,11 @@ class Diagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_log: Optional[pulumi.Input[str]] = None,
                  backend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
+                 diagnostic_id: Optional[pulumi.Input[str]] = None,
                  frontend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
                  http_correlation_protocol: Optional[pulumi.Input[str]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
                  logger_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sampling: Optional[pulumi.Input[pulumi.InputType['SamplingSettingsArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -38,11 +38,11 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] always_log: Specifies for what type of messages sampling settings should not apply.
         :param pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']] backend: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+        :param pulumi.Input[str] diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']] frontend: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         :param pulumi.Input[str] http_correlation_protocol: Sets correlation protocol to use for Application Insights diagnostics.
         :param pulumi.Input[bool] log_client_ip: Log the ClientIP. Default is false.
         :param pulumi.Input[str] logger_id: Resource Id of a target logger.
-        :param pulumi.Input[str] name: Diagnostic identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SamplingSettingsArgs']] sampling: Sampling settings for Diagnostic.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -67,15 +67,15 @@ class Diagnostic(pulumi.CustomResource):
 
             __props__['always_log'] = always_log
             __props__['backend'] = backend
+            if diagnostic_id is None:
+                raise TypeError("Missing required property 'diagnostic_id'")
+            __props__['diagnostic_id'] = diagnostic_id
             __props__['frontend'] = frontend
             __props__['http_correlation_protocol'] = http_correlation_protocol
             __props__['log_client_ip'] = log_client_ip
             if logger_id is None:
                 raise TypeError("Missing required property 'logger_id'")
             __props__['logger_id'] = logger_id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -84,6 +84,7 @@ class Diagnostic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['verbosity'] = verbosity
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:Diagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Diagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Diagnostic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

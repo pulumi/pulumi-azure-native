@@ -223,16 +223,16 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the private link service.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the private link service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

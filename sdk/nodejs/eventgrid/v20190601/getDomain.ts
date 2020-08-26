@@ -15,7 +15,7 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:eventgrid/v20190601:getDomain", {
-        "name": args.name,
+        "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetDomainArgs {
     /**
      * Name of the domain.
      */
-    readonly name: string;
+    readonly domainName: string;
     /**
      * The name of the resource group within the user's subscription.
      */

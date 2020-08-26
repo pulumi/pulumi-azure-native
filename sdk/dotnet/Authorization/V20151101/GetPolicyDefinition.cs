@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Authorization.V20151101
         /// <summary>
         /// The policy definition name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("policyDefinitionName", required: true)]
+        public string PolicyDefinitionName { get; set; } = null!;
 
         public GetPolicyDefinitionArgs()
         {

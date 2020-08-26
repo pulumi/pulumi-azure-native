@@ -28,11 +28,11 @@ type WorkspaceCollection struct {
 // NewWorkspaceCollection registers a new resource with the given unique name, arguments, and options.
 func NewWorkspaceCollection(ctx *pulumi.Context,
 	name string, args *WorkspaceCollectionArgs, opts ...pulumi.ResourceOption) (*WorkspaceCollection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.WorkspaceCollectionName == nil {
+		return nil, errors.New("missing required argument 'WorkspaceCollectionName'")
 	}
 	if args == nil {
 		args = &WorkspaceCollectionArgs{}
@@ -91,24 +91,24 @@ func (WorkspaceCollectionState) ElementType() reflect.Type {
 type workspaceCollectionArgs struct {
 	// Azure location
 	Location *string `pulumi:"location"`
-	// Power BI Embedded Workspace Collection name
-	Name string `pulumi:"name"`
 	// Azure resource group
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	Sku               *AzureSku         `pulumi:"sku"`
 	Tags              map[string]string `pulumi:"tags"`
+	// Power BI Embedded Workspace Collection name
+	WorkspaceCollectionName string `pulumi:"workspaceCollectionName"`
 }
 
 // The set of arguments for constructing a WorkspaceCollection resource.
 type WorkspaceCollectionArgs struct {
 	// Azure location
 	Location pulumi.StringPtrInput
-	// Power BI Embedded Workspace Collection name
-	Name pulumi.StringInput
 	// Azure resource group
 	ResourceGroupName pulumi.StringInput
 	Sku               AzureSkuPtrInput
 	Tags              pulumi.StringMapInput
+	// Power BI Embedded Workspace Collection name
+	WorkspaceCollectionName pulumi.StringInput
 }
 
 func (WorkspaceCollectionArgs) ElementType() reflect.Type {

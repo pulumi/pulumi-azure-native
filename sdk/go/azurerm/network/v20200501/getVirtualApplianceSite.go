@@ -17,12 +17,12 @@ func LookupVirtualApplianceSite(ctx *pulumi.Context, args *LookupVirtualApplianc
 }
 
 type LookupVirtualApplianceSiteArgs struct {
-	// The name of the site.
-	Name string `pulumi:"name"`
 	// The name of the Network Virtual Appliance.
 	NetworkVirtualApplianceName string `pulumi:"networkVirtualApplianceName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the site.
+	SiteName string `pulumi:"siteName"`
 }
 
 // Virtual Appliance Site resource.

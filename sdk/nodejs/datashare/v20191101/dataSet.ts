@@ -41,7 +41,7 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * Name of the azure resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Type of the azure resource
      */
@@ -63,11 +63,11 @@ export class DataSet extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.dataSetName === undefined) {
+                throw new Error("Missing required property 'dataSetName'");
+            }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -76,10 +76,11 @@ export class DataSet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'shareName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["dataSetName"] = args ? args.dataSetName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareName"] = args ? args.shareName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,13 +103,13 @@ export interface DataSetArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The name of the dataSet.
+     */
+    readonly dataSetName: pulumi.Input<string>;
+    /**
      * Kind of data set.
      */
     readonly kind: pulumi.Input<string>;
-    /**
-     * The name of the dataSet.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name.
      */

@@ -45,7 +45,7 @@ export class ApplicationType extends pulumi.CustomResource {
     /**
      * Azure resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
@@ -72,21 +72,22 @@ export class ApplicationType extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ApplicationTypeArgs | undefined;
+            if (!args || args.applicationTypeName === undefined) {
+                throw new Error("Missing required property 'applicationTypeName'");
+            }
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["applicationTypeName"] = args ? args.applicationTypeName : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -108,6 +109,10 @@ export class ApplicationType extends pulumi.CustomResource {
  */
 export interface ApplicationTypeArgs {
     /**
+     * The name of the application type name resource.
+     */
+    readonly applicationTypeName: pulumi.Input<string>;
+    /**
      * The name of the cluster resource.
      */
     readonly clusterName: pulumi.Input<string>;
@@ -115,10 +120,6 @@ export interface ApplicationTypeArgs {
      * It will be deprecated in New API, resource location depends on the parent resource.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the application type name resource.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

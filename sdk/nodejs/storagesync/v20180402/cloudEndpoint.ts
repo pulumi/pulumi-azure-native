@@ -53,7 +53,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Partnership Id
      */
@@ -92,8 +92,8 @@ export class CloudEndpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CloudEndpointArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.cloudEndpointName === undefined) {
+                throw new Error("Missing required property 'cloudEndpointName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -104,8 +104,8 @@ export class CloudEndpoint extends pulumi.CustomResource {
             if (!args || args.syncGroupName === undefined) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
+            inputs["cloudEndpointName"] = args ? args.cloudEndpointName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
             inputs["storageAccountShareName"] = args ? args.storageAccountShareName : undefined;
@@ -117,6 +117,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
             inputs["friendlyName"] = undefined /*out*/;
             inputs["lastOperationName"] = undefined /*out*/;
             inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["partnershipId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -139,13 +140,13 @@ export class CloudEndpoint extends pulumi.CustomResource {
  */
 export interface CloudEndpointArgs {
     /**
+     * Name of Cloud Endpoint object.
+     */
+    readonly cloudEndpointName: pulumi.Input<string>;
+    /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * Name of Cloud Endpoint object.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

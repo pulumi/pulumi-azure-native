@@ -78,15 +78,15 @@ class AwaitableGetManagementLockResult(GetManagementLockResult):
             type=self.type)
 
 
-def get_management_lock(name: Optional[str] = None,
+def get_management_lock(lock_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementLockResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the management lock.
+    :param str lock_name: Name of the management lock.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['lockName'] = lock_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

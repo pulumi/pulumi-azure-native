@@ -15,21 +15,21 @@ export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:relay/v20170401:getWCFRelay", {
-        "name": args.name,
         "namespaceName": args.namespaceName,
+        "relayName": args.relayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetWCFRelayArgs {
     /**
-     * The relay name.
-     */
-    readonly name: string;
-    /**
      * The namespace name
      */
     readonly namespaceName: string;
+    /**
+     * The relay name.
+     */
+    readonly relayName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */

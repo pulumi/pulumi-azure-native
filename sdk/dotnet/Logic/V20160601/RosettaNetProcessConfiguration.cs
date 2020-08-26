@@ -186,12 +186,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
         }
 
         /// <summary>
-        /// The integration account RosettaNet ProcessConfiguration name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The integration account RosettaNet process code.
         /// </summary>
         [Input("processCode", required: true)]
@@ -220,6 +214,12 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// </summary>
         [Input("responderRoleSettings", required: true)]
         public Input<Inputs.RosettaNetPipRoleSettingsArgs> ResponderRoleSettings { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account RosettaNet ProcessConfiguration name.
+        /// </summary>
+        [Input("rosettaNetProcessConfigurationName", required: true)]
+        public Input<string> RosettaNetProcessConfigurationName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

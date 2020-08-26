@@ -25,12 +25,12 @@ class Cluster(pulumi.CustomResource):
                  client_certificate_common_names: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]]] = None,
                  client_certificate_thumbprints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
                  diagnostics_storage_account_config: Optional[pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']]] = None,
                  event_store_service_enabled: Optional[pulumi.Input[bool]] = None,
                  fabric_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_endpoint: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  node_types: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]]] = None,
                  reliability_level: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -56,12 +56,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]] client_certificate_common_names: The list of client certificates referenced by common name that are allowed to manage the cluster.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
         :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+        :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']] diagnostics_storage_account_config: The storage account information for storing Service Fabric diagnostic logs.
         :param pulumi.Input[bool] event_store_service_enabled: Indicates if the event store service is enabled.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
         :param pulumi.Input[str] location: Azure resource location.
         :param pulumi.Input[str] management_endpoint: The http management endpoint of the cluster.
-        :param pulumi.Input[str] name: The name of the cluster resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]] node_types: The list of node types in the cluster.
         :param pulumi.Input[str] reliability_level: The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
                
@@ -106,6 +106,9 @@ class Cluster(pulumi.CustomResource):
             __props__['client_certificate_common_names'] = client_certificate_common_names
             __props__['client_certificate_thumbprints'] = client_certificate_thumbprints
             __props__['cluster_code_version'] = cluster_code_version
+            if cluster_name is None:
+                raise TypeError("Missing required property 'cluster_name'")
+            __props__['cluster_name'] = cluster_name
             __props__['diagnostics_storage_account_config'] = diagnostics_storage_account_config
             __props__['event_store_service_enabled'] = event_store_service_enabled
             __props__['fabric_settings'] = fabric_settings
@@ -115,9 +118,6 @@ class Cluster(pulumi.CustomResource):
             if management_endpoint is None:
                 raise TypeError("Missing required property 'management_endpoint'")
             __props__['management_endpoint'] = management_endpoint
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if node_types is None:
                 raise TypeError("Missing required property 'node_types'")
             __props__['node_types'] = node_types
@@ -136,6 +136,7 @@ class Cluster(pulumi.CustomResource):
             __props__['cluster_id'] = None
             __props__['cluster_state'] = None
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20190301:Cluster")])

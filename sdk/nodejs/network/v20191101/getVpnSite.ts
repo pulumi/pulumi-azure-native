@@ -15,20 +15,20 @@ export function getVpnSite(args: GetVpnSiteArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20191101:getVpnSite", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "vpnSiteName": args.vpnSiteName,
     }, opts);
 }
 
 export interface GetVpnSiteArgs {
     /**
-     * The name of the VpnSite being retrieved.
-     */
-    readonly name: string;
-    /**
      * The resource group name of the VpnSite.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the VpnSite being retrieved.
+     */
+    readonly vpnSiteName: string;
 }
 
 /**

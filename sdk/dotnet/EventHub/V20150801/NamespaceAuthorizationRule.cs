@@ -88,16 +88,22 @@ namespace Pulumi.AzureRM.EventHub.V20150801
     public sealed class NamespaceAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authorization rule name.
+        /// </summary>
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
+
+        /// <summary>
         /// Data center location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The authorization rule name.
+        /// Name of the AuthorizationRule.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The Namespace name

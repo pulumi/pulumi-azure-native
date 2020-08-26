@@ -18,7 +18,7 @@ func LookupConnectionMonitor(ctx *pulumi.Context, args *LookupConnectionMonitorA
 
 type LookupConnectionMonitorArgs struct {
 	// The name of the connection monitor.
-	Name string `pulumi:"name"`
+	ConnectionMonitorName string `pulumi:"connectionMonitorName"`
 	// The name of the Network Watcher resource.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
 	// The name of the resource group containing Network Watcher.

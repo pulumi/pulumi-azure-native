@@ -17,10 +17,10 @@ func LookupGuestConfigurationHCRPAssignment(ctx *pulumi.Context, args *LookupGue
 }
 
 type LookupGuestConfigurationHCRPAssignmentArgs struct {
+	// The guest configuration assignment name.
+	GuestConfigurationAssignmentName string `pulumi:"guestConfigurationAssignmentName"`
 	// The name of the ARC machine.
 	MachineName string `pulumi:"machineName"`
-	// The guest configuration assignment name.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

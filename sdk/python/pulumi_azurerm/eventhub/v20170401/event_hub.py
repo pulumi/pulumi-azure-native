@@ -18,8 +18,8 @@ class EventHub(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capture_description: Optional[pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']]] = None,
+                 event_hub_name: Optional[pulumi.Input[str]] = None,
                  message_retention_in_days: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,8 +33,8 @@ class EventHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']] capture_description: Properties of capture description
+        :param pulumi.Input[str] event_hub_name: The Event Hub name
         :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-        :param pulumi.Input[str] name: The Event Hub name
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
@@ -58,10 +58,10 @@ class EventHub(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['capture_description'] = capture_description
+            if event_hub_name is None:
+                raise TypeError("Missing required property 'event_hub_name'")
+            __props__['event_hub_name'] = event_hub_name
             __props__['message_retention_in_days'] = message_retention_in_days
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
@@ -71,6 +71,7 @@ class EventHub(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
             __props__['created_at'] = None
+            __props__['name'] = None
             __props__['partition_ids'] = None
             __props__['type'] = None
             __props__['updated_at'] = None

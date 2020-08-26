@@ -18,7 +18,7 @@ func LookupActivityLogAlert(ctx *pulumi.Context, args *LookupActivityLogAlertArg
 
 type LookupActivityLogAlertArgs struct {
 	// The name of the activity log alert.
-	Name string `pulumi:"name"`
+	ActivityLogAlertName string `pulumi:"activityLogAlertName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

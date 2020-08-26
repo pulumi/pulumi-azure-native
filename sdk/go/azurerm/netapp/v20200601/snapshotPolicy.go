@@ -43,11 +43,11 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SnapshotPolicyName == nil {
+		return nil, errors.New("missing required argument 'SnapshotPolicyName'")
 	}
 	if args == nil {
 		args = &SnapshotPolicyArgs{}
@@ -132,10 +132,10 @@ type snapshotPolicyArgs struct {
 	Location string `pulumi:"location"`
 	// Schedule for monthly snapshots
 	MonthlySchedule map[string]interface{} `pulumi:"monthlySchedule"`
-	// The name of the snapshot policy target
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the snapshot policy target
+	SnapshotPolicyName string `pulumi:"snapshotPolicyName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Schedule for weekly snapshots
@@ -156,10 +156,10 @@ type SnapshotPolicyArgs struct {
 	Location pulumi.StringInput
 	// Schedule for monthly snapshots
 	MonthlySchedule pulumi.MapInput
-	// The name of the snapshot policy target
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the snapshot policy target
+	SnapshotPolicyName pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Schedule for weekly snapshots

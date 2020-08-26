@@ -15,7 +15,7 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:cdn/v20200415:getPolicy", {
-        "name": args.name,
+        "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetPolicyArgs {
     /**
      * The name of the CdnWebApplicationFirewallPolicy.
      */
-    readonly name: string;
+    readonly policyName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */

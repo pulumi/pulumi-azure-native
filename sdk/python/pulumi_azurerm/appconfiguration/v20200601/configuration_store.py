@@ -17,10 +17,10 @@ class ConfigurationStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 config_store_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -33,10 +33,10 @@ class ConfigurationStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] config_store_name: The name of the configuration store.
         :param pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']] encryption: The encryption settings of the configuration store.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The managed identity information, if configured.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[str] name: The name of the configuration store.
         :param pulumi.Input[str] public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the configuration store.
@@ -59,14 +59,14 @@ class ConfigurationStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if config_store_name is None:
+                raise TypeError("Missing required property 'config_store_name'")
+            __props__['config_store_name'] = config_store_name
             __props__['encryption'] = encryption
             __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['public_network_access'] = public_network_access
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -77,6 +77,7 @@ class ConfigurationStore(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['creation_date'] = None
             __props__['endpoint'] = None
+            __props__['name'] = None
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None

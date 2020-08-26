@@ -189,12 +189,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
             set => _mappings = value;
         }
 
-        /// <summary>
-        /// The name of the relationship link.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("profilePropertyReferences", required: true)]
         private InputList<Inputs.ParticipantProfilePropertyReferenceArgs>? _profilePropertyReferences;
 
@@ -218,6 +212,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
             get => _relatedProfilePropertyReferences ?? (_relatedProfilePropertyReferences = new InputList<Inputs.ParticipantProfilePropertyReferenceArgs>());
             set => _relatedProfilePropertyReferences = value;
         }
+
+        /// <summary>
+        /// The name of the relationship link.
+        /// </summary>
+        [Input("relationshipLinkName", required: true)]
+        public Input<string> RelationshipLinkName { get; set; } = null!;
 
         /// <summary>
         /// The Relationship associated with the Link.

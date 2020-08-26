@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Management.V20200501
         /// <summary>
         /// Management Group ID.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("groupId", required: true)]
+        public string GroupId { get; set; } = null!;
 
         public GetHierarchySettingArgs()
         {

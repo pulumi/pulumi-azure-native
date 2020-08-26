@@ -15,8 +15,8 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:sql/v20140401:getDatabase", {
+        "databaseName": args.databaseName,
         "expand": args.expand,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
@@ -24,13 +24,13 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetDatabaseArgs {
     /**
+     * The name of the database to be retrieved.
+     */
+    readonly databaseName: string;
+    /**
      * A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.
      */
     readonly expand?: string;
-    /**
-     * The name of the database to be retrieved.
-     */
-    readonly name: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

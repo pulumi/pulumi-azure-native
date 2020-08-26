@@ -16,10 +16,10 @@ export function getTagByOperation(args: GetTagByOperationArgs, opts?: pulumi.Inv
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20180101:getTagByOperation", {
         "apiId": args.apiId,
-        "name": args.name,
         "operationId": args.operationId,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
+        "tagId": args.tagId,
     }, opts);
 }
 
@@ -28,10 +28,6 @@ export interface GetTagByOperationArgs {
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
     readonly apiId: string;
-    /**
-     * Tag identifier. Must be unique in the current API Management service instance.
-     */
-    readonly name: string;
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
@@ -44,6 +40,10 @@ export interface GetTagByOperationArgs {
      * The name of the API Management service.
      */
     readonly serviceName: string;
+    /**
+     * Tag identifier. Must be unique in the current API Management service instance.
+     */
+    readonly tagId: string;
 }
 
 /**

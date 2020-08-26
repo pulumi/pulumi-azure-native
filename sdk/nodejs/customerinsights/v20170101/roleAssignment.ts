@@ -39,7 +39,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The name of the metadata object.
      */
-    public /*out*/ readonly assignmentName!: pulumi.Output<string>;
+    public readonly assignmentName!: pulumi.Output<string>;
     /**
      * Widget types set for the assignment.
      */
@@ -71,7 +71,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The principals being assigned to.
      */
@@ -138,11 +138,11 @@ export class RoleAssignment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RoleAssignmentArgs | undefined;
+            if (!args || args.assignmentName === undefined) {
+                throw new Error("Missing required property 'assignmentName'");
+            }
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.principals === undefined) {
                 throw new Error("Missing required property 'principals'");
@@ -153,6 +153,7 @@ export class RoleAssignment extends pulumi.CustomResource {
             if (!args || args.role === undefined) {
                 throw new Error("Missing required property 'role'");
             }
+            inputs["assignmentName"] = args ? args.assignmentName : undefined;
             inputs["conflationPolicies"] = args ? args.conflationPolicies : undefined;
             inputs["connectors"] = args ? args.connectors : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -161,7 +162,6 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["interactions"] = args ? args.interactions : undefined;
             inputs["kpis"] = args ? args.kpis : undefined;
             inputs["links"] = args ? args.links : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["principals"] = args ? args.principals : undefined;
             inputs["profiles"] = args ? args.profiles : undefined;
             inputs["relationshipLinks"] = args ? args.relationshipLinks : undefined;
@@ -173,7 +173,7 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["segments"] = args ? args.segments : undefined;
             inputs["views"] = args ? args.views : undefined;
             inputs["widgetTypes"] = args ? args.widgetTypes : undefined;
-            inputs["assignmentName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -195,6 +195,10 @@ export class RoleAssignment extends pulumi.CustomResource {
  * The set of arguments for constructing a RoleAssignment resource.
  */
 export interface RoleAssignmentArgs {
+    /**
+     * The assignment name
+     */
+    readonly assignmentName: pulumi.Input<string>;
     /**
      * Widget types set for the assignment.
      */
@@ -227,10 +231,6 @@ export interface RoleAssignmentArgs {
      * Links set for the assignment.
      */
     readonly links?: pulumi.Input<inputs.customerinsights.v20170101.ResourceSetDescription>;
-    /**
-     * The assignment name
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The principals being assigned to.
      */

@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Network.V20200601
     public sealed class GetLoadBalancerBackendAddressPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the backend address pool.
+        /// </summary>
+        [Input("backendAddressPoolName", required: true)]
+        public string BackendAddressPoolName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the load balancer.
         /// </summary>
         [Input("loadBalancerName", required: true)]
         public string LoadBalancerName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the backend address pool.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

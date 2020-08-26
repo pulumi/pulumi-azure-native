@@ -41,14 +41,14 @@ type VirtualMachineScaleSetExtension struct {
 // NewVirtualMachineScaleSetExtension registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 	name string, args *VirtualMachineScaleSetExtensionArgs, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetExtension, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.VmScaleSetName == nil {
 		return nil, errors.New("missing required argument 'VmScaleSetName'")
+	}
+	if args == nil || args.VmssExtensionName == nil {
+		return nil, errors.New("missing required argument 'VmssExtensionName'")
 	}
 	if args == nil {
 		args = &VirtualMachineScaleSetExtensionArgs{}
@@ -162,8 +162,8 @@ type virtualMachineScaleSetExtensionArgs struct {
 	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// The name of the VM scale set extension.
-	Name string `pulumi:"name"`
+	// The name of the extension.
+	Name *string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
@@ -180,6 +180,8 @@ type virtualMachineScaleSetExtensionArgs struct {
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 	// The name of the VM scale set where the extension should be create or updated.
 	VmScaleSetName string `pulumi:"vmScaleSetName"`
+	// The name of the VM scale set extension.
+	VmssExtensionName string `pulumi:"vmssExtensionName"`
 }
 
 // The set of arguments for constructing a VirtualMachineScaleSetExtension resource.
@@ -190,8 +192,8 @@ type VirtualMachineScaleSetExtensionArgs struct {
 	EnableAutomaticUpgrade pulumi.BoolPtrInput
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
-	// The name of the VM scale set extension.
-	Name pulumi.StringInput
+	// The name of the extension.
+	Name pulumi.StringPtrInput
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings pulumi.MapInput
 	// Collection of extension names after which this extension needs to be provisioned.
@@ -208,6 +210,8 @@ type VirtualMachineScaleSetExtensionArgs struct {
 	TypeHandlerVersion pulumi.StringPtrInput
 	// The name of the VM scale set where the extension should be create or updated.
 	VmScaleSetName pulumi.StringInput
+	// The name of the VM scale set extension.
+	VmssExtensionName pulumi.StringInput
 }
 
 func (VirtualMachineScaleSetExtensionArgs) ElementType() reflect.Type {

@@ -98,8 +98,8 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

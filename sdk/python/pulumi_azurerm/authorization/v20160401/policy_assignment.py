@@ -18,6 +18,7 @@ class PolicyAssignment(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policy_assignment_name: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class PolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the policy assignment.
         :param pulumi.Input[str] id: The ID of the policy assignment.
         :param pulumi.Input[str] name: The name of the policy assignment.
+        :param pulumi.Input[str] policy_assignment_name: The name of the policy assignment.
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition.
         :param pulumi.Input[str] scope: The scope for the policy assignment.
         :param pulumi.Input[str] type: The type of the policy assignment.
@@ -55,9 +57,10 @@ class PolicyAssignment(pulumi.CustomResource):
 
             __props__['display_name'] = display_name
             __props__['id'] = id
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if policy_assignment_name is None:
+                raise TypeError("Missing required property 'policy_assignment_name'")
+            __props__['policy_assignment_name'] = policy_assignment_name
             __props__['policy_definition_id'] = policy_definition_id
             if scope is None:
                 raise TypeError("Missing required property 'scope'")

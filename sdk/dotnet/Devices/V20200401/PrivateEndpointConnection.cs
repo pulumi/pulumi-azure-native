@@ -85,8 +85,8 @@ namespace Pulumi.AzureRM.Devices.V20200401
         /// <summary>
         /// The name of the private endpoint connection
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The properties of a private endpoint connection

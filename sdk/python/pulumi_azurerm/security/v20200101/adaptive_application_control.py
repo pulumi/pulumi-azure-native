@@ -19,7 +19,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asc_location: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
                  path_recommendations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PathRecommendationArgs']]]]] = None,
                  protection_mode: Optional[pulumi.Input[pulumi.InputType['ProtectionModeArgs']]] = None,
                  vm_recommendations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
@@ -32,7 +32,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
         :param pulumi.Input[str] enforcement_mode: The application control policy enforcement/protection mode of the machine group
-        :param pulumi.Input[str] name: Name of an application control machine group
+        :param pulumi.Input[str] group_name: Name of an application control machine group
         :param pulumi.Input[pulumi.InputType['ProtectionModeArgs']] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         """
         if __name__ is not None:
@@ -56,15 +56,16 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'asc_location'")
             __props__['asc_location'] = asc_location
             __props__['enforcement_mode'] = enforcement_mode
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if group_name is None:
+                raise TypeError("Missing required property 'group_name'")
+            __props__['group_name'] = group_name
             __props__['path_recommendations'] = path_recommendations
             __props__['protection_mode'] = protection_mode
             __props__['vm_recommendations'] = vm_recommendations
             __props__['configuration_status'] = None
             __props__['issues'] = None
             __props__['location'] = None
+            __props__['name'] = None
             __props__['recommendation_status'] = None
             __props__['source_system'] = None
             __props__['type'] = None

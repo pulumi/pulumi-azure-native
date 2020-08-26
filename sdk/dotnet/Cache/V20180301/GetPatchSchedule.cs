@@ -21,6 +21,12 @@ namespace Pulumi.AzureRM.Cache.V20180301
         /// <summary>
         /// Default string modeled as parameter for auto generation to work correctly.
         /// </summary>
+        [Input("default", required: true)]
+        public string Default { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the redis cache.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

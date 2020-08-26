@@ -39,7 +39,7 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
     /**
      * The name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
      */
@@ -68,20 +68,21 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.scheduleGroupName === undefined) {
+                throw new Error("Missing required property 'scheduleGroupName'");
             }
             if (!args || args.startTime === undefined) {
                 throw new Error("Missing required property 'startTime'");
             }
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scheduleGroupName"] = args ? args.scheduleGroupName : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,13 +109,13 @@ export interface BackupScheduleGroupArgs {
      */
     readonly managerName: pulumi.Input<string>;
     /**
-     * The name of the schedule group.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the schedule group.
+     */
+    readonly scheduleGroupName: pulumi.Input<string>;
     /**
      * The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
      */

@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         /// <summary>
         /// Name of the project
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("projectName", required: true)]
+        public string ProjectName { get; set; } = null!;
 
         /// <summary>
         /// Name of the service

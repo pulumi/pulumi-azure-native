@@ -60,7 +60,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The platform properties against which the run has to happen.
      */
@@ -110,9 +110,6 @@ export class Task extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.platform === undefined) {
                 throw new Error("Missing required property 'platform'");
             }
@@ -125,20 +122,24 @@ export class Task extends pulumi.CustomResource {
             if (!args || args.step === undefined) {
                 throw new Error("Missing required property 'step'");
             }
+            if (!args || args.taskName === undefined) {
+                throw new Error("Missing required property 'taskName'");
+            }
             inputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
             inputs["credentials"] = args ? args.credentials : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["platform"] = args ? args.platform : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["step"] = args ? args.step : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["taskName"] = args ? args.taskName : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["trigger"] = args ? args.trigger : undefined;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -176,10 +177,6 @@ export interface TaskArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the container registry task.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The platform properties against which the run has to happen.
      */
     readonly platform: pulumi.Input<inputs.containerregistry.v20190401.PlatformProperties>;
@@ -203,6 +200,10 @@ export interface TaskArgs {
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the container registry task.
+     */
+    readonly taskName: pulumi.Input<string>;
     /**
      * Run timeout in seconds.
      */

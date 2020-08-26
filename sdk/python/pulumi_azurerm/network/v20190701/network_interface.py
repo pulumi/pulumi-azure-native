@@ -25,7 +25,7 @@ class NetworkInterface(pulumi.CustomResource):
                  ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 network_interface_name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -49,7 +49,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] mac_address: The MAC address of the network interface.
-        :param pulumi.Input[str] name: The name of the network interface.
+        :param pulumi.Input[str] network_interface_name: The name of the network interface.
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference of the NetworkSecurityGroup resource.
         :param pulumi.Input[bool] primary: Whether this is a primary network interface on a virtual machine.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the network interface resource.
@@ -83,9 +83,9 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
             __props__['mac_address'] = mac_address
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if network_interface_name is None:
+                raise TypeError("Missing required property 'network_interface_name'")
+            __props__['network_interface_name'] = network_interface_name
             __props__['network_security_group'] = network_security_group
             __props__['primary'] = primary
             __props__['provisioning_state'] = provisioning_state
@@ -96,6 +96,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['tap_configurations'] = tap_configurations
             __props__['hosted_workloads'] = None
+            __props__['name'] = None
             __props__['private_endpoint'] = None
             __props__['type'] = None
             __props__['virtual_machine'] = None

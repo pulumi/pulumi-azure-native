@@ -57,8 +57,8 @@ func NewOrigin(ctx *pulumi.Context,
 	if args == nil || args.HostName == nil {
 		return nil, errors.New("missing required argument 'HostName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.OriginName == nil {
+		return nil, errors.New("missing required argument 'OriginName'")
 	}
 	if args == nil || args.ProfileName == nil {
 		return nil, errors.New("missing required argument 'ProfileName'")
@@ -205,10 +205,10 @@ type originArgs struct {
 	HttpPort *int `pulumi:"httpPort"`
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort *int `pulumi:"httpsPort"`
-	// Name of the origin that is unique within the endpoint.
-	Name string `pulumi:"name"`
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
 	OriginHostHeader *string `pulumi:"originHostHeader"`
+	// Name of the origin that is unique within the endpoint.
+	OriginName string `pulumi:"originName"`
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
 	Priority *int `pulumi:"priority"`
 	// The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
@@ -239,10 +239,10 @@ type OriginArgs struct {
 	HttpPort pulumi.IntPtrInput
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort pulumi.IntPtrInput
-	// Name of the origin that is unique within the endpoint.
-	Name pulumi.StringInput
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
 	OriginHostHeader pulumi.StringPtrInput
+	// Name of the origin that is unique within the endpoint.
+	OriginName pulumi.StringInput
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
 	Priority pulumi.IntPtrInput
 	// The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'

@@ -59,7 +59,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * Name of the object.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * This is the preferred geo location for the job to run.
      */
@@ -106,8 +106,8 @@ export class JobDefinition extends pulumi.CustomResource {
             if (!args || args.dataSourceId === undefined) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.jobDefinitionName === undefined) {
+                throw new Error("Missing required property 'jobDefinitionName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -121,13 +121,14 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["dataServiceName"] = args ? args.dataServiceName : undefined;
             inputs["dataSinkId"] = args ? args.dataSinkId : undefined;
             inputs["dataSourceId"] = args ? args.dataSourceId : undefined;
+            inputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
             inputs["lastModifiedTime"] = args ? args.lastModifiedTime : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["runLocation"] = args ? args.runLocation : undefined;
             inputs["schedules"] = args ? args.schedules : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["userConfirmation"] = args ? args.userConfirmation : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -172,13 +173,13 @@ export interface JobDefinitionArgs {
      */
     readonly dataSourceId: pulumi.Input<string>;
     /**
+     * The job definition name to be created or updated.
+     */
+    readonly jobDefinitionName: pulumi.Input<string>;
+    /**
      * Last modified time of the job definition.
      */
     readonly lastModifiedTime?: pulumi.Input<string>;
-    /**
-     * The job definition name to be created or updated.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The Resource Group Name
      */

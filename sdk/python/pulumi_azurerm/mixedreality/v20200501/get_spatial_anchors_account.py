@@ -102,17 +102,17 @@ class AwaitableGetSpatialAnchorsAccountResult(GetSpatialAnchorsAccountResult):
             type=self.type)
 
 
-def get_spatial_anchors_account(name: Optional[str] = None,
+def get_spatial_anchors_account(account_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpatialAnchorsAccountResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of an Mixed Reality Account.
+    :param str account_name: Name of an Mixed Reality Account.
     :param str resource_group_name: Name of an Azure resource group.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

@@ -43,7 +43,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     /**
      * Resource Name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The custom details.
      */
@@ -66,11 +66,11 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ReplicationRecoveryPlanArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
+            }
+            if (!args || args.recoveryPlanName === undefined) {
+                throw new Error("Missing required property 'recoveryPlanName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -78,11 +78,12 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["recoveryPlanName"] = args ? args.recoveryPlanName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,13 +104,13 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
  */
 export interface ReplicationRecoveryPlanArgs {
     /**
-     * Recovery plan name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Recovery plan creation properties.
      */
     readonly properties: pulumi.Input<inputs.recoveryservices.v20160810.CreateRecoveryPlanInputProperties>;
+    /**
+     * Recovery plan name.
+     */
+    readonly recoveryPlanName: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

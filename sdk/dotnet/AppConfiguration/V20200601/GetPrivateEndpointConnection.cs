@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         /// <summary>
         /// Private endpoint connection name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("privateEndpointConnectionName", required: true)]
+        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

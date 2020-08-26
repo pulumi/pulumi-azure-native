@@ -15,17 +15,13 @@ export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:storagesync/v20190601:getSyncGroup", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "storageSyncServiceName": args.storageSyncServiceName,
+        "syncGroupName": args.syncGroupName,
     }, opts);
 }
 
 export interface GetSyncGroupArgs {
-    /**
-     * Name of Sync Group resource.
-     */
-    readonly name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -34,6 +30,10 @@ export interface GetSyncGroupArgs {
      * Name of Storage Sync Service resource.
      */
     readonly storageSyncServiceName: string;
+    /**
+     * Name of Sync Group resource.
+     */
+    readonly syncGroupName: string;
 }
 
 /**

@@ -18,7 +18,7 @@ func LookupReplicationPolicy(ctx *pulumi.Context, args *LookupReplicationPolicyA
 
 type LookupReplicationPolicyArgs struct {
 	// Replication policy name.
-	Name string `pulumi:"name"`
+	PolicyName string `pulumi:"policyName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.

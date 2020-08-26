@@ -84,12 +84,6 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the virtual network rule to create or update.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Azure resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -100,6 +94,12 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network rule to create or update.
+        /// </summary>
+        [Input("virtualNetworkRuleName", required: true)]
+        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
 
         public VirtualNetworkRuleArgs()
         {

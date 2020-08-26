@@ -138,6 +138,12 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
+        /// The name of the machine extension.
+        /// </summary>
+        [Input("extensionName", required: true)]
+        public Input<string> ExtensionName { get; set; } = null!;
+
+        /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.
         /// </summary>
         [Input("forceUpdateTag")]
@@ -156,7 +162,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the machine extension.
+        /// The name of the machine where the extension should be created or updated.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

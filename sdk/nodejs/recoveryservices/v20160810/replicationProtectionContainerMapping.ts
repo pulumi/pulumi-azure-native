@@ -43,7 +43,7 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
     /**
      * Resource Name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The custom data.
      */
@@ -69,8 +69,8 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.mappingName === undefined) {
+                throw new Error("Missing required property 'mappingName'");
             }
             if (!args || args.protectionContainerName === undefined) {
                 throw new Error("Missing required property 'protectionContainerName'");
@@ -82,12 +82,13 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["mappingName"] = args ? args.mappingName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["protectionContainerName"] = args ? args.protectionContainerName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,7 +115,7 @@ export interface ReplicationProtectionContainerMappingArgs {
     /**
      * Protection container mapping name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly mappingName: pulumi.Input<string>;
     /**
      * Configure protection input properties.
      */

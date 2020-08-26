@@ -134,8 +134,8 @@ namespace Pulumi.AzureRM.WindowsIoT.V20190601
         /// <summary>
         /// The name of the Windows IoT Device Service.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
         /// Windows IoT Device Service notes.

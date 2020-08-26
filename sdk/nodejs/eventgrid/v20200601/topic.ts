@@ -63,7 +63,7 @@ export class Topic extends pulumi.CustomResource {
     /**
      * Name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.v20200601.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * Provisioning state of the topic.
@@ -99,23 +99,24 @@ export class Topic extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.topicName === undefined) {
+                throw new Error("Missing required property 'topicName'");
             }
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             inputs["inputSchema"] = args ? args.inputSchema : undefined;
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["topicName"] = args ? args.topicName : undefined;
             inputs["endpoint"] = undefined /*out*/;
             inputs["metricResourceId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -152,10 +153,6 @@ export interface TopicArgs {
      * Location of the resource.
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of the topic.
-     */
-    readonly name: pulumi.Input<string>;
     readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200601.PrivateEndpointConnection>[]>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled. 
@@ -170,4 +167,8 @@ export interface TopicArgs {
      * Tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Name of the topic.
+     */
+    readonly topicName: pulumi.Input<string>;
 }

@@ -190,16 +190,16 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Input<Inputs.LiveEventInputArgs> Input { get; set; } = null!;
 
         /// <summary>
+        /// The name of the Live Event.
+        /// </summary>
+        [Input("liveEventName", required: true)]
+        public Input<string> LiveEventName { get; set; } = null!;
+
+        /// <summary>
         /// The Azure Region of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the Live Event.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The Live Event preview.

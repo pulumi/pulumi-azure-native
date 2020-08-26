@@ -163,20 +163,20 @@ class AwaitableGetCustomIPPrefixResult(GetCustomIPPrefixResult):
             zones=self.zones)
 
 
-def get_custom_ip_prefix(expand: Optional[str] = None,
-                         name: Optional[str] = None,
+def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
+                         expand: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomIPPrefixResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str custom_ip_prefix_name: The name of the custom IP prefix.
     :param str expand: Expands referenced resources.
-    :param str name: The name of the custom IP prefix.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['customIpPrefixName'] = custom_ip_prefix_name
     __args__['expand'] = expand
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

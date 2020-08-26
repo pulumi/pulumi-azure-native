@@ -31,14 +31,14 @@ func NewTrigger(ctx *pulumi.Context,
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ShareSubscriptionName == nil {
 		return nil, errors.New("missing required argument 'ShareSubscriptionName'")
+	}
+	if args == nil || args.TriggerName == nil {
+		return nil, errors.New("missing required argument 'TriggerName'")
 	}
 	if args == nil {
 		args = &TriggerArgs{}
@@ -91,12 +91,12 @@ type triggerArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Kind of synchronization
 	Kind string `pulumi:"kind"`
-	// The name of the trigger.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share subscription which will hold the data set sink.
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
+	// The name of the trigger.
+	TriggerName string `pulumi:"triggerName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
@@ -105,12 +105,12 @@ type TriggerArgs struct {
 	AccountName pulumi.StringInput
 	// Kind of synchronization
 	Kind pulumi.StringInput
-	// The name of the trigger.
-	Name pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The name of the share subscription which will hold the data set sink.
 	ShareSubscriptionName pulumi.StringInput
+	// The name of the trigger.
+	TriggerName pulumi.StringInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {

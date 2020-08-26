@@ -193,15 +193,15 @@ class AwaitableGetAssessmentMetadataInSubscriptionResult(GetAssessmentMetadataIn
             user_impact=self.user_impact)
 
 
-def get_assessment_metadata_in_subscription(name: Optional[str] = None,
+def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentMetadataInSubscriptionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The Assessment Key - Unique key for the assessment type
+    :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['assessmentMetadataName'] = assessment_metadata_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class GetTagArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Tag identifier. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Tag identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("tagId", required: true)]
+        public string TagId { get; set; } = null!;
 
         public GetTagArgs()
         {

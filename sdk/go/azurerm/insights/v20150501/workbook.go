@@ -54,6 +54,9 @@ func NewWorkbook(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
+	}
 	if args == nil || args.SerializedData == nil {
 		return nil, errors.New("missing required argument 'SerializedData'")
 	}
@@ -159,10 +162,12 @@ type workbookArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
-	// The name of the Application Insights component resource.
+	// The user-defined name of the workbook.
 	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the Application Insights component resource.
+	ResourceName string `pulumi:"resourceName"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
 	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
@@ -187,10 +192,12 @@ type WorkbookArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
-	// The name of the Application Insights component resource.
+	// The user-defined name of the workbook.
 	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The name of the Application Insights component resource.
+	ResourceName pulumi.StringInput
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringInput
 	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.

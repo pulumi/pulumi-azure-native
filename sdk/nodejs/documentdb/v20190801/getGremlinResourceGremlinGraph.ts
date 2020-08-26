@@ -17,7 +17,7 @@ export function getGremlinResourceGremlinGraph(args: GetGremlinResourceGremlinGr
     return pulumi.runtime.invoke("azurerm:documentdb/v20190801:getGremlinResourceGremlinGraph", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,
-        "name": args.name,
+        "graphName": args.graphName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -34,7 +34,7 @@ export interface GetGremlinResourceGremlinGraphArgs {
     /**
      * Cosmos DB graph name.
      */
-    readonly name: string;
+    readonly graphName: string;
     /**
      * Name of an Azure resource group.
      */

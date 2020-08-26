@@ -18,6 +18,8 @@ func LookupSiteDeploymentSlot(ctx *pulumi.Context, args *LookupSiteDeploymentSlo
 
 type LookupSiteDeploymentSlotArgs struct {
 	// Id of the deployment
+	Id string `pulumi:"id"`
+	// Name of web app
 	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`

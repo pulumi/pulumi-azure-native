@@ -49,8 +49,8 @@ type DscpConfiguration struct {
 // NewDscpConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewDscpConfiguration(ctx *pulumi.Context,
 	name string, args *DscpConfigurationArgs, opts ...pulumi.ResourceOption) (*DscpConfiguration, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.DscpConfigurationName == nil {
+		return nil, errors.New("missing required argument 'DscpConfigurationName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -154,14 +154,14 @@ type dscpConfigurationArgs struct {
 	DestinationIpRanges []QosIpRange `pulumi:"destinationIpRanges"`
 	// Destination port ranges.
 	DestinationPortRanges []QosPortRange `pulumi:"destinationPortRanges"`
+	// The name of the resource.
+	DscpConfigurationName string `pulumi:"dscpConfigurationName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// List of markings to be used in the configuration.
 	Markings []int `pulumi:"markings"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
 	// RNM supported protocol types.
 	Protocol *string `pulumi:"protocol"`
 	// The name of the resource group.
@@ -180,14 +180,14 @@ type DscpConfigurationArgs struct {
 	DestinationIpRanges QosIpRangeArrayInput
 	// Destination port ranges.
 	DestinationPortRanges QosPortRangeArrayInput
+	// The name of the resource.
+	DscpConfigurationName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// List of markings to be used in the configuration.
 	Markings pulumi.IntArrayInput
-	// The name of the resource.
-	Name pulumi.StringInput
 	// RNM supported protocol types.
 	Protocol pulumi.StringPtrInput
 	// The name of the resource group.

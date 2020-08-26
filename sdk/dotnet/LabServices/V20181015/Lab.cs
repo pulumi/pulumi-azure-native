@@ -156,6 +156,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Input<string> LabAccountName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]
@@ -166,12 +172,6 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         [Input("maxUsersInLab")]
         public Input<int>? MaxUsersInLab { get; set; }
-
-        /// <summary>
-        /// The name of the lab.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The provisioning status of the resource.

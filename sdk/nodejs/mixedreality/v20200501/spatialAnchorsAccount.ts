@@ -49,7 +49,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -72,21 +72,22 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SpatialAnchorsAccountArgs | undefined;
+            if (!args || args.accountName === undefined) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["accountDomain"] = undefined /*out*/;
             inputs["accountId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,13 +106,13 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
  */
 export interface SpatialAnchorsAccountArgs {
     /**
+     * Name of an Mixed Reality Account.
+     */
+    readonly accountName: pulumi.Input<string>;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * Name of an Mixed Reality Account.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Name of an Azure resource group.
      */

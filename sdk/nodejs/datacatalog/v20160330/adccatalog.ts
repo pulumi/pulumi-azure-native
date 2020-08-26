@@ -55,7 +55,7 @@ export class ADCCatalog extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Azure data catalog SKU.
      */
@@ -94,23 +94,24 @@ export class ADCCatalog extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ADCCatalogArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.catalogName === undefined) {
+                throw new Error("Missing required property 'catalogName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["admins"] = args ? args.admins : undefined;
+            inputs["catalogName"] = args ? args.catalogName : undefined;
             inputs["enableAutomaticUnitAdjustment"] = args ? args.enableAutomaticUnitAdjustment : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["successfullyProvisioned"] = args ? args.successfullyProvisioned : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["units"] = args ? args.units : undefined;
             inputs["users"] = args ? args.users : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -133,6 +134,10 @@ export interface ADCCatalogArgs {
      */
     readonly admins?: pulumi.Input<pulumi.Input<inputs.datacatalog.v20160330.Principals>[]>;
     /**
+     * The name of the data catalog in the specified subscription and resource group.
+     */
+    readonly catalogName: pulumi.Input<string>;
+    /**
      * Automatic unit adjustment enabled or not.
      */
     readonly enableAutomaticUnitAdjustment?: pulumi.Input<boolean>;
@@ -144,10 +149,6 @@ export interface ADCCatalogArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the data catalog in the specified subscription and resource group.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

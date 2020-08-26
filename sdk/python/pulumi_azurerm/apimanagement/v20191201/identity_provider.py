@@ -19,7 +19,7 @@ class IdentityProvider(pulumi.CustomResource):
                  authority: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 identity_provider_name: Optional[pulumi.Input[str]] = None,
                  password_reset_policy_name: Optional[pulumi.Input[str]] = None,
                  profile_editing_policy_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class IdentityProvider(pulumi.CustomResource):
         :param pulumi.Input[str] authority: OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
         :param pulumi.Input[str] client_id: Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
         :param pulumi.Input[str] client_secret: Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-        :param pulumi.Input[str] name: Identity Provider Type identifier.
+        :param pulumi.Input[str] identity_provider_name: Identity Provider Type identifier.
         :param pulumi.Input[str] password_reset_policy_name: Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
         :param pulumi.Input[str] profile_editing_policy_name: Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -75,9 +75,9 @@ class IdentityProvider(pulumi.CustomResource):
             if client_secret is None:
                 raise TypeError("Missing required property 'client_secret'")
             __props__['client_secret'] = client_secret
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if identity_provider_name is None:
+                raise TypeError("Missing required property 'identity_provider_name'")
+            __props__['identity_provider_name'] = identity_provider_name
             __props__['password_reset_policy_name'] = password_reset_policy_name
             __props__['profile_editing_policy_name'] = profile_editing_policy_name
             if resource_group_name is None:
@@ -90,6 +90,7 @@ class IdentityProvider(pulumi.CustomResource):
             __props__['signin_tenant'] = signin_tenant
             __props__['signup_policy_name'] = signup_policy_name
             __props__['type'] = type
+            __props__['name'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:IdentityProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IdentityProvider, __self__).__init__(

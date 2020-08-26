@@ -53,7 +53,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -75,19 +75,20 @@ export class Application extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.applicationName === undefined) {
+                throw new Error("Missing required property 'applicationName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["allowUpdates"] = args ? args.allowUpdates : undefined;
+            inputs["applicationName"] = args ? args.applicationName : undefined;
             inputs["defaultVersion"] = args ? args.defaultVersion : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -116,6 +117,10 @@ export interface ApplicationArgs {
      */
     readonly allowUpdates?: pulumi.Input<boolean>;
     /**
+     * The name of the application. This must be unique within the account.
+     */
+    readonly applicationName: pulumi.Input<string>;
+    /**
      * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
      */
     readonly defaultVersion?: pulumi.Input<string>;
@@ -123,10 +128,6 @@ export interface ApplicationArgs {
      * The display name for the application.
      */
     readonly displayName?: pulumi.Input<string>;
-    /**
-     * The name of the application. This must be unique within the account.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the Batch account.
      */

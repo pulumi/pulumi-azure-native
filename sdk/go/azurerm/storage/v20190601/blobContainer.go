@@ -60,8 +60,8 @@ func NewBlobContainer(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.ContainerName == nil {
+		return nil, errors.New("missing required argument 'ContainerName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -194,14 +194,14 @@ func (BlobContainerState) ElementType() reflect.Type {
 type blobContainerArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
+	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+	ContainerName string `pulumi:"containerName"`
 	// Default the container to use specified encryption scope for all writes.
 	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
 	// Block override of encryption scope from the container default.
 	DenyEncryptionScopeOverride *bool `pulumi:"denyEncryptionScopeOverride"`
 	// A name-value pair to associate with the container as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	Name string `pulumi:"name"`
 	// Specifies whether data in the container may be accessed publicly and the level of access.
 	PublicAccess *string `pulumi:"publicAccess"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -212,14 +212,14 @@ type blobContainerArgs struct {
 type BlobContainerArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
+	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+	ContainerName pulumi.StringInput
 	// Default the container to use specified encryption scope for all writes.
 	DefaultEncryptionScope pulumi.StringPtrInput
 	// Block override of encryption scope from the container default.
 	DenyEncryptionScopeOverride pulumi.BoolPtrInput
 	// A name-value pair to associate with the container as metadata.
 	Metadata pulumi.StringMapInput
-	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	Name pulumi.StringInput
 	// Specifies whether data in the container may be accessed publicly and the level of access.
 	PublicAccess pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -18,8 +18,8 @@ export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions
         "deviceName": args.deviceName,
         "fileServerName": args.fileServerName,
         "managerName": args.managerName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "shareName": args.shareName,
     }, opts);
 }
 
@@ -37,13 +37,13 @@ export interface GetFileShareArgs {
      */
     readonly managerName: string;
     /**
-     * The file share name.
-     */
-    readonly name: string;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: string;
+    /**
+     * The file share name.
+     */
+    readonly shareName: string;
 }
 
 /**

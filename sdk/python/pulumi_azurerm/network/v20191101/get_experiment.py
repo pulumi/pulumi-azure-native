@@ -163,19 +163,19 @@ class AwaitableGetExperimentResult(GetExperimentResult):
             type=self.type)
 
 
-def get_experiment(name: Optional[str] = None,
+def get_experiment(experiment_name: Optional[str] = None,
                    profile_name: Optional[str] = None,
                    resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The Experiment identifier associated with the Experiment
+    :param str experiment_name: The Experiment identifier associated with the Experiment
     :param str profile_name: The Profile identifier associated with the Tenant and Partner
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['experimentName'] = experiment_name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

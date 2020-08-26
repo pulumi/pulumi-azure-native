@@ -17,9 +17,9 @@ class ChapSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 chap_user_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,9 +30,9 @@ class ChapSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] chap_user_name: The chap user name.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[str] name: The chap user name.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] password: The chap password.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
@@ -53,21 +53,22 @@ class ChapSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if chap_user_name is None:
+                raise TypeError("Missing required property 'chap_user_name'")
+            __props__['chap_user_name'] = chap_user_name
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if password is None:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['name'] = None
             __props__['type'] = None
         super(ChapSetting, __self__).__init__(
             'azurerm:storsimple/v20161001:ChapSetting',

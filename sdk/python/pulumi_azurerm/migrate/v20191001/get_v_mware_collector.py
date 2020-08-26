@@ -64,21 +64,21 @@ class AwaitableGetVMwareCollectorResult(GetVMwareCollectorResult):
             type=self.type)
 
 
-def get_v_mware_collector(name: Optional[str] = None,
-                          project_name: Optional[str] = None,
+def get_v_mware_collector(project_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
+                          vm_ware_collector_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVMwareCollectorResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Unique name of a VMware collector within a project.
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
+    :param str vm_ware_collector_name: Unique name of a VMware collector within a project.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['vmWareCollectorName'] = vm_ware_collector_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

@@ -27,8 +27,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         /// <summary>
         /// Migration item name.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("migrationItemName", required: true)]
+        public string MigrationItemName { get; set; } = null!;
 
         /// <summary>
         /// Protection container name.

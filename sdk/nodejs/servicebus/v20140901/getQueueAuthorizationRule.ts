@@ -15,7 +15,7 @@ export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:servicebus/v20140901:getQueueAuthorizationRule", {
-        "name": args.name,
+        "authorizationRuleName": args.authorizationRuleName,
         "namespaceName": args.namespaceName,
         "queueName": args.queueName,
         "resourceGroupName": args.resourceGroupName,
@@ -26,7 +26,7 @@ export interface GetQueueAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    readonly name: string;
+    readonly authorizationRuleName: string;
     /**
      * The namespace name
      */

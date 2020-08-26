@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Network.V20190701
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the private link service.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the private link service.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public string ServiceName { get; set; } = null!;
 
         public GetPrivateLinkServiceArgs()
         {

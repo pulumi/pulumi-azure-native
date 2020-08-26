@@ -16,8 +16,8 @@ export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, o
     }
     return pulumi.runtime.invoke("azurerm:datafactory/v20180601:getManagedPrivateEndpoint", {
         "factoryName": args.factoryName,
+        "managedPrivateEndpointName": args.managedPrivateEndpointName,
         "managedVirtualNetworkName": args.managedVirtualNetworkName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -28,13 +28,13 @@ export interface GetManagedPrivateEndpointArgs {
      */
     readonly factoryName: string;
     /**
+     * Managed private endpoint name
+     */
+    readonly managedPrivateEndpointName: string;
+    /**
      * Managed virtual network name
      */
     readonly managedVirtualNetworkName: string;
-    /**
-     * Managed private endpoint name
-     */
-    readonly name: string;
     /**
      * The resource group name.
      */

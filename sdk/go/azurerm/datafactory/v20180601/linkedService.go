@@ -30,8 +30,8 @@ func NewLinkedService(ctx *pulumi.Context,
 	if args == nil || args.FactoryName == nil {
 		return nil, errors.New("missing required argument 'FactoryName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.LinkedServiceName == nil {
+		return nil, errors.New("missing required argument 'LinkedServiceName'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -93,7 +93,7 @@ type linkedServiceArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// The linked service name.
-	Name string `pulumi:"name"`
+	LinkedServiceName string `pulumi:"linkedServiceName"`
 	// Properties of linked service.
 	Properties LinkedServiceType `pulumi:"properties"`
 	// The resource group name.
@@ -105,7 +105,7 @@ type LinkedServiceArgs struct {
 	// The factory name.
 	FactoryName pulumi.StringInput
 	// The linked service name.
-	Name pulumi.StringInput
+	LinkedServiceName pulumi.StringInput
 	// Properties of linked service.
 	Properties LinkedServiceTypeInput
 	// The resource group name.

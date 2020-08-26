@@ -18,10 +18,10 @@ class DataExport(pulumi.CustomResource):
                  all_tables: Optional[pulumi.Input[bool]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  data_export_id: Optional[pulumi.Input[str]] = None,
+                 data_export_name: Optional[pulumi.Input[str]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  last_modified_date: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  table_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -37,10 +37,10 @@ class DataExport(pulumi.CustomResource):
         :param pulumi.Input[bool] all_tables: When ‘true’, all workspace's tables are exported.
         :param pulumi.Input[str] created_date: The latest data export rule modification time.
         :param pulumi.Input[str] data_export_id: The data export rule ID.
+        :param pulumi.Input[str] data_export_name: The data export rule name.
         :param pulumi.Input[bool] enable: Active when enabled.
         :param pulumi.Input[str] event_hub_name: Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
         :param pulumi.Input[str] last_modified_date: Date and time when the export was last modified.
-        :param pulumi.Input[str] name: The data export rule name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_id: The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
         :param pulumi.Input[List[pulumi.Input[str]]] table_names: An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
@@ -66,12 +66,12 @@ class DataExport(pulumi.CustomResource):
             __props__['all_tables'] = all_tables
             __props__['created_date'] = created_date
             __props__['data_export_id'] = data_export_id
+            if data_export_name is None:
+                raise TypeError("Missing required property 'data_export_name'")
+            __props__['data_export_name'] = data_export_name
             __props__['enable'] = enable
             __props__['event_hub_name'] = event_hub_name
             __props__['last_modified_date'] = last_modified_date
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -82,6 +82,7 @@ class DataExport(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['name'] = None
             __props__['type'] = None
         super(DataExport, __self__).__init__(
             'azurerm:operationalinsights/v20200801:DataExport',

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Web.V20160601
         /// <summary>
         /// The connection gateway name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("connectionGatewayName", required: true)]
+        public string ConnectionGatewayName { get; set; } = null!;
 
         /// <summary>
         /// The resource group

@@ -19,7 +19,7 @@ class Logger(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  is_buffered: Optional[pulumi.Input[bool]] = None,
                  logger_type: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 loggerid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -35,7 +35,7 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[str] description: Logger description.
         :param pulumi.Input[bool] is_buffered: Whether records are buffered in the logger before publishing. Default is assumed to be true.
         :param pulumi.Input[str] logger_type: Logger type.
-        :param pulumi.Input[str] name: Logger identifier. Must be unique in the API Management service instance.
+        :param pulumi.Input[str] loggerid: Logger identifier. Must be unique in the API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
@@ -64,15 +64,16 @@ class Logger(pulumi.CustomResource):
             if logger_type is None:
                 raise TypeError("Missing required property 'logger_type'")
             __props__['logger_type'] = logger_type
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if loggerid is None:
+                raise TypeError("Missing required property 'loggerid'")
+            __props__['loggerid'] = loggerid
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Logger"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Logger"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Logger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

@@ -19,16 +19,16 @@ namespace Pulumi.AzureRM.Search.V20200313
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Azure Cognitive Search service associated with the specified resource group.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure Cognitive Search service associated with the specified resource group.
+        /// </summary>
+        [Input("searchServiceName", required: true)]
+        public string SearchServiceName { get; set; } = null!;
 
         public GetServiceArgs()
         {

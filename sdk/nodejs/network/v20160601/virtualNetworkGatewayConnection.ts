@@ -75,7 +75,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The reference to peerings resource.
      */
@@ -126,11 +126,11 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualNetworkGatewayConnectionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.virtualNetworkGatewayConnectionName === undefined) {
+                throw new Error("Missing required property 'virtualNetworkGatewayConnectionName'");
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
             inputs["connectionStatus"] = args ? args.connectionStatus : undefined;
@@ -142,7 +142,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["ingressBytesTransferred"] = args ? args.ingressBytesTransferred : undefined;
             inputs["localNetworkGateway2"] = args ? args.localNetworkGateway2 : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["peer"] = args ? args.peer : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -152,6 +151,8 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkGateway1"] = args ? args.virtualNetworkGateway1 : undefined;
             inputs["virtualNetworkGateway2"] = args ? args.virtualNetworkGateway2 : undefined;
+            inputs["virtualNetworkGatewayConnectionName"] = args ? args.virtualNetworkGatewayConnectionName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -212,10 +213,6 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the virtual network gateway connection.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The reference to peerings resource.
      */
     readonly peer?: pulumi.Input<inputs.network.v20160601.SubResource>;
@@ -251,4 +248,8 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * A common class for general resource information
      */
     readonly virtualNetworkGateway2?: pulumi.Input<inputs.network.v20160601.VirtualNetworkGateway>;
+    /**
+     * The name of the virtual network gateway connection.
+     */
+    readonly virtualNetworkGatewayConnectionName: pulumi.Input<string>;
 }

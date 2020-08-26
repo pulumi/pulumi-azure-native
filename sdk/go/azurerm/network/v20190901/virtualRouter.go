@@ -41,11 +41,11 @@ type VirtualRouter struct {
 // NewVirtualRouter registers a new resource with the given unique name, arguments, and options.
 func NewVirtualRouter(ctx *pulumi.Context,
 	name string, args *VirtualRouterArgs, opts ...pulumi.ResourceOption) (*VirtualRouter, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VirtualRouterName == nil {
+		return nil, errors.New("missing required argument 'VirtualRouterName'")
 	}
 	if args == nil {
 		args = &VirtualRouterArgs{}
@@ -161,8 +161,6 @@ type virtualRouterArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the Virtual Router.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -171,6 +169,8 @@ type virtualRouterArgs struct {
 	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
 	// VirtualRouter IPs.
 	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
+	// The name of the Virtual Router.
+	VirtualRouterName string `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a VirtualRouter resource.
@@ -183,8 +183,6 @@ type VirtualRouterArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the Virtual Router.
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
@@ -193,6 +191,8 @@ type VirtualRouterArgs struct {
 	VirtualRouterAsn pulumi.IntPtrInput
 	// VirtualRouter IPs.
 	VirtualRouterIps pulumi.StringArrayInput
+	// The name of the Virtual Router.
+	VirtualRouterName pulumi.StringInput
 }
 
 func (VirtualRouterArgs) ElementType() reflect.Type {

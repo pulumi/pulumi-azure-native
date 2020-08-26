@@ -38,6 +38,9 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	if args == nil || args.CloudType == nil {
 		return nil, errors.New("missing required argument 'CloudType'")
 	}
+	if args == nil || args.CredentialName == nil {
+		return nil, errors.New("missing required argument 'CredentialName'")
+	}
 	if args == nil || args.EnableSSL == nil {
 		return nil, errors.New("missing required argument 'EnableSSL'")
 	}
@@ -49,9 +52,6 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -127,6 +127,8 @@ type storageAccountCredentialArgs struct {
 	AccessKey *AsymmetricEncryptedSecret `pulumi:"accessKey"`
 	// The cloud service provider
 	CloudType string `pulumi:"cloudType"`
+	// The credential name.
+	CredentialName string `pulumi:"credentialName"`
 	// SSL needs to be enabled or not
 	EnableSSL string `pulumi:"enableSSL"`
 	// The storage endpoint
@@ -137,8 +139,6 @@ type storageAccountCredentialArgs struct {
 	Login string `pulumi:"login"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The credential name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -149,6 +149,8 @@ type StorageAccountCredentialArgs struct {
 	AccessKey AsymmetricEncryptedSecretPtrInput
 	// The cloud service provider
 	CloudType pulumi.StringInput
+	// The credential name.
+	CredentialName pulumi.StringInput
 	// SSL needs to be enabled or not
 	EnableSSL pulumi.StringInput
 	// The storage endpoint
@@ -159,8 +161,6 @@ type StorageAccountCredentialArgs struct {
 	Login pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The credential name.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 }

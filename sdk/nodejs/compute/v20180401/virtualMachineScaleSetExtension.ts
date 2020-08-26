@@ -84,14 +84,14 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualMachineScaleSetExtensionArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.vmScaleSetName === undefined) {
                 throw new Error("Missing required property 'vmScaleSetName'");
+            }
+            if (!args || args.vmssExtensionName === undefined) {
+                throw new Error("Missing required property 'vmssExtensionName'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
             inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
@@ -103,6 +103,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+            inputs["vmssExtensionName"] = args ? args.vmssExtensionName : undefined;
             inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
@@ -131,9 +132,9 @@ export interface VirtualMachineScaleSetExtensionArgs {
      */
     readonly forceUpdateTag?: pulumi.Input<string>;
     /**
-     * The name of the VM scale set extension.
+     * The name of the extension.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
@@ -162,4 +163,8 @@ export interface VirtualMachineScaleSetExtensionArgs {
      * The name of the VM scale set where the extension should be create or updated.
      */
     readonly vmScaleSetName: pulumi.Input<string>;
+    /**
+     * The name of the VM scale set extension.
+     */
+    readonly vmssExtensionName: pulumi.Input<string>;
 }

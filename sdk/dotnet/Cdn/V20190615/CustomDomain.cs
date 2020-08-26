@@ -126,6 +126,12 @@ namespace Pulumi.AzureRM.Cdn.V20190615
     public sealed class CustomDomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the custom domain within an endpoint.
+        /// </summary>
+        [Input("customDomainName", required: true)]
+        public Input<string> CustomDomainName { get; set; } = null!;
+
+        /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
         /// </summary>
         [Input("endpointName", required: true)]
@@ -136,12 +142,6 @@ namespace Pulumi.AzureRM.Cdn.V20190615
         /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the custom domain within an endpoint.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.

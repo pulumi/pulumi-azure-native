@@ -35,11 +35,11 @@ type CapacityDetails struct {
 // NewCapacityDetails registers a new resource with the given unique name, arguments, and options.
 func NewCapacityDetails(ctx *pulumi.Context,
 	name string, args *CapacityDetailsArgs, opts ...pulumi.ResourceOption) (*CapacityDetails, error) {
+	if args == nil || args.DedicatedCapacityName == nil {
+		return nil, errors.New("missing required argument 'DedicatedCapacityName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -116,10 +116,10 @@ func (CapacityDetailsState) ElementType() reflect.Type {
 type capacityDetailsArgs struct {
 	// A collection of Dedicated capacity administrators
 	Administration *DedicatedCapacityAdministrators `pulumi:"administration"`
+	// The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+	DedicatedCapacityName string `pulumi:"dedicatedCapacityName"`
 	// Location of the PowerBI Dedicated resource.
 	Location string `pulumi:"location"`
-	// The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-	Name string `pulumi:"name"`
 	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the PowerBI Dedicated resource.
@@ -132,10 +132,10 @@ type capacityDetailsArgs struct {
 type CapacityDetailsArgs struct {
 	// A collection of Dedicated capacity administrators
 	Administration DedicatedCapacityAdministratorsPtrInput
+	// The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+	DedicatedCapacityName pulumi.StringInput
 	// Location of the PowerBI Dedicated resource.
 	Location pulumi.StringInput
-	// The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-	Name pulumi.StringInput
 	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the PowerBI Dedicated resource.

@@ -18,8 +18,8 @@ class AccountFilter(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 filter_name: Optional[pulumi.Input[str]] = None,
                  first_quality: Optional[pulumi.Input[pulumi.InputType['FirstQualityArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  presentation_time_range: Optional[pulumi.Input[pulumi.InputType['PresentationTimeRangeArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tracks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FilterTrackSelectionArgs']]]]] = None,
@@ -32,8 +32,8 @@ class AccountFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[str] filter_name: The Account Filter name
         :param pulumi.Input[pulumi.InputType['FirstQualityArgs']] first_quality: The first quality.
-        :param pulumi.Input[str] name: The Account Filter name
         :param pulumi.Input[pulumi.InputType['PresentationTimeRangeArgs']] presentation_time_range: The presentation time range.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FilterTrackSelectionArgs']]]] tracks: The tracks selection conditions.
@@ -58,15 +58,16 @@ class AccountFilter(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if filter_name is None:
+                raise TypeError("Missing required property 'filter_name'")
+            __props__['filter_name'] = filter_name
             __props__['first_quality'] = first_quality
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['presentation_time_range'] = presentation_time_range
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tracks'] = tracks
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/v20180701:AccountFilter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

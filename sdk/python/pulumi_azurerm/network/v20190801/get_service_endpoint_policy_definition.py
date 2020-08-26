@@ -102,20 +102,20 @@ class AwaitableGetServiceEndpointPolicyDefinitionResult(GetServiceEndpointPolicy
             service_resources=self.service_resources)
 
 
-def get_service_endpoint_policy_definition(name: Optional[str] = None,
-                                           resource_group_name: Optional[str] = None,
+def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = None,
+                                           service_endpoint_policy_definition_name: Optional[str] = None,
                                            service_endpoint_policy_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointPolicyDefinitionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the service endpoint policy definition name.
     :param str resource_group_name: The name of the resource group.
+    :param str service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.
     :param str service_endpoint_policy_name: The name of the service endpoint policy name.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceEndpointPolicyDefinitionName'] = service_endpoint_policy_definition_name
     __args__['serviceEndpointPolicyName'] = service_endpoint_policy_name
     if opts is None:
         opts = pulumi.InvokeOptions()

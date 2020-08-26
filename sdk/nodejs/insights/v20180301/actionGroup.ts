@@ -75,7 +75,7 @@ export class ActionGroup extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The list of SMS receivers that are part of this action group.
      */
@@ -110,6 +110,9 @@ export class ActionGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ActionGroupArgs | undefined;
+            if (!args || args.actionGroupName === undefined) {
+                throw new Error("Missing required property 'actionGroupName'");
+            }
             if (!args || args.enabled === undefined) {
                 throw new Error("Missing required property 'enabled'");
             }
@@ -119,12 +122,10 @@ export class ActionGroup extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["actionGroupName"] = args ? args.actionGroupName : undefined;
             inputs["automationRunbookReceivers"] = args ? args.automationRunbookReceivers : undefined;
             inputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
             inputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
@@ -134,12 +135,12 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["smsReceivers"] = args ? args.smsReceivers : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
             inputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -159,6 +160,10 @@ export class ActionGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ActionGroup resource.
  */
 export interface ActionGroupArgs {
+    /**
+     * The name of the action group.
+     */
+    readonly actionGroupName: pulumi.Input<string>;
     /**
      * The list of AutomationRunbook receivers that are part of this action group.
      */
@@ -195,10 +200,6 @@ export interface ActionGroupArgs {
      * The list of logic app receivers that are part of this action group.
      */
     readonly logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20180301.LogicAppReceiver>[]>;
-    /**
-     * The name of the action group.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

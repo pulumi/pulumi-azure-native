@@ -15,7 +15,7 @@ export function getCustomApi(args: GetCustomApiArgs, opts?: pulumi.InvokeOptions
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20160601:getCustomApi", {
-        "name": args.name,
+        "apiName": args.apiName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetCustomApiArgs {
     /**
      * API name
      */
-    readonly name: string;
+    readonly apiName: string;
     /**
      * The resource group
      */

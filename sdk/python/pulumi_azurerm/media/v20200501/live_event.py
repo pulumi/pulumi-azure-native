@@ -23,8 +23,8 @@ class LiveEvent(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']]] = None,
                  input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArgs']]] = None,
+                 live_event_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  stream_options: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -44,8 +44,8 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Live Event description.
         :param pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']] encoding: The Live Event encoding.
         :param pulumi.Input[pulumi.InputType['LiveEventInputArgs']] input: The Live Event input.
+        :param pulumi.Input[str] live_event_name: The name of the Live Event.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the Live Event.
         :param pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']] preview: The Live Event preview.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[List[pulumi.Input[str]]] stream_options: The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
@@ -79,12 +79,12 @@ class LiveEvent(pulumi.CustomResource):
             if input is None:
                 raise TypeError("Missing required property 'input'")
             __props__['input'] = input
+            if live_event_name is None:
+                raise TypeError("Missing required property 'live_event_name'")
+            __props__['live_event_name'] = live_event_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['preview'] = preview
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -94,6 +94,7 @@ class LiveEvent(pulumi.CustomResource):
             __props__['use_static_hostname'] = use_static_hostname
             __props__['created'] = None
             __props__['last_modified'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None

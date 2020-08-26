@@ -15,20 +15,20 @@ export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:redhatopenshift/v20200430:getOpenShiftCluster", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetOpenShiftClusterArgs {
     /**
-     * The name of the OpenShift cluster resource.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the OpenShift cluster resource.
+     */
+    readonly resourceName: string;
 }
 
 /**

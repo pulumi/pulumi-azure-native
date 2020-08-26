@@ -23,10 +23,10 @@ type LookupSqlResourceSqlUserDefinedFunctionArgs struct {
 	ContainerName string `pulumi:"containerName"`
 	// Cosmos DB database name.
 	DatabaseName string `pulumi:"databaseName"`
-	// Cosmos DB userDefinedFunction name.
-	Name string `pulumi:"name"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Cosmos DB userDefinedFunction name.
+	UserDefinedFunctionName string `pulumi:"userDefinedFunctionName"`
 }
 
 // An Azure Cosmos DB userDefinedFunction.

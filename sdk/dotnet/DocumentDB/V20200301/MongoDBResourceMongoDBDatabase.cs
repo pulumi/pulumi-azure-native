@@ -102,16 +102,16 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Cosmos DB database name.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Cosmos DB database name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.

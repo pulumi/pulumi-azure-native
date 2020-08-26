@@ -17,12 +17,12 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assessment_metadata_name: Optional[pulumi.Input[str]] = None,
                  assessment_type: Optional[pulumi.Input[str]] = None,
                  category: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  partner_data: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPartnerDataArgs']]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
@@ -37,11 +37,11 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] assessment_metadata_name: The Assessment Key - Unique key for the assessment type
         :param pulumi.Input[str] assessment_type: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         :param pulumi.Input[str] description: Human readable description of the assessment
         :param pulumi.Input[str] display_name: User friendly display name of the assessment
         :param pulumi.Input[str] implementation_effort: The implementation effort required to remediate this assessment
-        :param pulumi.Input[str] name: The Assessment Key - Unique key for the assessment type
         :param pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPartnerDataArgs']] partner_data: Describes the partner that created the assessment
         :param pulumi.Input[bool] preview: True if this assessment is in preview release status
         :param pulumi.Input[str] remediation_description: Human readable description of what you should do to mitigate this security issue
@@ -65,6 +65,9 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if assessment_metadata_name is None:
+                raise TypeError("Missing required property 'assessment_metadata_name'")
+            __props__['assessment_metadata_name'] = assessment_metadata_name
             if assessment_type is None:
                 raise TypeError("Missing required property 'assessment_type'")
             __props__['assessment_type'] = assessment_type
@@ -74,9 +77,6 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['implementation_effort'] = implementation_effort
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['partner_data'] = partner_data
             __props__['preview'] = preview
             __props__['remediation_description'] = remediation_description
@@ -85,6 +85,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
             __props__['severity'] = severity
             __props__['threats'] = threats
             __props__['user_impact'] = user_impact
+            __props__['name'] = None
             __props__['policy_definition_id'] = None
             __props__['type'] = None
         super(AssessmentMetadataInSubscription, __self__).__init__(

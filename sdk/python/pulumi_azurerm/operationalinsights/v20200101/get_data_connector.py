@@ -78,19 +78,19 @@ class AwaitableGetDataConnectorResult(GetDataConnectorResult):
             type=self.type)
 
 
-def get_data_connector(name: Optional[str] = None,
+def get_data_connector(data_connector_id: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataConnectorResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Connector ID
+    :param str data_connector_id: Connector ID
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['dataConnectorId'] = data_connector_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     if opts is None:

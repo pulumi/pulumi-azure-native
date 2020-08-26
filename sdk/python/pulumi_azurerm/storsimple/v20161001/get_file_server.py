@@ -103,22 +103,22 @@ class AwaitableGetFileServerResult(GetFileServerResult):
 
 
 def get_file_server(device_name: Optional[str] = None,
+                    file_server_name: Optional[str] = None,
                     manager_name: Optional[str] = None,
-                    name: Optional[str] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileServerResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str device_name: The device name.
+    :param str file_server_name: The file server name.
     :param str manager_name: The manager name
-    :param str name: The file server name.
     :param str resource_group_name: The resource group name
     """
     __args__ = dict()
     __args__['deviceName'] = device_name
+    __args__['fileServerName'] = file_server_name
     __args__['managerName'] = manager_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

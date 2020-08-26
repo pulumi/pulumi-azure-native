@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150401
         /// <summary>
         /// Name of the domain.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("domainName", required: true)]
+        public string DomainName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

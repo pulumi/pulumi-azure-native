@@ -17,7 +17,7 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
                  node_setup: Optional[pulumi.Input[pulumi.InputType['NodeSetupArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_settings: Optional[pulumi.Input[pulumi.InputType['ScaleSettingsArgs']]] = None,
@@ -35,7 +35,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        :param pulumi.Input[str] cluster_name: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         :param pulumi.Input[pulumi.InputType['NodeSetupArgs']] node_setup: Setup to be performed on each compute node in the cluster.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[pulumi.InputType['ScaleSettingsArgs']] scale_settings: Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
@@ -63,9 +63,9 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if cluster_name is None:
+                raise TypeError("Missing required property 'cluster_name'")
+            __props__['cluster_name'] = cluster_name
             __props__['node_setup'] = node_setup
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -88,6 +88,7 @@ class Cluster(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['current_node_count'] = None
             __props__['errors'] = None
+            __props__['name'] = None
             __props__['node_state_counts'] = None
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None

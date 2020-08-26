@@ -18,7 +18,7 @@ func LookupDeviceSecurityGroup(ctx *pulumi.Context, args *LookupDeviceSecurityGr
 
 type LookupDeviceSecurityGroupArgs struct {
 	// The name of the device security group. Note that the name of the device security group is case insensitive.
-	Name string `pulumi:"name"`
+	DeviceSecurityGroupName string `pulumi:"deviceSecurityGroupName"`
 	// The identifier of the resource.
 	ResourceId string `pulumi:"resourceId"`
 }

@@ -18,8 +18,8 @@ class Image(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
+                 image_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_virtual_machine: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['ImageStorageProfileArgs']]] = None,
@@ -33,8 +33,8 @@ class Image(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hyper_v_generation: Gets the HyperVGenerationType of the VirtualMachine created from the image
+        :param pulumi.Input[str] image_name: The name of the image.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] source_virtual_machine: The source virtual machine from which Image is created.
         :param pulumi.Input[pulumi.InputType['ImageStorageProfileArgs']] storage_profile: Specifies the storage settings for the virtual machine disks.
@@ -58,18 +58,19 @@ class Image(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['hyper_v_generation'] = hyper_v_generation
+            if image_name is None:
+                raise TypeError("Missing required property 'image_name'")
+            __props__['image_name'] = image_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['source_virtual_machine'] = source_virtual_machine
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20170330:Image"), pulumi.Alias(type_="azurerm:compute/v20171201:Image"), pulumi.Alias(type_="azurerm:compute/v20180401:Image"), pulumi.Alias(type_="azurerm:compute/v20180601:Image"), pulumi.Alias(type_="azurerm:compute/v20181001:Image"), pulumi.Alias(type_="azurerm:compute/v20190301:Image"), pulumi.Alias(type_="azurerm:compute/v20190701:Image"), pulumi.Alias(type_="azurerm:compute/v20191201:Image")])

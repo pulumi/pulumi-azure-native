@@ -15,12 +15,12 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_principals_modification_kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -30,12 +30,12 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] attached_database_configuration_name: The name of the attached database configuration.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside.
         :param pulumi.Input[str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         :param pulumi.Input[str] default_principals_modification_kind: The default principals modification kind
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the attached database configuration.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         """
         if __name__ is not None:
@@ -55,6 +55,9 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if attached_database_configuration_name is None:
+                raise TypeError("Missing required property 'attached_database_configuration_name'")
+            __props__['attached_database_configuration_name'] = attached_database_configuration_name
             if cluster_name is None:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
@@ -68,13 +71,11 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_principals_modification_kind'")
             __props__['default_principals_modification_kind'] = default_principals_modification_kind
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['attached_database_names'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azurerm:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azurerm:kusto/v20200614:AttachedDatabaseConfiguration")])

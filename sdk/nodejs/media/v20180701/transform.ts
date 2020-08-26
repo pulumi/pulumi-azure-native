@@ -51,7 +51,7 @@ export class Transform extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * An array of one or more TransformOutputs that the Transform should generate.
      */
@@ -77,22 +77,23 @@ export class Transform extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.outputs === undefined) {
                 throw new Error("Missing required property 'outputs'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.transformName === undefined) {
+                throw new Error("Missing required property 'transformName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["outputs"] = args ? args.outputs : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["transformName"] = args ? args.transformName : undefined;
             inputs["created"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -121,10 +122,6 @@ export interface TransformArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The Transform name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * An array of one or more TransformOutputs that the Transform should generate.
      */
     readonly outputs: pulumi.Input<pulumi.Input<inputs.media.v20180701.TransformOutput>[]>;
@@ -132,4 +129,8 @@ export interface TransformArgs {
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Transform name.
+     */
+    readonly transformName: pulumi.Input<string>;
 }

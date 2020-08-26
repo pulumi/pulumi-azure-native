@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// <summary>
         /// Identity Provider Type identifier.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("identityProviderName", required: true)]
+        public string IdentityProviderName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

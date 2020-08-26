@@ -156,6 +156,12 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
+        /// The create or update parameters for configuration.
+        /// </summary>
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
+
+        /// <summary>
         /// Gets or sets the description of the configuration.
         /// </summary>
         [Input("description")]
@@ -180,10 +186,10 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<bool>? LogVerbose { get; set; }
 
         /// <summary>
-        /// The create or update parameters for configuration.
+        /// Gets or sets name of the resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.DscConfigurationParameterArgs>? _parameters;

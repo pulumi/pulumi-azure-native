@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.Network.V20200101
         public string FrontDoorName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Rules Engine which is unique within the Front Door.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Rules Engine which is unique within the Front Door.
+        /// </summary>
+        [Input("rulesEngineName", required: true)]
+        public string RulesEngineName { get; set; } = null!;
 
         public GetRulesEngineArgs()
         {

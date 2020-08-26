@@ -153,8 +153,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
         /// <summary>
         /// Cosmos DB graph name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("graphName", required: true)]
+        public Input<string> GraphName { get; set; } = null!;
 
         [Input("options", required: true)]
         private InputMap<string>? _options;

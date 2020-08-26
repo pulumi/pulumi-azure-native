@@ -16,7 +16,7 @@ export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi
     }
     return pulumi.runtime.invoke("azurerm:network/v20200501:getNetworkInterface", {
         "expand": args.expand,
-        "name": args.name,
+        "networkInterfaceName": args.networkInterfaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetNetworkInterfaceArgs {
     /**
      * The name of the network interface.
      */
-    readonly name: string;
+    readonly networkInterfaceName: string;
     /**
      * The name of the resource group.
      */

@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <summary>
         /// The name of the connector mapping.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("mappingName", required: true)]
+        public string MappingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -50,11 +50,11 @@ func NewVpnSite(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VpnSiteName == nil {
+		return nil, errors.New("missing required argument 'VpnSiteName'")
 	}
 	if args == nil {
 		args = &VpnSiteArgs{}
@@ -218,8 +218,6 @@ type vpnSiteArgs struct {
 	IsSecuritySite *bool `pulumi:"isSecuritySite"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The name of the VpnSite being created or updated.
-	Name string `pulumi:"name"`
 	// The resource group name of the VpnSite.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The key for vpn-site that can be used for connections.
@@ -230,6 +228,8 @@ type vpnSiteArgs struct {
 	VirtualWan *SubResource `pulumi:"virtualWan"`
 	// List of all vpn site links.
 	VpnSiteLinks []VpnSiteLink `pulumi:"vpnSiteLinks"`
+	// The name of the VpnSite being created or updated.
+	VpnSiteName string `pulumi:"vpnSiteName"`
 }
 
 // The set of arguments for constructing a VpnSite resource.
@@ -248,8 +248,6 @@ type VpnSiteArgs struct {
 	IsSecuritySite pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringInput
-	// The name of the VpnSite being created or updated.
-	Name pulumi.StringInput
 	// The resource group name of the VpnSite.
 	ResourceGroupName pulumi.StringInput
 	// The key for vpn-site that can be used for connections.
@@ -260,6 +258,8 @@ type VpnSiteArgs struct {
 	VirtualWan SubResourcePtrInput
 	// List of all vpn site links.
 	VpnSiteLinks VpnSiteLinkArrayInput
+	// The name of the VpnSite being created or updated.
+	VpnSiteName pulumi.StringInput
 }
 
 func (VpnSiteArgs) ElementType() reflect.Type {

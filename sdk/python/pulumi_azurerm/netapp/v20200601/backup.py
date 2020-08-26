@@ -16,9 +16,9 @@ class Backup(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 backup_name: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
@@ -31,9 +31,9 @@ class Backup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
+        :param pulumi.Input[str] backup_name: The name of the backup
         :param pulumi.Input[str] label: Label for backup
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the backup
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] volume_name: The name of the volume
@@ -58,13 +58,13 @@ class Backup(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if backup_name is None:
+                raise TypeError("Missing required property 'backup_name'")
+            __props__['backup_name'] = backup_name
             __props__['label'] = label
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if pool_name is None:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
@@ -76,6 +76,7 @@ class Backup(pulumi.CustomResource):
             __props__['volume_name'] = volume_name
             __props__['backup_type'] = None
             __props__['creation_date'] = None
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['size'] = None
             __props__['type'] = None

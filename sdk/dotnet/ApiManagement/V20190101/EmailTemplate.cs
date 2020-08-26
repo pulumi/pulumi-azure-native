@@ -125,12 +125,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Email Template Name Identifier.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
         [Input("parameters")]
         private InputList<Inputs.EmailTemplateParametersContractPropertiesArgs>? _parameters;
 
@@ -160,6 +154,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// </summary>
         [Input("subject")]
         public Input<string>? Subject { get; set; }
+
+        /// <summary>
+        /// Email Template Name Identifier.
+        /// </summary>
+        [Input("templateName", required: true)]
+        public Input<string> TemplateName { get; set; } = null!;
 
         /// <summary>
         /// Title of the Template.

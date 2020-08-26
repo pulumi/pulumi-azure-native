@@ -18,7 +18,7 @@ func LookupExpressRoutePort(ctx *pulumi.Context, args *LookupExpressRoutePortArg
 
 type LookupExpressRoutePortArgs struct {
 	// The name of ExpressRoutePort.
-	Name string `pulumi:"name"`
+	ExpressRoutePortName string `pulumi:"expressRoutePortName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

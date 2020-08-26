@@ -20,8 +20,8 @@ class ServerDetails(pulumi.CustomResource):
                  as_administrators: Optional[pulumi.Input[pulumi.InputType['ServerAdministratorsArgs']]] = None,
                  backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -35,8 +35,8 @@ class ServerDetails(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServerAdministratorsArgs']] as_administrators: A collection of AS server administrators
         :param pulumi.Input[str] backup_blob_container_uri: The container URI of backup blob.
         :param pulumi.Input[str] location: Location of the Analysis Services resource.
-        :param pulumi.Input[str] name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
+        :param pulumi.Input[str] server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The SKU of the Analysis Services resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
@@ -62,16 +62,17 @@ class ServerDetails(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if server_name is None:
+                raise TypeError("Missing required property 'server_name'")
+            __props__['server_name'] = server_name
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['server_full_name'] = None
             __props__['state'] = None

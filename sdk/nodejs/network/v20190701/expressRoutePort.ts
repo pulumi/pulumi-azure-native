@@ -79,7 +79,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The name of the peering location that the ExpressRoutePort is mapped to physically.
      */
@@ -118,19 +118,19 @@ export class ExpressRoutePort extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ExpressRoutePortArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.expressRoutePortName === undefined) {
+                throw new Error("Missing required property 'expressRoutePortName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
             inputs["encapsulation"] = args ? args.encapsulation : undefined;
+            inputs["expressRoutePortName"] = args ? args.expressRoutePortName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["links"] = args ? args.links : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["peeringLocation"] = args ? args.peeringLocation : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
@@ -140,6 +140,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["etherType"] = undefined /*out*/;
             inputs["mtu"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisionedBandwidthInGbps"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -170,6 +171,10 @@ export interface ExpressRoutePortArgs {
      */
     readonly encapsulation?: pulumi.Input<string>;
     /**
+     * The name of the ExpressRoutePort resource.
+     */
+    readonly expressRoutePortName: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -185,10 +190,6 @@ export interface ExpressRoutePortArgs {
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the ExpressRoutePort resource.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The name of the peering location that the ExpressRoutePort is mapped to physically.
      */

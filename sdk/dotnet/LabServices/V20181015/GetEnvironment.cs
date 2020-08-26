@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class GetEnvironmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the environment.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public string EnvironmentName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the environment Setting.
         /// </summary>
         [Input("environmentSettingName", required: true)]
@@ -41,12 +47,6 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         [Input("labName", required: true)]
         public string LabName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the environment.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

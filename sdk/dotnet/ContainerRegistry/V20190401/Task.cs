@@ -173,12 +173,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the container registry task.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The platform properties against which the run has to happen.
         /// </summary>
         [Input("platform", required: true)]
@@ -219,6 +213,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the container registry task.
+        /// </summary>
+        [Input("taskName", required: true)]
+        public Input<string> TaskName { get; set; } = null!;
 
         /// <summary>
         /// Run timeout in seconds.

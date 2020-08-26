@@ -20,7 +20,7 @@ type LookupReplicationNetworkMappingArgs struct {
 	// Primary fabric name.
 	FabricName string `pulumi:"fabricName"`
 	// Network mapping name.
-	Name string `pulumi:"name"`
+	NetworkMappingName string `pulumi:"networkMappingName"`
 	// Primary network name.
 	NetworkName string `pulumi:"networkName"`
 	// The name of the resource group where the recovery services vault is present.

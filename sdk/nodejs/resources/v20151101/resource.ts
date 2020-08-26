@@ -43,7 +43,7 @@ export class Resource extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets or sets the plan of the resource.
      */
@@ -77,14 +77,14 @@ export class Resource extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.parentResourcePath === undefined) {
                 throw new Error("Missing required property 'parentResourcePath'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.resourceName === undefined) {
+                throw new Error("Missing required property 'resourceName'");
             }
             if (!args || args.resourceProviderNamespace === undefined) {
                 throw new Error("Missing required property 'resourceProviderNamespace'");
@@ -93,14 +93,15 @@ export class Resource extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceType'");
             }
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["parentResourcePath"] = args ? args.parentResourcePath : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -127,10 +128,6 @@ export interface ResourceArgs {
     /**
      * Resource identity.
      */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Resource identity.
-     */
     readonly parentResourcePath: pulumi.Input<string>;
     /**
      * Gets or sets the plan of the resource.
@@ -144,6 +141,10 @@ export interface ResourceArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource identity.
+     */
+    readonly resourceName: pulumi.Input<string>;
     /**
      * Resource identity.
      */

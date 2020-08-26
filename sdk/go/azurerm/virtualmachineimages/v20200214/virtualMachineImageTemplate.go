@@ -51,11 +51,11 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	if args == nil || args.Identity == nil {
 		return nil, errors.New("missing required argument 'Identity'")
 	}
+	if args == nil || args.ImageTemplateName == nil {
+		return nil, errors.New("missing required argument 'ImageTemplateName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -158,10 +158,10 @@ type virtualMachineImageTemplateArgs struct {
 	Distribute []ImageTemplateDistributor `pulumi:"distribute"`
 	// The identity of the image template, if configured.
 	Identity ImageTemplateIdentity `pulumi:"identity"`
+	// The name of the image Template
+	ImageTemplateName string `pulumi:"imageTemplateName"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the image Template
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the properties used to describe the source image.
@@ -182,10 +182,10 @@ type VirtualMachineImageTemplateArgs struct {
 	Distribute ImageTemplateDistributorArrayInput
 	// The identity of the image template, if configured.
 	Identity ImageTemplateIdentityInput
+	// The name of the image Template
+	ImageTemplateName pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the image Template
-	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the properties used to describe the source image.

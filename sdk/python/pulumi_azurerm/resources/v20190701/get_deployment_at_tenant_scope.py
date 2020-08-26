@@ -79,15 +79,15 @@ class AwaitableGetDeploymentAtTenantScopeResult(GetDeploymentAtTenantScopeResult
             type=self.type)
 
 
-def get_deployment_at_tenant_scope(name: Optional[str] = None,
+def get_deployment_at_tenant_scope(deployment_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtTenantScopeResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the deployment.
+    :param str deployment_name: The name of the deployment.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['deploymentName'] = deployment_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

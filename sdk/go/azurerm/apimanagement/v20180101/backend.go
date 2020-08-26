@@ -41,8 +41,8 @@ type Backend struct {
 // NewBackend registers a new resource with the given unique name, arguments, and options.
 func NewBackend(ctx *pulumi.Context,
 	name string, args *BackendArgs, opts ...pulumi.ResourceOption) (*Backend, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.Backendid == nil {
+		return nil, errors.New("missing required argument 'Backendid'")
 	}
 	if args == nil || args.Protocol == nil {
 		return nil, errors.New("missing required argument 'Protocol'")
@@ -147,12 +147,12 @@ func (BackendState) ElementType() reflect.Type {
 }
 
 type backendArgs struct {
+	// Identifier of the Backend entity. Must be unique in the current API Management service instance.
+	Backendid string `pulumi:"backendid"`
 	// Backend Credentials Contract Properties
 	Credentials *BackendCredentialsContract `pulumi:"credentials"`
 	// Backend Description.
 	Description *string `pulumi:"description"`
-	// Identifier of the Backend entity. Must be unique in the current API Management service instance.
-	Name string `pulumi:"name"`
 	// Backend Properties contract
 	Properties *BackendProperties `pulumi:"properties"`
 	// Backend communication protocol.
@@ -175,12 +175,12 @@ type backendArgs struct {
 
 // The set of arguments for constructing a Backend resource.
 type BackendArgs struct {
+	// Identifier of the Backend entity. Must be unique in the current API Management service instance.
+	Backendid pulumi.StringInput
 	// Backend Credentials Contract Properties
 	Credentials BackendCredentialsContractPtrInput
 	// Backend Description.
 	Description pulumi.StringPtrInput
-	// Identifier of the Backend entity. Must be unique in the current API Management service instance.
-	Name pulumi.StringInput
 	// Backend Properties contract
 	Properties BackendPropertiesPtrInput
 	// Backend communication protocol.

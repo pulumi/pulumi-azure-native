@@ -17,10 +17,10 @@ func LookupApiManagementService(ctx *pulumi.Context, args *LookupApiManagementSe
 }
 
 type LookupApiManagementServiceArgs struct {
-	// The name of the API Management service.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the API Management service.
+	ServiceName string `pulumi:"serviceName"`
 }
 
 // A single API Management service resource in List or Get response.

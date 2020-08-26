@@ -21,10 +21,10 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]]] = None,
                  policy_definition_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyDefinitionGroupArgs']]]]] = None,
                  policy_definitions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]]] = None,
+                 policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,10 +38,10 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
         :param pulumi.Input[Mapping[str, Any]] metadata: The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-        :param pulumi.Input[str] name: The name of the policy set definition to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionsValueArgs']]]] parameters: The policy set definition parameters that can be used in policy definition references.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyDefinitionGroupArgs']]]] policy_definition_groups: The metadata describing groups of policy definition references within the policy set definition.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]] policy_definitions: An array of policy definition references.
+        :param pulumi.Input[str] policy_set_definition_name: The name of the policy set definition to create.
         :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         if __name__ is not None:
@@ -67,15 +67,16 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'management_group_id'")
             __props__['management_group_id'] = management_group_id
             __props__['metadata'] = metadata
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['parameters'] = parameters
             __props__['policy_definition_groups'] = policy_definition_groups
             if policy_definitions is None:
                 raise TypeError("Missing required property 'policy_definitions'")
             __props__['policy_definitions'] = policy_definitions
+            if policy_set_definition_name is None:
+                raise TypeError("Missing required property 'policy_set_definition_name'")
+            __props__['policy_set_definition_name'] = policy_set_definition_name
             __props__['policy_type'] = policy_type
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:management/v20180301:PolicySetDefinitionAtManagementGroup"), pulumi.Alias(type_="azurerm:management/v20180501:PolicySetDefinitionAtManagementGroup"), pulumi.Alias(type_="azurerm:management/v20190101:PolicySetDefinitionAtManagementGroup"), pulumi.Alias(type_="azurerm:management/v20190601:PolicySetDefinitionAtManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

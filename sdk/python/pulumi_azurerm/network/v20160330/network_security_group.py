@@ -21,8 +21,8 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_interfaces: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkInterfaceArgs']]]]] = None,
+                 network_security_group_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
@@ -41,8 +41,8 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the network security group.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkInterfaceArgs']]]] network_interfaces: Gets collection of references to Network Interfaces
+        :param pulumi.Input[str] network_security_group_name: The name of the network security group.
         :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: Gets or sets resource GUID property of the network security group resource
@@ -71,10 +71,10 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['network_interfaces'] = network_interfaces
+            if network_security_group_name is None:
+                raise TypeError("Missing required property 'network_security_group_name'")
+            __props__['network_security_group_name'] = network_security_group_name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -83,6 +83,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             __props__['security_rules'] = security_rules
             __props__['subnets'] = subnets
             __props__['tags'] = tags
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20150615:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20160601:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20160901:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20161201:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20170301:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20170601:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20170801:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20170901:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20171001:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20171101:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20180101:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20180201:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20180401:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20180601:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20180701:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20180801:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20181001:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20181101:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20181201:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20190201:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20190401:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20190601:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20190701:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20190801:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20190901:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20191101:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20191201:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20200301:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20200401:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20200501:NetworkSecurityGroup"), pulumi.Alias(type_="azurerm:network/v20200601:NetworkSecurityGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

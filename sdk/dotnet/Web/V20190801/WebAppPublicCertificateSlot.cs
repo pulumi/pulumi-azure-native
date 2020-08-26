@@ -115,7 +115,7 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Public certificate name.
+        /// Name of the app.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -125,6 +125,12 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// </summary>
         [Input("publicCertificateLocation")]
         public Input<string>? PublicCertificateLocation { get; set; }
+
+        /// <summary>
+        /// Public certificate name.
+        /// </summary>
+        [Input("publicCertificateName", required: true)]
+        public Input<string> PublicCertificateName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

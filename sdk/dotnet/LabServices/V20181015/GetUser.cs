@@ -37,16 +37,16 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public string LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
+        [Input("userName", required: true)]
+        public string UserName { get; set; } = null!;
 
         public GetUserArgs()
         {

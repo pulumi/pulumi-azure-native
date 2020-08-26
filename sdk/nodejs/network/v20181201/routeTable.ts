@@ -51,7 +51,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -86,21 +86,22 @@ export class RouteTable extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RouteTableArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.routeTableName === undefined) {
+                throw new Error("Missing required property 'routeTableName'");
             }
             inputs["disableBgpRoutePropagation"] = args ? args.disableBgpRoutePropagation : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routeTableName"] = args ? args.routeTableName : undefined;
             inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["subnets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -138,10 +139,6 @@ export interface RouteTableArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the route table.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
     readonly provisioningState?: pulumi.Input<string>;
@@ -149,6 +146,10 @@ export interface RouteTableArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the route table.
+     */
+    readonly routeTableName: pulumi.Input<string>;
     /**
      * Collection of routes contained within a route table.
      */

@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.EventHub.V20170401
         /// <summary>
         /// The Disaster Recovery configuration name
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("alias", required: true)]
+        public string Alias { get; set; } = null!;
 
         /// <summary>
         /// The Namespace name

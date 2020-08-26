@@ -31,12 +31,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public string ManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The volume name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -47,6 +41,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("volumeContainerName", required: true)]
         public string VolumeContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The volume name.
+        /// </summary>
+        [Input("volumeName", required: true)]
+        public string VolumeName { get; set; } = null!;
 
         public GetVolumeArgs()
         {

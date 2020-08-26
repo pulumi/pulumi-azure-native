@@ -71,7 +71,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Gets operational state of application gateway resource
      */
@@ -126,12 +126,13 @@ export class ApplicationGateway extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ApplicationGatewayArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.applicationGatewayName === undefined) {
+                throw new Error("Missing required property 'applicationGatewayName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["applicationGatewayName"] = args ? args.applicationGatewayName : undefined;
             inputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
             inputs["backendHttpSettingsCollection"] = args ? args.backendHttpSettingsCollection : undefined;
             inputs["etag"] = args ? args.etag : undefined;
@@ -141,7 +142,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["httpListeners"] = args ? args.httpListeners : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["probes"] = args ? args.probes : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["requestRoutingRules"] = args ? args.requestRoutingRules : undefined;
@@ -151,6 +151,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["sslCertificates"] = args ? args.sslCertificates : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["operationalState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -171,6 +172,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a ApplicationGateway resource.
  */
 export interface ApplicationGatewayArgs {
+    /**
+     * The name of the ApplicationGateway.
+     */
+    readonly applicationGatewayName: pulumi.Input<string>;
     /**
      * Gets or sets backend address pool of application gateway resource
      */
@@ -207,10 +212,6 @@ export interface ApplicationGatewayArgs {
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the ApplicationGateway.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Gets or sets probes of application gateway resource
      */

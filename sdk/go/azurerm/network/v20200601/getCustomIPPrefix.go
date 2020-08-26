@@ -17,10 +17,10 @@ func LookupCustomIPPrefix(ctx *pulumi.Context, args *LookupCustomIPPrefixArgs, o
 }
 
 type LookupCustomIPPrefixArgs struct {
+	// The name of the custom IP prefix.
+	CustomIpPrefixName string `pulumi:"customIpPrefixName"`
 	// Expands referenced resources.
 	Expand *string `pulumi:"expand"`
-	// The name of the custom IP prefix.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

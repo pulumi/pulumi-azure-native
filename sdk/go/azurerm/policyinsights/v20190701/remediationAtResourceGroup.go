@@ -39,8 +39,8 @@ type RemediationAtResourceGroup struct {
 // NewRemediationAtResourceGroup registers a new resource with the given unique name, arguments, and options.
 func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 	name string, args *RemediationAtResourceGroupArgs, opts ...pulumi.ResourceOption) (*RemediationAtResourceGroup, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.RemediationName == nil {
+		return nil, errors.New("missing required argument 'RemediationName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -122,12 +122,12 @@ func (RemediationAtResourceGroupState) ElementType() reflect.Type {
 type remediationAtResourceGroupArgs struct {
 	// The filters that will be applied to determine which resources to remediate.
 	Filters *RemediationFilters `pulumi:"filters"`
-	// The name of the remediation.
-	Name string `pulumi:"name"`
 	// The resource ID of the policy assignment that should be remediated.
 	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+	// The name of the remediation.
+	RemediationName string `pulumi:"remediationName"`
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 	// Resource group name.
@@ -138,12 +138,12 @@ type remediationAtResourceGroupArgs struct {
 type RemediationAtResourceGroupArgs struct {
 	// The filters that will be applied to determine which resources to remediate.
 	Filters RemediationFiltersPtrInput
-	// The name of the remediation.
-	Name pulumi.StringInput
 	// The resource ID of the policy assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringPtrInput
 	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
+	// The name of the remediation.
+	RemediationName pulumi.StringInput
 	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 	// Resource group name.

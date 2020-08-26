@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// <summary>
         /// The name of the profile.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("profileName", required: true)]
+        public string ProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

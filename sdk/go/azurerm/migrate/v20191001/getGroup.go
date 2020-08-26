@@ -18,7 +18,7 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 type LookupGroupArgs struct {
 	// Unique name of a group within a project.
-	Name string `pulumi:"name"`
+	GroupName string `pulumi:"groupName"`
 	// Name of the Azure Migrate project.
 	ProjectName string `pulumi:"projectName"`
 	// Name of the Azure Resource Group that project is part of.

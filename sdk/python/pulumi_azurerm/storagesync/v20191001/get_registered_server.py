@@ -282,20 +282,20 @@ class AwaitableGetRegisteredServerResult(GetRegisteredServerResult):
             type=self.type)
 
 
-def get_registered_server(name: Optional[str] = None,
-                          resource_group_name: Optional[str] = None,
+def get_registered_server(resource_group_name: Optional[str] = None,
+                          server_id: Optional[str] = None,
                           storage_sync_service_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredServerResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: GUID identifying the on-premises server.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str server_id: GUID identifying the on-premises server.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['serverId'] = server_id
     __args__['storageSyncServiceName'] = storage_sync_service_name
     if opts is None:
         opts = pulumi.InvokeOptions()

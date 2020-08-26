@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public sealed class GetRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The rule name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
@@ -35,6 +29,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The rule name.
+        /// </summary>
+        [Input("ruleName", required: true)]
+        public string RuleName { get; set; } = null!;
 
         /// <summary>
         /// The subscription name.

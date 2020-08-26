@@ -63,7 +63,7 @@ export class GalleryImage extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
@@ -114,6 +114,9 @@ export class GalleryImage extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as GalleryImageArgs | undefined;
+            if (!args || args.galleryImageName === undefined) {
+                throw new Error("Missing required property 'galleryImageName'");
+            }
             if (!args || args.galleryName === undefined) {
                 throw new Error("Missing required property 'galleryName'");
             }
@@ -122,9 +125,6 @@ export class GalleryImage extends pulumi.CustomResource {
             }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.osState === undefined) {
                 throw new Error("Missing required property 'osState'");
@@ -139,10 +139,10 @@ export class GalleryImage extends pulumi.CustomResource {
             inputs["disallowed"] = args ? args.disallowed : undefined;
             inputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             inputs["eula"] = args ? args.eula : undefined;
+            inputs["galleryImageName"] = args ? args.galleryImageName : undefined;
             inputs["galleryName"] = args ? args.galleryName : undefined;
             inputs["identifier"] = args ? args.identifier : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["osState"] = args ? args.osState : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
@@ -151,6 +151,7 @@ export class GalleryImage extends pulumi.CustomResource {
             inputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -188,6 +189,10 @@ export interface GalleryImageArgs {
      */
     readonly eula?: pulumi.Input<string>;
     /**
+     * The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+     */
+    readonly galleryImageName: pulumi.Input<string>;
+    /**
      * The name of the Shared Image Gallery in which the Image Definition is to be created.
      */
     readonly galleryName: pulumi.Input<string>;
@@ -199,10 +204,6 @@ export interface GalleryImageArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */

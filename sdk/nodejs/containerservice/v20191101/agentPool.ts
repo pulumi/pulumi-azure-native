@@ -65,7 +65,7 @@ export class AgentPool extends pulumi.CustomResource {
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Agent pool node labels to be persisted across all nodes in agent pool.
      */
@@ -128,8 +128,8 @@ export class AgentPool extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AgentPoolArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.agentPoolName === undefined) {
+                throw new Error("Missing required property 'agentPoolName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -137,6 +137,7 @@ export class AgentPool extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
+            inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             inputs["count"] = args ? args.count : undefined;
             inputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
@@ -144,7 +145,6 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["maxCount"] = args ? args.maxCount : undefined;
             inputs["maxPods"] = args ? args.maxPods : undefined;
             inputs["minCount"] = args ? args.minCount : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["nodeLabels"] = args ? args.nodeLabels : undefined;
             inputs["nodeTaints"] = args ? args.nodeTaints : undefined;
             inputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
@@ -158,6 +158,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
@@ -177,6 +178,10 @@ export class AgentPool extends pulumi.CustomResource {
  * The set of arguments for constructing a AgentPool resource.
  */
 export interface AgentPoolArgs {
+    /**
+     * The name of the agent pool.
+     */
+    readonly agentPoolName: pulumi.Input<string>;
     /**
      * Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
      */
@@ -205,10 +210,6 @@ export interface AgentPoolArgs {
      * Minimum number of nodes for auto-scaling
      */
     readonly minCount?: pulumi.Input<number>;
-    /**
-     * The name of the agent pool.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Agent pool node labels to be persisted across all nodes in agent pool.
      */

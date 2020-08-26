@@ -19,6 +19,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,6 +31,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] name: Name of the site.
         :param pulumi.Input[pulumi.InputType['PrivateLinkConnectionStateArgs']] private_link_service_connection_state: The state of a private link connection
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
@@ -54,6 +56,9 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if private_endpoint_connection_name is None:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
+            __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

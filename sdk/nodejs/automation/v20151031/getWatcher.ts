@@ -16,8 +16,8 @@ export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getWatcher", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "watcherName": args.watcherName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetWatcherArgs {
      */
     readonly automationAccountName: string;
     /**
-     * The watcher name.
-     */
-    readonly name: string;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The watcher name.
+     */
+    readonly watcherName: string;
 }
 
 /**

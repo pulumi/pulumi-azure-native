@@ -17,18 +17,23 @@ export function getWebAppSiteExtension(args: GetWebAppSiteExtensionArgs, opts?: 
     return pulumi.runtime.invoke("azurerm:web/v20200601:getWebAppSiteExtension", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "siteExtensionId": args.siteExtensionId,
     }, opts);
 }
 
 export interface GetWebAppSiteExtensionArgs {
     /**
-     * Site extension name.
+     * Site name.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * Site extension name.
+     */
+    readonly siteExtensionId: string;
 }
 
 /**

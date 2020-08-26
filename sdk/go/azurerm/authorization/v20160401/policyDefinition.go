@@ -29,8 +29,8 @@ type PolicyDefinition struct {
 // NewPolicyDefinition registers a new resource with the given unique name, arguments, and options.
 func NewPolicyDefinition(ctx *pulumi.Context,
 	name string, args *PolicyDefinitionArgs, opts ...pulumi.ResourceOption) (*PolicyDefinition, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyDefinitionName == nil {
+		return nil, errors.New("missing required argument 'PolicyDefinitionName'")
 	}
 	if args == nil {
 		args = &PolicyDefinitionArgs{}
@@ -97,8 +97,10 @@ type policyDefinitionArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
+	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
+	Name *string `pulumi:"name"`
 	// The name of the policy definition to create.
-	Name string `pulumi:"name"`
+	PolicyDefinitionName string `pulumi:"policyDefinitionName"`
 	// The policy rule.
 	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -111,8 +113,10 @@ type PolicyDefinitionArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput
+	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
+	Name pulumi.StringPtrInput
 	// The name of the policy definition to create.
-	Name pulumi.StringInput
+	PolicyDefinitionName pulumi.StringInput
 	// The policy rule.
 	PolicyRule pulumi.MapInput
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

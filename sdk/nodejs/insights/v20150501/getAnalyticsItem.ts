@@ -19,6 +19,7 @@ export function getAnalyticsItem(args: GetAnalyticsItemArgs, opts?: pulumi.Invok
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
+        "scopePath": args.scopePath,
     }, opts);
 }
 
@@ -28,9 +29,9 @@ export interface GetAnalyticsItemArgs {
      */
     readonly id?: string;
     /**
-     * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+     * The name of a specific item defined in the Application Insights component
      */
-    readonly name: string;
+    readonly name?: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -39,6 +40,10 @@ export interface GetAnalyticsItemArgs {
      * The name of the Application Insights component resource.
      */
     readonly resourceName: string;
+    /**
+     * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+     */
+    readonly scopePath: string;
 }
 
 /**

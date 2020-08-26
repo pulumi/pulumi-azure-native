@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class GetTagByProductArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Tag identifier. Must be unique in the current API Management service instance.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("productId", required: true)]
@@ -41,6 +35,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Tag identifier. Must be unique in the current API Management service instance.
+        /// </summary>
+        [Input("tagId", required: true)]
+        public string TagId { get; set; } = null!;
 
         public GetTagByProductArgs()
         {

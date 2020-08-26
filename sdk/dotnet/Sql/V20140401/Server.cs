@@ -150,16 +150,16 @@ namespace Pulumi.AzureRM.Sql.V20140401
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the server.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

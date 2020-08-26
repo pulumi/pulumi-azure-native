@@ -67,23 +67,23 @@ class AwaitableGetSynchronizationSettingResult(GetSynchronizationSettingResult):
 
 
 def get_synchronization_setting(account_name: Optional[str] = None,
-                                name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 share_name: Optional[str] = None,
+                                synchronization_setting_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSynchronizationSettingResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the share account.
-    :param str name: The name of the synchronizationSetting.
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
+    :param str synchronization_setting_name: The name of the synchronizationSetting.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
+    __args__['synchronizationSettingName'] = synchronization_setting_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

@@ -18,7 +18,7 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 
 type LookupProjectArgs struct {
 	// Name of the Azure Migrate project.
-	Name string `pulumi:"name"`
+	ProjectName string `pulumi:"projectName"`
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

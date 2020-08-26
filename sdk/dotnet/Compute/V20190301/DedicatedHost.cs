@@ -156,6 +156,12 @@ namespace Pulumi.AzureRM.Compute.V20190301
         public Input<string> HostGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the dedicated host .
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
         /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
         /// </summary>
         [Input("licenseType")]
@@ -166,12 +172,6 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the dedicated host .
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Fault domain of the dedicated host within a dedicated host group.

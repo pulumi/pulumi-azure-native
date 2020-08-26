@@ -35,14 +35,14 @@ type AnalyticsItem struct {
 // NewAnalyticsItem registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsItem(ctx *pulumi.Context,
 	name string, args *AnalyticsItemArgs, opts ...pulumi.ResourceOption) (*AnalyticsItem, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ResourceName == nil {
 		return nil, errors.New("missing required argument 'ResourceName'")
+	}
+	if args == nil || args.ScopePath == nil {
+		return nil, errors.New("missing required argument 'ScopePath'")
 	}
 	if args == nil {
 		args = &AnalyticsItemArgs{}
@@ -115,8 +115,8 @@ type analyticsItemArgs struct {
 	Content *string `pulumi:"content"`
 	// Internally assigned unique id of the item definition.
 	Id *string `pulumi:"id"`
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Name string `pulumi:"name"`
+	// The user-defined name of the item.
+	Name *string `pulumi:"name"`
 	// Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
 	OverrideItem *bool `pulumi:"overrideItem"`
 	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
@@ -127,6 +127,8 @@ type analyticsItemArgs struct {
 	ResourceName string `pulumi:"resourceName"`
 	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
 	Scope *string `pulumi:"scope"`
+	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+	ScopePath string `pulumi:"scopePath"`
 	// Enum indicating the type of the Analytics item.
 	Type *string `pulumi:"type"`
 }
@@ -137,8 +139,8 @@ type AnalyticsItemArgs struct {
 	Content pulumi.StringPtrInput
 	// Internally assigned unique id of the item definition.
 	Id pulumi.StringPtrInput
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Name pulumi.StringInput
+	// The user-defined name of the item.
+	Name pulumi.StringPtrInput
 	// Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
 	OverrideItem pulumi.BoolPtrInput
 	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
@@ -149,6 +151,8 @@ type AnalyticsItemArgs struct {
 	ResourceName pulumi.StringInput
 	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
 	Scope pulumi.StringPtrInput
+	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+	ScopePath pulumi.StringInput
 	// Enum indicating the type of the Analytics item.
 	Type pulumi.StringPtrInput
 }

@@ -17,8 +17,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointArgs']]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -30,8 +30,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the private endpoint connection.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The resource of private endpoint.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
@@ -53,10 +53,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['private_endpoint'] = private_endpoint
+            if private_endpoint_connection_name is None:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
+            __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             if private_link_service_connection_state is None:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
@@ -66,6 +66,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if resource_name_ is None:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
+            __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20200601:PrivateEndpointConnection")])

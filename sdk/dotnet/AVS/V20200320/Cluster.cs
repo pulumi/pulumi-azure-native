@@ -102,16 +102,16 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the cluster in the private cloud
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
         /// The cluster size
         /// </summary>
         [Input("clusterSize", required: true)]
         public Input<int> ClusterSize { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the cluster in the private cloud
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the private cloud.

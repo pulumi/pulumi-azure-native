@@ -17,6 +17,7 @@ class DatabaseAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
                  capabilities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
                  connector_offer: Optional[pulumi.Input[str]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
@@ -31,7 +32,6 @@ class DatabaseAccount(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LocationArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -44,6 +44,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CapabilityArgs']]]] capabilities: List of Cosmos DB capabilities for the account
         :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
         :param pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']] consistency_policy: The consistency policy for the Cosmos DB account.
@@ -58,7 +59,6 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Indicates the type of database account. This can only be set at database account creation.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LocationArgs']]]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
-        :param pulumi.Input[str] name: Cosmos DB database account name.
         :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -81,6 +81,9 @@ class DatabaseAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if account_name is None:
+                raise TypeError("Missing required property 'account_name'")
+            __props__['account_name'] = account_name
             __props__['capabilities'] = capabilities
             __props__['connector_offer'] = connector_offer
             __props__['consistency_policy'] = consistency_policy
@@ -99,9 +102,6 @@ class DatabaseAccount(pulumi.CustomResource):
             if locations is None:
                 raise TypeError("Missing required property 'locations'")
             __props__['locations'] = locations
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['public_network_access'] = public_network_access
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -110,6 +110,7 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__['virtual_network_rules'] = virtual_network_rules
             __props__['document_endpoint'] = None
             __props__['failover_policies'] = None
+            __props__['name'] = None
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['read_locations'] = None

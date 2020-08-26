@@ -16,8 +16,8 @@ export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:automation/v20151031:getWebhook", {
         "automationAccountName": args.automationAccountName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "webhookName": args.webhookName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetWebhookArgs {
      */
     readonly automationAccountName: string;
     /**
-     * The webhook name.
-     */
-    readonly name: string;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The webhook name.
+     */
+    readonly webhookName: string;
 }
 
 /**

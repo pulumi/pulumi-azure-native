@@ -15,17 +15,13 @@ export function listTaskDetails(args: ListTaskDetailsArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:containerregistry/v20190401:listTaskDetails", {
-        "name": args.name,
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,
+        "taskName": args.taskName,
     }, opts);
 }
 
 export interface ListTaskDetailsArgs {
-    /**
-     * The name of the container registry task.
-     */
-    readonly name: string;
     /**
      * The name of the container registry.
      */
@@ -34,6 +30,10 @@ export interface ListTaskDetailsArgs {
      * The name of the resource group to which the container registry belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the container registry task.
+     */
+    readonly taskName: string;
 }
 
 /**

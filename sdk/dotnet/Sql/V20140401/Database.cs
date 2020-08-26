@@ -312,6 +312,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
+        /// The name of the database to be operated on (updated or created).
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
         /// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
         /// 
         /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
@@ -344,12 +350,6 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<string>? MaxSizeBytes { get; set; }
-
-        /// <summary>
-        /// The name of the database to be operated on (updated or created).
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.

@@ -22,6 +22,7 @@ class MyWorkbook(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  serialized_data: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -40,8 +41,9 @@ class MyWorkbook(pulumi.CustomResource):
         :param pulumi.Input[str] id: Azure resource Id
         :param pulumi.Input[str] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the Application Insights component resource.
+        :param pulumi.Input[str] name: Azure resource name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[str] serialized_data: Configuration of this particular private workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[str] source_id: Optional resourceId for a source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -74,12 +76,13 @@ class MyWorkbook(pulumi.CustomResource):
             __props__['id'] = id
             __props__['kind'] = kind
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             if serialized_data is None:
                 raise TypeError("Missing required property 'serialized_data'")
             __props__['serialized_data'] = serialized_data

@@ -18,7 +18,7 @@ func LookupAppServiceCertificateOrder(ctx *pulumi.Context, args *LookupAppServic
 
 type LookupAppServiceCertificateOrderArgs struct {
 	// Name of the certificate order..
-	Name string `pulumi:"name"`
+	CertificateOrderName string `pulumi:"certificateOrderName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

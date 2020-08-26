@@ -39,6 +39,7 @@ class WebAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[pulumi.InputType['SiteConfigArgs']]] = None,
                  skip_custom_domain_verification: Optional[pulumi.Input[bool]] = None,
                  skip_dns_registration: Optional[pulumi.Input[bool]] = None,
+                 slot: Optional[pulumi.Input[str]] = None,
                  snapshot_info: Optional[pulumi.Input[pulumi.InputType['SnapshotRecoveryRequestArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl_in_seconds: Optional[pulumi.Input[str]] = None,
@@ -66,7 +67,7 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+        :param pulumi.Input[str] name: Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
         :param pulumi.Input[bool] reserved: <code>true</code> if reserved; otherwise, <code>false</code>.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
@@ -75,6 +76,7 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_custom_domain_verification: If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
         :param pulumi.Input[bool] skip_dns_registration: If true web app hostname is not registered with DNS on creation. This parameter is
                 only used for app creation.
+        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         :param pulumi.Input[pulumi.InputType['SnapshotRecoveryRequestArgs']] snapshot_info: If specified during app creation, the app is created from a previous snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] ttl_in_seconds: Time to live in seconds for web app's default domain name.
@@ -124,6 +126,9 @@ class WebAppSlot(pulumi.CustomResource):
             __props__['site_config'] = site_config
             __props__['skip_custom_domain_verification'] = skip_custom_domain_verification
             __props__['skip_dns_registration'] = skip_dns_registration
+            if slot is None:
+                raise TypeError("Missing required property 'slot'")
+            __props__['slot'] = slot
             __props__['snapshot_info'] = snapshot_info
             __props__['tags'] = tags
             __props__['ttl_in_seconds'] = ttl_in_seconds

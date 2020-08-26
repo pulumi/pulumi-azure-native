@@ -126,12 +126,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// The StorageAccount name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -142,6 +136,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// </summary>
         [Input("storageAccountCredentialId")]
         public Input<string>? StorageAccountCredentialId { get; set; }
+
+        /// <summary>
+        /// The StorageAccount name.
+        /// </summary>
+        [Input("storageAccountName", required: true)]
+        public Input<string> StorageAccountName { get; set; } = null!;
 
         /// <summary>
         /// Current status of the storage account

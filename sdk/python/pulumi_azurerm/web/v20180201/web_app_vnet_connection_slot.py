@@ -23,6 +23,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
+                 vnet_name: Optional[pulumi.Input[str]] = None,
                  vnet_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,9 +38,10 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
         :param pulumi.Input[str] dns_servers: DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
         :param pulumi.Input[bool] is_swift: Flag that is used to denote if this is VNET injection
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Name of an existing Virtual Network.
+        :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
+        :param pulumi.Input[str] vnet_name: Name of an existing Virtual Network.
         :param pulumi.Input[str] vnet_resource_id: The Virtual Network's resource ID.
         """
         if __name__ is not None:
@@ -72,6 +74,9 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
+            if vnet_name is None:
+                raise TypeError("Missing required property 'vnet_name'")
+            __props__['vnet_name'] = vnet_name
             __props__['vnet_resource_id'] = vnet_resource_id
             __props__['cert_thumbprint'] = None
             __props__['resync_required'] = None

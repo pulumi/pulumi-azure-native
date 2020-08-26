@@ -63,7 +63,7 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */
@@ -106,8 +106,8 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NotificationHubAuthorizationRuleArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.authorizationRuleName === undefined) {
+                throw new Error("Missing required property 'authorizationRuleName'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -121,7 +121,7 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["notificationHubName"] = args ? args.notificationHubName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -132,6 +132,7 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
             inputs["keyName"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["modifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["primaryKey"] = undefined /*out*/;
             inputs["revision"] = undefined /*out*/;
             inputs["rights"] = undefined /*out*/;
@@ -160,7 +161,7 @@ export interface NotificationHubAuthorizationRuleArgs {
     /**
      * Authorization Rule Name.
      */
-    readonly name: pulumi.Input<string>;
+    readonly authorizationRuleName: pulumi.Input<string>;
     /**
      * The namespace name.
      */

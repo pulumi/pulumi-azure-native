@@ -15,6 +15,7 @@ class EventHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 event_hub_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  message_retention_in_days: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31,9 +32,10 @@ class EventHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] event_hub_name: The Event Hub name
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub.
-        :param pulumi.Input[str] name: The Event Hub name
+        :param pulumi.Input[str] name: Name of the Event Hub.
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
@@ -57,12 +59,13 @@ class EventHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if event_hub_name is None:
+                raise TypeError("Missing required property 'event_hub_name'")
+            __props__['event_hub_name'] = event_hub_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['message_retention_in_days'] = message_retention_in_days
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")

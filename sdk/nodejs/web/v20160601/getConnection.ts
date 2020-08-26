@@ -15,7 +15,7 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20160601:getConnection", {
-        "name": args.name,
+        "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetConnectionArgs {
     /**
      * Connection name
      */
-    readonly name: string;
+    readonly connectionName: string;
     /**
      * The resource group
      */

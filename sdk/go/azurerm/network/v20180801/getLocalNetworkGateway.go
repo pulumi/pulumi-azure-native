@@ -18,7 +18,7 @@ func LookupLocalNetworkGateway(ctx *pulumi.Context, args *LookupLocalNetworkGate
 
 type LookupLocalNetworkGatewayArgs struct {
 	// The name of the local network gateway.
-	Name string `pulumi:"name"`
+	LocalNetworkGatewayName string `pulumi:"localNetworkGatewayName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

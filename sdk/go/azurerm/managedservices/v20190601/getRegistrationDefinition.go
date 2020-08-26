@@ -18,7 +18,7 @@ func LookupRegistrationDefinition(ctx *pulumi.Context, args *LookupRegistrationD
 
 type LookupRegistrationDefinitionArgs struct {
 	// Guid of the registration definition.
-	Name string `pulumi:"name"`
+	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
 	// Scope of the resource.
 	Scope string `pulumi:"scope"`
 }

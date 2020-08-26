@@ -16,7 +16,7 @@ export function getCassandraResourceCassandraKeyspace(args: GetCassandraResource
     }
     return pulumi.runtime.invoke("azurerm:documentdb/v20200401:getCassandraResourceCassandraKeyspace", {
         "accountName": args.accountName,
-        "name": args.name,
+        "keyspaceName": args.keyspaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -29,7 +29,7 @@ export interface GetCassandraResourceCassandraKeyspaceArgs {
     /**
      * Cosmos DB keyspace name.
      */
-    readonly name: string;
+    readonly keyspaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */

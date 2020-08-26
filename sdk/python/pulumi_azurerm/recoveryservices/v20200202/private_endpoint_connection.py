@@ -19,7 +19,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -34,7 +34,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the private endpoint connection.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']] properties: PrivateEndpointConnectionResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -59,9 +59,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
             __props__['e_tag'] = e_tag
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            if private_endpoint_connection_name is None:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
+            __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -70,6 +70,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if vault_name is None:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
+            __props__['name'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:recoveryservices/v20200202:PrivateEndpointConnection',

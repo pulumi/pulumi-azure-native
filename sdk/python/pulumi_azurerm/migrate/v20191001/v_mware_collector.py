@@ -18,10 +18,10 @@ class VMwareCollector(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CollectorPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 vm_ware_collector_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -29,9 +29,9 @@ class VMwareCollector(pulumi.CustomResource):
         Create a VMwareCollector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Unique name of a VMware collector within a project.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
+        :param pulumi.Input[str] vm_ware_collector_name: Unique name of a VMware collector within a project.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -51,9 +51,6 @@ class VMwareCollector(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             if project_name is None:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
@@ -61,6 +58,10 @@ class VMwareCollector(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if vm_ware_collector_name is None:
+                raise TypeError("Missing required property 'vm_ware_collector_name'")
+            __props__['vm_ware_collector_name'] = vm_ware_collector_name
+            __props__['name'] = None
             __props__['type'] = None
         super(VMwareCollector, __self__).__init__(
             'azurerm:migrate/v20191001:VMwareCollector',

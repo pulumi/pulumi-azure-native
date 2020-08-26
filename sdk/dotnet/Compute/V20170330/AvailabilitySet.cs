@@ -127,16 +127,16 @@ namespace Pulumi.AzureRM.Compute.V20170330
     public sealed class AvailabilitySetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the availability set.
+        /// </summary>
+        [Input("availabilitySetName", required: true)]
+        public Input<string> AvailabilitySetName { get; set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the availability set.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Fault Domain count.

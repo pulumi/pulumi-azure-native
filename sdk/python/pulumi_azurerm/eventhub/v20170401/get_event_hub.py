@@ -139,19 +139,19 @@ class AwaitableGetEventHubResult(GetEventHubResult):
             updated_at=self.updated_at)
 
 
-def get_event_hub(name: Optional[str] = None,
+def get_event_hub(event_hub_name: Optional[str] = None,
                   namespace_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The Event Hub name
+    :param str event_hub_name: The Event Hub name
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['eventHubName'] = event_hub_name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

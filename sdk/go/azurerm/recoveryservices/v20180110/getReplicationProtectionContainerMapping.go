@@ -20,7 +20,7 @@ type LookupReplicationProtectionContainerMappingArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
 	// Protection Container mapping name.
-	Name string `pulumi:"name"`
+	MappingName string `pulumi:"mappingName"`
 	// Protection container name.
 	ProtectionContainerName string `pulumi:"protectionContainerName"`
 	// The name of the resource group where the recovery services vault is present.

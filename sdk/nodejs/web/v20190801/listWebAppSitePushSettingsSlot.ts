@@ -17,18 +17,23 @@ export function listWebAppSitePushSettingsSlot(args: ListWebAppSitePushSettingsS
     return pulumi.runtime.invoke("azurerm:web/v20190801:listWebAppSitePushSettingsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
     }, opts);
 }
 
 export interface ListWebAppSitePushSettingsSlotArgs {
     /**
-     * Name of web app slot. If not specified then will default to production slot.
+     * Name of web app.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
+     */
+    readonly slot: string;
 }
 
 /**

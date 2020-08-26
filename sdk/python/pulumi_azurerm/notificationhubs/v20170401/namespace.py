@@ -23,6 +23,7 @@ class Namespace(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
                  namespace_type: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
@@ -47,7 +48,8 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] data_center: Data center for the namespace
         :param pulumi.Input[bool] enabled: Whether or not the namespace is currently enabled.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The namespace name.
+        :param pulumi.Input[str] name: The name of the namespace.
+        :param pulumi.Input[str] namespace_name: The namespace name.
         :param pulumi.Input[str] namespace_type: The namespace type.
         :param pulumi.Input[str] provisioning_state: Provisioning state of the Namespace.
         :param pulumi.Input[str] region: Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
@@ -84,9 +86,10 @@ class Namespace(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if namespace_name is None:
+                raise TypeError("Missing required property 'namespace_name'")
+            __props__['namespace_name'] = namespace_name
             __props__['namespace_type'] = namespace_type
             __props__['provisioning_state'] = provisioning_state
             __props__['region'] = region

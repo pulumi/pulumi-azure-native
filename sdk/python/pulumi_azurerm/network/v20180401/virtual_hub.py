@@ -21,10 +21,10 @@ class VirtualHub(pulumi.CustomResource):
                  hub_virtual_network_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_hub_name: Optional[pulumi.Input[str]] = None,
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,10 +38,10 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]] hub_virtual_network_connections: list of all vnet connections with this VirtualHub.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the VirtualHub.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs
         """
         if __name__ is not None:
@@ -67,16 +67,17 @@ class VirtualHub(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if virtual_hub_name is None:
+                raise TypeError("Missing required property 'virtual_hub_name'")
+            __props__['virtual_hub_name'] = virtual_hub_name
             __props__['virtual_wan'] = virtual_wan
             __props__['etag'] = None
+            __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180601:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20180701:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20180801:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20181001:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20181101:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20181201:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190201:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190401:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190601:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190701:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190801:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20190901:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20191101:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20191201:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20200301:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20200401:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20200501:VirtualHub"), pulumi.Alias(type_="azurerm:network/v20200601:VirtualHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

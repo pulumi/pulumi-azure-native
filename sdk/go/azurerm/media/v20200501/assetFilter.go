@@ -35,8 +35,8 @@ func NewAssetFilter(ctx *pulumi.Context,
 	if args == nil || args.AssetName == nil {
 		return nil, errors.New("missing required argument 'AssetName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.FilterName == nil {
+		return nil, errors.New("missing required argument 'FilterName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -106,10 +106,10 @@ type assetFilterArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The Asset name.
 	AssetName string `pulumi:"assetName"`
+	// The Asset Filter name
+	FilterName string `pulumi:"filterName"`
 	// The first quality.
 	FirstQuality *FirstQuality `pulumi:"firstQuality"`
-	// The Asset Filter name
-	Name string `pulumi:"name"`
 	// The presentation time range.
 	PresentationTimeRange *PresentationTimeRange `pulumi:"presentationTimeRange"`
 	// The name of the resource group within the Azure subscription.
@@ -124,10 +124,10 @@ type AssetFilterArgs struct {
 	AccountName pulumi.StringInput
 	// The Asset name.
 	AssetName pulumi.StringInput
+	// The Asset Filter name
+	FilterName pulumi.StringInput
 	// The first quality.
 	FirstQuality FirstQualityPtrInput
-	// The Asset Filter name
-	Name pulumi.StringInput
 	// The presentation time range.
 	PresentationTimeRange PresentationTimeRangePtrInput
 	// The name of the resource group within the Azure subscription.

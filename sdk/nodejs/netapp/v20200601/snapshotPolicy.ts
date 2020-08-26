@@ -57,7 +57,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -90,11 +90,11 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.snapshotPolicyName === undefined) {
+                throw new Error("Missing required property 'snapshotPolicyName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["dailySchedule"] = args ? args.dailySchedule : undefined;
@@ -102,10 +102,11 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             inputs["hourlySchedule"] = args ? args.hourlySchedule : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["monthlySchedule"] = args ? args.monthlySchedule : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["snapshotPolicyName"] = args ? args.snapshotPolicyName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -148,13 +149,13 @@ export interface SnapshotPolicyArgs {
      */
     readonly monthlySchedule?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The name of the snapshot policy target
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the snapshot policy target
+     */
+    readonly snapshotPolicyName: pulumi.Input<string>;
     /**
      * Resource tags
      */

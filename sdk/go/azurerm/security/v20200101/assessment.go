@@ -37,8 +37,8 @@ type Assessment struct {
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
 func NewAssessment(ctx *pulumi.Context,
 	name string, args *AssessmentArgs, opts ...pulumi.ResourceOption) (*Assessment, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.AssessmentName == nil {
+		return nil, errors.New("missing required argument 'AssessmentName'")
 	}
 	if args == nil || args.ResourceDetails == nil {
 		return nil, errors.New("missing required argument 'ResourceDetails'")
@@ -122,10 +122,10 @@ func (AssessmentState) ElementType() reflect.Type {
 type assessmentArgs struct {
 	// Additional data regarding the assessment
 	AdditionalData map[string]string `pulumi:"additionalData"`
+	// The Assessment Key - Unique key for the assessment type
+	AssessmentName string `pulumi:"assessmentName"`
 	// Describes properties of an assessment metadata.
 	Metadata *SecurityAssessmentMetadataProperties `pulumi:"metadata"`
-	// The Assessment Key - Unique key for the assessment type
-	Name string `pulumi:"name"`
 	// Data regarding 3rd party partner integration
 	PartnersData *SecurityAssessmentPartnerData `pulumi:"partnersData"`
 	// Details of the resource that was assessed
@@ -140,10 +140,10 @@ type assessmentArgs struct {
 type AssessmentArgs struct {
 	// Additional data regarding the assessment
 	AdditionalData pulumi.StringMapInput
+	// The Assessment Key - Unique key for the assessment type
+	AssessmentName pulumi.StringInput
 	// Describes properties of an assessment metadata.
 	Metadata SecurityAssessmentMetadataPropertiesPtrInput
-	// The Assessment Key - Unique key for the assessment type
-	Name pulumi.StringInput
 	// Data regarding 3rd party partner integration
 	PartnersData SecurityAssessmentPartnerDataPtrInput
 	// Details of the resource that was assessed

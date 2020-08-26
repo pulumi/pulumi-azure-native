@@ -36,7 +36,7 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
 
     public readonly biztalkUri!: pulumi.Output<string | undefined>;
     public readonly entityConnectionString!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly entityName!: pulumi.Output<string | undefined>;
+    public readonly entityName!: pulumi.Output<string | undefined>;
     public readonly hostname!: pulumi.Output<string | undefined>;
     /**
      * Kind of resource
@@ -75,6 +75,9 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SiteRelayServiceConnectionSlotArgs | undefined;
+            if (!args || args.entityName === undefined) {
+                throw new Error("Missing required property 'entityName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -89,6 +92,7 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
             }
             inputs["biztalkUri"] = args ? args.biztalkUri : undefined;
             inputs["entityConnectionString"] = args ? args.entityConnectionString : undefined;
+            inputs["entityName"] = args ? args.entityName : undefined;
             inputs["hostname"] = args ? args.hostname : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
@@ -101,7 +105,6 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["entityName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -122,6 +125,7 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
 export interface SiteRelayServiceConnectionSlotArgs {
     readonly biztalkUri?: pulumi.Input<string>;
     readonly entityConnectionString?: pulumi.Input<string>;
+    readonly entityName: pulumi.Input<string>;
     readonly hostname?: pulumi.Input<string>;
     /**
      * Resource Id
@@ -135,6 +139,9 @@ export interface SiteRelayServiceConnectionSlotArgs {
      * Resource Location
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Resource Name
+     */
     readonly name: pulumi.Input<string>;
     readonly port?: pulumi.Input<number>;
     readonly resourceConnectionString?: pulumi.Input<string>;

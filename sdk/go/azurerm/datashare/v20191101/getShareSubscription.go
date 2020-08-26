@@ -19,10 +19,10 @@ func LookupShareSubscription(ctx *pulumi.Context, args *LookupShareSubscriptionA
 type LookupShareSubscriptionArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
-	// The name of the shareSubscription.
-	Name string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the shareSubscription.
+	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
 }
 
 // A share subscription data transfer object.

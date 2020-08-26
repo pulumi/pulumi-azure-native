@@ -45,7 +45,7 @@ export class AccessControlRecord extends pulumi.CustomResource {
     /**
      * The name of the object.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The hierarchical type of the object.
      */
@@ -68,23 +68,24 @@ export class AccessControlRecord extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AccessControlRecordArgs | undefined;
+            if (!args || args.accessControlRecordName === undefined) {
+                throw new Error("Missing required property 'accessControlRecordName'");
+            }
             if (!args || args.initiatorName === undefined) {
                 throw new Error("Missing required property 'initiatorName'");
             }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accessControlRecordName"] = args ? args.accessControlRecordName : undefined;
             inputs["initiatorName"] = args ? args.initiatorName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["volumeCount"] = undefined /*out*/;
         }
@@ -106,6 +107,10 @@ export class AccessControlRecord extends pulumi.CustomResource {
  */
 export interface AccessControlRecordArgs {
     /**
+     * The name of the access control record.
+     */
+    readonly accessControlRecordName: pulumi.Input<string>;
+    /**
      * The iSCSI initiator name (IQN).
      */
     readonly initiatorName: pulumi.Input<string>;
@@ -117,10 +122,6 @@ export interface AccessControlRecordArgs {
      * The manager name
      */
     readonly managerName: pulumi.Input<string>;
-    /**
-     * The name of the access control record.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * The resource group name
      */

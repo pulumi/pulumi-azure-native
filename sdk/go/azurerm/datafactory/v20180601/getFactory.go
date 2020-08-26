@@ -18,7 +18,7 @@ func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.
 
 type LookupFactoryArgs struct {
 	// The factory name.
-	Name string `pulumi:"name"`
+	FactoryName string `pulumi:"factoryName"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

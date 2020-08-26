@@ -61,7 +61,7 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
     /**
      * The name of the object.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
      */
@@ -94,8 +94,8 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
             if (!args || args.integrityKey === undefined) {
                 throw new Error("Missing required property 'integrityKey'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.managerName === undefined) {
+                throw new Error("Missing required property 'managerName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -106,10 +106,11 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["integrityKey"] = args ? args.integrityKey : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            inputs["managerName"] = args ? args.managerName : undefined;
             inputs["portalCertificateThumbprint"] = args ? args.portalCertificateThumbprint : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["version"] = args ? args.version : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -156,7 +157,7 @@ export interface ManagerExtendedInfoArgs {
     /**
      * The manager name
      */
-    readonly name: pulumi.Input<string>;
+    readonly managerName: pulumi.Input<string>;
     /**
      * Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
      */

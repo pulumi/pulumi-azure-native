@@ -49,7 +49,7 @@ export class FileShare extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
      */
@@ -75,19 +75,20 @@ export class FileShare extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.shareName === undefined) {
+                throw new Error("Missing required property 'shareName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["shareName"] = args ? args.shareName : undefined;
             inputs["shareQuota"] = args ? args.shareQuota : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -116,13 +117,13 @@ export interface FileShareArgs {
      */
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+     */
+    readonly shareName: pulumi.Input<string>;
     /**
      * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
      */

@@ -20,7 +20,7 @@ type GetbackupPolicyArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
 	// Backup policy Name which uniquely identify backup policy.
-	Name string `pulumi:"name"`
+	BackupPolicyName string `pulumi:"backupPolicyName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

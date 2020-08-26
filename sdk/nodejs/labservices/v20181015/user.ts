@@ -59,7 +59,7 @@ export class User extends pulumi.CustomResource {
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The provisioning status of the resource.
      */
@@ -104,24 +104,25 @@ export class User extends pulumi.CustomResource {
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.userName === undefined) {
+                throw new Error("Missing required property 'userName'");
             }
             inputs["labAccountName"] = args ? args.labAccountName : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["userName"] = args ? args.userName : undefined;
             inputs["email"] = undefined /*out*/;
             inputs["familyName"] = undefined /*out*/;
             inputs["givenName"] = undefined /*out*/;
             inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["totalUsage"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -154,10 +155,6 @@ export interface UserArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the user.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The provisioning status of the resource.
      */
     readonly provisioningState?: pulumi.Input<string>;
@@ -173,4 +170,8 @@ export interface UserArgs {
      * The unique immutable identifier of a resource (Guid).
      */
     readonly uniqueIdentifier?: pulumi.Input<string>;
+    /**
+     * The name of the user.
+     */
+    readonly userName: pulumi.Input<string>;
 }

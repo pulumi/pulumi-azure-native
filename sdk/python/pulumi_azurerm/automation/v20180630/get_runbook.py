@@ -272,20 +272,20 @@ class AwaitableGetRunbookResult(GetRunbookResult):
 
 
 def get_runbook(automation_account_name: Optional[str] = None,
-                name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
+                runbook_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRunbookResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str automation_account_name: The name of the automation account.
-    :param str name: The runbook name.
     :param str resource_group_name: Name of an Azure Resource group.
+    :param str runbook_name: The runbook name.
     """
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['runbookName'] = runbook_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

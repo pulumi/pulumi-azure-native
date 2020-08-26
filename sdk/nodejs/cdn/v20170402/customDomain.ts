@@ -49,7 +49,7 @@ export class CustomDomain extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning status of the custom domain.
      */
@@ -80,14 +80,14 @@ export class CustomDomain extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CustomDomainArgs | undefined;
+            if (!args || args.customDomainName === undefined) {
+                throw new Error("Missing required property 'customDomainName'");
+            }
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
             if (!args || args.hostName === undefined) {
                 throw new Error("Missing required property 'hostName'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
@@ -95,13 +95,14 @@ export class CustomDomain extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["customDomainName"] = args ? args.customDomainName : undefined;
             inputs["endpointName"] = args ? args.endpointName : undefined;
             inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["customHttpsProvisioningState"] = undefined /*out*/;
             inputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -125,6 +126,10 @@ export class CustomDomain extends pulumi.CustomResource {
  */
 export interface CustomDomainArgs {
     /**
+     * Name of the custom domain within an endpoint.
+     */
+    readonly customDomainName: pulumi.Input<string>;
+    /**
      * Name of the endpoint under the profile which is unique globally.
      */
     readonly endpointName: pulumi.Input<string>;
@@ -132,10 +137,6 @@ export interface CustomDomainArgs {
      * The host name of the custom domain. Must be a domain name.
      */
     readonly hostName: pulumi.Input<string>;
-    /**
-     * Name of the custom domain within an endpoint.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

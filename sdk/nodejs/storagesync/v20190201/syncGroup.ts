@@ -37,7 +37,7 @@ export class SyncGroup extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Sync group status
      */
@@ -64,18 +64,19 @@ export class SyncGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SyncGroupArgs | undefined;
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.storageSyncServiceName === undefined) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
+            if (!args || args.syncGroupName === undefined) {
+                throw new Error("Missing required property 'syncGroupName'");
+            }
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["syncGroupStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
@@ -98,10 +99,6 @@ export class SyncGroup extends pulumi.CustomResource {
  */
 export interface SyncGroupArgs {
     /**
-     * Name of Sync Group resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -109,4 +106,8 @@ export interface SyncGroupArgs {
      * Name of Storage Sync Service resource.
      */
     readonly storageSyncServiceName: pulumi.Input<string>;
+    /**
+     * Name of Sync Group resource.
+     */
+    readonly syncGroupName: pulumi.Input<string>;
 }

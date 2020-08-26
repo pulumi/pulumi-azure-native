@@ -92,16 +92,19 @@ class AwaitableListSiteMetadataSlotResult(ListSiteMetadataSlotResult):
 
 def list_site_metadata_slot(name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
+                            slot: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteMetadataSlotResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of web app slot. If not specified then will default to production slot.
+    :param str name: Name of web app
     :param str resource_group_name: Name of resource group
+    :param str slot: Name of web app slot. If not specified then will default to production slot.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['slot'] = slot
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

@@ -198,6 +198,12 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the Data Lake Store account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
         /// The default owner group for all new folders and files created in the Data Lake Store account.
         /// </summary>
         [Input("defaultGroup")]
@@ -250,12 +256,6 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Data Lake Store account.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The commitment tier to use for next month.

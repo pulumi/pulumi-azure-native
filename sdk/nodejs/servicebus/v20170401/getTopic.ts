@@ -15,17 +15,13 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:servicebus/v20170401:getTopic", {
-        "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
+        "topicName": args.topicName,
     }, opts);
 }
 
 export interface GetTopicArgs {
-    /**
-     * The topic name.
-     */
-    readonly name: string;
     /**
      * The namespace name
      */
@@ -34,6 +30,10 @@ export interface GetTopicArgs {
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: string;
+    /**
+     * The topic name.
+     */
+    readonly topicName: string;
 }
 
 /**

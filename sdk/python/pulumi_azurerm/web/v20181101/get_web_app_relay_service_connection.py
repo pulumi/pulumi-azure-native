@@ -129,16 +129,19 @@ class AwaitableGetWebAppRelayServiceConnectionResult(GetWebAppRelayServiceConnec
             type=self.type)
 
 
-def get_web_app_relay_service_connection(name: Optional[str] = None,
+def get_web_app_relay_service_connection(entity_name: Optional[str] = None,
+                                         name: Optional[str] = None,
                                          resource_group_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppRelayServiceConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the hybrid connection.
+    :param str entity_name: Name of the hybrid connection.
+    :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
+    __args__['entityName'] = entity_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

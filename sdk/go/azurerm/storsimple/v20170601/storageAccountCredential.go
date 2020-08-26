@@ -39,14 +39,14 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.SslStatus == nil {
 		return nil, errors.New("missing required argument 'SslStatus'")
+	}
+	if args == nil || args.StorageAccountCredentialName == nil {
+		return nil, errors.New("missing required argument 'StorageAccountCredentialName'")
 	}
 	if args == nil {
 		args = &StorageAccountCredentialArgs{}
@@ -119,12 +119,12 @@ type storageAccountCredentialArgs struct {
 	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
-	// The storage account credential name.
-	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Signifies whether SSL needs to be enabled or not.
 	SslStatus string `pulumi:"sslStatus"`
+	// The storage account credential name.
+	StorageAccountCredentialName string `pulumi:"storageAccountCredentialName"`
 }
 
 // The set of arguments for constructing a StorageAccountCredential resource.
@@ -137,12 +137,12 @@ type StorageAccountCredentialArgs struct {
 	Kind pulumi.StringPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
-	// The storage account credential name.
-	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// Signifies whether SSL needs to be enabled or not.
 	SslStatus pulumi.StringInput
+	// The storage account credential name.
+	StorageAccountCredentialName pulumi.StringInput
 }
 
 func (StorageAccountCredentialArgs) ElementType() reflect.Type {

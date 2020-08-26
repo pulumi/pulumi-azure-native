@@ -100,23 +100,23 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             type=self.type)
 
 
-def get_private_endpoint_connection(name: Optional[str] = None,
-                                    parent_name: Optional[str] = None,
+def get_private_endpoint_connection(parent_name: Optional[str] = None,
                                     parent_type: Optional[str] = None,
+                                    private_endpoint_connection_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the private endpoint connection connection.
     :param str parent_name: The name of the parent resource (namely, either, the topic name or domain name).
     :param str parent_type: The type of the parent resource. This can be either \'topics\' or \'domains\'.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection connection.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
     __args__ = dict()
-    __args__['name'] = name
     __args__['parentName'] = parent_name
     __args__['parentType'] = parent_type
+    __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

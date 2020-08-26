@@ -56,11 +56,11 @@ func NewSignalR(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResourceName == nil {
+		return nil, errors.New("missing required argument 'ResourceName'")
 	}
 	if args == nil {
 		args = &SignalRArgs{}
@@ -174,12 +174,12 @@ type signalRArgs struct {
 	// Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc.
 	// The geo region of a resource never changes after it is created.
 	Location string `pulumi:"location"`
-	// The name of the SignalR resource.
-	Name string `pulumi:"name"`
 	// Settings used to provision or configure the resource
 	Properties *SignalRCreateOrUpdateProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the SignalR resource.
+	ResourceName string `pulumi:"resourceName"`
 	// The billing information of the resource.(e.g. basic vs. standard)
 	Sku *ResourceSku `pulumi:"sku"`
 	// A list of key value pairs that describe the resource.
@@ -191,12 +191,12 @@ type SignalRArgs struct {
 	// Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc.
 	// The geo region of a resource never changes after it is created.
 	Location pulumi.StringInput
-	// The name of the SignalR resource.
-	Name pulumi.StringInput
 	// Settings used to provision or configure the resource
 	Properties SignalRCreateOrUpdatePropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
+	// The name of the SignalR resource.
+	ResourceName pulumi.StringInput
 	// The billing information of the resource.(e.g. basic vs. standard)
 	Sku ResourceSkuPtrInput
 	// A list of key value pairs that describe the resource.

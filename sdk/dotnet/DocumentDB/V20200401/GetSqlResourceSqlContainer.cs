@@ -25,16 +25,16 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
         public string AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Cosmos DB container name.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public string ContainerName { get; set; } = null!;
+
+        /// <summary>
         /// Cosmos DB database name.
         /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
-
-        /// <summary>
-        /// Cosmos DB container name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

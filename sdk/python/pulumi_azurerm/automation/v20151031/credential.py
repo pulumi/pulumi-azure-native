@@ -16,6 +16,7 @@ class Credential(pulumi.CustomResource):
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
+                 credential_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -30,8 +31,9 @@ class Credential(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] credential_name: The parameters supplied to the create or update credential operation.
         :param pulumi.Input[str] description: Gets or sets the description of the credential.
-        :param pulumi.Input[str] name: The parameters supplied to the create or update credential operation.
+        :param pulumi.Input[str] name: Gets or sets the name of the credential.
         :param pulumi.Input[str] password: Gets or sets the password of the credential.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] user_name: Gets or sets the user name of the credential.
@@ -56,6 +58,9 @@ class Credential(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            if credential_name is None:
+                raise TypeError("Missing required property 'credential_name'")
+            __props__['credential_name'] = credential_name
             __props__['description'] = description
             if name is None:
                 raise TypeError("Missing required property 'name'")

@@ -16,8 +16,8 @@ export function getApiIssueAttachment(args: GetApiIssueAttachmentArgs, opts?: pu
     }
     return pulumi.runtime.invoke("azurerm:apimanagement/v20190101:getApiIssueAttachment", {
         "apiId": args.apiId,
+        "attachmentId": args.attachmentId,
         "issueId": args.issueId,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
     }, opts);
@@ -29,13 +29,13 @@ export interface GetApiIssueAttachmentArgs {
      */
     readonly apiId: string;
     /**
+     * Attachment identifier within an Issue. Must be unique in the current Issue.
+     */
+    readonly attachmentId: string;
+    /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
     readonly issueId: string;
-    /**
-     * Attachment identifier within an Issue. Must be unique in the current Issue.
-     */
-    readonly name: string;
     /**
      * The name of the resource group.
      */

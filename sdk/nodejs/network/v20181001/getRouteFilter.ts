@@ -16,8 +16,8 @@ export function getRouteFilter(args: GetRouteFilterArgs, opts?: pulumi.InvokeOpt
     }
     return pulumi.runtime.invoke("azurerm:network/v20181001:getRouteFilter", {
         "expand": args.expand,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "routeFilterName": args.routeFilterName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetRouteFilterArgs {
      */
     readonly expand?: string;
     /**
-     * The name of the route filter.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The name of the route filter.
+     */
+    readonly routeFilterName: string;
 }
 
 /**

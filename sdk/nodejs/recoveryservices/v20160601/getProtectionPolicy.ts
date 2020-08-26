@@ -15,7 +15,7 @@ export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20160601:getProtectionPolicy", {
-        "name": args.name,
+        "policyName": args.policyName,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetProtectionPolicyArgs {
     /**
      * The backup policy name used in this GET operation.
      */
-    readonly name: string;
+    readonly policyName: string;
     /**
      * The name of the resource group associated with the Recovery Services vault.
      */

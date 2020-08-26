@@ -20,7 +20,7 @@ type LookupJobArgs struct {
 	// $expand is supported on details parameter for job, which provides details on the job stages.
 	Expand *string `pulumi:"expand"`
 	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	Name string `pulumi:"name"`
+	JobName string `pulumi:"jobName"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

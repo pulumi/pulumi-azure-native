@@ -33,8 +33,8 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         /// <summary>
         /// The name of the Kusto principalAssignment.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("principalAssignmentName", required: true)]
+        public string PrincipalAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.

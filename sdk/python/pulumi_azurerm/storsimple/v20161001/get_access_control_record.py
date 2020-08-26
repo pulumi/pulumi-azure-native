@@ -66,20 +66,20 @@ class AwaitableGetAccessControlRecordResult(GetAccessControlRecordResult):
             type=self.type)
 
 
-def get_access_control_record(manager_name: Optional[str] = None,
-                              name: Optional[str] = None,
+def get_access_control_record(access_control_record_name: Optional[str] = None,
+                              manager_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessControlRecordResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str access_control_record_name: Name of access control record to be fetched.
     :param str manager_name: The manager name
-    :param str name: Name of access control record to be fetched.
     :param str resource_group_name: The resource group name
     """
     __args__ = dict()
+    __args__['accessControlRecordName'] = access_control_record_name
     __args__['managerName'] = manager_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

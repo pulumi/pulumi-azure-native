@@ -17,6 +17,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 guest_configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['GuestConfigurationAssignmentPropertiesArgs']]] = None,
@@ -30,6 +31,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] guest_configuration_assignment_name: Name of the guest configuration assignment.
         :param pulumi.Input[str] location: Region where the VM is located.
         :param pulumi.Input[str] name: Name of the guest configuration assignment.
         :param pulumi.Input[pulumi.InputType['GuestConfigurationAssignmentPropertiesArgs']] properties: Properties of the Guest configuration assignment.
@@ -53,9 +55,10 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if guest_configuration_assignment_name is None:
+                raise TypeError("Missing required property 'guest_configuration_assignment_name'")
+            __props__['guest_configuration_assignment_name'] = guest_configuration_assignment_name
             __props__['location'] = location
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

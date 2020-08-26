@@ -59,7 +59,7 @@ export class DedicatedHost extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Fault domain of the dedicated host within a dedicated host group.
      */
@@ -105,11 +105,11 @@ export class DedicatedHost extends pulumi.CustomResource {
             if (!args || args.hostGroupName === undefined) {
                 throw new Error("Missing required property 'hostGroupName'");
             }
+            if (!args || args.hostName === undefined) {
+                throw new Error("Missing required property 'hostName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -119,15 +119,16 @@ export class DedicatedHost extends pulumi.CustomResource {
             }
             inputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;
             inputs["hostGroupName"] = args ? args.hostGroupName : undefined;
+            inputs["hostName"] = args ? args.hostName : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["hostId"] = undefined /*out*/;
             inputs["instanceView"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["provisioningTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -159,6 +160,10 @@ export interface DedicatedHostArgs {
      */
     readonly hostGroupName: pulumi.Input<string>;
     /**
+     * The name of the dedicated host .
+     */
+    readonly hostName: pulumi.Input<string>;
+    /**
      * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
      */
     readonly licenseType?: pulumi.Input<string>;
@@ -166,10 +171,6 @@ export interface DedicatedHostArgs {
      * Resource location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name of the dedicated host .
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Fault domain of the dedicated host within a dedicated host group.
      */

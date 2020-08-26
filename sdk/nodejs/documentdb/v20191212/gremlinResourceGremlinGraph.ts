@@ -43,7 +43,7 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
     /**
      * The name of the ARM resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly resource!: pulumi.Output<outputs.documentdb.v20191212.GremlinGraphGetPropertiesResponseResource | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -73,8 +73,8 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
             if (!args || args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
+            if (!args || args.graphName === undefined) {
+                throw new Error("Missing required property 'graphName'");
             }
             if (!args || args.options === undefined) {
                 throw new Error("Missing required property 'options'");
@@ -87,12 +87,13 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["graphName"] = args ? args.graphName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -121,13 +122,13 @@ export interface GremlinResourceGremlinGraphArgs {
      */
     readonly databaseName: pulumi.Input<string>;
     /**
+     * Cosmos DB graph name.
+     */
+    readonly graphName: pulumi.Input<string>;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * Cosmos DB graph name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

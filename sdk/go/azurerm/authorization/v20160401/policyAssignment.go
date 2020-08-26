@@ -29,8 +29,8 @@ type PolicyAssignment struct {
 // NewPolicyAssignment registers a new resource with the given unique name, arguments, and options.
 func NewPolicyAssignment(ctx *pulumi.Context,
 	name string, args *PolicyAssignmentArgs, opts ...pulumi.ResourceOption) (*PolicyAssignment, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
+	if args == nil || args.PolicyAssignmentName == nil {
+		return nil, errors.New("missing required argument 'PolicyAssignmentName'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -95,7 +95,9 @@ type policyAssignmentArgs struct {
 	// The ID of the policy assignment.
 	Id *string `pulumi:"id"`
 	// The name of the policy assignment.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The name of the policy assignment.
+	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
 	// The ID of the policy definition.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -111,7 +113,9 @@ type PolicyAssignmentArgs struct {
 	// The ID of the policy assignment.
 	Id pulumi.StringPtrInput
 	// The name of the policy assignment.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
+	// The name of the policy assignment.
+	PolicyAssignmentName pulumi.StringInput
 	// The ID of the policy definition.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The scope for the policy assignment.

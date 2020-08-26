@@ -119,7 +119,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * The name of the ARM resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * List of Private Endpoint Connections configured for the Cosmos DB account.
      */
@@ -166,18 +166,19 @@ export class DatabaseAccount extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DatabaseAccountArgs | undefined;
+            if (!args || args.accountName === undefined) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if (!args || args.databaseAccountOfferType === undefined) {
                 throw new Error("Missing required property 'databaseAccountOfferType'");
             }
             if (!args || args.locations === undefined) {
                 throw new Error("Missing required property 'locations'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["apiProperties"] = args ? args.apiProperties : undefined;
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["connectorOffer"] = args ? args.connectorOffer : undefined;
@@ -196,13 +197,13 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["locations"] = args ? args.locations : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
             inputs["documentEndpoint"] = undefined /*out*/;
             inputs["failoverPolicies"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["readLocations"] = undefined /*out*/;
@@ -226,6 +227,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
  * The set of arguments for constructing a DatabaseAccount resource.
  */
 export interface DatabaseAccountArgs {
+    /**
+     * Cosmos DB database account name.
+     */
+    readonly accountName: pulumi.Input<string>;
     /**
      * API specific properties. Currently, supported only for MongoDB API.
      */
@@ -298,10 +303,6 @@ export interface DatabaseAccountArgs {
      * An array that contains the georeplication locations enabled for the Cosmos DB account.
      */
     readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.v20200401.Location>[]>;
-    /**
-     * Cosmos DB database account name.
-     */
-    readonly name: pulumi.Input<string>;
     /**
      * Whether requests from Public Network are allowed
      */

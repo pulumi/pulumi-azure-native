@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
         /// <summary>
         /// The name of the Data Lake Analytics account.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("accountName", required: true)]
+        public string AccountName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.

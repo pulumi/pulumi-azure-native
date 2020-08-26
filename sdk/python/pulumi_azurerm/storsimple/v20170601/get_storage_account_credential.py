@@ -116,20 +116,20 @@ class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResu
 
 
 def get_storage_account_credential(manager_name: Optional[str] = None,
-                                   name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
+                                   storage_account_credential_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str manager_name: The manager name
-    :param str name: The name of storage account credential to be fetched.
     :param str resource_group_name: The resource group name
+    :param str storage_account_credential_name: The name of storage account credential to be fetched.
     """
     __args__ = dict()
     __args__['managerName'] = manager_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['storageAccountCredentialName'] = storage_account_credential_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

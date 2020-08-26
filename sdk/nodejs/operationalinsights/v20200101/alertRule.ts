@@ -45,7 +45,7 @@ export class AlertRule extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Azure resource type
      */
@@ -67,20 +67,21 @@ export class AlertRule extends pulumi.CustomResource {
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.ruleId === undefined) {
+                throw new Error("Missing required property 'ruleId'");
             }
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ruleId"] = args ? args.ruleId : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,13 +108,13 @@ export interface AlertRuleArgs {
      */
     readonly kind: pulumi.Input<string>;
     /**
-     * Alert rule ID
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Alert rule ID
+     */
+    readonly ruleId: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

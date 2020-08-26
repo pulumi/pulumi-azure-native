@@ -168,8 +168,8 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// <summary>
         /// The Job name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
 
         [Input("outputs", required: true)]
         private InputList<Inputs.JobOutputArgs>? _outputs;

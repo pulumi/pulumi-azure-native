@@ -17,10 +17,10 @@ func LookupVirtualNetworkTap(ctx *pulumi.Context, args *LookupVirtualNetworkTapA
 }
 
 type LookupVirtualNetworkTapArgs struct {
-	// The name of virtual network tap.
-	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of virtual network tap.
+	TapName string `pulumi:"tapName"`
 }
 
 // Virtual Network Tap resource.
