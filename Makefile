@@ -59,11 +59,13 @@ generate_python::
 	$(WORKING_DIR)/bin/$(CODEGEN) python
 
 build_python::
-	#TODO: remove -e "40d" below when plugin installation works again
-	cd ${PACKDIR}/python/ && \
-		cp ../../README.md . && \
-		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" -e "40d" ./setup.py && \
-		rm ./setup.py.bak
+	cd sdk/python/ && \
+        cp ../../README.md . && \
+        python3 setup.py clean --all 2>/dev/null && \
+        rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
+        sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
+        rm ./bin/setup.py.bak && \
+        cd ./bin && python3 setup.py build sdist
 
 generate_dotnet::
 	$(WORKING_DIR)/bin/$(CODEGEN) dotnet

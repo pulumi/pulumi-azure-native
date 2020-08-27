@@ -12,7 +12,7 @@ class InstallPluginCommand(install):
     def run(self):
         install.run(self)
         try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'azurerm', '0.1.0'])
+            check_call(['pulumi', 'plugin', 'install', 'resource', 'azurerm', '${PLUGIN_VERSION}'])
         except OSError as error:
             if error.errno == errno.ENOENT:
                 print("""
@@ -20,7 +20,7 @@ class InstallPluginCommand(install):
                 It looks like `pulumi` is not installed on your system.
                 Please visit https://pulumi.com/ to install the Pulumi CLI.
                 You may try manually installing the plugin by running
-                `pulumi plugin install resource azurerm 0.1.0`
+                `pulumi plugin install resource azurerm ${PLUGIN_VERSION}`
                 """)
             else:
                 raise
@@ -32,11 +32,12 @@ def readme():
 
 
 setup(name='pulumi_azurerm',
-      version='0.1.0',
+      version='${VERSION}',
       description="A Pulumi package for creating and managing Azure resources.",
       long_description=readme(),
       long_description_content_type='text/markdown',
       cmdclass={
+          'install': InstallPluginCommand,
       },
       keywords='pulumi azure',
       url='https://pulumi.com',
