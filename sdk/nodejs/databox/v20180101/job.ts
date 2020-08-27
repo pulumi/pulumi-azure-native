@@ -79,7 +79,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Name of the stage which is in progress.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<StageName>;
     /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */

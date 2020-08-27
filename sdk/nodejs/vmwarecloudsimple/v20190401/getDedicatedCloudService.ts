@@ -42,7 +42,7 @@ export interface GetDedicatedCloudServiceResult {
     /**
      * indicates whether account onboarded or not in a given region
      */
-    readonly isAccountOnboarded: string;
+    readonly isAccountOnboarded: OnboardingStatus;
     /**
      * Azure region
      */

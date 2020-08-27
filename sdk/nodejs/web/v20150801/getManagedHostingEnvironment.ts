@@ -74,7 +74,7 @@ export interface GetManagedHostingEnvironmentResult {
     /**
      * Current status of the managed hosting environment
      */
-    readonly status: string;
+    readonly status: ManagedHostingEnvironmentStatus;
     /**
      * Subscription of the managed hosting environment (read only)
      */

@@ -51,11 +51,11 @@ export class VolumeContainer extends pulumi.CustomResource {
     /**
      * The flag to denote whether encryption is enabled or not.
      */
-    public /*out*/ readonly encryptionStatus!: pulumi.Output<string>;
+    public /*out*/ readonly encryptionStatus!: pulumi.Output<EncryptionStatus>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<Kind | undefined>;
     /**
      * The name of the object.
      */
@@ -63,7 +63,7 @@ export class VolumeContainer extends pulumi.CustomResource {
     /**
      * The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
      */
-    public /*out*/ readonly ownerShipStatus!: pulumi.Output<string>;
+    public /*out*/ readonly ownerShipStatus!: pulumi.Output<OwnerShipStatus>;
     /**
      * The path ID of storage account associated with the volume container.
      */
@@ -159,7 +159,7 @@ export interface VolumeContainerArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<Kind>;
     /**
      * The manager name
      */

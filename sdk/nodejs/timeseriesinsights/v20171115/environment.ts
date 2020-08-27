@@ -79,7 +79,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */
-    public readonly storageLimitExceededBehavior!: pulumi.Output<string | undefined>;
+    public readonly storageLimitExceededBehavior!: pulumi.Output<StorageLimitExceededBehavior | undefined>;
     /**
      * Resource tags
      */
@@ -177,7 +177,7 @@ export interface EnvironmentArgs {
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */
-    readonly storageLimitExceededBehavior?: pulumi.Input<string>;
+    readonly storageLimitExceededBehavior?: pulumi.Input<StorageLimitExceededBehavior>;
     /**
      * Key-value pairs of additional properties for the resource.
      */

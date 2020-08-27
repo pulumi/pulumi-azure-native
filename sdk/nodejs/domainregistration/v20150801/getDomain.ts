@@ -102,7 +102,7 @@ export interface GetDomainResult {
     /**
      * Domain provisioning state
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: ProvisioningState;
     /**
      * If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
      */
@@ -110,7 +110,7 @@ export interface GetDomainResult {
     /**
      * Domain registration status
      */
-    readonly registrationStatus?: string;
+    readonly registrationStatus?: DomainStatus;
     /**
      * Resource tags
      */

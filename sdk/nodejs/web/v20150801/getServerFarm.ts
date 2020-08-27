@@ -87,7 +87,7 @@ export interface GetServerFarmResult {
     /**
      * App Service Plan Status
      */
-    readonly status: string;
+    readonly status: StatusOptions;
     /**
      * App Service Plan Subscription
      */

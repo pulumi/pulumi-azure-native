@@ -51,7 +51,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The commitment tier in use for the current month.
      */
-    public /*out*/ readonly currentTier!: pulumi.Output<string>;
+    public /*out*/ readonly currentTier!: pulumi.Output<TierType>;
     /**
      * The list of Data Lake Store accounts associated with this account.
      */
@@ -67,7 +67,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    public readonly firewallAllowAzureIps!: pulumi.Output<string>;
+    public readonly firewallAllowAzureIps!: pulumi.Output<FirewallAllowAzureIpsState>;
     /**
      * The list of firewall rules associated with this account.
      */
@@ -75,7 +75,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The current state of the IP address firewall for this account.
      */
-    public readonly firewallState!: pulumi.Output<string>;
+    public readonly firewallState!: pulumi.Output<FirewallState>;
     /**
      * The account last modified time.
      */
@@ -107,11 +107,11 @@ export class Account extends pulumi.CustomResource {
     /**
      * The commitment tier for the next month.
      */
-    public readonly newTier!: pulumi.Output<string>;
+    public readonly newTier!: pulumi.Output<TierType>;
     /**
      * The provisioning status of the Data Lake Analytics account.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<DataLakeAnalyticsAccountStatus>;
     /**
      * The number of days that job metadata is retained.
      */
@@ -119,7 +119,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The state of the Data Lake Analytics account.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<DataLakeAnalyticsAccountState>;
     /**
      * The list of Azure Blob Storage accounts associated with this account.
      */
@@ -232,7 +232,7 @@ export interface AccountArgs {
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    readonly firewallAllowAzureIps?: pulumi.Input<string>;
+    readonly firewallAllowAzureIps?: pulumi.Input<FirewallAllowAzureIpsState>;
     /**
      * The list of firewall rules associated with this account.
      */
@@ -240,7 +240,7 @@ export interface AccountArgs {
     /**
      * The current state of the IP address firewall for this account.
      */
-    readonly firewallState?: pulumi.Input<string>;
+    readonly firewallState?: pulumi.Input<FirewallState>;
     /**
      * The resource location.
      */
@@ -264,7 +264,7 @@ export interface AccountArgs {
     /**
      * The commitment tier for the next month.
      */
-    readonly newTier?: pulumi.Input<string>;
+    readonly newTier?: pulumi.Input<TierType>;
     /**
      * The number of days that job metadata is retained.
      */

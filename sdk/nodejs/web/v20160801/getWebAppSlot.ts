@@ -43,7 +43,7 @@ export interface GetWebAppSlotResult {
     /**
      * Management information availability state for the app.
      */
-    readonly availabilityState: string;
+    readonly availabilityState: SiteAvailabilityState;
     /**
      * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
      */
@@ -195,5 +195,5 @@ export interface GetWebAppSlotResult {
     /**
      * State indicating whether the app has exceeded its quota usage. Read-only.
      */
-    readonly usageState: string;
+    readonly usageState: UsageState;
 }

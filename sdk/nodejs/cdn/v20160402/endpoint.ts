@@ -87,7 +87,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Resource status of the endpoint.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<EndpointResourceState>;
     /**
      * Resource tags
      */

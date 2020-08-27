@@ -59,7 +59,7 @@ export interface GetLinkedServerResult {
     /**
      * Role of the linked server.
      */
-    readonly serverRole: string;
+    readonly serverRole: ReplicationRole;
     /**
      * Resource type.
      */

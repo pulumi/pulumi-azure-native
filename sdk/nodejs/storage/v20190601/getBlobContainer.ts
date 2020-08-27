@@ -103,7 +103,7 @@ export interface GetBlobContainerResult {
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */
-    readonly publicAccess?: string;
+    readonly publicAccess?: PublicAccess;
     /**
      * Remaining retention days for soft deleted blob container.
      */

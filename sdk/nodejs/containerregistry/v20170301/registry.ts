@@ -59,7 +59,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * The provisioning state of the container registry at the time the operation was called.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The SKU of the container registry.
      */

@@ -47,7 +47,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The commitment tier in use for the current month.
      */
-    public /*out*/ readonly currentTier!: pulumi.Output<string>;
+    public /*out*/ readonly currentTier!: pulumi.Output<TierType>;
     /**
      * The default owner group for all new folders and files created in the Data Lake Store account.
      */
@@ -59,11 +59,11 @@ export class Account extends pulumi.CustomResource {
     /**
      * The current state of encryption provisioning for this Data Lake Store account.
      */
-    public /*out*/ readonly encryptionProvisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly encryptionProvisioningState!: pulumi.Output<EncryptionProvisioningState>;
     /**
      * The current state of encryption for this Data Lake Store account.
      */
-    public readonly encryptionState!: pulumi.Output<string>;
+    public readonly encryptionState!: pulumi.Output<EncryptionState>;
     /**
      * The full CName endpoint for this account.
      */
@@ -71,7 +71,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    public readonly firewallAllowAzureIps!: pulumi.Output<string>;
+    public readonly firewallAllowAzureIps!: pulumi.Output<FirewallAllowAzureIpsState>;
     /**
      * The list of firewall rules associated with this Data Lake Store account.
      */
@@ -79,7 +79,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The current state of the IP address firewall for this Data Lake Store account.
      */
-    public readonly firewallState!: pulumi.Output<string>;
+    public readonly firewallState!: pulumi.Output<FirewallState>;
     /**
      * The Key Vault encryption identity, if any.
      */
@@ -99,15 +99,15 @@ export class Account extends pulumi.CustomResource {
     /**
      * The commitment tier to use for next month.
      */
-    public readonly newTier!: pulumi.Output<string>;
+    public readonly newTier!: pulumi.Output<TierType>;
     /**
      * The provisioning status of the Data Lake Store account.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<DataLakeStoreAccountStatus>;
     /**
      * The state of the Data Lake Store account.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<DataLakeStoreAccountState>;
     /**
      * The resource tags.
      */
@@ -115,7 +115,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The current state of the trusted identity provider feature for this Data Lake Store account.
      */
-    public readonly trustedIdProviderState!: pulumi.Output<string>;
+    public readonly trustedIdProviderState!: pulumi.Output<TrustedIdProviderState>;
     /**
      * The list of trusted identity providers associated with this Data Lake Store account.
      */
@@ -207,11 +207,11 @@ export interface AccountArgs {
     /**
      * The current state of encryption for this Data Lake Store account.
      */
-    readonly encryptionState?: pulumi.Input<string>;
+    readonly encryptionState?: pulumi.Input<EncryptionState>;
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    readonly firewallAllowAzureIps?: pulumi.Input<string>;
+    readonly firewallAllowAzureIps?: pulumi.Input<FirewallAllowAzureIpsState>;
     /**
      * The list of firewall rules associated with this Data Lake Store account.
      */
@@ -219,7 +219,7 @@ export interface AccountArgs {
     /**
      * The current state of the IP address firewall for this Data Lake Store account.
      */
-    readonly firewallState?: pulumi.Input<string>;
+    readonly firewallState?: pulumi.Input<FirewallState>;
     /**
      * The Key Vault encryption identity, if any.
      */
@@ -231,7 +231,7 @@ export interface AccountArgs {
     /**
      * The commitment tier to use for next month.
      */
-    readonly newTier?: pulumi.Input<string>;
+    readonly newTier?: pulumi.Input<TierType>;
     /**
      * The name of the Azure resource group.
      */
@@ -243,7 +243,7 @@ export interface AccountArgs {
     /**
      * The current state of the trusted identity provider feature for this Data Lake Store account.
      */
-    readonly trustedIdProviderState?: pulumi.Input<string>;
+    readonly trustedIdProviderState?: pulumi.Input<TrustedIdProviderState>;
     /**
      * The list of trusted identity providers associated with this Data Lake Store account.
      */

@@ -87,7 +87,7 @@ export interface GetBlobContainerResult {
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */
-    readonly publicAccess?: string;
+    readonly publicAccess?: PublicAccess;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

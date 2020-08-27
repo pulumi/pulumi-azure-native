@@ -57,7 +57,7 @@ export interface GetFileShareResult {
     /**
      * The data policy
      */
-    readonly dataPolicy: string;
+    readonly dataPolicy: DataPolicy;
     /**
      * Description for file share
      */
@@ -69,7 +69,7 @@ export interface GetFileShareResult {
     /**
      * The monitoring status
      */
-    readonly monitoringStatus: string;
+    readonly monitoringStatus: MonitoringStatus;
     /**
      * The name.
      */
@@ -81,7 +81,7 @@ export interface GetFileShareResult {
     /**
      * The Share Status
      */
-    readonly shareStatus: string;
+    readonly shareStatus: ShareStatus;
     /**
      * The type.
      */

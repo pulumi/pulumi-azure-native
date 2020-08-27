@@ -47,7 +47,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<Kind | undefined>;
     /**
      * The name of the object.
      */
@@ -55,7 +55,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    public readonly sslStatus!: pulumi.Output<string>;
+    public readonly sslStatus!: pulumi.Output<SslStatus>;
     /**
      * The hierarchical type of the object.
      */
@@ -130,7 +130,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<Kind>;
     /**
      * The manager name
      */
@@ -142,7 +142,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    readonly sslStatus: pulumi.Input<string>;
+    readonly sslStatus: pulumi.Input<SslStatus>;
     /**
      * The storage account credential name.
      */

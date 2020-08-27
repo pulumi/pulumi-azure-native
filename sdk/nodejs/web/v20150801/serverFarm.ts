@@ -88,7 +88,7 @@ export class ServerFarm extends pulumi.CustomResource {
     /**
      * App Service Plan Status
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<StatusOptions>;
     /**
      * App Service Plan Subscription
      */

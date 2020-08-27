@@ -41,7 +41,7 @@ export class DedicatedCloudService extends pulumi.CustomResource {
     /**
      * indicates whether account onboarded or not in a given region
      */
-    public /*out*/ readonly isAccountOnboarded!: pulumi.Output<string>;
+    public /*out*/ readonly isAccountOnboarded!: pulumi.Output<OnboardingStatus>;
     /**
      * Azure region
      */

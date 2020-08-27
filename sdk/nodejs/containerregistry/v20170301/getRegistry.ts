@@ -58,7 +58,7 @@ export interface GetRegistryResult {
     /**
      * The provisioning state of the container registry at the time the operation was called.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The SKU of the container registry.
      */

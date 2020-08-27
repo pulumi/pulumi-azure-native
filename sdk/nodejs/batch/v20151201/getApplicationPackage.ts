@@ -56,7 +56,7 @@ export interface GetApplicationPackageResult {
     /**
      * The current state of the application package.
      */
-    readonly state?: string;
+    readonly state?: PackageState;
     /**
      * The storage URL at which the application package is stored.
      */

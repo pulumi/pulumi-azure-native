@@ -94,7 +94,7 @@ export interface GetDedicatedCloudNodeResult {
     /**
      * Node status, indicates is private cloud set up on this node or not
      */
-    readonly status: string;
+    readonly status: NodeStatus;
     /**
      * Dedicated Cloud Nodes tags
      */

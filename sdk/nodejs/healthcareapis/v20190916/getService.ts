@@ -46,7 +46,7 @@ export interface GetServiceResult {
     /**
      * The kind of the service.
      */
-    readonly kind: string;
+    readonly kind: kind;
     /**
      * The resource location.
      */

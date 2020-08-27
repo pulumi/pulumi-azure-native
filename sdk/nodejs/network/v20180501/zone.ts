@@ -79,7 +79,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * The type of this DNS zone (Public or Private).
      */
-    public readonly zoneType!: pulumi.Output<string | undefined>;
+    public readonly zoneType!: pulumi.Output<ZoneType | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -165,5 +165,5 @@ export interface ZoneArgs {
     /**
      * The type of this DNS zone (Public or Private).
      */
-    readonly zoneType?: pulumi.Input<string>;
+    readonly zoneType?: pulumi.Input<ZoneType>;
 }

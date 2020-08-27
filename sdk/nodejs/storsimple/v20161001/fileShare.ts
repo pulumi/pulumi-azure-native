@@ -41,7 +41,7 @@ export class FileShare extends pulumi.CustomResource {
     /**
      * The data policy
      */
-    public readonly dataPolicy!: pulumi.Output<string>;
+    public readonly dataPolicy!: pulumi.Output<DataPolicy>;
     /**
      * Description for file share
      */
@@ -53,7 +53,7 @@ export class FileShare extends pulumi.CustomResource {
     /**
      * The monitoring status
      */
-    public readonly monitoringStatus!: pulumi.Output<string>;
+    public readonly monitoringStatus!: pulumi.Output<MonitoringStatus>;
     /**
      * The name.
      */
@@ -65,7 +65,7 @@ export class FileShare extends pulumi.CustomResource {
     /**
      * The Share Status
      */
-    public readonly shareStatus!: pulumi.Output<string>;
+    public readonly shareStatus!: pulumi.Output<ShareStatus>;
     /**
      * The type.
      */
@@ -156,7 +156,7 @@ export interface FileShareArgs {
     /**
      * The data policy
      */
-    readonly dataPolicy: pulumi.Input<string>;
+    readonly dataPolicy: pulumi.Input<DataPolicy>;
     /**
      * Description for file share
      */
@@ -176,7 +176,7 @@ export interface FileShareArgs {
     /**
      * The monitoring status
      */
-    readonly monitoringStatus: pulumi.Input<string>;
+    readonly monitoringStatus: pulumi.Input<MonitoringStatus>;
     /**
      * The total provisioned capacity in Bytes
      */
@@ -192,5 +192,5 @@ export interface FileShareArgs {
     /**
      * The Share Status
      */
-    readonly shareStatus: pulumi.Input<string>;
+    readonly shareStatus: pulumi.Input<ShareStatus>;
 }

@@ -51,7 +51,7 @@ export interface ListIotHubResourceKeysForKeyNameResult {
     /**
      * The permissions assigned to the shared access policy.
      */
-    readonly rights: string;
+    readonly rights: AccessRights;
     /**
      * The secondary key.
      */

@@ -63,7 +63,7 @@ export interface GetLinkResult {
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    readonly operationType?: string;
+    readonly operationType?: InstanceOperationType;
     /**
      * The properties that represent the participating profile.
      */

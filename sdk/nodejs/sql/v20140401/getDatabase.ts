@@ -134,7 +134,7 @@ export interface GetDatabaseResult {
     /**
      * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
      */
-    readonly readScale?: string;
+    readonly readScale?: ReadScale;
     /**
      * The recommended indices for this database.
      */

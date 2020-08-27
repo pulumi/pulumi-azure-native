@@ -48,11 +48,11 @@ export interface GetBackupPolicyResult {
     /**
      * The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
      */
-    readonly backupPolicyCreationType: string;
+    readonly backupPolicyCreationType: BackupPolicyCreationType;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: string;
+    readonly kind?: Kind;
     /**
      * The time of the last backup for the backup policy.
      */
@@ -68,7 +68,7 @@ export interface GetBackupPolicyResult {
     /**
      * Indicates whether at least one of the schedules in the backup policy is active or not.
      */
-    readonly scheduledBackupStatus: string;
+    readonly scheduledBackupStatus: ScheduledBackupStatus;
     /**
      * The count of schedules the backup policy contains.
      */

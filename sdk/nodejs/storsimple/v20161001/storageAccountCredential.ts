@@ -43,11 +43,11 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * The cloud service provider
      */
-    public readonly cloudType!: pulumi.Output<string>;
+    public readonly cloudType!: pulumi.Output<CloudType>;
     /**
      * SSL needs to be enabled or not
      */
-    public readonly enableSSL!: pulumi.Output<string>;
+    public readonly enableSSL!: pulumi.Output<SslStatus>;
     /**
      * The storage endpoint
      */
@@ -137,7 +137,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * The cloud service provider
      */
-    readonly cloudType: pulumi.Input<string>;
+    readonly cloudType: pulumi.Input<CloudType>;
     /**
      * The credential name.
      */
@@ -145,7 +145,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * SSL needs to be enabled or not
      */
-    readonly enableSSL: pulumi.Input<string>;
+    readonly enableSSL: pulumi.Input<SslStatus>;
     /**
      * The storage endpoint
      */

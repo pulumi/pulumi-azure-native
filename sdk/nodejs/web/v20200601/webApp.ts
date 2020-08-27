@@ -39,7 +39,7 @@ export class WebApp extends pulumi.CustomResource {
     /**
      * Management information availability state for the app.
      */
-    public /*out*/ readonly availabilityState!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityState!: pulumi.Output<SiteAvailabilityState>;
     /**
      * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
      */
@@ -58,7 +58,7 @@ export class WebApp extends pulumi.CustomResource {
      * - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
      * - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
      */
-    public readonly clientCertMode!: pulumi.Output<string | undefined>;
+    public readonly clientCertMode!: pulumi.Output<ClientCertMode | undefined>;
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
@@ -162,7 +162,7 @@ export class WebApp extends pulumi.CustomResource {
     /**
      * Site redundancy mode
      */
-    public readonly redundancyMode!: pulumi.Output<string | undefined>;
+    public readonly redundancyMode!: pulumi.Output<RedundancyMode | undefined>;
     /**
      * Name of the repository site.
      */
@@ -218,7 +218,7 @@ export class WebApp extends pulumi.CustomResource {
     /**
      * State indicating whether the app has exceeded its quota usage. Read-only.
      */
-    public /*out*/ readonly usageState!: pulumi.Output<string>;
+    public /*out*/ readonly usageState!: pulumi.Output<UsageState>;
 
     /**
      * Create a WebApp resource with the given unique name, arguments, and options.
@@ -323,7 +323,7 @@ export interface WebAppArgs {
      * - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
      * - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
      */
-    readonly clientCertMode?: pulumi.Input<string>;
+    readonly clientCertMode?: pulumi.Input<ClientCertMode>;
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
@@ -389,7 +389,7 @@ export interface WebAppArgs {
     /**
      * Site redundancy mode
      */
-    readonly redundancyMode?: pulumi.Input<string>;
+    readonly redundancyMode?: pulumi.Input<RedundancyMode>;
     /**
      * <code>true</code> if reserved; otherwise, <code>false</code>.
      */

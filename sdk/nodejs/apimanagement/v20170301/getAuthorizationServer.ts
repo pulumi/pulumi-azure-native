@@ -47,7 +47,7 @@ export interface GetAuthorizationServerResult {
     /**
      * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
      */
-    readonly authorizationMethods?: string[];
+    readonly authorizationMethods?: AuthorizationMethod[];
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */

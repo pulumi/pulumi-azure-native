@@ -57,7 +57,7 @@ export class Origin extends pulumi.CustomResource {
     /**
      * Resource status of the origin.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<OriginResourceState>;
     /**
      * Resource type
      */

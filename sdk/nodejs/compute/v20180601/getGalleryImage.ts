@@ -71,11 +71,11 @@ export interface GetGalleryImageResult {
     /**
      * The allowed values for OS State are 'Generalized'.
      */
-    readonly osState: string;
+    readonly osState: OperatingSystemStateTypes;
     /**
      * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly osType: string;
+    readonly osType: OperatingSystemTypes;
     /**
      * The privacy statement uri.
      */

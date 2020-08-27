@@ -69,7 +69,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The state of the server.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<ServerState>;
     /**
      * Resource tags.
      */

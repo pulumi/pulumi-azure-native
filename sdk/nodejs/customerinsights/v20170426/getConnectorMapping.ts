@@ -76,7 +76,7 @@ export interface GetConnectorMappingResult {
     /**
      * Defines which entity type the file should map to.
      */
-    readonly entityType: string;
+    readonly entityType: EntityTypes;
     /**
      * The mapping entity name.
      */
@@ -104,7 +104,7 @@ export interface GetConnectorMappingResult {
     /**
      * State of connector mapping.
      */
-    readonly state: string;
+    readonly state: ConnectorMappingStates;
     /**
      * The hub name.
      */

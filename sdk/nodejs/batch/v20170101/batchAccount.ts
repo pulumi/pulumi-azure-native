@@ -66,7 +66,7 @@ export class BatchAccount extends pulumi.CustomResource {
     /**
      * The provisioned state of the resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The tags of the resource
      */

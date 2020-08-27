@@ -79,7 +79,7 @@ export class DscConfiguration extends pulumi.CustomResource {
     /**
      * Gets or sets the provisioning state of the configuration.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<DscConfigurationProvisioningState | undefined>;
     /**
      * Gets or sets the source.
      */

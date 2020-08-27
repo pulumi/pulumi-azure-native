@@ -47,7 +47,7 @@ export interface GetKpiResult {
     /**
      * The calculation window.
      */
-    readonly calculationWindow: string;
+    readonly calculationWindow: CalculationWindowTypes;
     /**
      * Name of calculation window field.
      */
@@ -63,7 +63,7 @@ export interface GetKpiResult {
     /**
      * The mapping entity type.
      */
-    readonly entityType: string;
+    readonly entityType: EntityTypes;
     /**
      * The mapping entity name.
      */
@@ -83,7 +83,7 @@ export interface GetKpiResult {
     /**
      * The computation function for the KPI.
      */
-    readonly function: string;
+    readonly function: KpiFunctions;
     /**
      * the group by properties for the KPI.
      */

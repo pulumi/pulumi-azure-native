@@ -45,15 +45,15 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The backup status of the volume.
      */
-    public /*out*/ readonly backupStatus!: pulumi.Output<string>;
+    public /*out*/ readonly backupStatus!: pulumi.Output<BackupStatus>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<Kind | undefined>;
     /**
      * The monitoring status of the volume.
      */
-    public readonly monitoringStatus!: pulumi.Output<string>;
+    public readonly monitoringStatus!: pulumi.Output<MonitoringStatus>;
     /**
      * The name of the object.
      */
@@ -61,7 +61,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The operation status on the volume.
      */
-    public /*out*/ readonly operationStatus!: pulumi.Output<string>;
+    public /*out*/ readonly operationStatus!: pulumi.Output<OperationStatus>;
     /**
      * The size of the volume in bytes.
      */
@@ -77,11 +77,11 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The volume status.
      */
-    public readonly volumeStatus!: pulumi.Output<string>;
+    public readonly volumeStatus!: pulumi.Output<VolumeStatus>;
     /**
      * The type of the volume.
      */
-    public readonly volumeType!: pulumi.Output<string>;
+    public readonly volumeType!: pulumi.Output<VolumeType>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -170,7 +170,7 @@ export interface VolumeArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<Kind>;
     /**
      * The manager name
      */
@@ -178,7 +178,7 @@ export interface VolumeArgs {
     /**
      * The monitoring status of the volume.
      */
-    readonly monitoringStatus: pulumi.Input<string>;
+    readonly monitoringStatus: pulumi.Input<MonitoringStatus>;
     /**
      * The resource group name
      */
@@ -198,9 +198,9 @@ export interface VolumeArgs {
     /**
      * The volume status.
      */
-    readonly volumeStatus: pulumi.Input<string>;
+    readonly volumeStatus: pulumi.Input<VolumeStatus>;
     /**
      * The type of the volume.
      */
-    readonly volumeType: pulumi.Input<string>;
+    readonly volumeType: pulumi.Input<VolumeType>;
 }

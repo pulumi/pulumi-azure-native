@@ -95,7 +95,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
     /**
      * Node status, indicates is private cloud set up on this node or not
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<NodeStatus>;
     /**
      * Dedicated Cloud Nodes tags
      */

@@ -70,7 +70,7 @@ export interface GetNamespaceResult {
     /**
      * State of the Namespace.
      */
-    readonly status?: string;
+    readonly status?: NamespaceState;
     /**
      * Resource tags
      */

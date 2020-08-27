@@ -70,7 +70,7 @@ export interface GetServerResult {
     /**
      * The state of the server.
      */
-    readonly state: string;
+    readonly state: ServerState;
     /**
      * Resource tags.
      */

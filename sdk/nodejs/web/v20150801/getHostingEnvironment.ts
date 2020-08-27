@@ -78,7 +78,7 @@ export interface GetHostingEnvironmentResult {
     /**
      * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
      */
-    readonly internalLoadBalancingMode?: string;
+    readonly internalLoadBalancingMode?: InternalLoadBalancingMode;
     /**
      * Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
      */
@@ -122,7 +122,7 @@ export interface GetHostingEnvironmentResult {
     /**
      * Provisioning state of the hostingEnvironment (App Service Environment)
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: ProvisioningState;
     /**
      * Resource group of the hostingEnvironment (App Service Environment)
      */
@@ -130,7 +130,7 @@ export interface GetHostingEnvironmentResult {
     /**
      * Current status of the hostingEnvironment (App Service Environment)
      */
-    readonly status: string;
+    readonly status: HostingEnvironmentStatus;
     /**
      * Subscription of the hostingEnvironment (App Service Environment)
      */

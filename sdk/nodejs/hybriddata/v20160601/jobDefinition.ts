@@ -63,7 +63,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * This is the preferred geo location for the job to run.
      */
-    public readonly runLocation!: pulumi.Output<string | undefined>;
+    public readonly runLocation!: pulumi.Output<RunLocation | undefined>;
     /**
      * Schedule for running the job definition
      */
@@ -71,7 +71,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * State of the job definition.
      */
-    public readonly state!: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<State>;
     /**
      * Type of the object.
      */
@@ -79,7 +79,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * Enum to detect if user confirmation is required. If not passed will default to NotRequired.
      */
-    public readonly userConfirmation!: pulumi.Output<string | undefined>;
+    public readonly userConfirmation!: pulumi.Output<UserConfirmation | undefined>;
 
     /**
      * Create a JobDefinition resource with the given unique name, arguments, and options.
@@ -187,7 +187,7 @@ export interface JobDefinitionArgs {
     /**
      * This is the preferred geo location for the job to run.
      */
-    readonly runLocation?: pulumi.Input<string>;
+    readonly runLocation?: pulumi.Input<RunLocation>;
     /**
      * Schedule for running the job definition
      */
@@ -195,9 +195,9 @@ export interface JobDefinitionArgs {
     /**
      * State of the job definition.
      */
-    readonly state: pulumi.Input<string>;
+    readonly state: pulumi.Input<State>;
     /**
      * Enum to detect if user confirmation is required. If not passed will default to NotRequired.
      */
-    readonly userConfirmation?: pulumi.Input<string>;
+    readonly userConfirmation?: pulumi.Input<UserConfirmation>;
 }

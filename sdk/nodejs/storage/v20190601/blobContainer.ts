@@ -99,7 +99,7 @@ export class BlobContainer extends pulumi.CustomResource {
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */
-    public readonly publicAccess!: pulumi.Output<string | undefined>;
+    public readonly publicAccess!: pulumi.Output<PublicAccess | undefined>;
     /**
      * Remaining retention days for soft deleted blob container.
      */
@@ -198,7 +198,7 @@ export interface BlobContainerArgs {
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */
-    readonly publicAccess?: pulumi.Input<string>;
+    readonly publicAccess?: pulumi.Input<PublicAccess>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

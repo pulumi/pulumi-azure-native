@@ -70,7 +70,7 @@ export interface GetVirtualMachineResult {
     /**
      * The Guest OS type
      */
-    readonly guestOSType: string;
+    readonly guestOSType: GuestOSType;
     /**
      * Azure region
      */
@@ -110,7 +110,7 @@ export interface GetVirtualMachineResult {
     /**
      * The status of Virtual machine
      */
-    readonly status: string;
+    readonly status: VirtualMachineStatus;
     /**
      * The list of tags
      */

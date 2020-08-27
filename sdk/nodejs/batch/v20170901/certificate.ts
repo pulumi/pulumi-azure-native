@@ -47,7 +47,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
      */
-    public readonly format!: pulumi.Output<string | undefined>;
+    public readonly format!: pulumi.Output<CertificateFormat | undefined>;
     /**
      * The name of the resource.
      */
@@ -55,7 +55,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The previous provisioned state of the resource
      */
-    public /*out*/ readonly previousProvisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly previousProvisioningState!: pulumi.Output<CertificateProvisioningState>;
     public /*out*/ readonly previousProvisioningStateTransitionTime!: pulumi.Output<string>;
     /**
      * Values are:
@@ -64,7 +64,7 @@ export class Certificate extends pulumi.CustomResource {
      *  Deleting - The user has requested that the certificate be deleted, but the delete operation has not yet completed. You may not reference the certificate when creating or updating pools.
      *  Failed - The user requested that the certificate be deleted, but there are pools that still have references to the certificate, or it is still installed on one or more compute nodes. (The latter can occur if the certificate has been removed from the pool, but the node has not yet restarted. Nodes refresh their certificates only when they restart.) You may use the cancel certificate delete operation to cancel the delete, or the delete certificate operation to retry the delete.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<CertificateProvisioningState>;
     public /*out*/ readonly provisioningStateTransitionTime!: pulumi.Output<string>;
     /**
      * The public key of the certificate.
@@ -158,7 +158,7 @@ export interface CertificateArgs {
     /**
      * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
      */
-    readonly format?: pulumi.Input<string>;
+    readonly format?: pulumi.Input<CertificateFormat>;
     /**
      * This is required if the certificate format is pfx and must be omitted if the certificate format is cer.
      */

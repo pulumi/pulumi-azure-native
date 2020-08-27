@@ -103,7 +103,7 @@ export interface GetClusterResult {
     /**
      * VM priority of cluster nodes.
      */
-    readonly vmPriority?: string;
+    readonly vmPriority?: VmPriority;
     /**
      * The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
      */

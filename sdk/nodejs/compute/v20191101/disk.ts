@@ -103,7 +103,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The Operating System type.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    public readonly osType!: pulumi.Output<OperatingSystemTypes | undefined>;
     /**
      * The disk provisioning state.
      */
@@ -258,7 +258,7 @@ export interface DiskArgs {
     /**
      * The Operating System type.
      */
-    readonly osType?: pulumi.Input<string>;
+    readonly osType?: pulumi.Input<OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */

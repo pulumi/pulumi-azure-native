@@ -55,7 +55,7 @@ export interface GetFavoriteResult {
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly favoriteType?: string;
+    readonly favoriteType?: FavoriteType;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */

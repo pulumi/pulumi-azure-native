@@ -47,11 +47,11 @@ export interface GetStorageAccountCredentialResult {
     /**
      * The cloud service provider
      */
-    readonly cloudType: string;
+    readonly cloudType: CloudType;
     /**
      * SSL needs to be enabled or not
      */
-    readonly enableSSL: string;
+    readonly enableSSL: SslStatus;
     /**
      * The storage endpoint
      */

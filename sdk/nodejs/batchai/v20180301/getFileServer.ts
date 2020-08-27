@@ -55,7 +55,7 @@ export interface GetFileServerResult {
     /**
      * Possible values: creating - The File Server is getting created. updating - The File Server creation has been accepted and it is getting updated. deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted. failed - The File Server creation has failed with the specified errorCode. Details about the error code are specified in the message field. succeeded - The File Server creation has succeeded.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: FileServerProvisioningState;
     readonly provisioningStateTransitionTime: string;
     /**
      * SSH configuration settings for the VM

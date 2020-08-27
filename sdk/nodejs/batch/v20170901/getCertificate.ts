@@ -51,7 +51,7 @@ export interface GetCertificateResult {
     /**
      * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
      */
-    readonly format?: string;
+    readonly format?: CertificateFormat;
     /**
      * The name of the resource.
      */
@@ -59,7 +59,7 @@ export interface GetCertificateResult {
     /**
      * The previous provisioned state of the resource
      */
-    readonly previousProvisioningState: string;
+    readonly previousProvisioningState: CertificateProvisioningState;
     readonly previousProvisioningStateTransitionTime: string;
     /**
      * Values are:
@@ -68,7 +68,7 @@ export interface GetCertificateResult {
      *  Deleting - The user has requested that the certificate be deleted, but the delete operation has not yet completed. You may not reference the certificate when creating or updating pools.
      *  Failed - The user requested that the certificate be deleted, but there are pools that still have references to the certificate, or it is still installed on one or more compute nodes. (The latter can occur if the certificate has been removed from the pool, but the node has not yet restarted. Nodes refresh their certificates only when they restart.) You may use the cancel certificate delete operation to cancel the delete, or the delete certificate operation to retry the delete.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: CertificateProvisioningState;
     readonly provisioningStateTransitionTime: string;
     /**
      * The public key of the certificate.

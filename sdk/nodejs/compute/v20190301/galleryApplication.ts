@@ -65,7 +65,7 @@ export class GalleryApplication extends pulumi.CustomResource {
     /**
      * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    public readonly supportedOSType!: pulumi.Output<string>;
+    public readonly supportedOSType!: pulumi.Output<OperatingSystemTypes>;
     /**
      * Resource tags
      */
@@ -173,7 +173,7 @@ export interface GalleryApplicationArgs {
     /**
      * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly supportedOSType: pulumi.Input<string>;
+    readonly supportedOSType: pulumi.Input<OperatingSystemTypes>;
     /**
      * Resource tags
      */

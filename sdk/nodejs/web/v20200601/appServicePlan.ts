@@ -92,7 +92,7 @@ export class AppServicePlan extends pulumi.CustomResource {
     /**
      * Provisioning state of the App Service Environment.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
      */
@@ -112,7 +112,7 @@ export class AppServicePlan extends pulumi.CustomResource {
     /**
      * App Service plan status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<StatusOptions>;
     /**
      * App Service plan subscription.
      */

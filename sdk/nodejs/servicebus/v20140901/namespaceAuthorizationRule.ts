@@ -69,7 +69,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * The rights associated with the rule.
      */
-    public readonly rights!: pulumi.Output<string[]>;
+    public readonly rights!: pulumi.Output<AccessRights[]>;
     /**
      * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */
@@ -175,7 +175,7 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * The rights associated with the rule.
      */
-    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
+    readonly rights: pulumi.Input<pulumi.Input<AccessRights>[]>;
     /**
      * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */

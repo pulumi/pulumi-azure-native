@@ -51,7 +51,7 @@ export interface GetJobResult {
     /**
      * Delivery type of Job.
      */
-    readonly deliveryType?: string;
+    readonly deliveryType?: JobDeliveryType;
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
@@ -95,7 +95,7 @@ export interface GetJobResult {
     /**
      * Name of the stage which is in progress.
      */
-    readonly status: string;
+    readonly status: StageName;
     /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */

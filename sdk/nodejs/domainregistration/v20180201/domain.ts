@@ -68,7 +68,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Current DNS type
      */
-    public readonly dnsType!: pulumi.Output<string | undefined>;
+    public readonly dnsType!: pulumi.Output<DnsType | undefined>;
     /**
      * Azure DNS Zone to use
      */
@@ -112,7 +112,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Domain provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
      *  it is hosted on name servers Azure has programmatic access to.
@@ -121,7 +121,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Domain registration status.
      */
-    public /*out*/ readonly registrationStatus!: pulumi.Output<string>;
+    public /*out*/ readonly registrationStatus!: pulumi.Output<DomainStatus>;
     /**
      * Resource tags.
      */
@@ -129,7 +129,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Target DNS type (would be used for migration)
      */
-    public readonly targetDnsType!: pulumi.Output<string | undefined>;
+    public readonly targetDnsType!: pulumi.Output<DnsType | undefined>;
     /**
      * Resource type.
      */
@@ -245,7 +245,7 @@ export interface DomainArgs {
     /**
      * Current DNS type
      */
-    readonly dnsType?: pulumi.Input<string>;
+    readonly dnsType?: pulumi.Input<DnsType>;
     /**
      * Azure DNS Zone to use
      */
@@ -277,5 +277,5 @@ export interface DomainArgs {
     /**
      * Target DNS type (would be used for migration)
      */
-    readonly targetDnsType?: pulumi.Input<string>;
+    readonly targetDnsType?: pulumi.Input<DnsType>;
 }

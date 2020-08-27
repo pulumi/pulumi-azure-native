@@ -41,11 +41,11 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
     /**
      * Azure resource type.
      */
-    public readonly azureResourceType!: pulumi.Output<string | undefined>;
+    public readonly azureResourceType!: pulumi.Output<AzureResourceType | undefined>;
     /**
      * Custom DNS record type.
      */
-    public readonly customHostNameDnsRecordType!: pulumi.Output<string | undefined>;
+    public readonly customHostNameDnsRecordType!: pulumi.Output<CustomHostNameDnsRecordType | undefined>;
     /**
      * Fully qualified ARM domain resource URI.
      */
@@ -53,7 +53,7 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
     /**
      * Hostname type.
      */
-    public readonly hostNameType!: pulumi.Output<string | undefined>;
+    public readonly hostNameType!: pulumi.Output<HostNameType | undefined>;
     /**
      * Kind of resource.
      */
@@ -69,7 +69,7 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
     /**
      * SSL type
      */
-    public readonly sslState!: pulumi.Output<string | undefined>;
+    public readonly sslState!: pulumi.Output<SslState | undefined>;
     /**
      * SSL certificate thumbprint
      */
@@ -148,11 +148,11 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * Azure resource type.
      */
-    readonly azureResourceType?: pulumi.Input<string>;
+    readonly azureResourceType?: pulumi.Input<AzureResourceType>;
     /**
      * Custom DNS record type.
      */
-    readonly customHostNameDnsRecordType?: pulumi.Input<string>;
+    readonly customHostNameDnsRecordType?: pulumi.Input<CustomHostNameDnsRecordType>;
     /**
      * Fully qualified ARM domain resource URI.
      */
@@ -164,7 +164,7 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * Hostname type.
      */
-    readonly hostNameType?: pulumi.Input<string>;
+    readonly hostNameType?: pulumi.Input<HostNameType>;
     /**
      * Kind of resource.
      */
@@ -188,7 +188,7 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * SSL type
      */
-    readonly sslState?: pulumi.Input<string>;
+    readonly sslState?: pulumi.Input<SslState>;
     /**
      * SSL certificate thumbprint
      */

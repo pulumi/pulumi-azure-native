@@ -56,7 +56,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
     /**
      * The rights associated with the rule.
      */
-    readonly rights?: string[];
+    readonly rights?: AccessRights[];
     /**
      * The sku of the created namespace
      */

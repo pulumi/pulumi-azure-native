@@ -64,7 +64,7 @@ export interface GetProfileResult {
     /**
      * Type of entity.
      */
-    readonly entityType?: string;
+    readonly entityType?: EntityTypes;
     /**
      * The properties of the Profile.
      */

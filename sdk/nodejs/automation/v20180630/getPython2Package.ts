@@ -87,7 +87,7 @@ export interface GetPython2PackageResult {
     /**
      * Gets or sets the provisioning state of the module.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: ModuleProvisioningState;
     /**
      * Gets or sets the size in bytes of the module.
      */

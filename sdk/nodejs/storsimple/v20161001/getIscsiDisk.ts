@@ -57,7 +57,7 @@ export interface GetIscsiDiskResult {
     /**
      * The data policy.
      */
-    readonly dataPolicy: string;
+    readonly dataPolicy: DataPolicy;
     /**
      * The description.
      */
@@ -65,7 +65,7 @@ export interface GetIscsiDiskResult {
     /**
      * The disk status.
      */
-    readonly diskStatus: string;
+    readonly diskStatus: DiskStatus;
     /**
      * The local used capacity in bytes.
      */
@@ -73,7 +73,7 @@ export interface GetIscsiDiskResult {
     /**
      * The monitoring.
      */
-    readonly monitoringStatus: string;
+    readonly monitoringStatus: MonitoringStatus;
     /**
      * The name.
      */

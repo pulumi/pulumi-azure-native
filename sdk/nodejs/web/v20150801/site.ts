@@ -41,7 +41,7 @@ export class Site extends pulumi.CustomResource {
      *             Normal means that the site is running correctly and that management information for the site is available. 
      *             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
      */
-    public /*out*/ readonly availabilityState!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityState!: pulumi.Output<SiteAvailabilityState>;
     /**
      * Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
      */
@@ -167,7 +167,7 @@ export class Site extends pulumi.CustomResource {
     /**
      * State indicating whether web app has exceeded its quota usage
      */
-    public /*out*/ readonly usageState!: pulumi.Output<string>;
+    public /*out*/ readonly usageState!: pulumi.Output<UsageState>;
 
     /**
      * Create a Site resource with the given unique name, arguments, and options.

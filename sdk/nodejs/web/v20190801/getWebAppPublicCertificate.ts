@@ -55,7 +55,7 @@ export interface GetWebAppPublicCertificateResult {
     /**
      * Public Certificate Location
      */
-    readonly publicCertificateLocation?: string;
+    readonly publicCertificateLocation?: PublicCertificateLocation;
     /**
      * Certificate Thumbprint
      */

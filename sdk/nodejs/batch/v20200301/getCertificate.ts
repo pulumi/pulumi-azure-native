@@ -51,7 +51,7 @@ export interface GetCertificateResult {
     /**
      * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
      */
-    readonly format?: string;
+    readonly format?: CertificateFormat;
     /**
      * The name of the resource.
      */
@@ -59,9 +59,9 @@ export interface GetCertificateResult {
     /**
      * The previous provisioned state of the resource
      */
-    readonly previousProvisioningState: string;
+    readonly previousProvisioningState: CertificateProvisioningState;
     readonly previousProvisioningStateTransitionTime: string;
-    readonly provisioningState: string;
+    readonly provisioningState: CertificateProvisioningState;
     readonly provisioningStateTransitionTime: string;
     /**
      * The public key of the certificate.

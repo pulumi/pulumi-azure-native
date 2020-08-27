@@ -55,7 +55,7 @@ export interface GetAccessPolicyResult {
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    readonly roles?: string[];
+    readonly roles?: AccessPolicyRole[];
     /**
      * Resource type
      */

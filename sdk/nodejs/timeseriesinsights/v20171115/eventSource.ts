@@ -120,7 +120,7 @@ export interface EventSourceArgs {
     /**
      * The kind of the event source.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<Kind>;
     /**
      * The location of the resource.
      */

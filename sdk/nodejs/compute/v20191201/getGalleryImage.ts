@@ -75,11 +75,11 @@ export interface GetGalleryImageResult {
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
-    readonly osState: string;
+    readonly osState: OperatingSystemStateTypes;
     /**
      * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly osType: string;
+    readonly osType: OperatingSystemTypes;
     /**
      * The privacy statement uri.
      */

@@ -90,7 +90,7 @@ export interface GetSnapshotResult {
     /**
      * The Operating System type.
      */
-    readonly osType?: string;
+    readonly osType?: OperatingSystemTypes;
     /**
      * The disk provisioning state.
      */

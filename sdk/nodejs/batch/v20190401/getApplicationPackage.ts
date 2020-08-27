@@ -64,7 +64,7 @@ export interface GetApplicationPackageResult {
     /**
      * The current state of the application package.
      */
-    readonly state: string;
+    readonly state: PackageState;
     /**
      * The URL for the application package in Azure Storage.
      */

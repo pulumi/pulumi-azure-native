@@ -50,7 +50,7 @@ export interface GetProfileResult {
     /**
      * Resource status of the profile.
      */
-    readonly resourceState: string;
+    readonly resourceState: ProfileResourceState;
     /**
      * The SKU (pricing tier) of the CDN profile.
      */

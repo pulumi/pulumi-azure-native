@@ -45,7 +45,7 @@ export interface GetSiteResult {
      *             Normal means that the site is running correctly and that management information for the site is available. 
      *             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
      */
-    readonly availabilityState: string;
+    readonly availabilityState: SiteAvailabilityState;
     /**
      * Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
      */
@@ -171,5 +171,5 @@ export interface GetSiteResult {
     /**
      * State indicating whether web app has exceeded its quota usage
      */
-    readonly usageState: string;
+    readonly usageState: UsageState;
 }

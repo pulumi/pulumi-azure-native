@@ -61,7 +61,7 @@ export class EventHub extends pulumi.CustomResource {
     /**
      * Enumerates the possible values for the status of the Event Hub.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<EntityStatus | undefined>;
     /**
      * Resource type
      */
@@ -157,7 +157,7 @@ export interface EventHubArgs {
     /**
      * Enumerates the possible values for the status of the Event Hub.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<EntityStatus>;
     /**
      * ARM type of the Namespace.
      */

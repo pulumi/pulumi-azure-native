@@ -103,7 +103,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Domain provisioning state
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly provisioningState!: pulumi.Output<ProvisioningState | undefined>;
     /**
      * If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
      */
@@ -111,7 +111,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Domain registration status
      */
-    public readonly registrationStatus!: pulumi.Output<string | undefined>;
+    public readonly registrationStatus!: pulumi.Output<DomainStatus | undefined>;
     /**
      * Resource tags
      */
@@ -260,7 +260,7 @@ export interface DomainArgs {
     /**
      * Domain provisioning state
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<ProvisioningState>;
     /**
      * If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
      */
@@ -268,7 +268,7 @@ export interface DomainArgs {
     /**
      * Domain registration status
      */
-    readonly registrationStatus?: pulumi.Input<string>;
+    readonly registrationStatus?: pulumi.Input<DomainStatus>;
     /**
      * &gt;Name of the resource group
      */

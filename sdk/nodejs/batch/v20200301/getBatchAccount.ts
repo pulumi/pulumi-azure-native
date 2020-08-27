@@ -85,7 +85,7 @@ export interface GetBatchAccountResult {
     /**
      * The provisioned state of the resource
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * If not specified, the default value is 'enabled'.
      */

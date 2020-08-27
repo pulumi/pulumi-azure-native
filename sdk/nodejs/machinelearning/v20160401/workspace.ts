@@ -77,11 +77,11 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The current state of workspace resource.
      */
-    public /*out*/ readonly workspaceState!: pulumi.Output<string>;
+    public /*out*/ readonly workspaceState!: pulumi.Output<WorkspaceState>;
     /**
      * The type of this workspace.
      */
-    public /*out*/ readonly workspaceType!: pulumi.Output<string>;
+    public /*out*/ readonly workspaceType!: pulumi.Output<WorkspaceType>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.

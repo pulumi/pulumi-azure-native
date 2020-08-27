@@ -41,7 +41,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * The rights associated with the rule.
      */
-    public readonly rights!: pulumi.Output<string[]>;
+    public readonly rights!: pulumi.Output<AccessRights[]>;
     /**
      * Resource type
      */
@@ -111,5 +111,5 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * The rights associated with the rule.
      */
-    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
+    readonly rights: pulumi.Input<pulumi.Input<AccessRights>[]>;
 }

@@ -61,15 +61,15 @@ export interface GetVolumeResult {
     /**
      * The backup status of the volume.
      */
-    readonly backupStatus: string;
+    readonly backupStatus: BackupStatus;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: string;
+    readonly kind?: Kind;
     /**
      * The monitoring status of the volume.
      */
-    readonly monitoringStatus: string;
+    readonly monitoringStatus: MonitoringStatus;
     /**
      * The name of the object.
      */
@@ -77,7 +77,7 @@ export interface GetVolumeResult {
     /**
      * The operation status on the volume.
      */
-    readonly operationStatus: string;
+    readonly operationStatus: OperationStatus;
     /**
      * The size of the volume in bytes.
      */
@@ -93,9 +93,9 @@ export interface GetVolumeResult {
     /**
      * The volume status.
      */
-    readonly volumeStatus: string;
+    readonly volumeStatus: VolumeStatus;
     /**
      * The type of the volume.
      */
-    readonly volumeType: string;
+    readonly volumeType: VolumeType;
 }

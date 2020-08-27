@@ -38,7 +38,7 @@ export interface GetWebAppResult {
     /**
      * Management information availability state for the app.
      */
-    readonly availabilityState: string;
+    readonly availabilityState: SiteAvailabilityState;
     /**
      * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
      */
@@ -57,7 +57,7 @@ export interface GetWebAppResult {
      * - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
      * - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
      */
-    readonly clientCertMode?: string;
+    readonly clientCertMode?: ClientCertMode;
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
@@ -161,7 +161,7 @@ export interface GetWebAppResult {
     /**
      * Site redundancy mode
      */
-    readonly redundancyMode?: string;
+    readonly redundancyMode?: RedundancyMode;
     /**
      * Name of the repository site.
      */
@@ -217,5 +217,5 @@ export interface GetWebAppResult {
     /**
      * State indicating whether the app has exceeded its quota usage. Read-only.
      */
-    readonly usageState: string;
+    readonly usageState: UsageState;
 }

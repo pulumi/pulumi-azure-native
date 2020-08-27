@@ -38,7 +38,7 @@ export interface GetStorageAccountResult {
     /**
      * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
      */
-    readonly accessTier: string;
+    readonly accessTier: AccessTier;
     /**
      * Gets the creation date and time of the storage account in UTC.
      */
@@ -58,7 +58,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the Kind.
      */
-    readonly kind: string;
+    readonly kind: Kind;
     /**
      * Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
      */
@@ -82,7 +82,7 @@ export interface GetStorageAccountResult {
     /**
      * Gets the status of the storage account at the time the operation was called.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
      */
@@ -98,11 +98,11 @@ export interface GetStorageAccountResult {
     /**
      * Gets the status indicating whether the primary location of the storage account is available or unavailable.
      */
-    readonly statusOfPrimary: string;
+    readonly statusOfPrimary: AccountStatus;
     /**
      * Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
      */
-    readonly statusOfSecondary: string;
+    readonly statusOfSecondary: AccountStatus;
     /**
      * Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
      */

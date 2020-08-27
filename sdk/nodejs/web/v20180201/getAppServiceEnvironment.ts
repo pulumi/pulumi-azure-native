@@ -95,7 +95,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    readonly internalLoadBalancingMode?: string;
+    readonly internalLoadBalancingMode?: InternalLoadBalancingMode;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */
@@ -139,7 +139,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Provisioning state of the App Service Environment.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * Resource group of the App Service Environment.
      */
@@ -155,7 +155,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Current status of the App Service Environment.
      */
-    readonly status: string;
+    readonly status: HostingEnvironmentStatus;
     /**
      * Subscription of the App Service Environment.
      */

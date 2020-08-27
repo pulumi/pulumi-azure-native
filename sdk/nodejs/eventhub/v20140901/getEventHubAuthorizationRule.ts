@@ -56,7 +56,7 @@ export interface GetEventHubAuthorizationRuleResult {
     /**
      * The rights associated with the rule.
      */
-    readonly rights: string[];
+    readonly rights: AccessRights[];
     /**
      * Resource type
      */

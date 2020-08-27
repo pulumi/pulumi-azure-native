@@ -47,7 +47,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
      */
-    public readonly format!: pulumi.Output<string | undefined>;
+    public readonly format!: pulumi.Output<CertificateFormat | undefined>;
     /**
      * The name of the resource.
      */
@@ -55,9 +55,9 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The previous provisioned state of the resource
      */
-    public /*out*/ readonly previousProvisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly previousProvisioningState!: pulumi.Output<CertificateProvisioningState>;
     public /*out*/ readonly previousProvisioningStateTransitionTime!: pulumi.Output<string>;
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<CertificateProvisioningState>;
     public /*out*/ readonly provisioningStateTransitionTime!: pulumi.Output<string>;
     /**
      * The public key of the certificate.
@@ -151,7 +151,7 @@ export interface CertificateArgs {
     /**
      * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
      */
-    readonly format?: pulumi.Input<string>;
+    readonly format?: pulumi.Input<CertificateFormat>;
     /**
      * This must not be specified if the certificate format is Cer.
      */

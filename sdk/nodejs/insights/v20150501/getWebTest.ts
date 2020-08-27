@@ -54,7 +54,7 @@ export interface GetWebTestResult {
     /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */
-    readonly kind?: string;
+    readonly kind?: WebTestKind;
     /**
      * Resource location
      */
@@ -94,7 +94,7 @@ export interface GetWebTestResult {
     /**
      * The kind of web test this is, valid choices are ping and multistep.
      */
-    readonly webTestKind: string;
+    readonly webTestKind: WebTestKind;
     /**
      * User defined name if this WebTest.
      */

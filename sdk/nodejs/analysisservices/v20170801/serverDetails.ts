@@ -67,7 +67,7 @@ export class ServerDetails extends pulumi.CustomResource {
     /**
      * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
      */
-    public readonly querypoolConnectionMode!: pulumi.Output<string | undefined>;
+    public readonly querypoolConnectionMode!: pulumi.Output<ConnectionMode | undefined>;
     /**
      * The full name of the Analysis Services resource.
      */
@@ -170,7 +170,7 @@ export interface ServerDetailsArgs {
     /**
      * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
      */
-    readonly querypoolConnectionMode?: pulumi.Input<string>;
+    readonly querypoolConnectionMode?: pulumi.Input<ConnectionMode>;
     /**
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */

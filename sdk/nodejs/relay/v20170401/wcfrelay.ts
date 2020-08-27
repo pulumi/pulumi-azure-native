@@ -53,7 +53,7 @@ export class WCFRelay extends pulumi.CustomResource {
     /**
      * WCF relay type.
      */
-    public readonly relayType!: pulumi.Output<string | undefined>;
+    public readonly relayType!: pulumi.Output<Relaytype | undefined>;
     /**
      * Returns true if client authorization is needed for this relay; otherwise, false.
      */
@@ -137,7 +137,7 @@ export interface WCFRelayArgs {
     /**
      * WCF relay type.
      */
-    readonly relayType?: pulumi.Input<string>;
+    readonly relayType?: pulumi.Input<Relaytype>;
     /**
      * Returns true if client authorization is needed for this relay; otherwise, false.
      */

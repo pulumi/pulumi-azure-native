@@ -57,7 +57,7 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
     /**
      * Status of the Key Vault secret.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<KeyVaultSecretStatus>;
     /**
      * Resource tags.
      */

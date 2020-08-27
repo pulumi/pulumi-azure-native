@@ -76,7 +76,7 @@ export interface ListWebAppAuthSettingsResult {
      * This setting is only needed if multiple providers are configured and the unauthenticated client
      * action is set to "RedirectToLoginPage".
      */
-    readonly defaultProvider?: string;
+    readonly defaultProvider?: BuiltInAuthenticationProvider;
     /**
      * <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
      */
@@ -184,7 +184,7 @@ export interface ListWebAppAuthSettingsResult {
     /**
      * The action to take when an unauthenticated client attempts to access the app.
      */
-    readonly unauthenticatedClientAction?: string;
+    readonly unauthenticatedClientAction?: UnauthenticatedClientAction;
     /**
      * Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
      */

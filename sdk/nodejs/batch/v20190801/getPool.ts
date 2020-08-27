@@ -40,7 +40,7 @@ export interface GetPoolArgs {
  * Contains information about a pool.
  */
 export interface GetPoolResult {
-    readonly allocationState: string;
+    readonly allocationState: AllocationState;
     readonly allocationStateTransitionTime: string;
     /**
      * The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
@@ -76,7 +76,7 @@ export interface GetPoolResult {
     /**
      * This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
      */
-    readonly interNodeCommunication?: string;
+    readonly interNodeCommunication?: InterNodeCommunicationState;
     /**
      * This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
      */
@@ -101,7 +101,7 @@ export interface GetPoolResult {
      * The network configuration for a pool.
      */
     readonly networkConfiguration?: outputs.batch.v20190801.NetworkConfigurationResponse;
-    readonly provisioningState: string;
+    readonly provisioningState: PoolProvisioningState;
     readonly provisioningStateTransitionTime: string;
     /**
      * Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).

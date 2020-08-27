@@ -49,7 +49,7 @@ export class Favorite extends pulumi.CustomResource {
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    public readonly favoriteType!: pulumi.Output<string | undefined>;
+    public readonly favoriteType!: pulumi.Output<FavoriteType | undefined>;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */
@@ -145,7 +145,7 @@ export interface FavoriteArgs {
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly favoriteType?: pulumi.Input<string>;
+    readonly favoriteType?: pulumi.Input<FavoriteType>;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */

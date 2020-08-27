@@ -79,7 +79,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Status of the Key Vault secret.
      */
-    public /*out*/ readonly keyVaultSecretStatus!: pulumi.Output<string>;
+    public /*out*/ readonly keyVaultSecretStatus!: pulumi.Output<KeyVaultSecretStatus>;
     /**
      * Kind of resource.
      */

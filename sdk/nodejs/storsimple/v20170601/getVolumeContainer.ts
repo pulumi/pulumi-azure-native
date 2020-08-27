@@ -60,11 +60,11 @@ export interface GetVolumeContainerResult {
     /**
      * The flag to denote whether encryption is enabled or not.
      */
-    readonly encryptionStatus: string;
+    readonly encryptionStatus: EncryptionStatus;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: string;
+    readonly kind?: Kind;
     /**
      * The name of the object.
      */
@@ -72,7 +72,7 @@ export interface GetVolumeContainerResult {
     /**
      * The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
      */
-    readonly ownerShipStatus: string;
+    readonly ownerShipStatus: OwnerShipStatus;
     /**
      * The path ID of storage account associated with the volume container.
      */

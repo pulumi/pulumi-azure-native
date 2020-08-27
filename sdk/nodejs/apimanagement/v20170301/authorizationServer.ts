@@ -43,7 +43,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
     /**
      * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
      */
-    public readonly authorizationMethods!: pulumi.Output<string[] | undefined>;
+    public readonly authorizationMethods!: pulumi.Output<AuthorizationMethod[] | undefined>;
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */
@@ -192,7 +192,7 @@ export interface AuthorizationServerArgs {
     /**
      * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
      */
-    readonly authorizationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly authorizationMethods?: pulumi.Input<pulumi.Input<AuthorizationMethod>[]>;
     /**
      * Identifier of the authorization server.
      */

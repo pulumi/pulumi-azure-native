@@ -41,11 +41,11 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
     /**
      * Azure resource type
      */
-    public readonly azureResourceType!: pulumi.Output<string | undefined>;
+    public readonly azureResourceType!: pulumi.Output<AzureResourceType | undefined>;
     /**
      * Custom DNS record type
      */
-    public readonly customHostNameDnsRecordType!: pulumi.Output<string | undefined>;
+    public readonly customHostNameDnsRecordType!: pulumi.Output<CustomHostNameDnsRecordType | undefined>;
     /**
      * Fully qualified ARM domain resource URI
      */
@@ -53,7 +53,7 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
     /**
      * Host name type
      */
-    public readonly hostNameType!: pulumi.Output<string | undefined>;
+    public readonly hostNameType!: pulumi.Output<HostNameType | undefined>;
     /**
      * Kind of resource
      */
@@ -147,11 +147,11 @@ export interface SiteHostNameBindingSlotArgs {
     /**
      * Azure resource type
      */
-    readonly azureResourceType?: pulumi.Input<string>;
+    readonly azureResourceType?: pulumi.Input<AzureResourceType>;
     /**
      * Custom DNS record type
      */
-    readonly customHostNameDnsRecordType?: pulumi.Input<string>;
+    readonly customHostNameDnsRecordType?: pulumi.Input<CustomHostNameDnsRecordType>;
     /**
      * Fully qualified ARM domain resource URI
      */
@@ -163,7 +163,7 @@ export interface SiteHostNameBindingSlotArgs {
     /**
      * Host name type
      */
-    readonly hostNameType?: pulumi.Input<string>;
+    readonly hostNameType?: pulumi.Input<HostNameType>;
     /**
      * Resource Id
      */

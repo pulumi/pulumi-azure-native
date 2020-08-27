@@ -84,7 +84,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
     /**
      * The rights associated with the rule.
      */
-    readonly rights?: string[];
+    readonly rights?: AccessRights[];
     /**
      * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */

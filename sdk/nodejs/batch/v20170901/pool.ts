@@ -43,7 +43,7 @@ export class Pool extends pulumi.CustomResource {
      *  Resizing - The pool is resizing; that is, compute nodes are being added to or removed from the pool.
      *  Stopping - The pool was resizing, but the user has requested that the resize be stopped, but the stop request has not yet been completed.
      */
-    public /*out*/ readonly allocationState!: pulumi.Output<string>;
+    public /*out*/ readonly allocationState!: pulumi.Output<AllocationState>;
     public /*out*/ readonly allocationStateTransitionTime!: pulumi.Output<string>;
     /**
      * The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
@@ -79,7 +79,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
      */
-    public readonly interNodeCommunication!: pulumi.Output<string | undefined>;
+    public readonly interNodeCommunication!: pulumi.Output<InterNodeCommunicationState | undefined>;
     /**
      * This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
      */
@@ -103,7 +103,7 @@ export class Pool extends pulumi.CustomResource {
      *  Succeeded - The pool is available to run tasks subject to the availability of compute nodes.
      *  Deleting - The user has requested that the pool be deleted, but the delete operation has not yet completed.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<PoolProvisioningState>;
     public /*out*/ readonly provisioningStateTransitionTime!: pulumi.Output<string>;
     /**
      * Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
@@ -225,7 +225,7 @@ export interface PoolArgs {
     /**
      * This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
      */
-    readonly interNodeCommunication?: pulumi.Input<string>;
+    readonly interNodeCommunication?: pulumi.Input<InterNodeCommunicationState>;
     readonly maxTasksPerNode?: pulumi.Input<number>;
     /**
      * The Batch service does not assign any meaning to metadata; it is solely for the use of user code.

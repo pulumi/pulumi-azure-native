@@ -51,7 +51,7 @@ export interface GetStorageAccountCredentialResult {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: string;
+    readonly kind?: Kind;
     /**
      * The name of the object.
      */
@@ -59,7 +59,7 @@ export interface GetStorageAccountCredentialResult {
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    readonly sslStatus: string;
+    readonly sslStatus: SslStatus;
     /**
      * The hierarchical type of the object.
      */

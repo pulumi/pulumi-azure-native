@@ -71,7 +71,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The Guest OS type
      */
-    public /*out*/ readonly guestOSType!: pulumi.Output<string>;
+    public /*out*/ readonly guestOSType!: pulumi.Output<GuestOSType>;
     /**
      * Azure region
      */
@@ -111,7 +111,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The status of Virtual machine
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<VirtualMachineStatus>;
     /**
      * The list of tags
      */

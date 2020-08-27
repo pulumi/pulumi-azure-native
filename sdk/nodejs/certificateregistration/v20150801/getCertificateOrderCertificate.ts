@@ -63,7 +63,7 @@ export interface GetCertificateOrderCertificateResult {
     /**
      * Status of the Key Vault secret
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: KeyVaultSecretStatus;
     /**
      * Resource tags
      */

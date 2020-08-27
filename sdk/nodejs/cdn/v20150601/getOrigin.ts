@@ -68,7 +68,7 @@ export interface GetOriginResult {
     /**
      * Resource status of the origin.
      */
-    readonly resourceState: string;
+    readonly resourceState: OriginResourceState;
     /**
      * Resource type
      */

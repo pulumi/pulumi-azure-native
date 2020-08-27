@@ -95,7 +95,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * Type of roles.
      */
-    public readonly role!: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<RoleTypes>;
     /**
      * The Role assignments set for the assignment.
      */
@@ -254,7 +254,7 @@ export interface RoleAssignmentArgs {
     /**
      * Type of roles.
      */
-    readonly role: pulumi.Input<string>;
+    readonly role: pulumi.Input<RoleTypes>;
     /**
      * The Role assignments set for the assignment.
      */

@@ -43,7 +43,7 @@ export class StorageDomain extends pulumi.CustomResource {
     /**
      * The encryption status "Enabled | Disabled".
      */
-    public readonly encryptionStatus!: pulumi.Output<string>;
+    public readonly encryptionStatus!: pulumi.Output<EncryptionStatus>;
     /**
      * The name.
      */
@@ -116,7 +116,7 @@ export interface StorageDomainArgs {
     /**
      * The encryption status "Enabled | Disabled".
      */
-    readonly encryptionStatus: pulumi.Input<string>;
+    readonly encryptionStatus: pulumi.Input<EncryptionStatus>;
     /**
      * The manager name
      */

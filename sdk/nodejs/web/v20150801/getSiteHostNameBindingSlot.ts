@@ -52,11 +52,11 @@ export interface GetSiteHostNameBindingSlotResult {
     /**
      * Azure resource type
      */
-    readonly azureResourceType?: string;
+    readonly azureResourceType?: AzureResourceType;
     /**
      * Custom DNS record type
      */
-    readonly customHostNameDnsRecordType?: string;
+    readonly customHostNameDnsRecordType?: CustomHostNameDnsRecordType;
     /**
      * Fully qualified ARM domain resource URI
      */
@@ -64,7 +64,7 @@ export interface GetSiteHostNameBindingSlotResult {
     /**
      * Host name type
      */
-    readonly hostNameType?: string;
+    readonly hostNameType?: HostNameType;
     /**
      * Kind of resource
      */

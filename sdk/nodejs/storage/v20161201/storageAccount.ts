@@ -39,7 +39,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
      */
-    public readonly accessTier!: pulumi.Output<string>;
+    public readonly accessTier!: pulumi.Output<AccessTier>;
     /**
      * Gets the creation date and time of the storage account in UTC.
      */
@@ -59,7 +59,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Gets the Kind.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<Kind>;
     /**
      * Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
      */
@@ -83,7 +83,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Gets the status of the storage account at the time the operation was called.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
      */
@@ -99,11 +99,11 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Gets the status indicating whether the primary location of the storage account is available or unavailable.
      */
-    public /*out*/ readonly statusOfPrimary!: pulumi.Output<string>;
+    public /*out*/ readonly statusOfPrimary!: pulumi.Output<AccountStatus>;
     /**
      * Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
      */
-    public /*out*/ readonly statusOfSecondary!: pulumi.Output<string>;
+    public /*out*/ readonly statusOfSecondary!: pulumi.Output<AccountStatus>;
     /**
      * Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
      */
@@ -183,7 +183,7 @@ export interface StorageAccountArgs {
     /**
      * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    readonly accessTier?: pulumi.Input<AccessTier>;
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
@@ -203,7 +203,7 @@ export interface StorageAccountArgs {
     /**
      * Required. Indicates the type of storage account.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<Kind>;
     /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */

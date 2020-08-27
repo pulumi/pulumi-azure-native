@@ -82,9 +82,9 @@ export interface GetWorkspaceResult {
     /**
      * The current state of workspace resource.
      */
-    readonly workspaceState: string;
+    readonly workspaceState: WorkspaceState;
     /**
      * The type of this workspace.
      */
-    readonly workspaceType: string;
+    readonly workspaceType: WorkspaceType;
 }

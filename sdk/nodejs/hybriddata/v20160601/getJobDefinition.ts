@@ -72,7 +72,7 @@ export interface GetJobDefinitionResult {
     /**
      * This is the preferred geo location for the job to run.
      */
-    readonly runLocation?: string;
+    readonly runLocation?: RunLocation;
     /**
      * Schedule for running the job definition
      */
@@ -80,7 +80,7 @@ export interface GetJobDefinitionResult {
     /**
      * State of the job definition.
      */
-    readonly state: string;
+    readonly state: State;
     /**
      * Type of the object.
      */
@@ -88,5 +88,5 @@ export interface GetJobDefinitionResult {
     /**
      * Enum to detect if user confirmation is required. If not passed will default to NotRequired.
      */
-    readonly userConfirmation?: string;
+    readonly userConfirmation?: UserConfirmation;
 }

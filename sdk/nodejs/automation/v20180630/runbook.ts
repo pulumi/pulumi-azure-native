@@ -95,7 +95,7 @@ export class Runbook extends pulumi.CustomResource {
     /**
      * Gets or sets the provisioning state of the runbook.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<RunbookProvisioningState | undefined>;
     /**
      * Gets or sets the published runbook content link.
      */

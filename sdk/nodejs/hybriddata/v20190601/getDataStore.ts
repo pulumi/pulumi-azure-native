@@ -63,7 +63,7 @@ export interface GetDataStoreResult {
     /**
      * State of the data source.
      */
-    readonly state: string;
+    readonly state: State;
     /**
      * Type of the object.
      */

@@ -59,7 +59,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    public readonly operationType!: pulumi.Output<string | undefined>;
+    public readonly operationType!: pulumi.Output<InstanceOperationType | undefined>;
     /**
      * The properties that represent the participating profile.
      */
@@ -176,7 +176,7 @@ export interface LinkArgs {
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    readonly operationType?: pulumi.Input<string>;
+    readonly operationType?: pulumi.Input<InstanceOperationType>;
     /**
      * The properties that represent the participating profile.
      */

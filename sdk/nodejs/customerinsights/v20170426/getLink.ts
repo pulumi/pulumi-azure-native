@@ -63,7 +63,7 @@ export interface GetLinkResult {
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    readonly operationType?: string;
+    readonly operationType?: InstanceOperationType;
     /**
      * The properties that represent the participating profile.
      */
@@ -79,7 +79,7 @@ export interface GetLinkResult {
     /**
      * Type of source entity.
      */
-    readonly sourceEntityType: string;
+    readonly sourceEntityType: EntityType;
     /**
      * Name of the source Entity Type.
      */
@@ -87,7 +87,7 @@ export interface GetLinkResult {
     /**
      * Type of target entity.
      */
-    readonly targetEntityType: string;
+    readonly targetEntityType: EntityType;
     /**
      * Name of the target Entity Type.
      */

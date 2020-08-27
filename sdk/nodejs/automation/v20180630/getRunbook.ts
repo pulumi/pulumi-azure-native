@@ -99,7 +99,7 @@ export interface GetRunbookResult {
     /**
      * Gets or sets the provisioning state of the runbook.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: RunbookProvisioningState;
     /**
      * Gets or sets the published runbook content link.
      */

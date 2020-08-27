@@ -39,7 +39,7 @@ export class Relationship extends pulumi.CustomResource {
     /**
      * The Relationship Cardinality.
      */
-    public readonly cardinality!: pulumi.Output<string | undefined>;
+    public readonly cardinality!: pulumi.Output<CardinalityTypes | undefined>;
     /**
      * Localized descriptions for the Relationship.
      */
@@ -158,7 +158,7 @@ export interface RelationshipArgs {
     /**
      * The Relationship Cardinality.
      */
-    readonly cardinality?: pulumi.Input<string>;
+    readonly cardinality?: pulumi.Input<CardinalityTypes>;
     /**
      * Localized descriptions for the Relationship.
      */

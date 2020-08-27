@@ -49,7 +49,7 @@ export class CustomDomain extends pulumi.CustomResource {
     /**
      * Resource status of the custom domain.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<CustomDomainResourceState>;
     /**
      * Resource type
      */

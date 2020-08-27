@@ -83,7 +83,7 @@ export interface GetDscConfigurationResult {
     /**
      * Gets or sets the provisioning state of the configuration.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: DscConfigurationProvisioningState;
     /**
      * Gets or sets the source.
      */

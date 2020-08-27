@@ -51,7 +51,7 @@ export interface GetNamespaceResult {
      * Resource name.
      */
     readonly name: string;
-    readonly provisioningState: string;
+    readonly provisioningState: provisioningStateEnum;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */

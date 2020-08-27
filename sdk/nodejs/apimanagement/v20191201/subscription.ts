@@ -85,7 +85,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
      */
-    public readonly state!: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<SubscriptionState>;
     /**
      * Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
      */
@@ -210,5 +210,5 @@ export interface SubscriptionArgs {
     /**
      * Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<SubscriptionState>;
 }

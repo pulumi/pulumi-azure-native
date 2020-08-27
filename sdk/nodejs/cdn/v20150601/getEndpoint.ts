@@ -91,7 +91,7 @@ export interface GetEndpointResult {
     /**
      * Resource status of the endpoint.
      */
-    readonly resourceState: string;
+    readonly resourceState: EndpointResourceState;
     /**
      * Resource tags
      */

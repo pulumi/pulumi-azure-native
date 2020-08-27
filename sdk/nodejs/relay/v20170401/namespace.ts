@@ -52,7 +52,7 @@ export class Namespace extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<provisioningStateEnum>;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */

@@ -53,11 +53,11 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**
      * Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningStateDR>;
     /**
      * role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
      */
-    public /*out*/ readonly role!: pulumi.Output<string>;
+    public /*out*/ readonly role!: pulumi.Output<RoleDisasterRecovery>;
     /**
      * Resource type.
      */

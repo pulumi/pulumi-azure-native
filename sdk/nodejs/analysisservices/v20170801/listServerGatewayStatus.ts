@@ -38,5 +38,5 @@ export interface ListServerGatewayStatusResult {
     /**
      * Live message of list gateway.
      */
-    readonly status?: string;
+    readonly status?: Status;
 }

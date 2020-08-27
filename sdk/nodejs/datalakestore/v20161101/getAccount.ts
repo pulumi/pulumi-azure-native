@@ -46,7 +46,7 @@ export interface GetAccountResult {
     /**
      * The commitment tier in use for the current month.
      */
-    readonly currentTier: string;
+    readonly currentTier: TierType;
     /**
      * The default owner group for all new folders and files created in the Data Lake Store account.
      */
@@ -58,11 +58,11 @@ export interface GetAccountResult {
     /**
      * The current state of encryption provisioning for this Data Lake Store account.
      */
-    readonly encryptionProvisioningState: string;
+    readonly encryptionProvisioningState: EncryptionProvisioningState;
     /**
      * The current state of encryption for this Data Lake Store account.
      */
-    readonly encryptionState: string;
+    readonly encryptionState: EncryptionState;
     /**
      * The full CName endpoint for this account.
      */
@@ -70,7 +70,7 @@ export interface GetAccountResult {
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    readonly firewallAllowAzureIps: string;
+    readonly firewallAllowAzureIps: FirewallAllowAzureIpsState;
     /**
      * The list of firewall rules associated with this Data Lake Store account.
      */
@@ -78,7 +78,7 @@ export interface GetAccountResult {
     /**
      * The current state of the IP address firewall for this Data Lake Store account.
      */
-    readonly firewallState: string;
+    readonly firewallState: FirewallState;
     /**
      * The Key Vault encryption identity, if any.
      */
@@ -98,15 +98,15 @@ export interface GetAccountResult {
     /**
      * The commitment tier to use for next month.
      */
-    readonly newTier: string;
+    readonly newTier: TierType;
     /**
      * The provisioning status of the Data Lake Store account.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: DataLakeStoreAccountStatus;
     /**
      * The state of the Data Lake Store account.
      */
-    readonly state: string;
+    readonly state: DataLakeStoreAccountState;
     /**
      * The resource tags.
      */
@@ -114,7 +114,7 @@ export interface GetAccountResult {
     /**
      * The current state of the trusted identity provider feature for this Data Lake Store account.
      */
-    readonly trustedIdProviderState: string;
+    readonly trustedIdProviderState: TrustedIdProviderState;
     /**
      * The list of trusted identity providers associated with this Data Lake Store account.
      */

@@ -138,5 +138,5 @@ export interface GroupArgs {
     /**
      * Group type.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<GroupType>;
 }

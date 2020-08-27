@@ -47,7 +47,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Delivery type of Job.
      */
-    public readonly deliveryType!: pulumi.Output<string | undefined>;
+    public readonly deliveryType!: pulumi.Output<JobDeliveryType | undefined>;
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
@@ -91,7 +91,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Name of the stage which is in progress.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<StageName>;
     /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */
@@ -169,7 +169,7 @@ export interface JobArgs {
     /**
      * Delivery type of Job.
      */
-    readonly deliveryType?: pulumi.Input<string>;
+    readonly deliveryType?: pulumi.Input<JobDeliveryType>;
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */

@@ -58,7 +58,7 @@ export interface GetManagerExtendedInfoResult {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: string;
+    readonly kind?: Kind;
     /**
      * The name of the object.
      */

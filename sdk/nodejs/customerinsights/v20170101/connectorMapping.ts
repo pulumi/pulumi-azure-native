@@ -67,7 +67,7 @@ export class ConnectorMapping extends pulumi.CustomResource {
     /**
      * Defines which entity type the file should map to.
      */
-    public readonly entityType!: pulumi.Output<string>;
+    public readonly entityType!: pulumi.Output<EntityTypes>;
     /**
      * The mapping entity name.
      */
@@ -95,7 +95,7 @@ export class ConnectorMapping extends pulumi.CustomResource {
     /**
      * State of connector mapping.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<ConnectorMappingStates>;
     /**
      * The hub name.
      */
@@ -196,7 +196,7 @@ export interface ConnectorMappingArgs {
     /**
      * Defines which entity type the file should map to.
      */
-    readonly entityType: pulumi.Input<string>;
+    readonly entityType: pulumi.Input<EntityTypes>;
     /**
      * The mapping entity name.
      */

@@ -53,11 +53,11 @@ export interface GetBackupScheduleResult {
     /**
      * The type of backup which needs to be taken.
      */
-    readonly backupType: string;
+    readonly backupType: BackupType;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: string;
+    readonly kind?: Kind;
     /**
      * The last successful backup run which was triggered for the schedule.
      */
@@ -77,7 +77,7 @@ export interface GetBackupScheduleResult {
     /**
      * The schedule status.
      */
-    readonly scheduleStatus: string;
+    readonly scheduleStatus: ScheduleStatus;
     /**
      * The start time of the schedule.
      */

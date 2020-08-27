@@ -57,7 +57,7 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
     /**
      * Site extension type.
      */
-    public /*out*/ readonly extensionType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly extensionType!: pulumi.Output<SiteExtensionType | undefined>;
     /**
      * Extension URL.
      */

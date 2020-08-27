@@ -71,11 +71,11 @@ export class GalleryImage extends pulumi.CustomResource {
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
-    public readonly osState!: pulumi.Output<string>;
+    public readonly osState!: pulumi.Output<OperatingSystemStateTypes>;
     /**
      * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    public readonly osType!: pulumi.Output<string>;
+    public readonly osType!: pulumi.Output<OperatingSystemTypes>;
     /**
      * The privacy statement uri.
      */
@@ -216,11 +216,11 @@ export interface GalleryImageArgs {
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
-    readonly osState: pulumi.Input<string>;
+    readonly osState: pulumi.Input<OperatingSystemStateTypes>;
     /**
      * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly osType: pulumi.Input<string>;
+    readonly osType: pulumi.Input<OperatingSystemTypes>;
     /**
      * The privacy statement uri.
      */

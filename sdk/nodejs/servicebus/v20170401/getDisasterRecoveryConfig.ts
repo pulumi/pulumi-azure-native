@@ -59,11 +59,11 @@ export interface GetDisasterRecoveryConfigResult {
     /**
      * Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningStateDR;
     /**
      * role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
      */
-    readonly role: string;
+    readonly role: RoleDisasterRecovery;
     /**
      * Resource type
      */

@@ -76,7 +76,7 @@ export interface ListWebAppAuthSettingsSlotResult {
      * This setting is only needed if multiple providers are configured and the unauthenticated client
      * action is set to "RedirectToLoginPage".
      */
-    readonly defaultProvider?: string;
+    readonly defaultProvider?: BuiltInAuthenticationProvider;
     /**
      * <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
      */
@@ -184,5 +184,5 @@ export interface ListWebAppAuthSettingsSlotResult {
     /**
      * The action to take when an unauthenticated client attempts to access the app.
      */
-    readonly unauthenticatedClientAction?: string;
+    readonly unauthenticatedClientAction?: UnauthenticatedClientAction;
 }

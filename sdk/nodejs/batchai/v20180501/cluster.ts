@@ -99,7 +99,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * VM priority of cluster nodes.
      */
-    public readonly vmPriority!: pulumi.Output<string | undefined>;
+    public readonly vmPriority!: pulumi.Output<VmPriority | undefined>;
     /**
      * The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
      */
@@ -200,7 +200,7 @@ export interface ClusterArgs {
     /**
      * VM priority. Allowed values are: dedicated (default) and lowpriority.
      */
-    readonly vmPriority?: pulumi.Input<string>;
+    readonly vmPriority?: pulumi.Input<VmPriority>;
     /**
      * The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
      */

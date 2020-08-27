@@ -91,7 +91,7 @@ export interface GetAppServicePlanResult {
     /**
      * Provisioning state of the App Service Environment.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
      */
@@ -111,7 +111,7 @@ export interface GetAppServicePlanResult {
     /**
      * App Service plan status.
      */
-    readonly status: string;
+    readonly status: StatusOptions;
     /**
      * App Service plan subscription.
      */

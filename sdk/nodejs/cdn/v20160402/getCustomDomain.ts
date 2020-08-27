@@ -60,7 +60,7 @@ export interface GetCustomDomainResult {
     /**
      * Resource status of the custom domain.
      */
-    readonly resourceState: string;
+    readonly resourceState: CustomDomainResourceState;
     /**
      * Resource type
      */

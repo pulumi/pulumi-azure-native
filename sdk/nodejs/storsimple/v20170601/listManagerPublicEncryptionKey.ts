@@ -38,7 +38,7 @@ export interface ListManagerPublicEncryptionKeyResult {
     /**
      * The algorithm used to encrypt the "Value".
      */
-    readonly encryptionAlgorithm: string;
+    readonly encryptionAlgorithm: EncryptionAlgorithm;
     /**
      * The value of the secret itself. If the secret is in plaintext or null then EncryptionAlgorithm will be none.
      */

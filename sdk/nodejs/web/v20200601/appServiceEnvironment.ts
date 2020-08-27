@@ -140,7 +140,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
      * Provisioning state of the App Service Environment.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Resource group of the App Service Environment.
      */
@@ -156,7 +156,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
      * Current status of the App Service Environment.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<HostingEnvironmentStatus>;
     /**
      * Subscription of the App Service Environment.
      */

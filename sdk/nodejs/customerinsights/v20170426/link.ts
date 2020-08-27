@@ -59,7 +59,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    public readonly operationType!: pulumi.Output<string | undefined>;
+    public readonly operationType!: pulumi.Output<InstanceOperationType | undefined>;
     /**
      * The properties that represent the participating profile.
      */
@@ -75,7 +75,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * Type of source entity.
      */
-    public readonly sourceEntityType!: pulumi.Output<string>;
+    public readonly sourceEntityType!: pulumi.Output<EntityType>;
     /**
      * Name of the source Entity Type.
      */
@@ -83,7 +83,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * Type of target entity.
      */
-    public readonly targetEntityType!: pulumi.Output<string>;
+    public readonly targetEntityType!: pulumi.Output<EntityType>;
     /**
      * Name of the target Entity Type.
      */
@@ -192,7 +192,7 @@ export interface LinkArgs {
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    readonly operationType?: pulumi.Input<string>;
+    readonly operationType?: pulumi.Input<InstanceOperationType>;
     /**
      * The properties that represent the participating profile.
      */
@@ -208,7 +208,7 @@ export interface LinkArgs {
     /**
      * Type of source entity.
      */
-    readonly sourceEntityType: pulumi.Input<string>;
+    readonly sourceEntityType: pulumi.Input<EntityType>;
     /**
      * Name of the source Entity Type.
      */
@@ -216,7 +216,7 @@ export interface LinkArgs {
     /**
      * Type of target entity.
      */
-    readonly targetEntityType: pulumi.Input<string>;
+    readonly targetEntityType: pulumi.Input<EntityType>;
     /**
      * Name of the target Entity Type.
      */

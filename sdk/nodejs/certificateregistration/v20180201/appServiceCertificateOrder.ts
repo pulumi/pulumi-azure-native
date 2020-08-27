@@ -99,11 +99,11 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
     /**
      * Certificate product type.
      */
-    public readonly productType!: pulumi.Output<string>;
+    public readonly productType!: pulumi.Output<CertificateProductType>;
     /**
      * Status of certificate order.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Root certificate.
      */
@@ -119,7 +119,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
     /**
      * Current order status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<CertificateOrderStatus>;
     /**
      * Resource tags.
      */
@@ -237,7 +237,7 @@ export interface AppServiceCertificateOrderArgs {
     /**
      * Certificate product type.
      */
-    readonly productType: pulumi.Input<string>;
+    readonly productType: pulumi.Input<CertificateProductType>;
     /**
      * Name of the resource group to which the resource belongs.
      */

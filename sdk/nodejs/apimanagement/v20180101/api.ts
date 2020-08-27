@@ -95,7 +95,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * Describes on which protocols the operations in this API can be invoked.
      */
-    public readonly protocols!: pulumi.Output<string[] | undefined>;
+    public readonly protocols!: pulumi.Output<Protocol[] | undefined>;
     /**
      * Absolute URL of the backend service implementing this API.
      */
@@ -236,7 +236,7 @@ export interface ApiArgs {
     /**
      * Describes on which protocols the operations in this API can be invoked.
      */
-    readonly protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly protocols?: pulumi.Input<pulumi.Input<Protocol>[]>;
     /**
      * The name of the resource group.
      */

@@ -37,11 +37,11 @@ export class BackupPolicy extends pulumi.CustomResource {
     /**
      * The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
      */
-    public /*out*/ readonly backupPolicyCreationType!: pulumi.Output<string>;
+    public /*out*/ readonly backupPolicyCreationType!: pulumi.Output<BackupPolicyCreationType>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<Kind | undefined>;
     /**
      * The time of the last backup for the backup policy.
      */
@@ -57,7 +57,7 @@ export class BackupPolicy extends pulumi.CustomResource {
     /**
      * Indicates whether at least one of the schedules in the backup policy is active or not.
      */
-    public /*out*/ readonly scheduledBackupStatus!: pulumi.Output<string>;
+    public /*out*/ readonly scheduledBackupStatus!: pulumi.Output<ScheduledBackupStatus>;
     /**
      * The count of schedules the backup policy contains.
      */
@@ -144,7 +144,7 @@ export interface BackupPolicyArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<Kind>;
     /**
      * The manager name
      */

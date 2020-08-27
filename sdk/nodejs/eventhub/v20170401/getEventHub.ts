@@ -67,7 +67,7 @@ export interface GetEventHubResult {
     /**
      * Enumerates the possible values for the status of the Event Hub.
      */
-    readonly status?: string;
+    readonly status?: EntityStatus;
     /**
      * Resource type.
      */

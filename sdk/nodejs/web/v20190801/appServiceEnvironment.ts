@@ -96,7 +96,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
+    public readonly internalLoadBalancingMode!: pulumi.Output<InternalLoadBalancingMode | undefined>;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */
@@ -140,7 +140,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
      * Provisioning state of the App Service Environment.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Resource group of the App Service Environment.
      */
@@ -156,7 +156,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
      * Current status of the App Service Environment.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<HostingEnvironmentStatus>;
     /**
      * Subscription of the App Service Environment.
      */
@@ -324,7 +324,7 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    readonly internalLoadBalancingMode?: pulumi.Input<string>;
+    readonly internalLoadBalancingMode?: pulumi.Input<InternalLoadBalancingMode>;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */

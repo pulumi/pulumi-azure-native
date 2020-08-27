@@ -71,7 +71,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * State of the namespace.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<NamespaceState | undefined>;
     /**
      * Resource tags
      */
@@ -166,7 +166,7 @@ export interface NamespaceArgs {
     /**
      * State of the namespace.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<NamespaceState>;
     /**
      * Namespace tags.
      */

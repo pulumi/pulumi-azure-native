@@ -60,7 +60,7 @@ export interface GetWebAppPublicCertificateSlotResult {
     /**
      * Public Certificate Location
      */
-    readonly publicCertificateLocation?: string;
+    readonly publicCertificateLocation?: PublicCertificateLocation;
     /**
      * Certificate Thumbprint
      */

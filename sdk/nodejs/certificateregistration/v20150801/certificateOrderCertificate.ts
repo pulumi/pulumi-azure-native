@@ -57,7 +57,7 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
     /**
      * Status of the Key Vault secret
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly provisioningState!: pulumi.Output<KeyVaultSecretStatus | undefined>;
     /**
      * Resource tags
      */
@@ -152,7 +152,7 @@ export interface CertificateOrderCertificateArgs {
     /**
      * Status of the Key Vault secret
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<KeyVaultSecretStatus>;
     /**
      * Azure resource group name
      */

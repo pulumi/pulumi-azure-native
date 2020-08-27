@@ -83,7 +83,7 @@ export class Python2Package extends pulumi.CustomResource {
     /**
      * Gets or sets the provisioning state of the module.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ModuleProvisioningState | undefined>;
     /**
      * Gets or sets the size in bytes of the module.
      */

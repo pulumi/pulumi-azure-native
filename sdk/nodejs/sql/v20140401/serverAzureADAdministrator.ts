@@ -37,7 +37,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**
      * The type of administrator.
      */
-    public readonly administratorType!: pulumi.Output<string>;
+    public readonly administratorType!: pulumi.Output<AdministratorType>;
     /**
      * The server administrator login value.
      */
@@ -125,7 +125,7 @@ export interface ServerAzureADAdministratorArgs {
     /**
      * The type of administrator.
      */
-    readonly administratorType: pulumi.Input<string>;
+    readonly administratorType: pulumi.Input<AdministratorType>;
     /**
      * The server administrator login value.
      */

@@ -87,11 +87,11 @@ export class CertificateOrder extends pulumi.CustomResource {
     /**
      * Certificate product type
      */
-    public readonly productType!: pulumi.Output<string | undefined>;
+    public readonly productType!: pulumi.Output<CertificateProductType | undefined>;
     /**
      * Status of certificate order
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly provisioningState!: pulumi.Output<ProvisioningState | undefined>;
     /**
      * Root certificate
      */
@@ -107,7 +107,7 @@ export class CertificateOrder extends pulumi.CustomResource {
     /**
      * Current order status
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<CertificateOrderStatus | undefined>;
     /**
      * Resource tags
      */
@@ -237,11 +237,11 @@ export interface CertificateOrderArgs {
     /**
      * Certificate product type
      */
-    readonly productType?: pulumi.Input<string>;
+    readonly productType?: pulumi.Input<CertificateProductType>;
     /**
      * Status of certificate order
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<ProvisioningState>;
     /**
      * Azure resource group name
      */
@@ -261,7 +261,7 @@ export interface CertificateOrderArgs {
     /**
      * Current order status
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<CertificateOrderStatus>;
     /**
      * Resource tags
      */

@@ -39,7 +39,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * The type of the storage account.
      */
-    public readonly accountType!: pulumi.Output<string | undefined>;
+    public readonly accountType!: pulumi.Output<AccountType | undefined>;
     /**
      * The creation date and time of the storage account in UTC.
      */
@@ -71,7 +71,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * The status of the storage account at the time the operation was called.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState | undefined>;
     /**
      * The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
      */
@@ -83,11 +83,11 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * The status indicating whether the primary location of the storage account is available or unavailable.
      */
-    public /*out*/ readonly statusOfPrimary!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly statusOfPrimary!: pulumi.Output<AccountStatus | undefined>;
     /**
      * The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
      */
-    public /*out*/ readonly statusOfSecondary!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly statusOfSecondary!: pulumi.Output<AccountStatus | undefined>;
     /**
      * Resource tags
      */
@@ -164,7 +164,7 @@ export interface StorageAccountArgs {
     /**
      * The sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
      */
-    readonly accountType: pulumi.Input<string>;
+    readonly accountType: pulumi.Input<AccountType>;
     /**
      * The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */

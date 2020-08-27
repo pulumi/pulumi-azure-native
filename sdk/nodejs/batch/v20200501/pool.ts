@@ -36,7 +36,7 @@ export class Pool extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pool.__pulumiType;
     }
 
-    public /*out*/ readonly allocationState!: pulumi.Output<string>;
+    public /*out*/ readonly allocationState!: pulumi.Output<AllocationState>;
     public /*out*/ readonly allocationStateTransitionTime!: pulumi.Output<string>;
     /**
      * The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
@@ -72,7 +72,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
      */
-    public readonly interNodeCommunication!: pulumi.Output<string | undefined>;
+    public readonly interNodeCommunication!: pulumi.Output<InterNodeCommunicationState | undefined>;
     /**
      * This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
      */
@@ -97,7 +97,7 @@ export class Pool extends pulumi.CustomResource {
      * The network configuration for a pool.
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.batch.v20200501.NetworkConfigurationResponse | undefined>;
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<PoolProvisioningState>;
     public /*out*/ readonly provisioningStateTransitionTime!: pulumi.Output<string>;
     /**
      * Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
@@ -223,7 +223,7 @@ export interface PoolArgs {
     /**
      * This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
      */
-    readonly interNodeCommunication?: pulumi.Input<string>;
+    readonly interNodeCommunication?: pulumi.Input<InterNodeCommunicationState>;
     /**
      * The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
      */

@@ -57,7 +57,7 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<Kind | undefined>;
     /**
      * The name of the object.
      */
@@ -153,7 +153,7 @@ export interface ManagerExtendedInfoArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<Kind>;
     /**
      * The manager name
      */

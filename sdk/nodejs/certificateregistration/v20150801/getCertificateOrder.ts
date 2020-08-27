@@ -86,11 +86,11 @@ export interface GetCertificateOrderResult {
     /**
      * Certificate product type
      */
-    readonly productType?: string;
+    readonly productType?: CertificateProductType;
     /**
      * Status of certificate order
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: ProvisioningState;
     /**
      * Root certificate
      */
@@ -106,7 +106,7 @@ export interface GetCertificateOrderResult {
     /**
      * Current order status
      */
-    readonly status?: string;
+    readonly status?: CertificateOrderStatus;
     /**
      * Resource tags
      */

@@ -59,7 +59,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * The namespace type.
      */
-    public readonly namespaceType!: pulumi.Output<string | undefined>;
+    public readonly namespaceType!: pulumi.Output<NamespaceType | undefined>;
     /**
      * Provisioning state of the Namespace.
      */
@@ -181,7 +181,7 @@ export interface NamespaceArgs {
     /**
      * The namespace type.
      */
-    readonly namespaceType?: pulumi.Input<string>;
+    readonly namespaceType?: pulumi.Input<NamespaceType>;
     /**
      * Provisioning state of the Namespace.
      */

@@ -125,7 +125,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
      */
-    public readonly readScale!: pulumi.Output<string | undefined>;
+    public readonly readScale!: pulumi.Output<ReadScale | undefined>;
     /**
      * The recommended indices for this database.
      */
@@ -331,7 +331,7 @@ export interface DatabaseArgs {
     /**
      * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
      */
-    readonly readScale?: pulumi.Input<string>;
+    readonly readScale?: pulumi.Input<ReadScale>;
     /**
      * Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
      */

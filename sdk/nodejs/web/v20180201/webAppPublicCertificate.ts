@@ -49,7 +49,7 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
     /**
      * Public Certificate Location
      */
-    public readonly publicCertificateLocation!: pulumi.Output<string | undefined>;
+    public readonly publicCertificateLocation!: pulumi.Output<PublicCertificateLocation | undefined>;
     /**
      * Certificate Thumbprint
      */
@@ -122,7 +122,7 @@ export interface WebAppPublicCertificateArgs {
     /**
      * Public Certificate Location
      */
-    readonly publicCertificateLocation?: pulumi.Input<string>;
+    readonly publicCertificateLocation?: pulumi.Input<PublicCertificateLocation>;
     /**
      * Public certificate name.
      */

@@ -49,7 +49,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    public readonly roles!: pulumi.Output<string[] | undefined>;
+    public readonly roles!: pulumi.Output<AccessPolicyRole[] | undefined>;
     /**
      * Resource type
      */
@@ -126,5 +126,5 @@ export interface AccessPolicyArgs {
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<AccessPolicyRole>[]>;
 }

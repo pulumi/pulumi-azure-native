@@ -39,11 +39,11 @@ export class BackupSchedule extends pulumi.CustomResource {
     /**
      * The type of backup which needs to be taken.
      */
-    public readonly backupType!: pulumi.Output<string>;
+    public readonly backupType!: pulumi.Output<BackupType>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<Kind | undefined>;
     /**
      * The last successful backup run which was triggered for the schedule.
      */
@@ -63,7 +63,7 @@ export class BackupSchedule extends pulumi.CustomResource {
     /**
      * The schedule status.
      */
-    public readonly scheduleStatus!: pulumi.Output<string>;
+    public readonly scheduleStatus!: pulumi.Output<ScheduleStatus>;
     /**
      * The start time of the schedule.
      */
@@ -157,7 +157,7 @@ export interface BackupScheduleArgs {
     /**
      * The type of backup which needs to be taken.
      */
-    readonly backupType: pulumi.Input<string>;
+    readonly backupType: pulumi.Input<BackupType>;
     /**
      * The device name
      */
@@ -165,7 +165,7 @@ export interface BackupScheduleArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<Kind>;
     /**
      * The manager name
      */
@@ -185,7 +185,7 @@ export interface BackupScheduleArgs {
     /**
      * The schedule status.
      */
-    readonly scheduleStatus: pulumi.Input<string>;
+    readonly scheduleStatus: pulumi.Input<ScheduleStatus>;
     /**
      * The start time of the schedule.
      */

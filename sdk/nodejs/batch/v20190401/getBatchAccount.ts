@@ -80,7 +80,7 @@ export interface GetBatchAccountResult {
     /**
      * The provisioned state of the resource
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The tags of the resource.
      */

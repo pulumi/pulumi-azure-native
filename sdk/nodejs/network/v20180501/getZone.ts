@@ -78,5 +78,5 @@ export interface GetZoneResult {
     /**
      * The type of this DNS zone (Public or Private).
      */
-    readonly zoneType?: string;
+    readonly zoneType?: ZoneType;
 }

@@ -39,7 +39,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
      */
-    public readonly accessTier!: pulumi.Output<string>;
+    public readonly accessTier!: pulumi.Output<AccessTier>;
     /**
      * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
      */
@@ -119,7 +119,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Gets the status of the storage account at the time the operation was called.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
      */
@@ -135,11 +135,11 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Gets the status indicating whether the primary location of the storage account is available or unavailable.
      */
-    public /*out*/ readonly statusOfPrimary!: pulumi.Output<string>;
+    public /*out*/ readonly statusOfPrimary!: pulumi.Output<AccountStatus>;
     /**
      * Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
      */
-    public /*out*/ readonly statusOfSecondary!: pulumi.Output<string>;
+    public /*out*/ readonly statusOfSecondary!: pulumi.Output<AccountStatus>;
     /**
      * Resource tags.
      */
@@ -228,7 +228,7 @@ export interface StorageAccountArgs {
     /**
      * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    readonly accessTier?: pulumi.Input<AccessTier>;
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */

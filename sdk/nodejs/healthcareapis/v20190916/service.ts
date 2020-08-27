@@ -47,7 +47,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The kind of the service.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<kind>;
     /**
      * The resource location.
      */
@@ -131,7 +131,7 @@ export interface ServiceArgs {
     /**
      * The kind of the service.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<kind>;
     /**
      * The resource location.
      */

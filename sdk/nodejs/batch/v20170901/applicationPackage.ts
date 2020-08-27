@@ -45,7 +45,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
     /**
      * The current state of the application package.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<PackageState>;
     /**
      * The URL for the application package in Azure Storage.
      */

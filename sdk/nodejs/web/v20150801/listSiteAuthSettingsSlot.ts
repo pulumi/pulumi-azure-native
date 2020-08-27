@@ -78,7 +78,7 @@ export interface ListSiteAuthSettingsSlotResult {
      *             This setting is only needed if multiple providers are configured and the unauthenticated client
      *             action is set to "RedirectToLoginPage".
      */
-    readonly defaultProvider?: string;
+    readonly defaultProvider?: BuiltInAuthenticationProvider;
     /**
      * Gets or sets a value indicating whether the Authentication / Authorization feature is enabled for the current app.
      */
@@ -175,5 +175,5 @@ export interface ListSiteAuthSettingsSlotResult {
     /**
      * Gets or sets the action to take when an unauthenticated client attempts to access the app.
      */
-    readonly unauthenticatedClientAction?: string;
+    readonly unauthenticatedClientAction?: UnauthenticatedClientAction;
 }

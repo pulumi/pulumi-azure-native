@@ -67,7 +67,7 @@ export interface GetDomainResult {
     /**
      * Current DNS type
      */
-    readonly dnsType?: string;
+    readonly dnsType?: DnsType;
     /**
      * Azure DNS Zone to use
      */
@@ -111,7 +111,7 @@ export interface GetDomainResult {
     /**
      * Domain provisioning state.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
      *  it is hosted on name servers Azure has programmatic access to.
@@ -120,7 +120,7 @@ export interface GetDomainResult {
     /**
      * Domain registration status.
      */
-    readonly registrationStatus: string;
+    readonly registrationStatus: DomainStatus;
     /**
      * Resource tags.
      */
@@ -128,7 +128,7 @@ export interface GetDomainResult {
     /**
      * Target DNS type (would be used for migration)
      */
-    readonly targetDnsType?: string;
+    readonly targetDnsType?: DnsType;
     /**
      * Resource type.
      */

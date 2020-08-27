@@ -47,7 +47,7 @@ export interface GetStorageDomainResult {
     /**
      * The encryption status "Enabled | Disabled".
      */
-    readonly encryptionStatus: string;
+    readonly encryptionStatus: EncryptionStatus;
     /**
      * The name.
      */

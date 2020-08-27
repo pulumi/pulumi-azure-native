@@ -38,7 +38,7 @@ export interface GetStorageAccountResult {
     /**
      * The type of the storage account.
      */
-    readonly accountType?: string;
+    readonly accountType?: AccountType;
     /**
      * The creation date and time of the storage account in UTC.
      */
@@ -70,7 +70,7 @@ export interface GetStorageAccountResult {
     /**
      * The status of the storage account at the time the operation was called.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: ProvisioningState;
     /**
      * The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
      */
@@ -82,11 +82,11 @@ export interface GetStorageAccountResult {
     /**
      * The status indicating whether the primary location of the storage account is available or unavailable.
      */
-    readonly statusOfPrimary?: string;
+    readonly statusOfPrimary?: AccountStatus;
     /**
      * The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
      */
-    readonly statusOfSecondary?: string;
+    readonly statusOfSecondary?: AccountStatus;
     /**
      * Resource tags
      */

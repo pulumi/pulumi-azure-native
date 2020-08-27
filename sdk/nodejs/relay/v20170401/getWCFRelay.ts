@@ -59,7 +59,7 @@ export interface GetWCFRelayResult {
     /**
      * WCF relay type.
      */
-    readonly relayType?: string;
+    readonly relayType?: Relaytype;
     /**
      * Returns true if client authorization is needed for this relay; otherwise, false.
      */

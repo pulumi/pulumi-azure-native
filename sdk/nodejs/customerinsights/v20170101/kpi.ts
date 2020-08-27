@@ -43,7 +43,7 @@ export class Kpi extends pulumi.CustomResource {
     /**
      * The calculation window.
      */
-    public readonly calculationWindow!: pulumi.Output<string>;
+    public readonly calculationWindow!: pulumi.Output<CalculationWindowTypes>;
     /**
      * Name of calculation window field.
      */
@@ -59,7 +59,7 @@ export class Kpi extends pulumi.CustomResource {
     /**
      * The mapping entity type.
      */
-    public readonly entityType!: pulumi.Output<string>;
+    public readonly entityType!: pulumi.Output<EntityTypes>;
     /**
      * The mapping entity name.
      */
@@ -79,7 +79,7 @@ export class Kpi extends pulumi.CustomResource {
     /**
      * The computation function for the KPI.
      */
-    public readonly function!: pulumi.Output<string>;
+    public readonly function!: pulumi.Output<KpiFunctions>;
     /**
      * the group by properties for the KPI.
      */
@@ -206,7 +206,7 @@ export interface KpiArgs {
     /**
      * The calculation window.
      */
-    readonly calculationWindow: pulumi.Input<string>;
+    readonly calculationWindow: pulumi.Input<CalculationWindowTypes>;
     /**
      * Name of calculation window field.
      */
@@ -222,7 +222,7 @@ export interface KpiArgs {
     /**
      * The mapping entity type.
      */
-    readonly entityType: pulumi.Input<string>;
+    readonly entityType: pulumi.Input<EntityTypes>;
     /**
      * The mapping entity name.
      */
@@ -242,7 +242,7 @@ export interface KpiArgs {
     /**
      * The computation function for the KPI.
      */
-    readonly function: pulumi.Input<string>;
+    readonly function: pulumi.Input<KpiFunctions>;
     /**
      * the group by properties for the KPI.
      */

@@ -83,7 +83,7 @@ export interface GetConnectorResult {
     /**
      * State of connector.
      */
-    readonly state: string;
+    readonly state: ConnectorStates;
     /**
      * The hub name.
      */

@@ -75,7 +75,7 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
     /**
      * The rights associated with the rule.
      */
-    public /*out*/ readonly rights!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly rights!: pulumi.Output<AccessRights[] | undefined>;
     /**
      * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */

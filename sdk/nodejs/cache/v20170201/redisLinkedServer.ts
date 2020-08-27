@@ -53,7 +53,7 @@ export class RedisLinkedServer extends pulumi.CustomResource {
     /**
      * Role of the linked server.
      */
-    public readonly serverRole!: pulumi.Output<string>;
+    public readonly serverRole!: pulumi.Output<ReplicationRole>;
     /**
      * Resource type.
      */
@@ -139,5 +139,5 @@ export interface RedisLinkedServerArgs {
     /**
      * Role of the linked server.
      */
-    readonly serverRole: pulumi.Input<string>;
+    readonly serverRole: pulumi.Input<ReplicationRole>;
 }

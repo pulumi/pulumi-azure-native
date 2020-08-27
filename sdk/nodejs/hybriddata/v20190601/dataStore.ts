@@ -59,7 +59,7 @@ export class DataStore extends pulumi.CustomResource {
     /**
      * State of the data source.
      */
-    public readonly state!: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<State>;
     /**
      * Type of the object.
      */
@@ -152,5 +152,5 @@ export interface DataStoreArgs {
     /**
      * State of the data source.
      */
-    readonly state: pulumi.Input<string>;
+    readonly state: pulumi.Input<State>;
 }

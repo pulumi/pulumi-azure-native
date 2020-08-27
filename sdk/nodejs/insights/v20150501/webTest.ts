@@ -55,7 +55,7 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<WebTestKind | undefined>;
     /**
      * Resource location
      */
@@ -95,7 +95,7 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * The kind of web test this is, valid choices are ping and multistep.
      */
-    public readonly webTestKind!: pulumi.Output<string>;
+    public readonly webTestKind!: pulumi.Output<WebTestKind>;
     /**
      * User defined name if this WebTest.
      */
@@ -184,7 +184,7 @@ export interface WebTestArgs {
     /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<WebTestKind>;
     /**
      * Resource location
      */
@@ -216,7 +216,7 @@ export interface WebTestArgs {
     /**
      * The kind of web test this is, valid choices are ping and multistep.
      */
-    readonly webTestKind: pulumi.Input<string>;
+    readonly webTestKind: pulumi.Input<WebTestKind>;
     /**
      * User defined name if this WebTest.
      */

@@ -55,7 +55,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Type of entity.
      */
-    public readonly entityType!: pulumi.Output<string | undefined>;
+    public readonly entityType!: pulumi.Output<EntityTypes | undefined>;
     /**
      * The properties of the Profile.
      */
@@ -199,7 +199,7 @@ export interface ProfileArgs {
     /**
      * Type of entity.
      */
-    readonly entityType?: pulumi.Input<string>;
+    readonly entityType?: pulumi.Input<EntityTypes>;
     /**
      * The properties of the Profile.
      */

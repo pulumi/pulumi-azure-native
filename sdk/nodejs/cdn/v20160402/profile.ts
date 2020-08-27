@@ -51,7 +51,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Resource status of the profile.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<ProfileResourceState>;
     /**
      * The SKU (pricing tier) of the CDN profile.
      */

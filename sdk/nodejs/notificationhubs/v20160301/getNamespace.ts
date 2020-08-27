@@ -58,7 +58,7 @@ export interface GetNamespaceResult {
     /**
      * The namespace type.
      */
-    readonly namespaceType?: string;
+    readonly namespaceType?: NamespaceType;
     /**
      * Provisioning state of the Namespace.
      */

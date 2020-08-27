@@ -52,7 +52,7 @@ export interface GetHybridConnectionAuthorizationRuleResult {
     /**
      * The rights associated with the rule.
      */
-    readonly rights: string[];
+    readonly rights: AccessRights[];
     /**
      * Resource type.
      */

@@ -68,7 +68,7 @@ export interface ListWebAppBackupStatusSecretsArgs {
     /**
      * Type of the backup.
      */
-    readonly type?: string;
+    readonly type?: BackupRestoreOperationType;
 }
 
 /**
@@ -126,7 +126,7 @@ export interface ListWebAppBackupStatusSecretsResult {
     /**
      * Backup status.
      */
-    readonly status: string;
+    readonly status: BackupItemStatus;
     /**
      * SAS URL for the storage account container which contains this backup.
      */

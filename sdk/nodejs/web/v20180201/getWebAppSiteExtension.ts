@@ -63,7 +63,7 @@ export interface GetWebAppSiteExtensionResult {
     /**
      * Site extension type.
      */
-    readonly extensionType?: string;
+    readonly extensionType?: SiteExtensionType;
     /**
      * Extension URL.
      */

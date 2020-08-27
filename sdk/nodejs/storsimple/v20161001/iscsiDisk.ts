@@ -41,7 +41,7 @@ export class IscsiDisk extends pulumi.CustomResource {
     /**
      * The data policy.
      */
-    public readonly dataPolicy!: pulumi.Output<string>;
+    public readonly dataPolicy!: pulumi.Output<DataPolicy>;
     /**
      * The description.
      */
@@ -49,7 +49,7 @@ export class IscsiDisk extends pulumi.CustomResource {
     /**
      * The disk status.
      */
-    public readonly diskStatus!: pulumi.Output<string>;
+    public readonly diskStatus!: pulumi.Output<DiskStatus>;
     /**
      * The local used capacity in bytes.
      */
@@ -57,7 +57,7 @@ export class IscsiDisk extends pulumi.CustomResource {
     /**
      * The monitoring.
      */
-    public readonly monitoringStatus!: pulumi.Output<string>;
+    public readonly monitoringStatus!: pulumi.Output<MonitoringStatus>;
     /**
      * The name.
      */
@@ -156,7 +156,7 @@ export interface IscsiDiskArgs {
     /**
      * The data policy.
      */
-    readonly dataPolicy: pulumi.Input<string>;
+    readonly dataPolicy: pulumi.Input<DataPolicy>;
     /**
      * The description.
      */
@@ -172,7 +172,7 @@ export interface IscsiDiskArgs {
     /**
      * The disk status.
      */
-    readonly diskStatus: pulumi.Input<string>;
+    readonly diskStatus: pulumi.Input<DiskStatus>;
     /**
      * The iSCSI server name.
      */
@@ -184,7 +184,7 @@ export interface IscsiDiskArgs {
     /**
      * The monitoring.
      */
-    readonly monitoringStatus: pulumi.Input<string>;
+    readonly monitoringStatus: pulumi.Input<MonitoringStatus>;
     /**
      * The provisioned capacity in bytes.
      */

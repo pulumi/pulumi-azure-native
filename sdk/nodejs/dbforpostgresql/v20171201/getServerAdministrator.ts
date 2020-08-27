@@ -38,7 +38,7 @@ export interface GetServerAdministratorResult {
     /**
      * The type of administrator.
      */
-    readonly administratorType: string;
+    readonly administratorType: AdministratorType;
     /**
      * The server administrator login account name.
      */

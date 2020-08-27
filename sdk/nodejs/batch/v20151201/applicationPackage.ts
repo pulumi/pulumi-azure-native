@@ -45,7 +45,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
     /**
      * The current state of the application package.
      */
-    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly state!: pulumi.Output<PackageState | undefined>;
     /**
      * The storage URL at which the application package is stored.
      */

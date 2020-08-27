@@ -71,7 +71,7 @@ export interface GetGalleryApplicationResult {
     /**
      * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly supportedOSType: string;
+    readonly supportedOSType: OperatingSystemTypes;
     /**
      * Resource tags
      */

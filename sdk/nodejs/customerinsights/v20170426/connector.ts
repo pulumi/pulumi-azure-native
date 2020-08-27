@@ -77,7 +77,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * State of connector.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<ConnectorStates>;
     /**
      * The hub name.
      */

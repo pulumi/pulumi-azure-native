@@ -43,7 +43,7 @@ export interface GetRelationshipResult {
     /**
      * The Relationship Cardinality.
      */
-    readonly cardinality?: string;
+    readonly cardinality?: CardinalityTypes;
     /**
      * Localized descriptions for the Relationship.
      */

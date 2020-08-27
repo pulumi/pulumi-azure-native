@@ -78,7 +78,7 @@ export interface GetCertificateResult {
     /**
      * Status of the Key Vault secret.
      */
-    readonly keyVaultSecretStatus: string;
+    readonly keyVaultSecretStatus: KeyVaultSecretStatus;
     /**
      * Kind of resource.
      */

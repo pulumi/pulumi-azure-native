@@ -79,7 +79,7 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
     /**
      * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
      */
-    public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
+    public readonly internalLoadBalancingMode!: pulumi.Output<InternalLoadBalancingMode | undefined>;
     /**
      * Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
      */
@@ -123,7 +123,7 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
     /**
      * Provisioning state of the hostingEnvironment (App Service Environment)
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly provisioningState!: pulumi.Output<ProvisioningState | undefined>;
     /**
      * Resource group of the hostingEnvironment (App Service Environment)
      */
@@ -131,7 +131,7 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
     /**
      * Current status of the hostingEnvironment (App Service Environment)
      */
-    public readonly status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<HostingEnvironmentStatus>;
     /**
      * Subscription of the hostingEnvironment (App Service Environment)
      */
@@ -303,7 +303,7 @@ export interface ManagedHostingEnvironmentArgs {
     /**
      * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
      */
-    readonly internalLoadBalancingMode?: pulumi.Input<string>;
+    readonly internalLoadBalancingMode?: pulumi.Input<InternalLoadBalancingMode>;
     /**
      * Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
      */
@@ -347,7 +347,7 @@ export interface ManagedHostingEnvironmentArgs {
     /**
      * Provisioning state of the hostingEnvironment (App Service Environment)
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<ProvisioningState>;
     /**
      * Resource group of the hostingEnvironment (App Service Environment)
      */
@@ -359,7 +359,7 @@ export interface ManagedHostingEnvironmentArgs {
     /**
      * Current status of the hostingEnvironment (App Service Environment)
      */
-    readonly status: pulumi.Input<string>;
+    readonly status: pulumi.Input<HostingEnvironmentStatus>;
     /**
      * Subscription of the hostingEnvironment (App Service Environment)
      */

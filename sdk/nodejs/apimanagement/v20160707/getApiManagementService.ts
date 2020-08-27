@@ -118,7 +118,7 @@ export interface GetApiManagementServiceResult {
     /**
      * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
      */
-    readonly vpnType?: string;
+    readonly vpnType?: VirtualNetworkType;
     /**
      * Virtual network configuration of the API Management service.
      */

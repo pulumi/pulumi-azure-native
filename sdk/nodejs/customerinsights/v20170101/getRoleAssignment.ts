@@ -99,7 +99,7 @@ export interface GetRoleAssignmentResult {
     /**
      * Type of roles.
      */
-    readonly role: string;
+    readonly role: RoleTypes;
     /**
      * The Role assignments set for the assignment.
      */

@@ -39,7 +39,7 @@ export class WebAppSlot extends pulumi.CustomResource {
     /**
      * Management information availability state for the app.
      */
-    public /*out*/ readonly availabilityState!: pulumi.Output<string>;
+    public /*out*/ readonly availabilityState!: pulumi.Output<SiteAvailabilityState>;
     /**
      * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
      */
@@ -155,7 +155,7 @@ export class WebAppSlot extends pulumi.CustomResource {
     /**
      * Site redundancy mode
      */
-    public readonly redundancyMode!: pulumi.Output<string | undefined>;
+    public readonly redundancyMode!: pulumi.Output<RedundancyMode | undefined>;
     /**
      * Name of the repository site.
      */
@@ -211,7 +211,7 @@ export class WebAppSlot extends pulumi.CustomResource {
     /**
      * State indicating whether the app has exceeded its quota usage. Read-only.
      */
-    public /*out*/ readonly usageState!: pulumi.Output<string>;
+    public /*out*/ readonly usageState!: pulumi.Output<UsageState>;
 
     /**
      * Create a WebAppSlot resource with the given unique name, arguments, and options.
@@ -378,7 +378,7 @@ export interface WebAppSlotArgs {
     /**
      * Site redundancy mode
      */
-    readonly redundancyMode?: pulumi.Input<string>;
+    readonly redundancyMode?: pulumi.Input<RedundancyMode>;
     /**
      * <code>true</code> if reserved; otherwise, <code>false</code>.
      */

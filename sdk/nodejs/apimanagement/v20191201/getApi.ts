@@ -99,7 +99,7 @@ export interface GetApiResult {
     /**
      * Describes on which protocols the operations in this API can be invoked.
      */
-    readonly protocols?: string[];
+    readonly protocols?: Protocol[];
     /**
      * Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
      */

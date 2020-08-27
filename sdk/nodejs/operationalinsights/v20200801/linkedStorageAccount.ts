@@ -37,7 +37,7 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
     /**
      * Linked storage accounts type.
      */
-    public readonly dataSourceType!: pulumi.Output<string>;
+    public readonly dataSourceType!: pulumi.Output<DataSourceType>;
     /**
      * The name of the resource
      */
