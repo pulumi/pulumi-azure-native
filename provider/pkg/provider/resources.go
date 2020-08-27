@@ -54,6 +54,9 @@ type AzureApiProperty struct {
 	// The name of a container property that was "flattened" during SDK generation, i.e. an extra layer that exists
 	// in the API payload but does not exist in the SDK.
 	Container string `json:"container,omitempty"`
+	// Whether a change in the value of the property requires a replacement of the whole resource
+	// (i.e., no in-place updates allowed).
+	ForceNew bool `json:"forceNew,omitempty"`
 }
 
 // AzureApiType represents the shape of an object property.

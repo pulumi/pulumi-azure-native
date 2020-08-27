@@ -64,7 +64,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	pathVersions := map[string]codegen.StringSet{}
 	for _, swagger := range swaggers {
 		gen := packageGenerator{swagger: swagger}
-		for key, _ := range swagger.Paths.Paths {
+		for key := range swagger.Paths.Paths {
 			versions, ok := pathVersions[key]
 			if !ok {
 				versions = codegen.StringSet{}
@@ -80,7 +80,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 
 		// Sort paths to make codegen deterministic.
 		var paths []string
-		for key, _ := range swagger.Paths.Paths {
+		for key := range swagger.Paths.Paths {
 			paths = append(paths, key)
 		}
 		sort.Strings(paths)
@@ -125,6 +125,17 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 
 	return &pkg, &metadata, nil
 }
+
+// Microsoft-specific API extension constants.
+const (
+	extensionClientFlatten     = "x-ms-client-flatten"
+	extensionClientName        = "x-ms-client-name"
+	extensionEnum              = "x-ms-enum"
+	extensionMutability        = "x-ms-mutability"
+	extensionMutabilityCreate  = "create"
+	extensionMutabilityUpdate  = "update"
+	extensionParameterLocation = "x-ms-parameter-location"
+)
 
 type packageGenerator struct {
 	pkg      *pschema.PackageSpec
@@ -364,7 +375,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			return nil, err
 		}
 
-		location, _ := param.Extensions.GetString("x-ms-parameter-location")
+		location, _ := param.Extensions.GetString(extensionParameterLocation)
 		apiParameter := provider.AzureApiParameter{
 			Name:       param.Name,
 			Location:   param.In,
@@ -395,7 +406,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 				return nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
 			}
 
-			props, err := m.genProperties(resolvedSchema, false)
+			props, err := m.genProperties(resolvedSchema, false /* isOutput */, false /* isType */)
 			if err != nil {
 				return nil, err
 			}
@@ -408,7 +419,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 
 		default:
 			name := param.Name
-			if clientName, ok := param.Extensions.GetString("x-ms-client-name"); ok {
+			if clientName, ok := param.Extensions.GetString(extensionClientName); ok {
 				name = clientName
 			}
 
@@ -441,7 +452,7 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 
 	// Find all 2xx codes and sort them to make codegen deterministic.
 	var codes []int
-	for code, _ := range statusCodeResponses {
+	for code := range statusCodeResponses {
 		if code >= 300 {
 			continue
 		}
@@ -475,7 +486,7 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 			return nil, errors.New("array responses are not implemented yet (see issue #120)")
 		}
 
-		result, err := m.genProperties(responseSchema, true)
+		result, err := m.genProperties(responseSchema, true /* isOutput */, false /* isType */)
 		if err != nil {
 			return nil, err
 		}
@@ -504,12 +515,12 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 	return &propertyBag{}, nil
 }
 
-func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput bool) (*propertyBag, error) {
+func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput, isType bool) (*propertyBag, error) {
 	result := newPropertyBag()
 
 	// Sort properties to make codegen deterministic.
 	var names []string
-	for name, _ := range resolvedSchema.Properties {
+	for name := range resolvedSchema.Properties {
 		names = append(names, name)
 	}
 	sort.Strings(names)
@@ -517,20 +528,20 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	for _, name := range names {
 		property := resolvedSchema.Properties[name]
 		sdkName := name
-		if clientName, ok := property.Extensions.GetString("x-ms-client-name"); ok {
+		if clientName, ok := property.Extensions.GetString(extensionClientName); ok {
 			sdkName = firstToLower(clientName)
 		}
 		// Change the name to lowerCamelCase.
 		sdkName = toLowerCamel(sdkName)
 
 		// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
-		if flatten, ok := property.Extensions.GetBool("x-ms-client-flatten"); ok && flatten {
+		if flatten, ok := property.Extensions.GetBool(extensionClientFlatten); ok && flatten {
 			resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
 			if err != nil {
 				return nil, err
 			}
 
-			bag, err := m.genProperties(resolvedProperty, isOutput)
+			bag, err := m.genProperties(resolvedProperty, isOutput, isType)
 			if err != nil {
 				return nil, err
 			}
@@ -585,6 +596,18 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				MaxLength: resolvedProperty.MaxLength,
 				Pattern:   resolvedProperty.Pattern,
 			}
+
+			// Mutability extension signals whether a property can be updated in-place. Lack of the extension means
+			// updatable by default.
+			// Note: a non-updatable property at a subtype level (a property of a property of a resource) does not
+			// mandate the replacement of the whole resource. Anyway, it's used very seldom (2 places at the time of writing).
+			// Example: `StorageAccount.encryption.services.blob.keyType` is non-updatable, but a user can remove `blob`
+			// and then re-add it with the new `keyType` without replacing the whole storage account (which would be
+			// very disruptive).
+			if mutability, ok := property.Extensions.GetStringSlice(extensionMutability); ok && !isType {
+				operations := codegen.NewStringSet(mutability...)
+				apiProperty.ForceNew = operations.Has(extensionMutabilityCreate) && !operations.Has(extensionMutabilityUpdate)
+			}
 		}
 
 		if sdkName != name {
@@ -606,7 +629,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			return nil, err
 		}
 
-		allOfProperties, err := m.genProperties(allOfSchema, isOutput)
+		allOfProperties, err := m.genProperties(allOfSchema, isOutput, isType)
 		if err != nil {
 			return nil, err
 		}
@@ -634,7 +657,7 @@ func (m *moduleGenerator) getEnumValues(property *spec.Schema) (enum []string) {
 
 	restrictive := true
 	// If x-ms-enum is present and modelAsString is set to false, the enum is not strict, so we don't want to enforce it.
-	if extension, ok := property.Extensions["x-ms-enum"]; ok {
+	if extension, ok := property.Extensions[extensionEnum]; ok {
 		if modelAsString, ok := extension.(map[string]interface{})["modelAsString"]; ok {
 			if v, ok := modelAsString.(bool); ok {
 				restrictive = !v
@@ -710,7 +733,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		if _, ok := m.visitedTypes[tok]; !ok {
 			m.visitedTypes[tok] = true
 
-			props, err := m.genProperties(resolvedSchema, isOutput)
+			props, err := m.genProperties(resolvedSchema, isOutput, true /* isType */)
 			if err != nil {
 				return nil, err
 			}
@@ -787,19 +810,6 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 	return fmt.Sprintf("azurerm:%s:%s%s", m.module, makeLegalIdentifier(ctx.ReferenceName), suffix)
 }
 
-// isPrimitiveType returns false for object and array, and true for all other types defined in
-// https://swagger.io/docs/specification/data-models/data-types/
-func isPrimitiveType(typeName string) bool {
-	switch typeName {
-	case "string", "number", "integer", "boolean":
-		return true
-	case "object", "array":
-		return false
-	default:
-		panic(fmt.Sprintf("Unknown OpenAPI type %s", typeName))
-	}
-}
-
 // parameterBag keeps the schema and metadata parameters for a single resource or invocation.
 type parameterBag struct {
 	description   string
@@ -819,7 +829,7 @@ func (bag *parameterBag) merge(other *propertyBag) {
 	for key, value := range other.specs {
 		bag.specs[key] = value
 	}
-	for key, _ := range other.requiredSpecs {
+	for key := range other.requiredSpecs {
 		bag.requiredSpecs.Add(key)
 	}
 }
@@ -849,10 +859,10 @@ func (bag *propertyBag) merge(other *propertyBag) {
 	for key, value := range other.properties {
 		bag.properties[key] = value
 	}
-	for key, _ := range other.requiredSpecs {
+	for key := range other.requiredSpecs {
 		bag.requiredSpecs.Add(key)
 	}
-	for key, _ := range other.requiredProperties {
+	for key := range other.requiredProperties {
 		bag.requiredProperties.Add(key)
 	}
 }

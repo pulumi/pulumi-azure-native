@@ -25,14 +25,28 @@ import (
 func calculateDetailedDiff(resource *AzureApiResource, diff *resource.ObjectDiff) (map[string]*rpc.PropertyDiff, error) {
 	replaceKeys := codegen.NewStringSet()
 
-	// All the parameters that are part of the resource path cause a replacement.
 	for _, p := range resource.PutParameters {
+		// All the parameters that are part of the resource path cause a replacement.
 		if p.Location == "path" {
 			name := p.Name
 			if p.Value != nil && p.Value.SdkName != "" {
 				name = p.Value.SdkName
 			}
 			replaceKeys.Add(name)
+		}
+
+		// Force New on resource properties also cause a replacement.
+		if p.Location == "body" {
+			for propName, prop := range p.Body.Properties {
+				if prop.ForceNew {
+					name := propName
+					if prop.SdkName != "" {
+						name = prop.SdkName
+					}
+					replaceKeys.Add(name)
+				}
+			}
+
 		}
 	}
 
