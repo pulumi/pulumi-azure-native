@@ -10,6 +10,15 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
+func TestAccSimplePython(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "py-simple"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	basePy := base.With(integration.ProgramTestOptions{

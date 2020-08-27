@@ -86,6 +86,19 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.goversion }}
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.nodeversion}}
+          registry-url: https://registry.npmjs.org
+      - name: Setup DotNet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{matrix.dotnetverson}}
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{matrix.pythonversion}}
       - name: Install pulumictl
         uses: jaxxstorm/action-install-gh-release@release/v1-alpha
         with:
