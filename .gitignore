@@ -17,3 +17,6 @@ package-lock.json
 **/version.txt
 **/nuget
 **/dist
+sdk/schema
+
+ci-scripts/
