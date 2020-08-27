@@ -77,10 +77,6 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly replicaCount!: pulumi.Output<number | undefined>;
     /**
-     * The list of shared private link resources managed by the Azure Cognitive Search service.
-     */
-    public /*out*/ readonly sharedPrivateLinkResources!: pulumi.Output<outputs.search.v20200313.SharedPrivateLinkResourceResponse[]>;
-    /**
      * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
      */
     public readonly sku!: pulumi.Output<outputs.search.v20200313.SkuResponse | undefined>;
@@ -134,7 +130,6 @@ export class Service extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["sharedPrivateLinkResources"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["statusDetails"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -146,7 +141,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:search/v20150819:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:search/v20150819:Service" }, { type: "azurerm:search/v20200801:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

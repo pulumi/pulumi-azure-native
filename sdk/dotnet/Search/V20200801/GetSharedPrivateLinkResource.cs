@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Search.V20200313
+namespace Pulumi.AzureRM.Search.V20200801
 {
     public static class GetSharedPrivateLinkResource
     {
         public static Task<GetSharedPrivateLinkResourceResult> InvokeAsync(GetSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azurerm:search/v20200313:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azurerm:search/v20200801:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithVersion());
     }
 
 
@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Search.V20200313
     public sealed class GetSharedPrivateLinkResourceResult
     {
         /// <summary>
-        /// The name of the shared private link resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Search.V20200313
         /// </summary>
         public readonly Outputs.SharedPrivateLinkResourcePropertiesResponseResult Properties;
         /// <summary>
-        /// The resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
 

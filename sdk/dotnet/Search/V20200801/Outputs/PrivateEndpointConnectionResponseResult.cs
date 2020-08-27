@@ -7,36 +7,36 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Search.V20200313.Outputs
+namespace Pulumi.AzureRM.Search.V20200801.Outputs
 {
 
     [OutputType]
-    public sealed class SharedPrivateLinkResourceResponseResult
+    public sealed class PrivateEndpointConnectionResponseResult
     {
         /// <summary>
-        /// The ID of the shared private link resource.
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the shared private link resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        /// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         /// </summary>
-        public readonly Outputs.SharedPrivateLinkResourcePropertiesResponseResult? Properties;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesResponseResult? Properties;
         /// <summary>
-        /// The resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
-        private SharedPrivateLinkResourceResponseResult(
+        private PrivateEndpointConnectionResponseResult(
             string id,
 
             string name,
 
-            Outputs.SharedPrivateLinkResourcePropertiesResponseResult? properties,
+            Outputs.PrivateEndpointConnectionPropertiesResponseResult? properties,
 
             string type)
         {

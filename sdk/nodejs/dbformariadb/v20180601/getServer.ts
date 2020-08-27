@@ -48,7 +48,7 @@ export interface GetServerResult {
      */
     readonly fullyQualifiedDomainName?: string;
     /**
-     * The location the resource resides in.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -88,7 +88,7 @@ export interface GetServerResult {
      */
     readonly storageProfile?: outputs.dbformariadb.v20180601.StorageProfileResponse;
     /**
-     * Application-specific metadata in the form of key-value pairs.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**

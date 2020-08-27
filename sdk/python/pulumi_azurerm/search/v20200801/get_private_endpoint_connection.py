@@ -10,15 +10,15 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'GetSharedPrivateLinkResourceResult',
-    'AwaitableGetSharedPrivateLinkResourceResult',
-    'get_shared_private_link_resource',
+    'GetPrivateEndpointConnectionResult',
+    'AwaitableGetPrivateEndpointConnectionResult',
+    'get_private_endpoint_connection',
 ]
 
 @pulumi.output_type
-class GetSharedPrivateLinkResourceResult:
+class GetPrivateEndpointConnectionResult:
     """
-    Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+    Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
     """
     def __init__(__self__, name=None, properties=None, type=None):
         if name and not isinstance(name, str):
@@ -35,15 +35,15 @@ class GetSharedPrivateLinkResourceResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the shared private link resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SharedPrivateLinkResourcePropertiesResponse':
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
         """
-        Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         """
         return pulumi.get(self, "properties")
 
@@ -51,44 +51,44 @@ class GetSharedPrivateLinkResourceResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 
 
-class AwaitableGetSharedPrivateLinkResourceResult(GetSharedPrivateLinkResourceResult):
+class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSharedPrivateLinkResourceResult(
+        return GetPrivateEndpointConnectionResult(
             name=self.name,
             properties=self.properties,
             type=self.type)
 
 
-def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
-                                     search_service_name: Optional[str] = None,
-                                     shared_private_link_resource_name: Optional[str] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedPrivateLinkResourceResult:
+def get_private_endpoint_connection(private_endpoint_connection_name: Optional[str] = None,
+                                    resource_group_name: Optional[str] = None,
+                                    search_service_name: Optional[str] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Use this data source to access information about an existing resource.
 
+    :param str private_endpoint_connection_name: The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
-    :param str shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
     """
     __args__ = dict()
+    __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchServiceName'] = search_service_name
-    __args__['sharedPrivateLinkResourceName'] = shared_private_link_resource_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azurerm:search/v20200313:getSharedPrivateLinkResource', __args__, opts=opts, typ=GetSharedPrivateLinkResourceResult).value
+    __ret__ = pulumi.runtime.invoke('azurerm:search/v20200801:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
-    return AwaitableGetSharedPrivateLinkResourceResult(
+    return AwaitableGetPrivateEndpointConnectionResult(
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

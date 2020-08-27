@@ -501,7 +501,7 @@ func (o ScheduleEntryResponseArrayOutput) Index(i pulumi.IntInput) ScheduleEntry
 
 // SKU parameters supplied to the create Redis operation.
 type Sku struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 	Capacity int `pulumi:"capacity"`
 	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 	Family string `pulumi:"family"`
@@ -522,7 +522,7 @@ type SkuInput interface {
 
 // SKU parameters supplied to the create Redis operation.
 type SkuArgs struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 	Family pulumi.StringInput `pulumi:"family"`
@@ -608,7 +608,7 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 func (o SkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -641,7 +641,7 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -673,7 +673,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 
 // SKU parameters supplied to the create Redis operation.
 type SkuResponse struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 	Capacity int `pulumi:"capacity"`
 	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 	Family string `pulumi:"family"`
@@ -694,7 +694,7 @@ type SkuResponseInput interface {
 
 // SKU parameters supplied to the create Redis operation.
 type SkuResponseArgs struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 	Family pulumi.StringInput `pulumi:"family"`
@@ -780,7 +780,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v SkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -813,7 +813,7 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {

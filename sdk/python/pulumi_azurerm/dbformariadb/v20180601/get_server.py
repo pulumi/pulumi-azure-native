@@ -101,7 +101,7 @@ class GetServerResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The location the resource resides in.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -181,7 +181,7 @@ class GetServerResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Application-specific metadata in the form of key-value pairs.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Search.V20200313.Inputs
+namespace Pulumi.AzureRM.Search.V20200801.Inputs
 {
 
     /// <summary>
@@ -28,13 +28,25 @@ namespace Pulumi.AzureRM.Search.V20200313.Inputs
         public Input<string>? PrivateLinkResourceId { get; set; }
 
         /// <summary>
+        /// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
         /// The request message for requesting approval of the shared private link resource.
         /// </summary>
         [Input("requestMessage")]
         public Input<string>? RequestMessage { get; set; }
 
         /// <summary>
-        /// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+        /// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
+        /// </summary>
+        [Input("resourceRegion")]
+        public Input<string>? ResourceRegion { get; set; }
+
+        /// <summary>
+        /// Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

@@ -75,12 +75,6 @@ namespace Pulumi.AzureRM.Search.V20200313
         public Output<int?> ReplicaCount { get; private set; } = null!;
 
         /// <summary>
-        /// The list of shared private link resources managed by the Azure Cognitive Search service.
-        /// </summary>
-        [Output("sharedPrivateLinkResources")]
-        public Output<ImmutableArray<Outputs.SharedPrivateLinkResourceResponseResult>> SharedPrivateLinkResources { get; private set; } = null!;
-
-        /// <summary>
         /// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         /// </summary>
         [Output("sku")]
@@ -136,6 +130,7 @@ namespace Pulumi.AzureRM.Search.V20200313
                 Aliases =
                 {
                     new Alias { Type = "azurerm:search/v20150819:Service"},
+                    new Alias { Type = "azurerm:search/v20200801:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

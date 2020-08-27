@@ -15,7 +15,6 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionPropertiesPrivateEndpointArgs',
     'PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs',
-    'SharedPrivateLinkResourcePropertiesArgs',
     'SkuArgs',
 ]
 
@@ -202,78 +201,6 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
     def status(self) -> Optional[pulumi.Input[str]]:
         """
         Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class SharedPrivateLinkResourcePropertiesArgs:
-    def __init__(__self__, *,
-                 group_id: Optional[pulumi.Input[str]] = None,
-                 private_link_resource_id: Optional[pulumi.Input[str]] = None,
-                 request_message: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
-        """
-        Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
-        :param pulumi.Input[str] group_id: The group id from the provider of resource the shared private link resource is for.
-        :param pulumi.Input[str] private_link_resource_id: The resource id of the resource the shared private link resource is for.
-        :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource.
-        :param pulumi.Input[str] status: Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
-        """
-        if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
-        if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
-        if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The group id from the provider of resource the shared private link resource is for.
-        """
-        return pulumi.get(self, "group_id")
-
-    @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "group_id", value)
-
-    @property
-    @pulumi.getter(name="privateLinkResourceId")
-    def private_link_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource id of the resource the shared private link resource is for.
-        """
-        return pulumi.get(self, "private_link_resource_id")
-
-    @private_link_resource_id.setter
-    def private_link_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "private_link_resource_id", value)
-
-    @property
-    @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[str]]:
-        """
-        The request message for requesting approval of the shared private link resource.
-        """
-        return pulumi.get(self, "request_message")
-
-    @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "request_message", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
         """
         return pulumi.get(self, "status")
 

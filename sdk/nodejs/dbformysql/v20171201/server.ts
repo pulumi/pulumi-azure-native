@@ -61,7 +61,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly infrastructureEncryption!: pulumi.Output<string | undefined>;
     /**
-     * The location the resource resides in.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -105,7 +105,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageProfile!: pulumi.Output<outputs.dbformysql.v20171201.StorageProfileResponse | undefined>;
     /**
-     * Application-specific metadata in the form of key-value pairs.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**

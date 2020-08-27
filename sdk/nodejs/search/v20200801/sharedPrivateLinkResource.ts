@@ -23,7 +23,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:search/v20200313:SharedPrivateLinkResource';
+    public static readonly __pulumiType = 'azurerm:search/v20200801:SharedPrivateLinkResource';
 
     /**
      * Returns true if the given object is an instance of SharedPrivateLinkResource.  This is designed to work even
@@ -37,15 +37,15 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the shared private link resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
      */
-    public readonly properties!: pulumi.Output<outputs.search.v20200313.SharedPrivateLinkResourcePropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.search.v20200801.SharedPrivateLinkResourcePropertiesResponse>;
     /**
-     * The resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -96,7 +96,7 @@ export interface SharedPrivateLinkResourceArgs {
     /**
      * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
      */
-    readonly properties?: pulumi.Input<inputs.search.v20200313.SharedPrivateLinkResourceProperties>;
+    readonly properties?: pulumi.Input<inputs.search.v20200801.SharedPrivateLinkResourceProperties>;
     /**
      * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
      */

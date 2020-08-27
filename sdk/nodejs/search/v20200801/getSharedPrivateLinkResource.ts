@@ -14,7 +14,7 @@ export function getSharedPrivateLinkResource(args: GetSharedPrivateLinkResourceA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:search/v20200313:getSharedPrivateLinkResource", {
+    return pulumi.runtime.invoke("azurerm:search/v20200801:getSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,
         "searchServiceName": args.searchServiceName,
         "sharedPrivateLinkResourceName": args.sharedPrivateLinkResourceName,
@@ -41,15 +41,15 @@ export interface GetSharedPrivateLinkResourceArgs {
  */
 export interface GetSharedPrivateLinkResourceResult {
     /**
-     * The name of the shared private link resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
      * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
      */
-    readonly properties: outputs.search.v20200313.SharedPrivateLinkResourcePropertiesResponse;
+    readonly properties: outputs.search.v20200801.SharedPrivateLinkResourcePropertiesResponse;
     /**
-     * The resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
 }

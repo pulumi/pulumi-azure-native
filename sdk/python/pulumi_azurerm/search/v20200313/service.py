@@ -83,11 +83,10 @@ class Service(pulumi.CustomResource):
             __props__['name'] = None
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
-            __props__['shared_private_link_resources'] = None
             __props__['status'] = None
             __props__['status_details'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:search/v20150819:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:search/v20150819:Service"), pulumi.Alias(type_="azurerm:search/v20200801:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azurerm:search/v20200313:Service',
@@ -192,14 +191,6 @@ class Service(pulumi.CustomResource):
         The number of replicas in the Search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         """
         return pulumi.get(self, "replica_count")
-
-    @property
-    @pulumi.getter(name="sharedPrivateLinkResources")
-    def shared_private_link_resources(self) -> List['outputs.SharedPrivateLinkResourceResponse']:
-        """
-        The list of shared private link resources managed by the Azure Cognitive Search service.
-        """
-        return pulumi.get(self, "shared_private_link_resources")
 
     @property
     @pulumi.getter
