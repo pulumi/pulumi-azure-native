@@ -75,7 +75,7 @@ class SkuArgs:
                  name: pulumi.Input[str]):
         """
         SKU parameters supplied to the create Redis operation.
-        :param pulumi.Input[float] capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+        :param pulumi.Input[float] capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
         :param pulumi.Input[str] family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
         :param pulumi.Input[str] name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
@@ -87,7 +87,7 @@ class SkuArgs:
     @pulumi.getter
     def capacity(self) -> pulumi.Input[float]:
         """
-        The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+        The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
         """
         return pulumi.get(self, "capacity")
 

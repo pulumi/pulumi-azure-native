@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Search.V20200313.Outputs
+namespace Pulumi.AzureRM.Search.V20200801.Outputs
 {
 
     [OutputType]
@@ -22,11 +22,19 @@ namespace Pulumi.AzureRM.Search.V20200313.Outputs
         /// </summary>
         public readonly string? PrivateLinkResourceId;
         /// <summary>
+        /// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
         /// The request message for requesting approval of the shared private link resource.
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>
-        /// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+        /// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
+        /// </summary>
+        public readonly string? ResourceRegion;
+        /// <summary>
+        /// Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
         /// </summary>
         public readonly string? Status;
 
@@ -36,13 +44,19 @@ namespace Pulumi.AzureRM.Search.V20200313.Outputs
 
             string? privateLinkResourceId,
 
+            string? provisioningState,
+
             string? requestMessage,
+
+            string? resourceRegion,
 
             string? status)
         {
             GroupId = groupId;
             PrivateLinkResourceId = privateLinkResourceId;
+            ProvisioningState = provisioningState;
             RequestMessage = requestMessage;
+            ResourceRegion = resourceRegion;
             Status = status;
         }
     }

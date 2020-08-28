@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.Search.V20200313
+namespace Pulumi.AzureRM.Search.V20200801
 {
     /// <summary>
     /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
@@ -15,7 +15,7 @@ namespace Pulumi.AzureRM.Search.V20200313
     public partial class SharedPrivateLinkResource : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the shared private link resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.Search.V20200313
         public Output<Outputs.SharedPrivateLinkResourcePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -41,12 +41,12 @@ namespace Pulumi.AzureRM.Search.V20200313
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SharedPrivateLinkResource(string name, SharedPrivateLinkResourceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:search/v20200313:SharedPrivateLinkResource", name, args ?? new SharedPrivateLinkResourceArgs(), MakeResourceOptions(options, ""))
+            : base("azurerm:search/v20200801:SharedPrivateLinkResource", name, args ?? new SharedPrivateLinkResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SharedPrivateLinkResource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:search/v20200313:SharedPrivateLinkResource", name, null, MakeResourceOptions(options, id))
+            : base("azurerm:search/v20200801:SharedPrivateLinkResource", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         public Output<string?> FullyQualifiedDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The location the resource resides in.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         public Output<Outputs.StorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Application-specific metadata in the form of key-value pairs.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;

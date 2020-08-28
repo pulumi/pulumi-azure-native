@@ -20,7 +20,7 @@ class GetServiceResult:
     """
     Describes an Azure Cognitive Search service and its current state.
     """
-    def __init__(__self__, hosting_mode=None, identity=None, location=None, name=None, network_rule_set=None, partition_count=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, replica_count=None, shared_private_link_resources=None, sku=None, status=None, status_details=None, tags=None, type=None):
+    def __init__(__self__, hosting_mode=None, identity=None, location=None, name=None, network_rule_set=None, partition_count=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, replica_count=None, sku=None, status=None, status_details=None, tags=None, type=None):
         if hosting_mode and not isinstance(hosting_mode, str):
             raise TypeError("Expected argument 'hosting_mode' to be a str")
         pulumi.set(__self__, "hosting_mode", hosting_mode)
@@ -51,9 +51,6 @@ class GetServiceResult:
         if replica_count and not isinstance(replica_count, float):
             raise TypeError("Expected argument 'replica_count' to be a float")
         pulumi.set(__self__, "replica_count", replica_count)
-        if shared_private_link_resources and not isinstance(shared_private_link_resources, list):
-            raise TypeError("Expected argument 'shared_private_link_resources' to be a list")
-        pulumi.set(__self__, "shared_private_link_resources", shared_private_link_resources)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -151,14 +148,6 @@ class GetServiceResult:
         return pulumi.get(self, "replica_count")
 
     @property
-    @pulumi.getter(name="sharedPrivateLinkResources")
-    def shared_private_link_resources(self) -> List['outputs.SharedPrivateLinkResourceResponse']:
-        """
-        The list of shared private link resources managed by the Azure Cognitive Search service.
-        """
-        return pulumi.get(self, "shared_private_link_resources")
-
-    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
@@ -215,7 +204,6 @@ class AwaitableGetServiceResult(GetServiceResult):
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             replica_count=self.replica_count,
-            shared_private_link_resources=self.shared_private_link_resources,
             sku=self.sku,
             status=self.status,
             status_details=self.status_details,
@@ -252,7 +240,6 @@ def get_service(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
         replica_count=__ret__.replica_count,
-        shared_private_link_resources=__ret__.shared_private_link_resources,
         sku=__ret__.sku,
         status=__ret__.status,
         status_details=__ret__.status_details,

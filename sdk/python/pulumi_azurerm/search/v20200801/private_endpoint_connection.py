@@ -10,29 +10,29 @@ from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SharedPrivateLinkResource']
+__all__ = ['PrivateEndpointConnection']
 
 
-class SharedPrivateLinkResource(pulumi.CustomResource):
+class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  search_service_name: Optional[pulumi.Input[str]] = None,
-                 shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
+        :param pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']] properties: Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
-        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -51,6 +51,9 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if private_endpoint_connection_name is None:
+                raise TypeError("Missing required property 'private_endpoint_connection_name'")
+            __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -58,13 +61,12 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             if search_service_name is None:
                 raise TypeError("Missing required property 'search_service_name'")
             __props__['search_service_name'] = search_service_name
-            if shared_private_link_resource_name is None:
-                raise TypeError("Missing required property 'shared_private_link_resource_name'")
-            __props__['shared_private_link_resource_name'] = shared_private_link_resource_name
             __props__['name'] = None
             __props__['type'] = None
-        super(SharedPrivateLinkResource, __self__).__init__(
-            'azurerm:search/v20200313:SharedPrivateLinkResource',
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:search/v20200313:PrivateEndpointConnection")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
+        super(PrivateEndpointConnection, __self__).__init__(
+            'azurerm:search/v20200801:PrivateEndpointConnection',
             resource_name,
             __props__,
             opts)
@@ -72,9 +74,9 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'SharedPrivateLinkResource':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PrivateEndpointConnection':
         """
-        Get an existing SharedPrivateLinkResource resource's state with the given name, id, and optional extra
+        Get an existing PrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -85,21 +87,21 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         __props__ = dict()
 
-        return SharedPrivateLinkResource(resource_name, opts=opts, __props__=__props__)
+        return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the shared private link resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SharedPrivateLinkResourcePropertiesResponse':
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
         """
-        Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         """
         return pulumi.get(self, "properties")
 
@@ -107,7 +109,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> str:
         """
-        The resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 

@@ -80,10 +80,6 @@ namespace Pulumi.AzureRM.Search.V20200313
         /// </summary>
         public readonly int? ReplicaCount;
         /// <summary>
-        /// The list of shared private link resources managed by the Azure Cognitive Search service.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SharedPrivateLinkResourceResponseResult> SharedPrivateLinkResources;
-        /// <summary>
         /// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
@@ -126,8 +122,6 @@ namespace Pulumi.AzureRM.Search.V20200313
 
             int? replicaCount,
 
-            ImmutableArray<Outputs.SharedPrivateLinkResourceResponseResult> sharedPrivateLinkResources,
-
             Outputs.SkuResponseResult? sku,
 
             string status,
@@ -148,7 +142,6 @@ namespace Pulumi.AzureRM.Search.V20200313
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             ReplicaCount = replicaCount;
-            SharedPrivateLinkResources = sharedPrivateLinkResources;
             Sku = sku;
             Status = status;
             StatusDetails = statusDetails;

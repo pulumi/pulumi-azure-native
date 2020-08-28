@@ -20,7 +20,7 @@ type Server struct {
 	EarliestRestoreDate pulumi.StringPtrOutput `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringPtrOutput `pulumi:"fullyQualifiedDomainName"`
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId pulumi.StringPtrOutput `pulumi:"masterServerId"`
@@ -40,7 +40,7 @@ type Server struct {
 	SslEnforcement pulumi.StringPtrOutput `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -96,7 +96,7 @@ type serverState struct {
 	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId *string `pulumi:"masterServerId"`
@@ -116,7 +116,7 @@ type serverState struct {
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
@@ -133,7 +133,7 @@ type ServerState struct {
 	EarliestRestoreDate pulumi.StringPtrInput
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringPtrInput
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The master server id of a replica server.
 	MasterServerId pulumi.StringPtrInput
@@ -153,7 +153,7 @@ type ServerState struct {
 	SslEnforcement pulumi.StringPtrInput
 	// Storage profile of a server.
 	StorageProfile StorageProfileResponsePtrInput
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput

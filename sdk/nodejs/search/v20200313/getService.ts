@@ -76,10 +76,6 @@ export interface GetServiceResult {
      */
     readonly replicaCount?: number;
     /**
-     * The list of shared private link resources managed by the Azure Cognitive Search service.
-     */
-    readonly sharedPrivateLinkResources: outputs.search.v20200313.SharedPrivateLinkResourceResponse[];
-    /**
      * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
      */
     readonly sku?: outputs.search.v20200313.SkuResponse;

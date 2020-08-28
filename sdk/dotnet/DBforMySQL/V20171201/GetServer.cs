@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
         /// </summary>
         public readonly string? InfrastructureEncryption;
         /// <summary>
-        /// The location the resource resides in.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
         /// </summary>
         public readonly Outputs.StorageProfileResponseResult? StorageProfile;
         /// <summary>
-        /// Application-specific metadata in the form of key-value pairs.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>

@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.Search.V20150819
                 Aliases =
                 {
                     new Alias { Type = "azurerm:search/v20200313:Service"},
+                    new Alias { Type = "azurerm:search/v20200801:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

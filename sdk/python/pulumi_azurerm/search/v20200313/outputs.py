@@ -18,8 +18,6 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState',
     'PrivateEndpointConnectionResponse',
     'QueryKeyResponseResult',
-    'SharedPrivateLinkResourcePropertiesResponse',
-    'SharedPrivateLinkResourceResponse',
     'SkuResponse',
 ]
 
@@ -326,127 +324,6 @@ class QueryKeyResponseResult(dict):
         The name of the query API key; may be empty.
         """
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class SharedPrivateLinkResourcePropertiesResponse(dict):
-    """
-    Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
-    """
-    def __init__(__self__, *,
-                 group_id: Optional[str] = None,
-                 private_link_resource_id: Optional[str] = None,
-                 request_message: Optional[str] = None,
-                 status: Optional[str] = None):
-        """
-        Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
-        :param str group_id: The group id from the provider of resource the shared private link resource is for.
-        :param str private_link_resource_id: The resource id of the resource the shared private link resource is for.
-        :param str request_message: The request message for requesting approval of the shared private link resource.
-        :param str status: Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
-        """
-        if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
-        if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
-        if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[str]:
-        """
-        The group id from the provider of resource the shared private link resource is for.
-        """
-        return pulumi.get(self, "group_id")
-
-    @property
-    @pulumi.getter(name="privateLinkResourceId")
-    def private_link_resource_id(self) -> Optional[str]:
-        """
-        The resource id of the resource the shared private link resource is for.
-        """
-        return pulumi.get(self, "private_link_resource_id")
-
-    @property
-    @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[str]:
-        """
-        The request message for requesting approval of the shared private link resource.
-        """
-        return pulumi.get(self, "request_message")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
-        """
-        return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class SharedPrivateLinkResourceResponse(dict):
-    """
-    Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
-                 properties: Optional['outputs.SharedPrivateLinkResourcePropertiesResponse'] = None):
-        """
-        Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
-        :param str id: The ID of the shared private link resource.
-        :param str name: The name of the shared private link resource.
-        :param str type: The resource type.
-        :param 'SharedPrivateLinkResourcePropertiesResponseArgs' properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the shared private link resource.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the shared private link resource.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The resource type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional['outputs.SharedPrivateLinkResourcePropertiesResponse']:
-        """
-        Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-        """
-        return pulumi.get(self, "properties")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
