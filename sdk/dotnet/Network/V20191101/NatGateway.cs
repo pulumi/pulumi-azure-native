@@ -117,17 +117,17 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20190201:NatGateway"},
-                    new Alias { Type = "azurerm:network/v20190401:NatGateway"},
-                    new Alias { Type = "azurerm:network/v20190601:NatGateway"},
-                    new Alias { Type = "azurerm:network/v20190701:NatGateway"},
-                    new Alias { Type = "azurerm:network/v20190801:NatGateway"},
-                    new Alias { Type = "azurerm:network/v20190901:NatGateway"},
-                    new Alias { Type = "azurerm:network/v20191201:NatGateway"},
-                    new Alias { Type = "azurerm:network/v20200301:NatGateway"},
-                    new Alias { Type = "azurerm:network/v20200401:NatGateway"},
-                    new Alias { Type = "azurerm:network/v20200501:NatGateway"},
-                    new Alias { Type = "azurerm:network/v20200601:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190201:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190401:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190601:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190701:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190801:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190901:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:NatGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:NatGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

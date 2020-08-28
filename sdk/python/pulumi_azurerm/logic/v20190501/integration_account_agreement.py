@@ -15,7 +15,7 @@ __all__ = ['IntegrationAccountAgreement']
 
 class IntegrationAccountAgreement(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agreement_name: Optional[pulumi.Input[str]] = None,
                  agreement_type: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agreementType")
-    def agreement_type(self) -> str:
+    def agreement_type(self) -> pulumi.Output[str]:
         """
         The agreement type.
         """
@@ -137,7 +137,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="changedTime")
-    def changed_time(self) -> str:
+    def changed_time(self) -> pulumi.Output[str]:
         """
         The changed time.
         """
@@ -145,7 +145,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> 'outputs.AgreementContentResponse':
+    def content(self) -> pulumi.Output['outputs.AgreementContentResponse']:
         """
         The agreement content.
         """
@@ -153,7 +153,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         """
         The created time.
         """
@@ -161,7 +161,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="guestIdentity")
-    def guest_identity(self) -> 'outputs.BusinessIdentityResponse':
+    def guest_identity(self) -> pulumi.Output['outputs.BusinessIdentityResponse']:
         """
         The business identity of the guest partner.
         """
@@ -169,7 +169,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="guestPartner")
-    def guest_partner(self) -> str:
+    def guest_partner(self) -> pulumi.Output[str]:
         """
         The integration account partner that is set as guest partner for this agreement.
         """
@@ -177,7 +177,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostIdentity")
-    def host_identity(self) -> 'outputs.BusinessIdentityResponse':
+    def host_identity(self) -> pulumi.Output['outputs.BusinessIdentityResponse']:
         """
         The business identity of the host partner.
         """
@@ -185,7 +185,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostPartner")
-    def host_partner(self) -> str:
+    def host_partner(self) -> pulumi.Output[str]:
         """
         The integration account partner that is set as host partner for this agreement.
         """
@@ -193,7 +193,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -201,7 +201,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The metadata.
         """
@@ -209,7 +209,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the resource name.
         """
@@ -217,7 +217,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -225,7 +225,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the resource type.
         """

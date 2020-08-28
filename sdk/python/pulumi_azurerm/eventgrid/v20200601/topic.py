@@ -15,7 +15,7 @@ __all__ = ['Topic']
 
 class Topic(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inbound_ip_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         Endpoint for the topic.
         """
@@ -117,7 +117,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[List['outputs.InboundIpRuleResponse']]:
+    def inbound_ip_rules(self) -> pulumi.Output[Optional[List['outputs.InboundIpRuleResponse']]]:
         """
         This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         """
@@ -125,7 +125,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputSchema")
-    def input_schema(self) -> Optional[str]:
+    def input_schema(self) -> pulumi.Output[Optional[str]]:
         """
         This determines the format that Event Grid should expect for incoming events published to the topic.
         """
@@ -133,7 +133,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputSchemaMapping")
-    def input_schema_mapping(self) -> Optional['outputs.InputSchemaMappingResponse']:
+    def input_schema_mapping(self) -> pulumi.Output[Optional['outputs.InputSchemaMappingResponse']]:
         """
         This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         """
@@ -141,7 +141,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Location of the resource.
         """
@@ -149,7 +149,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricResourceId")
-    def metric_resource_id(self) -> str:
+    def metric_resource_id(self) -> pulumi.Output[str]:
         """
         Metric resource id for the topic.
         """
@@ -157,7 +157,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the resource.
         """
@@ -165,12 +165,12 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[List['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Optional[List['outputs.PrivateEndpointConnectionResponse']]]:
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the topic.
         """
@@ -178,7 +178,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
         """
         This determines if traffic is allowed over public network. By default it is enabled. 
         You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
@@ -187,7 +187,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags of the resource.
         """
@@ -195,7 +195,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the resource.
         """

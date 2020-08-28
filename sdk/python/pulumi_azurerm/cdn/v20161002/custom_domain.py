@@ -13,7 +13,7 @@ __all__ = ['CustomDomain']
 
 class CustomDomain(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_domain_name: Optional[pulumi.Input[str]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHttpsProvisioningState")
-    def custom_https_provisioning_state(self) -> str:
+    def custom_https_provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of Custom Https of the custom domain.
         """
@@ -110,7 +110,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
+    def host_name(self) -> pulumi.Output[str]:
         """
         The host name of the custom domain. Must be a domain name.
         """
@@ -118,7 +118,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -126,7 +126,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -134,7 +134,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning status of the custom domain.
         """
@@ -142,7 +142,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         Resource status of the custom domain.
         """
@@ -150,7 +150,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -158,7 +158,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -166,7 +166,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationData")
-    def validation_data(self) -> Optional[str]:
+    def validation_data(self) -> pulumi.Output[Optional[str]]:
         """
         Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
         """

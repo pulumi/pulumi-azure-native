@@ -15,7 +15,7 @@ __all__ = ['Job']
 
 class Job(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  details: Optional[pulumi.Input[pulumi.InputType['JobDetailsArgs']]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cancellationReason")
-    def cancellation_reason(self) -> str:
+    def cancellation_reason(self) -> pulumi.Output[str]:
         """
         Reason for cancellation.
         """
@@ -114,7 +114,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional['outputs.JobDetailsResponse']:
+    def details(self) -> pulumi.Output[Optional['outputs.JobDetailsResponse']]:
         """
         Details of a job run. This field will only be sent for expand details filter.
         """
@@ -122,7 +122,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.ErrorResponse':
+    def error(self) -> pulumi.Output['outputs.ErrorResponse']:
         """
         Top level error for the job.
         """
@@ -130,7 +130,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isCancellable")
-    def is_cancellable(self) -> bool:
+    def is_cancellable(self) -> pulumi.Output[bool]:
         """
         Describes whether the job is cancellable or not.
         """
@@ -138,7 +138,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isDeletable")
-    def is_deletable(self) -> bool:
+    def is_deletable(self) -> pulumi.Output[bool]:
         """
         Describes whether the job is deletable or not.
         """
@@ -146,7 +146,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isShippingAddressEditable")
-    def is_shipping_address_editable(self) -> bool:
+    def is_shipping_address_editable(self) -> pulumi.Output[bool]:
         """
         Describes whether the shipping address is editable or not.
         """
@@ -154,7 +154,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
         """
@@ -162,7 +162,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the object.
         """
@@ -170,7 +170,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         The sku type.
         """
@@ -178,7 +178,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
+    def start_time(self) -> pulumi.Output[str]:
         """
         Time at which the job was started in UTC ISO 8601 format.
         """
@@ -186,7 +186,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         Name of the stage which is in progress.
         """
@@ -194,7 +194,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
         """
@@ -202,7 +202,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the object.
         """

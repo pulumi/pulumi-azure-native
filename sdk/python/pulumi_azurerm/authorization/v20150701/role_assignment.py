@@ -15,7 +15,7 @@ __all__ = ['RoleAssignment']
 
 class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']]] = None,
                  role_assignment_name: Optional[pulumi.Input[str]] = None,
@@ -86,7 +86,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The role assignment name.
         """
@@ -94,7 +94,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RoleAssignmentPropertiesWithScopeResponse':
+    def properties(self) -> pulumi.Output['outputs.RoleAssignmentPropertiesWithScopeResponse']:
         """
         Role assignment properties.
         """
@@ -102,7 +102,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The role assignment type.
         """

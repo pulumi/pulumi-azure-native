@@ -69,9 +69,9 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:documentdb/v20190801:MongoDBResourceMongoDBDatabase"},
-                    new Alias { Type = "azurerm:documentdb/v20191212:MongoDBResourceMongoDBDatabase"},
-                    new Alias { Type = "azurerm:documentdb/v20200301:MongoDBResourceMongoDBDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:MongoDBResourceMongoDBDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:MongoDBResourceMongoDBDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:MongoDBResourceMongoDBDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

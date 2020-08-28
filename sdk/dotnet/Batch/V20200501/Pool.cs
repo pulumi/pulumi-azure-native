@@ -183,11 +183,11 @@ namespace Pulumi.AzureRM.Batch.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:batch/v20170901:Pool"},
-                    new Alias { Type = "azurerm:batch/v20181201:Pool"},
-                    new Alias { Type = "azurerm:batch/v20190401:Pool"},
-                    new Alias { Type = "azurerm:batch/v20190801:Pool"},
-                    new Alias { Type = "azurerm:batch/v20200301:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20170901:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20181201:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20190401:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20190801:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20200301:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

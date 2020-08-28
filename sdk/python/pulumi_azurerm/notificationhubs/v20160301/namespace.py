@@ -15,7 +15,7 @@ __all__ = ['Namespace']
 
 class Namespace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  critical: Optional[pulumi.Input[bool]] = None,
@@ -126,7 +126,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
+    def created_at(self) -> pulumi.Output[Optional[str]]:
         """
         The time the namespace was created.
         """
@@ -134,7 +134,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def critical(self) -> Optional[bool]:
+    def critical(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not the namespace is set as Critical.
         """
@@ -142,7 +142,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not the namespace is currently enabled.
         """
@@ -150,7 +150,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -158,7 +158,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -166,7 +166,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceType")
-    def namespace_type(self) -> Optional[str]:
+    def namespace_type(self) -> pulumi.Output[Optional[str]]:
         """
         The namespace type.
         """
@@ -174,7 +174,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning state of the Namespace.
         """
@@ -182,7 +182,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[str]:
+    def region(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
         """
@@ -190,7 +190,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleUnit")
-    def scale_unit(self) -> Optional[str]:
+    def scale_unit(self) -> pulumi.Output[Optional[str]]:
         """
         ScaleUnit where the namespace gets created
         """
@@ -198,7 +198,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceBusEndpoint")
-    def service_bus_endpoint(self) -> Optional[str]:
+    def service_bus_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Endpoint you can use to perform NotificationHub operations.
         """
@@ -206,7 +206,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The sku of the created namespace
         """
@@ -214,7 +214,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
         """
@@ -222,7 +222,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[str]:
+    def subscription_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Id of the Azure subscription associated with the namespace.
         """
@@ -230,7 +230,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -238,7 +238,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

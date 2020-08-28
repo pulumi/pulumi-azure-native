@@ -63,11 +63,11 @@ namespace Pulumi.AzureRM.Management.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:management/v20190501:DeploymentAtManagementGroupScope"},
-                    new Alias { Type = "azurerm:management/v20190510:DeploymentAtManagementGroupScope"},
-                    new Alias { Type = "azurerm:management/v20190701:DeploymentAtManagementGroupScope"},
-                    new Alias { Type = "azurerm:management/v20191001:DeploymentAtManagementGroupScope"},
-                    new Alias { Type = "azurerm:management/v20200601:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20190501:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20190510:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20190701:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20191001:DeploymentAtManagementGroupScope"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20200601:DeploymentAtManagementGroupScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

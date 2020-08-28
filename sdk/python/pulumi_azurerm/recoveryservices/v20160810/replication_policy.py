@@ -15,7 +15,7 @@ __all__ = ['ReplicationPolicy']
 
 class ReplicationPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CreatePolicyInputPropertiesArgs']]] = None,
@@ -92,7 +92,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Location
         """
@@ -100,7 +100,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name
         """
@@ -108,7 +108,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PolicyPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.PolicyPropertiesResponse']:
         """
         The custom data.
         """
@@ -116,7 +116,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource Type
         """

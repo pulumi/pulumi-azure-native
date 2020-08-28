@@ -15,7 +15,7 @@ __all__ = ['Link']
 
 class Link(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -120,7 +120,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[Mapping[str, str]]:
+    def description(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized descriptions for the Link.
         """
@@ -128,7 +128,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[Mapping[str, str]]:
+    def display_name(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized display name for the Link.
         """
@@ -136,7 +136,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkName")
-    def link_name(self) -> str:
+    def link_name(self) -> pulumi.Output[str]:
         """
         The link name.
         """
@@ -144,7 +144,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mappings(self) -> Optional[List['outputs.TypePropertiesMappingResponse']]:
+    def mappings(self) -> pulumi.Output[Optional[List['outputs.TypePropertiesMappingResponse']]]:
         """
         The set of properties mappings between the source and target Types.
         """
@@ -152,7 +152,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -160,7 +160,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operationType")
-    def operation_type(self) -> Optional[str]:
+    def operation_type(self) -> pulumi.Output[Optional[str]]:
         """
         Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         """
@@ -168,7 +168,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="participantPropertyReferences")
-    def participant_property_references(self) -> List['outputs.ParticipantPropertyReferenceResponse']:
+    def participant_property_references(self) -> pulumi.Output[List['outputs.ParticipantPropertyReferenceResponse']]:
         """
         The properties that represent the participating profile.
         """
@@ -176,7 +176,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state.
         """
@@ -184,7 +184,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="referenceOnly")
-    def reference_only(self) -> Optional[bool]:
+    def reference_only(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
         """
@@ -192,7 +192,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceInteractionType")
-    def source_interaction_type(self) -> str:
+    def source_interaction_type(self) -> pulumi.Output[str]:
         """
         Name of the source Interaction Type.
         """
@@ -200,7 +200,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetProfileType")
-    def target_profile_type(self) -> str:
+    def target_profile_type(self) -> pulumi.Output[str]:
         """
         Name of the target Profile Type.
         """
@@ -208,7 +208,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The hub name.
         """
@@ -216,7 +216,7 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

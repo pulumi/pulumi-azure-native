@@ -15,7 +15,7 @@ __all__ = ['Output']
 
 class Output(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datasource: Optional[pulumi.Input[pulumi.InputType['OutputDataSourceArgs']]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class Output(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def datasource(self) -> Optional['outputs.OutputDataSourceResponse']:
+    def datasource(self) -> pulumi.Output[Optional['outputs.OutputDataSourceResponse']]:
         """
         Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         """
@@ -104,7 +104,7 @@ class Output(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def diagnostics(self) -> 'outputs.DiagnosticsResponse':
+    def diagnostics(self) -> pulumi.Output['outputs.DiagnosticsResponse']:
         """
         Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         """
@@ -112,7 +112,7 @@ class Output(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         """
@@ -120,7 +120,7 @@ class Output(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource name
         """
@@ -128,7 +128,7 @@ class Output(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def serialization(self) -> Optional['outputs.SerializationResponse']:
+    def serialization(self) -> pulumi.Output[Optional['outputs.SerializationResponse']]:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
@@ -136,7 +136,7 @@ class Output(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

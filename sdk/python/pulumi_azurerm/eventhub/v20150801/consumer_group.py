@@ -13,7 +13,7 @@ __all__ = ['ConsumerGroup']
 
 class ConsumerGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  consumer_group_name: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         Exact time the message was created.
         """
@@ -114,7 +114,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubPath")
-    def event_hub_path(self) -> str:
+    def event_hub_path(self) -> pulumi.Output[str]:
         """
         The path of the Event Hub.
         """
@@ -122,7 +122,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -130,7 +130,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -138,7 +138,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -146,7 +146,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> pulumi.Output[str]:
         """
         The exact time the message was updated.
         """
@@ -154,7 +154,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userMetadata")
-    def user_metadata(self) -> Optional[str]:
+    def user_metadata(self) -> pulumi.Output[Optional[str]]:
         """
         The user metadata.
         """

@@ -15,7 +15,7 @@ __all__ = ['ReplicationMigrationItem']
 
 class ReplicationMigrationItem(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  migration_item_name: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Location
         """
@@ -112,7 +112,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name
         """
@@ -120,7 +120,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.MigrationItemPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.MigrationItemPropertiesResponse']:
         """
         The migration item properties.
         """
@@ -128,7 +128,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource Type
         """

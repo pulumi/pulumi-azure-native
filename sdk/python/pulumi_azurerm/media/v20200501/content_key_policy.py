@@ -15,7 +15,7 @@ __all__ = ['ContentKeyPolicy']
 
 class ContentKeyPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  content_key_policy_name: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The creation date of the Policy
         """
@@ -107,7 +107,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for the Policy.
         """
@@ -115,7 +115,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> pulumi.Output[str]:
         """
         The last modified date of the Policy
         """
@@ -123,7 +123,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -131,7 +131,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> List['outputs.ContentKeyPolicyOptionResponse']:
+    def options(self) -> pulumi.Output[List['outputs.ContentKeyPolicyOptionResponse']]:
         """
         The Key Policy options.
         """
@@ -139,7 +139,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> str:
+    def policy_id(self) -> pulumi.Output[str]:
         """
         The legacy Policy ID.
         """
@@ -147,7 +147,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

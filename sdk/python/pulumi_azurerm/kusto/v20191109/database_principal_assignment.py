@@ -13,7 +13,7 @@ __all__ = ['DatabasePrincipalAssignment']
 
 class DatabasePrincipalAssignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -120,7 +120,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    def principal_id(self) -> pulumi.Output[str]:
         """
         The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
         """
@@ -128,7 +128,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalName")
-    def principal_name(self) -> str:
+    def principal_name(self) -> pulumi.Output[str]:
         """
         The principal name
         """
@@ -136,7 +136,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> str:
+    def principal_type(self) -> pulumi.Output[str]:
         """
         Principal type.
         """
@@ -144,7 +144,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioned state of the resource.
         """
@@ -152,7 +152,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> str:
+    def role(self) -> pulumi.Output[str]:
         """
         Database principal role.
         """
@@ -160,7 +160,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
+    def tenant_id(self) -> pulumi.Output[Optional[str]]:
         """
         The tenant id of the principal
         """
@@ -168,7 +168,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> str:
+    def tenant_name(self) -> pulumi.Output[str]:
         """
         The tenant name of the principal
         """
@@ -176,7 +176,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

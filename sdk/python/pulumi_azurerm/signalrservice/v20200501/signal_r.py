@@ -15,7 +15,7 @@ __all__ = ['SignalR']
 
 class SignalR(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']]] = None,
                  features: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]]] = None,
@@ -123,7 +123,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional['outputs.SignalRCorsSettingsResponse']:
+    def cors(self) -> pulumi.Output[Optional['outputs.SignalRCorsSettingsResponse']]:
         """
         Cross-Origin Resource Sharing (CORS) settings.
         """
@@ -131,7 +131,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalIP")
-    def external_ip(self) -> str:
+    def external_ip(self) -> pulumi.Output[str]:
         """
         The publicly accessible IP of the SignalR service.
         """
@@ -139,7 +139,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[List['outputs.SignalRFeatureResponse']]:
+    def features(self) -> pulumi.Output[Optional[List['outputs.SignalRFeatureResponse']]]:
         """
         List of SignalR featureFlags. e.g. ServiceMode.
         
@@ -152,7 +152,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
+    def host_name(self) -> pulumi.Output[str]:
         """
         FQDN of the SignalR service instance. Format: xxx.service.signalr.net
         """
@@ -160,7 +160,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNamePrefix")
-    def host_name_prefix(self) -> Optional[str]:
+    def host_name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Prefix for the hostName of the SignalR service. Retained for future use.
         The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
@@ -169,7 +169,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         """
@@ -177,7 +177,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
         """
@@ -185,7 +185,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -193,7 +193,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkACLs")
-    def network_acls(self) -> Optional['outputs.SignalRNetworkACLsResponse']:
+    def network_acls(self) -> pulumi.Output[Optional['outputs.SignalRNetworkACLsResponse']]:
         """
         Network ACLs
         """
@@ -201,7 +201,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> pulumi.Output[List['outputs.PrivateEndpointConnectionResponse']]:
         """
         Private endpoint connections to the SignalR resource.
         """
@@ -209,7 +209,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the resource.
         """
@@ -217,7 +217,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> float:
+    def public_port(self) -> pulumi.Output[float]:
         """
         The publicly accessible port of the SignalR service which is designed for browser/client side usage.
         """
@@ -225,7 +225,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverPort")
-    def server_port(self) -> float:
+    def server_port(self) -> pulumi.Output[float]:
         """
         The publicly accessible port of the SignalR service which is designed for customer server side usage.
         """
@@ -233,7 +233,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ResourceSkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.ResourceSkuResponse']]:
         """
         The billing information of the resource.(e.g. Free, Standard)
         """
@@ -241,7 +241,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags of the service which is a list of key value pairs that describe the resource.
         """
@@ -249,7 +249,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
         """
@@ -257,7 +257,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def upstream(self) -> Optional['outputs.ServerlessUpstreamSettingsResponse']:
+    def upstream(self) -> pulumi.Output[Optional['outputs.ServerlessUpstreamSettingsResponse']]:
         """
         Upstream settings when the Azure SignalR is in server-less mode.
         """
@@ -265,7 +265,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
         """

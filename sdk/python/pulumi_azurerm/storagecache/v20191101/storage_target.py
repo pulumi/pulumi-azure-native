@@ -15,7 +15,7 @@ __all__ = ['StorageTarget']
 
 class StorageTarget(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  clfs: Optional[pulumi.Input[pulumi.InputType['ClfsTargetArgs']]] = None,
@@ -106,7 +106,7 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def clfs(self) -> Optional['outputs.ClfsTargetResponse']:
+    def clfs(self) -> pulumi.Output[Optional['outputs.ClfsTargetResponse']]:
         """
         Properties when targetType is clfs.
         """
@@ -114,7 +114,7 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def junctions(self) -> Optional[List['outputs.NamespaceJunctionResponse']]:
+    def junctions(self) -> pulumi.Output[Optional[List['outputs.NamespaceJunctionResponse']]]:
         """
         List of Cache namespace junctions to target for namespace associations.
         """
@@ -122,7 +122,7 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the Storage Target.
         """
@@ -130,7 +130,7 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def nfs3(self) -> Optional['outputs.Nfs3TargetResponse']:
+    def nfs3(self) -> pulumi.Output[Optional['outputs.Nfs3TargetResponse']]:
         """
         Properties when targetType is nfs3.
         """
@@ -138,7 +138,7 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
@@ -146,7 +146,7 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> Optional[str]:
+    def target_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of the Storage Target.
         """
@@ -154,7 +154,7 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
         """
@@ -162,7 +162,7 @@ class StorageTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def unknown(self) -> Optional['outputs.UnknownTargetResponse']:
+    def unknown(self) -> pulumi.Output[Optional['outputs.UnknownTargetResponse']]:
         """
         Properties when targetType is unknown.
         """

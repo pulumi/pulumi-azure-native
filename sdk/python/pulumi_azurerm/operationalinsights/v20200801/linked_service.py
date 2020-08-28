@@ -13,7 +13,7 @@ __all__ = ['LinkedService']
 
 class LinkedService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -104,7 +104,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the linked service.
         """
@@ -112,7 +112,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
+    def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
         """
@@ -120,7 +120,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -128,7 +128,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -136,7 +136,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeAccessResourceId")
-    def write_access_resource_id(self) -> Optional[str]:
+    def write_access_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
         """

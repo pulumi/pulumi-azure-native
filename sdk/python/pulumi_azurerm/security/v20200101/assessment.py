@@ -15,7 +15,7 @@ __all__ = ['Assessment']
 
 class Assessment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalData")
-    def additional_data(self) -> Optional[Mapping[str, str]]:
+    def additional_data(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Additional data regarding the assessment
         """
@@ -110,7 +110,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         User friendly display name of the assessment
         """
@@ -118,7 +118,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def links(self) -> Optional['outputs.AssessmentLinksResponse']:
+    def links(self) -> pulumi.Output[Optional['outputs.AssessmentLinksResponse']]:
         """
         Links relevant to the assessment
         """
@@ -126,7 +126,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional['outputs.SecurityAssessmentMetadataPropertiesResponse']:
+    def metadata(self) -> pulumi.Output[Optional['outputs.SecurityAssessmentMetadataPropertiesResponse']]:
         """
         Describes properties of an assessment metadata.
         """
@@ -134,7 +134,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -142,7 +142,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnersData")
-    def partners_data(self) -> Optional['outputs.SecurityAssessmentPartnerDataResponse']:
+    def partners_data(self) -> pulumi.Output[Optional['outputs.SecurityAssessmentPartnerDataResponse']]:
         """
         Data regarding 3rd party partner integration
         """
@@ -150,7 +150,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceDetails")
-    def resource_details(self) -> 'outputs.ResourceDetailsResponse':
+    def resource_details(self) -> pulumi.Output['outputs.ResourceDetailsResponse']:
         """
         Details of the resource that was assessed
         """
@@ -158,7 +158,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.AssessmentStatusResponse':
+    def status(self) -> pulumi.Output['outputs.AssessmentStatusResponse']:
         """
         The result of the assessment
         """
@@ -166,7 +166,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

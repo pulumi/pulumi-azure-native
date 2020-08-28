@@ -15,7 +15,7 @@ __all__ = ['VirtualHubRouteTableV2']
 
 class VirtualHubRouteTableV2(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attached_connections: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attachedConnections")
-    def attached_connections(self) -> Optional[List[str]]:
+    def attached_connections(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of all connections attached to this route table v2.
         """
@@ -108,7 +108,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -116,7 +116,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -124,7 +124,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the virtual hub route table v2 resource.
         """
@@ -132,7 +132,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[List['outputs.VirtualHubRouteV2Response']]:
+    def routes(self) -> pulumi.Output[Optional[List['outputs.VirtualHubRouteV2Response']]]:
         """
         List of all routes.
         """

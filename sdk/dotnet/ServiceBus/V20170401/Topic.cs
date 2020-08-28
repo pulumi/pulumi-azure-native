@@ -147,8 +147,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:servicebus/v20140901:Topic"},
-                    new Alias { Type = "azurerm:servicebus/v20150801:Topic"},
+                    new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:Topic"},
+                    new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

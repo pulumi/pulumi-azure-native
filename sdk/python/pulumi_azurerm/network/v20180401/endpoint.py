@@ -15,7 +15,7 @@ __all__ = ['Endpoint']
 
 class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_headers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointPropertiesCustomHeadersArgs']]]]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
@@ -133,7 +133,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[List['outputs.EndpointPropertiesResponseCustomHeaders']]:
+    def custom_headers(self) -> pulumi.Output[Optional[List['outputs.EndpointPropertiesResponseCustomHeaders']]]:
         """
         List of custom headers.
         """
@@ -141,7 +141,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointLocation")
-    def endpoint_location(self) -> Optional[str]:
+    def endpoint_location(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         """
@@ -149,7 +149,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointMonitorStatus")
-    def endpoint_monitor_status(self) -> Optional[str]:
+    def endpoint_monitor_status(self) -> pulumi.Output[Optional[str]]:
         """
         The monitoring status of the endpoint.
         """
@@ -157,7 +157,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointStatus")
-    def endpoint_status(self) -> Optional[str]:
+    def endpoint_status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         """
@@ -165,7 +165,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoMapping")
-    def geo_mapping(self) -> Optional[List[str]]:
+    def geo_mapping(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         """
@@ -173,7 +173,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[float]:
+    def min_child_endpoints(self) -> pulumi.Output[Optional[float]]:
         """
         The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
@@ -181,7 +181,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource
         """
@@ -189,7 +189,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
@@ -197,7 +197,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[List['outputs.EndpointPropertiesResponseSubnets']]:
+    def subnets(self) -> pulumi.Output[Optional[List['outputs.EndpointPropertiesResponseSubnets']]]:
         """
         The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         """
@@ -205,7 +205,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[str]:
+    def target(self) -> pulumi.Output[Optional[str]]:
         """
         The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         """
@@ -213,7 +213,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[str]:
+    def target_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         """
@@ -221,7 +221,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         """
@@ -229,7 +229,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[float]:
+    def weight(self) -> pulumi.Output[Optional[float]]:
         """
         The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """

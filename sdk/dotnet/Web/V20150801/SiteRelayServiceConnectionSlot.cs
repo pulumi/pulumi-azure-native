@@ -90,11 +90,11 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20160801:SiteRelayServiceConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20180201:SiteRelayServiceConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20181101:SiteRelayServiceConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20190801:SiteRelayServiceConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20200601:SiteRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:SiteRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:SiteRelayServiceConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

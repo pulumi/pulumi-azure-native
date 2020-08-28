@@ -15,7 +15,7 @@ __all__ = ['Cluster']
 
 class Cluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_size: Optional[pulumi.Input[float]] = None,
@@ -99,7 +99,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> float:
+    def cluster_id(self) -> pulumi.Output[float]:
         """
         The identity
         """
@@ -107,7 +107,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> float:
+    def cluster_size(self) -> pulumi.Output[float]:
         """
         The cluster size
         """
@@ -115,7 +115,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hosts(self) -> List[str]:
+    def hosts(self) -> pulumi.Output[List[str]]:
         """
         The hosts
         """
@@ -123,7 +123,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -131,7 +131,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The state of the cluster provisioning
         """
@@ -139,7 +139,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         The cluster SKU
         """
@@ -147,7 +147,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

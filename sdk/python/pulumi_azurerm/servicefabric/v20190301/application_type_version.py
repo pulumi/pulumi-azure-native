@@ -13,7 +13,7 @@ __all__ = ['ApplicationTypeVersion']
 
 class ApplicationTypeVersion(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_package_url: Optional[pulumi.Input[str]] = None,
                  application_type_name: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appPackageUrl")
-    def app_package_url(self) -> str:
+    def app_package_url(self) -> pulumi.Output[str]:
         """
         The URL to the application package
         """
@@ -113,7 +113,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultParameterList")
-    def default_parameter_list(self) -> Mapping[str, str]:
+    def default_parameter_list(self) -> pulumi.Output[Mapping[str, str]]:
         """
         List of application type parameters that can be overridden when creating or updating the application.
         """
@@ -121,7 +121,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Azure resource etag.
         """
@@ -129,7 +129,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         It will be deprecated in New API, resource location depends on the parent resource.
         """
@@ -137,7 +137,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name.
         """
@@ -145,7 +145,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment or provisioning state, which only appears in the response
         """
@@ -153,7 +153,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Azure resource tags.
         """
@@ -161,7 +161,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type.
         """

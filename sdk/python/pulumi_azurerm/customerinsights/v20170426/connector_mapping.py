@@ -15,7 +15,7 @@ __all__ = ['ConnectorMapping']
 
 class ConnectorMapping(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
@@ -125,7 +125,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorMappingName")
-    def connector_mapping_name(self) -> str:
+    def connector_mapping_name(self) -> pulumi.Output[str]:
         """
         The connector mapping name
         """
@@ -133,7 +133,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorName")
-    def connector_name(self) -> str:
+    def connector_name(self) -> pulumi.Output[str]:
         """
         The connector name.
         """
@@ -141,7 +141,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> Optional[str]:
+    def connector_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of connector.
         """
@@ -149,7 +149,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The created time.
         """
@@ -157,7 +157,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataFormatId")
-    def data_format_id(self) -> str:
+    def data_format_id(self) -> pulumi.Output[str]:
         """
         The DataFormat ID.
         """
@@ -165,7 +165,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the connector mapping.
         """
@@ -173,7 +173,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         Display name for the connector mapping.
         """
@@ -181,7 +181,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entityType")
-    def entity_type(self) -> str:
+    def entity_type(self) -> pulumi.Output[str]:
         """
         Defines which entity type the file should map to.
         """
@@ -189,7 +189,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entityTypeName")
-    def entity_type_name(self) -> str:
+    def entity_type_name(self) -> pulumi.Output[str]:
         """
         The mapping entity name.
         """
@@ -197,7 +197,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> pulumi.Output[str]:
         """
         The last modified time.
         """
@@ -205,7 +205,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mappingProperties")
-    def mapping_properties(self) -> 'outputs.ConnectorMappingPropertiesResponse':
+    def mapping_properties(self) -> pulumi.Output['outputs.ConnectorMappingPropertiesResponse']:
         """
         The properties of the mapping.
         """
@@ -213,7 +213,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -221,7 +221,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextRunTime")
-    def next_run_time(self) -> str:
+    def next_run_time(self) -> pulumi.Output[str]:
         """
         The next run time based on customer's settings.
         """
@@ -229,7 +229,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runId")
-    def run_id(self) -> str:
+    def run_id(self) -> pulumi.Output[str]:
         """
         The RunId.
         """
@@ -237,7 +237,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         State of connector mapping.
         """
@@ -245,7 +245,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The hub name.
         """
@@ -253,7 +253,7 @@ class ConnectorMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

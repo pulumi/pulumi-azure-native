@@ -75,9 +75,9 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:eventgrid/v20180101:Topic"},
-                    new Alias { Type = "azurerm:eventgrid/v20190101:Topic"},
-                    new Alias { Type = "azurerm:eventgrid/v20200601:Topic"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180101:Topic"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190101:Topic"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200601:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

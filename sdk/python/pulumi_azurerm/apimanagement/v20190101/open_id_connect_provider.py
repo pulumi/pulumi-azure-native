@@ -13,7 +13,7 @@ __all__ = ['OpenIdConnectProvider']
 
 class OpenIdConnectProvider(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         Client ID of developer console which is the client application.
         """
@@ -115,7 +115,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[str]:
+    def client_secret(self) -> pulumi.Output[Optional[str]]:
         """
         Client Secret of developer console which is the client application.
         """
@@ -123,7 +123,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         User-friendly description of OpenID Connect Provider.
         """
@@ -131,7 +131,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         User-friendly OpenID Connect Provider name.
         """
@@ -139,7 +139,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metadataEndpoint")
-    def metadata_endpoint(self) -> str:
+    def metadata_endpoint(self) -> pulumi.Output[str]:
         """
         Metadata endpoint URI.
         """
@@ -147,7 +147,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -155,7 +155,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

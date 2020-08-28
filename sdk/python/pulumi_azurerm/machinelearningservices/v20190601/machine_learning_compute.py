@@ -15,7 +15,7 @@ __all__ = ['MachineLearningCompute']
 
 class MachineLearningCompute(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
@@ -100,7 +100,7 @@ class MachineLearningCompute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The identity of the resource.
         """
@@ -108,7 +108,7 @@ class MachineLearningCompute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the location of the resource.
         """
@@ -116,7 +116,7 @@ class MachineLearningCompute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the resource.
         """
@@ -124,7 +124,7 @@ class MachineLearningCompute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ComputeResponse':
+    def properties(self) -> pulumi.Output['outputs.ComputeResponse']:
         """
         Compute properties
         """
@@ -132,7 +132,7 @@ class MachineLearningCompute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Contains resource tags defined as key/value pairs.
         """
@@ -140,7 +140,7 @@ class MachineLearningCompute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Specifies the type of the resource.
         """

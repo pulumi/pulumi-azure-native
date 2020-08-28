@@ -15,7 +15,7 @@ __all__ = ['DeploymentAtTenantScope']
 
 class DeploymentAtTenantScope(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -88,7 +88,7 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         the location of the deployment.
         """
@@ -96,7 +96,7 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the deployment.
         """
@@ -104,7 +104,7 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DeploymentPropertiesExtendedResponse':
+    def properties(self) -> pulumi.Output['outputs.DeploymentPropertiesExtendedResponse']:
         """
         Deployment properties.
         """
@@ -112,7 +112,7 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the deployment.
         """

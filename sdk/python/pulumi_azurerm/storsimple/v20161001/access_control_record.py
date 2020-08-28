@@ -13,7 +13,7 @@ __all__ = ['AccessControlRecord']
 
 class AccessControlRecord(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_record_name: Optional[pulumi.Input[str]] = None,
                  initiator_name: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,7 @@ class AccessControlRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="initiatorName")
-    def initiator_name(self) -> str:
+    def initiator_name(self) -> pulumi.Output[str]:
         """
         The Iscsi initiator name (IQN)
         """
@@ -99,7 +99,7 @@ class AccessControlRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name.
         """
@@ -107,7 +107,7 @@ class AccessControlRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type.
         """

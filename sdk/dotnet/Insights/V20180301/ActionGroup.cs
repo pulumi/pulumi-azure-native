@@ -129,10 +129,10 @@ namespace Pulumi.AzureRM.Insights.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:insights/v20170401:ActionGroup"},
-                    new Alias { Type = "azurerm:insights/v20180901:ActionGroup"},
-                    new Alias { Type = "azurerm:insights/v20190301:ActionGroup"},
-                    new Alias { Type = "azurerm:insights/v20190601:ActionGroup"},
+                    new Pulumi.Alias { Type = "azurerm:insights/v20170401:ActionGroup"},
+                    new Pulumi.Alias { Type = "azurerm:insights/v20180901:ActionGroup"},
+                    new Pulumi.Alias { Type = "azurerm:insights/v20190301:ActionGroup"},
+                    new Pulumi.Alias { Type = "azurerm:insights/v20190601:ActionGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

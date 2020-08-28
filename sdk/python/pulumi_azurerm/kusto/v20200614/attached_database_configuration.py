@@ -13,7 +13,7 @@ __all__ = ['AttachedDatabaseConfiguration']
 
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attachedDatabaseNames")
-    def attached_database_names(self) -> List[str]:
+    def attached_database_names(self) -> pulumi.Output[List[str]]:
         """
         The list of databases from the clusterResourceId which are currently attached to the cluster.
         """
@@ -114,7 +114,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> str:
+    def cluster_resource_id(self) -> pulumi.Output[str]:
         """
         The resource id of the cluster where the databases you would like to attach reside.
         """
@@ -122,7 +122,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> pulumi.Output[str]:
         """
         The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         """
@@ -130,7 +130,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPrincipalsModificationKind")
-    def default_principals_modification_kind(self) -> str:
+    def default_principals_modification_kind(self) -> pulumi.Output[str]:
         """
         The default principals modification kind
         """
@@ -138,7 +138,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -146,7 +146,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -154,7 +154,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioned state of the resource.
         """
@@ -162,7 +162,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

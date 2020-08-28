@@ -15,7 +15,7 @@ __all__ = ['PolicyDefinition']
 
 class PolicyDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_definition_name: Optional[pulumi.Input[str]] = None,
@@ -82,7 +82,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the policy definition name.
         """
@@ -90,7 +90,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PolicyDefinitionPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.PolicyDefinitionPropertiesResponse']:
         """
         Gets or sets the policy definition properties.
         """

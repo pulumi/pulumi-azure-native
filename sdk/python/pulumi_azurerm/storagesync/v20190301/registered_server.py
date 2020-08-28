@@ -13,7 +13,7 @@ __all__ = ['RegisteredServer']
 
 class RegisteredServer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_version: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> Optional[str]:
+    def agent_version(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server Agent Version
         """
@@ -128,7 +128,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> Optional[str]:
+    def cluster_id(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server clusterId
         """
@@ -136,7 +136,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[str]:
+    def cluster_name(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server clusterName
         """
@@ -144,7 +144,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="discoveryEndpointUri")
-    def discovery_endpoint_uri(self) -> Optional[str]:
+    def discovery_endpoint_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Resource discoveryEndpointUri
         """
@@ -152,7 +152,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
         Friendly Name
         """
@@ -160,7 +160,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastHeartBeat")
-    def last_heart_beat(self) -> Optional[str]:
+    def last_heart_beat(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server last heart beat
         """
@@ -168,7 +168,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastOperationName")
-    def last_operation_name(self) -> Optional[str]:
+    def last_operation_name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Last Operation Name
         """
@@ -176,7 +176,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastWorkflowId")
-    def last_workflow_id(self) -> Optional[str]:
+    def last_workflow_id(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server lastWorkflowId
         """
@@ -184,7 +184,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementEndpointUri")
-    def management_endpoint_uri(self) -> Optional[str]:
+    def management_endpoint_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Management Endpoint Uri
         """
@@ -192,7 +192,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringConfiguration")
-    def monitoring_configuration(self) -> Optional[str]:
+    def monitoring_configuration(self) -> pulumi.Output[Optional[str]]:
         """
         Monitoring Configuration
         """
@@ -200,7 +200,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -208,7 +208,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server Provisioning State
         """
@@ -216,7 +216,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceLocation")
-    def resource_location(self) -> Optional[str]:
+    def resource_location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Location
         """
@@ -224,7 +224,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverCertificate")
-    def server_certificate(self) -> Optional[str]:
+    def server_certificate(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server Certificate
         """
@@ -232,7 +232,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> Optional[str]:
+    def server_id(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server serverId
         """
@@ -240,7 +240,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverManagementErrorCode")
-    def server_management_error_code(self) -> Optional[float]:
+    def server_management_error_code(self) -> pulumi.Output[Optional[float]]:
         """
         Registered Server Management Error Code
         """
@@ -248,7 +248,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverOSVersion")
-    def server_os_version(self) -> Optional[str]:
+    def server_os_version(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server OS Version
         """
@@ -256,7 +256,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverRole")
-    def server_role(self) -> Optional[str]:
+    def server_role(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server serverRole
         """
@@ -264,7 +264,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceLocation")
-    def service_location(self) -> Optional[str]:
+    def service_location(self) -> pulumi.Output[Optional[str]]:
         """
         Service Location
         """
@@ -272,7 +272,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageSyncServiceUid")
-    def storage_sync_service_uid(self) -> Optional[str]:
+    def storage_sync_service_uid(self) -> pulumi.Output[Optional[str]]:
         """
         Registered Server storageSyncServiceUid
         """
@@ -280,7 +280,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

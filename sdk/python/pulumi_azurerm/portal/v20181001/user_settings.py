@@ -15,7 +15,7 @@ __all__ = ['UserSettings']
 
 class UserSettings(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['UserPropertiesArgs']]] = None,
                  user_settings_name: Optional[pulumi.Input[str]] = None,
@@ -79,7 +79,7 @@ class UserSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.UserPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.UserPropertiesResponse']:
         """
         The cloud shell user settings properties.
         """

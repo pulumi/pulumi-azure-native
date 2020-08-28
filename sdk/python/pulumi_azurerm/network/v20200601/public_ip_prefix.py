@@ -15,7 +15,7 @@ __all__ = ['PublicIPPrefix']
 
 class PublicIPPrefix(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_ip_prefix: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -116,7 +116,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customIPPrefix")
-    def custom_ip_prefix(self) -> Optional['outputs.SubResourceResponse']:
+    def custom_ip_prefix(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The customIpPrefix that this prefix is associated with.
         """
@@ -124,7 +124,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -132,7 +132,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipPrefix")
-    def ip_prefix(self) -> str:
+    def ip_prefix(self) -> pulumi.Output[str]:
         """
         The allocated Prefix.
         """
@@ -140,7 +140,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[List['outputs.IpTagResponse']]:
+    def ip_tags(self) -> pulumi.Output[Optional[List['outputs.IpTagResponse']]]:
         """
         The list of tags associated with the public IP prefix.
         """
@@ -148,7 +148,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerFrontendIpConfiguration")
-    def load_balancer_frontend_ip_configuration(self) -> 'outputs.SubResourceResponse':
+    def load_balancer_frontend_ip_configuration(self) -> pulumi.Output['outputs.SubResourceResponse']:
         """
         The reference to load balancer frontend IP configuration associated with the public IP prefix.
         """
@@ -156,7 +156,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -164,7 +164,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -172,7 +172,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="prefixLength")
-    def prefix_length(self) -> Optional[float]:
+    def prefix_length(self) -> pulumi.Output[Optional[float]]:
         """
         The Length of the Public IP Prefix.
         """
@@ -180,7 +180,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the public IP prefix resource.
         """
@@ -188,7 +188,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIPAddressVersion")
-    def public_ip_address_version(self) -> Optional[str]:
+    def public_ip_address_version(self) -> pulumi.Output[Optional[str]]:
         """
         The public IP address version.
         """
@@ -196,7 +196,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> List['outputs.ReferencedPublicIpAddressResponse']:
+    def public_ip_addresses(self) -> pulumi.Output[List['outputs.ReferencedPublicIpAddressResponse']]:
         """
         The list of all referenced PublicIPAddresses.
         """
@@ -204,7 +204,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
+    def resource_guid(self) -> pulumi.Output[str]:
         """
         The resource GUID property of the public IP prefix resource.
         """
@@ -212,7 +212,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.PublicIPPrefixSkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.PublicIPPrefixSkuResponse']]:
         """
         The public IP prefix SKU.
         """
@@ -220,7 +220,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -228,7 +228,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -236,7 +236,7 @@ class PublicIPPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of availability zones denoting the IP allocated for the resource needs to come from.
         """

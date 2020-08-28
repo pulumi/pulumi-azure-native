@@ -13,7 +13,7 @@ __all__ = ['Watcher']
 
 class Watcher(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         Gets or sets the creation time.
         """
@@ -120,7 +120,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -128,7 +128,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the etag of the resource.
         """
@@ -136,7 +136,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionFrequencyInSeconds")
-    def execution_frequency_in_seconds(self) -> Optional[float]:
+    def execution_frequency_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the frequency at which the watcher is invoked.
         """
@@ -144,7 +144,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> str:
+    def last_modified_by(self) -> pulumi.Output[str]:
         """
         Details of the user who last modified the watcher.
         """
@@ -152,7 +152,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         Gets or sets the last modified time.
         """
@@ -160,7 +160,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region where the resource lives
         """
@@ -168,7 +168,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -176,7 +176,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scriptName")
-    def script_name(self) -> Optional[str]:
+    def script_name(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
         """
@@ -184,7 +184,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scriptParameters")
-    def script_parameters(self) -> Optional[Mapping[str, str]]:
+    def script_parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Gets or sets the parameters of the script.
         """
@@ -192,7 +192,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scriptRunOn")
-    def script_run_on(self) -> Optional[str]:
+    def script_run_on(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the name of the hybrid worker group the watcher will run on.
         """
@@ -200,7 +200,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         Gets the current status of the watcher.
         """
@@ -208,7 +208,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -216,7 +216,7 @@ class Watcher(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

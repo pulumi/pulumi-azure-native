@@ -15,7 +15,7 @@ __all__ = ['Incident']
 
 class Incident(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  classification: Optional[pulumi.Input[str]] = None,
                  classification_comment: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalData")
-    def additional_data(self) -> 'outputs.IncidentAdditionalDataResponse':
+    def additional_data(self) -> pulumi.Output['outputs.IncidentAdditionalDataResponse']:
         """
         Additional data on the incident
         """
@@ -142,7 +142,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def classification(self) -> Optional[str]:
+    def classification(self) -> pulumi.Output[Optional[str]]:
         """
         The reason the incident was closed
         """
@@ -150,7 +150,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="classificationComment")
-    def classification_comment(self) -> Optional[str]:
+    def classification_comment(self) -> pulumi.Output[Optional[str]]:
         """
         Describes the reason the incident was closed
         """
@@ -158,7 +158,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="classificationReason")
-    def classification_reason(self) -> Optional[str]:
+    def classification_reason(self) -> pulumi.Output[Optional[str]]:
         """
         The classification reason the incident was closed with
         """
@@ -166,7 +166,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTimeUtc")
-    def created_time_utc(self) -> str:
+    def created_time_utc(self) -> pulumi.Output[str]:
         """
         The time the incident was created
         """
@@ -174,7 +174,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the incident
         """
@@ -182,7 +182,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Etag of the azure resource
         """
@@ -190,7 +190,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firstActivityTimeUtc")
-    def first_activity_time_utc(self) -> Optional[str]:
+    def first_activity_time_utc(self) -> pulumi.Output[Optional[str]]:
         """
         The time of the first activity in the incident
         """
@@ -198,7 +198,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="incidentNumber")
-    def incident_number(self) -> float:
+    def incident_number(self) -> pulumi.Output[float]:
         """
         A sequential number
         """
@@ -206,7 +206,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="incidentUrl")
-    def incident_url(self) -> str:
+    def incident_url(self) -> pulumi.Output[str]:
         """
         The deep-link url to the incident in Azure portal
         """
@@ -214,7 +214,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List['outputs.IncidentLabelResponse']]:
+    def labels(self) -> pulumi.Output[Optional[List['outputs.IncidentLabelResponse']]]:
         """
         List of labels relevant to this incident
         """
@@ -222,7 +222,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastActivityTimeUtc")
-    def last_activity_time_utc(self) -> Optional[str]:
+    def last_activity_time_utc(self) -> pulumi.Output[Optional[str]]:
         """
         The time of the last activity in the incident
         """
@@ -230,7 +230,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTimeUtc")
-    def last_modified_time_utc(self) -> str:
+    def last_modified_time_utc(self) -> pulumi.Output[str]:
         """
         The last time the incident was updated
         """
@@ -238,7 +238,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -246,7 +246,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> Optional['outputs.IncidentOwnerInfoResponse']:
+    def owner(self) -> pulumi.Output[Optional['outputs.IncidentOwnerInfoResponse']]:
         """
         Describes a user that the incident is assigned to
         """
@@ -254,7 +254,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relatedAnalyticRuleIds")
-    def related_analytic_rule_ids(self) -> List[str]:
+    def related_analytic_rule_ids(self) -> pulumi.Output[List[str]]:
         """
         List of resource ids of Analytic rules related to the incident
         """
@@ -262,7 +262,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> str:
+    def severity(self) -> pulumi.Output[str]:
         """
         The severity of the incident
         """
@@ -270,7 +270,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The status of the incident
         """
@@ -278,7 +278,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> pulumi.Output[str]:
         """
         The title of the incident
         """
@@ -286,7 +286,7 @@ class Incident(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """

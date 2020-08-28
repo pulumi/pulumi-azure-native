@@ -15,7 +15,7 @@ __all__ = ['EventHub']
 
 class EventHub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capture_description: Optional[pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="captureDescription")
-    def capture_description(self) -> Optional['outputs.CaptureDescriptionResponse']:
+    def capture_description(self) -> pulumi.Output[Optional['outputs.CaptureDescriptionResponse']]:
         """
         Properties of capture description
         """
@@ -111,7 +111,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         Exact time the Event Hub was created.
         """
@@ -119,7 +119,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageRetentionInDays")
-    def message_retention_in_days(self) -> Optional[float]:
+    def message_retention_in_days(self) -> pulumi.Output[Optional[float]]:
         """
         Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         """
@@ -127,7 +127,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -135,7 +135,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[float]:
+    def partition_count(self) -> pulumi.Output[Optional[float]]:
         """
         Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         """
@@ -143,7 +143,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionIds")
-    def partition_ids(self) -> List[str]:
+    def partition_ids(self) -> pulumi.Output[List[str]]:
         """
         Current number of shards on the Event Hub.
         """
@@ -151,7 +151,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Enumerates the possible values for the status of the Event Hub.
         """
@@ -159,7 +159,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -167,7 +167,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> pulumi.Output[str]:
         """
         The exact time the message was updated.
         """

@@ -15,7 +15,7 @@ __all__ = ['RelationshipLink']
 
 class RelationshipLink(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -121,7 +121,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[Mapping[str, str]]:
+    def description(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized descriptions for the Relationship Link.
         """
@@ -129,7 +129,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[Mapping[str, str]]:
+    def display_name(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized display name for the Relationship Link.
         """
@@ -137,7 +137,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="interactionType")
-    def interaction_type(self) -> str:
+    def interaction_type(self) -> pulumi.Output[str]:
         """
         The InteractionType associated with the Relationship Link.
         """
@@ -145,7 +145,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkName")
-    def link_name(self) -> str:
+    def link_name(self) -> pulumi.Output[str]:
         """
         The name of the Relationship Link.
         """
@@ -153,7 +153,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mappings(self) -> Optional[List['outputs.RelationshipLinkFieldMappingResponse']]:
+    def mappings(self) -> pulumi.Output[Optional[List['outputs.RelationshipLinkFieldMappingResponse']]]:
         """
         The mappings between Interaction and Relationship fields.
         """
@@ -161,7 +161,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -169,7 +169,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="profilePropertyReferences")
-    def profile_property_references(self) -> List['outputs.ParticipantProfilePropertyReferenceResponse']:
+    def profile_property_references(self) -> pulumi.Output[List['outputs.ParticipantProfilePropertyReferenceResponse']]:
         """
         The property references for the Profile of the Relationship.
         """
@@ -177,7 +177,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state.
         """
@@ -185,7 +185,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relatedProfilePropertyReferences")
-    def related_profile_property_references(self) -> List['outputs.ParticipantProfilePropertyReferenceResponse']:
+    def related_profile_property_references(self) -> pulumi.Output[List['outputs.ParticipantProfilePropertyReferenceResponse']]:
         """
         The property references for the Related Profile of the Relationship.
         """
@@ -193,7 +193,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relationshipGuidId")
-    def relationship_guid_id(self) -> str:
+    def relationship_guid_id(self) -> pulumi.Output[str]:
         """
         The relationship guid id.
         """
@@ -201,7 +201,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relationshipName")
-    def relationship_name(self) -> str:
+    def relationship_name(self) -> pulumi.Output[str]:
         """
         The Relationship associated with the Link.
         """
@@ -209,7 +209,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The hub name.
         """
@@ -217,7 +217,7 @@ class RelationshipLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

@@ -15,7 +15,7 @@ __all__ = ['AutoscaleSetting']
 
 class AutoscaleSetting(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscale_setting_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -105,7 +105,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
         """
@@ -113,7 +113,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -121,7 +121,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -129,7 +129,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[List['outputs.AutoscaleNotificationResponse']]:
+    def notifications(self) -> pulumi.Output[Optional[List['outputs.AutoscaleNotificationResponse']]]:
         """
         the collection of notifications.
         """
@@ -137,7 +137,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def profiles(self) -> List['outputs.AutoscaleProfileResponse']:
+    def profiles(self) -> pulumi.Output[List['outputs.AutoscaleProfileResponse']]:
         """
         the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         """
@@ -145,7 +145,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -153,7 +153,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceUri")
-    def target_resource_uri(self) -> Optional[str]:
+    def target_resource_uri(self) -> pulumi.Output[Optional[str]]:
         """
         the resource identifier of the resource that the autoscale setting should be added to.
         """
@@ -161,7 +161,7 @@ class AutoscaleSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """

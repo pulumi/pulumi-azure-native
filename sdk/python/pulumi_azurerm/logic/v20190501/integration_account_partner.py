@@ -15,7 +15,7 @@ __all__ = ['IntegrationAccountPartner']
 
 class IntegrationAccountPartner(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[pulumi.InputType['PartnerContentArgs']]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="changedTime")
-    def changed_time(self) -> str:
+    def changed_time(self) -> pulumi.Output[str]:
         """
         The changed time.
         """
@@ -117,7 +117,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> 'outputs.PartnerContentResponse':
+    def content(self) -> pulumi.Output['outputs.PartnerContentResponse']:
         """
         The partner content.
         """
@@ -125,7 +125,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         """
         The created time.
         """
@@ -133,7 +133,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -141,7 +141,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The metadata.
         """
@@ -149,7 +149,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the resource name.
         """
@@ -157,7 +157,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerType")
-    def partner_type(self) -> str:
+    def partner_type(self) -> pulumi.Output[str]:
         """
         The partner type.
         """
@@ -165,7 +165,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -173,7 +173,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the resource type.
         """

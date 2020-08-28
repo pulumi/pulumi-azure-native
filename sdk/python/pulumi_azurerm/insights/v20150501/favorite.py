@@ -13,7 +13,7 @@ __all__ = ['Favorite']
 
 class Favorite(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  config: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[str]:
+    def category(self) -> pulumi.Output[Optional[str]]:
         """
         Favorite category, as defined by the user at creation time.
         """
@@ -116,7 +116,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[str]:
+    def config(self) -> pulumi.Output[Optional[str]]:
         """
         Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
         """
@@ -124,7 +124,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="favoriteId")
-    def favorite_id(self) -> str:
+    def favorite_id(self) -> pulumi.Output[str]:
         """
         Internally assigned unique id of the favorite definition.
         """
@@ -132,7 +132,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="favoriteType")
-    def favorite_type(self) -> Optional[str]:
+    def favorite_type(self) -> pulumi.Output[Optional[str]]:
         """
         Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         """
@@ -140,7 +140,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isGeneratedFromTemplate")
-    def is_generated_from_template(self) -> Optional[bool]:
+    def is_generated_from_template(self) -> pulumi.Output[Optional[bool]]:
         """
         Flag denoting wether or not this favorite was generated from a template.
         """
@@ -148,7 +148,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The user-defined name of the favorite.
         """
@@ -156,7 +156,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[str]:
+    def source_type(self) -> pulumi.Output[Optional[str]]:
         """
         The source of the favorite definition.
         """
@@ -164,7 +164,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List[str]]:
+    def tags(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of 0 or more tags that are associated with this favorite definition
         """
@@ -172,7 +172,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeModified")
-    def time_modified(self) -> str:
+    def time_modified(self) -> pulumi.Output[str]:
         """
         Date and time in UTC of the last modification that was made to this favorite definition.
         """
@@ -180,7 +180,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         Unique user id of the specific user that owns this favorite.
         """
@@ -188,7 +188,7 @@ class Favorite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
         """

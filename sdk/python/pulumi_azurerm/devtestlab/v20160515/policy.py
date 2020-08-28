@@ -13,7 +13,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  evaluator_type: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the policy.
         """
@@ -129,7 +129,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the policy.
         """
@@ -137,7 +137,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluatorType")
-    def evaluator_type(self) -> Optional[str]:
+    def evaluator_type(self) -> pulumi.Output[Optional[str]]:
         """
         The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
         """
@@ -145,7 +145,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="factData")
-    def fact_data(self) -> Optional[str]:
+    def fact_data(self) -> pulumi.Output[Optional[str]]:
         """
         The fact data of the policy.
         """
@@ -153,7 +153,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="factName")
-    def fact_name(self) -> Optional[str]:
+    def fact_name(self) -> pulumi.Output[Optional[str]]:
         """
         The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
         """
@@ -161,7 +161,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -169,7 +169,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -177,7 +177,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -185,7 +185,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the policy.
         """
@@ -193,7 +193,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -201,7 +201,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def threshold(self) -> Optional[str]:
+    def threshold(self) -> pulumi.Output[Optional[str]]:
         """
         The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
         """
@@ -209,7 +209,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -217,7 +217,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """

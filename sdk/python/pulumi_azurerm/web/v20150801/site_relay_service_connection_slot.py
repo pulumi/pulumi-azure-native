@@ -13,7 +13,7 @@ __all__ = ['SiteRelayServiceConnectionSlot']
 
 class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  biztalk_uri: Optional[pulumi.Input[str]] = None,
                  entity_connection_string: Optional[pulumi.Input[str]] = None,
@@ -117,27 +117,27 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="biztalkUri")
-    def biztalk_uri(self) -> Optional[str]:
+    def biztalk_uri(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "biztalk_uri")
 
     @property
     @pulumi.getter(name="entityConnectionString")
-    def entity_connection_string(self) -> Optional[str]:
+    def entity_connection_string(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "entity_connection_string")
 
     @property
     @pulumi.getter(name="entityName")
-    def entity_name(self) -> Optional[str]:
+    def entity_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "entity_name")
 
     @property
     @pulumi.getter
-    def hostname(self) -> Optional[str]:
+    def hostname(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "hostname")
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -145,7 +145,7 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -153,7 +153,7 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -161,22 +161,22 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="resourceConnectionString")
-    def resource_connection_string(self) -> Optional[str]:
+    def resource_connection_string(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "resource_connection_string")
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[str]:
+    def resource_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -184,7 +184,7 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """

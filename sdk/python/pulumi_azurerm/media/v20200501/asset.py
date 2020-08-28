@@ -13,7 +13,7 @@ __all__ = ['Asset']
 
 class Asset(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  alternate_id: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alternateId")
-    def alternate_id(self) -> Optional[str]:
+    def alternate_id(self) -> pulumi.Output[Optional[str]]:
         """
         The alternate ID of the Asset.
         """
@@ -110,7 +110,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assetId")
-    def asset_id(self) -> str:
+    def asset_id(self) -> pulumi.Output[str]:
         """
         The Asset ID.
         """
@@ -118,7 +118,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def container(self) -> Optional[str]:
+    def container(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the asset blob container.
         """
@@ -126,7 +126,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The creation date of the Asset.
         """
@@ -134,7 +134,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The Asset description.
         """
@@ -142,7 +142,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> pulumi.Output[str]:
         """
         The last modified date of the Asset.
         """
@@ -150,7 +150,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -158,7 +158,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> Optional[str]:
+    def storage_account_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the storage account.
         """
@@ -166,7 +166,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEncryptionFormat")
-    def storage_encryption_format(self) -> str:
+    def storage_encryption_format(self) -> pulumi.Output[str]:
         """
         The Asset encryption format. One of None or MediaStorageEncryption.
         """
@@ -174,7 +174,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

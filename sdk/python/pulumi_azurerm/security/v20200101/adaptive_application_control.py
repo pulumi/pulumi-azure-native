@@ -15,7 +15,7 @@ __all__ = ['AdaptiveApplicationControl']
 
 class AdaptiveApplicationControl(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asc_location: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationStatus")
-    def configuration_status(self) -> str:
+    def configuration_status(self) -> pulumi.Output[str]:
         """
         The configuration status of the machines group or machine or rule
         """
@@ -103,7 +103,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enforcementMode")
-    def enforcement_mode(self) -> Optional[str]:
+    def enforcement_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The application control policy enforcement/protection mode of the machine group
         """
@@ -111,12 +111,12 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def issues(self) -> List['outputs.AdaptiveApplicationControlIssueSummaryResponse']:
+    def issues(self) -> pulumi.Output[List['outputs.AdaptiveApplicationControlIssueSummaryResponse']]:
         return pulumi.get(self, "issues")
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Location where the resource is stored
         """
@@ -124,7 +124,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -132,12 +132,12 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pathRecommendations")
-    def path_recommendations(self) -> Optional[List['outputs.PathRecommendationResponse']]:
+    def path_recommendations(self) -> pulumi.Output[Optional[List['outputs.PathRecommendationResponse']]]:
         return pulumi.get(self, "path_recommendations")
 
     @property
     @pulumi.getter(name="protectionMode")
-    def protection_mode(self) -> Optional['outputs.ProtectionModeResponse']:
+    def protection_mode(self) -> pulumi.Output[Optional['outputs.ProtectionModeResponse']]:
         """
         The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         """
@@ -145,7 +145,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recommendationStatus")
-    def recommendation_status(self) -> str:
+    def recommendation_status(self) -> pulumi.Output[str]:
         """
         The initial recommendation status of the machine group or machine
         """
@@ -153,7 +153,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceSystem")
-    def source_system(self) -> str:
+    def source_system(self) -> pulumi.Output[str]:
         """
         The source type of the machine group
         """
@@ -161,7 +161,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -169,7 +169,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmRecommendations")
-    def vm_recommendations(self) -> Optional[List['outputs.VmRecommendationResponse']]:
+    def vm_recommendations(self) -> pulumi.Output[Optional[List['outputs.VmRecommendationResponse']]]:
         return pulumi.get(self, "vm_recommendations")
 
     def translate_output_property(self, prop):

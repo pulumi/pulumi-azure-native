@@ -15,7 +15,7 @@ __all__ = ['Workspace']
 
 class Workspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_insights: Optional[pulumi.Input[str]] = None,
                  container_registry: Optional[pulumi.Input[str]] = None,
@@ -116,7 +116,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationInsights")
-    def application_insights(self) -> Optional[str]:
+    def application_insights(self) -> pulumi.Output[Optional[str]]:
         """
         ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
         """
@@ -124,7 +124,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerRegistry")
-    def container_registry(self) -> Optional[str]:
+    def container_registry(self) -> pulumi.Output[Optional[str]]:
         """
         ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
         """
@@ -132,7 +132,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         The creation time of the machine learning workspace in ISO8601 format.
         """
@@ -140,7 +140,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of this workspace.
         """
@@ -148,7 +148,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="discoveryUrl")
-    def discovery_url(self) -> Optional[str]:
+    def discovery_url(self) -> pulumi.Output[Optional[str]]:
         """
         Url for the discovery service to identify regional endpoints for machine learning experimentation services
         """
@@ -156,7 +156,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
         The friendly name for this workspace. This name in mutable
         """
@@ -164,7 +164,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The identity of the resource.
         """
@@ -172,7 +172,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> Optional[str]:
+    def key_vault(self) -> pulumi.Output[Optional[str]]:
         """
         ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         """
@@ -180,7 +180,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the location of the resource.
         """
@@ -188,7 +188,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the resource.
         """
@@ -196,7 +196,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
         """
@@ -204,7 +204,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[str]:
+    def storage_account(self) -> pulumi.Output[Optional[str]]:
         """
         ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         """
@@ -212,7 +212,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Contains resource tags defined as key/value pairs.
         """
@@ -220,7 +220,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Specifies the type of the resource.
         """
@@ -228,7 +228,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> str:
+    def workspace_id(self) -> pulumi.Output[str]:
         """
         The immutable id associated with this workspace.
         """

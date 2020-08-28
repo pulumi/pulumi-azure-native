@@ -15,7 +15,7 @@ __all__ = ['JobSchedule']
 
 class JobSchedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  job_schedule_id: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class JobSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobScheduleId")
-    def job_schedule_id(self) -> Optional[str]:
+    def job_schedule_id(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the id of job schedule.
         """
@@ -110,7 +110,7 @@ class JobSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the name of the variable.
         """
@@ -118,7 +118,7 @@ class JobSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Gets or sets the parameters of the job schedule.
         """
@@ -126,7 +126,7 @@ class JobSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runOn")
-    def run_on(self) -> Optional[str]:
+    def run_on(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the hybrid worker group that the scheduled job should run on.
         """
@@ -134,7 +134,7 @@ class JobSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def runbook(self) -> Optional['outputs.RunbookAssociationPropertyResponse']:
+    def runbook(self) -> pulumi.Output[Optional['outputs.RunbookAssociationPropertyResponse']]:
         """
         Gets or sets the runbook.
         """
@@ -142,7 +142,7 @@ class JobSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ScheduleAssociationPropertyResponse']:
+    def schedule(self) -> pulumi.Output[Optional['outputs.ScheduleAssociationPropertyResponse']]:
         """
         Gets or sets the schedule.
         """
@@ -150,7 +150,7 @@ class JobSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

@@ -15,7 +15,7 @@ __all__ = ['HybridUseBenefit']
 
 class HybridUseBenefit(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -90,7 +90,7 @@ class HybridUseBenefit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         Created date
         """
@@ -98,7 +98,7 @@ class HybridUseBenefit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> float:
+    def etag(self) -> pulumi.Output[float]:
         """
         Indicates the revision of the hybrid use benefit
         """
@@ -106,7 +106,7 @@ class HybridUseBenefit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> pulumi.Output[str]:
         """
         Last updated date
         """
@@ -114,7 +114,7 @@ class HybridUseBenefit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -122,7 +122,7 @@ class HybridUseBenefit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state
         """
@@ -130,7 +130,7 @@ class HybridUseBenefit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         Hybrid use benefit SKU
         """
@@ -138,7 +138,7 @@ class HybridUseBenefit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

@@ -13,7 +13,7 @@ __all__ = ['WebAppPremierAddOnSlot']
 
 class WebAppPremierAddOnSlot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -116,7 +116,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -124,7 +124,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location.
         """
@@ -132,7 +132,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="marketplaceOffer")
-    def marketplace_offer(self) -> Optional[str]:
+    def marketplace_offer(self) -> pulumi.Output[Optional[str]]:
         """
         Premier add on Marketplace offer.
         """
@@ -140,7 +140,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="marketplacePublisher")
-    def marketplace_publisher(self) -> Optional[str]:
+    def marketplace_publisher(self) -> pulumi.Output[Optional[str]]:
         """
         Premier add on Marketplace publisher.
         """
@@ -148,7 +148,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -156,7 +156,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="premierAddOnName")
-    def premier_add_on_name(self) -> Optional[str]:
+    def premier_add_on_name(self) -> pulumi.Output[Optional[str]]:
         """
         Premier add on Name.
         """
@@ -164,7 +164,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def product(self) -> Optional[str]:
+    def product(self) -> pulumi.Output[Optional[str]]:
         """
         Premier add on Product.
         """
@@ -172,7 +172,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[str]:
+    def sku(self) -> pulumi.Output[Optional[str]]:
         """
         Premier add on SKU.
         """
@@ -180,7 +180,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -188,7 +188,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -196,7 +196,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vendor(self) -> Optional[str]:
+    def vendor(self) -> pulumi.Output[Optional[str]]:
         """
         Premier add on Vendor.
         """

@@ -15,7 +15,7 @@ __all__ = ['ExpressRouteCircuitPeering']
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_asn: Optional[pulumi.Input[float]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
@@ -148,7 +148,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureASN")
-    def azure_asn(self) -> Optional[float]:
+    def azure_asn(self) -> pulumi.Output[Optional[float]]:
         """
         The Azure ASN.
         """
@@ -156,7 +156,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def connections(self) -> Optional[List['outputs.ExpressRouteCircuitConnectionResponse']]:
+    def connections(self) -> pulumi.Output[Optional[List['outputs.ExpressRouteCircuitConnectionResponse']]]:
         """
         The list of circuit connections associated with Azure Private Peering for this circuit.
         """
@@ -164,7 +164,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -172,7 +172,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteConnection")
-    def express_route_connection(self) -> Optional['outputs.ExpressRouteConnectionIdResponse']:
+    def express_route_connection(self) -> pulumi.Output[Optional['outputs.ExpressRouteConnectionIdResponse']]:
         """
         The ExpressRoute connection.
         """
@@ -180,7 +180,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayManagerEtag")
-    def gateway_manager_etag(self) -> Optional[str]:
+    def gateway_manager_etag(self) -> pulumi.Output[Optional[str]]:
         """
         The GatewayManager Etag.
         """
@@ -188,7 +188,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6PeeringConfig")
-    def ipv6_peering_config(self) -> Optional['outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse']:
+    def ipv6_peering_config(self) -> pulumi.Output[Optional['outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse']]:
         """
         The IPv6 peering configuration.
         """
@@ -196,7 +196,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
+    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
         """
         Gets whether the provider or the customer last modified the peering.
         """
@@ -204,7 +204,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="microsoftPeeringConfig")
-    def microsoft_peering_config(self) -> Optional['outputs.ExpressRouteCircuitPeeringConfigResponse']:
+    def microsoft_peering_config(self) -> pulumi.Output[Optional['outputs.ExpressRouteCircuitPeeringConfigResponse']]:
         """
         The Microsoft peering configuration.
         """
@@ -212,7 +212,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -220,7 +220,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> Optional[float]:
+    def peer_asn(self) -> pulumi.Output[Optional[float]]:
         """
         The peer ASN.
         """
@@ -228,7 +228,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringType")
-    def peering_type(self) -> Optional[str]:
+    def peering_type(self) -> pulumi.Output[Optional[str]]:
         """
         The peering type.
         """
@@ -236,7 +236,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryAzurePort")
-    def primary_azure_port(self) -> Optional[str]:
+    def primary_azure_port(self) -> pulumi.Output[Optional[str]]:
         """
         The primary port.
         """
@@ -244,7 +244,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryPeerAddressPrefix")
-    def primary_peer_address_prefix(self) -> Optional[str]:
+    def primary_peer_address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The primary address prefix.
         """
@@ -252,7 +252,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
@@ -260,7 +260,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeFilter")
-    def route_filter(self) -> Optional['outputs.RouteFilterResponse']:
+    def route_filter(self) -> pulumi.Output[Optional['outputs.RouteFilterResponse']]:
         """
         The reference of the RouteFilter resource.
         """
@@ -268,7 +268,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryAzurePort")
-    def secondary_azure_port(self) -> Optional[str]:
+    def secondary_azure_port(self) -> pulumi.Output[Optional[str]]:
         """
         The secondary port.
         """
@@ -276,7 +276,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryPeerAddressPrefix")
-    def secondary_peer_address_prefix(self) -> Optional[str]:
+    def secondary_peer_address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The secondary address prefix.
         """
@@ -284,7 +284,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedKey")
-    def shared_key(self) -> Optional[str]:
+    def shared_key(self) -> pulumi.Output[Optional[str]]:
         """
         The shared key.
         """
@@ -292,7 +292,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The peering state.
         """
@@ -300,7 +300,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def stats(self) -> Optional['outputs.ExpressRouteCircuitStatsResponse']:
+    def stats(self) -> pulumi.Output[Optional['outputs.ExpressRouteCircuitStatsResponse']]:
         """
         Gets peering stats.
         """
@@ -308,7 +308,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> Optional[float]:
+    def vlan_id(self) -> pulumi.Output[Optional[float]]:
         """
         The VLAN ID.
         """

@@ -15,7 +15,7 @@ __all__ = ['LogProfile']
 
 class LogProfile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  categories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def categories(self) -> List[str]:
+    def categories(self) -> pulumi.Output[List[str]]:
         """
         the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
         """
@@ -113,7 +113,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -121,7 +121,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> List[str]:
+    def locations(self) -> pulumi.Output[List[str]]:
         """
         List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
         """
@@ -129,7 +129,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -137,7 +137,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> 'outputs.RetentionPolicyResponse':
+    def retention_policy(self) -> pulumi.Output['outputs.RetentionPolicyResponse']:
         """
         the retention policy for the events in the log.
         """
@@ -145,7 +145,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceBusRuleId")
-    def service_bus_rule_id(self) -> Optional[str]:
+    def service_bus_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
         """
@@ -153,7 +153,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[str]:
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         the resource id of the storage account to which you would like to send the Activity Log.
         """
@@ -161,7 +161,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -169,7 +169,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """

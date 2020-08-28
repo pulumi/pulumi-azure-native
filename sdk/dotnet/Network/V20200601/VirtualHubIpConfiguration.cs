@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20200501:VirtualHubIpConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualHubIpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

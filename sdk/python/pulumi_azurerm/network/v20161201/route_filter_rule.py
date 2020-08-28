@@ -13,7 +13,7 @@ __all__ = ['RouteFilterRule']
 
 class RouteFilterRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[str]] = None,
                  communities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -111,7 +111,7 @@ class RouteFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def access(self) -> str:
+    def access(self) -> pulumi.Output[str]:
         """
         The access type of the rule. Valid values are: 'Allow', 'Deny'
         """
@@ -119,7 +119,7 @@ class RouteFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def communities(self) -> List[str]:
+    def communities(self) -> pulumi.Output[List[str]]:
         """
         The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
         """
@@ -127,7 +127,7 @@ class RouteFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -135,7 +135,7 @@ class RouteFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -143,7 +143,7 @@ class RouteFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -151,7 +151,7 @@ class RouteFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
         """
@@ -159,7 +159,7 @@ class RouteFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeFilterRuleType")
-    def route_filter_rule_type(self) -> str:
+    def route_filter_rule_type(self) -> pulumi.Output[str]:
         """
         The rule type of the rule. Valid value is: 'Community'
         """
@@ -167,7 +167,7 @@ class RouteFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """

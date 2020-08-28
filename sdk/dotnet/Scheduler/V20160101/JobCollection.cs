@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Scheduler.V20160101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:scheduler/v20160301:JobCollection"},
+                    new Pulumi.Alias { Type = "azurerm:scheduler/v20160301:JobCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

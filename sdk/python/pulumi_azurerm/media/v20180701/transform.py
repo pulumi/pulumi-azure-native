@@ -15,7 +15,7 @@ __all__ = ['Transform']
 
 class Transform(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class Transform(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
         """
@@ -106,7 +106,7 @@ class Transform(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         An optional verbose description of the Transform.
         """
@@ -114,7 +114,7 @@ class Transform(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> pulumi.Output[str]:
         """
         The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
         """
@@ -122,7 +122,7 @@ class Transform(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -130,7 +130,7 @@ class Transform(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> List['outputs.TransformOutputResponse']:
+    def outputs(self) -> pulumi.Output[List['outputs.TransformOutputResponse']]:
         """
         An array of one or more TransformOutputs that the Transform should generate.
         """
@@ -138,7 +138,7 @@ class Transform(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

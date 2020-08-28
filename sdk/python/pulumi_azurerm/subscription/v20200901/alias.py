@@ -15,7 +15,7 @@ __all__ = ['Alias']
 
 class Alias(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PutAliasRequestPropertiesArgs']]] = None,
@@ -81,7 +81,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Alias ID.
         """
@@ -89,7 +89,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PutAliasResponsePropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.PutAliasResponsePropertiesResponse']:
         """
         Put Alias response properties.
         """
@@ -97,7 +97,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type, Microsoft.Subscription/aliases.
         """

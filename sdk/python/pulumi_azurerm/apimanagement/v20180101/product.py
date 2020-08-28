@@ -13,7 +13,7 @@ __all__ = ['Product']
 
 class Product(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  approval_required: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="approvalRequired")
-    def approval_required(self) -> Optional[bool]:
+    def approval_required(self) -> pulumi.Output[Optional[bool]]:
         """
         whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
         """
@@ -117,7 +117,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Product description. May include HTML formatting tags.
         """
@@ -125,7 +125,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Product name.
         """
@@ -133,7 +133,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -141,7 +141,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
         """
@@ -149,7 +149,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionRequired")
-    def subscription_required(self) -> Optional[bool]:
+    def subscription_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
         """
@@ -157,7 +157,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionsLimit")
-    def subscriptions_limit(self) -> Optional[float]:
+    def subscriptions_limit(self) -> pulumi.Output[Optional[float]]:
         """
         Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
         """
@@ -165,7 +165,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def terms(self) -> Optional[str]:
+    def terms(self) -> pulumi.Output[Optional[str]]:
         """
         Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
         """
@@ -173,7 +173,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

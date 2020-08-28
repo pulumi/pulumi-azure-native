@@ -15,7 +15,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cer_blob: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cerBlob")
-    def cer_blob(self) -> Optional[str]:
+    def cer_blob(self) -> pulumi.Output[Optional[str]]:
         """
         Raw bytes of .cer file
         """
@@ -151,7 +151,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[str]:
+    def expiration_date(self) -> pulumi.Output[Optional[str]]:
         """
         Certificate expiration date
         """
@@ -159,7 +159,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
         Friendly name of the certificate
         """
@@ -167,7 +167,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> Optional[List[str]]:
+    def host_names(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Host names the certificate applies to
         """
@@ -175,7 +175,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+    def hosting_environment_profile(self) -> pulumi.Output[Optional['outputs.HostingEnvironmentProfileResponse']]:
         """
         Specification for the hosting environment (App Service Environment) to use for the certificate
         """
@@ -183,7 +183,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="issueDate")
-    def issue_date(self) -> Optional[str]:
+    def issue_date(self) -> pulumi.Output[Optional[str]]:
         """
         Certificate issue Date
         """
@@ -191,7 +191,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def issuer(self) -> Optional[str]:
+    def issuer(self) -> pulumi.Output[Optional[str]]:
         """
         Certificate issuer
         """
@@ -199,7 +199,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -207,7 +207,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -215,7 +215,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -223,7 +223,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         Certificate password
         """
@@ -231,7 +231,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pfxBlob")
-    def pfx_blob(self) -> Optional[str]:
+    def pfx_blob(self) -> pulumi.Output[Optional[str]]:
         """
         Pfx blob
         """
@@ -239,7 +239,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKeyHash")
-    def public_key_hash(self) -> Optional[str]:
+    def public_key_hash(self) -> pulumi.Output[Optional[str]]:
         """
         Public key hash
         """
@@ -247,7 +247,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="selfLink")
-    def self_link(self) -> Optional[str]:
+    def self_link(self) -> pulumi.Output[Optional[str]]:
         """
         Self link
         """
@@ -255,7 +255,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteName")
-    def site_name(self) -> Optional[str]:
+    def site_name(self) -> pulumi.Output[Optional[str]]:
         """
         App name
         """
@@ -263,7 +263,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectName")
-    def subject_name(self) -> Optional[str]:
+    def subject_name(self) -> pulumi.Output[Optional[str]]:
         """
         Subject name of the certificate
         """
@@ -271,7 +271,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -279,7 +279,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> Optional[str]:
+    def thumbprint(self) -> pulumi.Output[Optional[str]]:
         """
         Certificate thumbprint
         """
@@ -287,7 +287,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """
@@ -295,7 +295,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def valid(self) -> Optional[bool]:
+    def valid(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the certificate valid?
         """

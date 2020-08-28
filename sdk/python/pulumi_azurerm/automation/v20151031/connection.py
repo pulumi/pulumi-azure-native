@@ -15,7 +15,7 @@ __all__ = ['Connection']
 
 class Connection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionType")
-    def connection_type(self) -> Optional['outputs.ConnectionTypeAssociationPropertyResponse']:
+    def connection_type(self) -> pulumi.Output[Optional['outputs.ConnectionTypeAssociationPropertyResponse']]:
         """
         Gets or sets the connectionType of the connection.
         """
@@ -111,7 +111,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         Gets the creation time.
         """
@@ -119,7 +119,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -127,7 +127,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fieldDefinitionValues")
-    def field_definition_values(self) -> Mapping[str, str]:
+    def field_definition_values(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Gets the field definition values of the connection.
         """
@@ -135,7 +135,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         Gets the last modified time.
         """
@@ -143,7 +143,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -151,7 +151,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

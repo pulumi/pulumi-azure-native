@@ -15,7 +15,7 @@ __all__ = ['Factory']
 
 class Factory(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
                  global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]]] = None,
@@ -100,7 +100,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> str:
+    def create_time(self) -> pulumi.Output[str]:
         """
         Time the factory was created in ISO8601 format.
         """
@@ -108,7 +108,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> str:
+    def e_tag(self) -> pulumi.Output[str]:
         """
         Etag identifies change in the resource.
         """
@@ -116,7 +116,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalParameters")
-    def global_parameters(self) -> Optional[Mapping[str, 'outputs.GlobalParameterSpecificationResponse']]:
+    def global_parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.GlobalParameterSpecificationResponse']]]:
         """
         List of parameters for factory.
         """
@@ -124,7 +124,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.FactoryIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.FactoryIdentityResponse']]:
         """
         Managed service identity of the factory.
         """
@@ -132,7 +132,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -140,7 +140,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -148,7 +148,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Factory provisioning state, example Succeeded.
         """
@@ -156,7 +156,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoConfiguration")
-    def repo_configuration(self) -> Optional['outputs.FactoryRepoConfigurationResponse']:
+    def repo_configuration(self) -> pulumi.Output[Optional['outputs.FactoryRepoConfigurationResponse']]:
         """
         Git repo information of the factory.
         """
@@ -164,7 +164,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -172,7 +172,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """
@@ -180,7 +180,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         Version of the factory.
         """

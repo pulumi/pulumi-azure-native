@@ -13,7 +13,7 @@ __all__ = ['ApiTagDescription']
 
 class ApiTagDescription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class ApiTagDescription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the Tag.
         """
@@ -108,7 +108,7 @@ class ApiTagDescription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         Tag name.
         """
@@ -116,7 +116,7 @@ class ApiTagDescription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalDocsDescription")
-    def external_docs_description(self) -> Optional[str]:
+    def external_docs_description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the external resources describing the tag.
         """
@@ -124,7 +124,7 @@ class ApiTagDescription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalDocsUrl")
-    def external_docs_url(self) -> Optional[str]:
+    def external_docs_url(self) -> pulumi.Output[Optional[str]]:
         """
         Absolute URL of external resources describing the tag.
         """
@@ -132,7 +132,7 @@ class ApiTagDescription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -140,7 +140,7 @@ class ApiTagDescription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagId")
-    def tag_id(self) -> Optional[str]:
+    def tag_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the tag in the form of /tags/{tagId}
         """
@@ -148,7 +148,7 @@ class ApiTagDescription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

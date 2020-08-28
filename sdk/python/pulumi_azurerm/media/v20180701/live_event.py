@@ -15,7 +15,7 @@ __all__ = ['LiveEvent']
 
 class LiveEvent(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
@@ -124,7 +124,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The exact time the Live Event was created.
         """
@@ -132,7 +132,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="crossSiteAccessPolicies")
-    def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesResponse']:
+    def cross_site_access_policies(self) -> pulumi.Output[Optional['outputs.CrossSiteAccessPoliciesResponse']]:
         """
         The Live Event access policies.
         """
@@ -140,7 +140,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The Live Event description.
         """
@@ -148,7 +148,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional['outputs.LiveEventEncodingResponse']:
+    def encoding(self) -> pulumi.Output[Optional['outputs.LiveEventEncodingResponse']]:
         """
         The Live Event encoding.
         """
@@ -156,7 +156,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def input(self) -> 'outputs.LiveEventInputResponse':
+    def input(self) -> pulumi.Output['outputs.LiveEventInputResponse']:
         """
         The Live Event input.
         """
@@ -164,7 +164,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> pulumi.Output[str]:
         """
         The exact time the Live Event was last modified.
         """
@@ -172,7 +172,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region of the resource.
         """
@@ -180,7 +180,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -188,7 +188,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def preview(self) -> Optional['outputs.LiveEventPreviewResponse']:
+    def preview(self) -> pulumi.Output[Optional['outputs.LiveEventPreviewResponse']]:
         """
         The Live Event preview.
         """
@@ -196,7 +196,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the Live Event.
         """
@@ -204,7 +204,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         The resource state of the Live Event.
         """
@@ -212,7 +212,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamOptions")
-    def stream_options(self) -> Optional[List[str]]:
+    def stream_options(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
         """
@@ -220,7 +220,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -228,7 +228,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -236,7 +236,7 @@ class LiveEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vanityUrl")
-    def vanity_url(self) -> Optional[bool]:
+    def vanity_url(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
         """

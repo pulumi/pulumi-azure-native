@@ -13,7 +13,7 @@ __all__ = ['ExportConfiguration']
 
 class ExportConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_account_id: Optional[pulumi.Input[str]] = None,
                  destination_address: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> str:
+    def application_name(self) -> pulumi.Output[str]:
         """
         The name of the Application Insights component.
         """
@@ -129,7 +129,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> str:
+    def container_name(self) -> pulumi.Output[str]:
         """
         The name of the destination storage container.
         """
@@ -137,7 +137,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationAccountId")
-    def destination_account_id(self) -> str:
+    def destination_account_id(self) -> pulumi.Output[str]:
         """
         The name of destination account.
         """
@@ -145,7 +145,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationStorageLocationId")
-    def destination_storage_location_id(self) -> str:
+    def destination_storage_location_id(self) -> pulumi.Output[str]:
         """
         The destination account location ID.
         """
@@ -153,7 +153,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationStorageSubscriptionId")
-    def destination_storage_subscription_id(self) -> str:
+    def destination_storage_subscription_id(self) -> pulumi.Output[str]:
         """
         The destination storage account subscription ID.
         """
@@ -161,7 +161,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationType")
-    def destination_type(self) -> str:
+    def destination_type(self) -> pulumi.Output[str]:
         """
         The destination type.
         """
@@ -169,7 +169,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="exportId")
-    def export_id(self) -> str:
+    def export_id(self) -> pulumi.Output[str]:
         """
         The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
         """
@@ -177,7 +177,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="exportStatus")
-    def export_status(self) -> str:
+    def export_status(self) -> pulumi.Output[str]:
         """
         This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
         """
@@ -185,7 +185,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instrumentationKey")
-    def instrumentation_key(self) -> str:
+    def instrumentation_key(self) -> pulumi.Output[str]:
         """
         The instrumentation key of the Application Insights component.
         """
@@ -193,7 +193,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isUserEnabled")
-    def is_user_enabled(self) -> str:
+    def is_user_enabled(self) -> pulumi.Output[str]:
         """
         This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
         """
@@ -201,7 +201,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastGapTime")
-    def last_gap_time(self) -> str:
+    def last_gap_time(self) -> pulumi.Output[str]:
         """
         The last time the Continuous Export configuration started failing.
         """
@@ -209,7 +209,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastSuccessTime")
-    def last_success_time(self) -> str:
+    def last_success_time(self) -> pulumi.Output[str]:
         """
         The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
         """
@@ -217,7 +217,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUserUpdate")
-    def last_user_update(self) -> str:
+    def last_user_update(self) -> pulumi.Output[str]:
         """
         Last time the Continuous Export configuration was updated.
         """
@@ -225,7 +225,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationQueueEnabled")
-    def notification_queue_enabled(self) -> Optional[str]:
+    def notification_queue_enabled(self) -> pulumi.Output[Optional[str]]:
         """
         Deprecated
         """
@@ -233,7 +233,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="permanentErrorReason")
-    def permanent_error_reason(self) -> str:
+    def permanent_error_reason(self) -> pulumi.Output[str]:
         """
         This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
         """
@@ -241,7 +241,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recordTypes")
-    def record_types(self) -> Optional[str]:
+    def record_types(self) -> pulumi.Output[Optional[str]]:
         """
         This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
         """
@@ -249,7 +249,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> str:
+    def resource_group(self) -> pulumi.Output[str]:
         """
         The resource group of the Application Insights component.
         """
@@ -257,7 +257,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageName")
-    def storage_name(self) -> str:
+    def storage_name(self) -> pulumi.Output[str]:
         """
         The name of the destination storage account.
         """
@@ -265,7 +265,7 @@ class ExportConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
+    def subscription_id(self) -> pulumi.Output[str]:
         """
         The subscription of the Application Insights component.
         """

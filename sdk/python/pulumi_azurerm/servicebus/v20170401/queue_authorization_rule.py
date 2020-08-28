@@ -13,7 +13,7 @@ __all__ = ['QueueAuthorizationRule']
 
 class QueueAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -104,7 +104,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rights(self) -> List[str]:
+    def rights(self) -> pulumi.Output[List[str]]:
         """
         The rights associated with the rule.
         """
@@ -112,7 +112,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

@@ -15,7 +15,7 @@ __all__ = ['BackupSchedule']
 
 class BackupSchedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
                  backup_schedule_name: Optional[pulumi.Input[str]] = None,
@@ -125,7 +125,7 @@ class BackupSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupType")
-    def backup_type(self) -> str:
+    def backup_type(self) -> pulumi.Output[str]:
         """
         The type of backup which needs to be taken.
         """
@@ -133,7 +133,7 @@ class BackupSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The Kind of the object. Currently only Series8000 is supported
         """
@@ -141,7 +141,7 @@ class BackupSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastSuccessfulRun")
-    def last_successful_run(self) -> str:
+    def last_successful_run(self) -> pulumi.Output[str]:
         """
         The last successful backup run which was triggered for the schedule.
         """
@@ -149,7 +149,7 @@ class BackupSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the object.
         """
@@ -157,7 +157,7 @@ class BackupSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionCount")
-    def retention_count(self) -> float:
+    def retention_count(self) -> pulumi.Output[float]:
         """
         The number of backups to be retained.
         """
@@ -165,7 +165,7 @@ class BackupSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduleRecurrence")
-    def schedule_recurrence(self) -> 'outputs.ScheduleRecurrenceResponse':
+    def schedule_recurrence(self) -> pulumi.Output['outputs.ScheduleRecurrenceResponse']:
         """
         The schedule recurrence.
         """
@@ -173,7 +173,7 @@ class BackupSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduleStatus")
-    def schedule_status(self) -> str:
+    def schedule_status(self) -> pulumi.Output[str]:
         """
         The schedule status.
         """
@@ -181,7 +181,7 @@ class BackupSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
+    def start_time(self) -> pulumi.Output[str]:
         """
         The start time of the schedule.
         """
@@ -189,7 +189,7 @@ class BackupSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """

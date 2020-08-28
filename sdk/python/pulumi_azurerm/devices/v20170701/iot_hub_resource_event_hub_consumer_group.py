@@ -13,7 +13,7 @@ __all__ = ['IotHubResourceEventHubConsumerGroup']
 
 class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_hub_endpoint_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -90,7 +90,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The Event Hub-compatible consumer group name.
         """
@@ -98,7 +98,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags.
         """

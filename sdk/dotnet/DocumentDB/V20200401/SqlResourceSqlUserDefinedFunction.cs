@@ -66,9 +66,9 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
-                    new Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"},
-                    new Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

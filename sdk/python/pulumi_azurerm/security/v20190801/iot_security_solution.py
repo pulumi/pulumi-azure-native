@@ -15,7 +15,7 @@ __all__ = ['IotSecuritySolution']
 
 class IotSecuritySolution(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disabled_data_sources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDiscoveredResources")
-    def auto_discovered_resources(self) -> List[str]:
+    def auto_discovered_resources(self) -> pulumi.Output[List[str]]:
         """
         List of resources that were automatically discovered as relevant to the security solution.
         """
@@ -127,7 +127,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disabledDataSources")
-    def disabled_data_sources(self) -> Optional[List[str]]:
+    def disabled_data_sources(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Disabled data sources. Disabling these data sources compromises the system.
         """
@@ -135,7 +135,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Resource display name.
         """
@@ -143,7 +143,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def export(self) -> Optional[List[str]]:
+    def export(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of additional options for exporting to workspace data.
         """
@@ -151,7 +151,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iotHubs")
-    def iot_hubs(self) -> List[str]:
+    def iot_hubs(self) -> pulumi.Output[List[str]]:
         """
         IoT Hub resource IDs
         """
@@ -159,7 +159,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -167,7 +167,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -175,7 +175,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recommendationsConfiguration")
-    def recommendations_configuration(self) -> Optional[List['outputs.RecommendationConfigurationPropertiesResponse']]:
+    def recommendations_configuration(self) -> pulumi.Output[Optional[List['outputs.RecommendationConfigurationPropertiesResponse']]]:
         """
         List of the configuration status for each recommendation type.
         """
@@ -183,7 +183,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the IoT Security solution.
         """
@@ -191,7 +191,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -199,7 +199,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -207,7 +207,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="unmaskedIpLoggingStatus")
-    def unmasked_ip_logging_status(self) -> Optional[str]:
+    def unmasked_ip_logging_status(self) -> pulumi.Output[Optional[str]]:
         """
         Unmasked IP address logging status
         """
@@ -215,7 +215,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userDefinedResources")
-    def user_defined_resources(self) -> Optional['outputs.UserDefinedResourcesPropertiesResponse']:
+    def user_defined_resources(self) -> pulumi.Output[Optional['outputs.UserDefinedResourcesPropertiesResponse']]:
         """
         Properties of the IoT Security solution's user defined resources.
         """
@@ -223,7 +223,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def workspace(self) -> Optional[str]:
+    def workspace(self) -> pulumi.Output[Optional[str]]:
         """
         Workspace resource ID
         """

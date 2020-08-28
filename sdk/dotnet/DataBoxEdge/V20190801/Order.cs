@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:databoxedge/v20190301:Order"},
-                    new Alias { Type = "azurerm:databoxedge/v20190701:Order"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:Order"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Order"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

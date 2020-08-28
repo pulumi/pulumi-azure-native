@@ -15,7 +15,7 @@ __all__ = ['AssessmentMetadataInSubscription']
 
 class AssessmentMetadataInSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_metadata_name: Optional[pulumi.Input[str]] = None,
                  assessment_type: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assessmentType")
-    def assessment_type(self) -> str:
+    def assessment_type(self) -> pulumi.Output[str]:
         """
         BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         """
@@ -122,12 +122,12 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[List[str]]:
+    def category(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "category")
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Human readable description of the assessment
         """
@@ -135,7 +135,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         User friendly display name of the assessment
         """
@@ -143,7 +143,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="implementationEffort")
-    def implementation_effort(self) -> Optional[str]:
+    def implementation_effort(self) -> pulumi.Output[Optional[str]]:
         """
         The implementation effort required to remediate this assessment
         """
@@ -151,7 +151,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -159,7 +159,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerData")
-    def partner_data(self) -> Optional['outputs.SecurityAssessmentMetadataPartnerDataResponse']:
+    def partner_data(self) -> pulumi.Output[Optional['outputs.SecurityAssessmentMetadataPartnerDataResponse']]:
         """
         Describes the partner that created the assessment
         """
@@ -167,7 +167,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionId")
-    def policy_definition_id(self) -> str:
+    def policy_definition_id(self) -> pulumi.Output[str]:
         """
         Azure resource ID of the policy definition that turns this assessment calculation on
         """
@@ -175,7 +175,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def preview(self) -> Optional[bool]:
+    def preview(self) -> pulumi.Output[Optional[bool]]:
         """
         True if this assessment is in preview release status
         """
@@ -183,7 +183,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remediationDescription")
-    def remediation_description(self) -> Optional[str]:
+    def remediation_description(self) -> pulumi.Output[Optional[str]]:
         """
         Human readable description of what you should do to mitigate this security issue
         """
@@ -191,7 +191,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> str:
+    def severity(self) -> pulumi.Output[str]:
         """
         The severity level of the assessment
         """
@@ -199,12 +199,12 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def threats(self) -> Optional[List[str]]:
+    def threats(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "threats")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -212,7 +212,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userImpact")
-    def user_impact(self) -> Optional[str]:
+    def user_impact(self) -> pulumi.Output[Optional[str]]:
         """
         The user impact of the assessment
         """

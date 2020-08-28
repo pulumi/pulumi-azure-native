@@ -14,7 +14,7 @@ __all__ = ['DatabaseAccountGremlinDatabase']
 
 class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A system generated property representing the resource etag required for optimistic concurrency control.
         """
@@ -110,7 +110,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource group to which the resource belongs.
         """
@@ -118,7 +118,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the database account.
         """
@@ -126,7 +126,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rid(self) -> Optional[str]:
+    def rid(self) -> pulumi.Output[Optional[str]]:
         """
         A system generated property. A unique identifier.
         """
@@ -134,7 +134,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
@@ -142,7 +142,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ts(self) -> Optional[Mapping[str, Any]]:
+    def ts(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         A system generated property that denotes the last updated timestamp of the resource.
         """
@@ -150,7 +150,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of Azure resource.
         """

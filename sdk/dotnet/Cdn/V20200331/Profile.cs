@@ -81,15 +81,15 @@ namespace Pulumi.AzureRM.Cdn.V20200331
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:cdn/v20150601:Profile"},
-                    new Alias { Type = "azurerm:cdn/v20160402:Profile"},
-                    new Alias { Type = "azurerm:cdn/v20161002:Profile"},
-                    new Alias { Type = "azurerm:cdn/v20170402:Profile"},
-                    new Alias { Type = "azurerm:cdn/v20171012:Profile"},
-                    new Alias { Type = "azurerm:cdn/v20190415:Profile"},
-                    new Alias { Type = "azurerm:cdn/v20190615:Profile"},
-                    new Alias { Type = "azurerm:cdn/v20191231:Profile"},
-                    new Alias { Type = "azurerm:cdn/v20200415:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20150601:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20160402:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20161002:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20170402:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20171012:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190415:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20191231:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20200415:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

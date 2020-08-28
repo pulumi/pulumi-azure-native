@@ -15,7 +15,7 @@ __all__ = ['VMwareCollector']
 
 class VMwareCollector(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
@@ -89,22 +89,22 @@ class VMwareCollector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CollectorPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.CollectorPropertiesResponse']:
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
 
     def translate_output_property(self, prop):

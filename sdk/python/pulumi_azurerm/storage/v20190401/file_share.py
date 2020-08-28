@@ -13,7 +13,7 @@ __all__ = ['FileShare']
 
 class FileShare(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -94,7 +94,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Resource Etag.
         """
@@ -102,7 +102,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         Returns the date and time the share was last modified.
         """
@@ -110,7 +110,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A name-value pair to associate with the share as metadata.
         """
@@ -118,7 +118,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -126,7 +126,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareQuota")
-    def share_quota(self) -> Optional[float]:
+    def share_quota(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
         """
@@ -134,7 +134,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

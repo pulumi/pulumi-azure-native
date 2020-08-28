@@ -15,7 +15,7 @@ __all__ = ['ExpressRoutePort']
 
 class ExpressRoutePort(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  encapsulation: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationDate")
-    def allocation_date(self) -> str:
+    def allocation_date(self) -> pulumi.Output[str]:
         """
         Date of the physical port allocation to be used in Letter of Authorization.
         """
@@ -123,7 +123,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bandwidthInGbps")
-    def bandwidth_in_gbps(self) -> Optional[float]:
+    def bandwidth_in_gbps(self) -> pulumi.Output[Optional[float]]:
         """
         Bandwidth of procured ports in Gbps.
         """
@@ -131,7 +131,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def circuits(self) -> List['outputs.SubResourceResponse']:
+    def circuits(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
         """
@@ -139,7 +139,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encapsulation(self) -> Optional[str]:
+    def encapsulation(self) -> pulumi.Output[Optional[str]]:
         """
         Encapsulation method on physical ports.
         """
@@ -147,7 +147,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -155,7 +155,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="etherType")
-    def ether_type(self) -> str:
+    def ether_type(self) -> pulumi.Output[str]:
         """
         Ether type of the physical port.
         """
@@ -163,7 +163,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         The identity of ExpressRoutePort, if configured.
         """
@@ -171,7 +171,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[List['outputs.ExpressRouteLinkResponse']]:
+    def links(self) -> pulumi.Output[Optional[List['outputs.ExpressRouteLinkResponse']]]:
         """
         The set of physical links of the ExpressRoutePort resource.
         """
@@ -179,7 +179,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -187,7 +187,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mtu(self) -> str:
+    def mtu(self) -> pulumi.Output[str]:
         """
         Maximum transmission unit of the physical port pair(s).
         """
@@ -195,7 +195,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -203,7 +203,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringLocation")
-    def peering_location(self) -> Optional[str]:
+    def peering_location(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the peering location that the ExpressRoutePort is mapped to physically.
         """
@@ -211,7 +211,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedBandwidthInGbps")
-    def provisioned_bandwidth_in_gbps(self) -> float:
+    def provisioned_bandwidth_in_gbps(self) -> pulumi.Output[float]:
         """
         Aggregate Gbps of associated circuit bandwidths.
         """
@@ -219,7 +219,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the express route port resource.
         """
@@ -227,7 +227,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
+    def resource_guid(self) -> pulumi.Output[str]:
         """
         The resource GUID property of the express route port resource.
         """
@@ -235,7 +235,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -243,7 +243,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

@@ -15,7 +15,7 @@ __all__ = ['SavedSearch']
 
 class SavedSearch(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> str:
+    def category(self) -> pulumi.Output[str]:
         """
         The category of the saved search. This helps the user to find a saved search faster. 
         """
@@ -120,7 +120,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Saved search display name.
         """
@@ -128,7 +128,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         The ETag of the saved search.
         """
@@ -136,7 +136,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the saved search.
         """
@@ -144,7 +144,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> str:
+    def query(self) -> pulumi.Output[str]:
         """
         The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
         """
@@ -152,7 +152,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List['outputs.TagResponse']]:
+    def tags(self) -> pulumi.Output[Optional[List['outputs.TagResponse']]]:
         """
         The tags attached to the saved search.
         """
@@ -160,7 +160,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the saved search.
         """
@@ -168,7 +168,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[float]:
+    def version(self) -> pulumi.Output[Optional[float]]:
         """
         The version number of the query language. The current version is 2 and is the default.
         """

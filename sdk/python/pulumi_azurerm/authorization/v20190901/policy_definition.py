@@ -15,7 +15,7 @@ __all__ = ['PolicyDefinition']
 
 class PolicyDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The policy definition description.
         """
@@ -107,7 +107,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name of the policy definition.
         """
@@ -115,7 +115,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         """
@@ -123,7 +123,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[str]:
+    def mode(self) -> pulumi.Output[Optional[str]]:
         """
         The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
         """
@@ -131,7 +131,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy definition.
         """
@@ -139,7 +139,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']]]:
         """
         The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         """
@@ -147,7 +147,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyRule")
-    def policy_rule(self) -> Optional[Mapping[str, Any]]:
+    def policy_rule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The policy rule.
         """
@@ -155,7 +155,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[str]:
+    def policy_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
@@ -163,7 +163,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource (Microsoft.Authorization/policyDefinitions).
         """

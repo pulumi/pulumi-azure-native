@@ -123,8 +123,8 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:notificationhubs/v20140901:NamespaceAuthorizationRule"},
-                    new Alias { Type = "azurerm:notificationhubs/v20160301:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azurerm:notificationhubs/v20140901:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azurerm:notificationhubs/v20160301:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

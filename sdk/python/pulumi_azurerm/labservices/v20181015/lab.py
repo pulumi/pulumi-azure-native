@@ -14,7 +14,7 @@ __all__ = ['Lab']
 
 class Lab(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lab_account_name: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdByObjectId")
-    def created_by_object_id(self) -> str:
+    def created_by_object_id(self) -> pulumi.Output[str]:
         """
         Object id of the user that created the lab.
         """
@@ -120,7 +120,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdByUserPrincipalName")
-    def created_by_user_principal_name(self) -> str:
+    def created_by_user_principal_name(self) -> pulumi.Output[str]:
         """
         Lab creator name
         """
@@ -128,7 +128,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         Creation date for the lab
         """
@@ -136,7 +136,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitationCode")
-    def invitation_code(self) -> str:
+    def invitation_code(self) -> pulumi.Output[str]:
         """
         Invitation code that users can use to join a lab.
         """
@@ -144,7 +144,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> pulumi.Output['outputs.LatestOperationResultResponse']:
         """
         The details of the latest operation. ex: status, error
         """
@@ -152,7 +152,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -160,7 +160,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxUsersInLab")
-    def max_users_in_lab(self) -> Optional[float]:
+    def max_users_in_lab(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum number of users allowed in the lab.
         """
@@ -168,7 +168,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -176,7 +176,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -184,7 +184,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -192,7 +192,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -200,7 +200,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """
@@ -208,7 +208,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageQuota")
-    def usage_quota(self) -> Optional[str]:
+    def usage_quota(self) -> pulumi.Output[Optional[str]]:
         """
         Maximum duration a user can use an environment for in the lab.
         """
@@ -216,7 +216,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userAccessMode")
-    def user_access_mode(self) -> Optional[str]:
+    def user_access_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Lab user access mode (open to all vs. restricted to those listed on the lab).
         """
@@ -224,7 +224,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userQuota")
-    def user_quota(self) -> float:
+    def user_quota(self) -> pulumi.Output[float]:
         """
         Maximum value MaxUsersInLab can be set to, as specified by the service
         """

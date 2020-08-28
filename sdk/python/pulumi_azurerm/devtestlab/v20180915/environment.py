@@ -15,7 +15,7 @@ __all__ = ['Environment']
 
 class Environment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arm_template_display_name: Optional[pulumi.Input[str]] = None,
                  deployment_properties: Optional[pulumi.Input[pulumi.InputType['EnvironmentDeploymentPropertiesArgs']]] = None,
@@ -108,7 +108,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="armTemplateDisplayName")
-    def arm_template_display_name(self) -> Optional[str]:
+    def arm_template_display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name of the Azure Resource Manager template that produced the environment.
         """
@@ -116,7 +116,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdByUser")
-    def created_by_user(self) -> str:
+    def created_by_user(self) -> pulumi.Output[str]:
         """
         The creator of the environment.
         """
@@ -124,7 +124,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentProperties")
-    def deployment_properties(self) -> Optional['outputs.EnvironmentDeploymentPropertiesResponse']:
+    def deployment_properties(self) -> pulumi.Output[Optional['outputs.EnvironmentDeploymentPropertiesResponse']]:
         """
         The deployment properties of the environment.
         """
@@ -132,7 +132,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -140,7 +140,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -148,7 +148,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the resource.
         """
@@ -156,7 +156,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupId")
-    def resource_group_id(self) -> str:
+    def resource_group_id(self) -> pulumi.Output[str]:
         """
         The identifier of the resource group containing the environment's resources.
         """
@@ -164,7 +164,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -172,7 +172,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -180,7 +180,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
+    def unique_identifier(self) -> pulumi.Output[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """

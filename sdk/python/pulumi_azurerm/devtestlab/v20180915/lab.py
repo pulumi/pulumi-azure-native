@@ -15,7 +15,7 @@ __all__ = ['Lab']
 
 class Lab(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  announcement: Optional[pulumi.Input[pulumi.InputType['LabAnnouncementPropertiesArgs']]] = None,
                  environment_permission: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def announcement(self) -> Optional['outputs.LabAnnouncementPropertiesResponse']:
+    def announcement(self) -> pulumi.Output[Optional['outputs.LabAnnouncementPropertiesResponse']]:
         """
         The properties of any lab announcement associated with this lab
         """
@@ -134,7 +134,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="artifactsStorageAccount")
-    def artifacts_storage_account(self) -> str:
+    def artifacts_storage_account(self) -> pulumi.Output[str]:
         """
         The lab's artifact storage account.
         """
@@ -142,7 +142,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the lab.
         """
@@ -150,7 +150,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPremiumStorageAccount")
-    def default_premium_storage_account(self) -> str:
+    def default_premium_storage_account(self) -> pulumi.Output[str]:
         """
         The lab's default premium storage account.
         """
@@ -158,7 +158,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultStorageAccount")
-    def default_storage_account(self) -> str:
+    def default_storage_account(self) -> pulumi.Output[str]:
         """
         The lab's default storage account.
         """
@@ -166,7 +166,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentPermission")
-    def environment_permission(self) -> Optional[str]:
+    def environment_permission(self) -> pulumi.Output[Optional[str]]:
         """
         The access rights to be granted to the user when provisioning an environment
         """
@@ -174,7 +174,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> Optional[Mapping[str, str]]:
+    def extended_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Extended properties of the lab used for experimental features
         """
@@ -182,7 +182,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="labStorageType")
-    def lab_storage_type(self) -> Optional[str]:
+    def lab_storage_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         """
@@ -190,7 +190,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerId")
-    def load_balancer_id(self) -> str:
+    def load_balancer_id(self) -> pulumi.Output[str]:
         """
         The load balancer used to for lab VMs that use shared IP address.
         """
@@ -198,7 +198,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -206,7 +206,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mandatoryArtifactsResourceIdsLinux")
-    def mandatory_artifacts_resource_ids_linux(self) -> Optional[List[str]]:
+    def mandatory_artifacts_resource_ids_linux(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
         """
@@ -214,7 +214,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mandatoryArtifactsResourceIdsWindows")
-    def mandatory_artifacts_resource_ids_windows(self) -> Optional[List[str]]:
+    def mandatory_artifacts_resource_ids_windows(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         """
@@ -222,7 +222,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -230,7 +230,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkSecurityGroupId")
-    def network_security_group_id(self) -> str:
+    def network_security_group_id(self) -> pulumi.Output[str]:
         """
         The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
         """
@@ -238,7 +238,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="premiumDataDiskStorageAccount")
-    def premium_data_disk_storage_account(self) -> str:
+    def premium_data_disk_storage_account(self) -> pulumi.Output[str]:
         """
         The lab's premium data disk storage account.
         """
@@ -246,7 +246,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="premiumDataDisks")
-    def premium_data_disks(self) -> Optional[str]:
+    def premium_data_disks(self) -> pulumi.Output[Optional[str]]:
         """
         The setting to enable usage of premium data disks.
         When its value is 'Enabled', creation of standard or premium data disks is allowed.
@@ -256,7 +256,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the resource.
         """
@@ -264,7 +264,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpId")
-    def public_ip_id(self) -> str:
+    def public_ip_id(self) -> pulumi.Output[str]:
         """
         The public IP address for the lab's load balancer.
         """
@@ -272,7 +272,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def support(self) -> Optional['outputs.LabSupportPropertiesResponse']:
+    def support(self) -> pulumi.Output[Optional['outputs.LabSupportPropertiesResponse']]:
         """
         The properties of any lab support message associated with this lab
         """
@@ -280,7 +280,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -288,7 +288,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -296,7 +296,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
+    def unique_identifier(self) -> pulumi.Output[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """
@@ -304,7 +304,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vaultName")
-    def vault_name(self) -> str:
+    def vault_name(self) -> pulumi.Output[str]:
         """
         The lab's Key vault.
         """
@@ -312,7 +312,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmCreationResourceGroup")
-    def vm_creation_resource_group(self) -> str:
+    def vm_creation_resource_group(self) -> pulumi.Output[str]:
         """
         The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
         """

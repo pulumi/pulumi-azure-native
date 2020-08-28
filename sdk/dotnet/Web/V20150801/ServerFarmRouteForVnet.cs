@@ -93,10 +93,10 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20160901:ServerFarmRouteForVnet"},
-                    new Alias { Type = "azurerm:web/v20180201:ServerFarmRouteForVnet"},
-                    new Alias { Type = "azurerm:web/v20190801:ServerFarmRouteForVnet"},
-                    new Alias { Type = "azurerm:web/v20200601:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160901:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:ServerFarmRouteForVnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

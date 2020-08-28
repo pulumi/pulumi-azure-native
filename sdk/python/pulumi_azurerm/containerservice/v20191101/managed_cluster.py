@@ -15,7 +15,7 @@ __all__ = ['ManagedCluster']
 
 class ManagedCluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']]] = None,
                  addon_profiles: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]]] = None,
@@ -140,7 +140,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aadProfile")
-    def aad_profile(self) -> Optional['outputs.ManagedClusterAADProfileResponse']:
+    def aad_profile(self) -> pulumi.Output[Optional['outputs.ManagedClusterAADProfileResponse']]:
         """
         Profile of Azure Active Directory configuration.
         """
@@ -148,7 +148,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addonProfiles")
-    def addon_profiles(self) -> Optional[Mapping[str, 'outputs.ManagedClusterAddonProfileResponse']]:
+    def addon_profiles(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ManagedClusterAddonProfileResponse']]]:
         """
         Profile of managed cluster add-on.
         """
@@ -156,7 +156,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[List['outputs.ManagedClusterAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> pulumi.Output[Optional[List['outputs.ManagedClusterAgentPoolProfileResponse']]]:
         """
         Properties of the agent pool.
         """
@@ -164,7 +164,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiServerAccessProfile")
-    def api_server_access_profile(self) -> Optional['outputs.ManagedClusterAPIServerAccessProfileResponse']:
+    def api_server_access_profile(self) -> pulumi.Output[Optional['outputs.ManagedClusterAPIServerAccessProfileResponse']]:
         """
         Access profile for managed cluster API server.
         """
@@ -172,7 +172,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsPrefix")
-    def dns_prefix(self) -> Optional[str]:
+    def dns_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         DNS prefix specified when creating the managed cluster.
         """
@@ -180,7 +180,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
-    def enable_pod_security_policy(self) -> Optional[bool]:
+    def enable_pod_security_policy(self) -> pulumi.Output[Optional[bool]]:
         """
         (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         """
@@ -188,7 +188,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableRBAC")
-    def enable_rbac(self) -> Optional[bool]:
+    def enable_rbac(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable Kubernetes Role-Based Access Control.
         """
@@ -196,7 +196,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         FQDN for the master pool.
         """
@@ -204,7 +204,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedClusterIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedClusterIdentityResponse']]:
         """
         The identity of the managed cluster, if configured.
         """
@@ -212,7 +212,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityProfile")
-    def identity_profile(self) -> Optional[Mapping[str, 'outputs.ManagedClusterPropertiesResponseIdentityProfile']]:
+    def identity_profile(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ManagedClusterPropertiesResponseIdentityProfile']]]:
         """
         Identities associated with the cluster.
         """
@@ -220,7 +220,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubernetesVersion")
-    def kubernetes_version(self) -> Optional[str]:
+    def kubernetes_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of Kubernetes specified when creating the managed cluster.
         """
@@ -228,7 +228,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> Optional['outputs.ContainerServiceLinuxProfileResponse']:
+    def linux_profile(self) -> pulumi.Output[Optional['outputs.ContainerServiceLinuxProfileResponse']]:
         """
         Profile for Linux VMs in the container service cluster.
         """
@@ -236,7 +236,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -244,7 +244,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxAgentPools")
-    def max_agent_pools(self) -> float:
+    def max_agent_pools(self) -> pulumi.Output[float]:
         """
         The max number of agent pools for the managed cluster.
         """
@@ -252,7 +252,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -260,7 +260,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.ContainerServiceNetworkProfileResponse']:
+    def network_profile(self) -> pulumi.Output[Optional['outputs.ContainerServiceNetworkProfileResponse']]:
         """
         Profile of network configuration.
         """
@@ -268,7 +268,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeResourceGroup")
-    def node_resource_group(self) -> Optional[str]:
+    def node_resource_group(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the resource group containing agent pool nodes.
         """
@@ -276,7 +276,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateFQDN")
-    def private_fqdn(self) -> str:
+    def private_fqdn(self) -> pulumi.Output[str]:
         """
         FQDN of private cluster.
         """
@@ -284,7 +284,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment or provisioning state, which only appears in the response.
         """
@@ -292,7 +292,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicePrincipalProfile")
-    def service_principal_profile(self) -> Optional['outputs.ManagedClusterServicePrincipalProfileResponse']:
+    def service_principal_profile(self) -> pulumi.Output[Optional['outputs.ManagedClusterServicePrincipalProfileResponse']]:
         """
         Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         """
@@ -300,7 +300,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -308,7 +308,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -316,7 +316,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional['outputs.ManagedClusterWindowsProfileResponse']:
+    def windows_profile(self) -> pulumi.Output[Optional['outputs.ManagedClusterWindowsProfileResponse']]:
         """
         Profile for Windows VMs in the container service cluster.
         """

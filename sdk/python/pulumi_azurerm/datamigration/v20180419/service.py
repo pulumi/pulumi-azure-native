@@ -15,7 +15,7 @@ __all__ = ['Service']
 
 class Service(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         HTTP strong entity tag value. Ignored if submitted
         """
@@ -115,7 +115,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The resource kind. Only 'vm' (the default) is supported.
         """
@@ -123,7 +123,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -131,7 +131,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -139,7 +139,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The resource's provisioning state
         """
@@ -147,7 +147,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[str]:
+    def public_key(self) -> pulumi.Output[Optional[str]]:
         """
         The public key of the service, used to encrypt secrets sent to the service
         """
@@ -155,7 +155,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ServiceSkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.ServiceSkuResponse']]:
         """
         Service SKU
         """
@@ -163,7 +163,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -171,7 +171,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -179,7 +179,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualSubnetId")
-    def virtual_subnet_id(self) -> str:
+    def virtual_subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """

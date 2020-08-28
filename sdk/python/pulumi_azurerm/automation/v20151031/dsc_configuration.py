@@ -15,7 +15,7 @@ __all__ = ['DscConfiguration']
 
 class DscConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the creation time.
         """
@@ -126,7 +126,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -134,7 +134,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the etag of the resource.
         """
@@ -142,7 +142,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobCount")
-    def job_count(self) -> Optional[float]:
+    def job_count(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the job count of the configuration.
         """
@@ -150,7 +150,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last modified time.
         """
@@ -158,7 +158,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region where the resource lives
         """
@@ -166,7 +166,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logVerbose")
-    def log_verbose(self) -> Optional[bool]:
+    def log_verbose(self) -> pulumi.Output[Optional[bool]]:
         """
         Gets or sets verbose log option.
         """
@@ -174,7 +174,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -182,7 +182,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeConfigurationCount")
-    def node_configuration_count(self) -> Optional[float]:
+    def node_configuration_count(self) -> pulumi.Output[Optional[float]]:
         """
         Gets the number of compiled node configurations.
         """
@@ -190,7 +190,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.DscConfigurationParameterResponse']]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DscConfigurationParameterResponse']]]:
         """
         Gets or sets the configuration parameters.
         """
@@ -198,7 +198,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the provisioning state of the configuration.
         """
@@ -206,7 +206,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.ContentSourceResponse']:
+    def source(self) -> pulumi.Output[Optional['outputs.ContentSourceResponse']]:
         """
         Gets or sets the source.
         """
@@ -214,7 +214,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the state of the configuration.
         """
@@ -222,7 +222,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -230,7 +230,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

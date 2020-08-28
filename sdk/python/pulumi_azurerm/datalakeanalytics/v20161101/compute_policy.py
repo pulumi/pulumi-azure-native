@@ -13,7 +13,7 @@ __all__ = ['ComputePolicy']
 
 class ComputePolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  compute_policy_name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class ComputePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> float:
+    def max_degree_of_parallelism_per_job(self) -> pulumi.Output[float]:
         """
         The maximum degree of parallelism per job this user can use to submit jobs.
         """
@@ -108,7 +108,7 @@ class ComputePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minPriorityPerJob")
-    def min_priority_per_job(self) -> float:
+    def min_priority_per_job(self) -> pulumi.Output[float]:
         """
         The minimum priority per job this user can use to submit jobs.
         """
@@ -116,7 +116,7 @@ class ComputePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -124,7 +124,7 @@ class ComputePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> str:
+    def object_id(self) -> pulumi.Output[str]:
         """
         The AAD object identifier for the entity to create a policy for.
         """
@@ -132,7 +132,7 @@ class ComputePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectType")
-    def object_type(self) -> str:
+    def object_type(self) -> pulumi.Output[str]:
         """
         The type of AAD object the object identifier refers to.
         """
@@ -140,7 +140,7 @@ class ComputePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """

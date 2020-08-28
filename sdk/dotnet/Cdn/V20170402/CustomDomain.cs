@@ -87,15 +87,15 @@ namespace Pulumi.AzureRM.Cdn.V20170402
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:cdn/v20150601:CustomDomain"},
-                    new Alias { Type = "azurerm:cdn/v20160402:CustomDomain"},
-                    new Alias { Type = "azurerm:cdn/v20161002:CustomDomain"},
-                    new Alias { Type = "azurerm:cdn/v20171012:CustomDomain"},
-                    new Alias { Type = "azurerm:cdn/v20190415:CustomDomain"},
-                    new Alias { Type = "azurerm:cdn/v20190615:CustomDomain"},
-                    new Alias { Type = "azurerm:cdn/v20191231:CustomDomain"},
-                    new Alias { Type = "azurerm:cdn/v20200331:CustomDomain"},
-                    new Alias { Type = "azurerm:cdn/v20200415:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20150601:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20160402:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20161002:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20171012:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190415:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20191231:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20200331:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20200415:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

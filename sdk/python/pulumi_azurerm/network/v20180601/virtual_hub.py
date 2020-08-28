@@ -15,7 +15,7 @@ __all__ = ['VirtualHub']
 
 class VirtualHub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  hub_virtual_network_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
@@ -107,7 +107,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[str]:
+    def address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Address-prefix for this VirtualHub.
         """
@@ -115,7 +115,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -123,7 +123,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hubVirtualNetworkConnections")
-    def hub_virtual_network_connections(self) -> Optional[List['outputs.HubVirtualNetworkConnectionResponse']]:
+    def hub_virtual_network_connections(self) -> pulumi.Output[Optional[List['outputs.HubVirtualNetworkConnectionResponse']]]:
         """
         list of all vnet connections with this VirtualHub.
         """
@@ -131,7 +131,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -139,7 +139,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -147,7 +147,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the resource.
         """
@@ -155,7 +155,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -163,7 +163,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -171,7 +171,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualWan")
-    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_wan(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The VirtualWAN to which the VirtualHub belongs
         """

@@ -129,16 +129,16 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20190401:PrivateLinkService"},
-                    new Alias { Type = "azurerm:network/v20190601:PrivateLinkService"},
-                    new Alias { Type = "azurerm:network/v20190701:PrivateLinkService"},
-                    new Alias { Type = "azurerm:network/v20190801:PrivateLinkService"},
-                    new Alias { Type = "azurerm:network/v20190901:PrivateLinkService"},
-                    new Alias { Type = "azurerm:network/v20191101:PrivateLinkService"},
-                    new Alias { Type = "azurerm:network/v20191201:PrivateLinkService"},
-                    new Alias { Type = "azurerm:network/v20200301:PrivateLinkService"},
-                    new Alias { Type = "azurerm:network/v20200401:PrivateLinkService"},
-                    new Alias { Type = "azurerm:network/v20200501:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190401:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190601:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190701:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190801:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190901:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191101:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:PrivateLinkService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

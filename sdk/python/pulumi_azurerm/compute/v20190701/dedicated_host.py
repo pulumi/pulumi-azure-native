@@ -15,7 +15,7 @@ __all__ = ['DedicatedHost']
 
 class DedicatedHost(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
                  host_group_name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoReplaceOnFailure")
-    def auto_replace_on_failure(self) -> Optional[bool]:
+    def auto_replace_on_failure(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
         """
@@ -123,7 +123,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostId")
-    def host_id(self) -> str:
+    def host_id(self) -> pulumi.Output[str]:
         """
         A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
         """
@@ -131,7 +131,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> 'outputs.DedicatedHostInstanceViewResponse':
+    def instance_view(self) -> pulumi.Output['outputs.DedicatedHostInstanceViewResponse']:
         """
         The dedicated host instance view.
         """
@@ -139,7 +139,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[str]:
+    def license_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
         """
@@ -147,7 +147,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -155,7 +155,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -163,7 +163,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformFaultDomain")
-    def platform_fault_domain(self) -> Optional[float]:
+    def platform_fault_domain(self) -> pulumi.Output[Optional[float]]:
         """
         Fault domain of the dedicated host within a dedicated host group.
         """
@@ -171,7 +171,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state, which only appears in the response.
         """
@@ -179,7 +179,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningTime")
-    def provisioning_time(self) -> str:
+    def provisioning_time(self) -> pulumi.Output[str]:
         """
         The date when the host was first provisioned.
         """
@@ -187,7 +187,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         """
@@ -195,7 +195,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -203,7 +203,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -211,7 +211,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> List['outputs.SubResourceReadOnlyResponse']:
+    def virtual_machines(self) -> pulumi.Output[List['outputs.SubResourceReadOnlyResponse']]:
         """
         A list of references to all virtual machines in the Dedicated Host.
         """

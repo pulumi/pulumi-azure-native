@@ -129,7 +129,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:devtestlab/v20160515:GlobalSchedule"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:GlobalSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

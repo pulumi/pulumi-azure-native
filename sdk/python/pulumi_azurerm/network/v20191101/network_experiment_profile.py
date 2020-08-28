@@ -13,7 +13,7 @@ __all__ = ['NetworkExperimentProfile']
 
 class NetworkExperimentProfile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled_state: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[str]:
+    def enabled_state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the Experiment
         """
@@ -104,7 +104,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -112,7 +112,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -120,7 +120,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -128,7 +128,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
+    def resource_state(self) -> pulumi.Output[Optional[str]]:
         """
         Resource status.
         """
@@ -136,7 +136,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -144,7 +144,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

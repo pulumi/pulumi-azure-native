@@ -13,7 +13,7 @@ __all__ = ['Project']
 
 class Project(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_workspace_id: Optional[pulumi.Input[str]] = None,
                  customer_workspace_location: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTimestamp")
-    def created_timestamp(self) -> str:
+    def created_timestamp(self) -> pulumi.Output[str]:
         """
         Time when this project was created. Date-Time represented in ISO-8601 format.
         """
@@ -114,7 +114,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerWorkspaceId")
-    def customer_workspace_id(self) -> Optional[str]:
+    def customer_workspace_id(self) -> pulumi.Output[Optional[str]]:
         """
         ARM ID of the Service Map workspace created by user.
         """
@@ -122,7 +122,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerWorkspaceLocation")
-    def customer_workspace_location(self) -> Optional[str]:
+    def customer_workspace_location(self) -> pulumi.Output[Optional[str]]:
         """
         Location of the Service Map workspace created by user.
         """
@@ -130,7 +130,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="discoveryStatus")
-    def discovery_status(self) -> str:
+    def discovery_status(self) -> pulumi.Output[str]:
         """
         Reports whether project is under discovery.
         """
@@ -138,7 +138,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         For optimistic concurrency control.
         """
@@ -146,7 +146,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastAssessmentTimestamp")
-    def last_assessment_timestamp(self) -> str:
+    def last_assessment_timestamp(self) -> pulumi.Output[str]:
         """
         Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
         """
@@ -154,7 +154,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastDiscoverySessionId")
-    def last_discovery_session_id(self) -> str:
+    def last_discovery_session_id(self) -> pulumi.Output[str]:
         """
         Session id of the last discovery.
         """
@@ -162,7 +162,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastDiscoveryTimestamp")
-    def last_discovery_timestamp(self) -> str:
+    def last_discovery_timestamp(self) -> pulumi.Output[str]:
         """
         Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
         """
@@ -170,7 +170,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Azure location in which project is created.
         """
@@ -178,7 +178,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the project.
         """
@@ -186,7 +186,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfAssessments")
-    def number_of_assessments(self) -> float:
+    def number_of_assessments(self) -> pulumi.Output[float]:
         """
         Number of assessments created in the project.
         """
@@ -194,7 +194,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfGroups")
-    def number_of_groups(self) -> float:
+    def number_of_groups(self) -> pulumi.Output[float]:
         """
         Number of groups created in the project.
         """
@@ -202,7 +202,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfMachines")
-    def number_of_machines(self) -> float:
+    def number_of_machines(self) -> pulumi.Output[float]:
         """
         Number of machines in the project.
         """
@@ -210,7 +210,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning state of the project.
         """
@@ -218,7 +218,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Tags provided by Azure Tagging service.
         """
@@ -226,7 +226,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the object = [Microsoft.Migrate/projects].
         """
@@ -234,7 +234,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedTimestamp")
-    def updated_timestamp(self) -> str:
+    def updated_timestamp(self) -> pulumi.Output[str]:
         """
         Time when this project was last updated. Date-Time represented in ISO-8601 format.
         """

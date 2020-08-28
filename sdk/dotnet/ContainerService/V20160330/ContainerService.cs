@@ -105,9 +105,9 @@ namespace Pulumi.AzureRM.ContainerService.V20160330
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:containerservice/v20160930:ContainerService"},
-                    new Alias { Type = "azurerm:containerservice/v20170131:ContainerService"},
-                    new Alias { Type = "azurerm:containerservice/v20170701:ContainerService"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20160930:ContainerService"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20170131:ContainerService"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20170701:ContainerService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

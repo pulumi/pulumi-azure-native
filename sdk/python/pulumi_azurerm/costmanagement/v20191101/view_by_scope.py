@@ -15,7 +15,7 @@ __all__ = ['ViewByScope']
 
 class ViewByScope(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: Optional[pulumi.Input[str]] = None,
                  chart: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accumulated(self) -> Optional[str]:
+    def accumulated(self) -> pulumi.Output[Optional[str]]:
         """
         Show costs accumulated over time.
         """
@@ -129,7 +129,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def chart(self) -> Optional[str]:
+    def chart(self) -> pulumi.Output[Optional[str]]:
         """
         Chart type of the main view in Cost Analysis. Required.
         """
@@ -137,7 +137,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> str:
+    def created_on(self) -> pulumi.Output[str]:
         """
         Date the user created this view.
         """
@@ -145,7 +145,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dataset(self) -> Optional['outputs.ReportConfigDatasetResponse']:
+    def dataset(self) -> pulumi.Output[Optional['outputs.ReportConfigDatasetResponse']]:
         """
         Has definition for data in this report config.
         """
@@ -153,7 +153,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         User input name of the view. Required.
         """
@@ -161,7 +161,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
@@ -169,7 +169,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kpis(self) -> Optional[List['outputs.KpiPropertiesResponse']]:
+    def kpis(self) -> pulumi.Output[Optional[List['outputs.KpiPropertiesResponse']]]:
         """
         List of KPIs to show in Cost Analysis UI.
         """
@@ -177,7 +177,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metric(self) -> Optional[str]:
+    def metric(self) -> pulumi.Output[Optional[str]]:
         """
         Metric to use when displaying costs.
         """
@@ -185,7 +185,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modifiedOn")
-    def modified_on(self) -> str:
+    def modified_on(self) -> pulumi.Output[str]:
         """
         Date when the user last modified this view.
         """
@@ -193,7 +193,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -201,7 +201,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def pivots(self) -> Optional[List['outputs.PivotPropertiesResponse']]:
+    def pivots(self) -> pulumi.Output[Optional[List['outputs.PivotPropertiesResponse']]]:
         """
         Configuration of 3 sub-views in the Cost Analysis UI.
         """
@@ -209,7 +209,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[str]:
+    def scope(self) -> pulumi.Output[Optional[str]]:
         """
         Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         """
@@ -217,7 +217,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional['outputs.ReportConfigTimePeriodResponse']:
+    def time_period(self) -> pulumi.Output[Optional['outputs.ReportConfigTimePeriodResponse']]:
         """
         Has time period for pulling data for the report.
         """
@@ -225,7 +225,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeframe(self) -> str:
+    def timeframe(self) -> pulumi.Output[str]:
         """
         The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         """
@@ -233,7 +233,7 @@ class ViewByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

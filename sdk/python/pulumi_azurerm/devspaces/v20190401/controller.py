@@ -15,7 +15,7 @@ __all__ = ['Controller']
 
 class Controller(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataPlaneFqdn")
-    def data_plane_fqdn(self) -> str:
+    def data_plane_fqdn(self) -> pulumi.Output[str]:
         """
         DNS name for accessing DataPlane services
         """
@@ -114,7 +114,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostSuffix")
-    def host_suffix(self) -> str:
+    def host_suffix(self) -> pulumi.Output[str]:
         """
         DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
         """
@@ -122,7 +122,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Region where the Azure resource is located.
         """
@@ -130,7 +130,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -138,7 +138,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the Azure Dev Spaces Controller.
         """
@@ -146,7 +146,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         Model representing SKU for Azure Dev Spaces Controller.
         """
@@ -154,7 +154,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags for the Azure resource.
         """
@@ -162,7 +162,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetContainerHostApiServerFqdn")
-    def target_container_host_api_server_fqdn(self) -> str:
+    def target_container_host_api_server_fqdn(self) -> pulumi.Output[str]:
         """
         DNS of the target container host's API server
         """
@@ -170,7 +170,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetContainerHostCredentialsBase64")
-    def target_container_host_credentials_base64(self) -> str:
+    def target_container_host_credentials_base64(self) -> pulumi.Output[str]:
         """
         Credentials of the target container host (base64).
         """
@@ -178,7 +178,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetContainerHostResourceId")
-    def target_container_host_resource_id(self) -> str:
+    def target_container_host_resource_id(self) -> pulumi.Output[str]:
         """
         Resource ID of the target container host
         """
@@ -186,7 +186,7 @@ class Controller(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

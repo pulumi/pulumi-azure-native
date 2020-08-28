@@ -15,7 +15,7 @@ __all__ = ['ApiManagementService']
 
 class ApiManagementService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]]] = None,
                  addresser_email: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> Optional[List['outputs.AdditionalRegionResponse']]:
+    def additional_locations(self) -> pulumi.Output[Optional[List['outputs.AdditionalRegionResponse']]]:
         """
         Additional datacenter locations of the API Management service.
         """
@@ -143,7 +143,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addresserEmail")
-    def addresser_email(self) -> Optional[str]:
+    def addresser_email(self) -> pulumi.Output[Optional[str]]:
         """
         Addresser email.
         """
@@ -151,7 +151,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAtUtc")
-    def created_at_utc(self) -> str:
+    def created_at_utc(self) -> pulumi.Output[str]:
         """
         Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
@@ -159,7 +159,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customProperties")
-    def custom_properties(self) -> Optional[Mapping[str, str]]:
+    def custom_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Custom properties of the API Management service, like disabling TLS 1.0.
         """
@@ -167,7 +167,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         ETag of the resource.
         """
@@ -175,7 +175,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> Optional[List['outputs.HostnameConfigurationResponse']]:
+    def hostname_configurations(self) -> pulumi.Output[Optional[List['outputs.HostnameConfigurationResponse']]]:
         """
         Custom hostname configuration of the API Management service.
         """
@@ -183,7 +183,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Datacenter location of the API Management service.
         """
@@ -191,7 +191,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementApiUrl")
-    def management_api_url(self) -> str:
+    def management_api_url(self) -> pulumi.Output[str]:
         """
         Management API endpoint URL of the API Management service.
         """
@@ -199,7 +199,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the API Management service.
         """
@@ -207,7 +207,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="portalUrl")
-    def portal_url(self) -> str:
+    def portal_url(self) -> pulumi.Output[str]:
         """
         Publisher portal endpoint Url of the API Management service.
         """
@@ -215,7 +215,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
         """
@@ -223,7 +223,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publisherEmail")
-    def publisher_email(self) -> str:
+    def publisher_email(self) -> pulumi.Output[str]:
         """
         Publisher email.
         """
@@ -231,7 +231,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publisherName")
-    def publisher_name(self) -> str:
+    def publisher_name(self) -> pulumi.Output[str]:
         """
         Publisher name.
         """
@@ -239,7 +239,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runtimeUrl")
-    def runtime_url(self) -> str:
+    def runtime_url(self) -> pulumi.Output[str]:
         """
         Proxy endpoint URL of the API Management service.
         """
@@ -247,7 +247,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scmUrl")
-    def scm_url(self) -> str:
+    def scm_url(self) -> pulumi.Output[str]:
         """
         SCM endpoint URL of the API Management service.
         """
@@ -255,7 +255,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ApiManagementServiceSkuPropertiesResponse':
+    def sku(self) -> pulumi.Output['outputs.ApiManagementServiceSkuPropertiesResponse']:
         """
         SKU properties of the API Management service.
         """
@@ -263,7 +263,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="staticIPs")
-    def static_ips(self) -> List[str]:
+    def static_ips(self) -> pulumi.Output[List[str]]:
         """
         Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
         """
@@ -271,7 +271,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
         """
@@ -279,7 +279,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetProvisioningState")
-    def target_provisioning_state(self) -> str:
+    def target_provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
         """
@@ -287,7 +287,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type of the API Management service.
         """
@@ -295,7 +295,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnType")
-    def vpn_type(self) -> Optional[str]:
+    def vpn_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         """
@@ -303,7 +303,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vpnconfiguration(self) -> Optional['outputs.VirtualNetworkConfigurationResponse']:
+    def vpnconfiguration(self) -> pulumi.Output[Optional['outputs.VirtualNetworkConfigurationResponse']]:
         """
         Virtual network configuration of the API Management service.
         """

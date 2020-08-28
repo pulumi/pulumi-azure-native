@@ -15,7 +15,7 @@ __all__ = ['LiveOutput']
 
 class LiveOutput(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  archive_window_length: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="archiveWindowLength")
-    def archive_window_length(self) -> str:
+    def archive_window_length(self) -> pulumi.Output[str]:
         """
         ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
         """
@@ -127,7 +127,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assetName")
-    def asset_name(self) -> str:
+    def asset_name(self) -> pulumi.Output[str]:
         """
         The asset name.
         """
@@ -135,7 +135,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The exact time the Live Output was created.
         """
@@ -143,7 +143,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the Live Output.
         """
@@ -151,7 +151,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hls(self) -> Optional['outputs.HlsResponse']:
+    def hls(self) -> pulumi.Output[Optional['outputs.HlsResponse']]:
         """
         The HLS configuration.
         """
@@ -159,7 +159,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> pulumi.Output[str]:
         """
         The exact time the Live Output was last modified.
         """
@@ -167,7 +167,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="manifestName")
-    def manifest_name(self) -> Optional[str]:
+    def manifest_name(self) -> pulumi.Output[Optional[str]]:
         """
         The manifest file name.  If not provided, the service will generate one automatically.
         """
@@ -175,7 +175,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -183,7 +183,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputSnapTime")
-    def output_snap_time(self) -> Optional[float]:
+    def output_snap_time(self) -> pulumi.Output[Optional[float]]:
         """
         The output snapshot time.
         """
@@ -191,7 +191,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the Live Output.
         """
@@ -199,7 +199,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         The resource state of the Live Output.
         """
@@ -207,7 +207,7 @@ class LiveOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

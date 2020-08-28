@@ -15,7 +15,7 @@ __all__ = ['Share']
 
 class Share(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_protocol: Optional[pulumi.Input[str]] = None,
                  azure_container_info: Optional[pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']]] = None,
@@ -121,7 +121,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessProtocol")
-    def access_protocol(self) -> str:
+    def access_protocol(self) -> pulumi.Output[str]:
         """
         Access protocol to be used by the share.
         """
@@ -129,7 +129,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureContainerInfo")
-    def azure_container_info(self) -> Optional['outputs.AzureContainerInfoResponse']:
+    def azure_container_info(self) -> pulumi.Output[Optional['outputs.AzureContainerInfoResponse']]:
         """
         Azure container mapping for the share.
         """
@@ -137,7 +137,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientAccessRights")
-    def client_access_rights(self) -> Optional[List['outputs.ClientAccessRightResponse']]:
+    def client_access_rights(self) -> pulumi.Output[Optional[List['outputs.ClientAccessRightResponse']]]:
         """
         List of IP addresses and corresponding access rights on the share(required for NFS protocol).
         """
@@ -145,7 +145,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> Optional[str]:
+    def data_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Data policy of the share.
         """
@@ -153,7 +153,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description for the share.
         """
@@ -161,7 +161,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> str:
+    def monitoring_status(self) -> pulumi.Output[str]:
         """
         Current monitoring status of the share.
         """
@@ -169,7 +169,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The object name.
         """
@@ -177,7 +177,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshDetails")
-    def refresh_details(self) -> Optional['outputs.RefreshDetailsResponse']:
+    def refresh_details(self) -> pulumi.Output[Optional['outputs.RefreshDetailsResponse']]:
         """
         Details of the refresh job on this share.
         """
@@ -185,7 +185,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareMappings")
-    def share_mappings(self) -> List['outputs.MountPointMapResponse']:
+    def share_mappings(self) -> pulumi.Output[List['outputs.MountPointMapResponse']]:
         """
         Share mount point to the role.
         """
@@ -193,7 +193,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> str:
+    def share_status(self) -> pulumi.Output[str]:
         """
         Current status of the share.
         """
@@ -201,7 +201,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """
@@ -209,7 +209,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userAccessRights")
-    def user_access_rights(self) -> Optional[List['outputs.UserAccessRightResponse']]:
+    def user_access_rights(self) -> pulumi.Output[Optional[List['outputs.UserAccessRightResponse']]]:
         """
         Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """

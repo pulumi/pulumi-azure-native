@@ -13,7 +13,7 @@ __all__ = ['FileShare']
 
 class FileShare(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> Optional[str]:
+    def access_tier(self) -> pulumi.Output[Optional[str]]:
         """
         Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         """
@@ -118,7 +118,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTierChangeTime")
-    def access_tier_change_time(self) -> str:
+    def access_tier_change_time(self) -> pulumi.Output[str]:
         """
         Indicates the last modification time for share access tier.
         """
@@ -126,7 +126,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTierStatus")
-    def access_tier_status(self) -> str:
+    def access_tier_status(self) -> pulumi.Output[str]:
         """
         Indicates if there is a pending transition for access tier.
         """
@@ -134,7 +134,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def deleted(self) -> bool:
+    def deleted(self) -> pulumi.Output[bool]:
         """
         Indicates whether the share was deleted.
         """
@@ -142,7 +142,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deletedTime")
-    def deleted_time(self) -> str:
+    def deleted_time(self) -> pulumi.Output[str]:
         """
         The deleted time if the share was deleted.
         """
@@ -150,7 +150,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledProtocols")
-    def enabled_protocols(self) -> Optional[str]:
+    def enabled_protocols(self) -> pulumi.Output[Optional[str]]:
         """
         The authentication protocol that is used for the file share. Can only be specified when creating a share.
         """
@@ -158,7 +158,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Resource Etag.
         """
@@ -166,7 +166,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         Returns the date and time the share was last modified.
         """
@@ -174,7 +174,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A name-value pair to associate with the share as metadata.
         """
@@ -182,7 +182,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -190,7 +190,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remainingRetentionDays")
-    def remaining_retention_days(self) -> float:
+    def remaining_retention_days(self) -> pulumi.Output[float]:
         """
         Remaining retention days for share that was soft deleted.
         """
@@ -198,7 +198,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootSquash")
-    def root_squash(self) -> Optional[str]:
+    def root_squash(self) -> pulumi.Output[Optional[str]]:
         """
         The property is for NFS share only. The default is NoRootSquash.
         """
@@ -206,7 +206,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareQuota")
-    def share_quota(self) -> Optional[float]:
+    def share_quota(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
         """
@@ -214,7 +214,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareUsageBytes")
-    def share_usage_bytes(self) -> float:
+    def share_usage_bytes(self) -> pulumi.Output[float]:
         """
         The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         """
@@ -222,7 +222,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -230,7 +230,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The version of the share.
         """

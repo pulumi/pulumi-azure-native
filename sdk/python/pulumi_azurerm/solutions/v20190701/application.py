@@ -15,7 +15,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_id: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationDefinitionId")
-    def application_definition_id(self) -> Optional[str]:
+    def application_definition_id(self) -> pulumi.Output[Optional[str]]:
         """
         The fully qualified path of managed application definition Id.
         """
@@ -137,7 +137,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> List['outputs.ApplicationArtifactResponse']:
+    def artifacts(self) -> pulumi.Output[List['outputs.ApplicationArtifactResponse']]:
         """
         The collection of managed application artifacts.
         """
@@ -145,7 +145,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> List['outputs.ApplicationAuthorizationResponse']:
+    def authorizations(self) -> pulumi.Output[List['outputs.ApplicationAuthorizationResponse']]:
         """
         The  read-only authorizations property that is retrieved from the application package.
         """
@@ -153,7 +153,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="billingDetails")
-    def billing_details(self) -> 'outputs.ApplicationBillingDetailsDefinitionResponse':
+    def billing_details(self) -> pulumi.Output['outputs.ApplicationBillingDetailsDefinitionResponse']:
         """
         The managed application billing details.
         """
@@ -161,7 +161,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> 'outputs.ApplicationClientDetailsResponse':
+    def created_by(self) -> pulumi.Output['outputs.ApplicationClientDetailsResponse']:
         """
         The client entity that created the JIT request.
         """
@@ -169,7 +169,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerSupport")
-    def customer_support(self) -> 'outputs.ApplicationPackageContactResponse':
+    def customer_support(self) -> pulumi.Output['outputs.ApplicationPackageContactResponse']:
         """
         The read-only customer support property that is retrieved from the application package.
         """
@@ -177,7 +177,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The identity of the resource.
         """
@@ -185,7 +185,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jitAccessPolicy")
-    def jit_access_policy(self) -> Optional['outputs.ApplicationJitAccessPolicyResponse']:
+    def jit_access_policy(self) -> pulumi.Output[Optional['outputs.ApplicationJitAccessPolicyResponse']]:
         """
         The managed application Jit access policy.
         """
@@ -193,7 +193,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         """
@@ -201,7 +201,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -209,7 +209,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[str]:
+    def managed_by(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the resource that manages this resource.
         """
@@ -217,7 +217,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> Optional[str]:
+    def managed_resource_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The managed resource group Id.
         """
@@ -225,7 +225,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementMode")
-    def management_mode(self) -> str:
+    def management_mode(self) -> pulumi.Output[str]:
         """
         The managed application management mode.
         """
@@ -233,7 +233,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -241,7 +241,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, Any]:
+    def outputs(self) -> pulumi.Output[Mapping[str, Any]]:
         """
         Name and value pairs that define the managed application outputs.
         """
@@ -249,7 +249,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         """
@@ -257,7 +257,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
         """
         The plan information.
         """
@@ -265,7 +265,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The managed application provisioning state.
         """
@@ -273,7 +273,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publisherTenantId")
-    def publisher_tenant_id(self) -> str:
+    def publisher_tenant_id(self) -> pulumi.Output[str]:
         """
         The publisher tenant Id.
         """
@@ -281,7 +281,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The SKU of the resource.
         """
@@ -289,7 +289,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportUrls")
-    def support_urls(self) -> 'outputs.ApplicationPackageSupportUrlsResponse':
+    def support_urls(self) -> pulumi.Output['outputs.ApplicationPackageSupportUrlsResponse']:
         """
         The read-only support URLs property that is retrieved from the application package.
         """
@@ -297,7 +297,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -305,7 +305,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -313,7 +313,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> 'outputs.ApplicationClientDetailsResponse':
+    def updated_by(self) -> pulumi.Output['outputs.ApplicationClientDetailsResponse']:
         """
         The client entity that last updated the JIT request.
         """

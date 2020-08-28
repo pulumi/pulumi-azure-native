@@ -15,7 +15,7 @@ __all__ = ['AccountFilter']
 
 class AccountFilter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  filter_name: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class AccountFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firstQuality")
-    def first_quality(self) -> Optional['outputs.FirstQualityResponse']:
+    def first_quality(self) -> pulumi.Output[Optional['outputs.FirstQualityResponse']]:
         """
         The first quality.
         """
@@ -105,7 +105,7 @@ class AccountFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -113,7 +113,7 @@ class AccountFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="presentationTimeRange")
-    def presentation_time_range(self) -> Optional['outputs.PresentationTimeRangeResponse']:
+    def presentation_time_range(self) -> pulumi.Output[Optional['outputs.PresentationTimeRangeResponse']]:
         """
         The presentation time range.
         """
@@ -121,7 +121,7 @@ class AccountFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tracks(self) -> Optional[List['outputs.FilterTrackSelectionResponse']]:
+    def tracks(self) -> pulumi.Output[Optional[List['outputs.FilterTrackSelectionResponse']]]:
         """
         The tracks selection conditions.
         """
@@ -129,7 +129,7 @@ class AccountFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

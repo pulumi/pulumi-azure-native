@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:logic/v20160601:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20160601:IntegrationAccountMap"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

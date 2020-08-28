@@ -13,7 +13,7 @@ __all__ = ['RegisteredPrefix']
 
 class RegisteredPrefix(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,7 @@ class RegisteredPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> str:
+    def error_message(self) -> pulumi.Output[str]:
         """
         The error message associated with the validation state, if any.
         """
@@ -99,7 +99,7 @@ class RegisteredPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -107,7 +107,7 @@ class RegisteredPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringServicePrefixKey")
-    def peering_service_prefix_key(self) -> str:
+    def peering_service_prefix_key(self) -> pulumi.Output[str]:
         """
         The peering service prefix key that is to be shared with the customer.
         """
@@ -115,7 +115,7 @@ class RegisteredPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def prefix(self) -> Optional[str]:
+    def prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The customer's prefix from which traffic originates.
         """
@@ -123,7 +123,7 @@ class RegisteredPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="prefixValidationState")
-    def prefix_validation_state(self) -> str:
+    def prefix_validation_state(self) -> pulumi.Output[str]:
         """
         The prefix validation state.
         """
@@ -131,7 +131,7 @@ class RegisteredPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """
@@ -139,7 +139,7 @@ class RegisteredPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['Module']
 
 class Module(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
@@ -110,7 +110,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activityCount")
-    def activity_count(self) -> Optional[float]:
+    def activity_count(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the activity count of the module.
         """
@@ -118,7 +118,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentLink")
-    def content_link(self) -> Optional['outputs.ContentLinkResponse']:
+    def content_link(self) -> pulumi.Output[Optional['outputs.ContentLinkResponse']]:
         """
         Gets or sets the contentLink of the module.
         """
@@ -126,7 +126,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the creation time.
         """
@@ -134,7 +134,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -142,7 +142,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ModuleErrorInfoResponse']:
+    def error(self) -> pulumi.Output[Optional['outputs.ModuleErrorInfoResponse']]:
         """
         Gets or sets the error info of the module.
         """
@@ -150,7 +150,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the etag of the resource.
         """
@@ -158,7 +158,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isComposite")
-    def is_composite(self) -> Optional[bool]:
+    def is_composite(self) -> pulumi.Output[Optional[bool]]:
         """
         Gets or sets type of module, if its composite or not.
         """
@@ -166,7 +166,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[bool]:
+    def is_global(self) -> pulumi.Output[Optional[bool]]:
         """
         Gets or sets the isGlobal flag of the module.
         """
@@ -174,7 +174,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last modified time.
         """
@@ -182,7 +182,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region where the resource lives
         """
@@ -190,7 +190,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -198,7 +198,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the provisioning state of the module.
         """
@@ -206,7 +206,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> Optional[float]:
+    def size_in_bytes(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the size in bytes of the module.
         """
@@ -214,7 +214,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -222,7 +222,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -230,7 +230,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the version of the module.
         """

@@ -15,7 +15,7 @@ __all__ = ['Job']
 
 class Job(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  correlation_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -117,7 +117,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="correlationData")
-    def correlation_data(self) -> Optional[Mapping[str, str]]:
+    def correlation_data(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Customer provided key, value pairs that will be returned in Job and JobOutput state events.
         """
@@ -125,7 +125,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
         """
@@ -133,7 +133,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Optional customer supplied description of the Job.
         """
@@ -141,7 +141,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> str:
+    def end_time(self) -> pulumi.Output[str]:
         """
         The UTC date and time at which this Job finished processing.
         """
@@ -149,7 +149,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def input(self) -> 'outputs.JobInputResponse':
+    def input(self) -> pulumi.Output['outputs.JobInputResponse']:
         """
         The inputs for the Job.
         """
@@ -157,7 +157,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> pulumi.Output[str]:
         """
         The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
         """
@@ -165,7 +165,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -173,7 +173,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> List['outputs.JobOutputResponse']:
+    def outputs(self) -> pulumi.Output[List['outputs.JobOutputResponse']]:
         """
         The outputs for the Job.
         """
@@ -181,7 +181,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[str]:
+    def priority(self) -> pulumi.Output[Optional[str]]:
         """
         Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         """
@@ -189,7 +189,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
+    def start_time(self) -> pulumi.Output[str]:
         """
         The UTC date and time at which this Job began processing.
         """
@@ -197,7 +197,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The current state of the job.
         """
@@ -205,7 +205,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

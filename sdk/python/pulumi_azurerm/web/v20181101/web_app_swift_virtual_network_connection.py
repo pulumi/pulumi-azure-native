@@ -13,7 +13,7 @@ __all__ = ['WebAppSwiftVirtualNetworkConnection']
 
 class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -97,7 +97,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -105,7 +105,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetResourceId")
-    def subnet_resource_id(self) -> Optional[str]:
+    def subnet_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
         """
@@ -113,7 +113,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="swiftSupported")
-    def swift_supported(self) -> Optional[bool]:
+    def swift_supported(self) -> pulumi.Output[Optional[bool]]:
         """
         A flag that specifies if the scale unit this Web App is on supports Swift integration.
         """
@@ -121,7 +121,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

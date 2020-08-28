@@ -15,7 +15,7 @@ __all__ = ['PatchSchedule']
 
 class PatchSchedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class PatchSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -100,7 +100,7 @@ class PatchSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduleEntries")
-    def schedule_entries(self) -> List['outputs.ScheduleEntryResponse']:
+    def schedule_entries(self) -> pulumi.Output[List['outputs.ScheduleEntryResponse']]:
         """
         List of patch schedules for a Redis cache.
         """
@@ -108,7 +108,7 @@ class PatchSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

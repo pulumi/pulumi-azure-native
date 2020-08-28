@@ -117,7 +117,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:customerinsights/v20170101:Connector"},
+                    new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:Connector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

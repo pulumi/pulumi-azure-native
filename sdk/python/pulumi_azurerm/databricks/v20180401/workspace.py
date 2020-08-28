@@ -15,7 +15,7 @@ __all__ = ['Workspace']
 
 class Workspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]]] = None,
                  created_date_time: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[List['outputs.WorkspaceProviderAuthorizationResponse']]:
+    def authorizations(self) -> pulumi.Output[Optional[List['outputs.WorkspaceProviderAuthorizationResponse']]]:
         """
         The workspace provider authorizations.
         """
@@ -123,7 +123,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional['outputs.CreatedByResponse']:
+    def created_by(self) -> pulumi.Output[Optional['outputs.CreatedByResponse']]:
         """
         Indicates the Object ID, PUID and Application ID of entity that created the workspace.
         """
@@ -131,7 +131,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDateTime")
-    def created_date_time(self) -> Optional[str]:
+    def created_date_time(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the date and time when the workspace is created.
         """
@@ -139,7 +139,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -147,7 +147,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> str:
+    def managed_resource_group_id(self) -> pulumi.Output[str]:
         """
         The managed resource group Id.
         """
@@ -155,7 +155,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -163,7 +163,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional['outputs.WorkspaceCustomParametersResponse']:
+    def parameters(self) -> pulumi.Output[Optional['outputs.WorkspaceCustomParametersResponse']]:
         """
         The workspace's custom parameters.
         """
@@ -171,7 +171,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The workspace provisioning state.
         """
@@ -179,7 +179,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The SKU of the resource.
         """
@@ -187,7 +187,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountIdentity")
-    def storage_account_identity(self) -> Optional['outputs.ManagedIdentityConfigurationResponse']:
+    def storage_account_identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityConfigurationResponse']]:
         """
         The details of Managed Identity of Storage Account
         """
@@ -195,7 +195,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -203,7 +203,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -211,7 +211,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uiDefinitionUri")
-    def ui_definition_uri(self) -> Optional[str]:
+    def ui_definition_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The blob URI where the UI definition file is located.
         """
@@ -219,7 +219,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> Optional['outputs.CreatedByResponse']:
+    def updated_by(self) -> pulumi.Output[Optional['outputs.CreatedByResponse']]:
         """
         Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
         """
@@ -227,7 +227,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> str:
+    def workspace_id(self) -> pulumi.Output[str]:
         """
         The unique identifier of the databricks workspace in databricks control plane.
         """
@@ -235,7 +235,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceUrl")
-    def workspace_url(self) -> str:
+    def workspace_url(self) -> pulumi.Output[str]:
         """
         The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
         """

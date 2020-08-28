@@ -13,7 +13,7 @@ __all__ = ['IscsiServer']
 
 class IscsiServer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_schedule_group_id: Optional[pulumi.Input[str]] = None,
                  chap_id: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class IscsiServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupScheduleGroupId")
-    def backup_schedule_group_id(self) -> str:
+    def backup_schedule_group_id(self) -> pulumi.Output[str]:
         """
         The backup policy id.
         """
@@ -116,7 +116,7 @@ class IscsiServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="chapId")
-    def chap_id(self) -> Optional[str]:
+    def chap_id(self) -> pulumi.Output[Optional[str]]:
         """
         The chap id.
         """
@@ -124,7 +124,7 @@ class IscsiServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description.
         """
@@ -132,7 +132,7 @@ class IscsiServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name.
         """
@@ -140,7 +140,7 @@ class IscsiServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reverseChapId")
-    def reverse_chap_id(self) -> Optional[str]:
+    def reverse_chap_id(self) -> pulumi.Output[Optional[str]]:
         """
         The reverse chap id.
         """
@@ -148,7 +148,7 @@ class IscsiServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageDomainId")
-    def storage_domain_id(self) -> str:
+    def storage_domain_id(self) -> pulumi.Output[str]:
         """
         The storage domain id.
         """
@@ -156,7 +156,7 @@ class IscsiServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type.
         """

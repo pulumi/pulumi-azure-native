@@ -138,10 +138,10 @@ namespace Pulumi.AzureRM.ContainerInstance.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:containerinstance/v20180401:ContainerGroup"},
-                    new Alias { Type = "azurerm:containerinstance/v20180601:ContainerGroup"},
-                    new Alias { Type = "azurerm:containerinstance/v20180901:ContainerGroup"},
-                    new Alias { Type = "azurerm:containerinstance/v20191201:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20180401:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20180601:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20180901:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:containerinstance/v20191201:ContainerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

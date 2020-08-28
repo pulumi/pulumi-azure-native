@@ -13,7 +13,7 @@ __all__ = ['ServerAzureADAdministrator']
 
 class ServerAzureADAdministrator(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_name: Optional[pulumi.Input[str]] = None,
                  administrator_type: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorType")
-    def administrator_type(self) -> str:
+    def administrator_type(self) -> pulumi.Output[str]:
         """
         The type of administrator.
         """
@@ -112,7 +112,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def login(self) -> str:
+    def login(self) -> pulumi.Output[str]:
         """
         The server administrator login value.
         """
@@ -120,7 +120,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -128,7 +128,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sid(self) -> str:
+    def sid(self) -> pulumi.Output[str]:
         """
         The server administrator Sid (Secure ID).
         """
@@ -136,7 +136,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The server Active Directory Administrator tenant id.
         """
@@ -144,7 +144,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

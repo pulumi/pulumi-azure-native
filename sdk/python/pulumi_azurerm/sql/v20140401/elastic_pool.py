@@ -13,7 +13,7 @@ __all__ = ['ElasticPool']
 
 class ElasticPool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_dtu_max: Optional[pulumi.Input[float]] = None,
                  database_dtu_min: Optional[pulumi.Input[float]] = None,
@@ -113,7 +113,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The creation date of the elastic pool (ISO8601 format).
         """
@@ -121,7 +121,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseDtuMax")
-    def database_dtu_max(self) -> Optional[float]:
+    def database_dtu_max(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum DTU any one database can consume.
         """
@@ -129,7 +129,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseDtuMin")
-    def database_dtu_min(self) -> Optional[float]:
+    def database_dtu_min(self) -> pulumi.Output[Optional[float]]:
         """
         The minimum DTU all databases are guaranteed.
         """
@@ -137,7 +137,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dtu(self) -> Optional[float]:
+    def dtu(self) -> pulumi.Output[Optional[float]]:
         """
         The total shared DTU for the database elastic pool.
         """
@@ -145,7 +145,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def edition(self) -> Optional[str]:
+    def edition(self) -> pulumi.Output[Optional[str]]:
         """
         The edition of the elastic pool.
         """
@@ -153,7 +153,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         Kind of elastic pool.  This is metadata used for the Azure portal experience.
         """
@@ -161,7 +161,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -169,7 +169,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -177,7 +177,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The state of the elastic pool.
         """
@@ -185,7 +185,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageMB")
-    def storage_mb(self) -> Optional[float]:
+    def storage_mb(self) -> pulumi.Output[Optional[float]]:
         """
         Gets storage limit for the database elastic pool in MB.
         """
@@ -193,7 +193,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -201,7 +201,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -209,7 +209,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[bool]:
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """

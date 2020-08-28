@@ -15,7 +15,7 @@ __all__ = ['Server']
 
 class Server(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[str]:
+    def administrator_login(self) -> pulumi.Output[Optional[str]]:
         """
         The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         """
@@ -123,7 +123,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="byokEnforcement")
-    def byok_enforcement(self) -> str:
+    def byok_enforcement(self) -> pulumi.Output[str]:
         """
         Status showing whether the server data encryption is enabled with customer-managed keys.
         """
@@ -131,7 +131,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="earliestRestoreDate")
-    def earliest_restore_date(self) -> Optional[str]:
+    def earliest_restore_date(self) -> pulumi.Output[Optional[str]]:
         """
         Earliest restore point creation time (ISO8601 format)
         """
@@ -139,7 +139,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
-    def fully_qualified_domain_name(self) -> Optional[str]:
+    def fully_qualified_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The fully qualified domain name of a server.
         """
@@ -147,7 +147,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
         """
         The Azure Active Directory identity of the server.
         """
@@ -155,7 +155,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="infrastructureEncryption")
-    def infrastructure_encryption(self) -> Optional[str]:
+    def infrastructure_encryption(self) -> pulumi.Output[Optional[str]]:
         """
         Status showing whether the server enabled infrastructure encryption.
         """
@@ -163,7 +163,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location the resource resides in.
         """
@@ -171,7 +171,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterServerId")
-    def master_server_id(self) -> Optional[str]:
+    def master_server_id(self) -> pulumi.Output[Optional[str]]:
         """
         The master server id of a replica server.
         """
@@ -179,7 +179,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> Optional[str]:
+    def minimal_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
         Enforce a minimal Tls version for the server.
         """
@@ -187,7 +187,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -195,7 +195,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.ServerPrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> pulumi.Output[List['outputs.ServerPrivateEndpointConnectionResponse']]:
         """
         List of private endpoint connections on a server
         """
@@ -203,7 +203,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
         """
         Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
@@ -211,7 +211,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicaCapacity")
-    def replica_capacity(self) -> Optional[float]:
+    def replica_capacity(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum number of replicas that a master server can have.
         """
@@ -219,7 +219,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationRole")
-    def replication_role(self) -> Optional[str]:
+    def replication_role(self) -> pulumi.Output[Optional[str]]:
         """
         The replication role of the server.
         """
@@ -227,7 +227,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The SKU (pricing tier) of the server.
         """
@@ -235,7 +235,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslEnforcement")
-    def ssl_enforcement(self) -> Optional[str]:
+    def ssl_enforcement(self) -> pulumi.Output[Optional[str]]:
         """
         Enable ssl enforcement or not when connect to server.
         """
@@ -243,7 +243,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
+    def storage_profile(self) -> pulumi.Output[Optional['outputs.StorageProfileResponse']]:
         """
         Storage profile of a server.
         """
@@ -251,7 +251,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Application-specific metadata in the form of key-value pairs.
         """
@@ -259,7 +259,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -267,7 +267,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userVisibleState")
-    def user_visible_state(self) -> Optional[str]:
+    def user_visible_state(self) -> pulumi.Output[Optional[str]]:
         """
         A state of a server that is visible to user.
         """
@@ -275,7 +275,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         Server version.
         """

@@ -93,9 +93,9 @@ namespace Pulumi.AzureRM.Network.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20200401:SecurityPartnerProvider"},
-                    new Alias { Type = "azurerm:network/v20200501:SecurityPartnerProvider"},
-                    new Alias { Type = "azurerm:network/v20200601:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:SecurityPartnerProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,7 +15,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_type: Optional[pulumi.Input[str]] = None,
                  confirmation: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> Optional[str]:
+    def email(self) -> pulumi.Output[Optional[str]]:
         """
         Email address.
         """
@@ -134,7 +134,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[str]:
+    def first_name(self) -> pulumi.Output[Optional[str]]:
         """
         First name.
         """
@@ -142,7 +142,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> List['outputs.GroupContractPropertiesResponse']:
+    def groups(self) -> pulumi.Output[List['outputs.GroupContractPropertiesResponse']]:
         """
         Collection of groups user is part of.
         """
@@ -150,7 +150,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identities(self) -> Optional[List['outputs.UserIdentityContractResponse']]:
+    def identities(self) -> pulumi.Output[Optional[List['outputs.UserIdentityContractResponse']]]:
         """
         Collection of user identities.
         """
@@ -158,7 +158,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[str]:
+    def last_name(self) -> pulumi.Output[Optional[str]]:
         """
         Last name.
         """
@@ -166,7 +166,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -174,7 +174,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def note(self) -> Optional[str]:
+    def note(self) -> pulumi.Output[Optional[str]]:
         """
         Optional note about a user set by the administrator.
         """
@@ -182,7 +182,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationDate")
-    def registration_date(self) -> Optional[str]:
+    def registration_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
@@ -190,7 +190,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
         """
@@ -198,7 +198,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

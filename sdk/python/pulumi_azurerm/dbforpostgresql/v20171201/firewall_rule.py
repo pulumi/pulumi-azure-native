@@ -13,7 +13,7 @@ __all__ = ['FirewallRule']
 
 class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_ip_address: Optional[pulumi.Input[str]] = None,
                  firewall_rule_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> str:
+    def end_ip_address(self) -> pulumi.Output[str]:
         """
         The end IP address of the server firewall rule. Must be IPv4 format.
         """
@@ -102,7 +102,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -110,7 +110,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> str:
+    def start_ip_address(self) -> pulumi.Output[str]:
         """
         The start IP address of the server firewall rule. Must be IPv4 format.
         """
@@ -118,7 +118,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

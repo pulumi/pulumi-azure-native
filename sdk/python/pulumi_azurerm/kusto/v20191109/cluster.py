@@ -15,7 +15,7 @@ __all__ = ['Cluster']
 
 class Cluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
@@ -125,7 +125,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataIngestionUri")
-    def data_ingestion_uri(self) -> str:
+    def data_ingestion_uri(self) -> pulumi.Output[str]:
         """
         The cluster data ingestion URI.
         """
@@ -133,7 +133,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableDiskEncryption")
-    def enable_disk_encryption(self) -> Optional[bool]:
+    def enable_disk_encryption(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean value that indicates if the cluster's disks are encrypted.
         """
@@ -141,7 +141,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableStreamingIngest")
-    def enable_streaming_ingest(self) -> Optional[bool]:
+    def enable_streaming_ingest(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean value that indicates if the streaming ingest is enabled.
         """
@@ -149,7 +149,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The identity of the cluster, if configured.
         """
@@ -157,7 +157,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+    def key_vault_properties(self) -> pulumi.Output[Optional['outputs.KeyVaultPropertiesResponse']]:
         """
         KeyVault properties for the cluster encryption.
         """
@@ -165,7 +165,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -173,7 +173,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -181,7 +181,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optimizedAutoscale")
-    def optimized_autoscale(self) -> Optional['outputs.OptimizedAutoscaleResponse']:
+    def optimized_autoscale(self) -> pulumi.Output[Optional['outputs.OptimizedAutoscaleResponse']]:
         """
         Optimized auto scale definition.
         """
@@ -189,7 +189,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioned state of the resource.
         """
@@ -197,7 +197,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.AzureSkuResponse':
+    def sku(self) -> pulumi.Output['outputs.AzureSkuResponse']:
         """
         The SKU of the cluster.
         """
@@ -205,7 +205,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The state of the resource.
         """
@@ -213,7 +213,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stateReason")
-    def state_reason(self) -> str:
+    def state_reason(self) -> pulumi.Output[str]:
         """
         The reason for the cluster's current state.
         """
@@ -221,7 +221,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -229,7 +229,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedExternalTenants")
-    def trusted_external_tenants(self) -> Optional[List['outputs.TrustedExternalTenantResponse']]:
+    def trusted_external_tenants(self) -> pulumi.Output[Optional[List['outputs.TrustedExternalTenantResponse']]]:
         """
         The cluster's external tenants.
         """
@@ -237,7 +237,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -245,7 +245,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> str:
+    def uri(self) -> pulumi.Output[str]:
         """
         The cluster URI.
         """
@@ -253,7 +253,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> Optional['outputs.VirtualNetworkConfigurationResponse']:
+    def virtual_network_configuration(self) -> pulumi.Output[Optional['outputs.VirtualNetworkConfigurationResponse']]:
         """
         Virtual network definition.
         """
@@ -261,7 +261,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The availability zones of the cluster.
         """

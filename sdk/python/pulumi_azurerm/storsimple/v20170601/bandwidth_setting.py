@@ -15,7 +15,7 @@ __all__ = ['BandwidthSetting']
 
 class BandwidthSetting(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_setting_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class BandwidthSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The Kind of the object. Currently only Series8000 is supported
         """
@@ -103,7 +103,7 @@ class BandwidthSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the object.
         """
@@ -111,7 +111,7 @@ class BandwidthSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedules(self) -> List['outputs.BandwidthScheduleResponse']:
+    def schedules(self) -> pulumi.Output[List['outputs.BandwidthScheduleResponse']]:
         """
         The schedules.
         """
@@ -119,7 +119,7 @@ class BandwidthSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """
@@ -127,7 +127,7 @@ class BandwidthSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> float:
+    def volume_count(self) -> pulumi.Output[float]:
         """
         The number of volumes that uses the bandwidth setting.
         """

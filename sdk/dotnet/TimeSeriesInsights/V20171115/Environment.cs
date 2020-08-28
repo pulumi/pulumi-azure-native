@@ -117,7 +117,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:timeseriesinsights/v20200515:Environment"},
+                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20200515:Environment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

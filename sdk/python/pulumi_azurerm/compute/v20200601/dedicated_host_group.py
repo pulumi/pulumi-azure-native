@@ -14,7 +14,7 @@ __all__ = ['DedicatedHostGroup']
 
 class DedicatedHostGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  host_group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hosts(self) -> List['outputs.SubResourceReadOnlyResponse']:
+    def hosts(self) -> pulumi.Output[List['outputs.SubResourceReadOnlyResponse']]:
         """
         A list of references to all dedicated hosts in the dedicated host group.
         """
@@ -111,7 +111,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> 'outputs.DedicatedHostGroupInstanceViewResponse':
+    def instance_view(self) -> pulumi.Output['outputs.DedicatedHostGroupInstanceViewResponse']:
         """
         The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
         """
@@ -119,7 +119,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -127,7 +127,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -135,7 +135,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> float:
+    def platform_fault_domain_count(self) -> pulumi.Output[float]:
         """
         Number of fault domains that the host group can span.
         """
@@ -143,7 +143,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportAutomaticPlacement")
-    def support_automatic_placement(self) -> Optional[bool]:
+    def support_automatic_placement(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
         """
@@ -151,7 +151,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -159,7 +159,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -167,7 +167,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """

@@ -15,7 +15,7 @@ __all__ = ['ScheduledQueryRule']
 
 class ScheduledQueryRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[pulumi.InputType['ActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> 'outputs.ActionResponse':
+    def action(self) -> pulumi.Output['outputs.ActionResponse']:
         """
         Action needs to be taken on rule execution.
         """
@@ -118,7 +118,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the Log Search rule.
         """
@@ -126,7 +126,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[str]:
+    def enabled(self) -> pulumi.Output[Optional[str]]:
         """
         The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         """
@@ -134,7 +134,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> str:
+    def last_updated_time(self) -> pulumi.Output[str]:
         """
         Last time the rule was updated in IS08601 format.
         """
@@ -142,7 +142,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -150,7 +150,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -158,7 +158,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the scheduled query rule
         """
@@ -166,7 +166,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ScheduleResponse']:
+    def schedule(self) -> pulumi.Output[Optional['outputs.ScheduleResponse']]:
         """
         Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
         """
@@ -174,7 +174,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> 'outputs.SourceResponse':
+    def source(self) -> pulumi.Output['outputs.SourceResponse']:
         """
         Data Source against which rule will Query Data
         """
@@ -182,7 +182,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -190,7 +190,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """

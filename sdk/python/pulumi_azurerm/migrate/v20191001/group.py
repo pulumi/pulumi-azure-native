@@ -14,7 +14,7 @@ __all__ = ['Group']
 
 class Group(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         For optimistic concurrency control.
         """
@@ -97,7 +97,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the group.
         """
@@ -105,7 +105,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.GroupPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.GroupPropertiesResponse']:
         """
         Properties of the group.
         """
@@ -113,7 +113,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
         """

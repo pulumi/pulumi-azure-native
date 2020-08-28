@@ -15,7 +15,7 @@ __all__ = ['ReplicationRecoveryPlan']
 
 class ReplicationRecoveryPlan(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CreateRecoveryPlanInputPropertiesArgs']]] = None,
                  recovery_plan_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Location
         """
@@ -102,7 +102,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name
         """
@@ -110,7 +110,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RecoveryPlanPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.RecoveryPlanPropertiesResponse']:
         """
         The custom details.
         """
@@ -118,7 +118,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource Type
         """

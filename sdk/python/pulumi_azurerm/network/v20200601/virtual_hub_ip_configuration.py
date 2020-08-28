@@ -15,7 +15,7 @@ __all__ = ['VirtualHubIpConfiguration']
 
 class VirtualHubIpConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_config_name: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -115,7 +115,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the Ip Configuration.
         """
@@ -123,7 +123,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIPAddress")
-    def private_ip_address(self) -> Optional[str]:
+    def private_ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The private IP address of the IP configuration.
         """
@@ -131,7 +131,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIPAllocationMethod")
-    def private_ip_allocation_method(self) -> Optional[str]:
+    def private_ip_allocation_method(self) -> pulumi.Output[Optional[str]]:
         """
         The private IP address allocation method.
         """
@@ -139,7 +139,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the IP configuration resource.
         """
@@ -147,7 +147,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIPAddress")
-    def public_ip_address(self) -> Optional['outputs.PublicIPAddressResponse']:
+    def public_ip_address(self) -> pulumi.Output[Optional['outputs.PublicIPAddressResponse']]:
         """
         The reference to the public IP resource.
         """
@@ -155,7 +155,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.SubnetResponse']:
+    def subnet(self) -> pulumi.Output[Optional['outputs.SubnetResponse']]:
         """
         The reference to the subnet resource.
         """
@@ -163,7 +163,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Ipconfiguration type.
         """

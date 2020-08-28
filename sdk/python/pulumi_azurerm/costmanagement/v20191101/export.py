@@ -15,7 +15,7 @@ __all__ = ['Export']
 
 class Export(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['QueryDefinitionArgs']]] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']]] = None,
@@ -100,7 +100,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> 'outputs.QueryDefinitionResponse':
+    def definition(self) -> pulumi.Output['outputs.QueryDefinitionResponse']:
         """
         Has definition for the export.
         """
@@ -108,7 +108,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryInfo")
-    def delivery_info(self) -> 'outputs.ExportDeliveryInfoResponse':
+    def delivery_info(self) -> pulumi.Output['outputs.ExportDeliveryInfoResponse']:
         """
         Has delivery information for the export.
         """
@@ -116,7 +116,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[str]:
+    def format(self) -> pulumi.Output[Optional[str]]:
         """
         The format of the export being delivered.
         """
@@ -124,7 +124,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -132,7 +132,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ExportScheduleResponse']:
+    def schedule(self) -> pulumi.Output[Optional['outputs.ExportScheduleResponse']]:
         """
         Has schedule information for the export.
         """
@@ -140,7 +140,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Resource tags.
         """
@@ -148,7 +148,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

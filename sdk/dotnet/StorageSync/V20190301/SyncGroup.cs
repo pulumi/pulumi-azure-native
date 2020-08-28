@@ -63,13 +63,13 @@ namespace Pulumi.AzureRM.StorageSync.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:storagesync/v20180402:SyncGroup"},
-                    new Alias { Type = "azurerm:storagesync/v20180701:SyncGroup"},
-                    new Alias { Type = "azurerm:storagesync/v20181001:SyncGroup"},
-                    new Alias { Type = "azurerm:storagesync/v20190201:SyncGroup"},
-                    new Alias { Type = "azurerm:storagesync/v20190601:SyncGroup"},
-                    new Alias { Type = "azurerm:storagesync/v20191001:SyncGroup"},
-                    new Alias { Type = "azurerm:storagesync/v20200301:SyncGroup"},
+                    new Pulumi.Alias { Type = "azurerm:storagesync/v20180402:SyncGroup"},
+                    new Pulumi.Alias { Type = "azurerm:storagesync/v20180701:SyncGroup"},
+                    new Pulumi.Alias { Type = "azurerm:storagesync/v20181001:SyncGroup"},
+                    new Pulumi.Alias { Type = "azurerm:storagesync/v20190201:SyncGroup"},
+                    new Pulumi.Alias { Type = "azurerm:storagesync/v20190601:SyncGroup"},
+                    new Pulumi.Alias { Type = "azurerm:storagesync/v20191001:SyncGroup"},
+                    new Pulumi.Alias { Type = "azurerm:storagesync/v20200301:SyncGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

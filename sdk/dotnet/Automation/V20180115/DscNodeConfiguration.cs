@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.Automation.V20180115
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:automation/v20151031:DscNodeConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:automation/v20151031:DscNodeConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

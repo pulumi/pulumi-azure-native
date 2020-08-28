@@ -13,7 +13,7 @@ __all__ = ['GatewayHostnameConfiguration']
 
 class GatewayHostnameConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> Optional[str]:
+    def certificate_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of Certificate entity that will be used for TLS connection establishment
         """
@@ -106,7 +106,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hostname(self) -> Optional[str]:
+    def hostname(self) -> pulumi.Output[Optional[str]]:
         """
         Hostname value. Supports valid domain name, partial or full wildcard
         """
@@ -114,7 +114,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -122,7 +122,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="negotiateClientCertificate")
-    def negotiate_client_certificate(self) -> Optional[bool]:
+    def negotiate_client_certificate(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines whether gateway requests client certificate
         """
@@ -130,7 +130,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

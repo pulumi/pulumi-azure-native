@@ -159,7 +159,7 @@ namespace Pulumi.AzureRM.Automation.V20180630
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:automation/v20151031:Runbook"},
+                    new Pulumi.Alias { Type = "azurerm:automation/v20151031:Runbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

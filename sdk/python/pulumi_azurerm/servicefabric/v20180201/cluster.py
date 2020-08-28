@@ -15,7 +15,7 @@ __all__ = ['Cluster']
 
 class Cluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  add_on_features: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
@@ -160,7 +160,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addOnFeatures")
-    def add_on_features(self) -> Optional[List[str]]:
+    def add_on_features(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The list of add-on features to enable in the cluster.
         """
@@ -168,7 +168,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availableClusterVersions")
-    def available_cluster_versions(self) -> List['outputs.ClusterVersionDetailsResponse']:
+    def available_cluster_versions(self) -> pulumi.Output[List['outputs.ClusterVersionDetailsResponse']]:
         """
         The Service Fabric runtime versions available for this cluster.
         """
@@ -176,7 +176,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureActiveDirectory")
-    def azure_active_directory(self) -> Optional['outputs.AzureActiveDirectoryResponse']:
+    def azure_active_directory(self) -> pulumi.Output[Optional['outputs.AzureActiveDirectoryResponse']]:
         """
         The AAD authentication settings of the cluster.
         """
@@ -184,7 +184,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional['outputs.CertificateDescriptionResponse']:
+    def certificate(self) -> pulumi.Output[Optional['outputs.CertificateDescriptionResponse']]:
         """
         The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
         """
@@ -192,7 +192,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateCommonNames")
-    def certificate_common_names(self) -> Optional['outputs.ServerCertificateCommonNamesResponse']:
+    def certificate_common_names(self) -> pulumi.Output[Optional['outputs.ServerCertificateCommonNamesResponse']]:
         """
         Describes a list of server certificates referenced by common name that are used to secure the cluster.
         """
@@ -200,7 +200,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCertificateCommonNames")
-    def client_certificate_common_names(self) -> Optional[List['outputs.ClientCertificateCommonNameResponse']]:
+    def client_certificate_common_names(self) -> pulumi.Output[Optional[List['outputs.ClientCertificateCommonNameResponse']]]:
         """
         The list of client certificates referenced by common name that are allowed to manage the cluster.
         """
@@ -208,7 +208,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCertificateThumbprints")
-    def client_certificate_thumbprints(self) -> Optional[List['outputs.ClientCertificateThumbprintResponse']]:
+    def client_certificate_thumbprints(self) -> pulumi.Output[Optional[List['outputs.ClientCertificateThumbprintResponse']]]:
         """
         The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
         """
@@ -216,7 +216,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterCodeVersion")
-    def cluster_code_version(self) -> Optional[str]:
+    def cluster_code_version(self) -> pulumi.Output[Optional[str]]:
         """
         The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         """
@@ -224,7 +224,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterEndpoint")
-    def cluster_endpoint(self) -> str:
+    def cluster_endpoint(self) -> pulumi.Output[str]:
         """
         The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
         """
@@ -232,7 +232,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> str:
+    def cluster_id(self) -> pulumi.Output[str]:
         """
         A service generated unique identifier for the cluster resource.
         """
@@ -240,7 +240,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterState")
-    def cluster_state(self) -> str:
+    def cluster_state(self) -> pulumi.Output[str]:
         """
         The current state of the cluster.
 
@@ -259,7 +259,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diagnosticsStorageAccountConfig")
-    def diagnostics_storage_account_config(self) -> Optional['outputs.DiagnosticsStorageAccountConfigResponse']:
+    def diagnostics_storage_account_config(self) -> pulumi.Output[Optional['outputs.DiagnosticsStorageAccountConfigResponse']]:
         """
         The storage account information for storing Service Fabric diagnostic logs.
         """
@@ -267,7 +267,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fabricSettings")
-    def fabric_settings(self) -> Optional[List['outputs.SettingsSectionDescriptionResponse']]:
+    def fabric_settings(self) -> pulumi.Output[Optional[List['outputs.SettingsSectionDescriptionResponse']]]:
         """
         The list of custom fabric settings to configure the cluster.
         """
@@ -275,7 +275,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Azure resource location.
         """
@@ -283,7 +283,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementEndpoint")
-    def management_endpoint(self) -> str:
+    def management_endpoint(self) -> pulumi.Output[str]:
         """
         The http management endpoint of the cluster.
         """
@@ -291,7 +291,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name.
         """
@@ -299,7 +299,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeTypes")
-    def node_types(self) -> List['outputs.NodeTypeDescriptionResponse']:
+    def node_types(self) -> pulumi.Output[List['outputs.NodeTypeDescriptionResponse']]:
         """
         The list of node types in the cluster.
         """
@@ -307,7 +307,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the cluster resource.
         """
@@ -315,7 +315,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reliabilityLevel")
-    def reliability_level(self) -> Optional[str]:
+    def reliability_level(self) -> pulumi.Output[Optional[str]]:
         """
         The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
@@ -329,7 +329,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reverseProxyCertificate")
-    def reverse_proxy_certificate(self) -> Optional['outputs.CertificateDescriptionResponse']:
+    def reverse_proxy_certificate(self) -> pulumi.Output[Optional['outputs.CertificateDescriptionResponse']]:
         """
         The server certificate used by reverse proxy.
         """
@@ -337,7 +337,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reverseProxyCertificateCommonNames")
-    def reverse_proxy_certificate_common_names(self) -> Optional['outputs.ServerCertificateCommonNamesResponse']:
+    def reverse_proxy_certificate_common_names(self) -> pulumi.Output[Optional['outputs.ServerCertificateCommonNamesResponse']]:
         """
         Describes a list of server certificates referenced by common name that are used to secure the cluster.
         """
@@ -345,7 +345,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Azure resource tags.
         """
@@ -353,7 +353,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type.
         """
@@ -361,7 +361,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="upgradeDescription")
-    def upgrade_description(self) -> Optional['outputs.ClusterUpgradePolicyResponse']:
+    def upgrade_description(self) -> pulumi.Output[Optional['outputs.ClusterUpgradePolicyResponse']]:
         """
         The policy to use when upgrading the cluster.
         """
@@ -369,7 +369,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="upgradeMode")
-    def upgrade_mode(self) -> Optional[str]:
+    def upgrade_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The upgrade mode of the cluster when new Service Fabric runtime version is available.
 
@@ -380,7 +380,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmImage")
-    def vm_image(self) -> Optional[str]:
+    def vm_image(self) -> pulumi.Output[Optional[str]]:
         """
         The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         """

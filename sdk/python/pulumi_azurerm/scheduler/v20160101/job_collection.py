@@ -15,7 +15,7 @@ __all__ = ['JobCollection']
 
 class JobCollection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  job_collection_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -93,7 +93,7 @@ class JobCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the storage account location.
         """
@@ -101,7 +101,7 @@ class JobCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the job collection resource name.
         """
@@ -109,7 +109,7 @@ class JobCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.JobCollectionPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.JobCollectionPropertiesResponse']:
         """
         Gets or sets the job collection properties.
         """
@@ -117,7 +117,7 @@ class JobCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Gets or sets the tags.
         """
@@ -125,7 +125,7 @@ class JobCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the job collection resource type.
         """

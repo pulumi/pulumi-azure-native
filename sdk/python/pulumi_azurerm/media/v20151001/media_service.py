@@ -15,7 +15,7 @@ __all__ = ['MediaService']
 
 class MediaService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  media_service_name: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiEndpoints")
-    def api_endpoints(self) -> List['outputs.ApiEndpointResponse']:
+    def api_endpoints(self) -> pulumi.Output[List['outputs.ApiEndpointResponse']]:
         """
         Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
         """
@@ -99,7 +99,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
         """
@@ -107,7 +107,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -115,7 +115,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[List['outputs.StorageAccountResponse']]:
+    def storage_accounts(self) -> pulumi.Output[Optional[List['outputs.StorageAccountResponse']]]:
         """
         The storage accounts for this resource.
         """
@@ -123,7 +123,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags to help categorize the resource in the Azure portal.
         """
@@ -131,7 +131,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource
         """

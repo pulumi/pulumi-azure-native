@@ -15,7 +15,7 @@ __all__ = ['StorageInsightConfig']
 
 class StorageInsightConfig(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  containers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class StorageInsightConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def containers(self) -> Optional[List[str]]:
+    def containers(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The names of the blob containers that the workspace should read
         """
@@ -114,7 +114,7 @@ class StorageInsightConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         The ETag of the storage insight.
         """
@@ -122,7 +122,7 @@ class StorageInsightConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -130,7 +130,7 @@ class StorageInsightConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> 'outputs.StorageInsightStatusResponse':
+    def status(self) -> pulumi.Output['outputs.StorageInsightStatusResponse']:
         """
         The status of the storage insight
         """
@@ -138,7 +138,7 @@ class StorageInsightConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> 'outputs.StorageAccountResponse':
+    def storage_account(self) -> pulumi.Output['outputs.StorageAccountResponse']:
         """
         The storage account connection details
         """
@@ -146,7 +146,7 @@ class StorageInsightConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tables(self) -> Optional[List[str]]:
+    def tables(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The names of the Azure tables that the workspace should read
         """
@@ -154,7 +154,7 @@ class StorageInsightConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -162,7 +162,7 @@ class StorageInsightConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

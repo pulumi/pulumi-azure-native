@@ -15,7 +15,7 @@ __all__ = ['NetworkInterfaceTapConfiguration']
 
 class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -108,7 +108,7 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -116,7 +116,7 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the network interface tap configuration. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
@@ -124,7 +124,7 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Sub Resource type.
         """
@@ -132,7 +132,7 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkTap")
-    def virtual_network_tap(self) -> Optional['outputs.VirtualNetworkTapResponse']:
+    def virtual_network_tap(self) -> pulumi.Output[Optional['outputs.VirtualNetworkTapResponse']]:
         """
         The reference of the Virtual Network Tap resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['Profile']
 
 class Profile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_entity_set_name: Optional[pulumi.Input[str]] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]]] = None,
@@ -136,7 +136,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiEntitySetName")
-    def api_entity_set_name(self) -> Optional[str]:
+    def api_entity_set_name(self) -> pulumi.Output[Optional[str]]:
         """
         The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
         """
@@ -144,7 +144,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Mapping[str, List[str]]]:
+    def attributes(self) -> pulumi.Output[Optional[Mapping[str, List[str]]]]:
         """
         The attributes for the Type.
         """
@@ -152,7 +152,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[Mapping[str, str]]:
+    def description(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized descriptions for the property.
         """
@@ -160,7 +160,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[Mapping[str, str]]:
+    def display_name(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized display names for the property.
         """
@@ -168,7 +168,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entityType")
-    def entity_type(self) -> Optional[str]:
+    def entity_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of entity.
         """
@@ -176,7 +176,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fields(self) -> Optional[List['outputs.PropertyDefinitionResponse']]:
+    def fields(self) -> pulumi.Output[Optional[List['outputs.PropertyDefinitionResponse']]]:
         """
         The properties of the Profile.
         """
@@ -184,7 +184,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instancesCount")
-    def instances_count(self) -> Optional[float]:
+    def instances_count(self) -> pulumi.Output[Optional[float]]:
         """
         The instance count.
         """
@@ -192,7 +192,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="largeImage")
-    def large_image(self) -> Optional[str]:
+    def large_image(self) -> pulumi.Output[Optional[str]]:
         """
         Large Image associated with the Property or EntityType.
         """
@@ -200,7 +200,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastChangedUtc")
-    def last_changed_utc(self) -> str:
+    def last_changed_utc(self) -> pulumi.Output[str]:
         """
         The last changed time for the type definition.
         """
@@ -208,7 +208,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localizedAttributes")
-    def localized_attributes(self) -> Optional[Mapping[str, Mapping[str, str]]]:
+    def localized_attributes(self) -> pulumi.Output[Optional[Mapping[str, Mapping[str, str]]]]:
         """
         Any custom localized attributes for the Type.
         """
@@ -216,7 +216,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mediumImage")
-    def medium_image(self) -> Optional[str]:
+    def medium_image(self) -> pulumi.Output[Optional[str]]:
         """
         Medium Image associated with the Property or EntityType.
         """
@@ -224,7 +224,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -232,7 +232,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state.
         """
@@ -240,7 +240,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaItemTypeLink")
-    def schema_item_type_link(self) -> Optional[str]:
+    def schema_item_type_link(self) -> pulumi.Output[Optional[str]]:
         """
         The schema org link. This helps ACI identify and suggest semantic models.
         """
@@ -248,7 +248,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="smallImage")
-    def small_image(self) -> Optional[str]:
+    def small_image(self) -> pulumi.Output[Optional[str]]:
         """
         Small Image associated with the Property or EntityType.
         """
@@ -256,7 +256,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="strongIds")
-    def strong_ids(self) -> Optional[List['outputs.StrongIdResponse']]:
+    def strong_ids(self) -> pulumi.Output[Optional[List['outputs.StrongIdResponse']]]:
         """
         The strong IDs.
         """
@@ -264,7 +264,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The hub name.
         """
@@ -272,7 +272,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timestampFieldName")
-    def timestamp_field_name(self) -> Optional[str]:
+    def timestamp_field_name(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp property name. Represents the time when the interaction or profile update happened.
         """
@@ -280,7 +280,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -288,7 +288,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[str]:
+    def type_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the entity.
         """

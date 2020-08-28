@@ -13,7 +13,7 @@ __all__ = ['ServerCommunicationLink']
 
 class ServerCommunicationLink(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  communication_link_name: Optional[pulumi.Input[str]] = None,
                  partner_server: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         Communication link kind.  This property is used for Azure Portal metadata.
         """
@@ -100,7 +100,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Communication link location.
         """
@@ -108,7 +108,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -116,7 +116,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerServer")
-    def partner_server(self) -> str:
+    def partner_server(self) -> pulumi.Output[str]:
         """
         The name of the partner server.
         """
@@ -124,7 +124,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The state.
         """
@@ -132,7 +132,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

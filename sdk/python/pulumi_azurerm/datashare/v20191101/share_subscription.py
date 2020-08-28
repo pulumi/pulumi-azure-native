@@ -13,7 +13,7 @@ __all__ = ['ShareSubscription']
 
 class ShareSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  invitation_id: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         Time at which the share subscription was created.
         """
@@ -114,7 +114,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> str:
+    def invitation_id(self) -> pulumi.Output[str]:
         """
         The invitation id.
         """
@@ -122,7 +122,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the azure resource
         """
@@ -130,7 +130,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerEmail")
-    def provider_email(self) -> str:
+    def provider_email(self) -> pulumi.Output[str]:
         """
         Email of the provider who created the resource
         """
@@ -138,7 +138,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> str:
+    def provider_name(self) -> pulumi.Output[str]:
         """
         Name of the provider who created the resource
         """
@@ -146,7 +146,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerTenantName")
-    def provider_tenant_name(self) -> str:
+    def provider_tenant_name(self) -> pulumi.Output[str]:
         """
         Tenant name of the provider who created the resource
         """
@@ -154,7 +154,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the share subscription
         """
@@ -162,7 +162,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareDescription")
-    def share_description(self) -> str:
+    def share_description(self) -> pulumi.Output[str]:
         """
         Description of share
         """
@@ -170,7 +170,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareKind")
-    def share_kind(self) -> str:
+    def share_kind(self) -> pulumi.Output[str]:
         """
         Kind of share
         """
@@ -178,7 +178,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareName")
-    def share_name(self) -> str:
+    def share_name(self) -> pulumi.Output[str]:
         """
         Name of the share
         """
@@ -186,7 +186,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareSubscriptionStatus")
-    def share_subscription_status(self) -> str:
+    def share_subscription_status(self) -> pulumi.Output[str]:
         """
         Gets the current status of share subscription.
         """
@@ -194,7 +194,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareTerms")
-    def share_terms(self) -> str:
+    def share_terms(self) -> pulumi.Output[str]:
         """
         Terms of a share
         """
@@ -202,7 +202,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceShareLocation")
-    def source_share_location(self) -> str:
+    def source_share_location(self) -> pulumi.Output[str]:
         """
         Source share location.
         """
@@ -210,7 +210,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the azure resource
         """
@@ -218,7 +218,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userEmail")
-    def user_email(self) -> str:
+    def user_email(self) -> pulumi.Output[str]:
         """
         Email of the user who created the resource
         """
@@ -226,7 +226,7 @@ class ShareSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> pulumi.Output[str]:
         """
         Name of the user who created the resource
         """

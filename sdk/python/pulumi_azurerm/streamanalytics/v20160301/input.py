@@ -15,7 +15,7 @@ __all__ = ['Input']
 
 class Input(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  input_name: Optional[pulumi.Input[str]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource name
         """
@@ -99,7 +99,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.InputPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.InputPropertiesResponse']:
         """
         The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         """
@@ -107,7 +107,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

@@ -15,7 +15,7 @@ __all__ = ['RoleDefinition']
 
 class RoleDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assignable_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class RoleDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assignableScopes")
-    def assignable_scopes(self) -> Optional[List[str]]:
+    def assignable_scopes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Role definition assignable scopes.
         """
@@ -104,7 +104,7 @@ class RoleDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The role definition description.
         """
@@ -112,7 +112,7 @@ class RoleDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The role definition name.
         """
@@ -120,7 +120,7 @@ class RoleDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[List['outputs.PermissionResponse']]:
+    def permissions(self) -> pulumi.Output[Optional[List['outputs.PermissionResponse']]]:
         """
         Role definition permissions.
         """
@@ -128,7 +128,7 @@ class RoleDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[str]:
+    def role_name(self) -> pulumi.Output[Optional[str]]:
         """
         The role name.
         """
@@ -136,7 +136,7 @@ class RoleDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[str]:
+    def role_type(self) -> pulumi.Output[Optional[str]]:
         """
         The role type.
         """
@@ -144,7 +144,7 @@ class RoleDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The role definition type.
         """

@@ -15,7 +15,7 @@ __all__ = ['Domain']
 
 class Domain(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
                  consent: Optional[pulumi.Input[pulumi.InputType['DomainPurchaseConsentArgs']]] = None,
@@ -149,7 +149,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoRenew")
-    def auto_renew(self) -> Optional[bool]:
+    def auto_renew(self) -> pulumi.Output[Optional[bool]]:
         """
         If true then domain will renewed automatically
         """
@@ -157,7 +157,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def consent(self) -> Optional['outputs.DomainPurchaseConsentResponse']:
+    def consent(self) -> pulumi.Output[Optional['outputs.DomainPurchaseConsentResponse']]:
         """
         Legal agreement consent
         """
@@ -165,7 +165,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contactAdmin")
-    def contact_admin(self) -> Optional['outputs.ContactResponse']:
+    def contact_admin(self) -> pulumi.Output[Optional['outputs.ContactResponse']]:
         """
         Admin contact information
         """
@@ -173,7 +173,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contactBilling")
-    def contact_billing(self) -> Optional['outputs.ContactResponse']:
+    def contact_billing(self) -> pulumi.Output[Optional['outputs.ContactResponse']]:
         """
         Billing contact information
         """
@@ -181,7 +181,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contactRegistrant")
-    def contact_registrant(self) -> Optional['outputs.ContactResponse']:
+    def contact_registrant(self) -> pulumi.Output[Optional['outputs.ContactResponse']]:
         """
         Registrant contact information
         """
@@ -189,7 +189,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contactTech")
-    def contact_tech(self) -> Optional['outputs.ContactResponse']:
+    def contact_tech(self) -> pulumi.Output[Optional['outputs.ContactResponse']]:
         """
         Technical contact information
         """
@@ -197,7 +197,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[str]:
+    def created_time(self) -> pulumi.Output[Optional[str]]:
         """
         Domain creation timestamp
         """
@@ -205,7 +205,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainNotRenewableReasons")
-    def domain_not_renewable_reasons(self) -> Optional[List[str]]:
+    def domain_not_renewable_reasons(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Reasons why domain is not renewable
         """
@@ -213,7 +213,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationTime")
-    def expiration_time(self) -> Optional[str]:
+    def expiration_time(self) -> pulumi.Output[Optional[str]]:
         """
         Domain expiration timestamp
         """
@@ -221,7 +221,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -229,7 +229,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastRenewedTime")
-    def last_renewed_time(self) -> Optional[str]:
+    def last_renewed_time(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp when the domain was renewed last time
         """
@@ -237,7 +237,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -245,7 +245,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedHostNames")
-    def managed_host_names(self) -> Optional[List['outputs.HostNameResponse']]:
+    def managed_host_names(self) -> pulumi.Output[Optional[List['outputs.HostNameResponse']]]:
         """
         All hostnames derived from the domain and assigned to Azure resources
         """
@@ -253,7 +253,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -261,7 +261,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> Optional[List[str]]:
+    def name_servers(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Name servers
         """
@@ -269,7 +269,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def privacy(self) -> Optional[bool]:
+    def privacy(self) -> pulumi.Output[Optional[bool]]:
         """
         If true then domain privacy is enabled for this domain
         """
@@ -277,7 +277,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Domain provisioning state
         """
@@ -285,7 +285,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readyForDnsRecordManagement")
-    def ready_for_dns_record_management(self) -> Optional[bool]:
+    def ready_for_dns_record_management(self) -> pulumi.Output[Optional[bool]]:
         """
         If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
         """
@@ -293,7 +293,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationStatus")
-    def registration_status(self) -> Optional[str]:
+    def registration_status(self) -> pulumi.Output[Optional[str]]:
         """
         Domain registration status
         """
@@ -301,7 +301,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -309,7 +309,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """

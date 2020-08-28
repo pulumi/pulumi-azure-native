@@ -15,7 +15,7 @@ __all__ = ['Task']
 
 class Task(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         HTTP strong entity tag value. This is ignored if submitted.
         """
@@ -105,7 +105,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -113,7 +113,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProjectTaskPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.ProjectTaskPropertiesResponse']:
         """
         Custom task properties
         """
@@ -121,7 +121,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

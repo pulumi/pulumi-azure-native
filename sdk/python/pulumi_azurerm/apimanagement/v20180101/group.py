@@ -13,7 +13,7 @@ __all__ = ['Group']
 
 class Group(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="builtIn")
-    def built_in(self) -> bool:
+    def built_in(self) -> pulumi.Output[bool]:
         """
         true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
         """
@@ -108,7 +108,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Group description. Can contain HTML formatting tags.
         """
@@ -116,7 +116,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Group name.
         """
@@ -124,7 +124,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[str]:
+    def external_id(self) -> pulumi.Output[Optional[str]]:
         """
         For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
         """
@@ -132,7 +132,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -140,7 +140,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

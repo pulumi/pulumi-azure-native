@@ -15,7 +15,7 @@ __all__ = ['ManagementGroup']
 
 class ManagementGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  details: Optional[pulumi.Input[pulumi.InputType['CreateManagementGroupDetailsArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class ManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def children(self) -> Optional[List['outputs.ManagementGroupChildInfoResponse']]:
+    def children(self) -> pulumi.Output[Optional[List['outputs.ManagementGroupChildInfoResponse']]]:
         """
         The list of children.
         """
@@ -97,7 +97,7 @@ class ManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional['outputs.ManagementGroupDetailsResponse']:
+    def details(self) -> pulumi.Output[Optional['outputs.ManagementGroupDetailsResponse']]:
         """
         The details of a management group.
         """
@@ -105,7 +105,7 @@ class ManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The friendly name of the management group.
         """
@@ -113,7 +113,7 @@ class ManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         """
@@ -121,7 +121,7 @@ class ManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[List['outputs.ManagementGroupPathElementResponse']]:
+    def path(self) -> pulumi.Output[Optional[List['outputs.ManagementGroupPathElementResponse']]]:
         """
         The path from the root to the current group.
         """
@@ -129,7 +129,7 @@ class ManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
+    def tenant_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
         """
@@ -137,7 +137,7 @@ class ManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.  For example, Microsoft.Management/managementGroups
         """

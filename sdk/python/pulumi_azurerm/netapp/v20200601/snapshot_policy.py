@@ -13,7 +13,7 @@ __all__ = ['SnapshotPolicy']
 
 class SnapshotPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  daily_schedule: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -107,7 +107,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailySchedule")
-    def daily_schedule(self) -> Optional[Mapping[str, Any]]:
+    def daily_schedule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Schedule for daily snapshots
         """
@@ -115,7 +115,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         The property to decide policy is enabled or not
         """
@@ -123,7 +123,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hourlySchedule")
-    def hourly_schedule(self) -> Optional[Mapping[str, Any]]:
+    def hourly_schedule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Schedule for hourly snapshots
         """
@@ -131,7 +131,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -139,7 +139,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthlySchedule")
-    def monthly_schedule(self) -> Optional[Mapping[str, Any]]:
+    def monthly_schedule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Schedule for monthly snapshots
         """
@@ -147,7 +147,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -155,7 +155,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -163,7 +163,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -171,7 +171,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklySchedule")
-    def weekly_schedule(self) -> Optional[Mapping[str, Any]]:
+    def weekly_schedule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Schedule for weekly snapshots
         """

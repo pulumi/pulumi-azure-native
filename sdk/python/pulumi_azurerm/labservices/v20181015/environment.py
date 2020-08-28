@@ -15,7 +15,7 @@ __all__ = ['Environment']
 
 class Environment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  environment_setting_name: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="claimedByUserName")
-    def claimed_by_user_name(self) -> str:
+    def claimed_by_user_name(self) -> pulumi.Output[str]:
         """
         The name or email address of the user who has claimed the environment
         """
@@ -128,7 +128,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="claimedByUserObjectId")
-    def claimed_by_user_object_id(self) -> str:
+    def claimed_by_user_object_id(self) -> pulumi.Output[str]:
         """
         The AAD object Id of the user who has claimed the environment
         """
@@ -136,7 +136,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="claimedByUserPrincipalId")
-    def claimed_by_user_principal_id(self) -> str:
+    def claimed_by_user_principal_id(self) -> pulumi.Output[str]:
         """
         The user principal Id of the user who has claimed the environment
         """
@@ -144,7 +144,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isClaimed")
-    def is_claimed(self) -> bool:
+    def is_claimed(self) -> pulumi.Output[bool]:
         """
         Is the environment claimed or not
         """
@@ -152,7 +152,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastKnownPowerState")
-    def last_known_power_state(self) -> str:
+    def last_known_power_state(self) -> pulumi.Output[str]:
         """
         Last known power state of the environment
         """
@@ -160,7 +160,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> pulumi.Output['outputs.LatestOperationResultResponse']:
         """
         The details of the latest operation. ex: status, error
         """
@@ -168,7 +168,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -176,7 +176,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -184,7 +184,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterface")
-    def network_interface(self) -> 'outputs.NetworkInterfaceResponse':
+    def network_interface(self) -> pulumi.Output['outputs.NetworkInterfaceResponse']:
         """
         Network details of the environment
         """
@@ -192,7 +192,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordLastReset")
-    def password_last_reset(self) -> str:
+    def password_last_reset(self) -> pulumi.Output[str]:
         """
         When the password was last reset on the environment.
         """
@@ -200,7 +200,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -208,7 +208,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceSets")
-    def resource_sets(self) -> Optional['outputs.ResourceSetResponse']:
+    def resource_sets(self) -> pulumi.Output[Optional['outputs.ResourceSetResponse']]:
         """
         The set of a VM and the setting id it was created for
         """
@@ -216,7 +216,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -224,7 +224,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalUsage")
-    def total_usage(self) -> str:
+    def total_usage(self) -> pulumi.Output[str]:
         """
         How long the environment has been used by a lab user
         """
@@ -232,7 +232,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -240,7 +240,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """

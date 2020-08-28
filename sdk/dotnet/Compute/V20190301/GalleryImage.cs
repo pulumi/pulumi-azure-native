@@ -135,9 +135,9 @@ namespace Pulumi.AzureRM.Compute.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:compute/v20180601:GalleryImage"},
-                    new Alias { Type = "azurerm:compute/v20190701:GalleryImage"},
-                    new Alias { Type = "azurerm:compute/v20191201:GalleryImage"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:GalleryImage"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:GalleryImage"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:GalleryImage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

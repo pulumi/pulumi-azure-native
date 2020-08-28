@@ -15,7 +15,7 @@ __all__ = ['FirewallPolicyRuleCollectionGroup']
 
 class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -109,7 +109,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -117,7 +117,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Priority of the Firewall Policy Rule Collection Group resource.
         """
@@ -125,7 +125,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the firewall policy rule collection group resource.
         """
@@ -133,7 +133,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleCollections")
-    def rule_collections(self) -> Optional[List['outputs.FirewallPolicyRuleCollectionResponse']]:
+    def rule_collections(self) -> pulumi.Output[Optional[List['outputs.FirewallPolicyRuleCollectionResponse']]]:
         """
         Group of Firewall Policy rule collections.
         """
@@ -141,7 +141,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Rule Group type.
         """

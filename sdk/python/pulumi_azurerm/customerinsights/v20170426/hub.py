@@ -15,7 +15,7 @@ __all__ = ['Hub']
 
 class Hub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hub_billing_info: Optional[pulumi.Input[pulumi.InputType['HubBillingInfoFormatArgs']]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiEndpoint")
-    def api_endpoint(self) -> str:
+    def api_endpoint(self) -> pulumi.Output[str]:
         """
         API endpoint URL of the hub.
         """
@@ -106,7 +106,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hubBillingInfo")
-    def hub_billing_info(self) -> Optional['outputs.HubBillingInfoFormatResponse']:
+    def hub_billing_info(self) -> pulumi.Output[Optional['outputs.HubBillingInfoFormatResponse']]:
         """
         Billing settings of the hub.
         """
@@ -114,7 +114,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -122,7 +122,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -130,7 +130,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the hub.
         """
@@ -138,7 +138,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -146,7 +146,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantFeatures")
-    def tenant_features(self) -> Optional[float]:
+    def tenant_features(self) -> pulumi.Output[Optional[float]]:
         """
         The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
         """
@@ -154,7 +154,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -162,7 +162,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webEndpoint")
-    def web_endpoint(self) -> str:
+    def web_endpoint(self) -> pulumi.Output[str]:
         """
         Web endpoint URL of the hub.
         """

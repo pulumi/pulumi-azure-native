@@ -13,7 +13,7 @@ __all__ = ['CloudEndpoint']
 
 class CloudEndpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_file_share_name: Optional[pulumi.Input[str]] = None,
                  cloud_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureFileShareName")
-    def azure_file_share_name(self) -> Optional[str]:
+    def azure_file_share_name(self) -> pulumi.Output[Optional[str]]:
         """
         Azure file share name
         """
@@ -114,7 +114,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupEnabled")
-    def backup_enabled(self) -> str:
+    def backup_enabled(self) -> pulumi.Output[str]:
         """
         Backup Enabled
         """
@@ -122,7 +122,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
         Friendly Name
         """
@@ -130,7 +130,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastOperationName")
-    def last_operation_name(self) -> Optional[str]:
+    def last_operation_name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Last Operation Name
         """
@@ -138,7 +138,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastWorkflowId")
-    def last_workflow_id(self) -> Optional[str]:
+    def last_workflow_id(self) -> pulumi.Output[Optional[str]]:
         """
         CloudEndpoint lastWorkflowId
         """
@@ -146,7 +146,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -154,7 +154,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnershipId")
-    def partnership_id(self) -> Optional[str]:
+    def partnership_id(self) -> pulumi.Output[Optional[str]]:
         """
         Partnership Id
         """
@@ -162,7 +162,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         CloudEndpoint Provisioning State
         """
@@ -170,7 +170,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountResourceId")
-    def storage_account_resource_id(self) -> Optional[str]:
+    def storage_account_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Storage Account Resource Id
         """
@@ -178,7 +178,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountTenantId")
-    def storage_account_tenant_id(self) -> Optional[str]:
+    def storage_account_tenant_id(self) -> pulumi.Output[Optional[str]]:
         """
         Storage Account Tenant Id
         """
@@ -186,7 +186,7 @@ class CloudEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

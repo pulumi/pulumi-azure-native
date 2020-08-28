@@ -129,7 +129,7 @@ namespace Pulumi.AzureRM.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:media/v20180701:LiveEvent"},
+                    new Pulumi.Alias { Type = "azurerm:media/v20180701:LiveEvent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,7 +13,7 @@ __all__ = ['RedisFirewallRule']
 
 class RedisFirewallRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  end_ip: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class RedisFirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endIP")
-    def end_ip(self) -> str:
+    def end_ip(self) -> pulumi.Output[str]:
         """
         highest IP address included in the range
         """
@@ -104,7 +104,7 @@ class RedisFirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         name of the firewall rule
         """
@@ -112,7 +112,7 @@ class RedisFirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startIP")
-    def start_ip(self) -> str:
+    def start_ip(self) -> pulumi.Output[str]:
         """
         lowest IP address included in the range
         """
@@ -120,7 +120,7 @@ class RedisFirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
         """

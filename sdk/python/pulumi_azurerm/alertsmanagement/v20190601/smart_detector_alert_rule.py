@@ -15,7 +15,7 @@ __all__ = ['SmartDetectorAlertRule']
 
 class SmartDetectorAlertRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_groups: Optional[pulumi.Input[pulumi.InputType['ActionGroupsInformationArgs']]] = None,
                  alert_rule_name: Optional[pulumi.Input[str]] = None,
@@ -125,7 +125,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="actionGroups")
-    def action_groups(self) -> 'outputs.ActionGroupsInformationResponse':
+    def action_groups(self) -> pulumi.Output['outputs.ActionGroupsInformationResponse']:
         """
         The alert rule actions.
         """
@@ -133,7 +133,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The alert rule description.
         """
@@ -141,7 +141,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def detector(self) -> 'outputs.DetectorResponse':
+    def detector(self) -> pulumi.Output['outputs.DetectorResponse']:
         """
         The alert rule's detector.
         """
@@ -149,7 +149,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> str:
+    def frequency(self) -> pulumi.Output[str]:
         """
         The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
         """
@@ -157,7 +157,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -165,7 +165,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -173,7 +173,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> List[str]:
+    def scope(self) -> pulumi.Output[List[str]]:
         """
         The alert rule resources scope.
         """
@@ -181,7 +181,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> str:
+    def severity(self) -> pulumi.Output[str]:
         """
         The alert rule severity.
         """
@@ -189,7 +189,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The alert rule state.
         """
@@ -197,7 +197,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The resource tags.
         """
@@ -205,7 +205,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def throttling(self) -> Optional['outputs.ThrottlingInformationResponse']:
+    def throttling(self) -> pulumi.Output[Optional['outputs.ThrottlingInformationResponse']]:
         """
         The alert rule throttling information.
         """
@@ -213,7 +213,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """

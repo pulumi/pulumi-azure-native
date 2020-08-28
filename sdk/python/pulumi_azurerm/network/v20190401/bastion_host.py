@@ -15,7 +15,7 @@ __all__ = ['BastionHost']
 
 class BastionHost(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bastion_host_name: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[str]:
+    def dns_name(self) -> pulumi.Output[Optional[str]]:
         """
         FQDN for the endpoint on which bastion host is accessible.
         """
@@ -110,7 +110,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -118,7 +118,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.BastionHostIPConfigurationResponse']]:
+    def ip_configurations(self) -> pulumi.Output[Optional[List['outputs.BastionHostIPConfigurationResponse']]]:
         """
         IP configuration of the Bastion Host resource.
         """
@@ -126,7 +126,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -134,7 +134,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -142,7 +142,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the resource.
         """
@@ -150,7 +150,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -158,7 +158,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

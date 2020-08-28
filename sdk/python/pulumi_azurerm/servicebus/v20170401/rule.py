@@ -15,7 +15,7 @@ __all__ = ['Rule']
 
 class Rule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[pulumi.InputType['ActionArgs']]] = None,
                  correlation_filter: Optional[pulumi.Input[pulumi.InputType['CorrelationFilterArgs']]] = None,
@@ -108,7 +108,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> Optional['outputs.ActionResponse']:
+    def action(self) -> pulumi.Output[Optional['outputs.ActionResponse']]:
         """
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         """
@@ -116,7 +116,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="correlationFilter")
-    def correlation_filter(self) -> Optional['outputs.CorrelationFilterResponse']:
+    def correlation_filter(self) -> pulumi.Output[Optional['outputs.CorrelationFilterResponse']]:
         """
         Properties of correlationFilter
         """
@@ -124,7 +124,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filterType")
-    def filter_type(self) -> Optional[str]:
+    def filter_type(self) -> pulumi.Output[Optional[str]]:
         """
         Filter type that is evaluated against a BrokeredMessage.
         """
@@ -132,7 +132,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -140,7 +140,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlFilter")
-    def sql_filter(self) -> Optional['outputs.SqlFilterResponse']:
+    def sql_filter(self) -> pulumi.Output[Optional['outputs.SqlFilterResponse']]:
         """
         Properties of sqlFilter
         """
@@ -148,7 +148,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

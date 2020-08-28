@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:media/v20180701:MediaService"},
+                    new Pulumi.Alias { Type = "azurerm:media/v20180701:MediaService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

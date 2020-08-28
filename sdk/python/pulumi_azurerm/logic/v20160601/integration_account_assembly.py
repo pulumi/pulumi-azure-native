@@ -15,7 +15,7 @@ __all__ = ['IntegrationAccountAssembly']
 
 class IntegrationAccountAssembly(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assembly_artifact_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -107,7 +107,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the resource name.
         """
@@ -115,7 +115,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.AssemblyPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.AssemblyPropertiesResponse']:
         """
         The assembly properties.
         """
@@ -123,7 +123,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -131,7 +131,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the resource type.
         """

@@ -13,7 +13,7 @@ __all__ = ['WebAppSiteExtensionSlot']
 
 class WebAppSiteExtensionSlot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authors(self) -> Optional[List[str]]:
+    def authors(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of authors.
         """
@@ -117,7 +117,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def comment(self) -> Optional[str]:
+    def comment(self) -> pulumi.Output[Optional[str]]:
         """
         Site Extension comment.
         """
@@ -125,7 +125,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Detailed description.
         """
@@ -133,7 +133,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="downloadCount")
-    def download_count(self) -> Optional[float]:
+    def download_count(self) -> pulumi.Output[Optional[float]]:
         """
         Count of downloads.
         """
@@ -141,7 +141,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extensionUrl")
-    def extension_url(self) -> Optional[str]:
+    def extension_url(self) -> pulumi.Output[Optional[str]]:
         """
         Extension URL.
         """
@@ -149,7 +149,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="feedUrl")
-    def feed_url(self) -> Optional[str]:
+    def feed_url(self) -> pulumi.Output[Optional[str]]:
         """
         Feed URL.
         """
@@ -157,7 +157,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iconUrl")
-    def icon_url(self) -> Optional[str]:
+    def icon_url(self) -> pulumi.Output[Optional[str]]:
         """
         Icon URL.
         """
@@ -165,7 +165,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="installationArgs")
-    def installation_args(self) -> Optional[str]:
+    def installation_args(self) -> pulumi.Output[Optional[str]]:
         """
         Installer command line parameters.
         """
@@ -173,7 +173,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="installedDateTime")
-    def installed_date_time(self) -> Optional[str]:
+    def installed_date_time(self) -> pulumi.Output[Optional[str]]:
         """
         Installed timestamp.
         """
@@ -181,7 +181,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -189,7 +189,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseUrl")
-    def license_url(self) -> Optional[str]:
+    def license_url(self) -> pulumi.Output[Optional[str]]:
         """
         License URL.
         """
@@ -197,7 +197,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localIsLatestVersion")
-    def local_is_latest_version(self) -> Optional[bool]:
+    def local_is_latest_version(self) -> pulumi.Output[Optional[bool]]:
         """
         <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
         """
@@ -205,7 +205,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localPath")
-    def local_path(self) -> Optional[str]:
+    def local_path(self) -> pulumi.Output[Optional[str]]:
         """
         Local path.
         """
@@ -213,7 +213,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -221,7 +221,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectUrl")
-    def project_url(self) -> Optional[str]:
+    def project_url(self) -> pulumi.Output[Optional[str]]:
         """
         Project URL.
         """
@@ -229,7 +229,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning state.
         """
@@ -237,7 +237,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publishedDateTime")
-    def published_date_time(self) -> Optional[str]:
+    def published_date_time(self) -> pulumi.Output[Optional[str]]:
         """
         Published timestamp.
         """
@@ -245,7 +245,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def summary(self) -> Optional[str]:
+    def summary(self) -> pulumi.Output[Optional[str]]:
         """
         Summary description.
         """
@@ -253,7 +253,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> Optional[str]:
+    def title(self) -> pulumi.Output[Optional[str]]:
         """
         Site extension title.
         """
@@ -261,7 +261,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -269,7 +269,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         Version information.
         """

@@ -15,7 +15,7 @@ __all__ = ['VirtualNetworkGateway']
 
 class VirtualNetworkGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_active: Optional[pulumi.Input[bool]] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
@@ -132,7 +132,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeActive")
-    def active_active(self) -> Optional[bool]:
+    def active_active(self) -> pulumi.Output[Optional[bool]]:
         """
         ActiveActive flag.
         """
@@ -140,7 +140,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional['outputs.BgpSettingsResponse']:
+    def bgp_settings(self) -> pulumi.Output[Optional['outputs.BgpSettingsResponse']]:
         """
         Virtual network gateway's BGP speaker settings.
         """
@@ -148,7 +148,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customRoutes")
-    def custom_routes(self) -> Optional['outputs.AddressSpaceResponse']:
+    def custom_routes(self) -> pulumi.Output[Optional['outputs.AddressSpaceResponse']]:
         """
         The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         """
@@ -156,7 +156,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBgp")
-    def enable_bgp(self) -> Optional[bool]:
+    def enable_bgp(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether BGP is enabled for this virtual network gateway or not.
         """
@@ -164,7 +164,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableDnsForwarding")
-    def enable_dns_forwarding(self) -> Optional[bool]:
+    def enable_dns_forwarding(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether dns forwarding is enabled or not.
         """
@@ -172,7 +172,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -180,7 +180,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayDefaultSite")
-    def gateway_default_site(self) -> Optional['outputs.SubResourceResponse']:
+    def gateway_default_site(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         """
@@ -188,7 +188,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayType")
-    def gateway_type(self) -> Optional[str]:
+    def gateway_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of this virtual network gateway.
         """
@@ -196,7 +196,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inboundDnsForwardingEndpoint")
-    def inbound_dns_forwarding_endpoint(self) -> str:
+    def inbound_dns_forwarding_endpoint(self) -> pulumi.Output[str]:
         """
         The IP address allocated by the gateway to which dns requests can be sent.
         """
@@ -204,7 +204,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.VirtualNetworkGatewayIPConfigurationResponse']]:
+    def ip_configurations(self) -> pulumi.Output[Optional[List['outputs.VirtualNetworkGatewayIPConfigurationResponse']]]:
         """
         IP configurations for virtual network gateway.
         """
@@ -212,7 +212,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -220,7 +220,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -228,7 +228,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the virtual network gateway resource.
         """
@@ -236,7 +236,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
+    def resource_guid(self) -> pulumi.Output[str]:
         """
         The resource GUID property of the virtual network gateway resource.
         """
@@ -244,7 +244,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.VirtualNetworkGatewaySkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.VirtualNetworkGatewaySkuResponse']]:
         """
         The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         """
@@ -252,7 +252,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -260,7 +260,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -268,7 +268,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnClientConfiguration")
-    def vpn_client_configuration(self) -> Optional['outputs.VpnClientConfigurationResponse']:
+    def vpn_client_configuration(self) -> pulumi.Output[Optional['outputs.VpnClientConfigurationResponse']]:
         """
         The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         """
@@ -276,7 +276,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnGatewayGeneration")
-    def vpn_gateway_generation(self) -> Optional[str]:
+    def vpn_gateway_generation(self) -> pulumi.Output[Optional[str]]:
         """
         The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         """
@@ -284,7 +284,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnType")
-    def vpn_type(self) -> Optional[str]:
+    def vpn_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of this virtual network gateway.
         """

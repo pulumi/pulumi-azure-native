@@ -13,7 +13,7 @@ __all__ = ['HierarchySetting']
 
 class HierarchySetting(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_management_group: Optional[pulumi.Input[str]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class HierarchySetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultManagementGroup")
-    def default_management_group(self) -> Optional[str]:
+    def default_management_group(self) -> pulumi.Output[Optional[str]]:
         """
         Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
         """
@@ -91,7 +91,7 @@ class HierarchySetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the object. In this case, default.
         """
@@ -99,7 +99,7 @@ class HierarchySetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requireAuthorizationForGroupCreation")
-    def require_authorization_for_group_creation(self) -> Optional[bool]:
+    def require_authorization_for_group_creation(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         """
@@ -107,7 +107,7 @@ class HierarchySetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
+    def tenant_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
         """
@@ -115,7 +115,7 @@ class HierarchySetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
         """

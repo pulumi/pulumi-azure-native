@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.OffAzure.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:offazure/v20200707:HyperVSiteSite"},
+                    new Pulumi.Alias { Type = "azurerm:offazure/v20200707:HyperVSiteSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

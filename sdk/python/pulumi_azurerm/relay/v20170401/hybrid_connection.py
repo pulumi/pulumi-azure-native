@@ -13,7 +13,7 @@ __all__ = ['HybridConnection']
 
 class HybridConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hybrid_connection_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -93,7 +93,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         The time the hybrid connection was created.
         """
@@ -101,7 +101,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="listenerCount")
-    def listener_count(self) -> float:
+    def listener_count(self) -> pulumi.Output[float]:
         """
         The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
         """
@@ -109,7 +109,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -117,7 +117,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresClientAuthorization")
-    def requires_client_authorization(self) -> Optional[bool]:
+    def requires_client_authorization(self) -> pulumi.Output[Optional[bool]]:
         """
         Returns true if client authorization is needed for this hybrid connection; otherwise, false.
         """
@@ -125,7 +125,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -133,7 +133,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> pulumi.Output[str]:
         """
         The time the namespace was updated.
         """
@@ -141,7 +141,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userMetadata")
-    def user_metadata(self) -> Optional[str]:
+    def user_metadata(self) -> pulumi.Output[Optional[str]]:
         """
         The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """

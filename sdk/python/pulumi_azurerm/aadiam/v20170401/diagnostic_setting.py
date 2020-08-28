@@ -15,7 +15,7 @@ __all__ = ['DiagnosticSetting']
 
 class DiagnosticSetting(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_hub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
@@ -93,7 +93,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubAuthorizationRuleId")
-    def event_hub_authorization_rule_id(self) -> Optional[str]:
+    def event_hub_authorization_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource Id for the event hub authorization rule.
         """
@@ -101,7 +101,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubName")
-    def event_hub_name(self) -> Optional[str]:
+    def event_hub_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the event hub. If none is specified, the default event hub will be selected.
         """
@@ -109,7 +109,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional[List['outputs.LogSettingsResponse']]:
+    def logs(self) -> pulumi.Output[Optional[List['outputs.LogSettingsResponse']]]:
         """
         The list of logs settings.
         """
@@ -117,7 +117,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -125,7 +125,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceBusRuleId")
-    def service_bus_rule_id(self) -> Optional[str]:
+    def service_bus_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         """
@@ -133,7 +133,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[str]:
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID of the storage account to which you would like to send Diagnostic Logs.
         """
@@ -141,7 +141,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """
@@ -149,7 +149,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[str]:
+    def workspace_id(self) -> pulumi.Output[Optional[str]]:
         """
         The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         """

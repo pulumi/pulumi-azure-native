@@ -15,7 +15,7 @@ __all__ = ['NatGateway']
 
 class NatGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
@@ -111,7 +111,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -119,7 +119,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         The idle timeout of the nat gateway.
         """
@@ -127,7 +127,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -135,7 +135,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -143,7 +143,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the NAT gateway resource.
         """
@@ -151,7 +151,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def public_ip_addresses(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
         """
         An array of public ip addresses associated with the nat gateway resource.
         """
@@ -159,7 +159,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpPrefixes")
-    def public_ip_prefixes(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def public_ip_prefixes(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
         """
         An array of public ip prefixes associated with the nat gateway resource.
         """
@@ -167,7 +167,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
+    def resource_guid(self) -> pulumi.Output[str]:
         """
         The resource GUID property of the NAT gateway resource.
         """
@@ -175,7 +175,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.NatGatewaySkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.NatGatewaySkuResponse']]:
         """
         The nat gateway SKU.
         """
@@ -183,7 +183,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> List['outputs.SubResourceResponse']:
+    def subnets(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         An array of references to the subnets using this nat gateway resource.
         """
@@ -191,7 +191,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -199,7 +199,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -207,7 +207,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of availability zones denoting the zone in which Nat Gateway should be deployed.
         """

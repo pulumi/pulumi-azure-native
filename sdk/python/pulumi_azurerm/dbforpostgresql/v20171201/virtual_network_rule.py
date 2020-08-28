@@ -13,7 +13,7 @@ __all__ = ['VirtualNetworkRule']
 
 class VirtualNetworkRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -93,7 +93,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
-    def ignore_missing_vnet_service_endpoint(self) -> Optional[bool]:
+    def ignore_missing_vnet_service_endpoint(self) -> pulumi.Output[Optional[bool]]:
         """
         Create firewall rule before the virtual network has vnet service endpoint enabled.
         """
@@ -101,7 +101,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -109,7 +109,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         Virtual Network Rule State
         """
@@ -117,7 +117,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -125,7 +125,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> str:
+    def virtual_network_subnet_id(self) -> pulumi.Output[str]:
         """
         The ARM resource id of the virtual network subnet.
         """

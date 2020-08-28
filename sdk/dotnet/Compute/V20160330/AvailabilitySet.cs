@@ -87,16 +87,16 @@ namespace Pulumi.AzureRM.Compute.V20160330
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:compute/v20150615:AvailabilitySet"},
-                    new Alias { Type = "azurerm:compute/v20170330:AvailabilitySet"},
-                    new Alias { Type = "azurerm:compute/v20171201:AvailabilitySet"},
-                    new Alias { Type = "azurerm:compute/v20180401:AvailabilitySet"},
-                    new Alias { Type = "azurerm:compute/v20180601:AvailabilitySet"},
-                    new Alias { Type = "azurerm:compute/v20181001:AvailabilitySet"},
-                    new Alias { Type = "azurerm:compute/v20190301:AvailabilitySet"},
-                    new Alias { Type = "azurerm:compute/v20190701:AvailabilitySet"},
-                    new Alias { Type = "azurerm:compute/v20191201:AvailabilitySet"},
-                    new Alias { Type = "azurerm:compute/v20200601:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20150615:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20171201:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20181001:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:AvailabilitySet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

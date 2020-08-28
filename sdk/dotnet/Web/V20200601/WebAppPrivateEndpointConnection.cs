@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20190801:WebAppPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

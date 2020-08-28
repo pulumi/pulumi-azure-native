@@ -15,7 +15,7 @@ __all__ = ['ExpressRouteGateway']
 
 class ExpressRouteGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scale_configuration: Optional[pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoScaleConfiguration")
-    def auto_scale_configuration(self) -> Optional['outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration']:
+    def auto_scale_configuration(self) -> pulumi.Output[Optional['outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration']]:
         """
         Configuration for auto scaling.
         """
@@ -111,7 +111,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -119,7 +119,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteConnections")
-    def express_route_connections(self) -> List['outputs.ExpressRouteConnectionResponse']:
+    def express_route_connections(self) -> pulumi.Output[List['outputs.ExpressRouteConnectionResponse']]:
         """
         List of ExpressRoute connections to the ExpressRoute gateway.
         """
@@ -127,7 +127,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -135,7 +135,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -143,7 +143,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the express route gateway resource.
         """
@@ -151,7 +151,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -159,7 +159,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -167,7 +167,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> 'outputs.VirtualHubIdResponse':
+    def virtual_hub(self) -> pulumi.Output['outputs.VirtualHubIdResponse']:
         """
         The Virtual Hub where the ExpressRoute gateway is or will be deployed.
         """

@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,7 +15,7 @@ __all__ = ['LocalNetworkGateway']
 
 class LocalNetworkGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional['outputs.BgpSettingsResponse']:
+    def bgp_settings(self) -> pulumi.Output[Optional['outputs.BgpSettingsResponse']]:
         """
         Local network gateway's BGP speaker settings.
         """
@@ -115,7 +115,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -123,7 +123,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> Optional[str]:
+    def fqdn(self) -> pulumi.Output[Optional[str]]:
         """
         FQDN of local network gateway.
         """
@@ -131,7 +131,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayIpAddress")
-    def gateway_ip_address(self) -> Optional[str]:
+    def gateway_ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         IP address of local network gateway.
         """
@@ -139,7 +139,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localNetworkAddressSpace")
-    def local_network_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def local_network_address_space(self) -> pulumi.Output[Optional['outputs.AddressSpaceResponse']]:
         """
         Local network site address space.
         """
@@ -147,7 +147,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -155,7 +155,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -163,7 +163,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the local network gateway resource.
         """
@@ -171,7 +171,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
+    def resource_guid(self) -> pulumi.Output[str]:
         """
         The resource GUID property of the local network gateway resource.
         """
@@ -179,7 +179,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -187,7 +187,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

@@ -15,7 +15,7 @@ __all__ = ['WebApplicationFirewallPolicy']
 
 class WebApplicationFirewallPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationGateways")
-    def application_gateways(self) -> List['outputs.ApplicationGatewayResponse']:
+    def application_gateways(self) -> pulumi.Output[List['outputs.ApplicationGatewayResponse']]:
         """
         A collection of references to application gateways.
         """
@@ -112,7 +112,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[List['outputs.WebApplicationFirewallCustomRuleResponse']]:
+    def custom_rules(self) -> pulumi.Output[Optional[List['outputs.WebApplicationFirewallCustomRuleResponse']]]:
         """
         Describes custom rules inside the policy
         """
@@ -120,7 +120,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -128,7 +128,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -136,7 +136,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -144,7 +144,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
+    def policy_settings(self) -> pulumi.Output[Optional['outputs.PolicySettingsResponse']]:
         """
         Describes  policySettings for policy
         """
@@ -152,7 +152,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the WebApplicationFirewallPolicy.
         """
@@ -160,12 +160,12 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -173,7 +173,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

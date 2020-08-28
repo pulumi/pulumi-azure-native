@@ -13,7 +13,7 @@ __all__ = ['ApplicationPackage']
 
 class ApplicationPackage(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> str:
+    def format(self) -> pulumi.Output[str]:
         """
         The format of the application package, if the package is active.
         """
@@ -102,7 +102,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastActivationTime")
-    def last_activation_time(self) -> str:
+    def last_activation_time(self) -> pulumi.Output[str]:
         """
         The time at which the package was last activated, if the package is active.
         """
@@ -110,7 +110,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The current state of the application package.
         """
@@ -118,7 +118,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageUrl")
-    def storage_url(self) -> str:
+    def storage_url(self) -> pulumi.Output[str]:
         """
         The URL for the application package in Azure Storage.
         """
@@ -126,7 +126,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageUrlExpiry")
-    def storage_url_expiry(self) -> str:
+    def storage_url_expiry(self) -> pulumi.Output[str]:
         """
         The UTC time at which the Azure Storage URL will expire.
         """
@@ -134,7 +134,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The version of the application package.
         """

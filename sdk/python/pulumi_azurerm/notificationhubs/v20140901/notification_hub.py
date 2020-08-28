@@ -15,7 +15,7 @@ __all__ = ['NotificationHub']
 
 class NotificationHub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets datacenter location of the NotificationHub.
         """
@@ -109,7 +109,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets name of the NotificationHub.
         """
@@ -117,7 +117,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.NotificationHubPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.NotificationHubPropertiesResponse']:
         """
         Gets or sets properties of the NotificationHub.
         """
@@ -125,7 +125,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Gets or sets tags of the NotificationHub.
         """
@@ -133,7 +133,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets resource type of the NotificationHub.
         """

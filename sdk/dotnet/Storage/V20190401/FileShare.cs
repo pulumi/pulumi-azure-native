@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.Storage.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:storage/v20190601:FileShare"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20190601:FileShare"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

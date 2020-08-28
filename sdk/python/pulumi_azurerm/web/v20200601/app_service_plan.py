@@ -15,7 +15,7 @@ __all__ = ['AppServicePlan']
 
 class AppServicePlan(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[str]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
@@ -140,7 +140,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="freeOfferExpirationTime")
-    def free_offer_expiration_time(self) -> Optional[str]:
+    def free_offer_expiration_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time when the server farm free offer expires.
         """
@@ -148,7 +148,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoRegion")
-    def geo_region(self) -> str:
+    def geo_region(self) -> pulumi.Output[str]:
         """
         Geographical location for the App Service plan.
         """
@@ -156,7 +156,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+    def hosting_environment_profile(self) -> pulumi.Output[Optional['outputs.HostingEnvironmentProfileResponse']]:
         """
         Specification for the App Service Environment to use for the App Service plan.
         """
@@ -164,7 +164,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hyperV")
-    def hyper_v(self) -> Optional[bool]:
+    def hyper_v(self) -> pulumi.Output[Optional[bool]]:
         """
         If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         """
@@ -172,7 +172,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isSpot")
-    def is_spot(self) -> Optional[bool]:
+    def is_spot(self) -> pulumi.Output[Optional[bool]]:
         """
         If <code>true</code>, this App Service Plan owns spot instances.
         """
@@ -180,7 +180,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isXenon")
-    def is_xenon(self) -> Optional[bool]:
+    def is_xenon(self) -> pulumi.Output[Optional[bool]]:
         """
         Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         """
@@ -188,7 +188,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -196,7 +196,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location.
         """
@@ -204,7 +204,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumElasticWorkerCount")
-    def maximum_elastic_worker_count(self) -> Optional[float]:
+    def maximum_elastic_worker_count(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
         """
@@ -212,7 +212,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumNumberOfWorkers")
-    def maximum_number_of_workers(self) -> float:
+    def maximum_number_of_workers(self) -> pulumi.Output[float]:
         """
         Maximum number of instances that can be assigned to this App Service plan.
         """
@@ -220,7 +220,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -228,7 +228,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfSites")
-    def number_of_sites(self) -> float:
+    def number_of_sites(self) -> pulumi.Output[float]:
         """
         Number of apps assigned to this App Service plan.
         """
@@ -236,7 +236,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="perSiteScaling")
-    def per_site_scaling(self) -> Optional[bool]:
+    def per_site_scaling(self) -> pulumi.Output[Optional[bool]]:
         """
         If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
         If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
@@ -245,7 +245,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the App Service Environment.
         """
@@ -253,7 +253,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def reserved(self) -> Optional[bool]:
+    def reserved(self) -> pulumi.Output[Optional[bool]]:
         """
         If Linux app service plan <code>true</code>, <code>false</code> otherwise.
         """
@@ -261,7 +261,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> str:
+    def resource_group(self) -> pulumi.Output[str]:
         """
         Resource group of the App Service plan.
         """
@@ -269,7 +269,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuDescriptionResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuDescriptionResponse']]:
         """
         Description of a SKU for a scalable resource.
         """
@@ -277,7 +277,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotExpirationTime")
-    def spot_expiration_time(self) -> Optional[str]:
+    def spot_expiration_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time when the server farm expires. Valid only if it is a spot server farm.
         """
@@ -285,7 +285,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         App Service plan status.
         """
@@ -293,7 +293,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subscription(self) -> str:
+    def subscription(self) -> pulumi.Output[str]:
         """
         App Service plan subscription.
         """
@@ -301,7 +301,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -309,7 +309,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetWorkerCount")
-    def target_worker_count(self) -> Optional[float]:
+    def target_worker_count(self) -> pulumi.Output[Optional[float]]:
         """
         Scaling worker count.
         """
@@ -317,7 +317,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetWorkerSizeId")
-    def target_worker_size_id(self) -> Optional[float]:
+    def target_worker_size_id(self) -> pulumi.Output[Optional[float]]:
         """
         Scaling worker size ID.
         """
@@ -325,7 +325,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -333,7 +333,7 @@ class AppServicePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workerTierName")
-    def worker_tier_name(self) -> Optional[str]:
+    def worker_tier_name(self) -> pulumi.Output[Optional[str]]:
         """
         Target worker tier assigned to the App Service plan.
         """

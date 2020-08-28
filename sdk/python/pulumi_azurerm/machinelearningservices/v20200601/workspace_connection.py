@@ -13,7 +13,7 @@ __all__ = ['WorkspaceConnection']
 
 class WorkspaceConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
                  category: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class WorkspaceConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[str]:
+    def auth_type(self) -> pulumi.Output[Optional[str]]:
         """
         Authorization type of the workspace connection.
         """
@@ -106,7 +106,7 @@ class WorkspaceConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[str]:
+    def category(self) -> pulumi.Output[Optional[str]]:
         """
         Category of the workspace connection.
         """
@@ -114,7 +114,7 @@ class WorkspaceConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Friendly name of the workspace connection.
         """
@@ -122,7 +122,7 @@ class WorkspaceConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[str]:
+    def target(self) -> pulumi.Output[Optional[str]]:
         """
         Target of the workspace connection.
         """
@@ -130,7 +130,7 @@ class WorkspaceConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type of workspace connection.
         """
@@ -138,7 +138,7 @@ class WorkspaceConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
         Value details of the workspace connection.
         """

@@ -15,7 +15,7 @@ __all__ = ['Zone']
 
 class Zone(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The etag of the zone.
         """
@@ -114,7 +114,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -122,7 +122,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> float:
+    def max_number_of_record_sets(self) -> pulumi.Output[float]:
         """
         The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -130,7 +130,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -138,7 +138,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> List[str]:
+    def name_servers(self) -> pulumi.Output[List[str]]:
         """
         The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -146,7 +146,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> float:
+    def number_of_record_sets(self) -> pulumi.Output[float]:
         """
         The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -154,7 +154,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationVirtualNetworks")
-    def registration_virtual_networks(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def registration_virtual_networks(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
         """
         A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         """
@@ -162,7 +162,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resolutionVirtualNetworks")
-    def resolution_virtual_networks(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def resolution_virtual_networks(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
         """
         A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         """
@@ -170,7 +170,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -178,7 +178,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -186,7 +186,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneType")
-    def zone_type(self) -> Optional[str]:
+    def zone_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of this DNS zone (Public or Private).
         """

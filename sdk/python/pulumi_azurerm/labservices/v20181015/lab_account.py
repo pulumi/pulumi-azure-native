@@ -14,7 +14,7 @@ __all__ = ['LabAccount']
 
 class LabAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled_region_selection: Optional[pulumi.Input[bool]] = None,
                  lab_account_name: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class LabAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledRegionSelection")
-    def enabled_region_selection(self) -> Optional[bool]:
+    def enabled_region_selection(self) -> pulumi.Output[Optional[bool]]:
         """
         Represents if region selection is enabled
         """
@@ -105,7 +105,7 @@ class LabAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> pulumi.Output['outputs.LatestOperationResultResponse']:
         """
         The details of the latest operation. ex: status, error
         """
@@ -113,7 +113,7 @@ class LabAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -121,7 +121,7 @@ class LabAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -129,7 +129,7 @@ class LabAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -137,7 +137,7 @@ class LabAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeConfiguration")
-    def size_configuration(self) -> 'outputs.SizeConfigurationPropertiesResponse':
+    def size_configuration(self) -> pulumi.Output['outputs.SizeConfigurationPropertiesResponse']:
         """
         Represents the size configuration under the lab account
         """
@@ -145,7 +145,7 @@ class LabAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -153,7 +153,7 @@ class LabAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -161,7 +161,7 @@ class LabAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """

@@ -13,7 +13,7 @@ __all__ = ['WCFRelay']
 
 class WCFRelay(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  relay_name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         The time the WCF relay was created.
         """
@@ -108,7 +108,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isDynamic")
-    def is_dynamic(self) -> bool:
+    def is_dynamic(self) -> pulumi.Output[bool]:
         """
         Returns true if the relay is dynamic; otherwise, false.
         """
@@ -116,7 +116,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="listenerCount")
-    def listener_count(self) -> float:
+    def listener_count(self) -> pulumi.Output[float]:
         """
         The number of listeners for this relay. Note that min :1 and max:25 are supported.
         """
@@ -124,7 +124,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -132,7 +132,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relayType")
-    def relay_type(self) -> Optional[str]:
+    def relay_type(self) -> pulumi.Output[Optional[str]]:
         """
         WCF relay type.
         """
@@ -140,7 +140,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresClientAuthorization")
-    def requires_client_authorization(self) -> Optional[bool]:
+    def requires_client_authorization(self) -> pulumi.Output[Optional[bool]]:
         """
         Returns true if client authorization is needed for this relay; otherwise, false.
         """
@@ -148,7 +148,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresTransportSecurity")
-    def requires_transport_security(self) -> Optional[bool]:
+    def requires_transport_security(self) -> pulumi.Output[Optional[bool]]:
         """
         Returns true if transport security is needed for this relay; otherwise, false.
         """
@@ -156,7 +156,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -164,7 +164,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> pulumi.Output[str]:
         """
         The time the namespace was updated.
         """
@@ -172,7 +172,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userMetadata")
-    def user_metadata(self) -> Optional[str]:
+    def user_metadata(self) -> pulumi.Output[Optional[str]]:
         """
         The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """

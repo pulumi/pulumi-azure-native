@@ -15,7 +15,7 @@ __all__ = ['BackupScheduleGroup']
 
 class BackupScheduleGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class BackupScheduleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name.
         """
@@ -104,7 +104,7 @@ class BackupScheduleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> 'outputs.TimeResponse':
+    def start_time(self) -> pulumi.Output['outputs.TimeResponse']:
         """
         The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
         """
@@ -112,7 +112,7 @@ class BackupScheduleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type.
         """

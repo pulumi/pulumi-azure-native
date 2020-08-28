@@ -153,16 +153,16 @@ namespace Pulumi.AzureRM.Storage.V20161201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:storage/v20150615:StorageAccount"},
-                    new Alias { Type = "azurerm:storage/v20160101:StorageAccount"},
-                    new Alias { Type = "azurerm:storage/v20160501:StorageAccount"},
-                    new Alias { Type = "azurerm:storage/v20170601:StorageAccount"},
-                    new Alias { Type = "azurerm:storage/v20171001:StorageAccount"},
-                    new Alias { Type = "azurerm:storage/v20180201:StorageAccount"},
-                    new Alias { Type = "azurerm:storage/v20180701:StorageAccount"},
-                    new Alias { Type = "azurerm:storage/v20181101:StorageAccount"},
-                    new Alias { Type = "azurerm:storage/v20190401:StorageAccount"},
-                    new Alias { Type = "azurerm:storage/v20190601:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20150615:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20160101:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20160501:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20170601:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20171001:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20180201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20180701:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20181101:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20190401:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20190601:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

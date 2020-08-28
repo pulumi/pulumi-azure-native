@@ -15,7 +15,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="changedTime")
-    def changed_time(self) -> str:
+    def changed_time(self) -> pulumi.Output[str]:
         """
         The changed time.
         """
@@ -113,7 +113,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         """
         The created time.
         """
@@ -121,7 +121,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> Optional['outputs.KeyVaultKeyReferenceResponse']:
+    def key(self) -> pulumi.Output[Optional['outputs.KeyVaultKeyReferenceResponse']]:
         """
         The key details in the key vault.
         """
@@ -129,7 +129,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -137,7 +137,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The metadata.
         """
@@ -145,7 +145,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the resource name.
         """
@@ -153,7 +153,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicCertificate")
-    def public_certificate(self) -> Optional[str]:
+    def public_certificate(self) -> pulumi.Output[Optional[str]]:
         """
         The public certificate.
         """
@@ -161,7 +161,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -169,7 +169,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the resource type.
         """

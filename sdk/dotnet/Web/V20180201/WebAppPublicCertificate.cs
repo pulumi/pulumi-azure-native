@@ -75,10 +75,10 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20160801:WebAppPublicCertificate"},
-                    new Alias { Type = "azurerm:web/v20181101:WebAppPublicCertificate"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppPublicCertificate"},
-                    new Alias { Type = "azurerm:web/v20200601:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppPublicCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppPublicCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

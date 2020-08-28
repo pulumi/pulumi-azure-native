@@ -13,7 +13,7 @@ __all__ = ['IscsiDisk']
 
 class IscsiDisk(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_records: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  data_policy: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessControlRecords")
-    def access_control_records(self) -> List[str]:
+    def access_control_records(self) -> pulumi.Output[List[str]]:
         """
         The access control records.
         """
@@ -132,7 +132,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> str:
+    def data_policy(self) -> pulumi.Output[str]:
         """
         The data policy.
         """
@@ -140,7 +140,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description.
         """
@@ -148,7 +148,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskStatus")
-    def disk_status(self) -> str:
+    def disk_status(self) -> pulumi.Output[str]:
         """
         The disk status.
         """
@@ -156,7 +156,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localUsedCapacityInBytes")
-    def local_used_capacity_in_bytes(self) -> float:
+    def local_used_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The local used capacity in bytes.
         """
@@ -164,7 +164,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> str:
+    def monitoring_status(self) -> pulumi.Output[str]:
         """
         The monitoring.
         """
@@ -172,7 +172,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name.
         """
@@ -180,7 +180,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> float:
+    def provisioned_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The provisioned capacity in bytes.
         """
@@ -188,7 +188,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type.
         """
@@ -196,7 +196,7 @@ class IscsiDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usedCapacityInBytes")
-    def used_capacity_in_bytes(self) -> float:
+    def used_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The used capacity in bytes.
         """

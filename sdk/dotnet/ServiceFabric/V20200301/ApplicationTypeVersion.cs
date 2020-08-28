@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:servicefabric/v20190301:ApplicationTypeVersion"},
+                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301:ApplicationTypeVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

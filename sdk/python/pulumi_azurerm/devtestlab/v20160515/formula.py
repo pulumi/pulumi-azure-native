@@ -15,7 +15,7 @@ __all__ = ['Formula']
 
 class Formula(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def author(self) -> Optional[str]:
+    def author(self) -> pulumi.Output[Optional[str]]:
         """
         The author of the formula.
         """
@@ -123,7 +123,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The creation date of the formula.
         """
@@ -131,7 +131,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the formula.
         """
@@ -139,7 +139,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="formulaContent")
-    def formula_content(self) -> Optional['outputs.LabVirtualMachineCreationParameterResponse']:
+    def formula_content(self) -> pulumi.Output[Optional['outputs.LabVirtualMachineCreationParameterResponse']]:
         """
         The content of the formula.
         """
@@ -147,7 +147,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -155,7 +155,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -163,7 +163,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         The OS type of the formula.
         """
@@ -171,7 +171,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -179,7 +179,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -187,7 +187,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -195,7 +195,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """
@@ -203,7 +203,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vm(self) -> Optional['outputs.FormulaPropertiesFromVmResponse']:
+    def vm(self) -> pulumi.Output[Optional['outputs.FormulaPropertiesFromVmResponse']]:
         """
         Information about a VM from which a formula is to be created.
         """

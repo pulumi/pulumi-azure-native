@@ -135,10 +135,10 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20160801:WebAppFunction"},
-                    new Alias { Type = "azurerm:web/v20180201:WebAppFunction"},
-                    new Alias { Type = "azurerm:web/v20181101:WebAppFunction"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppFunction"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

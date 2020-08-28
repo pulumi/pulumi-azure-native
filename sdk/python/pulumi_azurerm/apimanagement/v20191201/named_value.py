@@ -13,7 +13,7 @@ __all__ = ['NamedValue']
 
 class NamedValue(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  named_value_id: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class NamedValue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
         """
@@ -108,7 +108,7 @@ class NamedValue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -116,7 +116,7 @@ class NamedValue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secret(self) -> Optional[bool]:
+    def secret(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines whether the value is a secret and should be encrypted or not. Default value is false.
         """
@@ -124,7 +124,7 @@ class NamedValue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List[str]]:
+    def tags(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Optional tags that when provided can be used to filter the NamedValue list.
         """
@@ -132,7 +132,7 @@ class NamedValue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -140,7 +140,7 @@ class NamedValue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
         Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         """

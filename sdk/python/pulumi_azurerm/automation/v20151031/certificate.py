@@ -13,7 +13,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  base64_value: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         Gets the creation time.
         """
@@ -113,7 +113,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -121,7 +121,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expiryTime")
-    def expiry_time(self) -> str:
+    def expiry_time(self) -> pulumi.Output[str]:
         """
         Gets the expiry time of the certificate.
         """
@@ -129,7 +129,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isExportable")
-    def is_exportable(self) -> bool:
+    def is_exportable(self) -> pulumi.Output[bool]:
         """
         Gets the is exportable flag of the certificate.
         """
@@ -137,7 +137,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         Gets the last modified time.
         """
@@ -145,7 +145,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -153,7 +153,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> str:
+    def thumbprint(self) -> pulumi.Output[str]:
         """
         Gets the thumbprint of the certificate.
         """
@@ -161,7 +161,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

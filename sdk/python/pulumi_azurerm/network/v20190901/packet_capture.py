@@ -15,7 +15,7 @@ __all__ = ['PacketCapture']
 
 class PacketCapture(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
                  filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]]] = None,
@@ -111,7 +111,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bytesToCapturePerPacket")
-    def bytes_to_capture_per_packet(self) -> Optional[float]:
+    def bytes_to_capture_per_packet(self) -> pulumi.Output[Optional[float]]:
         """
         Number of bytes captured per packet, the remaining bytes are truncated.
         """
@@ -119,7 +119,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -127,7 +127,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.PacketCaptureFilterResponse']]:
+    def filters(self) -> pulumi.Output[Optional[List['outputs.PacketCaptureFilterResponse']]]:
         """
         A list of packet capture filters.
         """
@@ -135,7 +135,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the packet capture session.
         """
@@ -143,7 +143,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the packet capture session.
         """
@@ -151,7 +151,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageLocation")
-    def storage_location(self) -> 'outputs.PacketCaptureStorageLocationResponse':
+    def storage_location(self) -> pulumi.Output['outputs.PacketCaptureStorageLocationResponse']:
         """
         Describes the storage location for a packet capture session.
         """
@@ -159,7 +159,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def target(self) -> str:
+    def target(self) -> pulumi.Output[str]:
         """
         The ID of the targeted resource, only VM is currently supported.
         """
@@ -167,7 +167,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeLimitInSeconds")
-    def time_limit_in_seconds(self) -> Optional[float]:
+    def time_limit_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum duration of the capture session in seconds.
         """
@@ -175,7 +175,7 @@ class PacketCapture(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalBytesPerSession")
-    def total_bytes_per_session(self) -> Optional[float]:
+    def total_bytes_per_session(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum size of the capture output.
         """

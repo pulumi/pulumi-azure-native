@@ -15,7 +15,7 @@ __all__ = ['VpnGateway']
 
 class VpnGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
                  connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnConnectionArgs']]]]] = None,
@@ -110,7 +110,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional['outputs.BgpSettingsResponse']:
+    def bgp_settings(self) -> pulumi.Output[Optional['outputs.BgpSettingsResponse']]:
         """
         Local network gateway's BGP speaker settings.
         """
@@ -118,7 +118,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def connections(self) -> Optional[List['outputs.VpnConnectionResponse']]:
+    def connections(self) -> pulumi.Output[Optional[List['outputs.VpnConnectionResponse']]]:
         """
         list of all vpn connections to the gateway.
         """
@@ -126,7 +126,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -134,7 +134,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -142,7 +142,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -150,7 +150,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the resource.
         """
@@ -158,7 +158,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -166,7 +166,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -174,7 +174,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_hub(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The VirtualHub to which the gateway belongs
         """
@@ -182,7 +182,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnGatewayScaleUnit")
-    def vpn_gateway_scale_unit(self) -> Optional[float]:
+    def vpn_gateway_scale_unit(self) -> pulumi.Output[Optional[float]]:
         """
         The scale unit for this vpn gateway.
         """

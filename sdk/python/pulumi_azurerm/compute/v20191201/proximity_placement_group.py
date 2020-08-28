@@ -15,7 +15,7 @@ __all__ = ['ProximityPlacementGroup']
 
 class ProximityPlacementGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  colocation_status: Optional[pulumi.Input[pulumi.InputType['InstanceViewStatusArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilitySets")
-    def availability_sets(self) -> List['outputs.SubResourceWithColocationStatusResponse']:
+    def availability_sets(self) -> pulumi.Output[List['outputs.SubResourceWithColocationStatusResponse']]:
         """
         A list of references to all availability sets in the proximity placement group.
         """
@@ -108,7 +108,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="colocationStatus")
-    def colocation_status(self) -> Optional['outputs.InstanceViewStatusResponse']:
+    def colocation_status(self) -> pulumi.Output[Optional['outputs.InstanceViewStatusResponse']]:
         """
         Describes colocation status of the Proximity Placement Group.
         """
@@ -116,7 +116,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -124,7 +124,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -132,7 +132,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proximityPlacementGroupType")
-    def proximity_placement_group_type(self) -> Optional[str]:
+    def proximity_placement_group_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
         """
@@ -140,7 +140,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -148,7 +148,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -156,7 +156,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineScaleSets")
-    def virtual_machine_scale_sets(self) -> List['outputs.SubResourceWithColocationStatusResponse']:
+    def virtual_machine_scale_sets(self) -> pulumi.Output[List['outputs.SubResourceWithColocationStatusResponse']]:
         """
         A list of references to all virtual machine scale sets in the proximity placement group.
         """
@@ -164,7 +164,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> List['outputs.SubResourceWithColocationStatusResponse']:
+    def virtual_machines(self) -> pulumi.Output[List['outputs.SubResourceWithColocationStatusResponse']]:
         """
         A list of references to all virtual machines in the proximity placement group.
         """

@@ -15,7 +15,7 @@ __all__ = ['AssetFilter']
 
 class AssetFilter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class AssetFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firstQuality")
-    def first_quality(self) -> Optional['outputs.FirstQualityResponse']:
+    def first_quality(self) -> pulumi.Output[Optional['outputs.FirstQualityResponse']]:
         """
         The first quality.
         """
@@ -110,7 +110,7 @@ class AssetFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -118,7 +118,7 @@ class AssetFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="presentationTimeRange")
-    def presentation_time_range(self) -> Optional['outputs.PresentationTimeRangeResponse']:
+    def presentation_time_range(self) -> pulumi.Output[Optional['outputs.PresentationTimeRangeResponse']]:
         """
         The presentation time range.
         """
@@ -126,7 +126,7 @@ class AssetFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tracks(self) -> Optional[List['outputs.FilterTrackSelectionResponse']]:
+    def tracks(self) -> pulumi.Output[Optional[List['outputs.FilterTrackSelectionResponse']]]:
         """
         The tracks selection conditions.
         """
@@ -134,7 +134,7 @@ class AssetFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

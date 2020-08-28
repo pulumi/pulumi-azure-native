@@ -13,7 +13,7 @@ __all__ = ['PrivateStoreOffer']
 
 class PrivateStoreOffer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  offer_id: Optional[pulumi.Input[str]] = None,
@@ -90,7 +90,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> str:
+    def created_by(self) -> pulumi.Output[str]:
         """
         Private store offer creator name
         """
@@ -98,7 +98,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         Private store offer created date
         """
@@ -106,7 +106,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier for purposes of race condition
         """
@@ -114,7 +114,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -122,7 +122,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="offerDisplayName")
-    def offer_display_name(self) -> str:
+    def offer_display_name(self) -> pulumi.Output[str]:
         """
         It will be displayed prominently in the marketplace
         """
@@ -130,7 +130,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateStoreId")
-    def private_store_id(self) -> str:
+    def private_store_id(self) -> pulumi.Output[str]:
         """
         Private store unique id
         """
@@ -138,7 +138,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publisherDisplayName")
-    def publisher_display_name(self) -> str:
+    def publisher_display_name(self) -> pulumi.Output[str]:
         """
         Publisher name that will be displayed prominently in the marketplace
         """
@@ -146,7 +146,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="specificPlanIdsLimitation")
-    def specific_plan_ids_limitation(self) -> Optional[List[str]]:
+    def specific_plan_ids_limitation(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Plan ids limitation for this offer
         """
@@ -154,7 +154,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -162,7 +162,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueOfferId")
-    def unique_offer_id(self) -> str:
+    def unique_offer_id(self) -> pulumi.Output[str]:
         """
         Offers unique id
         """

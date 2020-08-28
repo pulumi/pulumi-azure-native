@@ -14,7 +14,7 @@ __all__ = ['Queue']
 
 class Queue(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -138,7 +138,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessedAt")
-    def accessed_at(self) -> str:
+    def accessed_at(self) -> pulumi.Output[str]:
         """
         Last time a message was sent, or the last time there was a receive request to this queue.
         """
@@ -146,7 +146,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> Optional[str]:
+    def auto_delete_on_idle(self) -> pulumi.Output[Optional[str]]:
         """
         ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
         """
@@ -154,7 +154,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="countDetails")
-    def count_details(self) -> 'outputs.MessageCountDetailsResponse':
+    def count_details(self) -> pulumi.Output['outputs.MessageCountDetailsResponse']:
         """
         Message Count Details.
         """
@@ -162,7 +162,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         The exact time the message was created.
         """
@@ -170,7 +170,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deadLetteringOnMessageExpiration")
-    def dead_lettering_on_message_expiration(self) -> Optional[bool]:
+    def dead_lettering_on_message_expiration(self) -> pulumi.Output[Optional[bool]]:
         """
         A value that indicates whether this queue has dead letter support when a message expires.
         """
@@ -178,7 +178,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultMessageTimeToLive")
-    def default_message_time_to_live(self) -> Optional[str]:
+    def default_message_time_to_live(self) -> pulumi.Output[Optional[str]]:
         """
         ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         """
@@ -186,7 +186,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
-    def duplicate_detection_history_time_window(self) -> Optional[str]:
+    def duplicate_detection_history_time_window(self) -> pulumi.Output[Optional[str]]:
         """
         ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
         """
@@ -194,7 +194,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> Optional[bool]:
+    def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
         """
         Value that indicates whether server-side batched operations are enabled.
         """
@@ -202,7 +202,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableExpress")
-    def enable_express(self) -> Optional[bool]:
+    def enable_express(self) -> pulumi.Output[Optional[bool]]:
         """
         A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
         """
@@ -210,7 +210,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePartitioning")
-    def enable_partitioning(self) -> Optional[bool]:
+    def enable_partitioning(self) -> pulumi.Output[Optional[bool]]:
         """
         A value that indicates whether the queue is to be partitioned across multiple message brokers.
         """
@@ -218,7 +218,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forwardDeadLetteredMessagesTo")
-    def forward_dead_lettered_messages_to(self) -> Optional[str]:
+    def forward_dead_lettered_messages_to(self) -> pulumi.Output[Optional[str]]:
         """
         Queue/Topic name to forward the Dead Letter message
         """
@@ -226,7 +226,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forwardTo")
-    def forward_to(self) -> Optional[str]:
+    def forward_to(self) -> pulumi.Output[Optional[str]]:
         """
         Queue/Topic name to forward the messages
         """
@@ -234,7 +234,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockDuration")
-    def lock_duration(self) -> Optional[str]:
+    def lock_duration(self) -> pulumi.Output[Optional[str]]:
         """
         ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
         """
@@ -242,7 +242,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
         """
@@ -250,7 +250,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> Optional[float]:
+    def max_size_in_megabytes(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
         """
@@ -258,7 +258,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> float:
+    def message_count(self) -> pulumi.Output[float]:
         """
         The number of messages in the queue.
         """
@@ -266,7 +266,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -274,7 +274,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresDuplicateDetection")
-    def requires_duplicate_detection(self) -> Optional[bool]:
+    def requires_duplicate_detection(self) -> pulumi.Output[Optional[bool]]:
         """
         A value indicating if this queue requires duplicate detection.
         """
@@ -282,7 +282,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresSession")
-    def requires_session(self) -> Optional[bool]:
+    def requires_session(self) -> pulumi.Output[Optional[bool]]:
         """
         A value that indicates whether the queue supports the concept of sessions.
         """
@@ -290,7 +290,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> float:
+    def size_in_bytes(self) -> pulumi.Output[float]:
         """
         The size of the queue, in bytes.
         """
@@ -298,7 +298,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Enumerates the possible values for the status of a messaging entity.
         """
@@ -306,7 +306,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -314,7 +314,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> pulumi.Output[str]:
         """
         The exact time the message was updated.
         """

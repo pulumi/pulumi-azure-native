@@ -105,8 +105,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:servicebus/v20150801:NamespaceAuthorizationRule"},
-                    new Alias { Type = "azurerm:servicebus/v20170401:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

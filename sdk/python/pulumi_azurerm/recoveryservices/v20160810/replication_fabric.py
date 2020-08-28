@@ -14,7 +14,7 @@ __all__ = ['ReplicationFabric']
 
 class ReplicationFabric(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class ReplicationFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Location
         """
@@ -97,7 +97,7 @@ class ReplicationFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name
         """
@@ -105,7 +105,7 @@ class ReplicationFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.FabricPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.FabricPropertiesResponse']:
         """
         Fabric related data.
         """
@@ -113,7 +113,7 @@ class ReplicationFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource Type
         """

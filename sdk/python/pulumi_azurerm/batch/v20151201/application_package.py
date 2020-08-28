@@ -13,7 +13,7 @@ __all__ = ['ApplicationPackage']
 
 class ApplicationPackage(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[str]:
+    def format(self) -> pulumi.Output[Optional[str]]:
         """
         The format of the application package, if the package is active.
         """
@@ -102,7 +102,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastActivationTime")
-    def last_activation_time(self) -> Optional[str]:
+    def last_activation_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time at which the package was last activated, if the package is active.
         """
@@ -110,7 +110,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The current state of the application package.
         """
@@ -118,7 +118,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageUrl")
-    def storage_url(self) -> Optional[str]:
+    def storage_url(self) -> pulumi.Output[Optional[str]]:
         """
         The storage URL at which the application package is stored.
         """
@@ -126,7 +126,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageUrlExpiry")
-    def storage_url_expiry(self) -> Optional[str]:
+    def storage_url_expiry(self) -> pulumi.Output[Optional[str]]:
         """
         The UTC time at which the storage URL will expire.
         """
@@ -134,7 +134,7 @@ class ApplicationPackage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the application package. 
         """

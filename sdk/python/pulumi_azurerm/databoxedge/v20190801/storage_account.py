@@ -13,7 +13,7 @@ __all__ = ['StorageAccount']
 
 class StorageAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_policy: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blobEndpoint")
-    def blob_endpoint(self) -> str:
+    def blob_endpoint(self) -> pulumi.Output[str]:
         """
         BlobEndpoint of Storage Account
         """
@@ -106,7 +106,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerCount")
-    def container_count(self) -> float:
+    def container_count(self) -> pulumi.Output[float]:
         """
         The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
         """
@@ -114,7 +114,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> Optional[str]:
+    def data_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Data policy of the storage Account.
         """
@@ -122,7 +122,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description for the storage Account.
         """
@@ -130,7 +130,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The object name.
         """
@@ -138,7 +138,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountCredentialId")
-    def storage_account_credential_id(self) -> Optional[str]:
+    def storage_account_credential_id(self) -> pulumi.Output[Optional[str]]:
         """
         Storage Account Credential Id
         """
@@ -146,7 +146,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountStatus")
-    def storage_account_status(self) -> Optional[str]:
+    def storage_account_status(self) -> pulumi.Output[Optional[str]]:
         """
         Current status of the storage account
         """
@@ -154,7 +154,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """

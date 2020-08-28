@@ -14,7 +14,7 @@ __all__ = ['DpsCertificate']
 
 class DpsCertificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class DpsCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         The entity tag.
         """
@@ -100,7 +100,7 @@ class DpsCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the certificate.
         """
@@ -108,7 +108,7 @@ class DpsCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CertificatePropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.CertificatePropertiesResponse']:
         """
         properties of a certificate
         """
@@ -116,7 +116,7 @@ class DpsCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """

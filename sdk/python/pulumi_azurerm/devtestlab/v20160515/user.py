@@ -15,7 +15,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['UserIdentityArgs']]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the user profile.
         """
@@ -114,7 +114,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.UserIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.UserIdentityResponse']]:
         """
         The identity of the user.
         """
@@ -122,7 +122,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -130,7 +130,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -138,7 +138,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -146,7 +146,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional['outputs.UserSecretStoreResponse']:
+    def secret_store(self) -> pulumi.Output[Optional['outputs.UserSecretStoreResponse']]:
         """
         The secret store of the user.
         """
@@ -154,7 +154,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -162,7 +162,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -170,7 +170,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """

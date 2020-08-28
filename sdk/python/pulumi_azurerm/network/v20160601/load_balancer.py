@@ -15,7 +15,7 @@ __all__ = ['LoadBalancer']
 
 class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_address_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BackendAddressPoolArgs']]]]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> Optional[List['outputs.BackendAddressPoolResponse']]:
+    def backend_address_pools(self) -> pulumi.Output[Optional[List['outputs.BackendAddressPoolResponse']]]:
         """
         Gets or sets Pools of backend IP addresses
         """
@@ -130,7 +130,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets a unique read-only string that changes whenever the resource is updated
         """
@@ -138,7 +138,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[List['outputs.FrontendIPConfigurationResponse']]:
+    def frontend_ip_configurations(self) -> pulumi.Output[Optional[List['outputs.FrontendIPConfigurationResponse']]]:
         """
         Gets or sets frontend IP addresses of the load balancer
         """
@@ -146,7 +146,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inboundNatPools")
-    def inbound_nat_pools(self) -> Optional[List['outputs.InboundNatPoolResponse']]:
+    def inbound_nat_pools(self) -> pulumi.Output[Optional[List['outputs.InboundNatPoolResponse']]]:
         """
         Gets or sets inbound NAT pools
         """
@@ -154,7 +154,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[List['outputs.InboundNatRuleResponse']]:
+    def inbound_nat_rules(self) -> pulumi.Output[Optional[List['outputs.InboundNatRuleResponse']]]:
         """
         Gets or sets list of inbound rules
         """
@@ -162,7 +162,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> Optional[List['outputs.LoadBalancingRuleResponse']]:
+    def load_balancing_rules(self) -> pulumi.Output[Optional[List['outputs.LoadBalancingRuleResponse']]]:
         """
         Gets or sets load balancing rules
         """
@@ -170,7 +170,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -178,7 +178,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -186,7 +186,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outboundNatRules")
-    def outbound_nat_rules(self) -> Optional[List['outputs.OutboundNatRuleResponse']]:
+    def outbound_nat_rules(self) -> pulumi.Output[Optional[List['outputs.OutboundNatRuleResponse']]]:
         """
         Gets or sets outbound NAT rules
         """
@@ -194,7 +194,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def probes(self) -> Optional[List['outputs.ProbeResponse']]:
+    def probes(self) -> pulumi.Output[Optional[List['outputs.ProbeResponse']]]:
         """
         Gets or sets list of Load balancer probes
         """
@@ -202,7 +202,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         """
@@ -210,7 +210,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> Optional[str]:
+    def resource_guid(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets resource guid property of the Load balancer resource
         """
@@ -218,7 +218,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -226,7 +226,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

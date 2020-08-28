@@ -14,7 +14,7 @@ __all__ = ['Database']
 
 class Database(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
@@ -186,7 +186,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def collation(self) -> Optional[str]:
+    def collation(self) -> pulumi.Output[Optional[str]]:
         """
         The collation of the database. If createMode is not Default, this value is ignored.
         """
@@ -194,7 +194,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containmentState")
-    def containment_state(self) -> float:
+    def containment_state(self) -> pulumi.Output[float]:
         """
         The containment state of the database.
         """
@@ -202,7 +202,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
+    def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the mode of database creation.
 
@@ -226,7 +226,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The creation date of the database (ISO8601 format).
         """
@@ -234,7 +234,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentServiceObjectiveId")
-    def current_service_objective_id(self) -> str:
+    def current_service_objective_id(self) -> pulumi.Output[str]:
         """
         The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
         """
@@ -242,7 +242,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseId")
-    def database_id(self) -> str:
+    def database_id(self) -> pulumi.Output[str]:
         """
         The ID of the database.
         """
@@ -250,7 +250,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSecondaryLocation")
-    def default_secondary_location(self) -> str:
+    def default_secondary_location(self) -> pulumi.Output[str]:
         """
         The default secondary region for this database.
         """
@@ -258,7 +258,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="earliestRestoreDate")
-    def earliest_restore_date(self) -> str:
+    def earliest_restore_date(self) -> pulumi.Output[str]:
         """
         This records the earliest start date and time that restore is available for this database (ISO8601 format).
         """
@@ -266,7 +266,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def edition(self) -> Optional[str]:
+    def edition(self) -> pulumi.Output[Optional[str]]:
         """
         The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
         
@@ -284,7 +284,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="elasticPoolName")
-    def elastic_pool_name(self) -> Optional[str]:
+    def elastic_pool_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
         """
@@ -292,7 +292,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failoverGroupId")
-    def failover_group_id(self) -> str:
+    def failover_group_id(self) -> pulumi.Output[str]:
         """
         The resource identifier of the failover group containing this database.
         """
@@ -300,7 +300,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         Kind of database.  This is metadata used for the Azure portal experience.
         """
@@ -308,7 +308,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -316,7 +316,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[str]:
+    def max_size_bytes(self) -> pulumi.Output[Optional[str]]:
         """
         The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
         """
@@ -324,7 +324,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -332,7 +332,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readScale")
-    def read_scale(self) -> Optional[str]:
+    def read_scale(self) -> pulumi.Output[Optional[str]]:
         """
         Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
         """
@@ -340,7 +340,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recommendedIndex")
-    def recommended_index(self) -> List['outputs.RecommendedIndexResponse']:
+    def recommended_index(self) -> pulumi.Output[List['outputs.RecommendedIndexResponse']]:
         """
         The recommended indices for this database.
         """
@@ -348,7 +348,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryServicesRecoveryPointResourceId")
-    def recovery_services_recovery_point_resource_id(self) -> Optional[str]:
+    def recovery_services_recovery_point_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
         """
@@ -356,7 +356,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestedServiceObjectiveId")
-    def requested_service_objective_id(self) -> Optional[str]:
+    def requested_service_objective_id(self) -> pulumi.Output[Optional[str]]:
         """
         The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
         
@@ -366,7 +366,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestedServiceObjectiveName")
-    def requested_service_objective_name(self) -> Optional[str]:
+    def requested_service_objective_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
         
@@ -384,7 +384,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[str]:
+    def restore_point_in_time(self) -> pulumi.Output[Optional[str]]:
         """
         Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
         """
@@ -392,7 +392,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sampleName")
-    def sample_name(self) -> Optional[str]:
+    def sample_name(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
         """
@@ -400,7 +400,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceLevelObjective")
-    def service_level_objective(self) -> str:
+    def service_level_objective(self) -> pulumi.Output[str]:
         """
         The current service level objective of the database.
         """
@@ -408,7 +408,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceTierAdvisors")
-    def service_tier_advisors(self) -> List['outputs.ServiceTierAdvisorResponse']:
+    def service_tier_advisors(self) -> pulumi.Output[List['outputs.ServiceTierAdvisorResponse']]:
         """
         The list of service tier advisors for this database. Expanded property
         """
@@ -416,7 +416,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceDatabaseDeletionDate")
-    def source_database_deletion_date(self) -> Optional[str]:
+    def source_database_deletion_date(self) -> pulumi.Output[Optional[str]]:
         """
         Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
         """
@@ -424,7 +424,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> Optional[str]:
+    def source_database_id(self) -> pulumi.Output[Optional[str]]:
         """
         Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
         """
@@ -432,7 +432,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The status of the database.
         """
@@ -440,7 +440,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -448,7 +448,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transparentDataEncryption")
-    def transparent_data_encryption(self) -> List['outputs.TransparentDataEncryptionResponse']:
+    def transparent_data_encryption(self) -> pulumi.Output[List['outputs.TransparentDataEncryptionResponse']]:
         """
         The transparent data encryption info for this database.
         """
@@ -456,7 +456,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -464,7 +464,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[bool]:
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """

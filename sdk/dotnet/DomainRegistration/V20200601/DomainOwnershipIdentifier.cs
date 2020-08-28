@@ -63,9 +63,9 @@ namespace Pulumi.AzureRM.DomainRegistration.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:domainregistration/v20150401:DomainOwnershipIdentifier"},
-                    new Alias { Type = "azurerm:domainregistration/v20180201:DomainOwnershipIdentifier"},
-                    new Alias { Type = "azurerm:domainregistration/v20190801:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azurerm:domainregistration/v20150401:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azurerm:domainregistration/v20180201:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azurerm:domainregistration/v20190801:DomainOwnershipIdentifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

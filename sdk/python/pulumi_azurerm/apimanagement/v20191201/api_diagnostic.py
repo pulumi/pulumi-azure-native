@@ -15,7 +15,7 @@ __all__ = ['ApiDiagnostic']
 
 class ApiDiagnostic(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_log: Optional[pulumi.Input[str]] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alwaysLog")
-    def always_log(self) -> Optional[str]:
+    def always_log(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies for what type of messages sampling settings should not apply.
         """
@@ -127,7 +127,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def backend(self) -> Optional['outputs.PipelineDiagnosticSettingsResponse']:
+    def backend(self) -> pulumi.Output[Optional['outputs.PipelineDiagnosticSettingsResponse']]:
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         """
@@ -135,7 +135,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frontend(self) -> Optional['outputs.PipelineDiagnosticSettingsResponse']:
+    def frontend(self) -> pulumi.Output[Optional['outputs.PipelineDiagnosticSettingsResponse']]:
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         """
@@ -143,7 +143,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpCorrelationProtocol")
-    def http_correlation_protocol(self) -> Optional[str]:
+    def http_correlation_protocol(self) -> pulumi.Output[Optional[str]]:
         """
         Sets correlation protocol to use for Application Insights diagnostics.
         """
@@ -151,7 +151,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logClientIp")
-    def log_client_ip(self) -> Optional[bool]:
+    def log_client_ip(self) -> pulumi.Output[Optional[bool]]:
         """
         Log the ClientIP. Default is false.
         """
@@ -159,7 +159,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loggerId")
-    def logger_id(self) -> str:
+    def logger_id(self) -> pulumi.Output[str]:
         """
         Resource Id of a target logger.
         """
@@ -167,7 +167,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -175,7 +175,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sampling(self) -> Optional['outputs.SamplingSettingsResponse']:
+    def sampling(self) -> pulumi.Output[Optional['outputs.SamplingSettingsResponse']]:
         """
         Sampling settings for Diagnostic.
         """
@@ -183,7 +183,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -191,7 +191,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def verbosity(self) -> Optional[str]:
+    def verbosity(self) -> pulumi.Output[Optional[str]]:
         """
         The verbosity level applied to traces emitted by trace policies.
         """

@@ -15,7 +15,7 @@ __all__ = ['VirtualMachine']
 
 class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount_of_ram: Optional[pulumi.Input[float]] = None,
                  customization: Optional[pulumi.Input[pulumi.InputType['GuestOSCustomizationArgs']]] = None,
@@ -141,7 +141,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amountOfRam")
-    def amount_of_ram(self) -> float:
+    def amount_of_ram(self) -> pulumi.Output[float]:
         """
         The amount of memory
         """
@@ -149,7 +149,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def controllers(self) -> List['outputs.VirtualDiskControllerResponse']:
+    def controllers(self) -> pulumi.Output[List['outputs.VirtualDiskControllerResponse']]:
         """
         The list of Virtual Disks' Controllers
         """
@@ -157,7 +157,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def customization(self) -> Optional['outputs.GuestOSCustomizationResponse']:
+    def customization(self) -> pulumi.Output[Optional['outputs.GuestOSCustomizationResponse']]:
         """
         Virtual machine properties
         """
@@ -165,7 +165,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def disks(self) -> Optional[List['outputs.VirtualDiskResponse']]:
+    def disks(self) -> pulumi.Output[Optional[List['outputs.VirtualDiskResponse']]]:
         """
         The list of Virtual Disks
         """
@@ -173,7 +173,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dnsname(self) -> str:
+    def dnsname(self) -> pulumi.Output[str]:
         """
         The DNS name of Virtual Machine in VCenter
         """
@@ -181,7 +181,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="exposeToGuestVM")
-    def expose_to_guest_vm(self) -> Optional[bool]:
+    def expose_to_guest_vm(self) -> pulumi.Output[Optional[bool]]:
         """
         Expose Guest OS or not
         """
@@ -189,7 +189,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def folder(self) -> str:
+    def folder(self) -> pulumi.Output[str]:
         """
         The path to virtual machine folder in VCenter
         """
@@ -197,7 +197,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="guestOS")
-    def guest_os(self) -> str:
+    def guest_os(self) -> pulumi.Output[str]:
         """
         The name of Guest OS
         """
@@ -205,7 +205,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="guestOSType")
-    def guest_os_type(self) -> str:
+    def guest_os_type(self) -> pulumi.Output[str]:
         """
         The Guest OS type
         """
@@ -213,7 +213,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Azure region
         """
@@ -221,7 +221,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         {virtualMachineName}
         """
@@ -229,7 +229,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def nics(self) -> Optional[List['outputs.VirtualNicResponse']]:
+    def nics(self) -> pulumi.Output[Optional[List['outputs.VirtualNicResponse']]]:
         """
         The list of Virtual NICs
         """
@@ -237,7 +237,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfCores")
-    def number_of_cores(self) -> float:
+    def number_of_cores(self) -> pulumi.Output[float]:
         """
         The number of CPU cores
         """
@@ -245,7 +245,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         Password for login. Deprecated - use customization property
         """
@@ -253,7 +253,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateCloudId")
-    def private_cloud_id(self) -> str:
+    def private_cloud_id(self) -> pulumi.Output[str]:
         """
         Private Cloud Id
         """
@@ -261,7 +261,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the resource
         """
@@ -269,7 +269,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIP")
-    def public_ip(self) -> str:
+    def public_ip(self) -> pulumi.Output[str]:
         """
         The public ip of Virtual Machine
         """
@@ -277,7 +277,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourcePool")
-    def resource_pool(self) -> Optional['outputs.ResourcePoolResponse']:
+    def resource_pool(self) -> pulumi.Output[Optional['outputs.ResourcePoolResponse']]:
         """
         Virtual Machines Resource Pool
         """
@@ -285,7 +285,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The status of Virtual machine
         """
@@ -293,7 +293,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The list of tags
         """
@@ -301,7 +301,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateId")
-    def template_id(self) -> Optional[str]:
+    def template_id(self) -> pulumi.Output[Optional[str]]:
         """
         Virtual Machine Template Id
         """
@@ -309,7 +309,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         {resourceProviderNamespace}/{resourceType}
         """
@@ -317,7 +317,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[str]:
+    def username(self) -> pulumi.Output[Optional[str]]:
         """
         Username for login. Deprecated - use customization property
         """
@@ -325,7 +325,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vSphereNetworks")
-    def v_sphere_networks(self) -> Optional[List[str]]:
+    def v_sphere_networks(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The list of Virtual VSphere Networks
         """
@@ -333,7 +333,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmId")
-    def vm_id(self) -> str:
+    def vm_id(self) -> pulumi.Output[str]:
         """
         The internal id of Virtual Machine in VCenter
         """
@@ -341,7 +341,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vmwaretools(self) -> str:
+    def vmwaretools(self) -> pulumi.Output[str]:
         """
         VMware tools version
         """

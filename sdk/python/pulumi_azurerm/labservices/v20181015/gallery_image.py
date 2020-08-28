@@ -14,7 +14,7 @@ __all__ = ['GalleryImage']
 
 class GalleryImage(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gallery_image_name: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
@@ -113,7 +113,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def author(self) -> str:
+    def author(self) -> pulumi.Output[str]:
         """
         The author of the gallery image.
         """
@@ -121,7 +121,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the gallery image.
         """
@@ -129,7 +129,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The description of the gallery image.
         """
@@ -137,7 +137,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def icon(self) -> str:
+    def icon(self) -> pulumi.Output[str]:
         """
         The icon of the gallery image.
         """
@@ -145,7 +145,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageReference")
-    def image_reference(self) -> 'outputs.GalleryImageReferenceResponse':
+    def image_reference(self) -> pulumi.Output['outputs.GalleryImageReferenceResponse']:
         """
         The image reference of the gallery image.
         """
@@ -153,7 +153,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[bool]:
+    def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether this gallery image is enabled.
         """
@@ -161,7 +161,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isOverride")
-    def is_override(self) -> Optional[bool]:
+    def is_override(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether this gallery has been overridden for this lab account
         """
@@ -169,7 +169,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isPlanAuthorized")
-    def is_plan_authorized(self) -> Optional[bool]:
+    def is_plan_authorized(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates if the plan has been authorized for programmatic deployment.
         """
@@ -177,7 +177,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> pulumi.Output['outputs.LatestOperationResultResponse']:
         """
         The details of the latest operation. ex: status, error
         """
@@ -185,7 +185,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -193,7 +193,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -201,7 +201,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="planId")
-    def plan_id(self) -> str:
+    def plan_id(self) -> pulumi.Output[str]:
         """
         The third party plan that applies to this image
         """
@@ -209,7 +209,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -217,7 +217,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -225,7 +225,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -233,7 +233,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """

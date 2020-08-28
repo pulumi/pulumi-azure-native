@@ -15,7 +15,7 @@ __all__ = ['Prediction']
 
 class Prediction(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_analyze: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -142,7 +142,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoAnalyze")
-    def auto_analyze(self) -> bool:
+    def auto_analyze(self) -> pulumi.Output[bool]:
         """
         Whether do auto analyze.
         """
@@ -150,7 +150,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[Mapping[str, str]]:
+    def description(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Description of the prediction.
         """
@@ -158,7 +158,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[Mapping[str, str]]:
+    def display_name(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Display name of the prediction.
         """
@@ -166,7 +166,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def grades(self) -> Optional[List['outputs.PredictionResponseGrades']]:
+    def grades(self) -> pulumi.Output[Optional[List['outputs.PredictionResponseGrades']]]:
         """
         The prediction grades.
         """
@@ -174,7 +174,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="involvedInteractionTypes")
-    def involved_interaction_types(self) -> Optional[List[str]]:
+    def involved_interaction_types(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Interaction types involved in the prediction.
         """
@@ -182,7 +182,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="involvedKpiTypes")
-    def involved_kpi_types(self) -> Optional[List[str]]:
+    def involved_kpi_types(self) -> pulumi.Output[Optional[List[str]]]:
         """
         KPI types involved in the prediction.
         """
@@ -190,7 +190,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="involvedRelationships")
-    def involved_relationships(self) -> Optional[List[str]]:
+    def involved_relationships(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Relationships involved in the prediction.
         """
@@ -198,7 +198,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mappings(self) -> 'outputs.PredictionResponseMappings':
+    def mappings(self) -> pulumi.Output['outputs.PredictionResponseMappings']:
         """
         Definition of the link mapping of prediction.
         """
@@ -206,7 +206,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -214,7 +214,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="negativeOutcomeExpression")
-    def negative_outcome_expression(self) -> str:
+    def negative_outcome_expression(self) -> pulumi.Output[str]:
         """
         Negative outcome expression.
         """
@@ -222,7 +222,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="positiveOutcomeExpression")
-    def positive_outcome_expression(self) -> str:
+    def positive_outcome_expression(self) -> pulumi.Output[str]:
         """
         Positive outcome expression.
         """
@@ -230,7 +230,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="predictionName")
-    def prediction_name(self) -> Optional[str]:
+    def prediction_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the prediction.
         """
@@ -238,7 +238,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryProfileType")
-    def primary_profile_type(self) -> str:
+    def primary_profile_type(self) -> pulumi.Output[str]:
         """
         Primary profile type.
         """
@@ -246,7 +246,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state.
         """
@@ -254,7 +254,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scopeExpression")
-    def scope_expression(self) -> str:
+    def scope_expression(self) -> pulumi.Output[str]:
         """
         Scope expression.
         """
@@ -262,7 +262,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scoreLabel")
-    def score_label(self) -> str:
+    def score_label(self) -> pulumi.Output[str]:
         """
         Score label.
         """
@@ -270,7 +270,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemGeneratedEntities")
-    def system_generated_entities(self) -> 'outputs.PredictionResponseSystemGeneratedEntities':
+    def system_generated_entities(self) -> pulumi.Output['outputs.PredictionResponseSystemGeneratedEntities']:
         """
         System generated entities.
         """
@@ -278,7 +278,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The hub name.
         """
@@ -286,7 +286,7 @@ class Prediction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

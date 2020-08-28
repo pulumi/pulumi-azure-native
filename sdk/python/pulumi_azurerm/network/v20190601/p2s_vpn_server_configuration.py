@@ -15,7 +15,7 @@ __all__ = ['P2sVpnServerConfiguration']
 
 class P2sVpnServerConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -129,7 +129,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
         """
@@ -137,7 +137,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnGateways")
-    def p2_s_vpn_gateways(self) -> List['outputs.SubResourceResponse']:
+    def p2_s_vpn_gateways(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         List of references to P2SVpnGateways.
         """
@@ -145,7 +145,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigRadiusClientRootCertificates")
-    def p2_s_vpn_server_config_radius_client_root_certificates(self) -> Optional[List['outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse']]:
+    def p2_s_vpn_server_config_radius_client_root_certificates(self) -> pulumi.Output[Optional[List['outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse']]]:
         """
         Radius client root certificate of P2SVpnServerConfiguration.
         """
@@ -153,7 +153,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigRadiusServerRootCertificates")
-    def p2_s_vpn_server_config_radius_server_root_certificates(self) -> Optional[List['outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse']]:
+    def p2_s_vpn_server_config_radius_server_root_certificates(self) -> pulumi.Output[Optional[List['outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse']]]:
         """
         Radius Server root certificate of P2SVpnServerConfiguration.
         """
@@ -161,7 +161,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigVpnClientRevokedCertificates")
-    def p2_s_vpn_server_config_vpn_client_revoked_certificates(self) -> Optional[List['outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse']]:
+    def p2_s_vpn_server_config_vpn_client_revoked_certificates(self) -> pulumi.Output[Optional[List['outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse']]]:
         """
         VPN client revoked certificate of P2SVpnServerConfiguration.
         """
@@ -169,7 +169,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigVpnClientRootCertificates")
-    def p2_s_vpn_server_config_vpn_client_root_certificates(self) -> Optional[List['outputs.P2SVpnServerConfigVpnClientRootCertificateResponse']]:
+    def p2_s_vpn_server_config_vpn_client_root_certificates(self) -> pulumi.Output[Optional[List['outputs.P2SVpnServerConfigVpnClientRootCertificateResponse']]]:
         """
         VPN client root certificate of P2SVpnServerConfiguration.
         """
@@ -177,7 +177,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
@@ -185,7 +185,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="radiusServerAddress")
-    def radius_server_address(self) -> Optional[str]:
+    def radius_server_address(self) -> pulumi.Output[Optional[str]]:
         """
         The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
         """
@@ -193,7 +193,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="radiusServerSecret")
-    def radius_server_secret(self) -> Optional[str]:
+    def radius_server_secret(self) -> pulumi.Output[Optional[str]]:
         """
         The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
         """
@@ -201,7 +201,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnClientIpsecPolicies")
-    def vpn_client_ipsec_policies(self) -> Optional[List['outputs.IpsecPolicyResponse']]:
+    def vpn_client_ipsec_policies(self) -> pulumi.Output[Optional[List['outputs.IpsecPolicyResponse']]]:
         """
         VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         """
@@ -209,7 +209,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnProtocols")
-    def vpn_protocols(self) -> Optional[List[str]]:
+    def vpn_protocols(self) -> pulumi.Output[Optional[List[str]]]:
         """
         VPN protocols for the P2SVpnServerConfiguration.
         """

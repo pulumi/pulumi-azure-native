@@ -15,7 +15,7 @@ __all__ = ['Workflow']
 
 class Workflow(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessEndpoint")
-    def access_endpoint(self) -> str:
+    def access_endpoint(self) -> pulumi.Output[str]:
         """
         Gets the access endpoint.
         """
@@ -115,7 +115,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="changedTime")
-    def changed_time(self) -> str:
+    def changed_time(self) -> pulumi.Output[str]:
         """
         Gets the changed time.
         """
@@ -123,7 +123,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         """
         Gets the created time.
         """
@@ -131,7 +131,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> Optional[Mapping[str, Any]]:
+    def definition(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         """
@@ -139,7 +139,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationAccount")
-    def integration_account(self) -> Optional['outputs.ResourceReferenceResponse']:
+    def integration_account(self) -> pulumi.Output[Optional['outputs.ResourceReferenceResponse']]:
         """
         The integration account.
         """
@@ -147,7 +147,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -155,7 +155,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the resource name.
         """
@@ -163,7 +163,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.WorkflowParameterResponse']]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.WorkflowParameterResponse']]]:
         """
         The parameters.
         """
@@ -171,7 +171,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Gets the provisioning state.
         """
@@ -179,7 +179,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The sku.
         """
@@ -187,7 +187,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state.
         """
@@ -195,7 +195,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -203,7 +203,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the resource type.
         """
@@ -211,7 +211,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         Gets the version.
         """

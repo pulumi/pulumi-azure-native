@@ -15,7 +15,7 @@ __all__ = ['PrivateCloud']
 
 class PrivateCloud(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_sources: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]]] = None,
                  internet: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def circuit(self) -> Optional['outputs.CircuitResponse']:
+    def circuit(self) -> pulumi.Output[Optional['outputs.CircuitResponse']]:
         """
         An ExpressRoute Circuit
         """
@@ -132,7 +132,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> 'outputs.EndpointsResponse':
+    def endpoints(self) -> pulumi.Output['outputs.EndpointsResponse']:
         """
         The endpoints
         """
@@ -140,7 +140,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identitySources")
-    def identity_sources(self) -> Optional[List['outputs.IdentitySourceResponse']]:
+    def identity_sources(self) -> pulumi.Output[Optional[List['outputs.IdentitySourceResponse']]]:
         """
         vCenter Single Sign On Identity Sources
         """
@@ -148,7 +148,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def internet(self) -> Optional[str]:
+    def internet(self) -> pulumi.Output[Optional[str]]:
         """
         Connectivity to internet is enabled or disabled
         """
@@ -156,7 +156,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -164,7 +164,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementCluster")
-    def management_cluster(self) -> 'outputs.ManagementClusterResponse':
+    def management_cluster(self) -> pulumi.Output['outputs.ManagementClusterResponse']:
         """
         The default cluster used for management
         """
@@ -172,7 +172,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementNetwork")
-    def management_network(self) -> str:
+    def management_network(self) -> pulumi.Output[str]:
         """
         Network used to access vCenter Server and NSX-T Manager
         """
@@ -180,7 +180,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -188,7 +188,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkBlock")
-    def network_block(self) -> str:
+    def network_block(self) -> pulumi.Output[str]:
         """
         The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
         """
@@ -196,7 +196,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nsxtCertificateThumbprint")
-    def nsxt_certificate_thumbprint(self) -> str:
+    def nsxt_certificate_thumbprint(self) -> pulumi.Output[str]:
         """
         Thumbprint of the NSX-T Manager SSL certificate
         """
@@ -204,7 +204,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nsxtPassword")
-    def nsxt_password(self) -> Optional[str]:
+    def nsxt_password(self) -> pulumi.Output[Optional[str]]:
         """
         Optionally, set the NSX-T Manager password when the private cloud is created
         """
@@ -212,7 +212,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningNetwork")
-    def provisioning_network(self) -> str:
+    def provisioning_network(self) -> pulumi.Output[str]:
         """
         Used for virtual machine cold migration, cloning, and snapshot migration
         """
@@ -220,7 +220,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state
         """
@@ -228,7 +228,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         The private cloud SKU
         """
@@ -236,7 +236,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -244,7 +244,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -252,7 +252,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vcenterCertificateThumbprint")
-    def vcenter_certificate_thumbprint(self) -> str:
+    def vcenter_certificate_thumbprint(self) -> pulumi.Output[str]:
         """
         Thumbprint of the vCenter Server SSL certificate
         """
@@ -260,7 +260,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vcenterPassword")
-    def vcenter_password(self) -> Optional[str]:
+    def vcenter_password(self) -> pulumi.Output[Optional[str]]:
         """
         Optionally, set the vCenter admin password when the private cloud is created
         """
@@ -268,7 +268,7 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmotionNetwork")
-    def vmotion_network(self) -> str:
+    def vmotion_network(self) -> pulumi.Output[str]:
         """
         Used for live migration of virtual machines
         """

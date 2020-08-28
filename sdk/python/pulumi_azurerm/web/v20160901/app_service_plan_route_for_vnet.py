@@ -13,7 +13,7 @@ __all__ = ['AppServicePlanRouteForVnet']
 
 class AppServicePlanRouteForVnet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_address: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endAddress")
-    def end_address(self) -> Optional[str]:
+    def end_address(self) -> pulumi.Output[Optional[str]]:
         """
         The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
         """
@@ -118,7 +118,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -126,7 +126,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -134,7 +134,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeType")
-    def route_type(self) -> Optional[str]:
+    def route_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of route this is:
         DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
@@ -147,7 +147,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startAddress")
-    def start_address(self) -> Optional[str]:
+    def start_address(self) -> pulumi.Output[Optional[str]]:
         """
         The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         """
@@ -155,7 +155,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -163,7 +163,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vnetRouteName")
-    def vnet_route_name(self) -> Optional[str]:
+    def vnet_route_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of this route. This is only returned by the server and does not need to be set by the client.
         """

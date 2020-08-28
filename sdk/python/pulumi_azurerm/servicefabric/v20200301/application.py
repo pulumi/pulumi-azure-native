@@ -15,7 +15,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Azure resource etag.
         """
@@ -134,7 +134,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityResponse']]:
         """
         Describes the managed identities for an Azure resource.
         """
@@ -142,7 +142,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         It will be deprecated in New API, resource location depends on the parent resource.
         """
@@ -150,7 +150,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedIdentities")
-    def managed_identities(self) -> Optional[List['outputs.ApplicationUserAssignedIdentityResponse']]:
+    def managed_identities(self) -> pulumi.Output[Optional[List['outputs.ApplicationUserAssignedIdentityResponse']]]:
         """
         List of user assigned identities for the application, each mapped to a friendly name.
         """
@@ -158,7 +158,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumNodes")
-    def maximum_nodes(self) -> Optional[float]:
+    def maximum_nodes(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
         """
@@ -166,7 +166,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metrics(self) -> Optional[List['outputs.ApplicationMetricDescriptionResponse']]:
+    def metrics(self) -> pulumi.Output[Optional[List['outputs.ApplicationMetricDescriptionResponse']]]:
         """
         List of application capacity metric description.
         """
@@ -174,7 +174,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumNodes")
-    def minimum_nodes(self) -> Optional[float]:
+    def minimum_nodes(self) -> pulumi.Output[Optional[float]]:
         """
         The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
         """
@@ -182,7 +182,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name.
         """
@@ -190,7 +190,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         List of application parameters with overridden values from their default values specified in the application manifest.
         """
@@ -198,7 +198,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment or provisioning state, which only appears in the response
         """
@@ -206,7 +206,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="removeApplicationCapacity")
-    def remove_application_capacity(self) -> Optional[bool]:
+    def remove_application_capacity(self) -> pulumi.Output[Optional[bool]]:
         """
         Remove the current application capacity settings.
         """
@@ -214,7 +214,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Azure resource tags.
         """
@@ -222,7 +222,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type.
         """
@@ -230,7 +230,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[str]:
+    def type_name(self) -> pulumi.Output[Optional[str]]:
         """
         The application type name as defined in the application manifest.
         """
@@ -238,7 +238,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="typeVersion")
-    def type_version(self) -> Optional[str]:
+    def type_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the application type as defined in the application manifest.
         """
@@ -246,7 +246,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="upgradePolicy")
-    def upgrade_policy(self) -> Optional['outputs.ApplicationUpgradePolicyResponse']:
+    def upgrade_policy(self) -> pulumi.Output[Optional['outputs.ApplicationUpgradePolicyResponse']]:
         """
         Describes the policy for a monitored application upgrade.
         """

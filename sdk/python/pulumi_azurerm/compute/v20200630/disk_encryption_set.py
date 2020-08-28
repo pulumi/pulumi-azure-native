@@ -15,7 +15,7 @@ __all__ = ['DiskEncryptionSet']
 
 class DiskEncryptionSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_key: Optional[pulumi.Input[pulumi.InputType['KeyVaultAndKeyReferenceArgs']]] = None,
                  disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeKey")
-    def active_key(self) -> Optional['outputs.KeyVaultAndKeyReferenceResponse']:
+    def active_key(self) -> pulumi.Output[Optional['outputs.KeyVaultAndKeyReferenceResponse']]:
         """
         The key vault key which is currently used by this disk encryption set.
         """
@@ -110,7 +110,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> Optional[str]:
+    def encryption_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of key used to encrypt the data of the disk.
         """
@@ -118,7 +118,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.EncryptionSetIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.EncryptionSetIdentityResponse']]:
         """
         The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         """
@@ -126,7 +126,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -134,7 +134,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -142,7 +142,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="previousKeys")
-    def previous_keys(self) -> List['outputs.KeyVaultAndKeyReferenceResponse']:
+    def previous_keys(self) -> pulumi.Output[List['outputs.KeyVaultAndKeyReferenceResponse']]:
         """
         A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
         """
@@ -150,7 +150,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The disk encryption set provisioning state.
         """
@@ -158,7 +158,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -166,7 +166,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

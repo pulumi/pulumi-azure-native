@@ -87,12 +87,12 @@ namespace Pulumi.AzureRM.Network.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20191101:IpGroup"},
-                    new Alias { Type = "azurerm:network/v20191201:IpGroup"},
-                    new Alias { Type = "azurerm:network/v20200301:IpGroup"},
-                    new Alias { Type = "azurerm:network/v20200401:IpGroup"},
-                    new Alias { Type = "azurerm:network/v20200501:IpGroup"},
-                    new Alias { Type = "azurerm:network/v20200601:IpGroup"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191101:IpGroup"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:IpGroup"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:IpGroup"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:IpGroup"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:IpGroup"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:IpGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

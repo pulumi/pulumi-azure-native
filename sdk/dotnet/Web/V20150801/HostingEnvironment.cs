@@ -250,10 +250,10 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20160901:HostingEnvironment"},
-                    new Alias { Type = "azurerm:web/v20180201:HostingEnvironment"},
-                    new Alias { Type = "azurerm:web/v20190801:HostingEnvironment"},
-                    new Alias { Type = "azurerm:web/v20200601:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160901:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:HostingEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

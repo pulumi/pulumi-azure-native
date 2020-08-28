@@ -15,7 +15,7 @@ __all__ = ['ReportConfigByResourceGroupName']
 
 class ReportConfigByResourceGroupName(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['ReportConfigDefinitionArgs']]] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['ReportConfigDeliveryInfoArgs']]] = None,
@@ -98,7 +98,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> 'outputs.ReportConfigDefinitionResponse':
+    def definition(self) -> pulumi.Output['outputs.ReportConfigDefinitionResponse']:
         """
         Has definition for the report config.
         """
@@ -106,7 +106,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryInfo")
-    def delivery_info(self) -> 'outputs.ReportConfigDeliveryInfoResponse':
+    def delivery_info(self) -> pulumi.Output['outputs.ReportConfigDeliveryInfoResponse']:
         """
         Has delivery information for the report config.
         """
@@ -114,7 +114,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[str]:
+    def format(self) -> pulumi.Output[Optional[str]]:
         """
         The format of the report being delivered.
         """
@@ -122,7 +122,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -130,7 +130,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ReportConfigScheduleResponse']:
+    def schedule(self) -> pulumi.Output[Optional['outputs.ReportConfigScheduleResponse']]:
         """
         Has schedule information for the report config.
         """
@@ -138,7 +138,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Resource tags.
         """
@@ -146,7 +146,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

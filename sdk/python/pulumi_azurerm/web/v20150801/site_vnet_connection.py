@@ -15,7 +15,7 @@ __all__ = ['SiteVNETConnection']
 
 class SiteVNETConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cert_blob: Optional[pulumi.Input[str]] = None,
                  cert_thumbprint: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certBlob")
-    def cert_blob(self) -> Optional[str]:
+    def cert_blob(self) -> pulumi.Output[Optional[str]]:
         """
         A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
                     Point-To-Site VPN connection.
@@ -131,7 +131,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certThumbprint")
-    def cert_thumbprint(self) -> Optional[str]:
+    def cert_thumbprint(self) -> pulumi.Output[Optional[str]]:
         """
         The client certificate thumbprint
         """
@@ -139,7 +139,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[str]:
+    def dns_servers(self) -> pulumi.Output[Optional[str]]:
         """
         Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
         """
@@ -147,7 +147,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -155,7 +155,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -163,7 +163,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -171,7 +171,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resyncRequired")
-    def resync_required(self) -> Optional[bool]:
+    def resync_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Flag to determine if a resync is required
         """
@@ -179,7 +179,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[List['outputs.VnetRouteResponse']]:
+    def routes(self) -> pulumi.Output[Optional[List['outputs.VnetRouteResponse']]]:
         """
         The routes that this virtual network connection uses.
         """
@@ -187,7 +187,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -195,7 +195,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """
@@ -203,7 +203,7 @@ class SiteVNETConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vnetResourceId")
-    def vnet_resource_id(self) -> Optional[str]:
+    def vnet_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The vnet resource id
         """

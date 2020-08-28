@@ -15,7 +15,7 @@ __all__ = ['IntegrationAccountBatchConfiguration']
 
 class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  batch_configuration_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -107,7 +107,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the resource name.
         """
@@ -115,7 +115,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.BatchConfigurationPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.BatchConfigurationPropertiesResponse']:
         """
         The batch configuration properties.
         """
@@ -123,7 +123,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -131,7 +131,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the resource type.
         """

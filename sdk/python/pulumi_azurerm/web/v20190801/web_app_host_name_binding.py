@@ -13,7 +13,7 @@ __all__ = ['WebAppHostNameBinding']
 
 class WebAppHostNameBinding(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_resource_name: Optional[pulumi.Input[str]] = None,
                  azure_resource_type: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureResourceName")
-    def azure_resource_name(self) -> Optional[str]:
+    def azure_resource_name(self) -> pulumi.Output[Optional[str]]:
         """
         Azure resource name.
         """
@@ -121,7 +121,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureResourceType")
-    def azure_resource_type(self) -> Optional[str]:
+    def azure_resource_type(self) -> pulumi.Output[Optional[str]]:
         """
         Azure resource type.
         """
@@ -129,7 +129,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHostNameDnsRecordType")
-    def custom_host_name_dns_record_type(self) -> Optional[str]:
+    def custom_host_name_dns_record_type(self) -> pulumi.Output[Optional[str]]:
         """
         Custom DNS record type.
         """
@@ -137,7 +137,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> Optional[str]:
+    def domain_id(self) -> pulumi.Output[Optional[str]]:
         """
         Fully qualified ARM domain resource URI.
         """
@@ -145,7 +145,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNameType")
-    def host_name_type(self) -> Optional[str]:
+    def host_name_type(self) -> pulumi.Output[Optional[str]]:
         """
         Hostname type.
         """
@@ -153,7 +153,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -161,7 +161,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -169,7 +169,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteName")
-    def site_name(self) -> Optional[str]:
+    def site_name(self) -> pulumi.Output[Optional[str]]:
         """
         App Service app name.
         """
@@ -177,7 +177,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslState")
-    def ssl_state(self) -> Optional[str]:
+    def ssl_state(self) -> pulumi.Output[Optional[str]]:
         """
         SSL type
         """
@@ -185,7 +185,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> Optional[str]:
+    def thumbprint(self) -> pulumi.Output[Optional[str]]:
         """
         SSL certificate thumbprint
         """
@@ -193,7 +193,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -201,7 +201,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualIP")
-    def virtual_ip(self) -> str:
+    def virtual_ip(self) -> pulumi.Output[str]:
         """
         Virtual IP address assigned to the hostname if IP based SSL is enabled.
         """

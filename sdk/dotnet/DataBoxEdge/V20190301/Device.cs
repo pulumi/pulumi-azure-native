@@ -153,8 +153,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:databoxedge/v20190701:Device"},
-                    new Alias { Type = "azurerm:databoxedge/v20190801:Device"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Device"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:Device"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

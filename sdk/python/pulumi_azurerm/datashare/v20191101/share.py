@@ -13,7 +13,7 @@ __all__ = ['Share']
 
 class Share(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         Time at which the share was created.
         """
@@ -105,7 +105,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Share description.
         """
@@ -113,7 +113,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the azure resource
         """
@@ -121,7 +121,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Gets or sets the provisioning state
         """
@@ -129,7 +129,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareKind")
-    def share_kind(self) -> Optional[str]:
+    def share_kind(self) -> pulumi.Output[Optional[str]]:
         """
         Share kind.
         """
@@ -137,7 +137,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def terms(self) -> Optional[str]:
+    def terms(self) -> pulumi.Output[Optional[str]]:
         """
         Share terms.
         """
@@ -145,7 +145,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the azure resource
         """
@@ -153,7 +153,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userEmail")
-    def user_email(self) -> str:
+    def user_email(self) -> pulumi.Output[str]:
         """
         Email of the user who created the resource
         """
@@ -161,7 +161,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> pulumi.Output[str]:
         """
         Name of the user who created the resource
         """

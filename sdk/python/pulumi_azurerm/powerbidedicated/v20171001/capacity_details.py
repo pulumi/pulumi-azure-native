@@ -15,7 +15,7 @@ __all__ = ['CapacityDetails']
 
 class CapacityDetails(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration: Optional[pulumi.Input[pulumi.InputType['DedicatedCapacityAdministratorsArgs']]] = None,
                  dedicated_capacity_name: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def administration(self) -> Optional['outputs.DedicatedCapacityAdministratorsResponse']:
+    def administration(self) -> pulumi.Output[Optional['outputs.DedicatedCapacityAdministratorsResponse']]:
         """
         A collection of Dedicated capacity administrators
         """
@@ -107,7 +107,7 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Location of the PowerBI Dedicated resource.
         """
@@ -115,7 +115,7 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the PowerBI Dedicated resource.
         """
@@ -123,7 +123,7 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
         """
@@ -131,7 +131,7 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ResourceSkuResponse':
+    def sku(self) -> pulumi.Output['outputs.ResourceSkuResponse']:
         """
         The SKU of the PowerBI Dedicated resource.
         """
@@ -139,7 +139,7 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
         """
@@ -147,7 +147,7 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value pairs of additional resource provisioning properties.
         """
@@ -155,7 +155,7 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the PowerBI Dedicated resource.
         """

@@ -13,7 +13,7 @@ __all__ = ['ManagementLock']
 
 class ManagementLock(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  level: Optional[pulumi.Input[str]] = None,
                  lock_name: Optional[pulumi.Input[str]] = None,
@@ -84,7 +84,7 @@ class ManagementLock(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[str]:
+    def level(self) -> pulumi.Output[Optional[str]]:
         """
         The lock level of the management lock.
         """
@@ -92,7 +92,7 @@ class ManagementLock(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the lock.
         """
@@ -100,7 +100,7 @@ class ManagementLock(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> Optional[str]:
+    def notes(self) -> pulumi.Output[Optional[str]]:
         """
         The notes of the management lock.
         """
@@ -108,7 +108,7 @@ class ManagementLock(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the lock.
         """

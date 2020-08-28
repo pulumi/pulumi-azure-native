@@ -15,7 +15,7 @@ __all__ = ['SharedPrivateLinkResource']
 
 class SharedPrivateLinkResource(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -97,7 +97,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SharedPrivateLinkResourcePropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.SharedPrivateLinkResourcePropertiesResponse']:
         """
         Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
         """
@@ -105,7 +105,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

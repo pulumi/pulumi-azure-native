@@ -13,7 +13,7 @@ __all__ = ['SyncGroup']
 
 class SyncGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
@@ -88,7 +88,7 @@ class SyncGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -96,7 +96,7 @@ class SyncGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="syncGroupStatus")
-    def sync_group_status(self) -> str:
+    def sync_group_status(self) -> pulumi.Output[str]:
         """
         Sync group status
         """
@@ -104,7 +104,7 @@ class SyncGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -112,7 +112,7 @@ class SyncGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> Optional[str]:
+    def unique_id(self) -> pulumi.Output[Optional[str]]:
         """
         Unique Id
         """

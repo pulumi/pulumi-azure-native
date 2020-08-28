@@ -15,7 +15,7 @@ __all__ = ['StreamingJob']
 
 class StreamingJob(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> Optional[str]:
+    def compatibility_level(self) -> pulumi.Output[Optional[str]]:
         """
         Controls certain runtime behaviors of the streaming job.
         """
@@ -140,7 +140,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
         """
@@ -148,7 +148,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataLocale")
-    def data_locale(self) -> Optional[str]:
+    def data_locale(self) -> pulumi.Output[Optional[str]]:
         """
         The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
         """
@@ -156,7 +156,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         The current entity tag for the streaming job. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         """
@@ -164,7 +164,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventsLateArrivalMaxDelayInSeconds")
-    def events_late_arrival_max_delay_in_seconds(self) -> Optional[float]:
+    def events_late_arrival_max_delay_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
         """
@@ -172,7 +172,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventsOutOfOrderMaxDelayInSeconds")
-    def events_out_of_order_max_delay_in_seconds(self) -> Optional[float]:
+    def events_out_of_order_max_delay_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
         """
@@ -180,7 +180,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventsOutOfOrderPolicy")
-    def events_out_of_order_policy(self) -> Optional[str]:
+    def events_out_of_order_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates the policy to apply to events that arrive out of order in the input event stream.
         """
@@ -188,7 +188,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def functions(self) -> Optional[List['outputs.FunctionResponse']]:
+    def functions(self) -> pulumi.Output[Optional[List['outputs.FunctionResponse']]]:
         """
         A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
@@ -196,7 +196,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[List['outputs.InputResponse']]:
+    def inputs(self) -> pulumi.Output[Optional[List['outputs.InputResponse']]]:
         """
         A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         """
@@ -204,7 +204,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobId")
-    def job_id(self) -> str:
+    def job_id(self) -> pulumi.Output[str]:
         """
         A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
         """
@@ -212,7 +212,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobState")
-    def job_state(self) -> str:
+    def job_state(self) -> pulumi.Output[str]:
         """
         Describes the state of the streaming job.
         """
@@ -220,7 +220,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastOutputEventTime")
-    def last_output_event_time(self) -> str:
+    def last_output_event_time(self) -> pulumi.Output[str]:
         """
         Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
         """
@@ -228,7 +228,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location. Required on PUT (CreateOrReplace) requests.
         """
@@ -236,7 +236,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -244,7 +244,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputErrorPolicy")
-    def output_error_policy(self) -> Optional[str]:
+    def output_error_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         """
@@ -252,7 +252,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputStartMode")
-    def output_start_mode(self) -> Optional[str]:
+    def output_start_mode(self) -> pulumi.Output[Optional[str]]:
         """
         This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
         """
@@ -260,7 +260,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputStartTime")
-    def output_start_time(self) -> Optional[str]:
+    def output_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
         """
@@ -268,7 +268,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[List['outputs.OutputResponse']]:
+    def outputs(self) -> pulumi.Output[Optional[List['outputs.OutputResponse']]]:
         """
         A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         """
@@ -276,7 +276,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Describes the provisioning status of the streaming job.
         """
@@ -284,7 +284,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
         """
@@ -292,7 +292,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -300,7 +300,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def transformation(self) -> Optional['outputs.TransformationResponse']:
+    def transformation(self) -> pulumi.Output[Optional['outputs.TransformationResponse']]:
         """
         Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
@@ -308,7 +308,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

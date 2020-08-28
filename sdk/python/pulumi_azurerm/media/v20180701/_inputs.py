@@ -722,18 +722,6 @@ class FilterTrackPropertyConditionArgs:
 
     @property
     @pulumi.getter
-    def property(self) -> pulumi.Input[str]:
-        """
-        The track property type.
-        """
-        return pulumi.get(self, "property")
-
-    @property.setter
-    def property(self, value: pulumi.Input[str]):
-        pulumi.set(self, "property", value)
-
-    @property
-    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         The track property value.
@@ -743,6 +731,18 @@ class FilterTrackPropertyConditionArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def property(self) -> pulumi.Input[str]:
+        """
+        The track property type.
+        """
+        return pulumi.get(self, "property")
+
+    @property.setter
+    def property(self, value: pulumi.Input[str]):
+        pulumi.set(self, "property", value)
 
 
 @pulumi.input_type
@@ -1775,18 +1775,6 @@ class TrackPropertyConditionArgs:
 
     @property
     @pulumi.getter
-    def property(self) -> pulumi.Input[str]:
-        """
-        Track property type
-        """
-        return pulumi.get(self, "property")
-
-    @property.setter
-    def property(self, value: pulumi.Input[str]):
-        pulumi.set(self, "property", value)
-
-    @property
-    @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         Track property value
@@ -1796,6 +1784,18 @@ class TrackPropertyConditionArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def property(self) -> pulumi.Input[str]:
+        """
+        Track property type
+        """
+        return pulumi.get(self, "property")
+
+    @property.setter
+    def property(self, value: pulumi.Input[str]):
+        pulumi.set(self, "property", value)
 
 
 @pulumi.input_type

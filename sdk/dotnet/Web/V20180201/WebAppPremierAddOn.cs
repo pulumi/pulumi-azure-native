@@ -99,11 +99,11 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20150801:WebAppPremierAddOn"},
-                    new Alias { Type = "azurerm:web/v20160801:WebAppPremierAddOn"},
-                    new Alias { Type = "azurerm:web/v20181101:WebAppPremierAddOn"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppPremierAddOn"},
-                    new Alias { Type = "azurerm:web/v20200601:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppPremierAddOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

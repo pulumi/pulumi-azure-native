@@ -15,7 +15,7 @@ __all__ = ['StorageAccount']
 
 class StorageAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
@@ -145,7 +145,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> str:
+    def access_tier(self) -> pulumi.Output[str]:
         """
         Required for storage accounts where kind = BlobStorage. The access tier used for billing.
         """
@@ -153,7 +153,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowBlobPublicAccess")
-    def allow_blob_public_access(self) -> Optional[bool]:
+    def allow_blob_public_access(self) -> pulumi.Output[Optional[bool]]:
         """
         Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
         """
@@ -161,7 +161,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureFilesIdentityBasedAuthentication")
-    def azure_files_identity_based_authentication(self) -> Optional['outputs.AzureFilesIdentityBasedAuthenticationResponse']:
+    def azure_files_identity_based_authentication(self) -> pulumi.Output[Optional['outputs.AzureFilesIdentityBasedAuthenticationResponse']]:
         """
         Provides the identity based authentication settings for Azure Files.
         """
@@ -169,7 +169,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         Gets the creation date and time of the storage account in UTC.
         """
@@ -177,7 +177,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDomain")
-    def custom_domain(self) -> 'outputs.CustomDomainResponse':
+    def custom_domain(self) -> pulumi.Output['outputs.CustomDomainResponse']:
         """
         Gets the custom domain the user assigned to this storage account.
         """
@@ -185,7 +185,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
-    def enable_https_traffic_only(self) -> Optional[bool]:
+    def enable_https_traffic_only(self) -> pulumi.Output[Optional[bool]]:
         """
         Allows https traffic only to storage service if sets to true.
         """
@@ -193,7 +193,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encryption(self) -> 'outputs.EncryptionResponse':
+    def encryption(self) -> pulumi.Output['outputs.EncryptionResponse']:
         """
         Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         """
@@ -201,7 +201,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failoverInProgress")
-    def failover_in_progress(self) -> bool:
+    def failover_in_progress(self) -> pulumi.Output[bool]:
         """
         If the failover is in progress, the value will be true, otherwise, it will be null.
         """
@@ -209,7 +209,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoReplicationStats")
-    def geo_replication_stats(self) -> 'outputs.GeoReplicationStatsResponse':
+    def geo_replication_stats(self) -> pulumi.Output['outputs.GeoReplicationStatsResponse']:
         """
         Geo Replication Stats
         """
@@ -217,7 +217,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The identity of the resource.
         """
@@ -225,7 +225,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isHnsEnabled")
-    def is_hns_enabled(self) -> Optional[bool]:
+    def is_hns_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Account HierarchicalNamespace enabled if sets to true.
         """
@@ -233,7 +233,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         Gets the Kind.
         """
@@ -241,7 +241,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="largeFileSharesState")
-    def large_file_shares_state(self) -> Optional[str]:
+    def large_file_shares_state(self) -> pulumi.Output[Optional[str]]:
         """
         Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         """
@@ -249,7 +249,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastGeoFailoverTime")
-    def last_geo_failover_time(self) -> str:
+    def last_geo_failover_time(self) -> pulumi.Output[str]:
         """
         Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
         """
@@ -257,7 +257,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -265,7 +265,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[str]:
+    def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
         Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
         """
@@ -273,7 +273,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -281,7 +281,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> 'outputs.NetworkRuleSetResponse':
+    def network_rule_set(self) -> pulumi.Output['outputs.NetworkRuleSetResponse']:
         """
         Network rule set
         """
@@ -289,7 +289,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryEndpoints")
-    def primary_endpoints(self) -> 'outputs.EndpointsResponse':
+    def primary_endpoints(self) -> pulumi.Output['outputs.EndpointsResponse']:
         """
         Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
         """
@@ -297,7 +297,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryLocation")
-    def primary_location(self) -> str:
+    def primary_location(self) -> pulumi.Output[str]:
         """
         Gets the location of the primary data center for the storage account.
         """
@@ -305,7 +305,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Gets the status of the storage account at the time the operation was called.
         """
@@ -313,7 +313,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryEndpoints")
-    def secondary_endpoints(self) -> 'outputs.EndpointsResponse':
+    def secondary_endpoints(self) -> pulumi.Output['outputs.EndpointsResponse']:
         """
         Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
         """
@@ -321,7 +321,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryLocation")
-    def secondary_location(self) -> str:
+    def secondary_location(self) -> pulumi.Output[str]:
         """
         Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
         """
@@ -329,7 +329,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         Gets the SKU.
         """
@@ -337,7 +337,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusOfPrimary")
-    def status_of_primary(self) -> str:
+    def status_of_primary(self) -> pulumi.Output[str]:
         """
         Gets the status indicating whether the primary location of the storage account is available or unavailable.
         """
@@ -345,7 +345,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusOfSecondary")
-    def status_of_secondary(self) -> str:
+    def status_of_secondary(self) -> pulumi.Output[str]:
         """
         Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
         """
@@ -353,7 +353,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -361,7 +361,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

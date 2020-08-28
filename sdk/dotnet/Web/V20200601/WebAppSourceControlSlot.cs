@@ -93,11 +93,11 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20150801:WebAppSourceControlSlot"},
-                    new Alias { Type = "azurerm:web/v20160801:WebAppSourceControlSlot"},
-                    new Alias { Type = "azurerm:web/v20180201:WebAppSourceControlSlot"},
-                    new Alias { Type = "azurerm:web/v20181101:WebAppSourceControlSlot"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppSourceControlSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

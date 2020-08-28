@@ -63,9 +63,9 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:documentdb/v20191212:NotebookWorkspace"},
-                    new Alias { Type = "azurerm:documentdb/v20200301:NotebookWorkspace"},
-                    new Alias { Type = "azurerm:documentdb/v20200401:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:NotebookWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

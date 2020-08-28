@@ -99,17 +99,17 @@ namespace Pulumi.AzureRM.Network.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20181201:WebApplicationFirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20190201:WebApplicationFirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20190401:WebApplicationFirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20190701:WebApplicationFirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20190801:WebApplicationFirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20190901:WebApplicationFirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20191101:WebApplicationFirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20191201:WebApplicationFirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20200301:WebApplicationFirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20200401:WebApplicationFirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20200601:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20181201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190401:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190701:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190801:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190901:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191101:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:WebApplicationFirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

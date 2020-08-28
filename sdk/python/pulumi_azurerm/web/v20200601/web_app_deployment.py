@@ -13,7 +13,7 @@ __all__ = ['WebAppDeployment']
 
 class WebAppDeployment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  author: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def active(self) -> Optional[bool]:
+    def active(self) -> pulumi.Output[Optional[bool]]:
         """
         True if deployment is currently active, false if completed and null if not started.
         """
@@ -123,7 +123,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def author(self) -> Optional[str]:
+    def author(self) -> pulumi.Output[Optional[str]]:
         """
         Who authored the deployment.
         """
@@ -131,7 +131,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorEmail")
-    def author_email(self) -> Optional[str]:
+    def author_email(self) -> pulumi.Output[Optional[str]]:
         """
         Author email.
         """
@@ -139,7 +139,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def deployer(self) -> Optional[str]:
+    def deployer(self) -> pulumi.Output[Optional[str]]:
         """
         Who performed the deployment.
         """
@@ -147,7 +147,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[str]:
+    def details(self) -> pulumi.Output[Optional[str]]:
         """
         Details on deployment.
         """
@@ -155,7 +155,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[str]:
+    def end_time(self) -> pulumi.Output[Optional[str]]:
         """
         End time.
         """
@@ -163,7 +163,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -171,7 +171,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def message(self) -> Optional[str]:
+    def message(self) -> pulumi.Output[Optional[str]]:
         """
         Details about deployment status.
         """
@@ -179,7 +179,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -187,7 +187,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[str]:
+    def start_time(self) -> pulumi.Output[Optional[str]]:
         """
         Start time.
         """
@@ -195,7 +195,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[float]:
+    def status(self) -> pulumi.Output[Optional[float]]:
         """
         Deployment status.
         """
@@ -203,7 +203,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

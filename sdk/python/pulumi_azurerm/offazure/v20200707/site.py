@@ -15,7 +15,7 @@ __all__ = ['Site']
 
 class Site(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class Site(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         eTag for concurrency control.
         """
@@ -104,7 +104,7 @@ class Site(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Azure location in which Sites is created.
         """
@@ -112,7 +112,7 @@ class Site(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the VMware site.
         """
@@ -120,7 +120,7 @@ class Site(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.SitePropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.SitePropertiesResponse']:
         """
         Nested properties of VMWare site.
         """
@@ -128,12 +128,12 @@ class Site(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of resource. Type = Microsoft.OffAzure/VMWareSites.
         """

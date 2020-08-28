@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.Cache.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:cache/v20170201:LinkedServer"},
-                    new Alias { Type = "azurerm:cache/v20171001:LinkedServer"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20170201:LinkedServer"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20171001:LinkedServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

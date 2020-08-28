@@ -13,7 +13,7 @@ __all__ = ['DataExport']
 
 class DataExport(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  all_tables: Optional[pulumi.Input[bool]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allTables")
-    def all_tables(self) -> Optional[bool]:
+    def all_tables(self) -> pulumi.Output[Optional[bool]]:
         """
         When ‘true’, all workspace's tables are exported.
         """
@@ -118,7 +118,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         The latest data export rule modification time.
         """
@@ -126,7 +126,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataExportId")
-    def data_export_id(self) -> Optional[str]:
+    def data_export_id(self) -> pulumi.Output[Optional[str]]:
         """
         The data export rule ID.
         """
@@ -134,7 +134,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enable(self) -> Optional[bool]:
+    def enable(self) -> pulumi.Output[Optional[bool]]:
         """
         Active when enabled.
         """
@@ -142,7 +142,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubName")
-    def event_hub_name(self) -> Optional[str]:
+    def event_hub_name(self) -> pulumi.Output[Optional[str]]:
         """
         Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
         """
@@ -150,7 +150,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedDate")
-    def last_modified_date(self) -> Optional[str]:
+    def last_modified_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time when the export was last modified.
         """
@@ -158,7 +158,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -166,7 +166,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> pulumi.Output[str]:
         """
         The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
         """
@@ -174,7 +174,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableNames")
-    def table_names(self) -> Optional[List[str]]:
+    def table_names(self) -> pulumi.Output[Optional[List[str]]]:
         """
         An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         """
@@ -182,7 +182,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

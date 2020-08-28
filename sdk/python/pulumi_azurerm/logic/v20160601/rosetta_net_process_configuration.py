@@ -15,7 +15,7 @@ __all__ = ['RosettaNetProcessConfiguration']
 
 class RosettaNetProcessConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activity_settings: Optional[pulumi.Input[pulumi.InputType['RosettaNetPipActivitySettingsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activitySettings")
-    def activity_settings(self) -> 'outputs.RosettaNetPipActivitySettingsResponse':
+    def activity_settings(self) -> pulumi.Output['outputs.RosettaNetPipActivitySettingsResponse']:
         """
         The RosettaNet process configuration activity settings.
         """
@@ -138,7 +138,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="changedTime")
-    def changed_time(self) -> str:
+    def changed_time(self) -> pulumi.Output[str]:
         """
         The changed time.
         """
@@ -146,7 +146,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         """
         The created time.
         """
@@ -154,7 +154,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The integration account RosettaNet ProcessConfiguration properties.
         """
@@ -162,7 +162,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="initiatorRoleSettings")
-    def initiator_role_settings(self) -> 'outputs.RosettaNetPipRoleSettingsResponse':
+    def initiator_role_settings(self) -> pulumi.Output['outputs.RosettaNetPipRoleSettingsResponse']:
         """
         The RosettaNet initiator role settings.
         """
@@ -170,7 +170,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -178,7 +178,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The metadata.
         """
@@ -186,7 +186,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the resource name.
         """
@@ -194,7 +194,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="processCode")
-    def process_code(self) -> str:
+    def process_code(self) -> pulumi.Output[str]:
         """
         The integration account RosettaNet process code.
         """
@@ -202,7 +202,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="processName")
-    def process_name(self) -> str:
+    def process_name(self) -> pulumi.Output[str]:
         """
         The integration account RosettaNet process name.
         """
@@ -210,7 +210,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="processVersion")
-    def process_version(self) -> str:
+    def process_version(self) -> pulumi.Output[str]:
         """
         The integration account RosettaNet process version.
         """
@@ -218,7 +218,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responderRoleSettings")
-    def responder_role_settings(self) -> 'outputs.RosettaNetPipRoleSettingsResponse':
+    def responder_role_settings(self) -> pulumi.Output['outputs.RosettaNetPipRoleSettingsResponse']:
         """
         The RosettaNet responder role settings.
         """
@@ -226,7 +226,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -234,7 +234,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the resource type.
         """

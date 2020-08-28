@@ -15,7 +15,7 @@ __all__ = ['Deployment']
 
 class Deployment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']]] = None,
@@ -87,7 +87,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the deployment.
         """
@@ -95,7 +95,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DeploymentPropertiesExtendedResponse':
+    def properties(self) -> pulumi.Output['outputs.DeploymentPropertiesExtendedResponse']:
         """
         Deployment properties.
         """

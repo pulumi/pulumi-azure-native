@@ -87,9 +87,9 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
-                    new Alias { Type = "azurerm:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},
-                    new Alias { Type = "azurerm:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

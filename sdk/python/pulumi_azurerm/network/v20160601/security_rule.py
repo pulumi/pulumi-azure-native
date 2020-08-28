@@ -13,7 +13,7 @@ __all__ = ['SecurityRule']
 
 class SecurityRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -133,7 +133,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def access(self) -> str:
+    def access(self) -> pulumi.Output[str]:
         """
         Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
         """
@@ -141,7 +141,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets a description for this rule. Restricted to 140 chars.
         """
@@ -149,7 +149,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationAddressPrefix")
-    def destination_address_prefix(self) -> str:
+    def destination_address_prefix(self) -> pulumi.Output[str]:
         """
         Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. 
         """
@@ -157,7 +157,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationPortRange")
-    def destination_port_range(self) -> Optional[str]:
+    def destination_port_range(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         """
@@ -165,7 +165,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def direction(self) -> str:
+    def direction(self) -> pulumi.Output[str]:
         """
         Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         """
@@ -173,7 +173,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A unique read-only string that changes whenever the resource is updated
         """
@@ -181,7 +181,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         """
@@ -189,7 +189,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         """
@@ -197,7 +197,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> pulumi.Output[str]:
         """
         Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
         """
@@ -205,7 +205,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         """
@@ -213,7 +213,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceAddressPrefix")
-    def source_address_prefix(self) -> str:
+    def source_address_prefix(self) -> pulumi.Output[str]:
         """
         Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
         """
@@ -221,7 +221,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourcePortRange")
-    def source_port_range(self) -> Optional[str]:
+    def source_port_range(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         """

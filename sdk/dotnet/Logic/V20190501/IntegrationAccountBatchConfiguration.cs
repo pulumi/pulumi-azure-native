@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:logic/v20160601:IntegrationAccountBatchConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20160601:IntegrationAccountBatchConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

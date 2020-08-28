@@ -14,7 +14,7 @@ __all__ = ['ManagementGroupSubscriptionSubscription']
 
 class ManagementGroupSubscriptionSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -81,7 +81,7 @@ class ManagementGroupSubscriptionSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The friendly name of the subscription.
         """
@@ -89,7 +89,7 @@ class ManagementGroupSubscriptionSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
         """
@@ -97,7 +97,7 @@ class ManagementGroupSubscriptionSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parent(self) -> Optional['outputs.DescendantParentGroupInfoResponse']:
+    def parent(self) -> pulumi.Output[Optional['outputs.DescendantParentGroupInfoResponse']]:
         """
         The ID of the parent management group.
         """
@@ -105,7 +105,7 @@ class ManagementGroupSubscriptionSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the subscription.
         """
@@ -113,7 +113,7 @@ class ManagementGroupSubscriptionSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tenant(self) -> Optional[str]:
+    def tenant(self) -> pulumi.Output[Optional[str]]:
         """
         The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
         """
@@ -121,7 +121,7 @@ class ManagementGroupSubscriptionSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
         """

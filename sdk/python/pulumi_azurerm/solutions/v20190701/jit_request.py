@@ -15,7 +15,7 @@ __all__ = ['JitRequest']
 
 class JitRequest(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_resource_id: Optional[pulumi.Input[str]] = None,
                  jit_authorization_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JitAuthorizationPoliciesArgs']]]]] = None,
@@ -107,7 +107,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationResourceId")
-    def application_resource_id(self) -> str:
+    def application_resource_id(self) -> pulumi.Output[str]:
         """
         The parent application id.
         """
@@ -115,7 +115,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> 'outputs.ApplicationClientDetailsResponse':
+    def created_by(self) -> pulumi.Output['outputs.ApplicationClientDetailsResponse']:
         """
         The client entity that created the JIT request.
         """
@@ -123,7 +123,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jitAuthorizationPolicies")
-    def jit_authorization_policies(self) -> List['outputs.JitAuthorizationPoliciesResponse']:
+    def jit_authorization_policies(self) -> pulumi.Output[List['outputs.JitAuthorizationPoliciesResponse']]:
         """
         The JIT authorization policies.
         """
@@ -131,7 +131,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jitRequestState")
-    def jit_request_state(self) -> str:
+    def jit_request_state(self) -> pulumi.Output[str]:
         """
         The JIT request state.
         """
@@ -139,7 +139,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jitSchedulingPolicy")
-    def jit_scheduling_policy(self) -> 'outputs.JitSchedulingPolicyResponse':
+    def jit_scheduling_policy(self) -> pulumi.Output['outputs.JitSchedulingPolicyResponse']:
         """
         The JIT request properties.
         """
@@ -147,7 +147,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -155,7 +155,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -163,7 +163,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The JIT request provisioning state.
         """
@@ -171,7 +171,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publisherTenantId")
-    def publisher_tenant_id(self) -> str:
+    def publisher_tenant_id(self) -> pulumi.Output[str]:
         """
         The publisher tenant id.
         """
@@ -179,7 +179,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -187,7 +187,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -195,7 +195,7 @@ class JitRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> 'outputs.ApplicationClientDetailsResponse':
+    def updated_by(self) -> pulumi.Output['outputs.ApplicationClientDetailsResponse']:
         """
         The client entity that last updated the JIT request.
         """

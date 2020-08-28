@@ -13,7 +13,7 @@ __all__ = ['FileShare']
 
 class FileShare(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_user: Optional[pulumi.Input[str]] = None,
                  data_policy: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminUser")
-    def admin_user(self) -> str:
+    def admin_user(self) -> pulumi.Output[str]:
         """
         The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
         """
@@ -132,7 +132,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataPolicy")
-    def data_policy(self) -> str:
+    def data_policy(self) -> pulumi.Output[str]:
         """
         The data policy
         """
@@ -140,7 +140,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description for file share
         """
@@ -148,7 +148,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localUsedCapacityInBytes")
-    def local_used_capacity_in_bytes(self) -> float:
+    def local_used_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The local used capacity in Bytes.
         """
@@ -156,7 +156,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> str:
+    def monitoring_status(self) -> pulumi.Output[str]:
         """
         The monitoring status
         """
@@ -164,7 +164,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name.
         """
@@ -172,7 +172,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> float:
+    def provisioned_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The total provisioned capacity in Bytes
         """
@@ -180,7 +180,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> str:
+    def share_status(self) -> pulumi.Output[str]:
         """
         The Share Status
         """
@@ -188,7 +188,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type.
         """
@@ -196,7 +196,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usedCapacityInBytes")
-    def used_capacity_in_bytes(self) -> float:
+    def used_capacity_in_bytes(self) -> pulumi.Output[float]:
         """
         The used capacity in Bytes.
         """

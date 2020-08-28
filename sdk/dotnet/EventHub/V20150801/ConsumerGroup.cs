@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.EventHub.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:eventhub/v20140901:ConsumerGroup"},
-                    new Alias { Type = "azurerm:eventhub/v20170401:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:eventhub/v20140901:ConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:ConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

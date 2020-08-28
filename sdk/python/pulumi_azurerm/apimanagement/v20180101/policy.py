@@ -13,7 +13,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_format: Optional[pulumi.Input[str]] = None,
                  policy_content: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentFormat")
-    def content_format(self) -> Optional[str]:
+    def content_format(self) -> pulumi.Output[Optional[str]]:
         """
         Format of the policyContent.
         """
@@ -102,7 +102,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -110,7 +110,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyContent")
-    def policy_content(self) -> str:
+    def policy_content(self) -> pulumi.Output[str]:
         """
         Json escaped Xml Encoded contents of the Policy.
         """
@@ -118,7 +118,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

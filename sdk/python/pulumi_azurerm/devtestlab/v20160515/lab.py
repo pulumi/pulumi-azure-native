@@ -13,7 +13,7 @@ __all__ = ['Lab']
 
 class Lab(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lab_storage_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="artifactsStorageAccount")
-    def artifacts_storage_account(self) -> str:
+    def artifacts_storage_account(self) -> pulumi.Output[str]:
         """
         The lab's artifact storage account.
         """
@@ -114,7 +114,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the lab.
         """
@@ -122,7 +122,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPremiumStorageAccount")
-    def default_premium_storage_account(self) -> str:
+    def default_premium_storage_account(self) -> pulumi.Output[str]:
         """
         The lab's default premium storage account.
         """
@@ -130,7 +130,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultStorageAccount")
-    def default_storage_account(self) -> str:
+    def default_storage_account(self) -> pulumi.Output[str]:
         """
         The lab's default storage account.
         """
@@ -138,7 +138,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="labStorageType")
-    def lab_storage_type(self) -> Optional[str]:
+    def lab_storage_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         """
@@ -146,7 +146,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -154,7 +154,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -162,7 +162,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="premiumDataDiskStorageAccount")
-    def premium_data_disk_storage_account(self) -> str:
+    def premium_data_disk_storage_account(self) -> pulumi.Output[str]:
         """
         The lab's premium data disk storage account.
         """
@@ -170,7 +170,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="premiumDataDisks")
-    def premium_data_disks(self) -> Optional[str]:
+    def premium_data_disks(self) -> pulumi.Output[Optional[str]]:
         """
         The setting to enable usage of premium data disks.
         When its value is 'Enabled', creation of standard or premium data disks is allowed.
@@ -180,7 +180,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -188,7 +188,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -196,7 +196,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -204,7 +204,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """
@@ -212,7 +212,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vaultName")
-    def vault_name(self) -> str:
+    def vault_name(self) -> pulumi.Output[str]:
         """
         The lab's Key vault.
         """

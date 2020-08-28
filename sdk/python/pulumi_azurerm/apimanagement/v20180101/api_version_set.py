@@ -13,7 +13,7 @@ __all__ = ['ApiVersionSet']
 
 class ApiVersionSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of API Version Set.
         """
@@ -113,7 +113,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Name of API Version Set
         """
@@ -121,7 +121,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -129,7 +129,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -137,7 +137,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionHeaderName")
-    def version_header_name(self) -> Optional[str]:
+    def version_header_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         """
@@ -145,7 +145,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionQueryName")
-    def version_query_name(self) -> Optional[str]:
+    def version_query_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
         """
@@ -153,7 +153,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versioningScheme")
-    def versioning_scheme(self) -> str:
+    def versioning_scheme(self) -> pulumi.Output[str]:
         """
         An value that determines where the API Version identifer will be located in a HTTP request.
         """

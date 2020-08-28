@@ -15,7 +15,7 @@ __all__ = ['VpnSite']
 
 class VpnSite(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
                  bgp_properties: Optional[pulumi.Input[pulumi.InputType['BgpSettingsArgs']]] = None,
@@ -123,7 +123,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def address_space(self) -> pulumi.Output[Optional['outputs.AddressSpaceResponse']]:
         """
         The AddressSpace that contains an array of IP address ranges.
         """
@@ -131,7 +131,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpProperties")
-    def bgp_properties(self) -> Optional['outputs.BgpSettingsResponse']:
+    def bgp_properties(self) -> pulumi.Output[Optional['outputs.BgpSettingsResponse']]:
         """
         The set of bgp properties.
         """
@@ -139,7 +139,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceProperties")
-    def device_properties(self) -> Optional['outputs.DevicePropertiesResponse']:
+    def device_properties(self) -> pulumi.Output[Optional['outputs.DevicePropertiesResponse']]:
         """
         The device properties.
         """
@@ -147,7 +147,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -155,7 +155,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[str]:
+    def ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The ip-address for the vpn-site.
         """
@@ -163,7 +163,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isSecuritySite")
-    def is_security_site(self) -> Optional[bool]:
+    def is_security_site(self) -> pulumi.Output[Optional[bool]]:
         """
         IsSecuritySite flag.
         """
@@ -171,7 +171,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -179,7 +179,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -187,7 +187,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="o365Policy")
-    def o365_policy(self) -> Optional['outputs.O365PolicyPropertiesResponse']:
+    def o365_policy(self) -> pulumi.Output[Optional['outputs.O365PolicyPropertiesResponse']]:
         """
         Office365 Policy.
         """
@@ -195,7 +195,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the VPN site resource.
         """
@@ -203,7 +203,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteKey")
-    def site_key(self) -> Optional[str]:
+    def site_key(self) -> pulumi.Output[Optional[str]]:
         """
         The key for vpn-site that can be used for connections.
         """
@@ -211,7 +211,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -219,7 +219,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -227,7 +227,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualWan")
-    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_wan(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The VirtualWAN to which the vpnSite belongs.
         """
@@ -235,7 +235,7 @@ class VpnSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnSiteLinks")
-    def vpn_site_links(self) -> Optional[List['outputs.VpnSiteLinkResponse']]:
+    def vpn_site_links(self) -> pulumi.Output[Optional[List['outputs.VpnSiteLinkResponse']]]:
         """
         List of all vpn site links.
         """

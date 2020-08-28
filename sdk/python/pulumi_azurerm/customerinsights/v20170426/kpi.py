@@ -15,7 +15,7 @@ __all__ = ['Kpi']
 
 class Kpi(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]]] = None,
                  calculation_window: Optional[pulumi.Input[str]] = None,
@@ -144,7 +144,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def aliases(self) -> Optional[List['outputs.KpiAliasResponse']]:
+    def aliases(self) -> pulumi.Output[Optional[List['outputs.KpiAliasResponse']]]:
         """
         The aliases.
         """
@@ -152,7 +152,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="calculationWindow")
-    def calculation_window(self) -> str:
+    def calculation_window(self) -> pulumi.Output[str]:
         """
         The calculation window.
         """
@@ -160,7 +160,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="calculationWindowFieldName")
-    def calculation_window_field_name(self) -> Optional[str]:
+    def calculation_window_field_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of calculation window field.
         """
@@ -168,7 +168,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[Mapping[str, str]]:
+    def description(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized description for the KPI.
         """
@@ -176,7 +176,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[Mapping[str, str]]:
+    def display_name(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized display name for the KPI.
         """
@@ -184,7 +184,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entityType")
-    def entity_type(self) -> str:
+    def entity_type(self) -> pulumi.Output[str]:
         """
         The mapping entity type.
         """
@@ -192,7 +192,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entityTypeName")
-    def entity_type_name(self) -> str:
+    def entity_type_name(self) -> pulumi.Output[str]:
         """
         The mapping entity name.
         """
@@ -200,7 +200,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def expression(self) -> str:
+    def expression(self) -> pulumi.Output[str]:
         """
         The computation expression for the KPI.
         """
@@ -208,7 +208,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def extracts(self) -> Optional[List['outputs.KpiExtractResponse']]:
+    def extracts(self) -> pulumi.Output[Optional[List['outputs.KpiExtractResponse']]]:
         """
         The KPI extracts.
         """
@@ -216,7 +216,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional[str]:
+    def filter(self) -> pulumi.Output[Optional[str]]:
         """
         The filter expression for the KPI.
         """
@@ -224,7 +224,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def function(self) -> str:
+    def function(self) -> pulumi.Output[str]:
         """
         The computation function for the KPI.
         """
@@ -232,7 +232,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupBy")
-    def group_by(self) -> Optional[List[str]]:
+    def group_by(self) -> pulumi.Output[Optional[List[str]]]:
         """
         the group by properties for the KPI.
         """
@@ -240,7 +240,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupByMetadata")
-    def group_by_metadata(self) -> List['outputs.KpiGroupByMetadataResponse']:
+    def group_by_metadata(self) -> pulumi.Output[List['outputs.KpiGroupByMetadataResponse']]:
         """
         The KPI GroupByMetadata.
         """
@@ -248,7 +248,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kpiName")
-    def kpi_name(self) -> str:
+    def kpi_name(self) -> pulumi.Output[str]:
         """
         The KPI name.
         """
@@ -256,7 +256,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -264,7 +264,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="participantProfilesMetadata")
-    def participant_profiles_metadata(self) -> List['outputs.KpiParticipantProfilesMetadataResponse']:
+    def participant_profiles_metadata(self) -> pulumi.Output[List['outputs.KpiParticipantProfilesMetadataResponse']]:
         """
         The participant profiles.
         """
@@ -272,7 +272,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state.
         """
@@ -280,7 +280,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The hub name.
         """
@@ -288,7 +288,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thresHolds")
-    def thres_holds(self) -> Optional['outputs.KpiThresholdsResponse']:
+    def thres_holds(self) -> pulumi.Output[Optional['outputs.KpiThresholdsResponse']]:
         """
         The KPI thresholds.
         """
@@ -296,7 +296,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -304,7 +304,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def unit(self) -> Optional[str]:
+    def unit(self) -> pulumi.Output[Optional[str]]:
         """
         The unit of measurement for the KPI.
         """

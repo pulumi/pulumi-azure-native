@@ -15,7 +15,7 @@ __all__ = ['FrontDoor']
 
 class FrontDoor(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BackendPoolArgs']]]]] = None,
                  backend_pools_settings: Optional[pulumi.Input[pulumi.InputType['BackendPoolsSettingsArgs']]] = None,
@@ -118,7 +118,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPools")
-    def backend_pools(self) -> Optional[List['outputs.BackendPoolResponse']]:
+    def backend_pools(self) -> pulumi.Output[Optional[List['outputs.BackendPoolResponse']]]:
         """
         Backend pools available to routing rules.
         """
@@ -126,7 +126,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPoolsSettings")
-    def backend_pools_settings(self) -> Optional['outputs.BackendPoolsSettingsResponse']:
+    def backend_pools_settings(self) -> pulumi.Output[Optional['outputs.BackendPoolsSettingsResponse']]:
         """
         Settings for all backendPools
         """
@@ -134,7 +134,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cname(self) -> str:
+    def cname(self) -> pulumi.Output[str]:
         """
         The host that each frontendEndpoint must CNAME to.
         """
@@ -142,7 +142,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[str]:
+    def enabled_state(self) -> pulumi.Output[Optional[str]]:
         """
         Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
         """
@@ -150,7 +150,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
         A friendly name for the frontDoor
         """
@@ -158,7 +158,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendEndpoints")
-    def frontend_endpoints(self) -> Optional[List['outputs.FrontendEndpointResponse']]:
+    def frontend_endpoints(self) -> pulumi.Output[Optional[List['outputs.FrontendEndpointResponse']]]:
         """
         Frontend endpoints available to routing rules.
         """
@@ -166,7 +166,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthProbeSettings")
-    def health_probe_settings(self) -> Optional[List['outputs.HealthProbeSettingsModelResponse']]:
+    def health_probe_settings(self) -> pulumi.Output[Optional[List['outputs.HealthProbeSettingsModelResponse']]]:
         """
         Health probe settings associated with this Front Door instance.
         """
@@ -174,7 +174,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingSettings")
-    def load_balancing_settings(self) -> Optional[List['outputs.LoadBalancingSettingsModelResponse']]:
+    def load_balancing_settings(self) -> pulumi.Output[Optional[List['outputs.LoadBalancingSettingsModelResponse']]]:
         """
         Load balancing settings associated with this Front Door instance.
         """
@@ -182,7 +182,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -190,7 +190,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -198,7 +198,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the Front Door.
         """
@@ -206,7 +206,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
+    def resource_state(self) -> pulumi.Output[Optional[str]]:
         """
         Resource status of the Front Door.
         """
@@ -214,7 +214,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> Optional[List['outputs.RoutingRuleResponse']]:
+    def routing_rules(self) -> pulumi.Output[Optional[List['outputs.RoutingRuleResponse']]]:
         """
         Routing rules associated with this Front Door.
         """
@@ -222,7 +222,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -230,7 +230,7 @@ class FrontDoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

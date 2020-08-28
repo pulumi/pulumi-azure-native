@@ -15,7 +15,7 @@ __all__ = ['VirtualMachineImageTemplate']
 
 class VirtualMachineImageTemplate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  build_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  customize: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateCustomizerArgs']]]]] = None,
@@ -116,7 +116,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="buildTimeoutInMinutes")
-    def build_timeout_in_minutes(self) -> Optional[float]:
+    def build_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
         """
@@ -124,7 +124,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def customize(self) -> Optional[List['outputs.ImageTemplateCustomizerResponse']]:
+    def customize(self) -> pulumi.Output[Optional[List['outputs.ImageTemplateCustomizerResponse']]]:
         """
         Specifies the properties used to describe the customization steps of the image, like Image source etc
         """
@@ -132,7 +132,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def distribute(self) -> List['outputs.ImageTemplateDistributorResponse']:
+    def distribute(self) -> pulumi.Output[List['outputs.ImageTemplateDistributorResponse']]:
         """
         The distribution targets where the image output needs to go to.
         """
@@ -140,7 +140,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.ImageTemplateIdentityResponse':
+    def identity(self) -> pulumi.Output['outputs.ImageTemplateIdentityResponse']:
         """
         The identity of the image template, if configured.
         """
@@ -148,7 +148,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastRunStatus")
-    def last_run_status(self) -> 'outputs.ImageTemplateLastRunStatusResponse':
+    def last_run_status(self) -> pulumi.Output['outputs.ImageTemplateLastRunStatusResponse']:
         """
         State of 'run' that is currently executing or was last executed.
         """
@@ -156,7 +156,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -164,7 +164,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -172,7 +172,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningError")
-    def provisioning_error(self) -> 'outputs.ProvisioningErrorResponse':
+    def provisioning_error(self) -> pulumi.Output['outputs.ProvisioningErrorResponse']:
         """
         Provisioning error, if any
         """
@@ -180,7 +180,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the resource
         """
@@ -188,7 +188,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> 'outputs.ImageTemplateSourceResponse':
+    def source(self) -> pulumi.Output['outputs.ImageTemplateSourceResponse']:
         """
         Specifies the properties used to describe the source image.
         """
@@ -196,7 +196,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -204,7 +204,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -212,7 +212,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmProfile")
-    def vm_profile(self) -> Optional['outputs.ImageTemplateVmProfileResponse']:
+    def vm_profile(self) -> pulumi.Output[Optional['outputs.ImageTemplateVmProfileResponse']]:
         """
         Describes how virtual machine is set up to build images
         """

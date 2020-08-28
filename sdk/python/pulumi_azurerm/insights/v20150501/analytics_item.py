@@ -15,7 +15,7 @@ __all__ = ['AnalyticsItem']
 
 class AnalyticsItem(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[str]:
+    def content(self) -> pulumi.Output[Optional[str]]:
         """
         The content of this item
         """
@@ -116,7 +116,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The user-defined name of the item.
         """
@@ -124,7 +124,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponse']:
         """
         A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         """
@@ -132,7 +132,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[str]:
+    def scope(self) -> pulumi.Output[Optional[str]]:
         """
         Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         """
@@ -140,7 +140,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeCreated")
-    def time_created(self) -> str:
+    def time_created(self) -> pulumi.Output[str]:
         """
         Date and time in UTC when this item was created.
         """
@@ -148,7 +148,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeModified")
-    def time_modified(self) -> str:
+    def time_modified(self) -> pulumi.Output[str]:
         """
         Date and time in UTC of the last modification that was made to this item.
         """
@@ -156,7 +156,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Enum indicating the type of the Analytics item.
         """
@@ -164,7 +164,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         This instance's version of the data model. This can change as new features are added.
         """

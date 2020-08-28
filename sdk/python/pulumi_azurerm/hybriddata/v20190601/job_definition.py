@@ -15,7 +15,7 @@ __all__ = ['JobDefinition']
 
 class JobDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]]] = None,
                  data_manager_name: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerSecrets")
-    def customer_secrets(self) -> Optional[List['outputs.CustomerSecretResponse']]:
+    def customer_secrets(self) -> pulumi.Output[Optional[List['outputs.CustomerSecretResponse']]]:
         """
         List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         """
@@ -134,7 +134,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataServiceInput")
-    def data_service_input(self) -> Optional[Mapping[str, Any]]:
+    def data_service_input(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         A generic json used differently by each data service type.
         """
@@ -142,7 +142,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSinkId")
-    def data_sink_id(self) -> str:
+    def data_sink_id(self) -> pulumi.Output[str]:
         """
         Data Sink Id associated to the job definition.
         """
@@ -150,7 +150,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> str:
+    def data_source_id(self) -> pulumi.Output[str]:
         """
         Data Source Id associated to the job definition.
         """
@@ -158,7 +158,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Last modified time of the job definition.
         """
@@ -166,7 +166,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the object.
         """
@@ -174,7 +174,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runLocation")
-    def run_location(self) -> Optional[str]:
+    def run_location(self) -> pulumi.Output[Optional[str]]:
         """
         This is the preferred geo location for the job to run.
         """
@@ -182,7 +182,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedules(self) -> Optional[List['outputs.ScheduleResponse']]:
+    def schedules(self) -> pulumi.Output[Optional[List['outputs.ScheduleResponse']]]:
         """
         Schedule for running the job definition
         """
@@ -190,7 +190,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         State of the job definition.
         """
@@ -198,7 +198,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the object.
         """
@@ -206,7 +206,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userConfirmation")
-    def user_confirmation(self) -> Optional[str]:
+    def user_confirmation(self) -> pulumi.Output[Optional[str]]:
         """
         Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         """

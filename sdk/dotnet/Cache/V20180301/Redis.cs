@@ -159,10 +159,10 @@ namespace Pulumi.AzureRM.Cache.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:cache/v20150801:Redis"},
-                    new Alias { Type = "azurerm:cache/v20160401:Redis"},
-                    new Alias { Type = "azurerm:cache/v20170201:Redis"},
-                    new Alias { Type = "azurerm:cache/v20171001:Redis"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20150801:Redis"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20160401:Redis"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20170201:Redis"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20171001:Redis"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

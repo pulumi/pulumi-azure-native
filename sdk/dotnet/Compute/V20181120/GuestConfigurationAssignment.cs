@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.Compute.V20181120
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:compute/v20200625:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200625:GuestConfigurationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,7 +13,7 @@ __all__ = ['ServerAdministrator']
 
 class ServerAdministrator(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_type: Optional[pulumi.Input[str]] = None,
                  login: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class ServerAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorType")
-    def administrator_type(self) -> str:
+    def administrator_type(self) -> pulumi.Output[str]:
         """
         The type of administrator.
         """
@@ -107,7 +107,7 @@ class ServerAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def login(self) -> str:
+    def login(self) -> pulumi.Output[str]:
         """
         The server administrator login account name.
         """
@@ -115,7 +115,7 @@ class ServerAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -123,7 +123,7 @@ class ServerAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sid(self) -> str:
+    def sid(self) -> pulumi.Output[str]:
         """
         The server administrator Sid (Secure ID).
         """
@@ -131,7 +131,7 @@ class ServerAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The server Active Directory Administrator tenant id.
         """
@@ -139,7 +139,7 @@ class ServerAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

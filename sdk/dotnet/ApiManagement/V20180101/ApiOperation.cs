@@ -99,11 +99,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:apimanagement/v20160707:ApiOperation"},
-                    new Alias { Type = "azurerm:apimanagement/v20161010:ApiOperation"},
-                    new Alias { Type = "azurerm:apimanagement/v20170301:ApiOperation"},
-                    new Alias { Type = "azurerm:apimanagement/v20190101:ApiOperation"},
-                    new Alias { Type = "azurerm:apimanagement/v20191201:ApiOperation"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:ApiOperation"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:ApiOperation"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiOperation"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ApiOperation"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ApiOperation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

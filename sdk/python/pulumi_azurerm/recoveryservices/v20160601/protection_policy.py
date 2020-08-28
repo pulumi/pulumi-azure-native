@@ -15,7 +15,7 @@ __all__ = ['ProtectionPolicy']
 
 class ProtectionPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class ProtectionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         Optional ETag.
         """
@@ -115,7 +115,7 @@ class ProtectionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -123,7 +123,7 @@ class ProtectionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource name associated with the resource.
         """
@@ -131,7 +131,7 @@ class ProtectionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProtectionPolicyResponse':
+    def properties(self) -> pulumi.Output['outputs.ProtectionPolicyResponse']:
         """
         The base class for a backup policy. Workload-specific backup policies are derived from this class.
         """
@@ -139,7 +139,7 @@ class ProtectionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -147,7 +147,7 @@ class ProtectionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """

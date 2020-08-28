@@ -66,9 +66,9 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlTrigger"},
-                    new Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlTrigger"},
-                    new Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlTrigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

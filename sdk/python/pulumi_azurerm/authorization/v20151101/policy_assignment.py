@@ -15,7 +15,7 @@ __all__ = ['PolicyAssignment']
 
 class PolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_assignment_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PolicyAssignmentPropertiesArgs']]] = None,
@@ -85,7 +85,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets or sets the policy assignment name.
         """
@@ -93,7 +93,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PolicyAssignmentPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.PolicyAssignmentPropertiesResponse']:
         """
         Gets or sets the policy assignment properties.
         """

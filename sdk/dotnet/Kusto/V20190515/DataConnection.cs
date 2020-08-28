@@ -63,11 +63,11 @@ namespace Pulumi.AzureRM.Kusto.V20190515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:kusto/v20190121:DataConnection"},
-                    new Alias { Type = "azurerm:kusto/v20190907:DataConnection"},
-                    new Alias { Type = "azurerm:kusto/v20191109:DataConnection"},
-                    new Alias { Type = "azurerm:kusto/v20200215:DataConnection"},
-                    new Alias { Type = "azurerm:kusto/v20200614:DataConnection"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20190121:DataConnection"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20190907:DataConnection"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20191109:DataConnection"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20200215:DataConnection"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20200614:DataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

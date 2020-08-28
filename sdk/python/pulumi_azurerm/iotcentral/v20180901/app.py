@@ -15,7 +15,7 @@ __all__ = ['App']
 
 class App(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> str:
+    def application_id(self) -> pulumi.Output[str]:
         """
         The ID of the application.
         """
@@ -112,7 +112,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name of the application.
         """
@@ -120,7 +120,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The resource location.
         """
@@ -128,7 +128,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The ARM resource name.
         """
@@ -136,7 +136,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.AppSkuInfoResponse':
+    def sku(self) -> pulumi.Output['outputs.AppSkuInfoResponse']:
         """
         A valid instance SKU.
         """
@@ -144,7 +144,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdomain(self) -> Optional[str]:
+    def subdomain(self) -> pulumi.Output[Optional[str]]:
         """
         The subdomain of the application.
         """
@@ -152,7 +152,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -160,7 +160,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[str]:
+    def template(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
         """
@@ -168,7 +168,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """

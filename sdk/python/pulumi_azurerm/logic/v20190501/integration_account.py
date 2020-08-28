@@ -15,7 +15,7 @@ __all__ = ['IntegrationAccount']
 
 class IntegrationAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  integration_service_environment: Optional[pulumi.Input[pulumi.InputType['IntegrationServiceEnvironmentArgs']]] = None,
@@ -98,7 +98,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationServiceEnvironment")
-    def integration_service_environment(self) -> Optional['outputs.IntegrationServiceEnvironmentResponse']:
+    def integration_service_environment(self) -> pulumi.Output[Optional['outputs.IntegrationServiceEnvironmentResponse']]:
         """
         The integration service environment.
         """
@@ -106,7 +106,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -114,7 +114,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the resource name.
         """
@@ -122,7 +122,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.IntegrationAccountSkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.IntegrationAccountSkuResponse']]:
         """
         The sku.
         """
@@ -130,7 +130,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The workflow state.
         """
@@ -138,7 +138,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -146,7 +146,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the resource type.
         """

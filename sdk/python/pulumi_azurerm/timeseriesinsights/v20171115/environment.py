@@ -15,7 +15,7 @@ __all__ = ['Environment']
 
 class Environment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_retention_time: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         The time the resource was created.
         """
@@ -120,7 +120,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataAccessFqdn")
-    def data_access_fqdn(self) -> str:
+    def data_access_fqdn(self) -> pulumi.Output[str]:
         """
         The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
         """
@@ -128,7 +128,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataAccessId")
-    def data_access_id(self) -> str:
+    def data_access_id(self) -> pulumi.Output[str]:
         """
         An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
         """
@@ -136,7 +136,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataRetentionTime")
-    def data_retention_time(self) -> str:
+    def data_retention_time(self) -> pulumi.Output[str]:
         """
         ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
@@ -144,7 +144,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -152,7 +152,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -160,7 +160,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKeyProperties")
-    def partition_key_properties(self) -> Optional[List['outputs.PartitionKeyPropertyResponse']]:
+    def partition_key_properties(self) -> pulumi.Output[Optional[List['outputs.PartitionKeyPropertyResponse']]]:
         """
         The list of partition keys according to which the data in the environment will be ordered.
         """
@@ -168,7 +168,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning state of the resource.
         """
@@ -176,7 +176,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         """
@@ -184,7 +184,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['outputs.EnvironmentStatusResponse']:
+    def status(self) -> pulumi.Output[Optional['outputs.EnvironmentStatusResponse']]:
         """
         An object that represents the status of the environment, and its internal state in the Time Series Insights service.
         """
@@ -192,7 +192,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageLimitExceededBehavior")
-    def storage_limit_exceeded_behavior(self) -> Optional[str]:
+    def storage_limit_exceeded_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         """
@@ -200,7 +200,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -208,7 +208,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

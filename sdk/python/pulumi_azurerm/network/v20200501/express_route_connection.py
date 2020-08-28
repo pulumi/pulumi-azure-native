@@ -15,7 +15,7 @@ __all__ = ['ExpressRouteConnection']
 
 class ExpressRouteConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> Optional[str]:
+    def authorization_key(self) -> pulumi.Output[Optional[str]]:
         """
         Authorization key to establish the connection.
         """
@@ -120,7 +120,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableInternetSecurity")
-    def enable_internet_security(self) -> Optional[bool]:
+    def enable_internet_security(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable internet security.
         """
@@ -128,7 +128,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
-    def express_route_circuit_peering(self) -> 'outputs.ExpressRouteCircuitPeeringIdResponse':
+    def express_route_circuit_peering(self) -> pulumi.Output['outputs.ExpressRouteCircuitPeeringIdResponse']:
         """
         The ExpressRoute circuit peering.
         """
@@ -136,7 +136,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -144,7 +144,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the express route connection resource.
         """
@@ -152,7 +152,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponse']:
+    def routing_configuration(self) -> pulumi.Output[Optional['outputs.RoutingConfigurationResponse']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """
@@ -160,7 +160,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> Optional[float]:
+    def routing_weight(self) -> pulumi.Output[Optional[float]]:
         """
         The routing weight associated to the connection.
         """

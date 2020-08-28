@@ -15,7 +15,7 @@ __all__ = ['DscNodeConfiguration']
 
 class DscNodeConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['DscConfigurationAssociationPropertyArgs']]] = None,
@@ -109,7 +109,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional['outputs.DscConfigurationAssociationPropertyResponse']:
+    def configuration(self) -> pulumi.Output[Optional['outputs.DscConfigurationAssociationPropertyResponse']]:
         """
         Gets or sets the configuration of the node.
         """
@@ -117,7 +117,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets creation time.
         """
@@ -125,7 +125,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="incrementNodeConfigurationBuild")
-    def increment_node_configuration_build(self) -> Optional[bool]:
+    def increment_node_configuration_build(self) -> pulumi.Output[Optional[bool]]:
         """
         If a new build version of NodeConfiguration is required.
         """
@@ -133,7 +133,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last modified time.
         """
@@ -141,7 +141,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -149,7 +149,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[float]:
+    def node_count(self) -> pulumi.Output[Optional[float]]:
         """
         Number of nodes with this node configuration assigned
         """
@@ -157,7 +157,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[str]:
+    def source(self) -> pulumi.Output[Optional[str]]:
         """
         Source of node configuration.
         """
@@ -165,7 +165,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

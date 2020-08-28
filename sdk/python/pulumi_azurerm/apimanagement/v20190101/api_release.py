@@ -13,7 +13,7 @@ __all__ = ['ApiRelease']
 
 class ApiRelease(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class ApiRelease(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[str]:
+    def api_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the API the release belongs to.
         """
@@ -104,7 +104,7 @@ class ApiRelease(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDateTime")
-    def created_date_time(self) -> str:
+    def created_date_time(self) -> pulumi.Output[str]:
         """
         The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
         """
@@ -112,7 +112,7 @@ class ApiRelease(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -120,7 +120,7 @@ class ApiRelease(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> Optional[str]:
+    def notes(self) -> pulumi.Output[Optional[str]]:
         """
         Release Notes
         """
@@ -128,7 +128,7 @@ class ApiRelease(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -136,7 +136,7 @@ class ApiRelease(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedDateTime")
-    def updated_date_time(self) -> str:
+    def updated_date_time(self) -> pulumi.Output[str]:
         """
         The time the API release was updated.
         """

@@ -15,7 +15,7 @@ __all__ = ['ContainerGroup']
 
 class ContainerGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_group_name: Optional[pulumi.Input[str]] = None,
                  containers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerArgs']]]]] = None,
@@ -119,7 +119,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def containers(self) -> List['outputs.ContainerResponse']:
+    def containers(self) -> pulumi.Output[List['outputs.ContainerResponse']]:
         """
         The containers within the container group.
         """
@@ -127,7 +127,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def diagnostics(self) -> Optional['outputs.ContainerGroupDiagnosticsResponse']:
+    def diagnostics(self) -> pulumi.Output[Optional['outputs.ContainerGroupDiagnosticsResponse']]:
         """
         The diagnostic information for a container group.
         """
@@ -135,7 +135,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageRegistryCredentials")
-    def image_registry_credentials(self) -> Optional[List['outputs.ImageRegistryCredentialResponse']]:
+    def image_registry_credentials(self) -> pulumi.Output[Optional[List['outputs.ImageRegistryCredentialResponse']]]:
         """
         The image registry credentials by which the container group is created from.
         """
@@ -143,7 +143,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> 'outputs.ContainerGroupResponseInstanceView':
+    def instance_view(self) -> pulumi.Output['outputs.ContainerGroupResponseInstanceView']:
         """
         The instance view of the container group. Only valid in response.
         """
@@ -151,7 +151,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional['outputs.IpAddressResponse']:
+    def ip_address(self) -> pulumi.Output[Optional['outputs.IpAddressResponse']]:
         """
         The IP address type of the container group.
         """
@@ -159,7 +159,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -167,7 +167,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -175,7 +175,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> str:
+    def os_type(self) -> pulumi.Output[str]:
         """
         The operating system type required by the containers in the container group.
         """
@@ -183,7 +183,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the container group. This only appears in the response.
         """
@@ -191,7 +191,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restartPolicy")
-    def restart_policy(self) -> Optional[str]:
+    def restart_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Restart policy for all containers within the container group. 
         - `Always` Always restart
@@ -202,7 +202,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -210,7 +210,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """
@@ -218,7 +218,7 @@ class ContainerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[List['outputs.VolumeResponse']]:
+    def volumes(self) -> pulumi.Output[Optional[List['outputs.VolumeResponse']]]:
         """
         The list of volumes that can be mounted by containers in this container group.
         """

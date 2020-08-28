@@ -14,7 +14,7 @@ __all__ = ['IpGroup']
 
 class IpGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -97,7 +97,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -105,7 +105,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def firewalls(self) -> List['outputs.SubResourceResponse']:
+    def firewalls(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         List of references to Azure resources that this IpGroups is associated with.
         """
@@ -113,7 +113,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[List[str]]:
+    def ip_addresses(self) -> pulumi.Output[Optional[List[str]]]:
         """
         IpAddresses/IpAddressPrefixes in the IpGroups resource.
         """
@@ -121,7 +121,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -129,7 +129,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -137,7 +137,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the IpGroups resource.
         """
@@ -145,7 +145,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -153,7 +153,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

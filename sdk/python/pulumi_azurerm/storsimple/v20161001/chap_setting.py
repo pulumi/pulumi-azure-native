@@ -15,7 +15,7 @@ __all__ = ['ChapSetting']
 
 class ChapSetting(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  chap_user_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class ChapSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name.
         """
@@ -104,7 +104,7 @@ class ChapSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> 'outputs.AsymmetricEncryptedSecretResponse':
+    def password(self) -> pulumi.Output['outputs.AsymmetricEncryptedSecretResponse']:
         """
         The chap password.
         """
@@ -112,7 +112,7 @@ class ChapSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type.
         """

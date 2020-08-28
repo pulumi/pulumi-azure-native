@@ -15,7 +15,7 @@ __all__ = ['NetworkVirtualAppliance']
 
 class NetworkVirtualAppliance(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  boot_strap_configuration_blobs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  cloud_init_configuration: Optional[pulumi.Input[str]] = None,
@@ -117,7 +117,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootStrapConfigurationBlobs")
-    def boot_strap_configuration_blobs(self) -> Optional[List[str]]:
+    def boot_strap_configuration_blobs(self) -> pulumi.Output[Optional[List[str]]]:
         """
         BootStrapConfigurationBlobs storage URLs.
         """
@@ -125,7 +125,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudInitConfiguration")
-    def cloud_init_configuration(self) -> Optional[str]:
+    def cloud_init_configuration(self) -> pulumi.Output[Optional[str]]:
         """
         CloudInitConfiguration string in plain text.
         """
@@ -133,7 +133,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudInitConfigurationBlobs")
-    def cloud_init_configuration_blobs(self) -> Optional[List[str]]:
+    def cloud_init_configuration_blobs(self) -> pulumi.Output[Optional[List[str]]]:
         """
         CloudInitConfigurationBlob storage URLs.
         """
@@ -141,7 +141,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -149,7 +149,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         The service principal that has read access to cloud-init and config blob.
         """
@@ -157,7 +157,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -165,7 +165,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -173,7 +173,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nvaSku")
-    def nva_sku(self) -> Optional['outputs.VirtualApplianceSkuPropertiesResponse']:
+    def nva_sku(self) -> pulumi.Output[Optional['outputs.VirtualApplianceSkuPropertiesResponse']]:
         """
         Network Virtual Appliance SKU.
         """
@@ -181,7 +181,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """
@@ -189,7 +189,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -197,7 +197,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -205,7 +205,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualApplianceAsn")
-    def virtual_appliance_asn(self) -> Optional[float]:
+    def virtual_appliance_asn(self) -> pulumi.Output[Optional[float]]:
         """
         VirtualAppliance ASN.
         """
@@ -213,7 +213,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualApplianceNics")
-    def virtual_appliance_nics(self) -> List['outputs.VirtualApplianceNicPropertiesResponse']:
+    def virtual_appliance_nics(self) -> pulumi.Output[List['outputs.VirtualApplianceNicPropertiesResponse']]:
         """
         List of Virtual Appliance Network Interfaces.
         """
@@ -221,7 +221,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualApplianceSites")
-    def virtual_appliance_sites(self) -> List['outputs.SubResourceResponse']:
+    def virtual_appliance_sites(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         List of references to VirtualApplianceSite.
         """
@@ -229,7 +229,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_hub(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The Virtual Hub where Network Virtual Appliance is being deployed.
         """

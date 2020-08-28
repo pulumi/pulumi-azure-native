@@ -301,11 +301,11 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20150801:WebApp"},
-                    new Alias { Type = "azurerm:web/v20160801:WebApp"},
-                    new Alias { Type = "azurerm:web/v20181101:WebApp"},
-                    new Alias { Type = "azurerm:web/v20190801:WebApp"},
-                    new Alias { Type = "azurerm:web/v20200601:WebApp"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebApp"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebApp"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebApp"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebApp"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebApp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

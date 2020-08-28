@@ -99,8 +99,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:containerregistry/v20171001:Registry"},
-                    new Alias { Type = "azurerm:containerregistry/v20190501:Registry"},
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20171001:Registry"},
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20190501:Registry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

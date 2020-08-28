@@ -13,7 +13,7 @@ __all__ = ['Subscription']
 
 class Subscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_tracing: Optional[pulumi.Input[bool]] = None,
                  app_type: Optional[pulumi.Input[str]] = None,
@@ -125,7 +125,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowTracing")
-    def allow_tracing(self) -> Optional[bool]:
+    def allow_tracing(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines whether tracing is enabled
         """
@@ -133,7 +133,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
@@ -141,7 +141,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the subscription, or null if the subscription has no name.
         """
@@ -149,7 +149,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[str]:
+    def end_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
@@ -157,7 +157,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[str]:
+    def expiration_date(self) -> pulumi.Output[Optional[str]]:
         """
         Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
@@ -165,7 +165,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -173,7 +173,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationDate")
-    def notification_date(self) -> Optional[str]:
+    def notification_date(self) -> pulumi.Output[Optional[str]]:
         """
         Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
@@ -181,7 +181,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[str]:
+    def owner_id(self) -> pulumi.Output[Optional[str]]:
         """
         The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
         """
@@ -189,7 +189,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> str:
+    def primary_key(self) -> pulumi.Output[str]:
         """
         Subscription primary key.
         """
@@ -197,7 +197,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         Scope like /products/{productId} or /apis or /apis/{apiId}.
         """
@@ -205,7 +205,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> str:
+    def secondary_key(self) -> pulumi.Output[str]:
         """
         Subscription secondary key.
         """
@@ -213,7 +213,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[str]:
+    def start_date(self) -> pulumi.Output[Optional[str]]:
         """
         Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
@@ -221,7 +221,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
         """
@@ -229,7 +229,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stateComment")
-    def state_comment(self) -> Optional[str]:
+    def state_comment(self) -> pulumi.Output[Optional[str]]:
         """
         Optional subscription comment added by an administrator.
         """
@@ -237,7 +237,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

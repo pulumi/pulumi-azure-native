@@ -13,7 +13,7 @@ __all__ = ['IdentityProvider']
 
 class IdentityProvider(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_tenants: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  authority: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedTenants")
-    def allowed_tenants(self) -> Optional[List[str]]:
+    def allowed_tenants(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Allowed Tenants when configuring Azure Active Directory login.
         """
@@ -127,7 +127,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authority(self) -> Optional[str]:
+    def authority(self) -> pulumi.Output[Optional[str]]:
         """
         OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
         """
@@ -135,7 +135,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
         """
@@ -143,7 +143,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[str]:
+    def client_secret(self) -> pulumi.Output[Optional[str]]:
         """
         Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         """
@@ -151,7 +151,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -159,7 +159,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordResetPolicyName")
-    def password_reset_policy_name(self) -> Optional[str]:
+    def password_reset_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
         Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
         """
@@ -167,7 +167,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="profileEditingPolicyName")
-    def profile_editing_policy_name(self) -> Optional[str]:
+    def profile_editing_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
         Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
         """
@@ -175,7 +175,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signinPolicyName")
-    def signin_policy_name(self) -> Optional[str]:
+    def signin_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
         Signin Policy Name. Only applies to AAD B2C Identity Provider.
         """
@@ -183,7 +183,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signinTenant")
-    def signin_tenant(self) -> Optional[str]:
+    def signin_tenant(self) -> pulumi.Output[Optional[str]]:
         """
         The TenantId to use instead of Common when logging into Active Directory
         """
@@ -191,7 +191,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signupPolicyName")
-    def signup_policy_name(self) -> Optional[str]:
+    def signup_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
         Signup Policy Name. Only applies to AAD B2C Identity Provider.
         """
@@ -199,7 +199,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

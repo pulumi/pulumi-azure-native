@@ -14,7 +14,7 @@ __all__ = ['Subscription']
 
 class Subscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
                  dead_lettering_on_filter_evaluation_exceptions: Optional[pulumi.Input[bool]] = None,
@@ -133,7 +133,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessedAt")
-    def accessed_at(self) -> str:
+    def accessed_at(self) -> pulumi.Output[str]:
         """
         Last time there was a receive request to this subscription.
         """
@@ -141,7 +141,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> Optional[str]:
+    def auto_delete_on_idle(self) -> pulumi.Output[Optional[str]]:
         """
         ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         """
@@ -149,7 +149,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="countDetails")
-    def count_details(self) -> 'outputs.MessageCountDetailsResponse':
+    def count_details(self) -> pulumi.Output['outputs.MessageCountDetailsResponse']:
         """
         Message count details
         """
@@ -157,7 +157,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         Exact time the message was created.
         """
@@ -165,7 +165,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deadLetteringOnFilterEvaluationExceptions")
-    def dead_lettering_on_filter_evaluation_exceptions(self) -> Optional[bool]:
+    def dead_lettering_on_filter_evaluation_exceptions(self) -> pulumi.Output[Optional[bool]]:
         """
         Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
         """
@@ -173,7 +173,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deadLetteringOnMessageExpiration")
-    def dead_lettering_on_message_expiration(self) -> Optional[bool]:
+    def dead_lettering_on_message_expiration(self) -> pulumi.Output[Optional[bool]]:
         """
         Value that indicates whether a subscription has dead letter support when a message expires.
         """
@@ -181,7 +181,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultMessageTimeToLive")
-    def default_message_time_to_live(self) -> Optional[str]:
+    def default_message_time_to_live(self) -> pulumi.Output[Optional[str]]:
         """
         ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         """
@@ -189,7 +189,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
-    def duplicate_detection_history_time_window(self) -> Optional[str]:
+    def duplicate_detection_history_time_window(self) -> pulumi.Output[Optional[str]]:
         """
         ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
         """
@@ -197,7 +197,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> Optional[bool]:
+    def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
         """
         Value that indicates whether server-side batched operations are enabled.
         """
@@ -205,7 +205,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forwardDeadLetteredMessagesTo")
-    def forward_dead_lettered_messages_to(self) -> Optional[str]:
+    def forward_dead_lettered_messages_to(self) -> pulumi.Output[Optional[str]]:
         """
         Queue/Topic name to forward the Dead Letter message
         """
@@ -213,7 +213,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forwardTo")
-    def forward_to(self) -> Optional[str]:
+    def forward_to(self) -> pulumi.Output[Optional[str]]:
         """
         Queue/Topic name to forward the messages
         """
@@ -221,7 +221,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockDuration")
-    def lock_duration(self) -> Optional[str]:
+    def lock_duration(self) -> pulumi.Output[Optional[str]]:
         """
         ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
         """
@@ -229,7 +229,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> pulumi.Output[Optional[float]]:
         """
         Number of maximum deliveries.
         """
@@ -237,7 +237,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> float:
+    def message_count(self) -> pulumi.Output[float]:
         """
         Number of messages.
         """
@@ -245,7 +245,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -253,7 +253,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresSession")
-    def requires_session(self) -> Optional[bool]:
+    def requires_session(self) -> pulumi.Output[Optional[bool]]:
         """
         Value indicating if a subscription supports the concept of sessions.
         """
@@ -261,7 +261,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Enumerates the possible values for the status of a messaging entity.
         """
@@ -269,7 +269,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -277,7 +277,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> pulumi.Output[str]:
         """
         The exact time the message was updated.
         """

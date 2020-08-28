@@ -13,7 +13,7 @@ __all__ = ['MigrationConfig']
 
 class MigrationConfig(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class MigrationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="migrationState")
-    def migration_state(self) -> str:
+    def migration_state(self) -> pulumi.Output[str]:
         """
         State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
         """
@@ -105,7 +105,7 @@ class MigrationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -113,7 +113,7 @@ class MigrationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pendingReplicationOperationsCount")
-    def pending_replication_operations_count(self) -> float:
+    def pending_replication_operations_count(self) -> pulumi.Output[float]:
         """
         Number of entities pending to be replicated.
         """
@@ -121,7 +121,7 @@ class MigrationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="postMigrationName")
-    def post_migration_name(self) -> str:
+    def post_migration_name(self) -> pulumi.Output[str]:
         """
         Name to access Standard Namespace after migration
         """
@@ -129,7 +129,7 @@ class MigrationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of Migration Configuration 
         """
@@ -137,7 +137,7 @@ class MigrationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetNamespace")
-    def target_namespace(self) -> str:
+    def target_namespace(self) -> pulumi.Output[str]:
         """
         Existing premium Namespace ARM Id name which has no entities, will be used for migration
         """
@@ -145,7 +145,7 @@ class MigrationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

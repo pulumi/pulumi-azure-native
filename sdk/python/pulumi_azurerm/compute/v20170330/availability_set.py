@@ -15,7 +15,7 @@ __all__ = ['AvailabilitySet']
 
 class AvailabilitySet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_set_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class AvailabilitySet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -112,7 +112,7 @@ class AvailabilitySet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -120,7 +120,7 @@ class AvailabilitySet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> Optional[float]:
+    def platform_fault_domain_count(self) -> pulumi.Output[Optional[float]]:
         """
         Fault Domain count.
         """
@@ -128,7 +128,7 @@ class AvailabilitySet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformUpdateDomainCount")
-    def platform_update_domain_count(self) -> Optional[float]:
+    def platform_update_domain_count(self) -> pulumi.Output[Optional[float]]:
         """
         Update Domain count.
         """
@@ -136,7 +136,7 @@ class AvailabilitySet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         Sku of the availability set
         """
@@ -144,7 +144,7 @@ class AvailabilitySet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def statuses(self) -> List['outputs.InstanceViewStatusResponse']:
+    def statuses(self) -> pulumi.Output[List['outputs.InstanceViewStatusResponse']]:
         """
         The resource status information.
         """
@@ -152,7 +152,7 @@ class AvailabilitySet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -160,7 +160,7 @@ class AvailabilitySet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -168,7 +168,7 @@ class AvailabilitySet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def virtual_machines(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
         """
         A list of references to all virtual machines in the availability set.
         """

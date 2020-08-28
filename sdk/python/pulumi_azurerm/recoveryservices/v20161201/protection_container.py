@@ -15,7 +15,7 @@ __all__ = ['ProtectionContainer']
 
 class ProtectionContainer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class ProtectionContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         Optional ETag.
         """
@@ -113,7 +113,7 @@ class ProtectionContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -121,7 +121,7 @@ class ProtectionContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name associated with the resource.
         """
@@ -129,7 +129,7 @@ class ProtectionContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProtectionContainerResponse':
+    def properties(self) -> pulumi.Output['outputs.ProtectionContainerResponse']:
         """
         ProtectionContainerResource properties
         """
@@ -137,7 +137,7 @@ class ProtectionContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -145,7 +145,7 @@ class ProtectionContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """

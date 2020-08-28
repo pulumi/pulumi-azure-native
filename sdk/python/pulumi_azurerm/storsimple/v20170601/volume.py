@@ -13,7 +13,7 @@ __all__ = ['Volume']
 
 class Volume(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_record_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessControlRecordIds")
-    def access_control_record_ids(self) -> List[str]:
+    def access_control_record_ids(self) -> pulumi.Output[List[str]]:
         """
         The IDs of the access control records, associated with the volume.
         """
@@ -134,7 +134,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupPolicyIds")
-    def backup_policy_ids(self) -> List[str]:
+    def backup_policy_ids(self) -> pulumi.Output[List[str]]:
         """
         The IDs of the backup policies, in which this volume is part of.
         """
@@ -142,7 +142,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupStatus")
-    def backup_status(self) -> str:
+    def backup_status(self) -> pulumi.Output[str]:
         """
         The backup status of the volume.
         """
@@ -150,7 +150,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The Kind of the object. Currently only Series8000 is supported
         """
@@ -158,7 +158,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> str:
+    def monitoring_status(self) -> pulumi.Output[str]:
         """
         The monitoring status of the volume.
         """
@@ -166,7 +166,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the object.
         """
@@ -174,7 +174,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operationStatus")
-    def operation_status(self) -> str:
+    def operation_status(self) -> pulumi.Output[str]:
         """
         The operation status on the volume.
         """
@@ -182,7 +182,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> float:
+    def size_in_bytes(self) -> pulumi.Output[float]:
         """
         The size of the volume in bytes.
         """
@@ -190,7 +190,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """
@@ -198,7 +198,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeContainerId")
-    def volume_container_id(self) -> str:
+    def volume_container_id(self) -> pulumi.Output[str]:
         """
         The ID of the volume container, in which this volume is created.
         """
@@ -206,7 +206,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeStatus")
-    def volume_status(self) -> str:
+    def volume_status(self) -> pulumi.Output[str]:
         """
         The volume status.
         """
@@ -214,7 +214,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> str:
+    def volume_type(self) -> pulumi.Output[str]:
         """
         The type of the volume.
         """

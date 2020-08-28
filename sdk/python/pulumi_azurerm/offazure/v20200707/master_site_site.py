@@ -15,7 +15,7 @@ __all__ = ['MasterSiteSite']
 
 class MasterSiteSite(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class MasterSiteSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         eTag for concurrency control.
         """
@@ -100,7 +100,7 @@ class MasterSiteSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Azure location in which Sites is created.
         """
@@ -108,7 +108,7 @@ class MasterSiteSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the Master site.
         """
@@ -116,7 +116,7 @@ class MasterSiteSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.MasterSitePropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.MasterSitePropertiesResponse']:
         """
         Nested properties of Master site.
         """
@@ -124,7 +124,7 @@ class MasterSiteSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of resource. Type = Microsoft.OffAzure/MasterSites.
         """

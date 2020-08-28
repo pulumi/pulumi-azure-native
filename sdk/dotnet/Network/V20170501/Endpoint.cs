@@ -105,11 +105,11 @@ namespace Pulumi.AzureRM.Network.V20170501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20151101:Endpoint"},
-                    new Alias { Type = "azurerm:network/v20170301:Endpoint"},
-                    new Alias { Type = "azurerm:network/v20180201:Endpoint"},
-                    new Alias { Type = "azurerm:network/v20180301:Endpoint"},
-                    new Alias { Type = "azurerm:network/v20180401:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20151101:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20170301:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20180201:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20180301:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20180401:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

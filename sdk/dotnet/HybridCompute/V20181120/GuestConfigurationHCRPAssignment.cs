@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20181120
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

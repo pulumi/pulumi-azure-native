@@ -78,11 +78,11 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20150801:WebAppRelayServiceConnection"},
-                    new Alias { Type = "azurerm:web/v20160801:WebAppRelayServiceConnection"},
-                    new Alias { Type = "azurerm:web/v20180201:WebAppRelayServiceConnection"},
-                    new Alias { Type = "azurerm:web/v20181101:WebAppRelayServiceConnection"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppRelayServiceConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

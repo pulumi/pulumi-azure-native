@@ -15,7 +15,7 @@ __all__ = ['BackupPolicy']
 
 class BackupPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
@@ -116,7 +116,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyBackupsToKeep")
-    def daily_backups_to_keep(self) -> Optional[float]:
+    def daily_backups_to_keep(self) -> pulumi.Output[Optional[float]]:
         """
         Daily backups count to keep
         """
@@ -124,7 +124,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         The property to decide policy is enabled or not
         """
@@ -132,7 +132,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -140,7 +140,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthlyBackupsToKeep")
-    def monthly_backups_to_keep(self) -> Optional[float]:
+    def monthly_backups_to_keep(self) -> pulumi.Output[Optional[float]]:
         """
         Monthly backups count to keep
         """
@@ -148,7 +148,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of backup policy
         """
@@ -156,7 +156,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Azure lifecycle management
         """
@@ -164,7 +164,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -172,7 +172,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -180,7 +180,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeBackups")
-    def volume_backups(self) -> Optional[List['outputs.VolumeBackupsResponse']]:
+    def volume_backups(self) -> pulumi.Output[Optional[List['outputs.VolumeBackupsResponse']]]:
         """
         A list of volumes assigned to this policy
         """
@@ -188,7 +188,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumesAssigned")
-    def volumes_assigned(self) -> Optional[float]:
+    def volumes_assigned(self) -> pulumi.Output[Optional[float]]:
         """
         Volumes using current backup policy
         """
@@ -196,7 +196,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklyBackupsToKeep")
-    def weekly_backups_to_keep(self) -> Optional[float]:
+    def weekly_backups_to_keep(self) -> pulumi.Output[Optional[float]]:
         """
         Weekly backups count to keep
         """
@@ -204,7 +204,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="yearlyBackupsToKeep")
-    def yearly_backups_to_keep(self) -> Optional[float]:
+    def yearly_backups_to_keep(self) -> pulumi.Output[Optional[float]]:
         """
         Yearly backups count to keep
         """
