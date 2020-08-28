@@ -6,6 +6,20 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum EncryptionStatus {
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+}
+
+export enum Kind {
+    Series8000 = "Series8000",
+}
+
+export enum OwnerShipStatus {
+    Owned = "Owned",
+    NotOwned = "NotOwned",
+}
+
 /**
  * The volume container.
  */

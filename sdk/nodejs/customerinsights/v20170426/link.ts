@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum EntityType {
+    None = "None",
+    Profile = "Profile",
+    Interaction = "Interaction",
+    Relationship = "Relationship",
+}
+
+export enum InstanceOperationType {
+    Upsert = "Upsert",
+    Delete = "Delete",
+}
+
 /**
  * The link resource format.
  */

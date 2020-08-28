@@ -6,6 +6,47 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum DataLakeAnalyticsAccountState {
+    Active = "Active",
+    Suspended = "Suspended",
+}
+
+export enum DataLakeAnalyticsAccountStatus {
+    Failed = "Failed",
+    Creating = "Creating",
+    Running = "Running",
+    Succeeded = "Succeeded",
+    Patching = "Patching",
+    Suspending = "Suspending",
+    Resuming = "Resuming",
+    Deleting = "Deleting",
+    Deleted = "Deleted",
+    Undeleting = "Undeleting",
+    Canceled = "Canceled",
+}
+
+export enum FirewallAllowAzureIpsState {
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+}
+
+export enum FirewallState {
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+}
+
+export enum TierType {
+    Consumption = "Consumption",
+    Commitment_100AUHours = "Commitment_100AUHours",
+    Commitment_500AUHours = "Commitment_500AUHours",
+    Commitment_1000AUHours = "Commitment_1000AUHours",
+    Commitment_5000AUHours = "Commitment_5000AUHours",
+    Commitment_10000AUHours = "Commitment_10000AUHours",
+    Commitment_50000AUHours = "Commitment_50000AUHours",
+    Commitment_100000AUHours = "Commitment_100000AUHours",
+    Commitment_500000AUHours = "Commitment_500000AUHours",
+}
+
 /**
  * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
  */

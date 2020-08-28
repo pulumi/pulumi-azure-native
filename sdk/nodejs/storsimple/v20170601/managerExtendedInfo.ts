@@ -4,6 +4,10 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum Kind {
+    Series8000 = "Series8000",
+}
+
 /**
  * The extended info of the manager.
  */

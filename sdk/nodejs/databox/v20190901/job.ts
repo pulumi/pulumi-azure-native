@@ -6,6 +6,30 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum JobDeliveryType {
+    NonScheduled = "NonScheduled",
+    Scheduled = "Scheduled",
+}
+
+export enum StageName {
+    DeviceOrdered = "DeviceOrdered",
+    DevicePrepared = "DevicePrepared",
+    Dispatched = "Dispatched",
+    Delivered = "Delivered",
+    PickedUp = "PickedUp",
+    AtAzureDC = "AtAzureDC",
+    DataCopy = "DataCopy",
+    Completed = "Completed",
+    CompletedWithErrors = "CompletedWithErrors",
+    Cancelled = "Cancelled",
+    Failed_IssueReportedAtCustomer = "Failed_IssueReportedAtCustomer",
+    Failed_IssueDetectedAtAzureDC = "Failed_IssueDetectedAtAzureDC",
+    Aborted = "Aborted",
+    CompletedWithWarnings = "CompletedWithWarnings",
+    ReadyToDispatchFromAzureDC = "ReadyToDispatchFromAzureDC",
+    ReadyToReceiveAtAzureDC = "ReadyToReceiveAtAzureDC",
+}
+
 /**
  * Job Resource.
  */

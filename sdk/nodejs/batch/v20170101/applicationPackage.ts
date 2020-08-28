@@ -4,6 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum PackageState {
+    pending = "pending",
+    active = "active",
+    unmapped = "unmapped",
+}
+
 /**
  * An application package which represents a particular version of an application.
  */

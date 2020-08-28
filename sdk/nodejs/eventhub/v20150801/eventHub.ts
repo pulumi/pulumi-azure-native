@@ -4,6 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum EntityStatus {
+    Active = "Active",
+    Disabled = "Disabled",
+    Restoring = "Restoring",
+    SendDisabled = "SendDisabled",
+    ReceiveDisabled = "ReceiveDisabled",
+    Creating = "Creating",
+    Deleting = "Deleting",
+    Renaming = "Renaming",
+    Unknown = "Unknown",
+}
+
 /**
  * Single item in List or Get Event Hub operation
  */

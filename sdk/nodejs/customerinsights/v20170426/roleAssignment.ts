@@ -6,6 +6,15 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum RoleTypes {
+    Admin = "Admin",
+    Reader = "Reader",
+    ManageAdmin = "ManageAdmin",
+    ManageReader = "ManageReader",
+    DataAdmin = "DataAdmin",
+    DataReader = "DataReader",
+}
+
 /**
  * The Role Assignment resource format.
  */

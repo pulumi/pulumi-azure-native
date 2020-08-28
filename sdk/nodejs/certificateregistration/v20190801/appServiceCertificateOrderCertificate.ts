@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum KeyVaultSecretStatus {
+    Initialized = "Initialized",
+    WaitingOnCertificateOrder = "WaitingOnCertificateOrder",
+    Succeeded = "Succeeded",
+    CertificateOrderFailed = "CertificateOrderFailed",
+    OperationNotPermittedOnKeyVault = "OperationNotPermittedOnKeyVault",
+    AzureServiceUnauthorizedToAccessKeyVault = "AzureServiceUnauthorizedToAccessKeyVault",
+    KeyVaultDoesNotExist = "KeyVaultDoesNotExist",
+    KeyVaultSecretDoesNotExist = "KeyVaultSecretDoesNotExist",
+    UnknownError = "UnknownError",
+    ExternalPrivateKey = "ExternalPrivateKey",
+    Unknown = "Unknown",
+}
+
 /**
  * Key Vault container ARM resource for a certificate that is purchased through Azure.
  */

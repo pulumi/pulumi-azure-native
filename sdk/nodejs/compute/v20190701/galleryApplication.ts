@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum OperatingSystemTypes {
+    Windows = "Windows",
+    Linux = "Linux",
+}
+
 /**
  * Specifies information about the gallery Application Definition that you want to create or update.
  */

@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum ServerState {
+    Ready = "Ready",
+    Disabled = "Disabled",
+}
+
 /**
  * Represents a server.
  */

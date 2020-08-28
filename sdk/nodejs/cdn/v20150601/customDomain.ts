@@ -4,6 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum CustomDomainResourceState {
+    Creating = "Creating",
+    Active = "Active",
+    Deleting = "Deleting",
+}
+
 /**
  * CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
  */

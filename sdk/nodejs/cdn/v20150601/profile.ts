@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum ProfileResourceState {
+    Creating = "Creating",
+    Active = "Active",
+    Deleting = "Deleting",
+    Disabled = "Disabled",
+}
+
 /**
  * CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
  */

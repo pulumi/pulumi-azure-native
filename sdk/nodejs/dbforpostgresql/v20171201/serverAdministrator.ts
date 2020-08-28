@@ -4,6 +4,10 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum AdministratorType {
+    ActiveDirectory = "ActiveDirectory",
+}
+
 /**
  * Represents a and external administrator to be created.
  */

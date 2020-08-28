@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum AzureResourceType {
+    Website = "Website",
+    TrafficManager = "TrafficManager",
+}
+
+export enum CustomHostNameDnsRecordType {
+    CName = "CName",
+    A = "A",
+}
+
+export enum HostNameType {
+    Verified = "Verified",
+    Managed = "Managed",
+}
+
+export enum SslState {
+    Disabled = "Disabled",
+    SniEnabled = "SniEnabled",
+    IpBasedEnabled = "IpBasedEnabled",
+}
+
 /**
  * A hostname binding object.
  */

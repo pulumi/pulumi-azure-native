@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum ReadScale {
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+}
+
 /**
  * Represents a database.
  */

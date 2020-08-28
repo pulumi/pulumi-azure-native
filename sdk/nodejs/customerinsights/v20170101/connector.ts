@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum ConnectorStates {
+    Creating = "Creating",
+    Created = "Created",
+    Ready = "Ready",
+    Expiring = "Expiring",
+    Deleting = "Deleting",
+    Failed = "Failed",
+}
+
 /**
  * The connector resource format.
  */

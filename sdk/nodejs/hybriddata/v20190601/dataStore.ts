@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum State {
+    Disabled = "Disabled",
+    Enabled = "Enabled",
+    Supported = "Supported",
+}
+
 /**
  * Data store.
  */

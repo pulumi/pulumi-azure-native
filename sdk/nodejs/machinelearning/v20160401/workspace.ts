@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum WorkspaceState {
+    Deleted = "Deleted",
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+    Migrated = "Migrated",
+    Updated = "Updated",
+    Registered = "Registered",
+    Unregistered = "Unregistered",
+}
+
+export enum WorkspaceType {
+    Production = "Production",
+    Free = "Free",
+    Anonymous = "Anonymous",
+    PaidStandard = "PaidStandard",
+    PaidPremium = "PaidPremium",
+}
+
 /**
  * An object that represents a machine learning workspace.
  */

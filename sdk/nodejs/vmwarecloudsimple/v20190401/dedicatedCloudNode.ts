@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum NodeStatus {
+    unused = "unused",
+    used = "used",
+}
+
 /**
  * Dedicated cloud node model
  */

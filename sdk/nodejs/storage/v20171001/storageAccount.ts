@@ -6,6 +6,28 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum AccessTier {
+    Hot = "Hot",
+    Cool = "Cool",
+}
+
+export enum AccountStatus {
+    available = "available",
+    unavailable = "unavailable",
+}
+
+export enum Kind {
+    Storage = "Storage",
+    StorageV2 = "StorageV2",
+    BlobStorage = "BlobStorage",
+}
+
+export enum ProvisioningState {
+    Creating = "Creating",
+    ResolvingDNS = "ResolvingDNS",
+    Succeeded = "Succeeded",
+}
+
 /**
  * The storage account.
  */

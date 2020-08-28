@@ -6,6 +6,23 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum AllocationState {
+    steady = "steady",
+    resizing = "resizing",
+}
+
+export enum ProvisioningState {
+    creating = "creating",
+    succeeded = "succeeded",
+    failed = "failed",
+    deleting = "deleting",
+}
+
+export enum VmPriority {
+    dedicated = "dedicated",
+    lowpriority = "lowpriority",
+}
+
 /**
  * Contains information about a Cluster.
  */

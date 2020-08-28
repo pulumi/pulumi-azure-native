@@ -6,6 +6,32 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum CertificateOrderStatus {
+    Pendingissuance = "Pendingissuance",
+    Issued = "Issued",
+    Revoked = "Revoked",
+    Canceled = "Canceled",
+    Denied = "Denied",
+    Pendingrevocation = "Pendingrevocation",
+    PendingRekey = "PendingRekey",
+    Unused = "Unused",
+    Expired = "Expired",
+    NotSubmitted = "NotSubmitted",
+}
+
+export enum CertificateProductType {
+    StandardDomainValidatedSsl = "StandardDomainValidatedSsl",
+    StandardDomainValidatedWildCardSsl = "StandardDomainValidatedWildCardSsl",
+}
+
+export enum ProvisioningState {
+    Succeeded = "Succeeded",
+    Failed = "Failed",
+    Canceled = "Canceled",
+    InProgress = "InProgress",
+    Deleting = "Deleting",
+}
+
 /**
  * SSL certificate purchase order.
  */
