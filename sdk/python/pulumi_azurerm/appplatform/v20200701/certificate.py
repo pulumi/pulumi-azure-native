@@ -15,7 +15,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']]] = None,
@@ -89,7 +89,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -97,7 +97,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CertificatePropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.CertificatePropertiesResponse']:
         """
         Properties of the certificate resource payload.
         """
@@ -105,7 +105,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

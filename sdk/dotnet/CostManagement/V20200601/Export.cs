@@ -93,10 +93,10 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:costmanagement/v20190101:Export"},
-                    new Alias { Type = "azurerm:costmanagement/v20190901:Export"},
-                    new Alias { Type = "azurerm:costmanagement/v20191001:Export"},
-                    new Alias { Type = "azurerm:costmanagement/v20191101:Export"},
+                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20190101:Export"},
+                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20190901:Export"},
+                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20191001:Export"},
+                    new Pulumi.Alias { Type = "azurerm:costmanagement/v20191101:Export"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

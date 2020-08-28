@@ -15,7 +15,7 @@ __all__ = ['HubRouteTable']
 
 class HubRouteTable(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -103,7 +103,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatedConnections")
-    def associated_connections(self) -> List[str]:
+    def associated_connections(self) -> pulumi.Output[List[str]]:
         """
         List of all connections associated with this route table.
         """
@@ -111,7 +111,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -119,7 +119,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List[str]]:
+    def labels(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of labels associated with this route table.
         """
@@ -127,7 +127,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -135,7 +135,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propagatingConnections")
-    def propagating_connections(self) -> List[str]:
+    def propagating_connections(self) -> pulumi.Output[List[str]]:
         """
         List of all connections that advertise to this route table.
         """
@@ -143,7 +143,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the RouteTable resource.
         """
@@ -151,7 +151,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[List['outputs.HubRouteResponse']]:
+    def routes(self) -> pulumi.Output[Optional[List['outputs.HubRouteResponse']]]:
         """
         List of all routes.
         """
@@ -159,7 +159,7 @@ class HubRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

@@ -15,7 +15,7 @@ __all__ = ['Project']
 
 class Project(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  databases_info: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         UTC Date and time when project was created
         """
@@ -123,7 +123,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databasesInfo")
-    def databases_info(self) -> Optional[List['outputs.DatabaseInfoResponse']]:
+    def databases_info(self) -> pulumi.Output[Optional[List['outputs.DatabaseInfoResponse']]]:
         """
         List of DatabaseInfo
         """
@@ -131,7 +131,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -139,7 +139,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -147,7 +147,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The project's provisioning state
         """
@@ -155,7 +155,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
-    def source_connection_info(self) -> Optional['outputs.ConnectionInfoResponse']:
+    def source_connection_info(self) -> pulumi.Output[Optional['outputs.ConnectionInfoResponse']]:
         """
         Information for connecting to source
         """
@@ -163,7 +163,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourcePlatform")
-    def source_platform(self) -> str:
+    def source_platform(self) -> pulumi.Output[str]:
         """
         Source platform for the project
         """
@@ -171,7 +171,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -179,7 +179,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
-    def target_connection_info(self) -> Optional['outputs.ConnectionInfoResponse']:
+    def target_connection_info(self) -> pulumi.Output[Optional['outputs.ConnectionInfoResponse']]:
         """
         Information for connecting to target
         """
@@ -187,7 +187,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetPlatform")
-    def target_platform(self) -> str:
+    def target_platform(self) -> pulumi.Output[str]:
         """
         Target platform for the project
         """
@@ -195,7 +195,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

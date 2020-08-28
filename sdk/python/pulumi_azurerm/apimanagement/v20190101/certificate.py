@@ -13,7 +13,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_id: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> str:
+    def expiration_date(self) -> pulumi.Output[str]:
         """
         Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
@@ -107,7 +107,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -115,7 +115,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subject(self) -> str:
+    def subject(self) -> pulumi.Output[str]:
         """
         Subject attribute of the certificate.
         """
@@ -123,7 +123,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> str:
+    def thumbprint(self) -> pulumi.Output[str]:
         """
         Thumbprint of the certificate.
         """
@@ -131,7 +131,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

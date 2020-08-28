@@ -13,7 +13,7 @@ __all__ = ['Origin']
 
 class Origin(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
+    def host_name(self) -> pulumi.Output[str]:
         """
         The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
         """
@@ -112,7 +112,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[float]:
+    def http_port(self) -> pulumi.Output[Optional[float]]:
         """
         The value of the HTTP port. Must be between 1 and 65535.
         """
@@ -120,7 +120,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[float]:
+    def https_port(self) -> pulumi.Output[Optional[float]]:
         """
         The value of the https port. Must be between 1 and 65535.
         """
@@ -128,7 +128,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -136,7 +136,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning status of the origin.
         """
@@ -144,7 +144,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         Resource status of the origin.
         """
@@ -152,7 +152,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

@@ -15,7 +15,7 @@ __all__ = ['VirtualApplianceSite']
 
 class VirtualApplianceSite(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[str]:
+    def address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Address Prefix.
         """
@@ -109,7 +109,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -117,7 +117,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the virtual appliance site.
         """
@@ -125,7 +125,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="o365Policy")
-    def o365_policy(self) -> Optional['outputs.Office365PolicyPropertiesResponse']:
+    def o365_policy(self) -> pulumi.Output[Optional['outputs.Office365PolicyPropertiesResponse']]:
         """
         Office 365 Policy.
         """
@@ -133,7 +133,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """
@@ -141,7 +141,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Site type.
         """

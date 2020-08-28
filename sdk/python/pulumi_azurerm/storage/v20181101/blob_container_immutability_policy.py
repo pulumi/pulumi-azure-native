@@ -13,7 +13,7 @@ __all__ = ['BlobContainerImmutabilityPolicy']
 
 class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Resource Etag.
         """
@@ -106,7 +106,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> float:
+    def immutability_period_since_creation_in_days(self) -> pulumi.Output[float]:
         """
         The immutability period for the blobs in the container since the policy creation, in days.
         """
@@ -114,7 +114,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -122,7 +122,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
         """
@@ -130,7 +130,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

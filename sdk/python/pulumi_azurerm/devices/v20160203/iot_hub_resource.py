@@ -15,7 +15,7 @@ __all__ = ['IotHubResource']
 
 class IotHubResource(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class IotHubResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         """
@@ -120,7 +120,7 @@ class IotHubResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The resource location.
         """
@@ -128,7 +128,7 @@ class IotHubResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -136,7 +136,7 @@ class IotHubResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.IotHubPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.IotHubPropertiesResponse']:
         """
         The properties of an IoT hub.
         """
@@ -144,7 +144,7 @@ class IotHubResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def resourcegroup(self) -> str:
+    def resourcegroup(self) -> pulumi.Output[str]:
         """
         The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
         """
@@ -152,7 +152,7 @@ class IotHubResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.IotHubSkuInfoResponse':
+    def sku(self) -> pulumi.Output['outputs.IotHubSkuInfoResponse']:
         """
         Information about the SKU of the IoT hub.
         """
@@ -160,7 +160,7 @@ class IotHubResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subscriptionid(self) -> str:
+    def subscriptionid(self) -> pulumi.Output[str]:
         """
         The subscription identifier.
         """
@@ -168,7 +168,7 @@ class IotHubResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -176,7 +176,7 @@ class IotHubResource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """

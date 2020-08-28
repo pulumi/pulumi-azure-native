@@ -153,8 +153,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:servicebus/v20140901:Subscription"},
-                    new Alias { Type = "azurerm:servicebus/v20150801:Subscription"},
+                    new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:Subscription"},
+                    new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:Subscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,7 +15,7 @@ __all__ = ['PrivateEndpointConnection']
 
 class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -93,7 +93,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -101,7 +101,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
         """
         The resource of private end point.
         """
@@ -109,7 +109,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+    def private_link_service_connection_state(self) -> pulumi.Output['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
@@ -117,7 +117,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the private endpoint connection resource.
         """
@@ -125,7 +125,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

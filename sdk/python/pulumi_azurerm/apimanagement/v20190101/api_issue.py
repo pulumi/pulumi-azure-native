@@ -13,7 +13,7 @@ __all__ = ['ApiIssue']
 
 class ApiIssue(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class ApiIssue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[str]:
+    def api_id(self) -> pulumi.Output[Optional[str]]:
         """
         A resource identifier for the API the issue was created for.
         """
@@ -120,7 +120,7 @@ class ApiIssue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time when the issue was created.
         """
@@ -128,7 +128,7 @@ class ApiIssue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         Text describing the issue.
         """
@@ -136,7 +136,7 @@ class ApiIssue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -144,7 +144,7 @@ class ApiIssue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         Status of the issue.
         """
@@ -152,7 +152,7 @@ class ApiIssue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> pulumi.Output[str]:
         """
         The issue title.
         """
@@ -160,7 +160,7 @@ class ApiIssue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -168,7 +168,7 @@ class ApiIssue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         A resource identifier for the user created the issue.
         """

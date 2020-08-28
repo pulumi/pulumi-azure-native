@@ -15,7 +15,7 @@ __all__ = ['DomainService']
 
 class DomainService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_security_settings: Optional[pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']]] = None,
@@ -118,7 +118,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainControllerIpAddress")
-    def domain_controller_ip_address(self) -> List[str]:
+    def domain_controller_ip_address(self) -> pulumi.Output[List[str]]:
         """
         List of Domain Controller IP Address
         """
@@ -126,7 +126,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[str]:
+    def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Azure domain that the user would like to deploy Domain Services to.
         """
@@ -134,7 +134,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainSecuritySettings")
-    def domain_security_settings(self) -> Optional['outputs.DomainSecuritySettingsResponse']:
+    def domain_security_settings(self) -> pulumi.Output[Optional['outputs.DomainSecuritySettingsResponse']]:
         """
         DomainSecurity Settings
         """
@@ -142,7 +142,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Resource etag
         """
@@ -150,7 +150,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filteredSync")
-    def filtered_sync(self) -> Optional[str]:
+    def filtered_sync(self) -> pulumi.Output[Optional[str]]:
         """
         Enabled or Disabled flag to turn on Group-based filtered sync
         """
@@ -158,7 +158,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthAlerts")
-    def health_alerts(self) -> List['outputs.HealthAlertResponse']:
+    def health_alerts(self) -> pulumi.Output[List['outputs.HealthAlertResponse']]:
         """
         List of Domain Health Alerts
         """
@@ -166,7 +166,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthLastEvaluated")
-    def health_last_evaluated(self) -> str:
+    def health_last_evaluated(self) -> pulumi.Output[str]:
         """
         Last domain evaluation run DateTime
         """
@@ -174,7 +174,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthMonitors")
-    def health_monitors(self) -> List['outputs.HealthMonitorResponse']:
+    def health_monitors(self) -> pulumi.Output[List['outputs.HealthMonitorResponse']]:
         """
         List of Domain Health Monitors
         """
@@ -182,7 +182,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ldapsSettings")
-    def ldaps_settings(self) -> Optional['outputs.LdapsSettingsResponse']:
+    def ldaps_settings(self) -> pulumi.Output[Optional['outputs.LdapsSettingsResponse']]:
         """
         Secure LDAP Settings
         """
@@ -190,7 +190,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -198,7 +198,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -206,7 +206,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional['outputs.NotificationSettingsResponse']:
+    def notification_settings(self) -> pulumi.Output[Optional['outputs.NotificationSettingsResponse']]:
         """
         Notification Settings
         """
@@ -214,7 +214,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         the current deployment or provisioning state, which only appears in the response.
         """
@@ -222,7 +222,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceStatus")
-    def service_status(self) -> str:
+    def service_status(self) -> pulumi.Output[str]:
         """
         Status of Domain Service instance
         """
@@ -230,7 +230,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
+    def subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
         """
@@ -238,7 +238,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -246,7 +246,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         Azure Active Directory tenant id
         """
@@ -254,7 +254,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -262,7 +262,7 @@ class DomainService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vnetSiteId")
-    def vnet_site_id(self) -> str:
+    def vnet_site_id(self) -> pulumi.Output[str]:
         """
         Virtual network site id
         """

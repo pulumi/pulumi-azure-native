@@ -15,7 +15,7 @@ __all__ = ['Cluster']
 
 class Cluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
@@ -94,7 +94,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The ETag for the resource
         """
@@ -102,7 +102,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ClusterIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ClusterIdentityResponse']]:
         """
         The identity of the cluster, if configured.
         """
@@ -110,7 +110,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region where the resource lives
         """
@@ -118,7 +118,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -126,7 +126,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ClusterGetPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.ClusterGetPropertiesResponse']:
         """
         The properties of the cluster.
         """
@@ -134,7 +134,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -142,7 +142,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

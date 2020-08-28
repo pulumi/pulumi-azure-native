@@ -15,7 +15,7 @@ __all__ = ['RegistrationDefinition']
 
 class RegistrationDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']]] = None,
@@ -89,7 +89,7 @@ class RegistrationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the registration definition.
         """
@@ -97,7 +97,7 @@ class RegistrationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
         """
         Plan details for the managed services.
         """
@@ -105,7 +105,7 @@ class RegistrationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RegistrationDefinitionPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.RegistrationDefinitionPropertiesResponse']:
         """
         Properties of a registration definition.
         """
@@ -113,7 +113,7 @@ class RegistrationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['Gateway']
 
 class Gateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gateway description
         """
@@ -100,7 +100,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="locationData")
-    def location_data(self) -> Optional['outputs.ResourceLocationDataContractResponse']:
+    def location_data(self) -> pulumi.Output[Optional['outputs.ResourceLocationDataContractResponse']]:
         """
         Gateway location.
         """
@@ -108,7 +108,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -116,7 +116,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

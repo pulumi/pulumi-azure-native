@@ -105,14 +105,14 @@ namespace Pulumi.AzureRM.Network.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20190801:VirtualRouter"},
-                    new Alias { Type = "azurerm:network/v20190901:VirtualRouter"},
-                    new Alias { Type = "azurerm:network/v20191101:VirtualRouter"},
-                    new Alias { Type = "azurerm:network/v20191201:VirtualRouter"},
-                    new Alias { Type = "azurerm:network/v20200301:VirtualRouter"},
-                    new Alias { Type = "azurerm:network/v20200401:VirtualRouter"},
-                    new Alias { Type = "azurerm:network/v20200501:VirtualRouter"},
-                    new Alias { Type = "azurerm:network/v20200601:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190801:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190901:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191101:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:VirtualRouter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,7 +13,7 @@ __all__ = ['Backup']
 
 class Backup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  backup_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class Backup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupType")
-    def backup_type(self) -> str:
+    def backup_type(self) -> pulumi.Output[str]:
         """
         Type of backup adhoc or scheduled
         """
@@ -114,7 +114,7 @@ class Backup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The creation date of the backup
         """
@@ -122,7 +122,7 @@ class Backup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def label(self) -> Optional[str]:
+    def label(self) -> pulumi.Output[Optional[str]]:
         """
         Label for backup
         """
@@ -130,7 +130,7 @@ class Backup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -138,7 +138,7 @@ class Backup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -146,7 +146,7 @@ class Backup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Azure lifecycle management
         """
@@ -154,7 +154,7 @@ class Backup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> float:
+    def size(self) -> pulumi.Output[float]:
         """
         Size of backup
         """
@@ -162,7 +162,7 @@ class Backup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

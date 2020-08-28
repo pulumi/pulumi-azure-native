@@ -13,7 +13,7 @@ __all__ = ['TrafficManagerUserMetricsKey']
 
 class TrafficManagerUserMetricsKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  __props__=None,
                  __name__=None,
@@ -70,7 +70,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[str]:
+    def key(self) -> pulumi.Output[Optional[str]]:
         """
         The key returned by the User Metrics operation.
         """
@@ -78,7 +78,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource
         """
@@ -86,7 +86,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
         """

@@ -15,7 +15,7 @@ __all__ = ['SiteSlot']
 
 class SiteSlot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
@@ -173,7 +173,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityState")
-    def availability_state(self) -> str:
+    def availability_state(self) -> pulumi.Output[str]:
         """
         Management information availability state for the web app. Possible values are Normal or Limited. 
                     Normal means that the site is running correctly and that management information for the site is available. 
@@ -183,7 +183,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[bool]:
+    def client_affinity_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
         """
@@ -191,7 +191,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCertEnabled")
-    def client_cert_enabled(self) -> Optional[bool]:
+    def client_cert_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the client certificate is enabled for the web app
         """
@@ -199,7 +199,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloningInfo")
-    def cloning_info(self) -> Optional['outputs.CloningInfoResponse']:
+    def cloning_info(self) -> pulumi.Output[Optional['outputs.CloningInfoResponse']]:
         """
         This is only valid for web app creation. If specified, web app is cloned from 
                     a source web app
@@ -208,7 +208,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerSize")
-    def container_size(self) -> Optional[float]:
+    def container_size(self) -> pulumi.Output[Optional[float]]:
         """
         Size of a function container
         """
@@ -216,7 +216,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultHostName")
-    def default_host_name(self) -> str:
+    def default_host_name(self) -> pulumi.Output[str]:
         """
         Default hostname of the web app
         """
@@ -224,7 +224,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
         """
@@ -232,7 +232,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledHostNames")
-    def enabled_host_names(self) -> List[str]:
+    def enabled_host_names(self) -> pulumi.Output[List[str]]:
         """
         Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
                     the app is not served on those hostnames
@@ -241,7 +241,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewaySiteName")
-    def gateway_site_name(self) -> Optional[str]:
+    def gateway_site_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of gateway app associated with web app
         """
@@ -249,7 +249,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNameSslStates")
-    def host_name_ssl_states(self) -> Optional[List['outputs.HostNameSslStateResponse']]:
+    def host_name_ssl_states(self) -> pulumi.Output[Optional[List['outputs.HostNameSslStateResponse']]]:
         """
         Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
         """
@@ -257,7 +257,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> List[str]:
+    def host_names(self) -> pulumi.Output[List[str]]:
         """
         Hostnames associated with web app
         """
@@ -265,7 +265,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNamesDisabled")
-    def host_names_disabled(self) -> Optional[bool]:
+    def host_names_disabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the public hostnames are disabled the web app.
                     If set to true the app is only accessible via API Management process
@@ -274,7 +274,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+    def hosting_environment_profile(self) -> pulumi.Output[Optional['outputs.HostingEnvironmentProfileResponse']]:
         """
         Specification for the hosting environment (App Service Environment) to use for the web app
         """
@@ -282,7 +282,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isDefaultContainer")
-    def is_default_container(self) -> bool:
+    def is_default_container(self) -> pulumi.Output[bool]:
         """
         Site is a default container
         """
@@ -290,7 +290,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -298,7 +298,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTimeUtc")
-    def last_modified_time_utc(self) -> str:
+    def last_modified_time_utc(self) -> pulumi.Output[str]:
         """
         Last time web app was modified in UTC
         """
@@ -306,7 +306,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -314,7 +314,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfWorkers")
-    def max_number_of_workers(self) -> Optional[float]:
+    def max_number_of_workers(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum number of workers
                     This only applies to function container
@@ -323,12 +323,12 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="microService")
-    def micro_service(self) -> Optional[str]:
+    def micro_service(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "micro_service")
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -336,7 +336,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outboundIpAddresses")
-    def outbound_ip_addresses(self) -> str:
+    def outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
         List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
         """
@@ -344,7 +344,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="premiumAppDeployed")
-    def premium_app_deployed(self) -> bool:
+    def premium_app_deployed(self) -> pulumi.Output[bool]:
         """
         If set indicates whether web app is deployed as a premium app
         """
@@ -352,7 +352,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repositorySiteName")
-    def repository_site_name(self) -> str:
+    def repository_site_name(self) -> pulumi.Output[str]:
         """
         Name of repository site
         """
@@ -360,7 +360,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> str:
+    def resource_group(self) -> pulumi.Output[str]:
         """
         Resource group web app belongs to
         """
@@ -368,7 +368,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scmSiteAlsoStopped")
-    def scm_site_also_stopped(self) -> Optional[bool]:
+    def scm_site_also_stopped(self) -> pulumi.Output[Optional[bool]]:
         """
         If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
         """
@@ -376,12 +376,12 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverFarmId")
-    def server_farm_id(self) -> Optional[str]:
+    def server_farm_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "server_farm_id")
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional['outputs.SiteConfigResponse']:
+    def site_config(self) -> pulumi.Output[Optional['outputs.SiteConfigResponse']]:
         """
         Configuration of web app
         """
@@ -389,7 +389,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         State of the web app
         """
@@ -397,7 +397,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -405,7 +405,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetSwapSlot")
-    def target_swap_slot(self) -> str:
+    def target_swap_slot(self) -> pulumi.Output[str]:
         """
         Read-only property that specifies which slot this app will swap into
         """
@@ -413,7 +413,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficManagerHostNames")
-    def traffic_manager_host_names(self) -> List[str]:
+    def traffic_manager_host_names(self) -> pulumi.Output[List[str]]:
         """
         Read-only list of Azure Traffic manager hostnames associated with web app
         """
@@ -421,7 +421,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """
@@ -429,7 +429,7 @@ class SiteSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageState")
-    def usage_state(self) -> str:
+    def usage_state(self) -> pulumi.Output[str]:
         """
         State indicating whether web app has exceeded its quota usage
         """

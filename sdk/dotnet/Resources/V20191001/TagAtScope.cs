@@ -57,7 +57,7 @@ namespace Pulumi.AzureRM.Resources.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:resources/v20200601:TagAtScope"},
+                    new Pulumi.Alias { Type = "azurerm:resources/v20200601:TagAtScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

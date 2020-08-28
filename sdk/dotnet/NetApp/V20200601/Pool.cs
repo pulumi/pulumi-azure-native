@@ -105,13 +105,13 @@ namespace Pulumi.AzureRM.NetApp.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:netapp/v20190501:Pool"},
-                    new Alias { Type = "azurerm:netapp/v20190601:Pool"},
-                    new Alias { Type = "azurerm:netapp/v20190701:Pool"},
-                    new Alias { Type = "azurerm:netapp/v20190801:Pool"},
-                    new Alias { Type = "azurerm:netapp/v20191001:Pool"},
-                    new Alias { Type = "azurerm:netapp/v20191101:Pool"},
-                    new Alias { Type = "azurerm:netapp/v20200201:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20190501:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20190701:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20190801:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20191001:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20191101:Pool"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20200201:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

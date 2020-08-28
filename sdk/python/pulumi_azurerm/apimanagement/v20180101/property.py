@@ -13,7 +13,7 @@ __all__ = ['Property']
 
 class Property(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  prop_id: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
         """
@@ -110,7 +110,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -118,7 +118,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secret(self) -> Optional[bool]:
+    def secret(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines whether the value is a secret and should be encrypted or not. Default value is false.
         """
@@ -126,7 +126,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List[str]]:
+    def tags(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Optional tags that when provided can be used to filter the property list.
         """
@@ -134,7 +134,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -142,7 +142,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> pulumi.Output[str]:
         """
         Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
         """

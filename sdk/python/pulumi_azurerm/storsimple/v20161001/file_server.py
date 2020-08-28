@@ -13,7 +13,7 @@ __all__ = ['FileServer']
 
 class FileServer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_schedule_group_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupScheduleGroupId")
-    def backup_schedule_group_id(self) -> str:
+    def backup_schedule_group_id(self) -> pulumi.Output[str]:
         """
         The backup policy id.
         """
@@ -115,7 +115,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the file server
         """
@@ -123,7 +123,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         Domain of the file server
         """
@@ -131,7 +131,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name.
         """
@@ -139,7 +139,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageDomainId")
-    def storage_domain_id(self) -> str:
+    def storage_domain_id(self) -> pulumi.Output[str]:
         """
         The storage domain id.
         """
@@ -147,7 +147,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type.
         """

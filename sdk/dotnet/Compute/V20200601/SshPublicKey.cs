@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.Compute.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:compute/v20191201:SshPublicKey"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:SshPublicKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

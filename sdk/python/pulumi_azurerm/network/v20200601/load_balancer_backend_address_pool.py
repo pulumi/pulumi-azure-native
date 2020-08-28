@@ -15,7 +15,7 @@ __all__ = ['LoadBalancerBackendAddressPool']
 
 class LoadBalancerBackendAddressPool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_address_pool_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendIPConfigurations")
-    def backend_ip_configurations(self) -> List['outputs.NetworkInterfaceIPConfigurationResponse']:
+    def backend_ip_configurations(self) -> pulumi.Output[List['outputs.NetworkInterfaceIPConfigurationResponse']]:
         """
         An array of references to IP addresses defined in network interfaces.
         """
@@ -110,7 +110,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -118,7 +118,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddresses")
-    def load_balancer_backend_addresses(self) -> Optional[List['outputs.LoadBalancerBackendAddressResponse']]:
+    def load_balancer_backend_addresses(self) -> pulumi.Output[Optional[List['outputs.LoadBalancerBackendAddressResponse']]]:
         """
         An array of backend addresses.
         """
@@ -126,7 +126,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> List['outputs.SubResourceResponse']:
+    def load_balancing_rules(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         An array of references to load balancing rules that use this backend address pool.
         """
@@ -134,7 +134,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         """
@@ -142,7 +142,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outboundRule")
-    def outbound_rule(self) -> 'outputs.SubResourceResponse':
+    def outbound_rule(self) -> pulumi.Output['outputs.SubResourceResponse']:
         """
         A reference to an outbound rule that uses this backend address pool.
         """
@@ -150,7 +150,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outboundRules")
-    def outbound_rules(self) -> List['outputs.SubResourceResponse']:
+    def outbound_rules(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         An array of references to outbound rules that use this backend address pool.
         """
@@ -158,7 +158,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the backend address pool resource.
         """
@@ -166,7 +166,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the resource.
         """

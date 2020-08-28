@@ -15,7 +15,7 @@ __all__ = ['StorageAccountCredential']
 
 class StorageAccountCredential(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  cloud_type: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessKey")
-    def access_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+    def access_key(self) -> pulumi.Output[Optional['outputs.AsymmetricEncryptedSecretResponse']]:
         """
         The details of the storage account password
         """
@@ -120,7 +120,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudType")
-    def cloud_type(self) -> str:
+    def cloud_type(self) -> pulumi.Output[str]:
         """
         The cloud service provider
         """
@@ -128,7 +128,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableSSL")
-    def enable_ssl(self) -> str:
+    def enable_ssl(self) -> pulumi.Output[str]:
         """
         SSL needs to be enabled or not
         """
@@ -136,7 +136,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endPoint")
-    def end_point(self) -> str:
+    def end_point(self) -> pulumi.Output[str]:
         """
         The storage endpoint
         """
@@ -144,7 +144,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The storage account's geo location
         """
@@ -152,7 +152,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def login(self) -> str:
+    def login(self) -> pulumi.Output[str]:
         """
         The storage account login
         """
@@ -160,7 +160,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name.
         """
@@ -168,7 +168,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type.
         """

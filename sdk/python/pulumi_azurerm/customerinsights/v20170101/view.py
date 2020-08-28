@@ -13,7 +13,7 @@ __all__ = ['View']
 
 class View(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -100,7 +100,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def changed(self) -> str:
+    def changed(self) -> pulumi.Output[str]:
         """
         Date time when view was last modified.
         """
@@ -108,7 +108,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         Date time when view was created.
         """
@@ -116,7 +116,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> str:
+    def definition(self) -> pulumi.Output[str]:
         """
         View definition.
         """
@@ -124,7 +124,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[Mapping[str, str]]:
+    def display_name(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized display name for the view.
         """
@@ -132,7 +132,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -140,7 +140,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         the hub name.
         """
@@ -148,7 +148,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -156,7 +156,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[str]:
+    def user_id(self) -> pulumi.Output[Optional[str]]:
         """
         the user ID.
         """
@@ -164,7 +164,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="viewName")
-    def view_name(self) -> str:
+    def view_name(self) -> pulumi.Output[str]:
         """
         Name of the view.
         """

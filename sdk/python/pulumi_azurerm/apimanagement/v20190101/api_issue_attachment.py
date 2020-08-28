@@ -13,7 +13,7 @@ __all__ = ['ApiIssueAttachment']
 
 class ApiIssueAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  attachment_id: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> str:
+    def content(self) -> pulumi.Output[str]:
         """
         An HTTP link or Base64-encoded binary data.
         """
@@ -119,7 +119,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentFormat")
-    def content_format(self) -> str:
+    def content_format(self) -> pulumi.Output[str]:
         """
         Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
         """
@@ -127,7 +127,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -135,7 +135,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> pulumi.Output[str]:
         """
         Filename by which the binary data will be saved.
         """
@@ -143,7 +143,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

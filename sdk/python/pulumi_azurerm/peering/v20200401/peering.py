@@ -15,7 +15,7 @@ __all__ = ['Peering']
 
 class Peering(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  direct: Optional[pulumi.Input[pulumi.InputType['PeeringPropertiesDirectArgs']]] = None,
                  exchange: Optional[pulumi.Input[pulumi.InputType['PeeringPropertiesExchangeArgs']]] = None,
@@ -109,7 +109,7 @@ class Peering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def direct(self) -> Optional['outputs.PeeringPropertiesDirectResponse']:
+    def direct(self) -> pulumi.Output[Optional['outputs.PeeringPropertiesDirectResponse']]:
         """
         The properties that define a direct peering.
         """
@@ -117,7 +117,7 @@ class Peering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def exchange(self) -> Optional['outputs.PeeringPropertiesExchangeResponse']:
+    def exchange(self) -> pulumi.Output[Optional['outputs.PeeringPropertiesExchangeResponse']]:
         """
         The properties that define an exchange peering.
         """
@@ -125,7 +125,7 @@ class Peering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         The kind of the peering.
         """
@@ -133,7 +133,7 @@ class Peering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource.
         """
@@ -141,7 +141,7 @@ class Peering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -149,7 +149,7 @@ class Peering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringLocation")
-    def peering_location(self) -> Optional[str]:
+    def peering_location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the peering.
         """
@@ -157,7 +157,7 @@ class Peering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """
@@ -165,7 +165,7 @@ class Peering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.PeeringSkuResponse':
+    def sku(self) -> pulumi.Output['outputs.PeeringSkuResponse']:
         """
         The SKU that defines the tier and kind of the peering.
         """
@@ -173,7 +173,7 @@ class Peering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -181,7 +181,7 @@ class Peering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

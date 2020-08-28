@@ -99,8 +99,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:databoxedge/v20190301:StorageAccountCredential"},
-                    new Alias { Type = "azurerm:databoxedge/v20190801:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:StorageAccountCredential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

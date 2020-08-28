@@ -177,9 +177,9 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:servicefabric/v20180201:Cluster"},
-                    new Alias { Type = "azurerm:servicefabric/v20190301:Cluster"},
-                    new Alias { Type = "azurerm:servicefabric/v20200301:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20180201:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20200301:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

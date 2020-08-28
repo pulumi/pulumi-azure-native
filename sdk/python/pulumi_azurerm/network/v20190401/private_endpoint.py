@@ -15,7 +15,7 @@ __all__ = ['PrivateEndpoint']
 
 class PrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -114,7 +114,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -122,7 +122,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="manualPrivateLinkServiceConnections")
-    def manual_private_link_service_connections(self) -> Optional[List['outputs.PrivateLinkServiceConnectionResponse']]:
+    def manual_private_link_service_connections(self) -> pulumi.Output[Optional[List['outputs.PrivateLinkServiceConnectionResponse']]]:
         """
         A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         """
@@ -130,7 +130,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -138,7 +138,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> pulumi.Output[List['outputs.NetworkInterfaceResponse']]:
         """
         Gets an array of references to the network interfaces created for this private endpoint.
         """
@@ -146,7 +146,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkServiceConnections")
-    def private_link_service_connections(self) -> Optional[List['outputs.PrivateLinkServiceConnectionResponse']]:
+    def private_link_service_connections(self) -> pulumi.Output[Optional[List['outputs.PrivateLinkServiceConnectionResponse']]]:
         """
         A grouping of information about the connection to the remote resource.
         """
@@ -154,7 +154,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the private endpoint.
         """
@@ -162,7 +162,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.SubnetResponse']:
+    def subnet(self) -> pulumi.Output[Optional['outputs.SubnetResponse']]:
         """
         The ID of the subnet from which the private IP will be allocated.
         """
@@ -170,7 +170,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -178,7 +178,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

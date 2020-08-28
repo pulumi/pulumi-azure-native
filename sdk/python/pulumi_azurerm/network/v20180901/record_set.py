@@ -15,7 +15,7 @@ __all__ = ['RecordSet']
 
 class RecordSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  a_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ARecordArgs']]]]] = None,
                  aaaa_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]]] = None,
@@ -126,7 +126,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aRecords")
-    def a_records(self) -> Optional[List['outputs.ARecordResponse']]:
+    def a_records(self) -> pulumi.Output[Optional[List['outputs.ARecordResponse']]]:
         """
         The list of A records in the record set.
         """
@@ -134,7 +134,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aaaaRecords")
-    def aaaa_records(self) -> Optional[List['outputs.AaaaRecordResponse']]:
+    def aaaa_records(self) -> pulumi.Output[Optional[List['outputs.AaaaRecordResponse']]]:
         """
         The list of AAAA records in the record set.
         """
@@ -142,7 +142,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cnameRecord")
-    def cname_record(self) -> Optional['outputs.CnameRecordResponse']:
+    def cname_record(self) -> pulumi.Output[Optional['outputs.CnameRecordResponse']]:
         """
         The CNAME record in the record set.
         """
@@ -150,7 +150,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The ETag of the record set.
         """
@@ -158,7 +158,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         Fully qualified domain name of the record set.
         """
@@ -166,7 +166,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isAutoRegistered")
-    def is_auto_registered(self) -> bool:
+    def is_auto_registered(self) -> pulumi.Output[bool]:
         """
         Is the record set auto-registered in the Private DNS zone through a virtual network link?
         """
@@ -174,7 +174,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The metadata attached to the record set.
         """
@@ -182,7 +182,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mxRecords")
-    def mx_records(self) -> Optional[List['outputs.MxRecordResponse']]:
+    def mx_records(self) -> pulumi.Output[Optional[List['outputs.MxRecordResponse']]]:
         """
         The list of MX records in the record set.
         """
@@ -190,7 +190,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -198,7 +198,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ptrRecords")
-    def ptr_records(self) -> Optional[List['outputs.PtrRecordResponse']]:
+    def ptr_records(self) -> pulumi.Output[Optional[List['outputs.PtrRecordResponse']]]:
         """
         The list of PTR records in the record set.
         """
@@ -206,7 +206,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="soaRecord")
-    def soa_record(self) -> Optional['outputs.SoaRecordResponse']:
+    def soa_record(self) -> pulumi.Output[Optional['outputs.SoaRecordResponse']]:
         """
         The SOA record in the record set.
         """
@@ -214,7 +214,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="srvRecords")
-    def srv_records(self) -> Optional[List['outputs.SrvRecordResponse']]:
+    def srv_records(self) -> pulumi.Output[Optional[List['outputs.SrvRecordResponse']]]:
         """
         The list of SRV records in the record set.
         """
@@ -222,7 +222,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[float]:
+    def ttl(self) -> pulumi.Output[Optional[float]]:
         """
         The TTL (time-to-live) of the records in the record set.
         """
@@ -230,7 +230,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="txtRecords")
-    def txt_records(self) -> Optional[List['outputs.TxtRecordResponse']]:
+    def txt_records(self) -> pulumi.Output[Optional[List['outputs.TxtRecordResponse']]]:
         """
         The list of TXT records in the record set.
         """
@@ -238,7 +238,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
         """

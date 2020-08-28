@@ -15,7 +15,7 @@ __all__ = ['Schedule']
 
 class Schedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_schedule: Optional[pulumi.Input[pulumi.InputType['AdvancedScheduleArgs']]] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advancedSchedule")
-    def advanced_schedule(self) -> Optional['outputs.AdvancedScheduleResponse']:
+    def advanced_schedule(self) -> pulumi.Output[Optional['outputs.AdvancedScheduleResponse']]:
         """
         Gets or sets the advanced schedule.
         """
@@ -130,7 +130,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the creation time.
         """
@@ -138,7 +138,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -146,7 +146,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expiryTime")
-    def expiry_time(self) -> Optional[str]:
+    def expiry_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the end time of the schedule.
         """
@@ -154,7 +154,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expiryTimeOffsetMinutes")
-    def expiry_time_offset_minutes(self) -> Optional[float]:
+    def expiry_time_offset_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the expiry time's offset in minutes.
         """
@@ -162,7 +162,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[str]:
+    def frequency(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the frequency of the schedule.
         """
@@ -170,7 +170,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[Mapping[str, Any]]:
+    def interval(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Gets or sets the interval of the schedule.
         """
@@ -178,7 +178,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[bool]:
+    def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Gets or sets a value indicating whether this schedule is enabled.
         """
@@ -186,7 +186,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last modified time.
         """
@@ -194,7 +194,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -202,7 +202,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextRun")
-    def next_run(self) -> Optional[str]:
+    def next_run(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the next run time of the schedule.
         """
@@ -210,7 +210,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextRunOffsetMinutes")
-    def next_run_offset_minutes(self) -> Optional[float]:
+    def next_run_offset_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the next run time's offset in minutes.
         """
@@ -218,7 +218,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[str]:
+    def start_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the start time of the schedule.
         """
@@ -226,7 +226,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTimeOffsetMinutes")
-    def start_time_offset_minutes(self) -> float:
+    def start_time_offset_minutes(self) -> pulumi.Output[float]:
         """
         Gets the start time's offset in minutes.
         """
@@ -234,7 +234,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[str]:
+    def time_zone(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the time zone of the schedule.
         """
@@ -242,7 +242,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

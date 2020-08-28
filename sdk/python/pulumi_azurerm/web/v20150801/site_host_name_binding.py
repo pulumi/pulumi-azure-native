@@ -13,7 +13,7 @@ __all__ = ['SiteHostNameBinding']
 
 class SiteHostNameBinding(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_resource_name: Optional[pulumi.Input[str]] = None,
                  azure_resource_type: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureResourceName")
-    def azure_resource_name(self) -> Optional[str]:
+    def azure_resource_name(self) -> pulumi.Output[Optional[str]]:
         """
         Azure resource name
         """
@@ -127,7 +127,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureResourceType")
-    def azure_resource_type(self) -> Optional[str]:
+    def azure_resource_type(self) -> pulumi.Output[Optional[str]]:
         """
         Azure resource type
         """
@@ -135,7 +135,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHostNameDnsRecordType")
-    def custom_host_name_dns_record_type(self) -> Optional[str]:
+    def custom_host_name_dns_record_type(self) -> pulumi.Output[Optional[str]]:
         """
         Custom DNS record type
         """
@@ -143,7 +143,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> Optional[str]:
+    def domain_id(self) -> pulumi.Output[Optional[str]]:
         """
         Fully qualified ARM domain resource URI
         """
@@ -151,7 +151,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNameType")
-    def host_name_type(self) -> Optional[str]:
+    def host_name_type(self) -> pulumi.Output[Optional[str]]:
         """
         Host name type
         """
@@ -159,7 +159,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -167,7 +167,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -175,7 +175,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -183,7 +183,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteName")
-    def site_name(self) -> Optional[str]:
+    def site_name(self) -> pulumi.Output[Optional[str]]:
         """
         Web app name
         """
@@ -191,7 +191,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -199,7 +199,7 @@ class SiteHostNameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """

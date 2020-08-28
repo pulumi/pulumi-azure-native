@@ -13,7 +13,7 @@ __all__ = ['DisasterRecoveryConfiguration']
 
 class DisasterRecoveryConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disaster_recovery_configuration_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoFailover")
-    def auto_failover(self) -> str:
+    def auto_failover(self) -> pulumi.Output[str]:
         """
         Whether or not failover can be done automatically.
         """
@@ -100,7 +100,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> str:
+    def failover_policy(self) -> pulumi.Output[str]:
         """
         How aggressive the automatic failover should be.
         """
@@ -108,7 +108,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Location of the server that contains this disaster recovery configuration.
         """
@@ -116,7 +116,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logicalServerName")
-    def logical_server_name(self) -> str:
+    def logical_server_name(self) -> pulumi.Output[str]:
         """
         Logical name of the server.
         """
@@ -124,7 +124,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -132,7 +132,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerLogicalServerName")
-    def partner_logical_server_name(self) -> str:
+    def partner_logical_server_name(self) -> pulumi.Output[str]:
         """
         Logical name of the partner server.
         """
@@ -140,7 +140,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerServerId")
-    def partner_server_id(self) -> str:
+    def partner_server_id(self) -> pulumi.Output[str]:
         """
         Id of the partner server.
         """
@@ -148,7 +148,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> str:
+    def role(self) -> pulumi.Output[str]:
         """
         The role of the current server in the disaster recovery configuration.
         """
@@ -156,7 +156,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The status of the disaster recovery configuration.
         """
@@ -164,7 +164,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

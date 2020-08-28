@@ -13,7 +13,7 @@ __all__ = ['ContentItem']
 
 class ContentItem(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_item_id: Optional[pulumi.Input[str]] = None,
                  content_type_id: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class ContentItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -97,7 +97,7 @@ class ContentItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

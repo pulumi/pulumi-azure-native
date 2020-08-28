@@ -13,7 +13,7 @@ __all__ = ['Origin']
 
 class Origin(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Origin is enabled for load balancing or not
         """
@@ -137,7 +137,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
+    def host_name(self) -> pulumi.Output[str]:
         """
         The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         """
@@ -145,7 +145,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[float]:
+    def http_port(self) -> pulumi.Output[Optional[float]]:
         """
         The value of the HTTP port. Must be between 1 and 65535.
         """
@@ -153,7 +153,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[float]:
+    def https_port(self) -> pulumi.Output[Optional[float]]:
         """
         The value of the HTTPS port. Must be between 1 and 65535.
         """
@@ -161,7 +161,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -169,7 +169,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originHostHeader")
-    def origin_host_header(self) -> Optional[str]:
+    def origin_host_header(self) -> pulumi.Output[Optional[str]]:
         """
         The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
         """
@@ -177,7 +177,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         """
@@ -185,7 +185,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointStatus")
-    def private_endpoint_status(self) -> str:
+    def private_endpoint_status(self) -> pulumi.Output[str]:
         """
         The approval status for the connection to the Private Link
         """
@@ -193,7 +193,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkAlias")
-    def private_link_alias(self) -> Optional[str]:
+    def private_link_alias(self) -> pulumi.Output[Optional[str]]:
         """
         The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
         """
@@ -201,7 +201,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkApprovalMessage")
-    def private_link_approval_message(self) -> Optional[str]:
+    def private_link_approval_message(self) -> pulumi.Output[Optional[str]]:
         """
         A custom message to be included in the approval request to connect to the Private Link.
         """
@@ -209,7 +209,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkLocation")
-    def private_link_location(self) -> Optional[str]:
+    def private_link_location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
         """
@@ -217,7 +217,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkResourceId")
-    def private_link_resource_id(self) -> Optional[str]:
+    def private_link_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
         """
@@ -225,7 +225,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning status of the origin.
         """
@@ -233,7 +233,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         Resource status of the origin.
         """
@@ -241,7 +241,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -249,7 +249,7 @@ class Origin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[float]:
+    def weight(self) -> pulumi.Output[Optional[float]]:
         """
         Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """

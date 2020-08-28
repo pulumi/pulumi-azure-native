@@ -15,7 +15,7 @@ __all__ = ['ConnectionMonitor']
 
 class ConnectionMonitor(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
                  connection_monitor_name: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoStart")
-    def auto_start(self) -> Optional[bool]:
+    def auto_start(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines if the connection monitor will start automatically once created.
         """
@@ -134,7 +134,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionMonitorType")
-    def connection_monitor_type(self) -> str:
+    def connection_monitor_type(self) -> pulumi.Output[str]:
         """
         Type of connection monitor.
         """
@@ -142,7 +142,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.ConnectionMonitorDestinationResponse']:
+    def destination(self) -> pulumi.Output[Optional['outputs.ConnectionMonitorDestinationResponse']]:
         """
         Describes the destination of connection monitor.
         """
@@ -150,7 +150,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[List['outputs.ConnectionMonitorEndpointResponse']]:
+    def endpoints(self) -> pulumi.Output[Optional[List['outputs.ConnectionMonitorEndpointResponse']]]:
         """
         List of connection monitor endpoints.
         """
@@ -158,7 +158,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -166,7 +166,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Connection monitor location.
         """
@@ -174,7 +174,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringIntervalInSeconds")
-    def monitoring_interval_in_seconds(self) -> Optional[float]:
+    def monitoring_interval_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Monitoring interval in seconds.
         """
@@ -182,7 +182,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> str:
+    def monitoring_status(self) -> pulumi.Output[str]:
         """
         The monitoring status of the connection monitor.
         """
@@ -190,7 +190,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the connection monitor.
         """
@@ -198,7 +198,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> Optional[str]:
+    def notes(self) -> pulumi.Output[Optional[str]]:
         """
         Optional notes to be associated with the connection monitor.
         """
@@ -206,7 +206,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[List['outputs.ConnectionMonitorOutputResponse']]:
+    def outputs(self) -> pulumi.Output[Optional[List['outputs.ConnectionMonitorOutputResponse']]]:
         """
         List of connection monitor outputs.
         """
@@ -214,7 +214,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the connection monitor.
         """
@@ -222,7 +222,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.ConnectionMonitorSourceResponse']:
+    def source(self) -> pulumi.Output[Optional['outputs.ConnectionMonitorSourceResponse']]:
         """
         Describes the source of connection monitor.
         """
@@ -230,7 +230,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
+    def start_time(self) -> pulumi.Output[str]:
         """
         The date and time when the connection monitor was started.
         """
@@ -238,7 +238,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Connection monitor tags.
         """
@@ -246,7 +246,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="testConfigurations")
-    def test_configurations(self) -> Optional[List['outputs.ConnectionMonitorTestConfigurationResponse']]:
+    def test_configurations(self) -> pulumi.Output[Optional[List['outputs.ConnectionMonitorTestConfigurationResponse']]]:
         """
         List of connection monitor test configurations.
         """
@@ -254,7 +254,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="testGroups")
-    def test_groups(self) -> Optional[List['outputs.ConnectionMonitorTestGroupResponse']]:
+    def test_groups(self) -> pulumi.Output[Optional[List['outputs.ConnectionMonitorTestGroupResponse']]]:
         """
         List of connection monitor test groups.
         """
@@ -262,7 +262,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Connection monitor type.
         """

@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.Management.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:management/v20191101:ManagementGroupSubscriptionSubscription"},
-                    new Alias { Type = "azurerm:management/v20200201:ManagementGroupSubscriptionSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20191101:ManagementGroupSubscriptionSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20200201:ManagementGroupSubscriptionSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

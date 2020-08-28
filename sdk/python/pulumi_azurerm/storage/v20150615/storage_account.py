@@ -14,7 +14,7 @@ __all__ = ['StorageAccount']
 
 class StorageAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  account_type: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountType")
-    def account_type(self) -> Optional[str]:
+    def account_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the storage account.
         """
@@ -113,7 +113,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         The creation date and time of the storage account in UTC.
         """
@@ -121,7 +121,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDomain")
-    def custom_domain(self) -> Optional['outputs.CustomDomainResponse']:
+    def custom_domain(self) -> pulumi.Output[Optional['outputs.CustomDomainResponse']]:
         """
         The custom domain the user assigned to this storage account.
         """
@@ -129,7 +129,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastGeoFailoverTime")
-    def last_geo_failover_time(self) -> Optional[str]:
+    def last_geo_failover_time(self) -> pulumi.Output[Optional[str]]:
         """
         The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
         """
@@ -137,7 +137,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -145,7 +145,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -153,7 +153,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryEndpoints")
-    def primary_endpoints(self) -> Optional['outputs.EndpointsResponse']:
+    def primary_endpoints(self) -> pulumi.Output[Optional['outputs.EndpointsResponse']]:
         """
         The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
         """
@@ -161,7 +161,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryLocation")
-    def primary_location(self) -> Optional[str]:
+    def primary_location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the primary data center for the storage account.
         """
@@ -169,7 +169,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the storage account at the time the operation was called.
         """
@@ -177,7 +177,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryEndpoints")
-    def secondary_endpoints(self) -> Optional['outputs.EndpointsResponse']:
+    def secondary_endpoints(self) -> pulumi.Output[Optional['outputs.EndpointsResponse']]:
         """
         The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
         """
@@ -185,7 +185,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryLocation")
-    def secondary_location(self) -> Optional[str]:
+    def secondary_location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
         """
@@ -193,7 +193,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusOfPrimary")
-    def status_of_primary(self) -> Optional[str]:
+    def status_of_primary(self) -> pulumi.Output[Optional[str]]:
         """
         The status indicating whether the primary location of the storage account is available or unavailable.
         """
@@ -201,7 +201,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusOfSecondary")
-    def status_of_secondary(self) -> Optional[str]:
+    def status_of_secondary(self) -> pulumi.Output[Optional[str]]:
         """
         The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
         """
@@ -209,7 +209,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -217,7 +217,7 @@ class StorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

@@ -13,7 +13,7 @@ __all__ = ['ServerKey']
 
 class ServerKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class ServerKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The key creation date.
         """
@@ -102,7 +102,7 @@ class ServerKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         Kind of encryption protector used to protect the key.
         """
@@ -110,7 +110,7 @@ class ServerKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -118,7 +118,7 @@ class ServerKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverKeyType")
-    def server_key_type(self) -> str:
+    def server_key_type(self) -> pulumi.Output[str]:
         """
         The key type like 'AzureKeyVault'.
         """
@@ -126,7 +126,7 @@ class ServerKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -134,7 +134,7 @@ class ServerKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> Optional[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URI of the key.
         """

@@ -13,7 +13,7 @@ __all__ = ['Variable']
 
 class Variable(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class Variable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the creation time.
         """
@@ -107,7 +107,7 @@ class Variable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -115,7 +115,7 @@ class Variable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEncrypted")
-    def is_encrypted(self) -> Optional[bool]:
+    def is_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Gets or sets the encrypted flag of the variable.
         """
@@ -123,7 +123,7 @@ class Variable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last modified time.
         """
@@ -131,7 +131,7 @@ class Variable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -139,7 +139,7 @@ class Variable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -147,7 +147,7 @@ class Variable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the value of the variable.
         """

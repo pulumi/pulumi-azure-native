@@ -15,7 +15,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  encrypted_password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
@@ -93,7 +93,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptedPassword")
-    def encrypted_password(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+    def encrypted_password(self) -> pulumi.Output[Optional['outputs.AsymmetricEncryptedSecretResponse']]:
         """
         The password details.
         """
@@ -101,7 +101,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The object name.
         """
@@ -109,7 +109,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> Optional[List['outputs.ShareAccessRightResponse']]:
+    def share_access_rights(self) -> pulumi.Output[Optional[List['outputs.ShareAccessRightResponse']]]:
         """
         List of shares that the user has rights on. This field should not be specified during user creation.
         """
@@ -117,7 +117,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """

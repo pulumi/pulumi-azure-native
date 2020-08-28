@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:timeseriesinsights/v20200515:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20200515:AccessPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

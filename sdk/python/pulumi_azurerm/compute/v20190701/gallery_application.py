@@ -13,7 +13,7 @@ __all__ = ['GalleryApplication']
 
 class GalleryApplication(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class GalleryApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of this gallery Application Definition resource. This property is updatable.
         """
@@ -122,7 +122,7 @@ class GalleryApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[str]:
+    def end_of_life_date(self) -> pulumi.Output[Optional[str]]:
         """
         The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
         """
@@ -130,7 +130,7 @@ class GalleryApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def eula(self) -> Optional[str]:
+    def eula(self) -> pulumi.Output[Optional[str]]:
         """
         The Eula agreement for the gallery Application Definition.
         """
@@ -138,7 +138,7 @@ class GalleryApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -146,7 +146,7 @@ class GalleryApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -154,7 +154,7 @@ class GalleryApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privacyStatementUri")
-    def privacy_statement_uri(self) -> Optional[str]:
+    def privacy_statement_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The privacy statement uri.
         """
@@ -162,7 +162,7 @@ class GalleryApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="releaseNoteUri")
-    def release_note_uri(self) -> Optional[str]:
+    def release_note_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The release note uri.
         """
@@ -170,7 +170,7 @@ class GalleryApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportedOSType")
-    def supported_os_type(self) -> str:
+    def supported_os_type(self) -> pulumi.Output[str]:
         """
         This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         """
@@ -178,7 +178,7 @@ class GalleryApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -186,7 +186,7 @@ class GalleryApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

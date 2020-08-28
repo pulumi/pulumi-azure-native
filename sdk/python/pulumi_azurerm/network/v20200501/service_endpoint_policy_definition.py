@@ -13,7 +13,7 @@ __all__ = ['ServiceEndpointPolicyDefinition']
 
 class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for this rule. Restricted to 140 chars.
         """
@@ -109,7 +109,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -117,7 +117,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -125,7 +125,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the service endpoint policy definition resource.
         """
@@ -133,7 +133,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def service(self) -> Optional[str]:
+    def service(self) -> pulumi.Output[Optional[str]]:
         """
         Service endpoint name.
         """
@@ -141,7 +141,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceResources")
-    def service_resources(self) -> Optional[List[str]]:
+    def service_resources(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of service resources.
         """

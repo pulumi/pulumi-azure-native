@@ -14,7 +14,7 @@ __all__ = ['ServerEndpoint']
 
 class ServerEndpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_tiering: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudTiering")
-    def cloud_tiering(self) -> Optional[str]:
+    def cloud_tiering(self) -> pulumi.Output[Optional[str]]:
         """
         Cloud Tiering.
         """
@@ -132,7 +132,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudTieringStatus")
-    def cloud_tiering_status(self) -> 'outputs.ServerEndpointCloudTieringStatusResponse':
+    def cloud_tiering_status(self) -> pulumi.Output['outputs.ServerEndpointCloudTieringStatusResponse']:
         """
         Cloud tiering status. Only populated if cloud tiering is enabled.
         """
@@ -140,7 +140,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
         Friendly Name
         """
@@ -148,7 +148,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastOperationName")
-    def last_operation_name(self) -> str:
+    def last_operation_name(self) -> pulumi.Output[str]:
         """
         Resource Last Operation Name
         """
@@ -156,7 +156,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastWorkflowId")
-    def last_workflow_id(self) -> str:
+    def last_workflow_id(self) -> pulumi.Output[str]:
         """
         ServerEndpoint lastWorkflowId
         """
@@ -164,7 +164,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -172,7 +172,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="offlineDataTransfer")
-    def offline_data_transfer(self) -> Optional[str]:
+    def offline_data_transfer(self) -> pulumi.Output[Optional[str]]:
         """
         Offline data transfer
         """
@@ -180,7 +180,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="offlineDataTransferShareName")
-    def offline_data_transfer_share_name(self) -> Optional[str]:
+    def offline_data_transfer_share_name(self) -> pulumi.Output[Optional[str]]:
         """
         Offline data transfer share name
         """
@@ -188,7 +188,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="offlineDataTransferStorageAccountResourceId")
-    def offline_data_transfer_storage_account_resource_id(self) -> str:
+    def offline_data_transfer_storage_account_resource_id(self) -> pulumi.Output[str]:
         """
         Offline data transfer storage account resource ID
         """
@@ -196,7 +196,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="offlineDataTransferStorageAccountTenantId")
-    def offline_data_transfer_storage_account_tenant_id(self) -> str:
+    def offline_data_transfer_storage_account_tenant_id(self) -> pulumi.Output[str]:
         """
         Offline data transfer storage account tenant ID
         """
@@ -204,7 +204,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         ServerEndpoint Provisioning State
         """
@@ -212,7 +212,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recallStatus")
-    def recall_status(self) -> 'outputs.ServerEndpointRecallStatusResponse':
+    def recall_status(self) -> pulumi.Output['outputs.ServerEndpointRecallStatusResponse']:
         """
         Recall status. Only populated if cloud tiering is enabled.
         """
@@ -220,7 +220,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverLocalPath")
-    def server_local_path(self) -> Optional[str]:
+    def server_local_path(self) -> pulumi.Output[Optional[str]]:
         """
         Server Local path.
         """
@@ -228,7 +228,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverResourceId")
-    def server_resource_id(self) -> Optional[str]:
+    def server_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Server Resource Id.
         """
@@ -236,7 +236,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="syncStatus")
-    def sync_status(self) -> 'outputs.ServerEndpointSyncStatusResponse':
+    def sync_status(self) -> pulumi.Output['outputs.ServerEndpointSyncStatusResponse']:
         """
         Server Endpoint sync status
         """
@@ -244,7 +244,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tierFilesOlderThanDays")
-    def tier_files_older_than_days(self) -> Optional[float]:
+    def tier_files_older_than_days(self) -> pulumi.Output[Optional[float]]:
         """
         Tier files older than days.
         """
@@ -252,7 +252,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -260,7 +260,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeFreeSpacePercent")
-    def volume_free_space_percent(self) -> Optional[float]:
+    def volume_free_space_percent(self) -> pulumi.Output[Optional[float]]:
         """
         Level of free space to be maintained by Cloud Tiering if it is enabled.
         """

@@ -15,7 +15,7 @@ __all__ = ['MediaService']
 
 class MediaService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -93,7 +93,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region of the resource.
         """
@@ -101,7 +101,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mediaServiceId")
-    def media_service_id(self) -> str:
+    def media_service_id(self) -> pulumi.Output[str]:
         """
         The Media Services account ID.
         """
@@ -109,7 +109,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -117,7 +117,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[List['outputs.StorageAccountResponse']]:
+    def storage_accounts(self) -> pulumi.Output[Optional[List['outputs.StorageAccountResponse']]]:
         """
         The storage accounts for this resource.
         """
@@ -125,7 +125,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -133,7 +133,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

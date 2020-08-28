@@ -13,7 +13,7 @@ __all__ = ['Credential']
 
 class Credential(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  credential_name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         Gets the creation time.
         """
@@ -111,7 +111,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -119,7 +119,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         Gets the last modified time.
         """
@@ -127,7 +127,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -135,7 +135,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -143,7 +143,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> pulumi.Output[str]:
         """
         Gets the user name of the credential.
         """

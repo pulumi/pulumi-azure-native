@@ -15,7 +15,7 @@ __all__ = ['BudgetByResourceGroupName']
 
 class BudgetByResourceGroupName(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount: Optional[pulumi.Input[float]] = None,
                  budget_name: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def amount(self) -> float:
+    def amount(self) -> pulumi.Output[float]:
         """
         The total amount of cost to track with the budget
         """
@@ -121,7 +121,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> str:
+    def category(self) -> pulumi.Output[str]:
         """
         The category of the budget, whether the budget tracks cost or usage.
         """
@@ -129,7 +129,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentSpend")
-    def current_spend(self) -> 'outputs.CurrentSpendResponse':
+    def current_spend(self) -> pulumi.Output['outputs.CurrentSpendResponse']:
         """
         The current amount of cost which is being tracked for a budget.
         """
@@ -137,7 +137,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
@@ -145,7 +145,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional['outputs.FiltersResponse']:
+    def filters(self) -> pulumi.Output[Optional['outputs.FiltersResponse']]:
         """
         May be used to filter budgets by resource group, resource, or meter.
         """
@@ -153,7 +153,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -161,7 +161,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[Mapping[str, 'outputs.NotificationResponse']]:
+    def notifications(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.NotificationResponse']]]:
         """
         Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         """
@@ -169,7 +169,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeGrain")
-    def time_grain(self) -> str:
+    def time_grain(self) -> pulumi.Output[str]:
         """
         The time covered by a budget. Tracking of the amount will be reset based on the time grain.
         """
@@ -177,7 +177,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timePeriod")
-    def time_period(self) -> 'outputs.BudgetTimePeriodResponse':
+    def time_period(self) -> pulumi.Output['outputs.BudgetTimePeriodResponse']:
         """
         Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         """
@@ -185,7 +185,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

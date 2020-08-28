@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.ManagedServices.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:managedservices/v20190901:RegistrationDefinition"},
+                    new Pulumi.Alias { Type = "azurerm:managedservices/v20190901:RegistrationDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

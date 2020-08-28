@@ -111,9 +111,9 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20200301:IpAllocation"},
-                    new Alias { Type = "azurerm:network/v20200401:IpAllocation"},
-                    new Alias { Type = "azurerm:network/v20200501:IpAllocation"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:IpAllocation"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:IpAllocation"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:IpAllocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

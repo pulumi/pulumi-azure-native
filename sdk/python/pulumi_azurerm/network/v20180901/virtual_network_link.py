@@ -15,7 +15,7 @@ __all__ = ['VirtualNetworkLink']
 
 class VirtualNetworkLink(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The ETag of the virtual network link.
         """
@@ -111,7 +111,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region where the resource lives
         """
@@ -119,7 +119,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -127,7 +127,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -135,7 +135,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationEnabled")
-    def registration_enabled(self) -> Optional[bool]:
+    def registration_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         """
@@ -143,7 +143,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -151,7 +151,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
         """
@@ -159,7 +159,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_network(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The reference of the virtual network.
         """
@@ -167,7 +167,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkLinkState")
-    def virtual_network_link_state(self) -> str:
+    def virtual_network_link_state(self) -> pulumi.Output[str]:
         """
         The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
         """

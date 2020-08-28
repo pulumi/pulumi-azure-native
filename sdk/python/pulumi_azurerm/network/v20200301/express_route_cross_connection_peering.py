@@ -15,7 +15,7 @@ __all__ = ['ExpressRouteCrossConnectionPeering']
 
 class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cross_connection_name: Optional[pulumi.Input[str]] = None,
                  gateway_manager_etag: Optional[pulumi.Input[str]] = None,
@@ -128,7 +128,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureASN")
-    def azure_asn(self) -> float:
+    def azure_asn(self) -> pulumi.Output[float]:
         """
         The Azure ASN.
         """
@@ -136,7 +136,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -144,7 +144,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayManagerEtag")
-    def gateway_manager_etag(self) -> Optional[str]:
+    def gateway_manager_etag(self) -> pulumi.Output[Optional[str]]:
         """
         The GatewayManager Etag.
         """
@@ -152,7 +152,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6PeeringConfig")
-    def ipv6_peering_config(self) -> Optional['outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse']:
+    def ipv6_peering_config(self) -> pulumi.Output[Optional['outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse']]:
         """
         The IPv6 peering configuration.
         """
@@ -160,7 +160,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> str:
+    def last_modified_by(self) -> pulumi.Output[str]:
         """
         Who was the last to modify the peering.
         """
@@ -168,7 +168,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="microsoftPeeringConfig")
-    def microsoft_peering_config(self) -> Optional['outputs.ExpressRouteCircuitPeeringConfigResponse']:
+    def microsoft_peering_config(self) -> pulumi.Output[Optional['outputs.ExpressRouteCircuitPeeringConfigResponse']]:
         """
         The Microsoft peering configuration.
         """
@@ -176,7 +176,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -184,7 +184,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> Optional[float]:
+    def peer_asn(self) -> pulumi.Output[Optional[float]]:
         """
         The peer ASN.
         """
@@ -192,7 +192,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringType")
-    def peering_type(self) -> Optional[str]:
+    def peering_type(self) -> pulumi.Output[Optional[str]]:
         """
         The peering type.
         """
@@ -200,7 +200,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryAzurePort")
-    def primary_azure_port(self) -> str:
+    def primary_azure_port(self) -> pulumi.Output[str]:
         """
         The primary port.
         """
@@ -208,7 +208,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryPeerAddressPrefix")
-    def primary_peer_address_prefix(self) -> Optional[str]:
+    def primary_peer_address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The primary address prefix.
         """
@@ -216,7 +216,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the express route cross connection peering resource.
         """
@@ -224,7 +224,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryAzurePort")
-    def secondary_azure_port(self) -> str:
+    def secondary_azure_port(self) -> pulumi.Output[str]:
         """
         The secondary port.
         """
@@ -232,7 +232,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryPeerAddressPrefix")
-    def secondary_peer_address_prefix(self) -> Optional[str]:
+    def secondary_peer_address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The secondary address prefix.
         """
@@ -240,7 +240,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedKey")
-    def shared_key(self) -> Optional[str]:
+    def shared_key(self) -> pulumi.Output[Optional[str]]:
         """
         The shared key.
         """
@@ -248,7 +248,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The peering state.
         """
@@ -256,7 +256,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> Optional[float]:
+    def vlan_id(self) -> pulumi.Output[Optional[float]]:
         """
         The VLAN ID.
         """

@@ -13,7 +13,7 @@ __all__ = ['RedisLinkedServer']
 
 class RedisLinkedServer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
                  linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class RedisLinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedRedisCacheId")
-    def linked_redis_cache_id(self) -> str:
+    def linked_redis_cache_id(self) -> pulumi.Output[str]:
         """
         Fully qualified resourceId of the linked redis cache.
         """
@@ -109,7 +109,7 @@ class RedisLinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedRedisCacheLocation")
-    def linked_redis_cache_location(self) -> str:
+    def linked_redis_cache_location(self) -> pulumi.Output[str]:
         """
         Location of the linked redis cache.
         """
@@ -117,7 +117,7 @@ class RedisLinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -125,7 +125,7 @@ class RedisLinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Terminal state of the link between primary and secondary redis cache.
         """
@@ -133,7 +133,7 @@ class RedisLinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverRole")
-    def server_role(self) -> str:
+    def server_role(self) -> pulumi.Output[str]:
         """
         Role of the linked server.
         """
@@ -141,7 +141,7 @@ class RedisLinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

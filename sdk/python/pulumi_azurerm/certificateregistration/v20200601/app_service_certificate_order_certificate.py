@@ -13,7 +13,7 @@ __all__ = ['AppServiceCertificateOrderCertificate']
 
 class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_order_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[str]:
+    def key_vault_id(self) -> pulumi.Output[Optional[str]]:
         """
         Key Vault resource Id.
         """
@@ -111,7 +111,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultSecretName")
-    def key_vault_secret_name(self) -> Optional[str]:
+    def key_vault_secret_name(self) -> pulumi.Output[Optional[str]]:
         """
         Key Vault secret name.
         """
@@ -119,7 +119,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -127,7 +127,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location.
         """
@@ -135,7 +135,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -143,7 +143,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Status of the Key Vault secret.
         """
@@ -151,7 +151,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -159,7 +159,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

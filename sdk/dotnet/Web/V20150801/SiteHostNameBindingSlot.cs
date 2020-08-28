@@ -105,11 +105,11 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20160801:SiteHostNameBindingSlot"},
-                    new Alias { Type = "azurerm:web/v20180201:SiteHostNameBindingSlot"},
-                    new Alias { Type = "azurerm:web/v20181101:SiteHostNameBindingSlot"},
-                    new Alias { Type = "azurerm:web/v20190801:SiteHostNameBindingSlot"},
-                    new Alias { Type = "azurerm:web/v20200601:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:SiteHostNameBindingSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

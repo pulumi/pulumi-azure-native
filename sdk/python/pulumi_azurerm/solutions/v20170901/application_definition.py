@@ -15,7 +15,7 @@ __all__ = ['ApplicationDefinition']
 
 class ApplicationDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_name: Optional[pulumi.Input[str]] = None,
                  artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]]] = None,
@@ -129,7 +129,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[List['outputs.ApplicationArtifactResponse']]:
+    def artifacts(self) -> pulumi.Output[Optional[List['outputs.ApplicationArtifactResponse']]]:
         """
         The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         """
@@ -137,7 +137,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> List['outputs.ApplicationProviderAuthorizationResponse']:
+    def authorizations(self) -> pulumi.Output[List['outputs.ApplicationProviderAuthorizationResponse']]:
         """
         The managed application provider authorizations.
         """
@@ -145,7 +145,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createUiDefinition")
-    def create_ui_definition(self) -> Optional[Mapping[str, Any]]:
+    def create_ui_definition(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         """
@@ -153,7 +153,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The managed application definition description.
         """
@@ -161,7 +161,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The managed application definition display name.
         """
@@ -169,7 +169,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The identity of the resource.
         """
@@ -177,7 +177,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[str]:
+    def is_enabled(self) -> pulumi.Output[Optional[str]]:
         """
         A value indicating whether the package is enabled or not.
         """
@@ -185,7 +185,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -193,7 +193,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockLevel")
-    def lock_level(self) -> str:
+    def lock_level(self) -> pulumi.Output[str]:
         """
         The managed application lock level.
         """
@@ -201,7 +201,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mainTemplate")
-    def main_template(self) -> Optional[Mapping[str, Any]]:
+    def main_template(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         """
@@ -209,7 +209,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[str]:
+    def managed_by(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the resource that manages this resource.
         """
@@ -217,7 +217,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -225,7 +225,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="packageFileUri")
-    def package_file_uri(self) -> Optional[str]:
+    def package_file_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The managed application definition package file Uri. Use this element
         """
@@ -233,7 +233,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The SKU of the resource.
         """
@@ -241,7 +241,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -249,7 +249,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

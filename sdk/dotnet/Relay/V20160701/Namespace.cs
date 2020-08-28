@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.Relay.V20160701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:relay/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azurerm:relay/v20170401:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

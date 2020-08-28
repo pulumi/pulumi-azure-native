@@ -15,7 +15,7 @@ __all__ = ['PolicySetDefinition']
 
 class PolicySetDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The policy set definition description.
         """
@@ -109,7 +109,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name of the policy set definition.
         """
@@ -117,7 +117,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         """
@@ -125,7 +125,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy set definition.
         """
@@ -133,7 +133,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']]]:
         """
         The policy set definition parameters that can be used in policy definition references.
         """
@@ -141,7 +141,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionGroups")
-    def policy_definition_groups(self) -> Optional[List['outputs.PolicyDefinitionGroupResponse']]:
+    def policy_definition_groups(self) -> pulumi.Output[Optional[List['outputs.PolicyDefinitionGroupResponse']]]:
         """
         The metadata describing groups of policy definition references within the policy set definition.
         """
@@ -149,7 +149,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitions")
-    def policy_definitions(self) -> List['outputs.PolicyDefinitionReferenceResponse']:
+    def policy_definitions(self) -> pulumi.Output[List['outputs.PolicyDefinitionReferenceResponse']]:
         """
         An array of policy definition references.
         """
@@ -157,7 +157,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[str]:
+    def policy_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
@@ -165,7 +165,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource (Microsoft.Authorization/policySetDefinitions).
         """

@@ -15,7 +15,7 @@ __all__ = ['Bot']
 
 class Bot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Entity Tag
         """
@@ -107,7 +107,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Required. Gets or sets the Kind of the resource.
         """
@@ -115,7 +115,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the location of the resource.
         """
@@ -123,7 +123,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the resource.
         """
@@ -131,7 +131,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.BotPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.BotPropertiesResponse']:
         """
         The set of properties specific to bot resource
         """
@@ -139,7 +139,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         Gets or sets the SKU of the resource.
         """
@@ -147,7 +147,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Contains resource tags defined as key/value pairs.
         """
@@ -155,7 +155,7 @@ class Bot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Specifies the type of the resource.
         """

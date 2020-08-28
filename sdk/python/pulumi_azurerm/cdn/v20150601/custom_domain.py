@@ -13,7 +13,7 @@ __all__ = ['CustomDomain']
 
 class CustomDomain(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_domain_name: Optional[pulumi.Input[str]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
+    def host_name(self) -> pulumi.Output[str]:
         """
         The host name of the custom domain. Must be a domain name.
         """
@@ -106,7 +106,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -114,7 +114,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning status of the custom domain.
         """
@@ -122,7 +122,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         Resource status of the custom domain.
         """
@@ -130,7 +130,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

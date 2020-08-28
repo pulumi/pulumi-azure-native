@@ -15,7 +15,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_id: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationDefinitionId")
-    def application_definition_id(self) -> Optional[str]:
+    def application_definition_id(self) -> pulumi.Output[Optional[str]]:
         """
         The fully qualified path of managed application definition Id.
         """
@@ -130,7 +130,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The identity of the resource.
         """
@@ -138,7 +138,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         """
@@ -146,7 +146,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -154,7 +154,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[str]:
+    def managed_by(self) -> pulumi.Output[Optional[str]]:
         """
         ID of the resource that manages this resource.
         """
@@ -162,7 +162,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> str:
+    def managed_resource_group_id(self) -> pulumi.Output[str]:
         """
         The managed resource group Id.
         """
@@ -170,7 +170,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -178,7 +178,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, Any]:
+    def outputs(self) -> pulumi.Output[Mapping[str, Any]]:
         """
         Name and value pairs that define the managed application outputs.
         """
@@ -186,7 +186,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         """
@@ -194,7 +194,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
         """
         The plan information.
         """
@@ -202,7 +202,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The managed application provisioning state.
         """
@@ -210,7 +210,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The SKU of the resource.
         """
@@ -218,7 +218,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -226,7 +226,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -234,7 +234,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uiDefinitionUri")
-    def ui_definition_uri(self) -> Optional[str]:
+    def ui_definition_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The blob URI where the UI definition file is located.
         """

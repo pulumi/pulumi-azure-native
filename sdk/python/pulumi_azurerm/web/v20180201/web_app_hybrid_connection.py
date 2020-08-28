@@ -13,7 +13,7 @@ __all__ = ['WebAppHybridConnection']
 
 class WebAppHybridConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hostname(self) -> Optional[str]:
+    def hostname(self) -> pulumi.Output[Optional[str]]:
         """
         The hostname of the endpoint.
         """
@@ -123,7 +123,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -131,7 +131,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -139,7 +139,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> pulumi.Output[Optional[float]]:
         """
         The port of the endpoint.
         """
@@ -147,7 +147,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relayArmUri")
-    def relay_arm_uri(self) -> Optional[str]:
+    def relay_arm_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The ARM URI to the Service Bus relay.
         """
@@ -155,7 +155,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relayName")
-    def relay_name(self) -> Optional[str]:
+    def relay_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Service Bus relay.
         """
@@ -163,7 +163,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sendKeyName")
-    def send_key_name(self) -> Optional[str]:
+    def send_key_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
         """
@@ -171,7 +171,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sendKeyValue")
-    def send_key_value(self) -> Optional[str]:
+    def send_key_value(self) -> pulumi.Output[Optional[str]]:
         """
         The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
         normally, use the POST /listKeys API instead.
@@ -180,7 +180,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceBusNamespace")
-    def service_bus_namespace(self) -> Optional[str]:
+    def service_bus_namespace(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Service Bus namespace.
         """
@@ -188,7 +188,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceBusSuffix")
-    def service_bus_suffix(self) -> Optional[str]:
+    def service_bus_suffix(self) -> pulumi.Output[Optional[str]]:
         """
         The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
@@ -196,7 +196,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

@@ -13,7 +13,7 @@ __all__ = ['RegisteredAsn']
 
 class RegisteredAsn(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asn: Optional[pulumi.Input[float]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class RegisteredAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[float]:
+    def asn(self) -> pulumi.Output[Optional[float]]:
         """
         The customer's ASN from which traffic originates.
         """
@@ -97,7 +97,7 @@ class RegisteredAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -105,7 +105,7 @@ class RegisteredAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringServicePrefixKey")
-    def peering_service_prefix_key(self) -> str:
+    def peering_service_prefix_key(self) -> pulumi.Output[str]:
         """
         The peering service prefix key that is to be shared with the customer.
         """
@@ -113,7 +113,7 @@ class RegisteredAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """
@@ -121,7 +121,7 @@ class RegisteredAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

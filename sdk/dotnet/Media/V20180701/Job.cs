@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.Media.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:media/v20200501:Job"},
+                    new Pulumi.Alias { Type = "azurerm:media/v20200501:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

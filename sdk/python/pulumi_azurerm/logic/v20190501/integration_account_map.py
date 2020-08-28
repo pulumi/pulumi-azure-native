@@ -15,7 +15,7 @@ __all__ = ['IntegrationAccountMap']
 
 class IntegrationAccountMap(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="changedTime")
-    def changed_time(self) -> str:
+    def changed_time(self) -> pulumi.Output[str]:
         """
         The changed time.
         """
@@ -122,7 +122,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[str]:
+    def content(self) -> pulumi.Output[Optional[str]]:
         """
         The content.
         """
@@ -130,7 +130,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentLink")
-    def content_link(self) -> 'outputs.ContentLinkResponse':
+    def content_link(self) -> pulumi.Output['outputs.ContentLinkResponse']:
         """
         The content link.
         """
@@ -138,7 +138,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[str]:
+    def content_type(self) -> pulumi.Output[Optional[str]]:
         """
         The content type.
         """
@@ -146,7 +146,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         """
         The created time.
         """
@@ -154,7 +154,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -162,7 +162,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mapType")
-    def map_type(self) -> str:
+    def map_type(self) -> pulumi.Output[str]:
         """
         The map type.
         """
@@ -170,7 +170,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The metadata.
         """
@@ -178,7 +178,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the resource name.
         """
@@ -186,7 +186,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parametersSchema")
-    def parameters_schema(self) -> Optional['outputs.IntegrationAccountMapPropertiesResponseParametersSchema']:
+    def parameters_schema(self) -> pulumi.Output[Optional['outputs.IntegrationAccountMapPropertiesResponseParametersSchema']]:
         """
         The parameters schema of integration account map.
         """
@@ -194,7 +194,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -202,7 +202,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the resource type.
         """

@@ -15,7 +15,7 @@ __all__ = ['ServerFarm']
 
 class ServerFarm(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_site_name: Optional[pulumi.Input[str]] = None,
                  allow_pending_state: Optional[pulumi.Input[bool]] = None,
@@ -128,7 +128,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminSiteName")
-    def admin_site_name(self) -> Optional[str]:
+    def admin_site_name(self) -> pulumi.Output[Optional[str]]:
         """
         App Service Plan administration site
         """
@@ -136,7 +136,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoRegion")
-    def geo_region(self) -> str:
+    def geo_region(self) -> pulumi.Output[str]:
         """
         Geographical location for the App Service Plan
         """
@@ -144,7 +144,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> Optional['outputs.HostingEnvironmentProfileResponse']:
+    def hosting_environment_profile(self) -> pulumi.Output[Optional['outputs.HostingEnvironmentProfileResponse']]:
         """
         Specification for the hosting environment (App Service Environment) to use for the App Service Plan
         """
@@ -152,7 +152,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -160,7 +160,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -168,7 +168,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumNumberOfWorkers")
-    def maximum_number_of_workers(self) -> Optional[float]:
+    def maximum_number_of_workers(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum number of instances that can be assigned to this App Service Plan
         """
@@ -176,7 +176,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -184,7 +184,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfSites")
-    def number_of_sites(self) -> float:
+    def number_of_sites(self) -> pulumi.Output[float]:
         """
         Number of web apps assigned to this App Service Plan
         """
@@ -192,7 +192,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="perSiteScaling")
-    def per_site_scaling(self) -> Optional[bool]:
+    def per_site_scaling(self) -> pulumi.Output[Optional[bool]]:
         """
         If True apps assigned to this App Service Plan can be scaled independently
                     If False apps assigned to this App Service Plan will scale to all instances of the plan
@@ -201,7 +201,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def reserved(self) -> Optional[bool]:
+    def reserved(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables creation of a Linux App Service Plan
         """
@@ -209,7 +209,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> str:
+    def resource_group(self) -> pulumi.Output[str]:
         """
         Resource group of the server farm
         """
@@ -217,7 +217,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuDescriptionResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuDescriptionResponse']]:
         """
         Describes a sku for a scalable resource
         """
@@ -225,7 +225,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         App Service Plan Status
         """
@@ -233,7 +233,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subscription(self) -> str:
+    def subscription(self) -> pulumi.Output[str]:
         """
         App Service Plan Subscription
         """
@@ -241,7 +241,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -249,7 +249,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """
@@ -257,7 +257,7 @@ class ServerFarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workerTierName")
-    def worker_tier_name(self) -> Optional[str]:
+    def worker_tier_name(self) -> pulumi.Output[Optional[str]]:
         """
         Target worker tier assigned to the App Service Plan
         """

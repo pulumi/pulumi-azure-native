@@ -13,7 +13,7 @@ __all__ = ['AlertRuleAction']
 
 class AlertRuleAction(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_id: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class AlertRuleAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Etag of the action.
         """
@@ -109,7 +109,7 @@ class AlertRuleAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logicAppResourceId")
-    def logic_app_resource_id(self) -> str:
+    def logic_app_resource_id(self) -> pulumi.Output[str]:
         """
         Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         """
@@ -117,7 +117,7 @@ class AlertRuleAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -125,7 +125,7 @@ class AlertRuleAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """
@@ -133,7 +133,7 @@ class AlertRuleAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workflowId")
-    def workflow_id(self) -> Optional[str]:
+    def workflow_id(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the logic app's workflow.
         """

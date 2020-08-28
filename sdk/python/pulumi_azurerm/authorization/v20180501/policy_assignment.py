@@ -15,7 +15,7 @@ __all__ = ['PolicyAssignment']
 
 class PolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         This message will be part of response in case of policy violation.
         """
@@ -118,7 +118,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name of the policy assignment.
         """
@@ -126,7 +126,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
         The managed identity associated with the policy assignment.
         """
@@ -134,7 +134,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the policy assignment. Only required when utilizing managed identity.
         """
@@ -142,7 +142,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The policy assignment metadata.
         """
@@ -150,7 +150,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy assignment.
         """
@@ -158,7 +158,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notScopes")
-    def not_scopes(self) -> Optional[List[str]]:
+    def not_scopes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The policy's excluded scopes.
         """
@@ -166,7 +166,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, Any]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Required if a parameter is used in policy rule.
         """
@@ -174,7 +174,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionId")
-    def policy_definition_id(self) -> Optional[str]:
+    def policy_definition_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the policy definition or policy set definition being assigned.
         """
@@ -182,7 +182,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[str]:
+    def scope(self) -> pulumi.Output[Optional[str]]:
         """
         The scope for the policy assignment.
         """
@@ -190,7 +190,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.PolicySkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.PolicySkuResponse']]:
         """
         The policy sku. This property is optional, obsolete, and will be ignored.
         """
@@ -198,7 +198,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the policy assignment.
         """

@@ -13,7 +13,7 @@ __all__ = ['Suppression']
 
 class Suppression(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recommendation_id: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,7 @@ class Suppression(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -99,7 +99,7 @@ class Suppression(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="suppressionId")
-    def suppression_id(self) -> Optional[str]:
+    def suppression_id(self) -> pulumi.Output[Optional[str]]:
         """
         The GUID of the suppression.
         """
@@ -107,7 +107,7 @@ class Suppression(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[str]:
+    def ttl(self) -> pulumi.Output[Optional[str]]:
         """
         The duration for which the suppression is valid.
         """
@@ -115,7 +115,7 @@ class Suppression(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

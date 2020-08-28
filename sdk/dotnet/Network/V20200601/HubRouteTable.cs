@@ -87,8 +87,8 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20200401:HubRouteTable"},
-                    new Alias { Type = "azurerm:network/v20200501:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:HubRouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

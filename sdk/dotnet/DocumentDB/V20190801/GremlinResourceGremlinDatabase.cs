@@ -66,9 +66,9 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:documentdb/v20191212:GremlinResourceGremlinDatabase"},
-                    new Alias { Type = "azurerm:documentdb/v20200301:GremlinResourceGremlinDatabase"},
-                    new Alias { Type = "azurerm:documentdb/v20200401:GremlinResourceGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:GremlinResourceGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:GremlinResourceGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:GremlinResourceGremlinDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

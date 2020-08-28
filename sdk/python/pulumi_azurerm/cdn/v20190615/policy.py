@@ -15,7 +15,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[pulumi.InputType['CustomRuleListArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional['outputs.CustomRuleListResponse']:
+    def custom_rules(self) -> pulumi.Output[Optional['outputs.CustomRuleListResponse']]:
         """
         Describes custom rules inside the policy.
         """
@@ -122,7 +122,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointLinks")
-    def endpoint_links(self) -> List['outputs.CdnEndpointResponse']:
+    def endpoint_links(self) -> pulumi.Output[List['outputs.CdnEndpointResponse']]:
         """
         Describes Azure CDN endpoints associated with this Web Application Firewall policy.
         """
@@ -130,7 +130,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -138,7 +138,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -146,7 +146,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional['outputs.ManagedRuleSetListResponse']:
+    def managed_rules(self) -> pulumi.Output[Optional['outputs.ManagedRuleSetListResponse']]:
         """
         Describes managed rules inside the policy.
         """
@@ -154,7 +154,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -162,7 +162,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
+    def policy_settings(self) -> pulumi.Output[Optional['outputs.PolicySettingsResponse']]:
         """
         Describes  policySettings for policy
         """
@@ -170,7 +170,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the WebApplicationFirewallPolicy.
         """
@@ -178,7 +178,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rateLimitRules")
-    def rate_limit_rules(self) -> Optional['outputs.RateLimitRuleListResponse']:
+    def rate_limit_rules(self) -> pulumi.Output[Optional['outputs.RateLimitRuleListResponse']]:
         """
         Describes rate limit rules inside the policy.
         """
@@ -186,12 +186,12 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         """
@@ -199,7 +199,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -207,7 +207,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

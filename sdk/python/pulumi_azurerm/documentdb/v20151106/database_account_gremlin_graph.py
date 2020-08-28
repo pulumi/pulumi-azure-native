@@ -15,7 +15,7 @@ __all__ = ['DatabaseAccountGremlinGraph']
 
 class DatabaseAccountGremlinGraph(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="conflictResolutionPolicy")
-    def conflict_resolution_policy(self) -> Optional['outputs.ConflictResolutionPolicyResponse']:
+    def conflict_resolution_policy(self) -> pulumi.Output[Optional['outputs.ConflictResolutionPolicyResponse']]:
         """
         The conflict resolution policy for the graph.
         """
@@ -121,7 +121,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[float]:
+    def default_ttl(self) -> pulumi.Output[Optional[float]]:
         """
         Default time to live
         """
@@ -129,7 +129,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A system generated property representing the resource etag required for optimistic concurrency control.
         """
@@ -137,7 +137,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="indexingPolicy")
-    def indexing_policy(self) -> Optional['outputs.IndexingPolicyResponse']:
+    def indexing_policy(self) -> pulumi.Output[Optional['outputs.IndexingPolicyResponse']]:
         """
         The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
         """
@@ -145,7 +145,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource group to which the resource belongs.
         """
@@ -153,7 +153,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the database account.
         """
@@ -161,7 +161,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional['outputs.ContainerPartitionKeyResponse']:
+    def partition_key(self) -> pulumi.Output[Optional['outputs.ContainerPartitionKeyResponse']]:
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
         """
@@ -169,7 +169,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rid(self) -> Optional[str]:
+    def rid(self) -> pulumi.Output[Optional[str]]:
         """
         A system generated property. A unique identifier.
         """
@@ -177,7 +177,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
@@ -185,7 +185,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ts(self) -> Optional[Mapping[str, Any]]:
+    def ts(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         A system generated property that denotes the last updated timestamp of the resource.
         """
@@ -193,7 +193,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of Azure resource.
         """
@@ -201,7 +201,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueKeyPolicy")
-    def unique_key_policy(self) -> Optional['outputs.UniqueKeyPolicyResponse']:
+    def unique_key_policy(self) -> pulumi.Output[Optional['outputs.UniqueKeyPolicyResponse']]:
         """
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """

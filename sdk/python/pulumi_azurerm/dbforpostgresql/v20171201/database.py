@@ -13,7 +13,7 @@ __all__ = ['Database']
 
 class Database(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  charset: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
@@ -90,7 +90,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def charset(self) -> Optional[str]:
+    def charset(self) -> pulumi.Output[Optional[str]]:
         """
         The charset of the database.
         """
@@ -98,7 +98,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def collation(self) -> Optional[str]:
+    def collation(self) -> pulumi.Output[Optional[str]]:
         """
         The collation of the database.
         """
@@ -106,7 +106,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -114,7 +114,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

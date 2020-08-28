@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:devtestlab/v20160515:Formula"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:Formula"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

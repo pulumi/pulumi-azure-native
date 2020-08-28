@@ -111,10 +111,10 @@ namespace Pulumi.AzureRM.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20180201:WebAppInstanceFunctionSlot"},
-                    new Alias { Type = "azurerm:web/v20181101:WebAppInstanceFunctionSlot"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppInstanceFunctionSlot"},
-                    new Alias { Type = "azurerm:web/v20200601:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppInstanceFunctionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppInstanceFunctionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

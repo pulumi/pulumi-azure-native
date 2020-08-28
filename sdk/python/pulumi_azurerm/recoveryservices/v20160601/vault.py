@@ -15,7 +15,7 @@ __all__ = ['Vault']
 
 class Vault(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityDataArgs']]] = None,
@@ -99,7 +99,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         Optional ETag.
         """
@@ -107,7 +107,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityDataResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityDataResponse']]:
         """
         Identity for the resource.
         """
@@ -115,7 +115,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -123,7 +123,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name associated with the resource.
         """
@@ -131,7 +131,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.VaultPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.VaultPropertiesResponse']:
         """
         Properties of the vault.
         """
@@ -139,7 +139,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         Identifies the unique system identifier for each Azure resource.
         """
@@ -147,7 +147,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -155,7 +155,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """

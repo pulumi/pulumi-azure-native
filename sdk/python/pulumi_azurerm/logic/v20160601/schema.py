@@ -14,7 +14,7 @@ __all__ = ['Schema']
 
 class Schema(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="changedTime")
-    def changed_time(self) -> str:
+    def changed_time(self) -> pulumi.Output[str]:
         """
         The changed time.
         """
@@ -127,7 +127,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[str]:
+    def content(self) -> pulumi.Output[Optional[str]]:
         """
         The content.
         """
@@ -135,7 +135,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentLink")
-    def content_link(self) -> 'outputs.ContentLinkResponse':
+    def content_link(self) -> pulumi.Output['outputs.ContentLinkResponse']:
         """
         The content link.
         """
@@ -143,7 +143,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[str]:
+    def content_type(self) -> pulumi.Output[Optional[str]]:
         """
         The content type.
         """
@@ -151,7 +151,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         """
         The created time.
         """
@@ -159,7 +159,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentName")
-    def document_name(self) -> Optional[str]:
+    def document_name(self) -> pulumi.Output[Optional[str]]:
         """
         The document name.
         """
@@ -167,7 +167,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> Optional[str]:
+    def file_name(self) -> pulumi.Output[Optional[str]]:
         """
         The file name.
         """
@@ -175,7 +175,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The resource location.
         """
@@ -183,7 +183,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The metadata.
         """
@@ -191,7 +191,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the resource name.
         """
@@ -199,7 +199,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaType")
-    def schema_type(self) -> str:
+    def schema_type(self) -> pulumi.Output[str]:
         """
         The schema type.
         """
@@ -207,7 +207,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The resource tags.
         """
@@ -215,7 +215,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetNamespace")
-    def target_namespace(self) -> Optional[str]:
+    def target_namespace(self) -> pulumi.Output[Optional[str]]:
         """
         The target namespace of the schema.
         """
@@ -223,7 +223,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Gets the resource type.
         """

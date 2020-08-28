@@ -15,7 +15,7 @@ __all__ = ['VirtualRouter']
 
 class VirtualRouter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  hosted_subnet: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -107,7 +107,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -115,7 +115,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedGateway")
-    def hosted_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def hosted_gateway(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The Gateway on which VirtualRouter is hosted.
         """
@@ -123,7 +123,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedSubnet")
-    def hosted_subnet(self) -> Optional['outputs.SubResourceResponse']:
+    def hosted_subnet(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The Subnet on which VirtualRouter is hosted.
         """
@@ -131,7 +131,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -139,7 +139,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -147,7 +147,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def peerings(self) -> List['outputs.SubResourceResponse']:
+    def peerings(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         List of references to VirtualRouterPeerings.
         """
@@ -155,7 +155,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """
@@ -163,7 +163,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -171,7 +171,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -179,7 +179,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualRouterAsn")
-    def virtual_router_asn(self) -> Optional[float]:
+    def virtual_router_asn(self) -> pulumi.Output[Optional[float]]:
         """
         VirtualRouter ASN.
         """
@@ -187,7 +187,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualRouterIps")
-    def virtual_router_ips(self) -> Optional[List[str]]:
+    def virtual_router_ips(self) -> pulumi.Output[Optional[List[str]]]:
         """
         VirtualRouter IPs.
         """

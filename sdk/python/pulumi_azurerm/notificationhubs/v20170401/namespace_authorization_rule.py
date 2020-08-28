@@ -15,7 +15,7 @@ __all__ = ['NamespaceAuthorizationRule']
 
 class NamespaceAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="claimType")
-    def claim_type(self) -> str:
+    def claim_type(self) -> pulumi.Output[str]:
         """
         A string that describes the claim type
         """
@@ -113,7 +113,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="claimValue")
-    def claim_value(self) -> str:
+    def claim_value(self) -> pulumi.Output[str]:
         """
         A string that describes the claim value
         """
@@ -121,7 +121,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         """
         The created time for this rule
         """
@@ -129,7 +129,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
+    def key_name(self) -> pulumi.Output[str]:
         """
         A string that describes the authorization rule.
         """
@@ -137,7 +137,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -145,7 +145,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modifiedTime")
-    def modified_time(self) -> str:
+    def modified_time(self) -> pulumi.Output[str]:
         """
         The last modified time for this rule
         """
@@ -153,7 +153,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -161,7 +161,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> str:
+    def primary_key(self) -> pulumi.Output[str]:
         """
         A base64-encoded 256-bit primary key for signing and validating the SAS token.
         """
@@ -169,7 +169,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def revision(self) -> float:
+    def revision(self) -> pulumi.Output[float]:
         """
         The revision number for the rule
         """
@@ -177,7 +177,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rights(self) -> Optional[List[str]]:
+    def rights(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The rights associated with the rule.
         """
@@ -185,7 +185,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> str:
+    def secondary_key(self) -> pulumi.Output[str]:
         """
         A base64-encoded 256-bit primary key for signing and validating the SAS token.
         """
@@ -193,7 +193,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The sku of the created namespace
         """
@@ -201,7 +201,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -209,7 +209,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

@@ -15,7 +15,7 @@ __all__ = ['TagAtScope']
 
 class TagAtScope(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['TagsArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class TagAtScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the tags wrapper resource.
         """
@@ -91,7 +91,7 @@ class TagAtScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.TagsResponse':
+    def properties(self) -> pulumi.Output['outputs.TagsResponse']:
         """
         The set of tags.
         """
@@ -99,7 +99,7 @@ class TagAtScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the tags wrapper resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['ConnectionType']
 
 class ConnectionType(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  connection_type_name: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class ConnectionType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         Gets the creation time.
         """
@@ -109,7 +109,7 @@ class ConnectionType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -117,7 +117,7 @@ class ConnectionType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fieldDefinitions")
-    def field_definitions(self) -> Mapping[str, 'outputs.FieldDefinitionResponse']:
+    def field_definitions(self) -> pulumi.Output[Mapping[str, 'outputs.FieldDefinitionResponse']]:
         """
         Gets the field definitions of the connection type.
         """
@@ -125,7 +125,7 @@ class ConnectionType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[bool]:
+    def is_global(self) -> pulumi.Output[Optional[bool]]:
         """
         Gets or sets a Boolean value to indicate if the connection type is global.
         """
@@ -133,7 +133,7 @@ class ConnectionType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last modified time.
         """
@@ -141,7 +141,7 @@ class ConnectionType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Gets the name of the connection type.
         """
@@ -149,7 +149,7 @@ class ConnectionType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

@@ -15,7 +15,7 @@ __all__ = ['FirewallPolicy']
 
 class FirewallPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_policy: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['DnsSettingsArgs']]] = None,
@@ -109,7 +109,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="basePolicy")
-    def base_policy(self) -> Optional['outputs.SubResourceResponse']:
+    def base_policy(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The parent firewall policy from which rules are inherited.
         """
@@ -117,7 +117,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="childPolicies")
-    def child_policies(self) -> List['outputs.SubResourceResponse']:
+    def child_policies(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         List of references to Child Firewall Policies.
         """
@@ -125,7 +125,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional['outputs.DnsSettingsResponse']:
+    def dns_settings(self) -> pulumi.Output[Optional['outputs.DnsSettingsResponse']]:
         """
         DNS Proxy Settings definition.
         """
@@ -133,7 +133,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -141,7 +141,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def firewalls(self) -> List['outputs.SubResourceResponse']:
+    def firewalls(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         List of references to Azure Firewalls that this Firewall Policy is associated with.
         """
@@ -149,7 +149,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -157,7 +157,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -165,7 +165,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the firewall policy resource.
         """
@@ -173,7 +173,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleCollectionGroups")
-    def rule_collection_groups(self) -> List['outputs.SubResourceResponse']:
+    def rule_collection_groups(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         List of references to FirewallPolicyRuleCollectionGroups.
         """
@@ -181,7 +181,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -189,7 +189,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="threatIntelMode")
-    def threat_intel_mode(self) -> Optional[str]:
+    def threat_intel_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The operation mode for Threat Intelligence.
         """
@@ -197,7 +197,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="threatIntelWhitelist")
-    def threat_intel_whitelist(self) -> Optional['outputs.FirewallPolicyThreatIntelWhitelistResponse']:
+    def threat_intel_whitelist(self) -> pulumi.Output[Optional['outputs.FirewallPolicyThreatIntelWhitelistResponse']]:
         """
         ThreatIntel Whitelist for Firewall Policy.
         """
@@ -205,7 +205,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

@@ -15,7 +15,7 @@ __all__ = ['DataManager']
 
 class DataManager(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_manager_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class DataManager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Etag of the Resource.
         """
@@ -108,7 +108,7 @@ class DataManager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
         US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
@@ -118,7 +118,7 @@ class DataManager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Resource Name.
         """
@@ -126,7 +126,7 @@ class DataManager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The sku type.
         """
@@ -134,7 +134,7 @@ class DataManager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
         (across resource groups).
@@ -143,7 +143,7 @@ class DataManager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The Resource type.
         """

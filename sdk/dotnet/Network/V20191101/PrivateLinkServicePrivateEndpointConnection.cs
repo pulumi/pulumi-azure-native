@@ -81,16 +81,16 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20190401:PrivateLinkServicePrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:network/v20190601:PrivateLinkServicePrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:network/v20190701:PrivateLinkServicePrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:network/v20190801:PrivateLinkServicePrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:network/v20190901:PrivateLinkServicePrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:network/v20191201:PrivateLinkServicePrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:network/v20200301:PrivateLinkServicePrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:network/v20200401:PrivateLinkServicePrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:network/v20200501:PrivateLinkServicePrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:network/v20200601:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190401:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190601:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190701:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190801:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190901:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:PrivateLinkServicePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

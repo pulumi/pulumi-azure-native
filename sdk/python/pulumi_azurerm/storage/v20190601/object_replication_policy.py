@@ -15,7 +15,7 @@ __all__ = ['ObjectReplicationPolicy']
 
 class ObjectReplicationPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  destination_account: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationAccount")
-    def destination_account(self) -> str:
+    def destination_account(self) -> pulumi.Output[str]:
         """
         Required. Destination account name.
         """
@@ -109,7 +109,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledTime")
-    def enabled_time(self) -> str:
+    def enabled_time(self) -> pulumi.Output[str]:
         """
         Indicates when the policy is enabled on the source account.
         """
@@ -117,7 +117,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -125,7 +125,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> str:
+    def policy_id(self) -> pulumi.Output[str]:
         """
         A unique id for object replication policy.
         """
@@ -133,7 +133,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.ObjectReplicationPolicyRuleResponse']]:
+    def rules(self) -> pulumi.Output[Optional[List['outputs.ObjectReplicationPolicyRuleResponse']]]:
         """
         The storage account object replication rules.
         """
@@ -141,7 +141,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceAccount")
-    def source_account(self) -> str:
+    def source_account(self) -> pulumi.Output[str]:
         """
         Required. Source account name.
         """
@@ -149,7 +149,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

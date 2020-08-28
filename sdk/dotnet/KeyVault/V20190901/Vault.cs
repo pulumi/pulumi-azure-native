@@ -69,9 +69,9 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:keyvault/v20150601:Vault"},
-                    new Alias { Type = "azurerm:keyvault/v20161001:Vault"},
-                    new Alias { Type = "azurerm:keyvault/v20180214:Vault"},
+                    new Pulumi.Alias { Type = "azurerm:keyvault/v20150601:Vault"},
+                    new Pulumi.Alias { Type = "azurerm:keyvault/v20161001:Vault"},
+                    new Pulumi.Alias { Type = "azurerm:keyvault/v20180214:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

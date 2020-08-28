@@ -15,7 +15,7 @@ __all__ = ['Redis']
 
 class Redis(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessKeys")
-    def access_keys(self) -> 'outputs.RedisAccessKeysResponse':
+    def access_keys(self) -> pulumi.Output['outputs.RedisAccessKeysResponse']:
         """
         The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
         """
@@ -134,7 +134,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableNonSslPort")
-    def enable_non_ssl_port(self) -> Optional[bool]:
+    def enable_non_ssl_port(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the non-ssl Redis server port (6379) is enabled.
         """
@@ -142,7 +142,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
+    def host_name(self) -> pulumi.Output[str]:
         """
         Redis host name.
         """
@@ -150,7 +150,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedServers")
-    def linked_servers(self) -> List['outputs.RedisLinkedServerResponse']:
+    def linked_servers(self) -> pulumi.Output[List['outputs.RedisLinkedServerResponse']]:
         """
         List of the linked servers associated with the cache
         """
@@ -158,7 +158,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -166,7 +166,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[str]:
+    def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
         Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         """
@@ -174,7 +174,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -182,7 +182,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         """
         Redis non-SSL port.
         """
@@ -190,7 +190,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Redis instance provisioning status.
         """
@@ -198,7 +198,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> Optional[Mapping[str, str]]:
+    def redis_configuration(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         """
@@ -206,7 +206,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redisVersion")
-    def redis_version(self) -> str:
+    def redis_version(self) -> pulumi.Output[str]:
         """
         Redis version.
         """
@@ -214,7 +214,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> Optional[float]:
+    def shard_count(self) -> pulumi.Output[Optional[float]]:
         """
         The number of shards to be created on a Premium Cluster Cache.
         """
@@ -222,7 +222,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         The SKU of the Redis cache to deploy.
         """
@@ -230,7 +230,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslPort")
-    def ssl_port(self) -> float:
+    def ssl_port(self) -> pulumi.Output[float]:
         """
         Redis SSL port.
         """
@@ -238,7 +238,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="staticIP")
-    def static_ip(self) -> Optional[str]:
+    def static_ip(self) -> pulumi.Output[Optional[str]]:
         """
         Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
         """
@@ -246,7 +246,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
+    def subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
         """
@@ -254,7 +254,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -262,7 +262,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantSettings")
-    def tenant_settings(self) -> Optional[Mapping[str, str]]:
+    def tenant_settings(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A dictionary of tenant settings
         """
@@ -270,7 +270,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -278,7 +278,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of availability zones denoting where the resource needs to come from.
         """

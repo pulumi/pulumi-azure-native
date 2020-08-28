@@ -13,7 +13,7 @@ __all__ = ['Registration']
 
 class Registration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  registration_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class Registration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="billingModel")
-    def billing_model(self) -> Optional[str]:
+    def billing_model(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the billing mode for the Azure Stack registration.
         """
@@ -102,7 +102,7 @@ class Registration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudId")
-    def cloud_id(self) -> Optional[str]:
+    def cloud_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the registered Azure Stack.
         """
@@ -110,7 +110,7 @@ class Registration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The entity tag used for optimistic concurrency when modifying the resource.
         """
@@ -118,7 +118,7 @@ class Registration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Location of the resource.
         """
@@ -126,7 +126,7 @@ class Registration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the resource.
         """
@@ -134,7 +134,7 @@ class Registration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[str]:
+    def object_id(self) -> pulumi.Output[Optional[str]]:
         """
         The object identifier associated with the Azure Stack connecting to Azure.
         """
@@ -142,7 +142,7 @@ class Registration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Custom tags for the resource.
         """
@@ -150,7 +150,7 @@ class Registration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of Resource.
         """

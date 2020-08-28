@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.Aad.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:aad/v20170601:OuContainer"},
+                    new Pulumi.Alias { Type = "azurerm:aad/v20170601:OuContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

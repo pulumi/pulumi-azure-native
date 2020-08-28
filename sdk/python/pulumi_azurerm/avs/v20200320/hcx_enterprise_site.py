@@ -13,7 +13,7 @@ __all__ = ['HcxEnterpriseSite']
 
 class HcxEnterpriseSite(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hcx_enterprise_site_name: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
@@ -86,7 +86,7 @@ class HcxEnterpriseSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activationKey")
-    def activation_key(self) -> str:
+    def activation_key(self) -> pulumi.Output[str]:
         """
         The activation key
         """
@@ -94,7 +94,7 @@ class HcxEnterpriseSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -102,7 +102,7 @@ class HcxEnterpriseSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The status of the HCX Enterprise Site
         """
@@ -110,7 +110,7 @@ class HcxEnterpriseSite(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

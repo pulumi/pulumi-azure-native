@@ -81,11 +81,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:apimanagement/v20160707:OpenIdConnectProvider"},
-                    new Alias { Type = "azurerm:apimanagement/v20161010:OpenIdConnectProvider"},
-                    new Alias { Type = "azurerm:apimanagement/v20170301:OpenIdConnectProvider"},
-                    new Alias { Type = "azurerm:apimanagement/v20190101:OpenIdConnectProvider"},
-                    new Alias { Type = "azurerm:apimanagement/v20191201:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:OpenIdConnectProvider"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:OpenIdConnectProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

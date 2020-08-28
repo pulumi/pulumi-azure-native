@@ -15,7 +15,7 @@ __all__ = ['StreamingPolicy']
 
 class StreamingPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  common_encryption_cbcs: Optional[pulumi.Input[pulumi.InputType['CommonEncryptionCbcsArgs']]] = None,
@@ -104,7 +104,7 @@ class StreamingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="commonEncryptionCbcs")
-    def common_encryption_cbcs(self) -> Optional['outputs.CommonEncryptionCbcsResponse']:
+    def common_encryption_cbcs(self) -> pulumi.Output[Optional['outputs.CommonEncryptionCbcsResponse']]:
         """
         Configuration of CommonEncryptionCbcs
         """
@@ -112,7 +112,7 @@ class StreamingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="commonEncryptionCenc")
-    def common_encryption_cenc(self) -> Optional['outputs.CommonEncryptionCencResponse']:
+    def common_encryption_cenc(self) -> pulumi.Output[Optional['outputs.CommonEncryptionCencResponse']]:
         """
         Configuration of CommonEncryptionCenc
         """
@@ -120,7 +120,7 @@ class StreamingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         Creation time of Streaming Policy
         """
@@ -128,7 +128,7 @@ class StreamingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultContentKeyPolicyName")
-    def default_content_key_policy_name(self) -> Optional[str]:
+    def default_content_key_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
         Default ContentKey used by current Streaming Policy
         """
@@ -136,7 +136,7 @@ class StreamingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="envelopeEncryption")
-    def envelope_encryption(self) -> Optional['outputs.EnvelopeEncryptionResponse']:
+    def envelope_encryption(self) -> pulumi.Output[Optional['outputs.EnvelopeEncryptionResponse']]:
         """
         Configuration of EnvelopeEncryption
         """
@@ -144,7 +144,7 @@ class StreamingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -152,7 +152,7 @@ class StreamingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="noEncryption")
-    def no_encryption(self) -> Optional['outputs.NoEncryptionResponse']:
+    def no_encryption(self) -> pulumi.Output[Optional['outputs.NoEncryptionResponse']]:
         """
         Configurations of NoEncryption
         """
@@ -160,7 +160,7 @@ class StreamingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

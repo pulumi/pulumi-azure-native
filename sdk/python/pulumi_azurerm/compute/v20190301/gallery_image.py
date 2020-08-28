@@ -15,7 +15,7 @@ __all__ = ['GalleryImage']
 
 class GalleryImage(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disallowed: Optional[pulumi.Input[pulumi.InputType['DisallowedArgs']]] = None,
@@ -136,7 +136,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of this gallery Image Definition resource. This property is updatable.
         """
@@ -144,7 +144,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def disallowed(self) -> Optional['outputs.DisallowedResponse']:
+    def disallowed(self) -> pulumi.Output[Optional['outputs.DisallowedResponse']]:
         """
         Describes the disallowed disk types.
         """
@@ -152,7 +152,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endOfLifeDate")
-    def end_of_life_date(self) -> Optional[str]:
+    def end_of_life_date(self) -> pulumi.Output[Optional[str]]:
         """
         The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
         """
@@ -160,7 +160,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def eula(self) -> Optional[str]:
+    def eula(self) -> pulumi.Output[Optional[str]]:
         """
         The Eula agreement for the gallery Image Definition.
         """
@@ -168,7 +168,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identifier(self) -> 'outputs.GalleryImageIdentifierResponse':
+    def identifier(self) -> pulumi.Output['outputs.GalleryImageIdentifierResponse']:
         """
         This is the gallery Image Definition identifier.
         """
@@ -176,7 +176,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -184,7 +184,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -192,7 +192,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osState")
-    def os_state(self) -> str:
+    def os_state(self) -> pulumi.Output[str]:
         """
         This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         """
@@ -200,7 +200,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> str:
+    def os_type(self) -> pulumi.Output[str]:
         """
         This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         """
@@ -208,7 +208,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privacyStatementUri")
-    def privacy_statement_uri(self) -> Optional[str]:
+    def privacy_statement_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The privacy statement uri.
         """
@@ -216,7 +216,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state, which only appears in the response.
         """
@@ -224,7 +224,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="purchasePlan")
-    def purchase_plan(self) -> Optional['outputs.ImagePurchasePlanResponse']:
+    def purchase_plan(self) -> pulumi.Output[Optional['outputs.ImagePurchasePlanResponse']]:
         """
         Describes the gallery Image Definition purchase plan. This is used by marketplace images.
         """
@@ -232,7 +232,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def recommended(self) -> Optional['outputs.RecommendedMachineConfigurationResponse']:
+    def recommended(self) -> pulumi.Output[Optional['outputs.RecommendedMachineConfigurationResponse']]:
         """
         The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         """
@@ -240,7 +240,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="releaseNoteUri")
-    def release_note_uri(self) -> Optional[str]:
+    def release_note_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The release note uri.
         """
@@ -248,7 +248,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -256,7 +256,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

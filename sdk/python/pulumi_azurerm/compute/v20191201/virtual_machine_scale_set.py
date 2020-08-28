@@ -15,7 +15,7 @@ __all__ = ['VirtualMachineScaleSet']
 
 class VirtualMachineScaleSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_capabilities: Optional[pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']]] = None,
                  automatic_repairs_policy: Optional[pulumi.Input[pulumi.InputType['AutomaticRepairsPolicyArgs']]] = None,
@@ -138,7 +138,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional['outputs.AdditionalCapabilitiesResponse']:
+    def additional_capabilities(self) -> pulumi.Output[Optional['outputs.AdditionalCapabilitiesResponse']]:
         """
         Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
         """
@@ -146,7 +146,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automaticRepairsPolicy")
-    def automatic_repairs_policy(self) -> Optional['outputs.AutomaticRepairsPolicyResponse']:
+    def automatic_repairs_policy(self) -> pulumi.Output[Optional['outputs.AutomaticRepairsPolicyResponse']]:
         """
         Policy for automatic repairs.
         """
@@ -154,7 +154,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="doNotRunExtensionsOnOverprovisionedVMs")
-    def do_not_run_extensions_on_overprovisioned_vms(self) -> Optional[bool]:
+    def do_not_run_extensions_on_overprovisioned_vms(self) -> pulumi.Output[Optional[bool]]:
         """
         When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         """
@@ -162,7 +162,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.VirtualMachineScaleSetIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.VirtualMachineScaleSetIdentityResponse']]:
         """
         The identity of the virtual machine scale set, if configured.
         """
@@ -170,7 +170,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -178,7 +178,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -186,7 +186,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def overprovision(self) -> Optional[bool]:
+    def overprovision(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         """
@@ -194,7 +194,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PlanResponse']:
+    def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         """
@@ -202,7 +202,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> Optional[float]:
+    def platform_fault_domain_count(self) -> pulumi.Output[Optional[float]]:
         """
         Fault Domain count for each placement group.
         """
@@ -210,7 +210,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state, which only appears in the response.
         """
@@ -218,7 +218,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proximityPlacementGroup")
-    def proximity_placement_group(self) -> Optional['outputs.SubResourceResponse']:
+    def proximity_placement_group(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
         """
@@ -226,7 +226,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleInPolicy")
-    def scale_in_policy(self) -> Optional['outputs.ScaleInPolicyResponse']:
+    def scale_in_policy(self) -> pulumi.Output[Optional['outputs.ScaleInPolicyResponse']]:
         """
         Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
         """
@@ -234,7 +234,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="singlePlacementGroup")
-    def single_placement_group(self) -> Optional[bool]:
+    def single_placement_group(self) -> pulumi.Output[Optional[bool]]:
         """
         When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         """
@@ -242,7 +242,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The virtual machine scale set sku.
         """
@@ -250,7 +250,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -258,7 +258,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -266,7 +266,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
         """
@@ -274,7 +274,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="upgradePolicy")
-    def upgrade_policy(self) -> Optional['outputs.UpgradePolicyResponse']:
+    def upgrade_policy(self) -> pulumi.Output[Optional['outputs.UpgradePolicyResponse']]:
         """
         The upgrade policy.
         """
@@ -282,7 +282,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineProfile")
-    def virtual_machine_profile(self) -> Optional['outputs.VirtualMachineScaleSetVMProfileResponse']:
+    def virtual_machine_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineScaleSetVMProfileResponse']]:
         """
         The virtual machine profile.
         """
@@ -290,7 +290,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneBalance")
-    def zone_balance(self) -> Optional[bool]:
+    def zone_balance(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
         """
@@ -298,7 +298,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
         """

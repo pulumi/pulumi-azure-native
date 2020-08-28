@@ -15,7 +15,7 @@ __all__ = ['ManagementPolicy']
 
 class ManagementPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  management_policy_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class ManagementPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         Returns the date and time the ManagementPolicies was last modified.
         """
@@ -102,7 +102,7 @@ class ManagementPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -110,7 +110,7 @@ class ManagementPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> 'outputs.ManagementPolicySchemaResponse':
+    def policy(self) -> pulumi.Output['outputs.ManagementPolicySchemaResponse']:
         """
         The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
@@ -118,7 +118,7 @@ class ManagementPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

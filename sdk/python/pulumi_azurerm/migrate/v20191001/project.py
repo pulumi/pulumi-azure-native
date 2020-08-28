@@ -15,7 +15,7 @@ __all__ = ['Project']
 
 class Project(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -93,7 +93,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         For optimistic concurrency control.
         """
@@ -101,7 +101,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Azure location in which project is created.
         """
@@ -109,7 +109,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the project.
         """
@@ -117,7 +117,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProjectPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.ProjectPropertiesResponse']:
         """
         Properties of the project.
         """
@@ -125,7 +125,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Tags provided by Azure Tagging service.
         """
@@ -133,7 +133,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the object = [Microsoft.Migrate/assessmentProjects].
         """

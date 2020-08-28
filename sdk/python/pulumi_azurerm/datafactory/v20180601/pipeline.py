@@ -15,7 +15,7 @@ __all__ = ['Pipeline']
 
 class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityArgs']]]]] = None,
                  annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
@@ -111,7 +111,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def activities(self) -> Optional[List['outputs.ActivityResponse']]:
+    def activities(self) -> pulumi.Output[Optional[List['outputs.ActivityResponse']]]:
         """
         List of activities in pipeline.
         """
@@ -119,7 +119,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> pulumi.Output[Optional[List[Mapping[str, Any]]]]:
         """
         List of tags that can be used for describing the Pipeline.
         """
@@ -127,7 +127,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def concurrency(self) -> Optional[float]:
+    def concurrency(self) -> pulumi.Output[Optional[float]]:
         """
         The max number of concurrent runs for the pipeline.
         """
@@ -135,7 +135,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the pipeline.
         """
@@ -143,7 +143,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Etag identifies change in the resource.
         """
@@ -151,7 +151,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def folder(self) -> Optional['outputs.PipelineResponseFolder']:
+    def folder(self) -> pulumi.Output[Optional['outputs.PipelineResponseFolder']]:
         """
         The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         """
@@ -159,7 +159,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -167,7 +167,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]]:
         """
         List of parameters for pipeline.
         """
@@ -175,7 +175,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runDimensions")
-    def run_dimensions(self) -> Optional[Mapping[str, Mapping[str, Any]]]:
+    def run_dimensions(self) -> pulumi.Output[Optional[Mapping[str, Mapping[str, Any]]]]:
         """
         Dimensions emitted by Pipeline.
         """
@@ -183,7 +183,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """
@@ -191,7 +191,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Mapping[str, 'outputs.VariableSpecificationResponse']]:
+    def variables(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.VariableSpecificationResponse']]]:
         """
         List of variables for pipeline.
         """

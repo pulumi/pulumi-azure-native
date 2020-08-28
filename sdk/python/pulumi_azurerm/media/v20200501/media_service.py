@@ -15,7 +15,7 @@ __all__ = ['MediaService']
 
 class MediaService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
@@ -103,7 +103,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.AccountEncryptionResponse']:
+    def encryption(self) -> pulumi.Output[Optional['outputs.AccountEncryptionResponse']]:
         """
         The account encryption properties.
         """
@@ -111,7 +111,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.MediaServiceIdentityResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.MediaServiceIdentityResponse']]:
         """
         The Managed Identity for the Media Services account.
         """
@@ -119,7 +119,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -127,7 +127,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mediaServiceId")
-    def media_service_id(self) -> str:
+    def media_service_id(self) -> pulumi.Output[str]:
         """
         The Media Services account ID.
         """
@@ -135,7 +135,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -143,7 +143,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[List['outputs.StorageAccountResponse']]:
+    def storage_accounts(self) -> pulumi.Output[Optional[List['outputs.StorageAccountResponse']]]:
         """
         The storage accounts for this resource.
         """
@@ -151,12 +151,12 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAuthentication")
-    def storage_authentication(self) -> Optional[str]:
+    def storage_authentication(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "storage_authentication")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -164,7 +164,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

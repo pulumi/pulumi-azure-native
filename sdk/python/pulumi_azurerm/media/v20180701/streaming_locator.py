@@ -15,7 +15,7 @@ __all__ = ['StreamingLocator']
 
 class StreamingLocator(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  alternative_media_id: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alternativeMediaId")
-    def alternative_media_id(self) -> Optional[str]:
+    def alternative_media_id(self) -> pulumi.Output[Optional[str]]:
         """
         Alternative Media ID of this Streaming Locator
         """
@@ -128,7 +128,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assetName")
-    def asset_name(self) -> str:
+    def asset_name(self) -> pulumi.Output[str]:
         """
         Asset Name
         """
@@ -136,7 +136,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentKeys")
-    def content_keys(self) -> Optional[List['outputs.StreamingLocatorContentKeyResponse']]:
+    def content_keys(self) -> pulumi.Output[Optional[List['outputs.StreamingLocatorContentKeyResponse']]]:
         """
         The ContentKeys used by this Streaming Locator.
         """
@@ -144,7 +144,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The creation time of the Streaming Locator.
         """
@@ -152,7 +152,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultContentKeyPolicyName")
-    def default_content_key_policy_name(self) -> Optional[str]:
+    def default_content_key_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the default ContentKeyPolicy used by this Streaming Locator.
         """
@@ -160,7 +160,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[str]:
+    def end_time(self) -> pulumi.Output[Optional[str]]:
         """
         The end time of the Streaming Locator.
         """
@@ -168,7 +168,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List[str]]:
+    def filters(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of asset or account filters which apply to this streaming locator
         """
@@ -176,7 +176,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -184,7 +184,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[str]:
+    def start_time(self) -> pulumi.Output[Optional[str]]:
         """
         The start time of the Streaming Locator.
         """
@@ -192,7 +192,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamingLocatorId")
-    def streaming_locator_id(self) -> Optional[str]:
+    def streaming_locator_id(self) -> pulumi.Output[Optional[str]]:
         """
         The StreamingLocatorId of the Streaming Locator.
         """
@@ -200,7 +200,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamingPolicyName")
-    def streaming_policy_name(self) -> str:
+    def streaming_policy_name(self) -> pulumi.Output[str]:
         """
         Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
         """
@@ -208,7 +208,7 @@ class StreamingLocator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['HubVirtualNetworkConnection']
 
 class HubVirtualNetworkConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_hub_to_remote_vnet_transit: Optional[pulumi.Input[bool]] = None,
                  allow_remote_vnet_to_use_hub_vnet_gateways: Optional[pulumi.Input[bool]] = None,
@@ -109,7 +109,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowHubToRemoteVnetTransit")
-    def allow_hub_to_remote_vnet_transit(self) -> Optional[bool]:
+    def allow_hub_to_remote_vnet_transit(self) -> pulumi.Output[Optional[bool]]:
         """
         Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
         """
@@ -117,7 +117,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowRemoteVnetToUseHubVnetGateways")
-    def allow_remote_vnet_to_use_hub_vnet_gateways(self) -> Optional[bool]:
+    def allow_remote_vnet_to_use_hub_vnet_gateways(self) -> pulumi.Output[Optional[bool]]:
         """
         Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
         """
@@ -125,7 +125,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableInternetSecurity")
-    def enable_internet_security(self) -> Optional[bool]:
+    def enable_internet_security(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable internet security.
         """
@@ -133,7 +133,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -141,7 +141,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -149,7 +149,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the hub virtual network connection resource.
         """
@@ -157,7 +157,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remoteVirtualNetwork")
-    def remote_virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+    def remote_virtual_network(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         Reference to the remote virtual network.
         """
@@ -165,7 +165,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponse']:
+    def routing_configuration(self) -> pulumi.Output[Optional['outputs.RoutingConfigurationResponse']]:
         """
         The Routing Configuration indicating the associated and propagated route tables on this connection.
         """

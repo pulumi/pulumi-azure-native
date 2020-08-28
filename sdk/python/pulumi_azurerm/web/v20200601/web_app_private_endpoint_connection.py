@@ -15,7 +15,7 @@ __all__ = ['WebAppPrivateEndpointConnection']
 
 class WebAppPrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -102,7 +102,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -110,7 +110,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.ArmIdWrapperResponse']:
+    def private_endpoint(self) -> pulumi.Output[Optional['outputs.ArmIdWrapperResponse']]:
         """
         PrivateEndpoint of a remote private endpoint connection
         """
@@ -118,7 +118,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkConnectionStateResponse']:
+    def private_link_service_connection_state(self) -> pulumi.Output[Optional['outputs.PrivateLinkConnectionStateResponse']]:
         """
         The state of a private link connection
         """
@@ -126,12 +126,12 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

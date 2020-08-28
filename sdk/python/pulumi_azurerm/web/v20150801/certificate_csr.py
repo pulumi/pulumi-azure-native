@@ -13,7 +13,7 @@ __all__ = ['CertificateCsr']
 
 class CertificateCsr(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  csr_string: Optional[pulumi.Input[str]] = None,
                  distinguished_name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="csrString")
-    def csr_string(self) -> Optional[str]:
+    def csr_string(self) -> pulumi.Output[Optional[str]]:
         """
         Actual CSR string created
         """
@@ -120,7 +120,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="distinguishedName")
-    def distinguished_name(self) -> Optional[str]:
+    def distinguished_name(self) -> pulumi.Output[Optional[str]]:
         """
         Distinguished name of certificate to be created
         """
@@ -128,7 +128,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostingEnvironment")
-    def hosting_environment(self) -> Optional[str]:
+    def hosting_environment(self) -> pulumi.Output[Optional[str]]:
         """
         Hosting environment
         """
@@ -136,7 +136,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -144,7 +144,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -152,7 +152,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -160,7 +160,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         PFX password
         """
@@ -168,7 +168,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pfxBlob")
-    def pfx_blob(self) -> Optional[str]:
+    def pfx_blob(self) -> pulumi.Output[Optional[str]]:
         """
         PFX certificate of created certificate
         """
@@ -176,7 +176,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKeyHash")
-    def public_key_hash(self) -> Optional[str]:
+    def public_key_hash(self) -> pulumi.Output[Optional[str]]:
         """
         Hash of the certificates public key
         """
@@ -184,7 +184,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -192,7 +192,7 @@ class CertificateCsr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """

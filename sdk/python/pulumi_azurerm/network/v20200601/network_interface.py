@@ -15,7 +15,7 @@ __all__ = ['NetworkInterface']
 
 class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -117,7 +117,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional['outputs.NetworkInterfaceDnsSettingsResponse']:
+    def dns_settings(self) -> pulumi.Output[Optional['outputs.NetworkInterfaceDnsSettingsResponse']]:
         """
         The DNS settings in network interface.
         """
@@ -125,7 +125,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dscpConfiguration")
-    def dscp_configuration(self) -> 'outputs.SubResourceResponse':
+    def dscp_configuration(self) -> pulumi.Output['outputs.SubResourceResponse']:
         """
         A reference to the dscp configuration to which the network interface is linked.
         """
@@ -133,7 +133,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
-    def enable_accelerated_networking(self) -> Optional[bool]:
+    def enable_accelerated_networking(self) -> pulumi.Output[Optional[bool]]:
         """
         If the network interface is accelerated networking enabled.
         """
@@ -141,7 +141,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableIPForwarding")
-    def enable_ip_forwarding(self) -> Optional[bool]:
+    def enable_ip_forwarding(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether IP forwarding is enabled on this network interface.
         """
@@ -149,7 +149,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -157,7 +157,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedWorkloads")
-    def hosted_workloads(self) -> List[str]:
+    def hosted_workloads(self) -> pulumi.Output[List[str]]:
         """
         A list of references to linked BareMetal resources.
         """
@@ -165,7 +165,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']]:
+    def ip_configurations(self) -> pulumi.Output[Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']]]:
         """
         A list of IPConfigurations of the network interface.
         """
@@ -173,7 +173,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -181,7 +181,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> str:
+    def mac_address(self) -> pulumi.Output[str]:
         """
         The MAC address of the network interface.
         """
@@ -189,7 +189,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -197,7 +197,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkSecurityGroup")
-    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupResponse']:
+    def network_security_group(self) -> pulumi.Output[Optional['outputs.NetworkSecurityGroupResponse']]:
         """
         The reference to the NetworkSecurityGroup resource.
         """
@@ -205,7 +205,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def primary(self) -> bool:
+    def primary(self) -> pulumi.Output[bool]:
         """
         Whether this is a primary network interface on a virtual machine.
         """
@@ -213,7 +213,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+    def private_endpoint(self) -> pulumi.Output['outputs.PrivateEndpointResponse']:
         """
         A reference to the private endpoint to which the network interface is linked.
         """
@@ -221,7 +221,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the network interface resource.
         """
@@ -229,7 +229,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
+    def resource_guid(self) -> pulumi.Output[str]:
         """
         The resource GUID property of the network interface resource.
         """
@@ -237,7 +237,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -245,7 +245,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tapConfigurations")
-    def tap_configurations(self) -> List['outputs.NetworkInterfaceTapConfigurationResponse']:
+    def tap_configurations(self) -> pulumi.Output[List['outputs.NetworkInterfaceTapConfigurationResponse']]:
         """
         A list of TapConfigurations of the network interface.
         """
@@ -253,7 +253,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -261,7 +261,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachine")
-    def virtual_machine(self) -> 'outputs.SubResourceResponse':
+    def virtual_machine(self) -> pulumi.Output['outputs.SubResourceResponse']:
         """
         The reference to a virtual machine.
         """

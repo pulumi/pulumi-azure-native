@@ -15,7 +15,7 @@ __all__ = ['ServerDetails']
 
 class ServerDetails(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  as_administrators: Optional[pulumi.Input[pulumi.InputType['ServerAdministratorsArgs']]] = None,
                  backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class ServerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="asAdministrators")
-    def as_administrators(self) -> Optional['outputs.ServerAdministratorsResponse']:
+    def as_administrators(self) -> pulumi.Output[Optional['outputs.ServerAdministratorsResponse']]:
         """
         A collection of AS server administrators
         """
@@ -113,7 +113,7 @@ class ServerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupBlobContainerUri")
-    def backup_blob_container_uri(self) -> Optional[str]:
+    def backup_blob_container_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The container URI of backup blob.
         """
@@ -121,7 +121,7 @@ class ServerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Location of the Analysis Services resource.
         """
@@ -129,7 +129,7 @@ class ServerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Analysis Services resource.
         """
@@ -137,7 +137,7 @@ class ServerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
         """
@@ -145,7 +145,7 @@ class ServerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverFullName")
-    def server_full_name(self) -> str:
+    def server_full_name(self) -> pulumi.Output[str]:
         """
         The full name of the Analysis Services resource.
         """
@@ -153,7 +153,7 @@ class ServerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ResourceSkuResponse':
+    def sku(self) -> pulumi.Output['outputs.ResourceSkuResponse']:
         """
         The SKU of the Analysis Services resource.
         """
@@ -161,7 +161,7 @@ class ServerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
         """
@@ -169,7 +169,7 @@ class ServerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value pairs of additional resource provisioning properties.
         """
@@ -177,7 +177,7 @@ class ServerDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the Analysis Services resource.
         """

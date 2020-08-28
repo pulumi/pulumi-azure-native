@@ -15,7 +15,7 @@ __all__ = ['NotificationChannel']
 
 class NotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  email_recipient: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the notification channel.
         """
@@ -119,7 +119,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of notification.
         """
@@ -127,7 +127,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailRecipient")
-    def email_recipient(self) -> Optional[str]:
+    def email_recipient(self) -> pulumi.Output[Optional[str]]:
         """
         The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
         """
@@ -135,7 +135,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[List['outputs.EventResponse']]:
+    def events(self) -> pulumi.Output[Optional[List['outputs.EventResponse']]]:
         """
         The list of event for which this notification is enabled.
         """
@@ -143,7 +143,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -151,7 +151,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -159,7 +159,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationLocale")
-    def notification_locale(self) -> Optional[str]:
+    def notification_locale(self) -> pulumi.Output[Optional[str]]:
         """
         The locale to use when sending a notification (fallback for unsupported languages is EN).
         """
@@ -167,7 +167,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the resource.
         """
@@ -175,7 +175,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -183,7 +183,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -191,7 +191,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
+    def unique_identifier(self) -> pulumi.Output[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """
@@ -199,7 +199,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webHookUrl")
-    def web_hook_url(self) -> Optional[str]:
+    def web_hook_url(self) -> pulumi.Output[Optional[str]]:
         """
         The webhook URL to send notifications to.
         """

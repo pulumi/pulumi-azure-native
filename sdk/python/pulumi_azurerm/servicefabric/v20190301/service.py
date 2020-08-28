@@ -15,7 +15,7 @@ __all__ = ['Service']
 
 class Service(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="correlationScheme")
-    def correlation_scheme(self) -> Optional[List['outputs.ServiceCorrelationDescriptionResponse']]:
+    def correlation_scheme(self) -> pulumi.Output[Optional[List['outputs.ServiceCorrelationDescriptionResponse']]]:
         """
         A list that describes the correlation of the service with other services.
         """
@@ -138,7 +138,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultMoveCost")
-    def default_move_cost(self) -> Optional[str]:
+    def default_move_cost(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the move cost for the service.
         """
@@ -146,7 +146,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Azure resource etag.
         """
@@ -154,7 +154,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         It will be deprecated in New API, resource location depends on the parent resource.
         """
@@ -162,7 +162,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name.
         """
@@ -170,7 +170,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionDescription")
-    def partition_description(self) -> Optional['outputs.PartitionSchemeDescriptionResponse']:
+    def partition_description(self) -> pulumi.Output[Optional['outputs.PartitionSchemeDescriptionResponse']]:
         """
         Describes how the service is partitioned.
         """
@@ -178,7 +178,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="placementConstraints")
-    def placement_constraints(self) -> Optional[str]:
+    def placement_constraints(self) -> pulumi.Output[Optional[str]]:
         """
         The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
         """
@@ -186,7 +186,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment or provisioning state, which only appears in the response
         """
@@ -194,7 +194,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceKind")
-    def service_kind(self) -> str:
+    def service_kind(self) -> pulumi.Output[str]:
         """
         The kind of service (Stateless or Stateful).
         """
@@ -202,7 +202,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceLoadMetrics")
-    def service_load_metrics(self) -> Optional[List['outputs.ServiceLoadMetricDescriptionResponse']]:
+    def service_load_metrics(self) -> pulumi.Output[Optional[List['outputs.ServiceLoadMetricDescriptionResponse']]]:
         """
         The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         """
@@ -210,7 +210,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicePackageActivationMode")
-    def service_package_activation_mode(self) -> Optional[str]:
+    def service_package_activation_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The activation Mode of the service package
         """
@@ -218,7 +218,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicePlacementPolicies")
-    def service_placement_policies(self) -> Optional[List['outputs.ServicePlacementPolicyDescriptionResponse']]:
+    def service_placement_policies(self) -> pulumi.Output[Optional[List['outputs.ServicePlacementPolicyDescriptionResponse']]]:
         """
         A list that describes the correlation of the service with other services.
         """
@@ -226,7 +226,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceTypeName")
-    def service_type_name(self) -> Optional[str]:
+    def service_type_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the service type
         """
@@ -234,7 +234,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Azure resource tags.
         """
@@ -242,7 +242,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type.
         """

@@ -15,7 +15,7 @@ __all__ = ['ReplicationNetworkMapping']
 
 class ReplicationNetworkMapping(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  network_mapping_name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Location
         """
@@ -110,7 +110,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name
         """
@@ -118,7 +118,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.NetworkMappingPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.NetworkMappingPropertiesResponse']:
         """
         The Network Mapping Properties.
         """
@@ -126,7 +126,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource Type
         """

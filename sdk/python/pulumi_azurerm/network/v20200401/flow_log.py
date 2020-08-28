@@ -15,7 +15,7 @@ __all__ = ['FlowLog']
 
 class FlowLog(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  flow_analytics_configuration: Optional[pulumi.Input[pulumi.InputType['TrafficAnalyticsPropertiesArgs']]] = None,
@@ -122,7 +122,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Flag to enable/disable flow logging.
         """
@@ -130,7 +130,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -138,7 +138,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="flowAnalyticsConfiguration")
-    def flow_analytics_configuration(self) -> Optional['outputs.TrafficAnalyticsPropertiesResponse']:
+    def flow_analytics_configuration(self) -> pulumi.Output[Optional['outputs.TrafficAnalyticsPropertiesResponse']]:
         """
         Parameters that define the configuration of traffic analytics.
         """
@@ -146,7 +146,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> Optional['outputs.FlowLogFormatParametersResponse']:
+    def format(self) -> pulumi.Output[Optional['outputs.FlowLogFormatParametersResponse']]:
         """
         Parameters that define the flow log format.
         """
@@ -154,7 +154,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -162,7 +162,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -170,7 +170,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the flow log.
         """
@@ -178,7 +178,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional['outputs.RetentionPolicyParametersResponse']:
+    def retention_policy(self) -> pulumi.Output[Optional['outputs.RetentionPolicyParametersResponse']]:
         """
         Parameters that define the retention policy for flow log.
         """
@@ -186,7 +186,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageId")
-    def storage_id(self) -> str:
+    def storage_id(self) -> pulumi.Output[str]:
         """
         ID of the storage account which is used to store the flow log.
         """
@@ -194,7 +194,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -202,7 +202,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceGuid")
-    def target_resource_guid(self) -> str:
+    def target_resource_guid(self) -> pulumi.Output[str]:
         """
         Guid of network security group to which flow log will be applied.
         """
@@ -210,7 +210,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> str:
+    def target_resource_id(self) -> pulumi.Output[str]:
         """
         ID of network security group to which flow log will be applied.
         """
@@ -218,7 +218,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

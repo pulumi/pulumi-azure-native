@@ -14,7 +14,7 @@ __all__ = ['StorageSyncService']
 
 class StorageSyncService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  incoming_traffic_policy: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="incomingTrafficPolicy")
-    def incoming_traffic_policy(self) -> Optional[str]:
+    def incoming_traffic_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Incoming Traffic Policy
         """
@@ -107,7 +107,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastOperationName")
-    def last_operation_name(self) -> str:
+    def last_operation_name(self) -> pulumi.Output[str]:
         """
         Resource Last Operation Name
         """
@@ -115,7 +115,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastWorkflowId")
-    def last_workflow_id(self) -> str:
+    def last_workflow_id(self) -> pulumi.Output[str]:
         """
         StorageSyncService lastWorkflowId
         """
@@ -123,7 +123,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -131,7 +131,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -139,7 +139,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> pulumi.Output[List['outputs.PrivateEndpointConnectionResponse']]:
         """
         List of private endpoint connection associated with the specified storage sync service
         """
@@ -147,7 +147,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         StorageSyncService Provisioning State
         """
@@ -155,7 +155,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageSyncServiceStatus")
-    def storage_sync_service_status(self) -> float:
+    def storage_sync_service_status(self) -> pulumi.Output[float]:
         """
         Storage Sync service status.
         """
@@ -163,7 +163,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageSyncServiceUid")
-    def storage_sync_service_uid(self) -> str:
+    def storage_sync_service_uid(self) -> pulumi.Output[str]:
         """
         Storage Sync service Uid
         """
@@ -171,7 +171,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -179,7 +179,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

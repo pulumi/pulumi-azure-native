@@ -15,7 +15,7 @@ __all__ = ['BatchAccount']
 
 class BatchAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_storage: Optional[pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']]] = None,
@@ -108,7 +108,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountEndpoint")
-    def account_endpoint(self) -> str:
+    def account_endpoint(self) -> pulumi.Output[str]:
         """
         The account endpoint used to interact with the Batch service.
         """
@@ -116,12 +116,12 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeJobAndJobScheduleQuota")
-    def active_job_and_job_schedule_quota(self) -> float:
+    def active_job_and_job_schedule_quota(self) -> pulumi.Output[float]:
         return pulumi.get(self, "active_job_and_job_schedule_quota")
 
     @property
     @pulumi.getter(name="autoStorage")
-    def auto_storage(self) -> 'outputs.AutoStoragePropertiesResponse':
+    def auto_storage(self) -> pulumi.Output['outputs.AutoStoragePropertiesResponse']:
         """
         Contains information about the auto-storage account associated with a Batch account.
         """
@@ -129,7 +129,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dedicatedCoreQuota")
-    def dedicated_core_quota(self) -> float:
+    def dedicated_core_quota(self) -> pulumi.Output[float]:
         """
         For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         """
@@ -137,7 +137,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dedicatedCoreQuotaPerVMFamily")
-    def dedicated_core_quota_per_vm_family(self) -> List['outputs.VirtualMachineFamilyCoreQuotaResponse']:
+    def dedicated_core_quota_per_vm_family(self) -> pulumi.Output[List['outputs.VirtualMachineFamilyCoreQuotaResponse']]:
         """
         A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         """
@@ -145,7 +145,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dedicatedCoreQuotaPerVMFamilyEnforced")
-    def dedicated_core_quota_per_vm_family_enforced(self) -> bool:
+    def dedicated_core_quota_per_vm_family_enforced(self) -> pulumi.Output[bool]:
         """
         Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
         """
@@ -153,7 +153,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultReference")
-    def key_vault_reference(self) -> 'outputs.KeyVaultReferenceResponse':
+    def key_vault_reference(self) -> pulumi.Output['outputs.KeyVaultReferenceResponse']:
         """
         Identifies the Azure key vault associated with a Batch account.
         """
@@ -161,7 +161,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource.
         """
@@ -169,7 +169,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lowPriorityCoreQuota")
-    def low_priority_core_quota(self) -> float:
+    def low_priority_core_quota(self) -> pulumi.Output[float]:
         """
         For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         """
@@ -177,7 +177,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -185,7 +185,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolAllocationMode")
-    def pool_allocation_mode(self) -> str:
+    def pool_allocation_mode(self) -> pulumi.Output[str]:
         """
         The allocation mode for creating pools in the Batch account.
         """
@@ -193,12 +193,12 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolQuota")
-    def pool_quota(self) -> float:
+    def pool_quota(self) -> pulumi.Output[float]:
         return pulumi.get(self, "pool_quota")
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioned state of the resource
         """
@@ -206,7 +206,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The tags of the resource.
         """
@@ -214,7 +214,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

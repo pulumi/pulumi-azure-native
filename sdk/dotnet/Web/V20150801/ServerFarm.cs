@@ -142,10 +142,10 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20160901:ServerFarm"},
-                    new Alias { Type = "azurerm:web/v20180201:ServerFarm"},
-                    new Alias { Type = "azurerm:web/v20190801:ServerFarm"},
-                    new Alias { Type = "azurerm:web/v20200601:ServerFarm"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160901:ServerFarm"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:ServerFarm"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:ServerFarm"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:ServerFarm"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

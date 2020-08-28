@@ -15,7 +15,7 @@ __all__ = ['GlobalSchedule']
 
 class GlobalSchedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  daily_recurrence: Optional[pulumi.Input[pulumi.InputType['DayDetailsArgs']]] = None,
                  hourly_recurrence: Optional[pulumi.Input[pulumi.InputType['HourDetailsArgs']]] = None,
@@ -115,7 +115,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the schedule.
         """
@@ -123,7 +123,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyRecurrence")
-    def daily_recurrence(self) -> Optional['outputs.DayDetailsResponse']:
+    def daily_recurrence(self) -> pulumi.Output[Optional['outputs.DayDetailsResponse']]:
         """
         If the schedule will occur once each day of the week, specify the daily recurrence.
         """
@@ -131,7 +131,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hourlyRecurrence")
-    def hourly_recurrence(self) -> Optional['outputs.HourDetailsResponse']:
+    def hourly_recurrence(self) -> pulumi.Output[Optional['outputs.HourDetailsResponse']]:
         """
         If the schedule will occur multiple times a day, specify the hourly recurrence.
         """
@@ -139,7 +139,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -147,7 +147,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -155,7 +155,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional['outputs.NotificationSettingsResponse']:
+    def notification_settings(self) -> pulumi.Output[Optional['outputs.NotificationSettingsResponse']]:
         """
         Notification settings.
         """
@@ -163,7 +163,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the resource.
         """
@@ -171,7 +171,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the schedule (i.e. Enabled, Disabled)
         """
@@ -179,7 +179,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -187,7 +187,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[str]:
+    def target_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID to which the schedule belongs
         """
@@ -195,7 +195,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> Optional[str]:
+    def task_type(self) -> pulumi.Output[Optional[str]]:
         """
         The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         """
@@ -203,7 +203,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeZoneId")
-    def time_zone_id(self) -> Optional[str]:
+    def time_zone_id(self) -> pulumi.Output[Optional[str]]:
         """
         The time zone ID (e.g. Pacific Standard time).
         """
@@ -211,7 +211,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -219,7 +219,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
+    def unique_identifier(self) -> pulumi.Output[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """
@@ -227,7 +227,7 @@ class GlobalSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklyRecurrence")
-    def weekly_recurrence(self) -> Optional['outputs.WeekDetailsResponse']:
+    def weekly_recurrence(self) -> pulumi.Output[Optional['outputs.WeekDetailsResponse']]:
         """
         If the schedule will occur only some days of the week, specify the weekly recurrence.
         """

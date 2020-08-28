@@ -111,8 +111,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:databoxedge/v20190301:Share"},
-                    new Alias { Type = "azurerm:databoxedge/v20190801:Share"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:Share"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

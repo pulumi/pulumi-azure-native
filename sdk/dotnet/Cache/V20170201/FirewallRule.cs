@@ -63,9 +63,9 @@ namespace Pulumi.AzureRM.Cache.V20170201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:cache/v20160401:FirewallRule"},
-                    new Alias { Type = "azurerm:cache/v20171001:FirewallRule"},
-                    new Alias { Type = "azurerm:cache/v20180301:FirewallRule"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20160401:FirewallRule"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20171001:FirewallRule"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20180301:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

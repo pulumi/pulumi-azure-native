@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.Management.V20200201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:management/v20200501:HierarchySetting"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20200501:HierarchySetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

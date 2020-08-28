@@ -15,7 +15,7 @@ __all__ = ['ActivityLogAlert']
 
 class ActivityLogAlert(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertActionListArgs']]] = None,
                  activity_log_alert_name: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> 'outputs.ActivityLogAlertActionListResponse':
+    def actions(self) -> pulumi.Output['outputs.ActivityLogAlertActionListResponse']:
         """
         The actions that will activate when the condition is met.
         """
@@ -118,7 +118,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def condition(self) -> 'outputs.ActivityLogAlertAllOfConditionResponse':
+    def condition(self) -> pulumi.Output['outputs.ActivityLogAlertAllOfConditionResponse']:
         """
         The condition that will cause this alert to activate.
         """
@@ -126,7 +126,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of this activity log alert.
         """
@@ -134,7 +134,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
         """
@@ -142,7 +142,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -150,7 +150,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -158,7 +158,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> List[str]:
+    def scopes(self) -> pulumi.Output[List[str]]:
         """
         A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
         """
@@ -166,7 +166,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -174,7 +174,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """

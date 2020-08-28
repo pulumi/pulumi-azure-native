@@ -15,7 +15,7 @@ __all__ = ['Cluster']
 
 class Cluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  node_setup: Optional[pulumi.Input[pulumi.InputType['NodeSetupArgs']]] = None,
@@ -119,7 +119,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationState")
-    def allocation_state(self) -> str:
+    def allocation_state(self) -> pulumi.Output[str]:
         """
         Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
         """
@@ -127,7 +127,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationStateTransitionTime")
-    def allocation_state_transition_time(self) -> str:
+    def allocation_state_transition_time(self) -> pulumi.Output[str]:
         """
         The time at which the cluster entered its current allocation state.
         """
@@ -135,7 +135,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         The time when the cluster was created.
         """
@@ -143,7 +143,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentNodeCount")
-    def current_node_count(self) -> float:
+    def current_node_count(self) -> pulumi.Output[float]:
         """
         The number of compute nodes currently assigned to the cluster.
         """
@@ -151,7 +151,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def errors(self) -> List['outputs.BatchAIErrorResponse']:
+    def errors(self) -> pulumi.Output[List['outputs.BatchAIErrorResponse']]:
         """
         Collection of errors encountered by various compute nodes during node setup.
         """
@@ -159,7 +159,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -167,7 +167,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeSetup")
-    def node_setup(self) -> Optional['outputs.NodeSetupResponse']:
+    def node_setup(self) -> pulumi.Output[Optional['outputs.NodeSetupResponse']]:
         """
         Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
         """
@@ -175,7 +175,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeStateCounts")
-    def node_state_counts(self) -> 'outputs.NodeStateCountsResponse':
+    def node_state_counts(self) -> pulumi.Output['outputs.NodeStateCountsResponse']:
         """
         Counts of various node states on the cluster.
         """
@@ -183,7 +183,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
         """
@@ -191,7 +191,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningStateTransitionTime")
-    def provisioning_state_transition_time(self) -> str:
+    def provisioning_state_transition_time(self) -> pulumi.Output[str]:
         """
         Time when the provisioning state was changed.
         """
@@ -199,7 +199,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleSettings")
-    def scale_settings(self) -> Optional['outputs.ScaleSettingsResponse']:
+    def scale_settings(self) -> pulumi.Output[Optional['outputs.ScaleSettingsResponse']]:
         """
         Scale settings of the cluster.
         """
@@ -207,7 +207,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.ResourceIdResponse']:
+    def subnet(self) -> pulumi.Output[Optional['outputs.ResourceIdResponse']]:
         """
         Virtual network subnet resource ID the cluster nodes belong to.
         """
@@ -215,7 +215,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -223,7 +223,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userAccountSettings")
-    def user_account_settings(self) -> Optional['outputs.UserAccountSettingsResponse']:
+    def user_account_settings(self) -> pulumi.Output[Optional['outputs.UserAccountSettingsResponse']]:
         """
         Administrator user account settings which can be used to SSH to compute nodes.
         """
@@ -231,7 +231,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineConfiguration")
-    def virtual_machine_configuration(self) -> Optional['outputs.VirtualMachineConfigurationResponse']:
+    def virtual_machine_configuration(self) -> pulumi.Output[Optional['outputs.VirtualMachineConfigurationResponse']]:
         """
         Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
         """
@@ -239,7 +239,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmPriority")
-    def vm_priority(self) -> Optional[str]:
+    def vm_priority(self) -> pulumi.Output[Optional[str]]:
         """
         VM priority of cluster nodes.
         """
@@ -247,7 +247,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[str]:
+    def vm_size(self) -> pulumi.Output[Optional[str]]:
         """
         The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
         """

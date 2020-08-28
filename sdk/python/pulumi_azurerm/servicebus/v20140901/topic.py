@@ -14,7 +14,7 @@ __all__ = ['Topic']
 
 class Topic(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
                  default_message_time_to_live: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessedAt")
-    def accessed_at(self) -> str:
+    def accessed_at(self) -> pulumi.Output[str]:
         """
         Last time the message was sent, or a request was received, for this topic.
         """
@@ -149,7 +149,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> Optional[str]:
+    def auto_delete_on_idle(self) -> pulumi.Output[Optional[str]]:
         """
         TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         """
@@ -157,7 +157,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="countDetails")
-    def count_details(self) -> 'outputs.MessageCountDetailsResponse':
+    def count_details(self) -> pulumi.Output['outputs.MessageCountDetailsResponse']:
         """
         Message Count Details.
         """
@@ -165,7 +165,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         Exact time the message was created.
         """
@@ -173,7 +173,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultMessageTimeToLive")
-    def default_message_time_to_live(self) -> Optional[str]:
+    def default_message_time_to_live(self) -> pulumi.Output[Optional[str]]:
         """
         Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         """
@@ -181,7 +181,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
-    def duplicate_detection_history_time_window(self) -> Optional[str]:
+    def duplicate_detection_history_time_window(self) -> pulumi.Output[Optional[str]]:
         """
         TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
         """
@@ -189,7 +189,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> Optional[bool]:
+    def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
         """
         Value that indicates whether server-side batched operations are enabled.
         """
@@ -197,7 +197,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableExpress")
-    def enable_express(self) -> Optional[bool]:
+    def enable_express(self) -> pulumi.Output[Optional[bool]]:
         """
         Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         """
@@ -205,7 +205,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePartitioning")
-    def enable_partitioning(self) -> Optional[bool]:
+    def enable_partitioning(self) -> pulumi.Output[Optional[bool]]:
         """
         Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
         """
@@ -213,7 +213,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entityAvailabilityStatus")
-    def entity_availability_status(self) -> Optional[str]:
+    def entity_availability_status(self) -> pulumi.Output[Optional[str]]:
         """
         Entity availability status for the topic.
         """
@@ -221,7 +221,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filteringMessagesBeforePublishing")
-    def filtering_messages_before_publishing(self) -> Optional[bool]:
+    def filtering_messages_before_publishing(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether messages should be filtered before publishing.
         """
@@ -229,7 +229,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isAnonymousAccessible")
-    def is_anonymous_accessible(self) -> Optional[bool]:
+    def is_anonymous_accessible(self) -> pulumi.Output[Optional[bool]]:
         """
         Value that indicates whether the message is accessible anonymously.
         """
@@ -237,12 +237,12 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isExpress")
-    def is_express(self) -> Optional[bool]:
+    def is_express(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "is_express")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -250,7 +250,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> Optional[float]:
+    def max_size_in_megabytes(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
         """
@@ -258,7 +258,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -266,7 +266,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresDuplicateDetection")
-    def requires_duplicate_detection(self) -> Optional[bool]:
+    def requires_duplicate_detection(self) -> pulumi.Output[Optional[bool]]:
         """
         Value indicating if this topic requires duplicate detection.
         """
@@ -274,7 +274,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> float:
+    def size_in_bytes(self) -> pulumi.Output[float]:
         """
         Size of the topic, in bytes.
         """
@@ -282,7 +282,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Enumerates the possible values for the status of a messaging entity.
         """
@@ -290,7 +290,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionCount")
-    def subscription_count(self) -> float:
+    def subscription_count(self) -> pulumi.Output[float]:
         """
         Number of subscriptions.
         """
@@ -298,7 +298,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportOrdering")
-    def support_ordering(self) -> Optional[bool]:
+    def support_ordering(self) -> pulumi.Output[Optional[bool]]:
         """
         Value that indicates whether the topic supports ordering.
         """
@@ -306,7 +306,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -314,7 +314,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> str:
+    def updated_at(self) -> pulumi.Output[str]:
         """
         The exact time the message was updated.
         """

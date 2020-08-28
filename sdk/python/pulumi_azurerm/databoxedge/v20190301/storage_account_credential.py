@@ -15,7 +15,7 @@ __all__ = ['StorageAccountCredential']
 
 class StorageAccountCredential(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  account_type: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+    def account_key(self) -> pulumi.Output[Optional['outputs.AsymmetricEncryptedSecretResponse']]:
         """
         Encrypted storage key.
         """
@@ -122,7 +122,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountType")
-    def account_type(self) -> str:
+    def account_type(self) -> pulumi.Output[str]:
         """
         Type of storage accessed on the storage account.
         """
@@ -130,7 +130,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> pulumi.Output[str]:
         """
         Alias for the storage account.
         """
@@ -138,7 +138,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blobDomainName")
-    def blob_domain_name(self) -> Optional[str]:
+    def blob_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         Blob end point for private clouds.
         """
@@ -146,7 +146,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[str]:
+    def connection_string(self) -> pulumi.Output[Optional[str]]:
         """
         Connection string for the storage account. Use this string if username and account key are not specified.
         """
@@ -154,7 +154,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The object name.
         """
@@ -162,7 +162,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslStatus")
-    def ssl_status(self) -> str:
+    def ssl_status(self) -> pulumi.Output[str]:
         """
         Signifies whether SSL needs to be enabled or not.
         """
@@ -170,7 +170,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """
@@ -178,7 +178,7 @@ class StorageAccountCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[str]:
+    def user_name(self) -> pulumi.Output[Optional[str]]:
         """
         Username for the storage account.
         """

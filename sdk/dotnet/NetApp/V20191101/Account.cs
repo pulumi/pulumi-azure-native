@@ -75,13 +75,13 @@ namespace Pulumi.AzureRM.NetApp.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:netapp/v20190501:Account"},
-                    new Alias { Type = "azurerm:netapp/v20190601:Account"},
-                    new Alias { Type = "azurerm:netapp/v20190701:Account"},
-                    new Alias { Type = "azurerm:netapp/v20190801:Account"},
-                    new Alias { Type = "azurerm:netapp/v20191001:Account"},
-                    new Alias { Type = "azurerm:netapp/v20200201:Account"},
-                    new Alias { Type = "azurerm:netapp/v20200601:Account"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20190501:Account"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Account"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20190701:Account"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20190801:Account"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20191001:Account"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20200201:Account"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20200601:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

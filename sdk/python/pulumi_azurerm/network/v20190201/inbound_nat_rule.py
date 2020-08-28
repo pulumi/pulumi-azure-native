@@ -15,7 +15,7 @@ __all__ = ['InboundNatRule']
 
 class InboundNatRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_port: Optional[pulumi.Input[float]] = None,
                  enable_floating_ip: Optional[pulumi.Input[bool]] = None,
@@ -120,7 +120,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendIPConfiguration")
-    def backend_ip_configuration(self) -> 'outputs.NetworkInterfaceIPConfigurationResponse':
+    def backend_ip_configuration(self) -> pulumi.Output['outputs.NetworkInterfaceIPConfigurationResponse']:
         """
         A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
         """
@@ -128,7 +128,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[float]:
+    def backend_port(self) -> pulumi.Output[Optional[float]]:
         """
         The port used for the internal endpoint. Acceptable values range from 1 to 65535.
         """
@@ -136,7 +136,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableFloatingIP")
-    def enable_floating_ip(self) -> Optional[bool]:
+    def enable_floating_ip(self) -> pulumi.Output[Optional[bool]]:
         """
         Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
         """
@@ -144,7 +144,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableTcpReset")
-    def enable_tcp_reset(self) -> Optional[bool]:
+    def enable_tcp_reset(self) -> pulumi.Output[Optional[bool]]:
         """
         Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         """
@@ -152,7 +152,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -160,7 +160,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendIPConfiguration")
-    def frontend_ip_configuration(self) -> Optional['outputs.SubResourceResponse']:
+    def frontend_ip_configuration(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         A reference to frontend IP addresses.
         """
@@ -168,7 +168,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[float]:
+    def frontend_port(self) -> pulumi.Output[Optional[float]]:
         """
         The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
         """
@@ -176,7 +176,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         """
@@ -184,7 +184,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -192,7 +192,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[str]:
+    def protocol(self) -> pulumi.Output[Optional[str]]:
         """
         The reference to the transport protocol used by the load balancing rule.
         """
@@ -200,7 +200,7 @@ class InboundNatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """

@@ -13,7 +13,7 @@ __all__ = ['WebAppSourceControl']
 
 class WebAppSourceControl(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  deployment_rollback_enabled: Optional[pulumi.Input[bool]] = None,
@@ -98,7 +98,7 @@ class WebAppSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def branch(self) -> Optional[str]:
+    def branch(self) -> pulumi.Output[Optional[str]]:
         """
         Name of branch to use for deployment.
         """
@@ -106,7 +106,7 @@ class WebAppSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentRollbackEnabled")
-    def deployment_rollback_enabled(self) -> Optional[bool]:
+    def deployment_rollback_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
         """
@@ -114,7 +114,7 @@ class WebAppSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isManualIntegration")
-    def is_manual_integration(self) -> Optional[bool]:
+    def is_manual_integration(self) -> pulumi.Output[Optional[bool]]:
         """
         <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
         """
@@ -122,7 +122,7 @@ class WebAppSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isMercurial")
-    def is_mercurial(self) -> Optional[bool]:
+    def is_mercurial(self) -> pulumi.Output[Optional[bool]]:
         """
         <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
         """
@@ -130,7 +130,7 @@ class WebAppSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -138,7 +138,7 @@ class WebAppSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -146,7 +146,7 @@ class WebAppSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoUrl")
-    def repo_url(self) -> Optional[str]:
+    def repo_url(self) -> pulumi.Output[Optional[str]]:
         """
         Repository or source control URL.
         """
@@ -154,7 +154,7 @@ class WebAppSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

@@ -15,7 +15,7 @@ __all__ = ['Subnet']
 
 class Subnet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -129,7 +129,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[str]:
+    def address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The address prefix for the subnet.
         """
@@ -137,7 +137,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[List[str]]:
+    def address_prefixes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of  address prefixes for the subnet.
         """
@@ -145,7 +145,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def delegations(self) -> Optional[List['outputs.DelegationResponse']]:
+    def delegations(self) -> pulumi.Output[Optional[List['outputs.DelegationResponse']]]:
         """
         Gets an array of references to the delegations on the subnet.
         """
@@ -153,7 +153,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -161,7 +161,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="interfaceEndpoints")
-    def interface_endpoints(self) -> List['outputs.InterfaceEndpointResponse']:
+    def interface_endpoints(self) -> pulumi.Output[List['outputs.InterfaceEndpointResponse']]:
         """
         An array of references to interface endpoints 
         """
@@ -169,7 +169,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurationProfiles")
-    def ip_configuration_profiles(self) -> List['outputs.IPConfigurationProfileResponse']:
+    def ip_configuration_profiles(self) -> pulumi.Output[List['outputs.IPConfigurationProfileResponse']]:
         """
         Array of IP configuration profiles which reference this subnet.
         """
@@ -177,7 +177,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.IPConfigurationResponse']:
+    def ip_configurations(self) -> pulumi.Output[List['outputs.IPConfigurationResponse']]:
         """
         Gets an array of references to the network interface IP configurations using subnet.
         """
@@ -185,7 +185,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -193,7 +193,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkSecurityGroup")
-    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupResponse']:
+    def network_security_group(self) -> pulumi.Output[Optional['outputs.NetworkSecurityGroupResponse']]:
         """
         The reference of the NetworkSecurityGroup resource.
         """
@@ -201,7 +201,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the resource.
         """
@@ -209,7 +209,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def purpose(self) -> str:
+    def purpose(self) -> pulumi.Output[str]:
         """
         A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
         """
@@ -217,7 +217,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceNavigationLinks")
-    def resource_navigation_links(self) -> Optional[List['outputs.ResourceNavigationLinkResponse']]:
+    def resource_navigation_links(self) -> pulumi.Output[Optional[List['outputs.ResourceNavigationLinkResponse']]]:
         """
         Gets an array of references to the external resources using subnet.
         """
@@ -225,7 +225,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeTable")
-    def route_table(self) -> Optional['outputs.RouteTableResponse']:
+    def route_table(self) -> pulumi.Output[Optional['outputs.RouteTableResponse']]:
         """
         The reference of the RouteTable resource.
         """
@@ -233,7 +233,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceAssociationLinks")
-    def service_association_links(self) -> Optional[List['outputs.ServiceAssociationLinkResponse']]:
+    def service_association_links(self) -> pulumi.Output[Optional[List['outputs.ServiceAssociationLinkResponse']]]:
         """
         Gets an array of references to services injecting into this subnet.
         """
@@ -241,7 +241,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceEndpointPolicies")
-    def service_endpoint_policies(self) -> Optional[List['outputs.ServiceEndpointPolicyResponse']]:
+    def service_endpoint_policies(self) -> pulumi.Output[Optional[List['outputs.ServiceEndpointPolicyResponse']]]:
         """
         An array of service endpoint policies.
         """
@@ -249,7 +249,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Optional[List['outputs.ServiceEndpointPropertiesFormatResponse']]:
+    def service_endpoints(self) -> pulumi.Output[Optional[List['outputs.ServiceEndpointPropertiesFormatResponse']]]:
         """
         An array of service endpoints.
         """

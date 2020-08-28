@@ -13,7 +13,7 @@ __all__ = ['Disk']
 
 class Disk(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disk_blob_name: Optional[pulumi.Input[str]] = None,
                  disk_size_gi_b: Optional[pulumi.Input[float]] = None,
@@ -120,7 +120,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the disk.
         """
@@ -128,7 +128,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskBlobName")
-    def disk_blob_name(self) -> Optional[str]:
+    def disk_blob_name(self) -> pulumi.Output[Optional[str]]:
         """
         When backed by a blob, the name of the VHD blob without extension.
         """
@@ -136,7 +136,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeGiB")
-    def disk_size_gi_b(self) -> Optional[float]:
+    def disk_size_gi_b(self) -> pulumi.Output[Optional[float]]:
         """
         The size of the disk in GibiBytes.
         """
@@ -144,7 +144,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskType")
-    def disk_type(self) -> Optional[str]:
+    def disk_type(self) -> pulumi.Output[Optional[str]]:
         """
         The storage type for the disk (i.e. Standard, Premium).
         """
@@ -152,7 +152,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskUri")
-    def disk_uri(self) -> Optional[str]:
+    def disk_uri(self) -> pulumi.Output[Optional[str]]:
         """
         When backed by a blob, the URI of underlying blob.
         """
@@ -160,7 +160,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostCaching")
-    def host_caching(self) -> Optional[str]:
+    def host_caching(self) -> pulumi.Output[Optional[str]]:
         """
         The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
         """
@@ -168,7 +168,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="leasedByLabVmId")
-    def leased_by_lab_vm_id(self) -> Optional[str]:
+    def leased_by_lab_vm_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID of the VM to which this disk is leased.
         """
@@ -176,7 +176,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -184,7 +184,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedDiskId")
-    def managed_disk_id(self) -> Optional[str]:
+    def managed_disk_id(self) -> pulumi.Output[Optional[str]]:
         """
         When backed by managed disk, this is the ID of the compute disk resource.
         """
@@ -192,7 +192,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -200,7 +200,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the resource.
         """
@@ -208,7 +208,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -216,7 +216,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -224,7 +224,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
+    def unique_identifier(self) -> pulumi.Output[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """

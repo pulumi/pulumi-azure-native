@@ -15,7 +15,7 @@ __all__ = ['PeerAsn']
 
 class PeerAsn(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  peer_asn: Optional[pulumi.Input[float]] = None,
                  peer_asn_name: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class PeerAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> str:
+    def error_message(self) -> pulumi.Output[str]:
         """
         The error message for the validation state
         """
@@ -97,7 +97,7 @@ class PeerAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -105,7 +105,7 @@ class PeerAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> Optional[float]:
+    def peer_asn(self) -> pulumi.Output[Optional[float]]:
         """
         The Autonomous System Number (ASN) of the peer.
         """
@@ -113,7 +113,7 @@ class PeerAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerContactDetail")
-    def peer_contact_detail(self) -> Optional[List['outputs.ContactDetailResponse']]:
+    def peer_contact_detail(self) -> pulumi.Output[Optional[List['outputs.ContactDetailResponse']]]:
         """
         The contact details of the peer.
         """
@@ -121,7 +121,7 @@ class PeerAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerName")
-    def peer_name(self) -> Optional[str]:
+    def peer_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the peer.
         """
@@ -129,7 +129,7 @@ class PeerAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -137,7 +137,7 @@ class PeerAsn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationState")
-    def validation_state(self) -> Optional[str]:
+    def validation_state(self) -> pulumi.Output[Optional[str]]:
         """
         The validation state of the ASN associated with the peer.
         """

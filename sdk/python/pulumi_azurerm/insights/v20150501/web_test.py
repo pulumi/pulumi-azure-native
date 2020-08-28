@@ -15,7 +15,7 @@ __all__ = ['WebTest']
 
 class WebTest(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional['outputs.WebTestPropertiesResponseConfiguration']:
+    def configuration(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesResponseConfiguration']]:
         """
         An XML configuration specification for a WebTest.
         """
@@ -134,7 +134,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Purpose/user defined descriptive test for this WebTest.
         """
@@ -142,7 +142,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the test actively being monitored.
         """
@@ -150,7 +150,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[float]:
+    def frequency(self) -> pulumi.Output[Optional[float]]:
         """
         Interval in seconds between test runs for this WebTest. Default value is 300.
         """
@@ -158,7 +158,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The kind of web test that this web test watches. Choices are ping and multistep.
         """
@@ -166,7 +166,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -174,7 +174,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> List['outputs.WebTestGeolocationResponse']:
+    def locations(self) -> pulumi.Output[List['outputs.WebTestGeolocationResponse']]:
         """
         A list of where to physically run the tests from to give global coverage for accessibility of your application.
         """
@@ -182,7 +182,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -190,7 +190,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         """
@@ -198,7 +198,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retryEnabled")
-    def retry_enabled(self) -> Optional[bool]:
+    def retry_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Allow for retries should this WebTest fail.
         """
@@ -206,7 +206,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="syntheticMonitorId")
-    def synthetic_monitor_id(self) -> str:
+    def synthetic_monitor_id(self) -> pulumi.Output[str]:
         """
         Unique ID of this WebTest. This is typically the same value as the Name field.
         """
@@ -214,7 +214,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -222,7 +222,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> pulumi.Output[Optional[float]]:
         """
         Seconds until this WebTest will timeout and fail. Default value is 30.
         """
@@ -230,7 +230,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """
@@ -238,7 +238,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webTestKind")
-    def web_test_kind(self) -> str:
+    def web_test_kind(self) -> pulumi.Output[str]:
         """
         The kind of web test this is, valid choices are ping and multistep.
         """
@@ -246,7 +246,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webTestName")
-    def web_test_name(self) -> str:
+    def web_test_name(self) -> pulumi.Output[str]:
         """
         User defined name if this WebTest.
         """

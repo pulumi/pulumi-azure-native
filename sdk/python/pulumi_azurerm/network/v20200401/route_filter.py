@@ -15,7 +15,7 @@ __all__ = ['RouteFilter']
 
 class RouteFilter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -109,7 +109,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6Peerings")
-    def ipv6_peerings(self) -> List['outputs.ExpressRouteCircuitPeeringResponse']:
+    def ipv6_peerings(self) -> pulumi.Output[List['outputs.ExpressRouteCircuitPeeringResponse']]:
         """
         A collection of references to express route circuit ipv6 peerings.
         """
@@ -117,7 +117,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -125,7 +125,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -133,7 +133,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def peerings(self) -> List['outputs.ExpressRouteCircuitPeeringResponse']:
+    def peerings(self) -> pulumi.Output[List['outputs.ExpressRouteCircuitPeeringResponse']]:
         """
         A collection of references to express route circuit peerings.
         """
@@ -141,7 +141,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the route filter resource.
         """
@@ -149,7 +149,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.RouteFilterRuleResponse']]:
+    def rules(self) -> pulumi.Output[Optional[List['outputs.RouteFilterRuleResponse']]]:
         """
         Collection of RouteFilterRules contained within a route filter.
         """
@@ -157,7 +157,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -165,7 +165,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

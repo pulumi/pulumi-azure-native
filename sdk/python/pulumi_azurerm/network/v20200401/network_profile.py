@@ -15,7 +15,7 @@ __all__ = ['NetworkProfile']
 
 class NetworkProfile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_network_interface_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceConfigurationArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerNetworkInterfaceConfigurations")
-    def container_network_interface_configurations(self) -> Optional[List['outputs.ContainerNetworkInterfaceConfigurationResponse']]:
+    def container_network_interface_configurations(self) -> pulumi.Output[Optional[List['outputs.ContainerNetworkInterfaceConfigurationResponse']]]:
         """
         List of chid container network interface configurations.
         """
@@ -107,7 +107,7 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerNetworkInterfaces")
-    def container_network_interfaces(self) -> List['outputs.ContainerNetworkInterfaceResponse']:
+    def container_network_interfaces(self) -> pulumi.Output[List['outputs.ContainerNetworkInterfaceResponse']]:
         """
         List of child container network interfaces.
         """
@@ -115,7 +115,7 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -123,7 +123,7 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -131,7 +131,7 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -139,7 +139,7 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the network profile resource.
         """
@@ -147,7 +147,7 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
+    def resource_guid(self) -> pulumi.Output[str]:
         """
         The resource GUID property of the network profile resource.
         """
@@ -155,7 +155,7 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -163,7 +163,7 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

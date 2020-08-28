@@ -13,7 +13,7 @@ __all__ = ['ContentType']
 
 class ContentType(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class ContentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Content type description.
         """
@@ -95,7 +95,7 @@ class ContentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -103,7 +103,7 @@ class ContentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional[Mapping[str, Any]]:
+    def schema(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Content type schema.
         """
@@ -111,7 +111,7 @@ class ContentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -119,7 +119,7 @@ class ContentType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         Content type version.
         """

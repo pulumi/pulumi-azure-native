@@ -13,7 +13,7 @@ __all__ = ['Group']
 
 class Group(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def assessments(self) -> List[str]:
+    def assessments(self) -> pulumi.Output[List[str]]:
         """
         List of References to Assessments created on this group.
         """
@@ -103,7 +103,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTimestamp")
-    def created_timestamp(self) -> str:
+    def created_timestamp(self) -> pulumi.Output[str]:
         """
         Time when this project was created. Date-Time represented in ISO-8601 format.
         """
@@ -111,7 +111,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         For optimistic concurrency control.
         """
@@ -119,7 +119,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def machines(self) -> List[str]:
+    def machines(self) -> pulumi.Output[List[str]]:
         """
         List of machine names that are part of this group.
         """
@@ -127,7 +127,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the group.
         """
@@ -135,7 +135,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the object = [Microsoft.Migrate/projects/groups].
         """
@@ -143,7 +143,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedTimestamp")
-    def updated_timestamp(self) -> str:
+    def updated_timestamp(self) -> pulumi.Output[str]:
         """
         Time when this project was last updated. Date-Time represented in ISO-8601 format.
         """

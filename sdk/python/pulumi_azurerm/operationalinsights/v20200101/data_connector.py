@@ -13,7 +13,7 @@ __all__ = ['DataConnector']
 
 class DataConnector(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class DataConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Etag of the azure resource
         """
@@ -100,7 +100,7 @@ class DataConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         The data connector kind
         """
@@ -108,7 +108,7 @@ class DataConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -116,7 +116,7 @@ class DataConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """

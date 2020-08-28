@@ -13,7 +13,7 @@ __all__ = ['PolicyAssignment']
 
 class PolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name of the policy assignment.
         """
@@ -100,7 +100,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the policy assignment.
         """
@@ -108,7 +108,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionId")
-    def policy_definition_id(self) -> Optional[str]:
+    def policy_definition_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the policy definition.
         """
@@ -116,7 +116,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[str]:
+    def scope(self) -> pulumi.Output[Optional[str]]:
         """
         The scope for the policy assignment.
         """
@@ -124,7 +124,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the policy assignment.
         """

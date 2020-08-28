@@ -13,7 +13,7 @@ __all__ = ['Connector']
 
 class Connector(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  connector_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
@@ -110,7 +110,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorId")
-    def connector_id(self) -> float:
+    def connector_id(self) -> pulumi.Output[float]:
         """
         ID of the connector.
         """
@@ -118,7 +118,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorName")
-    def connector_name(self) -> Optional[str]:
+    def connector_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the connector.
         """
@@ -126,7 +126,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorProperties")
-    def connector_properties(self) -> Mapping[str, Mapping[str, Any]]:
+    def connector_properties(self) -> pulumi.Output[Mapping[str, Mapping[str, Any]]]:
         """
         The connector properties.
         """
@@ -134,7 +134,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> str:
+    def connector_type(self) -> pulumi.Output[str]:
         """
         Type of connector.
         """
@@ -142,7 +142,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The created time.
         """
@@ -150,7 +150,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the connector.
         """
@@ -158,7 +158,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         Display name of the connector.
         """
@@ -166,7 +166,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isInternal")
-    def is_internal(self) -> Optional[bool]:
+    def is_internal(self) -> pulumi.Output[Optional[bool]]:
         """
         If this is an internal connector.
         """
@@ -174,7 +174,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> pulumi.Output[str]:
         """
         The last modified time.
         """
@@ -182,7 +182,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -190,7 +190,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         State of connector.
         """
@@ -198,7 +198,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The hub name.
         """
@@ -206,7 +206,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

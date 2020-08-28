@@ -15,7 +15,7 @@ __all__ = ['CustomImage']
 
 class CustomImage(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[str]] = None,
                  custom_image_plan: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromPlanArgs']]] = None,
@@ -123,7 +123,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def author(self) -> Optional[str]:
+    def author(self) -> pulumi.Output[Optional[str]]:
         """
         The author of the custom image.
         """
@@ -131,7 +131,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The creation date of the custom image.
         """
@@ -139,7 +139,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customImagePlan")
-    def custom_image_plan(self) -> Optional['outputs.CustomImagePropertiesFromPlanResponse']:
+    def custom_image_plan(self) -> pulumi.Output[Optional['outputs.CustomImagePropertiesFromPlanResponse']]:
         """
         Storage information about the plan related to this custom image
         """
@@ -147,7 +147,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataDiskStorageInfo")
-    def data_disk_storage_info(self) -> Optional[List['outputs.DataDiskStorageTypeInfoResponse']]:
+    def data_disk_storage_info(self) -> pulumi.Output[Optional[List['outputs.DataDiskStorageTypeInfoResponse']]]:
         """
         Storage information about the data disks present in the custom image
         """
@@ -155,7 +155,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the custom image.
         """
@@ -163,7 +163,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isPlanAuthorized")
-    def is_plan_authorized(self) -> Optional[bool]:
+    def is_plan_authorized(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
         """
@@ -171,7 +171,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -179,7 +179,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedImageId")
-    def managed_image_id(self) -> Optional[str]:
+    def managed_image_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Managed Image Id backing the custom image.
         """
@@ -187,7 +187,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedSnapshotId")
-    def managed_snapshot_id(self) -> Optional[str]:
+    def managed_snapshot_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Managed Snapshot Id backing the custom image.
         """
@@ -195,7 +195,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -203,7 +203,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the resource.
         """
@@ -211,7 +211,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -219,7 +219,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -227,7 +227,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
+    def unique_identifier(self) -> pulumi.Output[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """
@@ -235,7 +235,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vhd(self) -> Optional['outputs.CustomImagePropertiesCustomResponse']:
+    def vhd(self) -> pulumi.Output[Optional['outputs.CustomImagePropertiesCustomResponse']]:
         """
         The VHD from which the image is to be created.
         """
@@ -243,7 +243,7 @@ class CustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vm(self) -> Optional['outputs.CustomImagePropertiesFromVmResponse']:
+    def vm(self) -> pulumi.Output[Optional['outputs.CustomImagePropertiesFromVmResponse']]:
         """
         The virtual machine from which the image is to be created.
         """

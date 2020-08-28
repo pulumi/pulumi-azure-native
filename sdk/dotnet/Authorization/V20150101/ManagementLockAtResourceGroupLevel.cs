@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.Authorization.V20150101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:authorization/v20160901:ManagementLockAtResourceGroupLevel"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/v20160901:ManagementLockAtResourceGroupLevel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

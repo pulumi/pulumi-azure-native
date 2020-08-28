@@ -14,7 +14,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  host_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
@@ -125,7 +125,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cerBlob")
-    def cer_blob(self) -> str:
+    def cer_blob(self) -> pulumi.Output[str]:
         """
         Raw bytes of .cer file
         """
@@ -133,7 +133,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> str:
+    def expiration_date(self) -> pulumi.Output[str]:
         """
         Certificate expiration date.
         """
@@ -141,7 +141,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> str:
+    def friendly_name(self) -> pulumi.Output[str]:
         """
         Friendly name of the certificate.
         """
@@ -149,7 +149,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> Optional[List[str]]:
+    def host_names(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Host names the certificate applies to.
         """
@@ -157,7 +157,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfile")
-    def hosting_environment_profile(self) -> 'outputs.HostingEnvironmentProfileResponse':
+    def hosting_environment_profile(self) -> pulumi.Output['outputs.HostingEnvironmentProfileResponse']:
         """
         Specification for the App Service Environment to use for the certificate.
         """
@@ -165,7 +165,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="issueDate")
-    def issue_date(self) -> str:
+    def issue_date(self) -> pulumi.Output[str]:
         """
         Certificate issue Date.
         """
@@ -173,7 +173,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def issuer(self) -> str:
+    def issuer(self) -> pulumi.Output[str]:
         """
         Certificate issuer.
         """
@@ -181,7 +181,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> Optional[str]:
+    def key_vault_id(self) -> pulumi.Output[Optional[str]]:
         """
         Key Vault Csm resource Id.
         """
@@ -189,7 +189,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultSecretName")
-    def key_vault_secret_name(self) -> Optional[str]:
+    def key_vault_secret_name(self) -> pulumi.Output[Optional[str]]:
         """
         Key Vault secret name.
         """
@@ -197,7 +197,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultSecretStatus")
-    def key_vault_secret_status(self) -> str:
+    def key_vault_secret_status(self) -> pulumi.Output[str]:
         """
         Status of the Key Vault secret.
         """
@@ -205,7 +205,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -213,7 +213,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location.
         """
@@ -221,7 +221,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -229,7 +229,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> str:
+    def password(self) -> pulumi.Output[str]:
         """
         Certificate password.
         """
@@ -237,7 +237,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pfxBlob")
-    def pfx_blob(self) -> Optional[str]:
+    def pfx_blob(self) -> pulumi.Output[Optional[str]]:
         """
         Pfx blob.
         """
@@ -245,7 +245,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKeyHash")
-    def public_key_hash(self) -> str:
+    def public_key_hash(self) -> pulumi.Output[str]:
         """
         Public key hash.
         """
@@ -253,7 +253,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="selfLink")
-    def self_link(self) -> str:
+    def self_link(self) -> pulumi.Output[str]:
         """
         Self link.
         """
@@ -261,7 +261,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverFarmId")
-    def server_farm_id(self) -> Optional[str]:
+    def server_farm_id(self) -> pulumi.Output[Optional[str]]:
         """
         Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         """
@@ -269,7 +269,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteName")
-    def site_name(self) -> str:
+    def site_name(self) -> pulumi.Output[str]:
         """
         App name.
         """
@@ -277,7 +277,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectName")
-    def subject_name(self) -> str:
+    def subject_name(self) -> pulumi.Output[str]:
         """
         Subject name of the certificate.
         """
@@ -285,7 +285,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -293,7 +293,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> str:
+    def thumbprint(self) -> pulumi.Output[str]:
         """
         Certificate thumbprint.
         """
@@ -301,7 +301,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -309,7 +309,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def valid(self) -> bool:
+    def valid(self) -> pulumi.Output[bool]:
         """
         Is the certificate valid?.
         """

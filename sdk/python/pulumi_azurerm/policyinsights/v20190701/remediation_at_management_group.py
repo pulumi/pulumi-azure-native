@@ -15,7 +15,7 @@ __all__ = ['RemediationAtManagementGroup']
 
 class RemediationAtManagementGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filters: Optional[pulumi.Input[pulumi.InputType['RemediationFiltersArgs']]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> str:
+    def created_on(self) -> pulumi.Output[str]:
         """
         The time at which the remediation was created.
         """
@@ -110,7 +110,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentStatus")
-    def deployment_status(self) -> 'outputs.RemediationDeploymentSummaryResponse':
+    def deployment_status(self) -> pulumi.Output['outputs.RemediationDeploymentSummaryResponse']:
         """
         The deployment status summary for all deployments created by the remediation.
         """
@@ -118,7 +118,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional['outputs.RemediationFiltersResponse']:
+    def filters(self) -> pulumi.Output[Optional['outputs.RemediationFiltersResponse']]:
         """
         The filters that will be applied to determine which resources to remediate.
         """
@@ -126,7 +126,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedOn")
-    def last_updated_on(self) -> str:
+    def last_updated_on(self) -> pulumi.Output[str]:
         """
         The time at which the remediation was last updated.
         """
@@ -134,7 +134,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the remediation.
         """
@@ -142,7 +142,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyAssignmentId")
-    def policy_assignment_id(self) -> Optional[str]:
+    def policy_assignment_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID of the policy assignment that should be remediated.
         """
@@ -150,7 +150,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[str]:
+    def policy_definition_reference_id(self) -> pulumi.Output[Optional[str]]:
         """
         The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         """
@@ -158,7 +158,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The status of the remediation.
         """
@@ -166,7 +166,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
-    def resource_discovery_mode(self) -> Optional[str]:
+    def resource_discovery_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         """
@@ -174,7 +174,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the remediation.
         """

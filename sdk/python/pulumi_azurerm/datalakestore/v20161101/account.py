@@ -15,7 +15,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  default_group: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The unique identifier associated with this Data Lake Store account.
         """
@@ -138,7 +138,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         The account creation time.
         """
@@ -146,7 +146,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentTier")
-    def current_tier(self) -> str:
+    def current_tier(self) -> pulumi.Output[str]:
         """
         The commitment tier in use for the current month.
         """
@@ -154,7 +154,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultGroup")
-    def default_group(self) -> str:
+    def default_group(self) -> pulumi.Output[str]:
         """
         The default owner group for all new folders and files created in the Data Lake Store account.
         """
@@ -162,7 +162,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionConfig")
-    def encryption_config(self) -> 'outputs.EncryptionConfigResponse':
+    def encryption_config(self) -> pulumi.Output['outputs.EncryptionConfigResponse']:
         """
         The Key Vault encryption configuration.
         """
@@ -170,7 +170,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionProvisioningState")
-    def encryption_provisioning_state(self) -> str:
+    def encryption_provisioning_state(self) -> pulumi.Output[str]:
         """
         The current state of encryption provisioning for this Data Lake Store account.
         """
@@ -178,7 +178,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionState")
-    def encryption_state(self) -> str:
+    def encryption_state(self) -> pulumi.Output[str]:
         """
         The current state of encryption for this Data Lake Store account.
         """
@@ -186,7 +186,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         The full CName endpoint for this account.
         """
@@ -194,7 +194,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallAllowAzureIps")
-    def firewall_allow_azure_ips(self) -> str:
+    def firewall_allow_azure_ips(self) -> pulumi.Output[str]:
         """
         The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         """
@@ -202,7 +202,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> List['outputs.FirewallRuleResponse']:
+    def firewall_rules(self) -> pulumi.Output[List['outputs.FirewallRuleResponse']]:
         """
         The list of firewall rules associated with this Data Lake Store account.
         """
@@ -210,7 +210,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallState")
-    def firewall_state(self) -> str:
+    def firewall_state(self) -> pulumi.Output[str]:
         """
         The current state of the IP address firewall for this Data Lake Store account.
         """
@@ -218,7 +218,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.EncryptionIdentityResponse':
+    def identity(self) -> pulumi.Output['outputs.EncryptionIdentityResponse']:
         """
         The Key Vault encryption identity, if any.
         """
@@ -226,7 +226,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         The account last modified time.
         """
@@ -234,7 +234,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The resource location.
         """
@@ -242,7 +242,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -250,7 +250,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="newTier")
-    def new_tier(self) -> str:
+    def new_tier(self) -> pulumi.Output[str]:
         """
         The commitment tier to use for next month.
         """
@@ -258,7 +258,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the Data Lake Store account.
         """
@@ -266,7 +266,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The state of the Data Lake Store account.
         """
@@ -274,7 +274,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The resource tags.
         """
@@ -282,7 +282,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedIdProviderState")
-    def trusted_id_provider_state(self) -> str:
+    def trusted_id_provider_state(self) -> pulumi.Output[str]:
         """
         The current state of the trusted identity provider feature for this Data Lake Store account.
         """
@@ -290,7 +290,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedIdProviders")
-    def trusted_id_providers(self) -> List['outputs.TrustedIdProviderResponse']:
+    def trusted_id_providers(self) -> pulumi.Output[List['outputs.TrustedIdProviderResponse']]:
         """
         The list of trusted identity providers associated with this Data Lake Store account.
         """
@@ -298,7 +298,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """
@@ -306,7 +306,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> List['outputs.VirtualNetworkRuleResponse']:
+    def virtual_network_rules(self) -> pulumi.Output[List['outputs.VirtualNetworkRuleResponse']]:
         """
         The list of virtual network rules associated with this Data Lake Store account.
         """

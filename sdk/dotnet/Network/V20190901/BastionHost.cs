@@ -87,16 +87,16 @@ namespace Pulumi.AzureRM.Network.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20190401:BastionHost"},
-                    new Alias { Type = "azurerm:network/v20190601:BastionHost"},
-                    new Alias { Type = "azurerm:network/v20190701:BastionHost"},
-                    new Alias { Type = "azurerm:network/v20190801:BastionHost"},
-                    new Alias { Type = "azurerm:network/v20191101:BastionHost"},
-                    new Alias { Type = "azurerm:network/v20191201:BastionHost"},
-                    new Alias { Type = "azurerm:network/v20200301:BastionHost"},
-                    new Alias { Type = "azurerm:network/v20200401:BastionHost"},
-                    new Alias { Type = "azurerm:network/v20200501:BastionHost"},
-                    new Alias { Type = "azurerm:network/v20200601:BastionHost"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190401:BastionHost"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190601:BastionHost"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190701:BastionHost"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190801:BastionHost"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191101:BastionHost"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:BastionHost"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:BastionHost"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:BastionHost"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:BastionHost"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:BastionHost"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

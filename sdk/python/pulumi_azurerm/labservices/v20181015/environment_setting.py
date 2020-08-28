@@ -15,7 +15,7 @@ __all__ = ['EnvironmentSetting']
 
 class EnvironmentSetting(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_state: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationState")
-    def configuration_state(self) -> Optional[str]:
+    def configuration_state(self) -> pulumi.Output[Optional[str]]:
         """
         Describes the user's progress in configuring their environment setting
         """
@@ -129,7 +129,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Describes the environment and its resource settings
         """
@@ -137,7 +137,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastChanged")
-    def last_changed(self) -> str:
+    def last_changed(self) -> pulumi.Output[str]:
         """
         Time when the template VM was last changed.
         """
@@ -145,7 +145,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastPublished")
-    def last_published(self) -> str:
+    def last_published(self) -> pulumi.Output[str]:
         """
         Time when the template VM was last sent for publishing.
         """
@@ -153,7 +153,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> pulumi.Output['outputs.LatestOperationResultResponse']:
         """
         The details of the latest operation. ex: status, error
         """
@@ -161,7 +161,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -169,7 +169,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -177,7 +177,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -185,7 +185,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publishingState")
-    def publishing_state(self) -> str:
+    def publishing_state(self) -> pulumi.Output[str]:
         """
         Describes the readiness of this environment setting
         """
@@ -193,7 +193,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceSettings")
-    def resource_settings(self) -> 'outputs.ResourceSettingsResponse':
+    def resource_settings(self) -> pulumi.Output['outputs.ResourceSettingsResponse']:
         """
         The resource specific settings
         """
@@ -201,7 +201,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -209,7 +209,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> Optional[str]:
+    def title(self) -> pulumi.Output[Optional[str]]:
         """
         Brief title describing the environment and its resource settings
         """
@@ -217,7 +217,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -225,7 +225,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """

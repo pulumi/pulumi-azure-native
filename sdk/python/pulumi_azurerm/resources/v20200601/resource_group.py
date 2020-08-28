@@ -14,7 +14,7 @@ __all__ = ['ResourceGroup']
 
 class ResourceGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
         """
@@ -97,7 +97,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> Optional[str]:
+    def managed_by(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the resource that manages this resource group.
         """
@@ -105,7 +105,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource group.
         """
@@ -113,7 +113,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ResourceGroupPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.ResourceGroupPropertiesResponse']:
         """
         The resource group properties.
         """
@@ -121,7 +121,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags attached to the resource group.
         """
@@ -129,7 +129,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource group.
         """

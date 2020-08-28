@@ -13,7 +13,7 @@ __all__ = ['VirtualMachineScaleSetExtension']
 
 class VirtualMachineScaleSetExtension(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> Optional[bool]:
+    def auto_upgrade_minor_version(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         """
@@ -117,7 +117,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[str]:
+    def force_update_tag(self) -> pulumi.Output[Optional[str]]:
         """
         If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         """
@@ -125,7 +125,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the extension.
         """
@@ -133,7 +133,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[Mapping[str, Any]]:
+    def protected_settings(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         """
@@ -141,7 +141,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state, which only appears in the response.
         """
@@ -149,7 +149,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def publisher(self) -> Optional[str]:
+    def publisher(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the extension handler publisher.
         """
@@ -157,7 +157,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[Mapping[str, Any]]:
+    def settings(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Json formatted public settings for the extension.
         """
@@ -165,7 +165,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the type of the extension; an example is "CustomScriptExtension".
         """
@@ -173,7 +173,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[str]:
+    def type_handler_version(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the version of the script handler.
         """

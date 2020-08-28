@@ -13,7 +13,7 @@ __all__ = ['ArtifactSource']
 
 class ArtifactSource(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arm_template_folder_path: Optional[pulumi.Input[str]] = None,
                  branch_ref: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="armTemplateFolderPath")
-    def arm_template_folder_path(self) -> Optional[str]:
+    def arm_template_folder_path(self) -> pulumi.Output[Optional[str]]:
         """
         The folder containing Azure Resource Manager templates.
         """
@@ -126,7 +126,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="branchRef")
-    def branch_ref(self) -> Optional[str]:
+    def branch_ref(self) -> pulumi.Output[Optional[str]]:
         """
         The artifact source's branch reference.
         """
@@ -134,7 +134,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The artifact source's creation date.
         """
@@ -142,7 +142,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The artifact source's display name.
         """
@@ -150,7 +150,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Optional[str]:
+    def folder_path(self) -> pulumi.Output[Optional[str]]:
         """
         The folder containing artifacts.
         """
@@ -158,7 +158,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -166,7 +166,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -174,7 +174,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the resource.
         """
@@ -182,7 +182,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityToken")
-    def security_token(self) -> Optional[str]:
+    def security_token(self) -> pulumi.Output[Optional[str]]:
         """
         The security token to authenticate to the artifact source.
         """
@@ -190,7 +190,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[str]:
+    def source_type(self) -> pulumi.Output[Optional[str]]:
         """
         The artifact source's type.
         """
@@ -198,7 +198,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates if the artifact source is enabled (values: Enabled, Disabled).
         """
@@ -206,7 +206,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -214,7 +214,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -222,7 +222,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
+    def unique_identifier(self) -> pulumi.Output[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """
@@ -230,7 +230,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> Optional[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         """
         The artifact source's URI.
         """

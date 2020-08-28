@@ -15,7 +15,7 @@ __all__ = ['PrivateEndpointConnection']
 
 class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -100,7 +100,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
+    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointPropertyResponse']]:
         """
         Private endpoint which the connection belongs to.
         """
@@ -108,7 +108,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse']:
+    def private_link_service_connection_state(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse']]:
         """
         Connection state of the private endpoint connection.
         """
@@ -116,7 +116,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         State of the private endpoint connection.
         """
@@ -124,7 +124,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

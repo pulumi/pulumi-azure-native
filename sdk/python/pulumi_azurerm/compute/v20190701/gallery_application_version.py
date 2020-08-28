@@ -15,7 +15,7 @@ __all__ = ['GalleryApplicationVersion']
 
 class GalleryApplicationVersion(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gallery_application_name: Optional[pulumi.Input[str]] = None,
                  gallery_application_version_name: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -116,7 +116,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -124,7 +124,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state, which only appears in the response.
         """
@@ -132,7 +132,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publishingProfile")
-    def publishing_profile(self) -> 'outputs.GalleryApplicationVersionPublishingProfileResponse':
+    def publishing_profile(self) -> pulumi.Output['outputs.GalleryApplicationVersionPublishingProfileResponse']:
         """
         The publishing profile of a gallery Image Version.
         """
@@ -140,7 +140,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationStatus")
-    def replication_status(self) -> 'outputs.ReplicationStatusResponse':
+    def replication_status(self) -> pulumi.Output['outputs.ReplicationStatusResponse']:
         """
         This is the replication status of the gallery Image Version.
         """
@@ -148,7 +148,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -156,7 +156,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

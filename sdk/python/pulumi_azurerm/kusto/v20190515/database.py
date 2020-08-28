@@ -15,7 +15,7 @@ __all__ = ['Database']
 
 class Database(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hotCachePeriod")
-    def hot_cache_period(self) -> Optional[str]:
+    def hot_cache_period(self) -> pulumi.Output[Optional[str]]:
         """
         The time the data should be kept in cache for fast queries in TimeSpan.
         """
@@ -109,7 +109,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -117,7 +117,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -125,7 +125,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioned state of the resource.
         """
@@ -133,7 +133,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="softDeletePeriod")
-    def soft_delete_period(self) -> Optional[str]:
+    def soft_delete_period(self) -> pulumi.Output[Optional[str]]:
         """
         The time the data should be kept before it stops being accessible to queries in TimeSpan.
         """
@@ -141,7 +141,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def statistics(self) -> Optional['outputs.DatabaseStatisticsResponse']:
+    def statistics(self) -> pulumi.Output[Optional['outputs.DatabaseStatisticsResponse']]:
         """
         The statistics of the database.
         """
@@ -149,7 +149,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

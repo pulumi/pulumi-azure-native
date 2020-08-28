@@ -129,11 +129,11 @@ namespace Pulumi.AzureRM.Kusto.V20190515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:kusto/v20190121:Cluster"},
-                    new Alias { Type = "azurerm:kusto/v20190907:Cluster"},
-                    new Alias { Type = "azurerm:kusto/v20191109:Cluster"},
-                    new Alias { Type = "azurerm:kusto/v20200215:Cluster"},
-                    new Alias { Type = "azurerm:kusto/v20200614:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20190121:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20190907:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20191109:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20200215:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20200614:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

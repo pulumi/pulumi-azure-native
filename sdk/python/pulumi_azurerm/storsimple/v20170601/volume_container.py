@@ -15,7 +15,7 @@ __all__ = ['VolumeContainer']
 
 class VolumeContainer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  band_width_rate_in_mbps: Optional[pulumi.Input[float]] = None,
                  bandwidth_setting_id: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bandWidthRateInMbps")
-    def band_width_rate_in_mbps(self) -> Optional[float]:
+    def band_width_rate_in_mbps(self) -> pulumi.Output[Optional[float]]:
         """
         The bandwidth-rate set on the volume container.
         """
@@ -120,7 +120,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bandwidthSettingId")
-    def bandwidth_setting_id(self) -> Optional[str]:
+    def bandwidth_setting_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the bandwidth setting associated with the volume container.
         """
@@ -128,7 +128,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+    def encryption_key(self) -> pulumi.Output[Optional['outputs.AsymmetricEncryptedSecretResponse']]:
         """
         The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
         """
@@ -136,7 +136,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionStatus")
-    def encryption_status(self) -> str:
+    def encryption_status(self) -> pulumi.Output[str]:
         """
         The flag to denote whether encryption is enabled or not.
         """
@@ -144,7 +144,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The Kind of the object. Currently only Series8000 is supported
         """
@@ -152,7 +152,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the object.
         """
@@ -160,7 +160,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerShipStatus")
-    def owner_ship_status(self) -> str:
+    def owner_ship_status(self) -> pulumi.Output[str]:
         """
         The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
         """
@@ -168,7 +168,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountCredentialId")
-    def storage_account_credential_id(self) -> str:
+    def storage_account_credential_id(self) -> pulumi.Output[str]:
         """
         The path ID of storage account associated with the volume container.
         """
@@ -176,7 +176,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalCloudStorageUsageInBytes")
-    def total_cloud_storage_usage_in_bytes(self) -> float:
+    def total_cloud_storage_usage_in_bytes(self) -> pulumi.Output[float]:
         """
         The total cloud storage for the volume container.
         """
@@ -184,7 +184,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """
@@ -192,7 +192,7 @@ class VolumeContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> float:
+    def volume_count(self) -> pulumi.Output[float]:
         """
         The number of volumes in the volume Container.
         """

@@ -15,7 +15,7 @@ __all__ = ['RouteTable']
 
 class RouteTable(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableBgpRoutePropagation")
-    def disable_bgp_route_propagation(self) -> Optional[bool]:
+    def disable_bgp_route_propagation(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to disable the routes learned by BGP on that route table. True means disable.
         """
@@ -113,7 +113,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -121,7 +121,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -129,7 +129,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -137,7 +137,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the route table resource.
         """
@@ -145,7 +145,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[List['outputs.RouteResponse']]:
+    def routes(self) -> pulumi.Output[Optional[List['outputs.RouteResponse']]]:
         """
         Collection of routes contained within a route table.
         """
@@ -153,7 +153,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> List['outputs.SubnetResponse']:
+    def subnets(self) -> pulumi.Output[List['outputs.SubnetResponse']]:
         """
         A collection of references to subnets.
         """
@@ -161,7 +161,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -169,7 +169,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

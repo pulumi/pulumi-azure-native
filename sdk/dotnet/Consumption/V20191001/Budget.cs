@@ -99,9 +99,9 @@ namespace Pulumi.AzureRM.Consumption.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:consumption/v20190101:Budget"},
-                    new Alias { Type = "azurerm:consumption/v20190501:Budget"},
-                    new Alias { Type = "azurerm:consumption/v20190601:Budget"},
+                    new Pulumi.Alias { Type = "azurerm:consumption/v20190101:Budget"},
+                    new Pulumi.Alias { Type = "azurerm:consumption/v20190501:Budget"},
+                    new Pulumi.Alias { Type = "azurerm:consumption/v20190601:Budget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

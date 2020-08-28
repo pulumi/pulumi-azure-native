@@ -15,7 +15,7 @@ __all__ = ['VirtualNetwork']
 
 class VirtualNetwork(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_subnets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedSubnets")
-    def allowed_subnets(self) -> Optional[List['outputs.SubnetResponse']]:
+    def allowed_subnets(self) -> pulumi.Output[Optional[List['outputs.SubnetResponse']]]:
         """
         The allowed subnets of the virtual network.
         """
@@ -123,7 +123,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the virtual network.
         """
@@ -131,7 +131,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the virtual network.
         """
@@ -139,7 +139,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalProviderResourceId")
-    def external_provider_resource_id(self) -> Optional[str]:
+    def external_provider_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Microsoft.Network resource identifier of the virtual network.
         """
@@ -147,7 +147,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalSubnets")
-    def external_subnets(self) -> Optional[List['outputs.ExternalSubnetResponse']]:
+    def external_subnets(self) -> pulumi.Output[Optional[List['outputs.ExternalSubnetResponse']]]:
         """
         The external subnet properties.
         """
@@ -155,7 +155,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -163,7 +163,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -171,7 +171,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -179,7 +179,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetOverrides")
-    def subnet_overrides(self) -> Optional[List['outputs.SubnetOverrideResponse']]:
+    def subnet_overrides(self) -> pulumi.Output[Optional[List['outputs.SubnetOverrideResponse']]]:
         """
         The subnet overrides of the virtual network.
         """
@@ -187,7 +187,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -195,7 +195,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -203,7 +203,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """

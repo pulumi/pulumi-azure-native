@@ -13,7 +13,7 @@ __all__ = ['Service']
 
 class Service(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_domain_name: Optional[pulumi.Input[str]] = None,
                  billing_domain_name: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminDomainName")
-    def admin_domain_name(self) -> Optional[str]:
+    def admin_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         Windows IoT Device Service OEM AAD domain
         """
@@ -103,7 +103,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="billingDomainName")
-    def billing_domain_name(self) -> Optional[str]:
+    def billing_domain_name(self) -> pulumi.Output[Optional[str]]:
         """
         Windows IoT Device Service ODM AAD domain
         """
@@ -111,7 +111,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         """
@@ -119,7 +119,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region where the resource lives
         """
@@ -127,7 +127,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -135,7 +135,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> Optional[str]:
+    def notes(self) -> pulumi.Output[Optional[str]]:
         """
         Windows IoT Device Service notes.
         """
@@ -143,7 +143,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def quantity(self) -> Optional[float]:
+    def quantity(self) -> pulumi.Output[Optional[float]]:
         """
         Windows IoT Device Service device allocation,
         """
@@ -151,7 +151,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> str:
+    def start_date(self) -> pulumi.Output[str]:
         """
         Windows IoT Device Service start date,
         """
@@ -159,7 +159,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -167,7 +167,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

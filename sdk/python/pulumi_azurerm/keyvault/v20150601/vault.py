@@ -15,7 +15,7 @@ __all__ = ['Vault']
 
 class Vault(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['VaultPropertiesArgs']]] = None,
@@ -96,7 +96,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The supported Azure location where the key vault should be created.
         """
@@ -104,7 +104,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the key vault.
         """
@@ -112,7 +112,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.VaultPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.VaultPropertiesResponse']:
         """
         Properties of the vault
         """
@@ -120,7 +120,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags that will be assigned to the key vault. 
         """
@@ -128,7 +128,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type of the key vault.
         """

@@ -147,13 +147,13 @@ namespace Pulumi.AzureRM.Network.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20190801:VpnServerConfiguration"},
-                    new Alias { Type = "azurerm:network/v20190901:VpnServerConfiguration"},
-                    new Alias { Type = "azurerm:network/v20191101:VpnServerConfiguration"},
-                    new Alias { Type = "azurerm:network/v20191201:VpnServerConfiguration"},
-                    new Alias { Type = "azurerm:network/v20200401:VpnServerConfiguration"},
-                    new Alias { Type = "azurerm:network/v20200501:VpnServerConfiguration"},
-                    new Alias { Type = "azurerm:network/v20200601:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190801:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190901:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191101:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VpnServerConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:VpnServerConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

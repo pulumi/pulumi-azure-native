@@ -15,7 +15,7 @@ __all__ = ['Deployment']
 
 class Deployment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         the location of the deployment.
         """
@@ -102,7 +102,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the deployment.
         """
@@ -110,7 +110,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DeploymentPropertiesExtendedResponse':
+    def properties(self) -> pulumi.Output['outputs.DeploymentPropertiesExtendedResponse']:
         """
         Deployment properties.
         """
@@ -118,7 +118,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Deployment tags
         """
@@ -126,7 +126,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the deployment.
         """

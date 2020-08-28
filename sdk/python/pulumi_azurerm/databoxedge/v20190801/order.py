@@ -15,7 +15,7 @@ __all__ = ['Order']
 
 class Order(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_information: Optional[pulumi.Input[pulumi.InputType['ContactDetailsArgs']]] = None,
                  current_status: Optional[pulumi.Input[pulumi.InputType['OrderStatusArgs']]] = None,
@@ -100,7 +100,7 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contactInformation")
-    def contact_information(self) -> 'outputs.ContactDetailsResponse':
+    def contact_information(self) -> pulumi.Output['outputs.ContactDetailsResponse']:
         """
         The contact details.
         """
@@ -108,7 +108,7 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentStatus")
-    def current_status(self) -> Optional['outputs.OrderStatusResponse']:
+    def current_status(self) -> pulumi.Output[Optional['outputs.OrderStatusResponse']]:
         """
         Current status of the order.
         """
@@ -116,7 +116,7 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryTrackingInfo")
-    def delivery_tracking_info(self) -> List['outputs.TrackingInfoResponse']:
+    def delivery_tracking_info(self) -> pulumi.Output[List['outputs.TrackingInfoResponse']]:
         """
         Tracking information for the package delivered to the customer whether it has an original or a replacement device.
         """
@@ -124,7 +124,7 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The object name.
         """
@@ -132,7 +132,7 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="orderHistory")
-    def order_history(self) -> List['outputs.OrderStatusResponse']:
+    def order_history(self) -> pulumi.Output[List['outputs.OrderStatusResponse']]:
         """
         List of status changes in the order.
         """
@@ -140,7 +140,7 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="returnTrackingInfo")
-    def return_tracking_info(self) -> List['outputs.TrackingInfoResponse']:
+    def return_tracking_info(self) -> pulumi.Output[List['outputs.TrackingInfoResponse']]:
         """
         Tracking information for the package returned from the customer whether it has an original or a replacement device.
         """
@@ -148,7 +148,7 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> str:
+    def serial_number(self) -> pulumi.Output[str]:
         """
         Serial number of the device.
         """
@@ -156,7 +156,7 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> 'outputs.AddressResponse':
+    def shipping_address(self) -> pulumi.Output['outputs.AddressResponse']:
         """
         The shipping address.
         """
@@ -164,7 +164,7 @@ class Order(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """

@@ -15,7 +15,7 @@ __all__ = ['Console']
 
 class Console(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  console_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ConsoleCreatePropertiesArgs']]] = None,
@@ -79,7 +79,7 @@ class Console(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ConsolePropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.ConsolePropertiesResponse']:
         """
         Cloud shell console properties.
         """

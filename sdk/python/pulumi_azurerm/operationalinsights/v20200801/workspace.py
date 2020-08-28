@@ -15,7 +15,7 @@ __all__ = ['Workspace']
 
 class Workspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerId")
-    def customer_id(self) -> str:
+    def customer_id(self) -> pulumi.Output[str]:
         """
         This is a read-only property. Represents the ID associated with the workspace.
         """
@@ -120,7 +120,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         The ETag of the workspace.
         """
@@ -128,7 +128,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -136,7 +136,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -144,7 +144,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkScopedResources")
-    def private_link_scoped_resources(self) -> List['outputs.PrivateLinkScopedResourceResponse']:
+    def private_link_scoped_resources(self) -> pulumi.Output[List['outputs.PrivateLinkScopedResourceResponse']]:
         """
         List of linked private link scope resources.
         """
@@ -152,7 +152,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the workspace.
         """
@@ -160,7 +160,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccessForIngestion")
-    def public_network_access_for_ingestion(self) -> Optional[str]:
+    def public_network_access_for_ingestion(self) -> pulumi.Output[Optional[str]]:
         """
         The network access type for accessing Log Analytics ingestion.
         """
@@ -168,7 +168,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccessForQuery")
-    def public_network_access_for_query(self) -> Optional[str]:
+    def public_network_access_for_query(self) -> pulumi.Output[Optional[str]]:
         """
         The network access type for accessing Log Analytics query.
         """
@@ -176,7 +176,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[float]:
+    def retention_in_days(self) -> pulumi.Output[Optional[float]]:
         """
         The workspace data retention in days, between 30 and 730.
         """
@@ -184,7 +184,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.WorkspaceSkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.WorkspaceSkuResponse']]:
         """
         The SKU of the workspace.
         """
@@ -192,7 +192,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -200,7 +200,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -208,7 +208,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceCapping")
-    def workspace_capping(self) -> Optional['outputs.WorkspaceCappingResponse']:
+    def workspace_capping(self) -> pulumi.Output[Optional['outputs.WorkspaceCappingResponse']]:
         """
         The daily volume cap for ingestion.
         """

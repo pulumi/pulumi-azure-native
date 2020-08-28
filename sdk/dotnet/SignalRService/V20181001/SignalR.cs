@@ -129,7 +129,7 @@ namespace Pulumi.AzureRM.SignalRService.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:signalrservice/v20200501:SignalR"},
+                    new Pulumi.Alias { Type = "azurerm:signalrservice/v20200501:SignalR"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,7 +13,7 @@ __all__ = ['Workbook']
 
 class Workbook(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> str:
+    def category(self) -> pulumi.Output[str]:
         """
         Workbook category, as defined by the user at creation time.
         """
@@ -132,7 +132,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The kind of workbook. Choices are user and shared.
         """
@@ -140,7 +140,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -148,7 +148,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -156,7 +156,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serializedData")
-    def serialized_data(self) -> str:
+    def serialized_data(self) -> pulumi.Output[str]:
         """
         Configuration of this particular workbook. Configuration data is a string containing valid JSON
         """
@@ -164,7 +164,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedTypeKind")
-    def shared_type_kind(self) -> str:
+    def shared_type_kind(self) -> pulumi.Output[str]:
         """
         Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         """
@@ -172,7 +172,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[str]:
+    def source_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Optional resourceId for a source resource.
         """
@@ -180,7 +180,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -188,7 +188,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeModified")
-    def time_modified(self) -> str:
+    def time_modified(self) -> pulumi.Output[str]:
         """
         Date and time in UTC of the last modification that was made to this workbook definition.
         """
@@ -196,7 +196,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """
@@ -204,7 +204,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         Unique user id of the specific user that owns this workbook.
         """
@@ -212,7 +212,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         This instance's version of the data model. This can change as new features are added that can be marked workbook.
         """
@@ -220,7 +220,7 @@ class Workbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workbookId")
-    def workbook_id(self) -> str:
+    def workbook_id(self) -> pulumi.Output[str]:
         """
         Internally assigned unique id of the workbook definition.
         """

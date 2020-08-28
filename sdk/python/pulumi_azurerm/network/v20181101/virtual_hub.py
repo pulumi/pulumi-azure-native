@@ -15,7 +15,7 @@ __all__ = ['VirtualHub']
 
 class VirtualHub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  express_route_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -119,7 +119,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[str]:
+    def address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Address-prefix for this VirtualHub.
         """
@@ -127,7 +127,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -135,7 +135,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteGateway")
-    def express_route_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def express_route_gateway(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The expressRouteGateway associated with this VirtualHub
         """
@@ -143,7 +143,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -151,7 +151,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -159,7 +159,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnGateway")
-    def p2_s_vpn_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def p2_s_vpn_gateway(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The P2SVpnGateway associated with this VirtualHub
         """
@@ -167,7 +167,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the resource.
         """
@@ -175,7 +175,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeTable")
-    def route_table(self) -> Optional['outputs.VirtualHubRouteTableResponse']:
+    def route_table(self) -> pulumi.Output[Optional['outputs.VirtualHubRouteTableResponse']]:
         """
         The routeTable associated with this virtual hub.
         """
@@ -183,7 +183,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -191,7 +191,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -199,7 +199,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkConnections")
-    def virtual_network_connections(self) -> Optional[List['outputs.HubVirtualNetworkConnectionResponse']]:
+    def virtual_network_connections(self) -> pulumi.Output[Optional[List['outputs.HubVirtualNetworkConnectionResponse']]]:
         """
         list of all vnet connections with this VirtualHub.
         """
@@ -207,7 +207,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualWan")
-    def virtual_wan(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_wan(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The VirtualWAN to which the VirtualHub belongs
         """
@@ -215,7 +215,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnGateway")
-    def vpn_gateway(self) -> Optional['outputs.SubResourceResponse']:
+    def vpn_gateway(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The VpnGateway associated with this VirtualHub
         """

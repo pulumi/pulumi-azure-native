@@ -13,7 +13,7 @@ __all__ = ['ExpressRouteCircuitAuthorization']
 
 class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  authorization_name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> Optional[str]:
+    def authorization_key(self) -> pulumi.Output[Optional[str]]:
         """
         The authorization key.
         """
@@ -108,7 +108,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationUseStatus")
-    def authorization_use_status(self) -> Optional[str]:
+    def authorization_use_status(self) -> pulumi.Output[Optional[str]]:
         """
         AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
         """
@@ -116,7 +116,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -124,7 +124,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -132,7 +132,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """

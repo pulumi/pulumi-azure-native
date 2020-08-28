@@ -14,7 +14,7 @@ __all__ = ['BlobContainer']
 
 class BlobContainer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Resource Etag.
         """
@@ -110,7 +110,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasImmutabilityPolicy")
-    def has_immutability_policy(self) -> bool:
+    def has_immutability_policy(self) -> pulumi.Output[bool]:
         """
         The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
         """
@@ -118,7 +118,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasLegalHold")
-    def has_legal_hold(self) -> bool:
+    def has_legal_hold(self) -> pulumi.Output[bool]:
         """
         The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
         """
@@ -126,7 +126,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="immutabilityPolicy")
-    def immutability_policy(self) -> 'outputs.ImmutabilityPolicyPropertiesResponse':
+    def immutability_policy(self) -> pulumi.Output['outputs.ImmutabilityPolicyPropertiesResponse']:
         """
         The ImmutabilityPolicy property of the container.
         """
@@ -134,7 +134,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         Returns the date and time the container was last modified.
         """
@@ -142,7 +142,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="leaseDuration")
-    def lease_duration(self) -> str:
+    def lease_duration(self) -> pulumi.Output[str]:
         """
         Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
         """
@@ -150,7 +150,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="leaseState")
-    def lease_state(self) -> str:
+    def lease_state(self) -> pulumi.Output[str]:
         """
         Lease state of the container.
         """
@@ -158,7 +158,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="leaseStatus")
-    def lease_status(self) -> str:
+    def lease_status(self) -> pulumi.Output[str]:
         """
         The lease status of the container.
         """
@@ -166,7 +166,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="legalHold")
-    def legal_hold(self) -> 'outputs.LegalHoldPropertiesResponse':
+    def legal_hold(self) -> pulumi.Output['outputs.LegalHoldPropertiesResponse']:
         """
         The LegalHold property of the container.
         """
@@ -174,7 +174,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A name-value pair to associate with the container as metadata.
         """
@@ -182,7 +182,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -190,7 +190,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicAccess")
-    def public_access(self) -> Optional[str]:
+    def public_access(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether data in the container may be accessed publicly and the level of access.
         """
@@ -198,7 +198,7 @@ class BlobContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

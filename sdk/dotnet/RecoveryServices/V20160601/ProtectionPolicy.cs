@@ -75,9 +75,9 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:recoveryservices/v20161201:ProtectionPolicy"},
-                    new Alias { Type = "azurerm:recoveryservices/v20190513:ProtectionPolicy"},
-                    new Alias { Type = "azurerm:recoveryservices/v20190615:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:recoveryservices/v20161201:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:recoveryservices/v20190513:ProtectionPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:recoveryservices/v20190615:ProtectionPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

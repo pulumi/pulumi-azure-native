@@ -111,15 +111,15 @@ namespace Pulumi.AzureRM.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20190601:FirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20190701:FirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20190801:FirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20190901:FirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20191101:FirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20191201:FirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20200301:FirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20200501:FirewallPolicy"},
-                    new Alias { Type = "azurerm:network/v20200601:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190601:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190701:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190801:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190901:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191101:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:FirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

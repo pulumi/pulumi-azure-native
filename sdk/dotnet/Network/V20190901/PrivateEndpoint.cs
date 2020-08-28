@@ -99,16 +99,16 @@ namespace Pulumi.AzureRM.Network.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20190401:PrivateEndpoint"},
-                    new Alias { Type = "azurerm:network/v20190601:PrivateEndpoint"},
-                    new Alias { Type = "azurerm:network/v20190701:PrivateEndpoint"},
-                    new Alias { Type = "azurerm:network/v20190801:PrivateEndpoint"},
-                    new Alias { Type = "azurerm:network/v20191101:PrivateEndpoint"},
-                    new Alias { Type = "azurerm:network/v20191201:PrivateEndpoint"},
-                    new Alias { Type = "azurerm:network/v20200301:PrivateEndpoint"},
-                    new Alias { Type = "azurerm:network/v20200401:PrivateEndpoint"},
-                    new Alias { Type = "azurerm:network/v20200501:PrivateEndpoint"},
-                    new Alias { Type = "azurerm:network/v20200601:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190401:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190601:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190701:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190801:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191101:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

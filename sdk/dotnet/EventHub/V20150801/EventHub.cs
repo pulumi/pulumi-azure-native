@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.EventHub.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:eventhub/v20140901:EventHub"},
-                    new Alias { Type = "azurerm:eventhub/v20170401:EventHub"},
+                    new Pulumi.Alias { Type = "azurerm:eventhub/v20140901:EventHub"},
+                    new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:EventHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

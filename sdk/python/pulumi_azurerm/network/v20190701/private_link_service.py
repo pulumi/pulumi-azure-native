@@ -15,7 +15,7 @@ __all__ = ['PrivateLinkService']
 
 class PrivateLinkService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> pulumi.Output[str]:
         """
         The alias of the private link service.
         """
@@ -126,7 +126,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoApproval")
-    def auto_approval(self) -> Optional['outputs.PrivateLinkServicePropertiesResponseAutoApproval']:
+    def auto_approval(self) -> pulumi.Output[Optional['outputs.PrivateLinkServicePropertiesResponseAutoApproval']]:
         """
         The auto-approval list of the private link service.
         """
@@ -134,7 +134,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -142,7 +142,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdns(self) -> Optional[List[str]]:
+    def fqdns(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The list of Fqdn.
         """
@@ -150,7 +150,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.PrivateLinkServiceIpConfigurationResponse']]:
+    def ip_configurations(self) -> pulumi.Output[Optional[List['outputs.PrivateLinkServiceIpConfigurationResponse']]]:
         """
         An array of private link service IP configurations.
         """
@@ -158,7 +158,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurations")
-    def load_balancer_frontend_ip_configurations(self) -> Optional[List['outputs.FrontendIPConfigurationResponse']]:
+    def load_balancer_frontend_ip_configurations(self) -> pulumi.Output[Optional[List['outputs.FrontendIPConfigurationResponse']]]:
         """
         An array of references to the load balancer IP configurations.
         """
@@ -166,7 +166,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -174,7 +174,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -182,7 +182,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> pulumi.Output[List['outputs.NetworkInterfaceResponse']]:
         """
         An array of references to the network interfaces created for this private link service.
         """
@@ -190,7 +190,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[List['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Optional[List['outputs.PrivateEndpointConnectionResponse']]]:
         """
         An array of list about connections to the private endpoint.
         """
@@ -198,7 +198,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the private link service resource.
         """
@@ -206,7 +206,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -214,7 +214,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -222,7 +222,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def visibility(self) -> Optional['outputs.PrivateLinkServicePropertiesResponseVisibility']:
+    def visibility(self) -> pulumi.Output[Optional['outputs.PrivateLinkServicePropertiesResponseVisibility']]:
         """
         The visibility list of the private link service.
         """

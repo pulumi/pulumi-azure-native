@@ -13,7 +13,7 @@ __all__ = ['BandwidthSchedule']
 
 class BandwidthSchedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class BandwidthSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def days(self) -> List[str]:
+    def days(self) -> pulumi.Output[List[str]]:
         """
         The days of the week when this schedule is applicable.
         """
@@ -113,7 +113,7 @@ class BandwidthSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The object name.
         """
@@ -121,7 +121,7 @@ class BandwidthSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rateInMbps")
-    def rate_in_mbps(self) -> float:
+    def rate_in_mbps(self) -> pulumi.Output[float]:
         """
         The bandwidth rate in Mbps.
         """
@@ -129,7 +129,7 @@ class BandwidthSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def start(self) -> str:
+    def start(self) -> pulumi.Output[str]:
         """
         The start time of the schedule in UTC.
         """
@@ -137,7 +137,7 @@ class BandwidthSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def stop(self) -> str:
+    def stop(self) -> pulumi.Output[str]:
         """
         The stop time of the schedule in UTC.
         """
@@ -145,7 +145,7 @@ class BandwidthSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """

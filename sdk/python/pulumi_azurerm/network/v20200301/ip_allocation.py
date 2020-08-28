@@ -14,7 +14,7 @@ __all__ = ['IpAllocation']
 
 class IpAllocation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationTags")
-    def allocation_tags(self) -> Optional[Mapping[str, str]]:
+    def allocation_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         IpAllocation tags.
         """
@@ -119,7 +119,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -127,7 +127,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipamAllocationId")
-    def ipam_allocation_id(self) -> Optional[str]:
+    def ipam_allocation_id(self) -> pulumi.Output[Optional[str]]:
         """
         The IPAM allocation ID.
         """
@@ -135,7 +135,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -143,7 +143,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -151,7 +151,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def prefix(self) -> Optional[str]:
+    def prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The address prefix for the IpAllocation.
         """
@@ -159,7 +159,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="prefixLength")
-    def prefix_length(self) -> Optional[float]:
+    def prefix_length(self) -> pulumi.Output[Optional[float]]:
         """
         The address prefix length for the IpAllocation.
         """
@@ -167,7 +167,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="prefixType")
-    def prefix_type(self) -> Optional[str]:
+    def prefix_type(self) -> pulumi.Output[Optional[str]]:
         """
         The address prefix Type for the IpAllocation.
         """
@@ -175,7 +175,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnet(self) -> 'outputs.SubResourceResponse':
+    def subnet(self) -> pulumi.Output['outputs.SubResourceResponse']:
         """
         The Subnet that using the prefix of this IpAllocation resource.
         """
@@ -183,7 +183,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -191,7 +191,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -199,7 +199,7 @@ class IpAllocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetwork")
-    def virtual_network(self) -> 'outputs.SubResourceResponse':
+    def virtual_network(self) -> pulumi.Output['outputs.SubResourceResponse']:
         """
         The VirtualNetwork that using the prefix of this IpAllocation resource.
         """

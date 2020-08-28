@@ -15,7 +15,7 @@ __all__ = ['Trigger']
 
 class Trigger(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['TriggerArgs']]] = None,
@@ -92,7 +92,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Etag identifies change in the resource.
         """
@@ -100,7 +100,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -108,7 +108,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.TriggerResponse':
+    def properties(self) -> pulumi.Output['outputs.TriggerResponse']:
         """
         Properties of the trigger.
         """
@@ -116,7 +116,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """

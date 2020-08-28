@@ -13,7 +13,7 @@ __all__ = ['ManagerExtendedInfo']
 
 class ManagerExtendedInfo(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  algorithm: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def algorithm(self) -> str:
+    def algorithm(self) -> pulumi.Output[str]:
         """
         Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
         """
@@ -117,7 +117,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[str]:
+    def encryption_key(self) -> pulumi.Output[Optional[str]]:
         """
         Represents the CEK of the resource.
         """
@@ -125,7 +125,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionKeyThumbprint")
-    def encryption_key_thumbprint(self) -> Optional[str]:
+    def encryption_key_thumbprint(self) -> pulumi.Output[Optional[str]]:
         """
         Represents the Cert thumbprint that was used to encrypt the CEK.
         """
@@ -133,7 +133,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The etag of the resource.
         """
@@ -141,7 +141,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrityKey")
-    def integrity_key(self) -> str:
+    def integrity_key(self) -> pulumi.Output[str]:
         """
         Represents the CIK of the resource.
         """
@@ -149,7 +149,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The Kind of the object. Currently only Series8000 is supported
         """
@@ -157,7 +157,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the object.
         """
@@ -165,7 +165,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="portalCertificateThumbprint")
-    def portal_certificate_thumbprint(self) -> Optional[str]:
+    def portal_certificate_thumbprint(self) -> pulumi.Output[Optional[str]]:
         """
         Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
         """
@@ -173,7 +173,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """
@@ -181,7 +181,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the extended info being persisted.
         """

@@ -13,7 +13,7 @@ __all__ = ['ApiIssueComment']
 
 class ApiIssueComment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  comment_id: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class ApiIssueComment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         Date and time when the comment was created.
         """
@@ -117,7 +117,7 @@ class ApiIssueComment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -125,7 +125,7 @@ class ApiIssueComment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def text(self) -> str:
+    def text(self) -> pulumi.Output[str]:
         """
         Comment text.
         """
@@ -133,7 +133,7 @@ class ApiIssueComment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -141,7 +141,7 @@ class ApiIssueComment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         A resource identifier for the user who left the comment.
         """

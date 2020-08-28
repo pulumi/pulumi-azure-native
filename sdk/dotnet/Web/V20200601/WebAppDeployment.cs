@@ -111,11 +111,11 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20150801:WebAppDeployment"},
-                    new Alias { Type = "azurerm:web/v20160801:WebAppDeployment"},
-                    new Alias { Type = "azurerm:web/v20180201:WebAppDeployment"},
-                    new Alias { Type = "azurerm:web/v20181101:WebAppDeployment"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

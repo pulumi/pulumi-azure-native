@@ -15,7 +15,7 @@ __all__ = ['Volume']
 
 class Volume(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  creation_token: Optional[pulumi.Input[str]] = None,
@@ -140,7 +140,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="baremetalTenantId")
-    def baremetal_tenant_id(self) -> str:
+    def baremetal_tenant_id(self) -> pulumi.Output[str]:
         """
         Unique Baremetal Tenant Identifier.
         """
@@ -148,7 +148,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationToken")
-    def creation_token(self) -> str:
+    def creation_token(self) -> pulumi.Output[str]:
         """
         A unique file path for the volume. Used when creating mount targets
         """
@@ -156,7 +156,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataProtection")
-    def data_protection(self) -> Optional['outputs.VolumePropertiesResponseDataProtection']:
+    def data_protection(self) -> pulumi.Output[Optional['outputs.VolumePropertiesResponseDataProtection']]:
         """
         DataProtection volume, can have a replication object
         """
@@ -164,7 +164,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="exportPolicy")
-    def export_policy(self) -> Optional['outputs.VolumePropertiesResponseExportPolicy']:
+    def export_policy(self) -> pulumi.Output[Optional['outputs.VolumePropertiesResponseExportPolicy']]:
         """
         Set of export policy rules
         """
@@ -172,7 +172,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> str:
+    def file_system_id(self) -> pulumi.Output[str]:
         """
         Unique FileSystem Identifier.
         """
@@ -180,7 +180,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -188,7 +188,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> Optional[List['outputs.MountTargetPropertiesResponse']]:
+    def mount_targets(self) -> pulumi.Output[Optional[List['outputs.MountTargetPropertiesResponse']]]:
         """
         List of mount targets
         """
@@ -196,7 +196,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -204,7 +204,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protocolTypes")
-    def protocol_types(self) -> Optional[List[str]]:
+    def protocol_types(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Set of protocol types
         """
@@ -212,7 +212,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Azure lifecycle management
         """
@@ -220,7 +220,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceLevel")
-    def service_level(self) -> Optional[str]:
+    def service_level(self) -> pulumi.Output[Optional[str]]:
         """
         The service level of the file system
         """
@@ -228,7 +228,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[str]:
+    def snapshot_id(self) -> pulumi.Output[Optional[str]]:
         """
         UUID v4 or resource identifier used to identify the Snapshot.
         """
@@ -236,7 +236,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         """
@@ -244,7 +244,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -252,7 +252,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -260,7 +260,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageThreshold")
-    def usage_threshold(self) -> float:
+    def usage_threshold(self) -> pulumi.Output[float]:
         """
         Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         """
@@ -268,7 +268,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[str]:
+    def volume_type(self) -> pulumi.Output[Optional[str]]:
         """
         What type of volume is this
         """

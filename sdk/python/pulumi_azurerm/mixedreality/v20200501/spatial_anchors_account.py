@@ -13,7 +13,7 @@ __all__ = ['SpatialAnchorsAccount']
 
 class SpatialAnchorsAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountDomain")
-    def account_domain(self) -> str:
+    def account_domain(self) -> pulumi.Output[str]:
         """
         Correspond domain name of certain Spatial Anchors Account
         """
@@ -97,7 +97,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         unique id of certain account.
         """
@@ -105,7 +105,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -113,7 +113,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -121,7 +121,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -129,7 +129,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

@@ -14,7 +14,7 @@ __all__ = ['WebAppVnetConnectionSlot']
 
 class WebAppVnetConnectionSlot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cert_blob: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certBlob")
-    def cert_blob(self) -> Optional[str]:
+    def cert_blob(self) -> pulumi.Output[Optional[str]]:
         """
         A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
         Point-To-Site VPN connection.
@@ -116,7 +116,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certThumbprint")
-    def cert_thumbprint(self) -> str:
+    def cert_thumbprint(self) -> pulumi.Output[str]:
         """
         The client certificate thumbprint.
         """
@@ -124,7 +124,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[str]:
+    def dns_servers(self) -> pulumi.Output[Optional[str]]:
         """
         DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
         """
@@ -132,7 +132,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -140,7 +140,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -148,7 +148,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resyncRequired")
-    def resync_required(self) -> bool:
+    def resync_required(self) -> pulumi.Output[bool]:
         """
         <code>true</code> if a resync is required; otherwise, <code>false</code>.
         """
@@ -156,7 +156,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> List['outputs.VnetRouteResponse']:
+    def routes(self) -> pulumi.Output[List['outputs.VnetRouteResponse']]:
         """
         The routes that this Virtual Network connection uses.
         """
@@ -164,7 +164,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -172,7 +172,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vnetResourceId")
-    def vnet_resource_id(self) -> Optional[str]:
+    def vnet_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Virtual Network's resource ID.
         """

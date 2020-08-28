@@ -15,7 +15,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  active_directories: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActiveDirectoryArgs']]]]] = None,
@@ -95,7 +95,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeDirectories")
-    def active_directories(self) -> Optional[List['outputs.ActiveDirectoryResponse']]:
+    def active_directories(self) -> pulumi.Output[Optional[List['outputs.ActiveDirectoryResponse']]]:
         """
         Active Directories
         """
@@ -103,7 +103,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -111,7 +111,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -119,7 +119,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Azure lifecycle management
         """
@@ -127,7 +127,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Resource tags
         """
@@ -135,7 +135,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

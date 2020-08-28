@@ -15,7 +15,7 @@ __all__ = ['Experiment']
 
 class Experiment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled_state: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the details or intents of the Experiment
         """
@@ -117,7 +117,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[str]:
+    def enabled_state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the Experiment
         """
@@ -125,7 +125,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointA")
-    def endpoint_a(self) -> Optional['outputs.EndpointResponse']:
+    def endpoint_a(self) -> pulumi.Output[Optional['outputs.EndpointResponse']]:
         """
         The endpoint A of an experiment
         """
@@ -133,7 +133,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointB")
-    def endpoint_b(self) -> Optional['outputs.EndpointResponse']:
+    def endpoint_b(self) -> pulumi.Output[Optional['outputs.EndpointResponse']]:
         """
         The endpoint B of an experiment
         """
@@ -141,7 +141,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -149,7 +149,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -157,7 +157,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
+    def resource_state(self) -> pulumi.Output[Optional[str]]:
         """
         Resource status.
         """
@@ -165,7 +165,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scriptFileUri")
-    def script_file_uri(self) -> str:
+    def script_file_uri(self) -> pulumi.Output[str]:
         """
         The uri to the Script used in the Experiment
         """
@@ -173,7 +173,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The description of Experiment status from the server side
         """
@@ -181,7 +181,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -189,7 +189,7 @@ class Experiment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

@@ -13,7 +13,7 @@ __all__ = ['Server']
 
 class Server(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[str]:
+    def administrator_login(self) -> pulumi.Output[Optional[str]]:
         """
         Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
         """
@@ -109,7 +109,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[str]:
+    def administrator_login_password(self) -> pulumi.Output[Optional[str]]:
         """
         The administrator login password (required for server creation).
         """
@@ -117,7 +117,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalAdministratorLogin")
-    def external_administrator_login(self) -> str:
+    def external_administrator_login(self) -> pulumi.Output[str]:
         """
         The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
         """
@@ -125,7 +125,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalAdministratorSid")
-    def external_administrator_sid(self) -> str:
+    def external_administrator_sid(self) -> pulumi.Output[str]:
         """
         The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
         """
@@ -133,7 +133,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
-    def fully_qualified_domain_name(self) -> str:
+    def fully_qualified_domain_name(self) -> pulumi.Output[str]:
         """
         The fully qualified domain name of the server.
         """
@@ -141,7 +141,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         Kind of sql server.  This is metadata used for the Azure portal experience.
         """
@@ -149,7 +149,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -157,7 +157,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -165,7 +165,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The state of the server.
         """
@@ -173,7 +173,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -181,7 +181,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -189,7 +189,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the server.
         """

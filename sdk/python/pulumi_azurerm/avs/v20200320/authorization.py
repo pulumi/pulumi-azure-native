@@ -13,7 +13,7 @@ __all__ = ['Authorization']
 
 class Authorization(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_name: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class Authorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteAuthorizationId")
-    def express_route_authorization_id(self) -> str:
+    def express_route_authorization_id(self) -> pulumi.Output[str]:
         """
         The ID of the ExpressRoute Circuit Authorization
         """
@@ -95,7 +95,7 @@ class Authorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteAuthorizationKey")
-    def express_route_authorization_key(self) -> str:
+    def express_route_authorization_key(self) -> pulumi.Output[str]:
         """
         The key of the ExpressRoute Circuit Authorization
         """
@@ -103,7 +103,7 @@ class Authorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -111,7 +111,7 @@ class Authorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The state of the  ExpressRoute Circuit Authorization provisioning
         """
@@ -119,7 +119,7 @@ class Authorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

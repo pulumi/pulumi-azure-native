@@ -15,7 +15,7 @@ __all__ = ['App']
 
 class App(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityPropertiesArgs']]] = None,
@@ -95,7 +95,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityPropertiesResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityPropertiesResponse']]:
         """
         The Managed Identity type of the app resource
         """
@@ -103,7 +103,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The GEO location of the application, always the same with its parent resource
         """
@@ -111,7 +111,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -119,7 +119,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.AppResourcePropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.AppResourcePropertiesResponse']:
         """
         Properties of the App resource
         """
@@ -127,7 +127,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

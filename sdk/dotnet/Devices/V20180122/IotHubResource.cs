@@ -81,15 +81,15 @@ namespace Pulumi.AzureRM.Devices.V20180122
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:devices/v20160203:IotHubResource"},
-                    new Alias { Type = "azurerm:devices/v20170119:IotHubResource"},
-                    new Alias { Type = "azurerm:devices/v20170701:IotHubResource"},
-                    new Alias { Type = "azurerm:devices/v20180401:IotHubResource"},
-                    new Alias { Type = "azurerm:devices/v20190322:IotHubResource"},
-                    new Alias { Type = "azurerm:devices/v20191104:IotHubResource"},
-                    new Alias { Type = "azurerm:devices/v20200301:IotHubResource"},
-                    new Alias { Type = "azurerm:devices/v20200401:IotHubResource"},
-                    new Alias { Type = "azurerm:devices/v20200615:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20160203:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20170119:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20170701:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20180401:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20190322:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20191104:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200301:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200401:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200615:IotHubResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

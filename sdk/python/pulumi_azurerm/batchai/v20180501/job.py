@@ -15,7 +15,7 @@ __all__ = ['Job']
 
 class Job(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  caffe2_settings: Optional[pulumi.Input[pulumi.InputType['Caffe2SettingsArgs']]] = None,
                  caffe_settings: Optional[pulumi.Input[pulumi.InputType['CaffeSettingsArgs']]] = None,
@@ -168,7 +168,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="caffe2Settings")
-    def caffe2_settings(self) -> Optional['outputs.Caffe2SettingsResponse']:
+    def caffe2_settings(self) -> pulumi.Output[Optional['outputs.Caffe2SettingsResponse']]:
         """
         Caffe2 job settings.
         """
@@ -176,7 +176,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="caffeSettings")
-    def caffe_settings(self) -> Optional['outputs.CaffeSettingsResponse']:
+    def caffe_settings(self) -> pulumi.Output[Optional['outputs.CaffeSettingsResponse']]:
         """
         Caffe job settings.
         """
@@ -184,7 +184,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="chainerSettings")
-    def chainer_settings(self) -> Optional['outputs.ChainerSettingsResponse']:
+    def chainer_settings(self) -> pulumi.Output[Optional['outputs.ChainerSettingsResponse']]:
         """
         Chainer job settings.
         """
@@ -192,7 +192,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cluster(self) -> Optional['outputs.ResourceIdResponse']:
+    def cluster(self) -> pulumi.Output[Optional['outputs.ResourceIdResponse']]:
         """
         Resource ID of the cluster associated with the job.
         """
@@ -200,7 +200,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cntkSettings")
-    def cntk_settings(self) -> Optional['outputs.CNTKsettingsResponse']:
+    def cntk_settings(self) -> pulumi.Output[Optional['outputs.CNTKsettingsResponse']]:
         """
         CNTK (aka Microsoft Cognitive Toolkit) job settings.
         """
@@ -208,7 +208,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def constraints(self) -> Optional['outputs.JobPropertiesResponseConstraints']:
+    def constraints(self) -> pulumi.Output[Optional['outputs.JobPropertiesResponseConstraints']]:
         """
         Constraints associated with the Job.
         """
@@ -216,7 +216,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerSettings")
-    def container_settings(self) -> Optional['outputs.ContainerSettingsResponse']:
+    def container_settings(self) -> pulumi.Output[Optional['outputs.ContainerSettingsResponse']]:
         """
         If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
         """
@@ -224,7 +224,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         The creation time of the job.
         """
@@ -232,7 +232,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customMpiSettings")
-    def custom_mpi_settings(self) -> Optional['outputs.CustomMpiSettingsResponse']:
+    def custom_mpi_settings(self) -> pulumi.Output[Optional['outputs.CustomMpiSettingsResponse']]:
         """
         Custom MPI job settings.
         """
@@ -240,7 +240,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customToolkitSettings")
-    def custom_toolkit_settings(self) -> Optional['outputs.CustomToolkitSettingsResponse']:
+    def custom_toolkit_settings(self) -> pulumi.Output[Optional['outputs.CustomToolkitSettingsResponse']]:
         """
         Custom tool kit job settings.
         """
@@ -248,7 +248,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[List['outputs.EnvironmentVariableResponse']]:
+    def environment_variables(self) -> pulumi.Output[Optional[List['outputs.EnvironmentVariableResponse']]]:
         """
         A collection of user defined environment variables to be setup for the job.
         """
@@ -256,7 +256,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionInfo")
-    def execution_info(self) -> Optional['outputs.JobPropertiesResponseExecutionInfo']:
+    def execution_info(self) -> pulumi.Output[Optional['outputs.JobPropertiesResponseExecutionInfo']]:
         """
         Information about the execution of a job.
         """
@@ -264,7 +264,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionState")
-    def execution_state(self) -> str:
+    def execution_state(self) -> pulumi.Output[str]:
         """
         The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
         """
@@ -272,7 +272,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionStateTransitionTime")
-    def execution_state_transition_time(self) -> str:
+    def execution_state_transition_time(self) -> pulumi.Output[str]:
         """
         The time at which the job entered its current execution state.
         """
@@ -280,7 +280,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="horovodSettings")
-    def horovod_settings(self) -> Optional['outputs.HorovodSettingsResponse']:
+    def horovod_settings(self) -> pulumi.Output[Optional['outputs.HorovodSettingsResponse']]:
         """
         Specifies the settings for Horovod job.
         """
@@ -288,7 +288,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputDirectories")
-    def input_directories(self) -> Optional[List['outputs.InputDirectoryResponse']]:
+    def input_directories(self) -> pulumi.Output[Optional[List['outputs.InputDirectoryResponse']]]:
         """
         A list of input directories for the job.
         """
@@ -296,7 +296,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobOutputDirectoryPathSegment")
-    def job_output_directory_path_segment(self) -> str:
+    def job_output_directory_path_segment(self) -> pulumi.Output[str]:
         """
         A segment of job's output directories path created by Batch AI. Batch AI creates job's output directories under an unique path to avoid conflicts between jobs. This value contains a path segment generated by Batch AI to make the path unique and can be used to find the output directory on the node or mounted filesystem.
         """
@@ -304,7 +304,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobPreparation")
-    def job_preparation(self) -> Optional['outputs.JobPreparationResponse']:
+    def job_preparation(self) -> pulumi.Output[Optional['outputs.JobPreparationResponse']]:
         """
         The specified actions will run on all the nodes that are part of the job
         """
@@ -312,7 +312,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountVolumes")
-    def mount_volumes(self) -> Optional['outputs.MountVolumesResponse']:
+    def mount_volumes(self) -> pulumi.Output[Optional['outputs.MountVolumesResponse']]:
         """
         Collection of mount volumes available to the job during execution. These volumes are mounted before the job execution and unmounted after the job completion. The volumes are mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
         """
@@ -320,7 +320,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -328,7 +328,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[float]:
+    def node_count(self) -> pulumi.Output[Optional[float]]:
         """
         The job will be gang scheduled on that many compute nodes
         """
@@ -336,7 +336,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputDirectories")
-    def output_directories(self) -> Optional[List['outputs.OutputDirectoryResponse']]:
+    def output_directories(self) -> pulumi.Output[Optional[List['outputs.OutputDirectoryResponse']]]:
         """
         A list of output directories for the job.
         """
@@ -344,7 +344,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioned state of the Batch AI job
         """
@@ -352,7 +352,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningStateTransitionTime")
-    def provisioning_state_transition_time(self) -> str:
+    def provisioning_state_transition_time(self) -> pulumi.Output[str]:
         """
         The time at which the job entered its current provisioning state.
         """
@@ -360,7 +360,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pyTorchSettings")
-    def py_torch_settings(self) -> Optional['outputs.PyTorchSettingsResponse']:
+    def py_torch_settings(self) -> pulumi.Output[Optional['outputs.PyTorchSettingsResponse']]:
         """
         pyTorch job settings.
         """
@@ -368,7 +368,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schedulingPriority")
-    def scheduling_priority(self) -> Optional[str]:
+    def scheduling_priority(self) -> pulumi.Output[Optional[str]]:
         """
         Scheduling priority associated with the job.
         """
@@ -376,7 +376,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[List['outputs.EnvironmentVariableWithSecretValueResponse']]:
+    def secrets(self) -> pulumi.Output[Optional[List['outputs.EnvironmentVariableWithSecretValueResponse']]]:
         """
         A collection of user defined environment variables with secret values to be setup for the job. Server will never report values of these variables back.
         """
@@ -384,7 +384,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stdOutErrPathPrefix")
-    def std_out_err_path_prefix(self) -> Optional[str]:
+    def std_out_err_path_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The path where the Batch AI service stores stdout, stderror and execution log of the job.
         """
@@ -392,7 +392,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tensorFlowSettings")
-    def tensor_flow_settings(self) -> Optional['outputs.TensorFlowSettingsResponse']:
+    def tensor_flow_settings(self) -> pulumi.Output[Optional['outputs.TensorFlowSettingsResponse']]:
         """
         TensorFlow job settings.
         """
@@ -400,7 +400,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="toolType")
-    def tool_type(self) -> Optional[str]:
+    def tool_type(self) -> pulumi.Output[Optional[str]]:
         """
         Possible values are: cntk, tensorflow, caffe, caffe2, chainer, pytorch, custom, custommpi, horovod.
         """
@@ -408,7 +408,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

@@ -111,10 +111,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountSqlContainer"},
-                    new Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountSqlContainer"},
-                    new Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountSqlContainer"},
-                    new Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccountSqlContainer"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountSqlContainer"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountSqlContainer"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountSqlContainer"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccountSqlContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

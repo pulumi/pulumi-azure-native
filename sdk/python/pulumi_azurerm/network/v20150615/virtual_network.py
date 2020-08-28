@@ -15,7 +15,7 @@ __all__ = ['VirtualNetwork']
 
 class VirtualNetwork(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_space: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
                  dhcp_options: Optional[pulumi.Input[pulumi.InputType['DhcpOptionsArgs']]] = None,
@@ -110,7 +110,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def address_space(self) -> pulumi.Output[Optional['outputs.AddressSpaceResponse']]:
         """
         The AddressSpace that contains an array of IP address ranges that can be used by subnets.
         """
@@ -118,7 +118,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dhcpOptions")
-    def dhcp_options(self) -> Optional['outputs.DhcpOptionsResponse']:
+    def dhcp_options(self) -> pulumi.Output[Optional['outputs.DhcpOptionsResponse']]:
         """
         The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         """
@@ -126,7 +126,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -134,7 +134,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -142,7 +142,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -150,7 +150,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
@@ -158,7 +158,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> Optional[str]:
+    def resource_guid(self) -> pulumi.Output[Optional[str]]:
         """
         The resourceGuid property of the Virtual Network resource.
         """
@@ -166,7 +166,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[List['outputs.SubnetResponse']]:
+    def subnets(self) -> pulumi.Output[Optional[List['outputs.SubnetResponse']]]:
         """
         A list of subnets in a Virtual Network.
         """
@@ -174,7 +174,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -182,7 +182,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

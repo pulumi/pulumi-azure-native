@@ -69,9 +69,9 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnection"},
-                    new Alias { Type = "azurerm:web/v20181101:WebAppSwiftVirtualNetworkConnection"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppSwiftVirtualNetworkConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

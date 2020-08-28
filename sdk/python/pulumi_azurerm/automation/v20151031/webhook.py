@@ -15,7 +15,7 @@ __all__ = ['Webhook']
 
 class Webhook(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  expiry_time: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the creation time.
         """
@@ -121,7 +121,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -129,7 +129,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expiryTime")
-    def expiry_time(self) -> Optional[str]:
+    def expiry_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the expiry time.
         """
@@ -137,7 +137,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[bool]:
+    def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Gets or sets the value of the enabled flag of the webhook.
         """
@@ -145,7 +145,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastInvokedTime")
-    def last_invoked_time(self) -> Optional[str]:
+    def last_invoked_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last invoked time.
         """
@@ -153,7 +153,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
+    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
         """
         Details of the user who last modified the Webhook
         """
@@ -161,7 +161,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last modified time.
         """
@@ -169,7 +169,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -177,7 +177,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
         """
@@ -185,7 +185,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runOn")
-    def run_on(self) -> Optional[str]:
+    def run_on(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the name of the hybrid worker group the webhook job will run on.
         """
@@ -193,7 +193,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def runbook(self) -> Optional['outputs.RunbookAssociationPropertyResponse']:
+    def runbook(self) -> pulumi.Output[Optional['outputs.RunbookAssociationPropertyResponse']]:
         """
         Gets or sets the runbook the webhook is associated with.
         """
@@ -201,7 +201,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -209,7 +209,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> Optional[str]:
+    def uri(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the webhook uri.
         """

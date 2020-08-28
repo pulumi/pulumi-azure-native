@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:devtestlab/v20180915:NotificationChannel"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:NotificationChannel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,7 +15,7 @@ __all__ = ['Job']
 
 class Job(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Azure location where the job is created.
         """
@@ -100,7 +100,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the job.
         """
@@ -108,7 +108,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.JobDetailsResponse':
+    def properties(self) -> pulumi.Output['outputs.JobDetailsResponse']:
         """
         Specifies the job properties
         """
@@ -116,7 +116,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Specifies the tags that are assigned to the job.
         """
@@ -124,7 +124,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Specifies the type of the job resource.
         """

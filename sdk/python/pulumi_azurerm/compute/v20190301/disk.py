@@ -15,7 +15,7 @@ __all__ = ['Disk']
 
 class Disk(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[float]] = None,
@@ -126,7 +126,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationData")
-    def creation_data(self) -> 'outputs.CreationDataResponse':
+    def creation_data(self) -> pulumi.Output['outputs.CreationDataResponse']:
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
@@ -134,7 +134,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskIOPSReadWrite")
-    def disk_iops_read_write(self) -> Optional[float]:
+    def disk_iops_read_write(self) -> pulumi.Output[Optional[float]]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         """
@@ -142,7 +142,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskMBpsReadWrite")
-    def disk_m_bps_read_write(self) -> Optional[float]:
+    def disk_m_bps_read_write(self) -> pulumi.Output[Optional[float]]:
         """
         The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
@@ -150,7 +150,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeBytes")
-    def disk_size_bytes(self) -> float:
+    def disk_size_bytes(self) -> pulumi.Output[float]:
         """
         The size of the disk in bytes. This field is read only.
         """
@@ -158,7 +158,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> pulumi.Output[Optional[float]]:
         """
         If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         """
@@ -166,7 +166,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskState")
-    def disk_state(self) -> str:
+    def disk_state(self) -> pulumi.Output[str]:
         """
         The state of the disk.
         """
@@ -174,7 +174,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionSettingsCollection")
-    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionResponse']:
+    def encryption_settings_collection(self) -> pulumi.Output[Optional['outputs.EncryptionSettingsCollectionResponse']]:
         """
         Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         """
@@ -182,7 +182,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[str]:
+    def hyper_v_generation(self) -> pulumi.Output[Optional[str]]:
         """
         The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         """
@@ -190,7 +190,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -198,7 +198,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> str:
+    def managed_by(self) -> pulumi.Output[str]:
         """
         A relative URI containing the ID of the VM that has the disk attached.
         """
@@ -206,7 +206,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -214,7 +214,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         The Operating System type.
         """
@@ -222,7 +222,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The disk provisioning state.
         """
@@ -230,7 +230,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.DiskSkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.DiskSkuResponse']]:
         """
         The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         """
@@ -238,7 +238,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -246,7 +246,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeCreated")
-    def time_created(self) -> str:
+    def time_created(self) -> pulumi.Output[str]:
         """
         The time when the disk was created.
         """
@@ -254,7 +254,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -262,7 +262,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         """
         Unique Guid identifying the resource.
         """
@@ -270,7 +270,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The Logical zone list for Disk.
         """

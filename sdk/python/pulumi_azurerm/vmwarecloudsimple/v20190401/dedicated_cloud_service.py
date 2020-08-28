@@ -13,7 +13,7 @@ __all__ = ['DedicatedCloudService']
 
 class DedicatedCloudService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dedicated_cloud_service_name: Optional[pulumi.Input[str]] = None,
                  gateway_subnet: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class DedicatedCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewaySubnet")
-    def gateway_subnet(self) -> str:
+    def gateway_subnet(self) -> pulumi.Output[str]:
         """
         gateway Subnet for the account. It will collect the subnet address and always treat it as /28
         """
@@ -103,7 +103,7 @@ class DedicatedCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isAccountOnboarded")
-    def is_account_onboarded(self) -> str:
+    def is_account_onboarded(self) -> pulumi.Output[str]:
         """
         indicates whether account onboarded or not in a given region
         """
@@ -111,7 +111,7 @@ class DedicatedCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Azure region
         """
@@ -119,7 +119,7 @@ class DedicatedCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         {dedicatedCloudServiceName}
         """
@@ -127,7 +127,7 @@ class DedicatedCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def nodes(self) -> float:
+    def nodes(self) -> pulumi.Output[float]:
         """
         total nodes purchased
         """
@@ -135,7 +135,7 @@ class DedicatedCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceURL")
-    def service_url(self) -> str:
+    def service_url(self) -> pulumi.Output[str]:
         """
         link to a service management web portal
         """
@@ -143,7 +143,7 @@ class DedicatedCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The list of tags
         """
@@ -151,7 +151,7 @@ class DedicatedCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         {resourceProviderNamespace}/{resourceType}
         """

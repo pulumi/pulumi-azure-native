@@ -15,7 +15,7 @@ __all__ = ['Snapshot']
 
 class Snapshot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
                  disk_size_gb: Optional[pulumi.Input[float]] = None,
@@ -122,7 +122,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationData")
-    def creation_data(self) -> 'outputs.CreationDataResponse':
+    def creation_data(self) -> pulumi.Output['outputs.CreationDataResponse']:
         """
         Disk source information. CreationData information cannot be changed after the disk has been created.
         """
@@ -130,7 +130,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeBytes")
-    def disk_size_bytes(self) -> float:
+    def disk_size_bytes(self) -> pulumi.Output[float]:
         """
         The size of the disk in bytes. This field is read only.
         """
@@ -138,7 +138,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> pulumi.Output[Optional[float]]:
         """
         If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         """
@@ -146,7 +146,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionResponse']]:
         """
         Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         """
@@ -154,7 +154,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionSettingsCollection")
-    def encryption_settings_collection(self) -> Optional['outputs.EncryptionSettingsCollectionResponse']:
+    def encryption_settings_collection(self) -> pulumi.Output[Optional['outputs.EncryptionSettingsCollectionResponse']]:
         """
         Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         """
@@ -162,7 +162,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[str]:
+    def hyper_v_generation(self) -> pulumi.Output[Optional[str]]:
         """
         The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         """
@@ -170,7 +170,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def incremental(self) -> Optional[bool]:
+    def incremental(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
         """
@@ -178,7 +178,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -186,7 +186,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> str:
+    def managed_by(self) -> pulumi.Output[str]:
         """
         Unused. Always Null.
         """
@@ -194,7 +194,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -202,7 +202,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         The Operating System type.
         """
@@ -210,7 +210,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The disk provisioning state.
         """
@@ -218,7 +218,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SnapshotSkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SnapshotSkuResponse']]:
         """
         The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         """
@@ -226,7 +226,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -234,7 +234,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeCreated")
-    def time_created(self) -> str:
+    def time_created(self) -> pulumi.Output[str]:
         """
         The time when the disk was created.
         """
@@ -242,7 +242,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -250,7 +250,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         """
         Unique Guid identifying the resource.
         """

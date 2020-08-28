@@ -13,7 +13,7 @@ __all__ = ['Pool']
 
 class Pool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -119,7 +119,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -127,7 +127,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolId")
-    def pool_id(self) -> str:
+    def pool_id(self) -> pulumi.Output[str]:
         """
         UUID v4 used to identify the Pool
         """
@@ -135,7 +135,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Azure lifecycle management
         """
@@ -143,7 +143,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="qosType")
-    def qos_type(self) -> Optional[str]:
+    def qos_type(self) -> pulumi.Output[Optional[str]]:
         """
         The qos type of the pool
         """
@@ -151,7 +151,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceLevel")
-    def service_level(self) -> str:
+    def service_level(self) -> pulumi.Output[str]:
         """
         The service level of the file system
         """
@@ -159,7 +159,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> float:
+    def size(self) -> pulumi.Output[float]:
         """
         Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         """
@@ -167,7 +167,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -175,7 +175,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalThroughputMibps")
-    def total_throughput_mibps(self) -> float:
+    def total_throughput_mibps(self) -> pulumi.Output[float]:
         """
         Total throughput of pool in Mibps
         """
@@ -183,7 +183,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -191,7 +191,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="utilizedThroughputMibps")
-    def utilized_throughput_mibps(self) -> float:
+    def utilized_throughput_mibps(self) -> pulumi.Output[float]:
         """
         Utilized throughput of pool in Mibps
         """

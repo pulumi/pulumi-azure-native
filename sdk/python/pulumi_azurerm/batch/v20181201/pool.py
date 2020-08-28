@@ -15,7 +15,7 @@ __all__ = ['Pool']
 
 class Pool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  application_licenses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -138,17 +138,17 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationState")
-    def allocation_state(self) -> str:
+    def allocation_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "allocation_state")
 
     @property
     @pulumi.getter(name="allocationStateTransitionTime")
-    def allocation_state_transition_time(self) -> str:
+    def allocation_state_transition_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "allocation_state_transition_time")
 
     @property
     @pulumi.getter(name="applicationLicenses")
-    def application_licenses(self) -> Optional[List[str]]:
+    def application_licenses(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
         """
@@ -156,7 +156,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationPackages")
-    def application_packages(self) -> Optional[List['outputs.ApplicationPackageReferenceResponse']]:
+    def application_packages(self) -> pulumi.Output[Optional[List['outputs.ApplicationPackageReferenceResponse']]]:
         """
         Changes to application packages affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged.
         """
@@ -164,7 +164,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoScaleRun")
-    def auto_scale_run(self) -> 'outputs.AutoScaleRunResponse':
+    def auto_scale_run(self) -> pulumi.Output['outputs.AutoScaleRunResponse']:
         """
         This property is set only if the pool automatically scales, i.e. autoScaleSettings are used.
         """
@@ -172,7 +172,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[List['outputs.CertificateReferenceResponse']]:
+    def certificates(self) -> pulumi.Output[Optional[List['outputs.CertificateReferenceResponse']]]:
         """
         For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         """
@@ -180,22 +180,22 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="currentDedicatedNodes")
-    def current_dedicated_nodes(self) -> float:
+    def current_dedicated_nodes(self) -> pulumi.Output[float]:
         return pulumi.get(self, "current_dedicated_nodes")
 
     @property
     @pulumi.getter(name="currentLowPriorityNodes")
-    def current_low_priority_nodes(self) -> float:
+    def current_low_priority_nodes(self) -> pulumi.Output[float]:
         return pulumi.get(self, "current_low_priority_nodes")
 
     @property
     @pulumi.getter(name="deploymentConfiguration")
-    def deployment_configuration(self) -> Optional['outputs.DeploymentConfigurationResponse']:
+    def deployment_configuration(self) -> pulumi.Output[Optional['outputs.DeploymentConfigurationResponse']]:
         """
         Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         """
@@ -203,7 +203,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
         """
@@ -211,7 +211,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         The ETag of the resource, used for concurrency statements.
         """
@@ -219,7 +219,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="interNodeCommunication")
-    def inter_node_communication(self) -> Optional[str]:
+    def inter_node_communication(self) -> pulumi.Output[Optional[str]]:
         """
         This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         """
@@ -227,7 +227,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> pulumi.Output[str]:
         """
         This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
         """
@@ -235,12 +235,12 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxTasksPerNode")
-    def max_tasks_per_node(self) -> Optional[float]:
+    def max_tasks_per_node(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "max_tasks_per_node")
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[List['outputs.MetadataItemResponse']]:
+    def metadata(self) -> pulumi.Output[Optional[List['outputs.MetadataItemResponse']]]:
         """
         The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         """
@@ -248,7 +248,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -256,7 +256,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional['outputs.NetworkConfigurationResponse']:
+    def network_configuration(self) -> pulumi.Output[Optional['outputs.NetworkConfigurationResponse']]:
         """
         The network configuration for a pool.
         """
@@ -264,17 +264,17 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="provisioningStateTransitionTime")
-    def provisioning_state_transition_time(self) -> str:
+    def provisioning_state_transition_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "provisioning_state_transition_time")
 
     @property
     @pulumi.getter(name="resizeOperationStatus")
-    def resize_operation_status(self) -> 'outputs.ResizeOperationStatusResponse':
+    def resize_operation_status(self) -> pulumi.Output['outputs.ResizeOperationStatusResponse']:
         """
         Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
         """
@@ -282,7 +282,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleSettings")
-    def scale_settings(self) -> Optional['outputs.ScaleSettingsResponse']:
+    def scale_settings(self) -> pulumi.Output[Optional['outputs.ScaleSettingsResponse']]:
         """
         Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         """
@@ -290,7 +290,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTask")
-    def start_task(self) -> Optional['outputs.StartTaskResponse']:
+    def start_task(self) -> pulumi.Output[Optional['outputs.StartTaskResponse']]:
         """
         In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         """
@@ -298,12 +298,12 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="taskSchedulingPolicy")
-    def task_scheduling_policy(self) -> Optional['outputs.TaskSchedulingPolicyResponse']:
+    def task_scheduling_policy(self) -> pulumi.Output[Optional['outputs.TaskSchedulingPolicyResponse']]:
         return pulumi.get(self, "task_scheduling_policy")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -311,12 +311,12 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userAccounts")
-    def user_accounts(self) -> Optional[List['outputs.UserAccountResponse']]:
+    def user_accounts(self) -> pulumi.Output[Optional[List['outputs.UserAccountResponse']]]:
         return pulumi.get(self, "user_accounts")
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[str]:
+    def vm_size(self) -> pulumi.Output[Optional[str]]:
         """
         For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """

@@ -15,7 +15,7 @@ __all__ = ['SavedSearch']
 
 class SavedSearch(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> str:
+    def category(self) -> pulumi.Output[str]:
         """
         The category of the saved search. This helps the user to find a saved search faster. 
         """
@@ -126,7 +126,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Saved search display name.
         """
@@ -134,7 +134,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The ETag of the saved search.
         """
@@ -142,7 +142,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionAlias")
-    def function_alias(self) -> Optional[str]:
+    def function_alias(self) -> pulumi.Output[Optional[str]]:
         """
         The function alias if query serves as a function.
         """
@@ -150,7 +150,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionParameters")
-    def function_parameters(self) -> Optional[str]:
+    def function_parameters(self) -> pulumi.Output[Optional[str]]:
         """
         The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
         """
@@ -158,7 +158,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -166,7 +166,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> str:
+    def query(self) -> pulumi.Output[str]:
         """
         The query expression for the saved search.
         """
@@ -174,7 +174,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List['outputs.TagResponse']]:
+    def tags(self) -> pulumi.Output[Optional[List['outputs.TagResponse']]]:
         """
         The tags attached to the saved search.
         """
@@ -182,7 +182,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -190,7 +190,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[float]:
+    def version(self) -> pulumi.Output[Optional[float]]:
         """
         The version number of the query language. The current version is 2 and is the default.
         """

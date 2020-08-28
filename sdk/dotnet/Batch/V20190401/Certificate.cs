@@ -102,11 +102,11 @@ namespace Pulumi.AzureRM.Batch.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:batch/v20170901:Certificate"},
-                    new Alias { Type = "azurerm:batch/v20181201:Certificate"},
-                    new Alias { Type = "azurerm:batch/v20190801:Certificate"},
-                    new Alias { Type = "azurerm:batch/v20200301:Certificate"},
-                    new Alias { Type = "azurerm:batch/v20200501:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20170901:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20181201:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20190801:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20200301:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20200501:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

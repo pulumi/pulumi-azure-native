@@ -189,16 +189,16 @@ namespace Pulumi.AzureRM.ContainerService.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:containerservice/v20190401:AgentPool"},
-                    new Alias { Type = "azurerm:containerservice/v20190601:AgentPool"},
-                    new Alias { Type = "azurerm:containerservice/v20190801:AgentPool"},
-                    new Alias { Type = "azurerm:containerservice/v20191001:AgentPool"},
-                    new Alias { Type = "azurerm:containerservice/v20191101:AgentPool"},
-                    new Alias { Type = "azurerm:containerservice/v20200101:AgentPool"},
-                    new Alias { Type = "azurerm:containerservice/v20200201:AgentPool"},
-                    new Alias { Type = "azurerm:containerservice/v20200301:AgentPool"},
-                    new Alias { Type = "azurerm:containerservice/v20200401:AgentPool"},
-                    new Alias { Type = "azurerm:containerservice/v20200601:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190401:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190601:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190801:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20191001:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20191101:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200101:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200201:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200301:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200401:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200601:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

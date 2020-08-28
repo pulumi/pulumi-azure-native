@@ -69,9 +69,9 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:apimanagement/v20170301:ApiIssueComment"},
-                    new Alias { Type = "azurerm:apimanagement/v20190101:ApiIssueComment"},
-                    new Alias { Type = "azurerm:apimanagement/v20191201:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ApiIssueComment"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ApiIssueComment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

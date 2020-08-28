@@ -15,7 +15,7 @@ __all__ = ['VirtualWan']
 
 class VirtualWan(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
@@ -118,7 +118,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowBranchToBranchTraffic")
-    def allow_branch_to_branch_traffic(self) -> Optional[bool]:
+    def allow_branch_to_branch_traffic(self) -> pulumi.Output[Optional[bool]]:
         """
         True if branch to branch traffic is allowed.
         """
@@ -126,7 +126,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowVnetToVnetTraffic")
-    def allow_vnet_to_vnet_traffic(self) -> Optional[bool]:
+    def allow_vnet_to_vnet_traffic(self) -> pulumi.Output[Optional[bool]]:
         """
         True if Vnet to Vnet traffic is allowed.
         """
@@ -134,7 +134,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableVpnEncryption")
-    def disable_vpn_encryption(self) -> Optional[bool]:
+    def disable_vpn_encryption(self) -> pulumi.Output[Optional[bool]]:
         """
         Vpn encryption to be disabled or not.
         """
@@ -142,7 +142,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -150,7 +150,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -158,7 +158,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -166,7 +166,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="office365LocalBreakoutCategory")
-    def office365_local_breakout_category(self) -> Optional[str]:
+    def office365_local_breakout_category(self) -> pulumi.Output[Optional[str]]:
         """
         The office local breakout category.
         """
@@ -174,7 +174,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigurations")
-    def p2_s_vpn_server_configurations(self) -> Optional[List['outputs.P2SVpnServerConfigurationResponse']]:
+    def p2_s_vpn_server_configurations(self) -> pulumi.Output[Optional[List['outputs.P2SVpnServerConfigurationResponse']]]:
         """
         List of all P2SVpnServerConfigurations associated with the virtual wan.
         """
@@ -182,7 +182,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the resource.
         """
@@ -190,7 +190,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityProviderName")
-    def security_provider_name(self) -> Optional[str]:
+    def security_provider_name(self) -> pulumi.Output[Optional[str]]:
         """
         The Security Provider name.
         """
@@ -198,7 +198,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -206,7 +206,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -214,7 +214,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualHubs")
-    def virtual_hubs(self) -> List['outputs.SubResourceResponse']:
+    def virtual_hubs(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         List of VirtualHubs in the VirtualWAN.
         """
@@ -222,7 +222,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnSites")
-    def vpn_sites(self) -> List['outputs.SubResourceResponse']:
+    def vpn_sites(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         return pulumi.get(self, "vpn_sites")
 
     def translate_output_property(self, prop):

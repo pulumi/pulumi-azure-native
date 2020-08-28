@@ -14,7 +14,7 @@ __all__ = ['Gallery']
 
 class Gallery(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class Gallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of this Shared Image Gallery resource. This property is updatable.
         """
@@ -103,7 +103,7 @@ class Gallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identifier(self) -> Optional['outputs.GalleryIdentifierResponse']:
+    def identifier(self) -> pulumi.Output[Optional['outputs.GalleryIdentifierResponse']]:
         """
         Describes the gallery unique name.
         """
@@ -111,7 +111,7 @@ class Gallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -119,7 +119,7 @@ class Gallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -127,7 +127,7 @@ class Gallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state, which only appears in the response.
         """
@@ -135,7 +135,7 @@ class Gallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -143,7 +143,7 @@ class Gallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

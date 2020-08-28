@@ -15,7 +15,7 @@ __all__ = ['PublicIPAddress']
 
 class PublicIPAddress(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressDnsSettingsArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional['outputs.PublicIPAddressDnsSettingsResponse']:
+    def dns_settings(self) -> pulumi.Output[Optional['outputs.PublicIPAddressDnsSettingsResponse']]:
         """
         The FQDN of the DNS record associated with the public IP address.
         """
@@ -123,7 +123,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -131,7 +131,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         The idle timeout of the public IP address.
         """
@@ -139,12 +139,12 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[str]:
+    def ip_address(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> Optional['outputs.IPConfigurationResponse']:
+    def ip_configuration(self) -> pulumi.Output[Optional['outputs.IPConfigurationResponse']]:
         """
         IPConfiguration
         """
@@ -152,7 +152,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -160,7 +160,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -168,7 +168,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
@@ -176,7 +176,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIPAllocationMethod")
-    def public_ip_allocation_method(self) -> Optional[str]:
+    def public_ip_allocation_method(self) -> pulumi.Output[Optional[str]]:
         """
         The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
         """
@@ -184,7 +184,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> Optional[str]:
+    def resource_guid(self) -> pulumi.Output[Optional[str]]:
         """
         The resource GUID property of the public IP resource.
         """
@@ -192,7 +192,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -200,7 +200,7 @@ class PublicIPAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

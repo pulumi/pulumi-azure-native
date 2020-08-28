@@ -129,7 +129,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:storagecache/v20191101:Cache"},
+                    new Pulumi.Alias { Type = "azurerm:storagecache/v20191101:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

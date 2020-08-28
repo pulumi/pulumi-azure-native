@@ -15,7 +15,7 @@ __all__ = ['PrivateEndpointConnection']
 
 class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']]] = None,
@@ -93,7 +93,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -101,7 +101,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.PrivateEndpointConnectionPropertiesResponse']:
         """
         The properties of a private endpoint connection
         """
@@ -109,7 +109,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """

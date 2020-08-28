@@ -15,7 +15,7 @@ __all__ = ['ConnectionMonitor']
 
 class ConnectionMonitor(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
                  connection_monitor_name: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoStart")
-    def auto_start(self) -> Optional[bool]:
+    def auto_start(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines if the connection monitor will start automatically once created.
         """
@@ -122,7 +122,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> 'outputs.ConnectionMonitorDestinationResponse':
+    def destination(self) -> pulumi.Output['outputs.ConnectionMonitorDestinationResponse']:
         """
         Describes the destination of connection monitor.
         """
@@ -130,7 +130,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -138,7 +138,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Connection monitor location.
         """
@@ -146,7 +146,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringIntervalInSeconds")
-    def monitoring_interval_in_seconds(self) -> Optional[float]:
+    def monitoring_interval_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Monitoring interval in seconds.
         """
@@ -154,7 +154,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> Optional[str]:
+    def monitoring_status(self) -> pulumi.Output[Optional[str]]:
         """
         The monitoring status of the connection monitor.
         """
@@ -162,7 +162,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the connection monitor.
         """
@@ -170,7 +170,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the connection monitor.
         """
@@ -178,7 +178,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> 'outputs.ConnectionMonitorSourceResponse':
+    def source(self) -> pulumi.Output['outputs.ConnectionMonitorSourceResponse']:
         """
         Describes the source of connection monitor.
         """
@@ -186,7 +186,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[str]:
+    def start_time(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time when the connection monitor was started.
         """
@@ -194,7 +194,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Connection monitor tags.
         """
@@ -202,7 +202,7 @@ class ConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Connection monitor type.
         """

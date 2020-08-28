@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.HybridData.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:hybriddata/v20160601:JobDefinition"},
+                    new Pulumi.Alias { Type = "azurerm:hybriddata/v20160601:JobDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

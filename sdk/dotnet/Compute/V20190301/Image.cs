@@ -87,14 +87,14 @@ namespace Pulumi.AzureRM.Compute.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:compute/v20170330:Image"},
-                    new Alias { Type = "azurerm:compute/v20171201:Image"},
-                    new Alias { Type = "azurerm:compute/v20180401:Image"},
-                    new Alias { Type = "azurerm:compute/v20180601:Image"},
-                    new Alias { Type = "azurerm:compute/v20181001:Image"},
-                    new Alias { Type = "azurerm:compute/v20190701:Image"},
-                    new Alias { Type = "azurerm:compute/v20191201:Image"},
-                    new Alias { Type = "azurerm:compute/v20200601:Image"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:Image"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20171201:Image"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:Image"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:Image"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20181001:Image"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:Image"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:Image"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:Image"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -75,14 +75,14 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:network/v20190701:VirtualRouterPeering"},
-                    new Alias { Type = "azurerm:network/v20190801:VirtualRouterPeering"},
-                    new Alias { Type = "azurerm:network/v20190901:VirtualRouterPeering"},
-                    new Alias { Type = "azurerm:network/v20191201:VirtualRouterPeering"},
-                    new Alias { Type = "azurerm:network/v20200301:VirtualRouterPeering"},
-                    new Alias { Type = "azurerm:network/v20200401:VirtualRouterPeering"},
-                    new Alias { Type = "azurerm:network/v20200501:VirtualRouterPeering"},
-                    new Alias { Type = "azurerm:network/v20200601:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190701:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190801:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20190901:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20191201:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200301:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200401:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualRouterPeering"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200601:VirtualRouterPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

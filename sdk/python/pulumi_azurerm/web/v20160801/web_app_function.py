@@ -13,7 +13,7 @@ __all__ = ['WebAppFunction']
 
 class WebAppFunction(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  config_href: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[Mapping[str, Any]]:
+    def config(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Config information.
         """
@@ -121,7 +121,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configHref")
-    def config_href(self) -> Optional[str]:
+    def config_href(self) -> pulumi.Output[Optional[str]]:
         """
         Config URI.
         """
@@ -129,7 +129,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def files(self) -> Optional[Mapping[str, str]]:
+    def files(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         File list.
         """
@@ -137,7 +137,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionAppId")
-    def function_app_id(self) -> str:
+    def function_app_id(self) -> pulumi.Output[str]:
         """
         Function App ID.
         """
@@ -145,7 +145,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def href(self) -> Optional[str]:
+    def href(self) -> pulumi.Output[Optional[str]]:
         """
         Function URI.
         """
@@ -153,7 +153,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -161,7 +161,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -169,7 +169,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scriptHref")
-    def script_href(self) -> Optional[str]:
+    def script_href(self) -> pulumi.Output[Optional[str]]:
         """
         Script URI.
         """
@@ -177,7 +177,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scriptRootPathHref")
-    def script_root_path_href(self) -> Optional[str]:
+    def script_root_path_href(self) -> pulumi.Output[Optional[str]]:
         """
         Script root path URI.
         """
@@ -185,7 +185,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secretsFileHref")
-    def secrets_file_href(self) -> Optional[str]:
+    def secrets_file_href(self) -> pulumi.Output[Optional[str]]:
         """
         Secrets file URI.
         """
@@ -193,7 +193,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="testData")
-    def test_data(self) -> Optional[str]:
+    def test_data(self) -> pulumi.Output[Optional[str]]:
         """
         Test data used when testing via the Azure Portal.
         """
@@ -201,7 +201,7 @@ class WebAppFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

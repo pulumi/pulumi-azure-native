@@ -13,7 +13,7 @@ __all__ = ['DomainTopic']
 
 class DomainTopic(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_topic_name: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class DomainTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the resource.
         """
@@ -95,7 +95,7 @@ class DomainTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning state of the domain topic.
         """
@@ -103,7 +103,7 @@ class DomainTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the resource.
         """

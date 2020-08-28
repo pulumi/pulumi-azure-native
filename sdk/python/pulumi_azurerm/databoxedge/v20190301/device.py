@@ -15,7 +15,7 @@ __all__ = ['Device']
 
 class Device(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_box_edge_device_status: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configuredRoleTypes")
-    def configured_role_types(self) -> List[str]:
+    def configured_role_types(self) -> pulumi.Output[List[str]]:
         """
         Type of compute roles configured.
         """
@@ -126,7 +126,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def culture(self) -> str:
+    def culture(self) -> pulumi.Output[str]:
         """
         The Data Box Edge/Gateway device culture.
         """
@@ -134,7 +134,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataBoxEdgeDeviceStatus")
-    def data_box_edge_device_status(self) -> Optional[str]:
+    def data_box_edge_device_status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the Data Box Edge/Gateway device.
         """
@@ -142,7 +142,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The Description of the Data Box Edge/Gateway device.
         """
@@ -150,7 +150,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceHcsVersion")
-    def device_hcs_version(self) -> str:
+    def device_hcs_version(self) -> pulumi.Output[str]:
         """
         The device software version number of the device (eg: 1.2.18105.6).
         """
@@ -158,7 +158,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceLocalCapacity")
-    def device_local_capacity(self) -> float:
+    def device_local_capacity(self) -> pulumi.Output[float]:
         """
         The Data Box Edge/Gateway device local capacity in MB.
         """
@@ -166,7 +166,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceModel")
-    def device_model(self) -> str:
+    def device_model(self) -> pulumi.Output[str]:
         """
         The Data Box Edge/Gateway device model.
         """
@@ -174,7 +174,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceSoftwareVersion")
-    def device_software_version(self) -> str:
+    def device_software_version(self) -> pulumi.Output[str]:
         """
         The Data Box Edge/Gateway device software version.
         """
@@ -182,7 +182,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceType")
-    def device_type(self) -> str:
+    def device_type(self) -> pulumi.Output[str]:
         """
         The type of the Data Box Edge/Gateway device.
         """
@@ -190,7 +190,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         The etag for the devices.
         """
@@ -198,7 +198,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
         The Data Box Edge/Gateway device name.
         """
@@ -206,7 +206,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         """
@@ -214,7 +214,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modelDescription")
-    def model_description(self) -> Optional[str]:
+    def model_description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the Data Box Edge/Gateway device model.
         """
@@ -222,7 +222,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The object name.
         """
@@ -230,7 +230,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> str:
+    def serial_number(self) -> pulumi.Output[str]:
         """
         The Serial Number of Data Box Edge/Gateway device.
         """
@@ -238,7 +238,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The SKU type.
         """
@@ -246,7 +246,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         """
@@ -254,7 +254,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> str:
+    def time_zone(self) -> pulumi.Output[str]:
         """
         The Data Box Edge/Gateway device timezone.
         """
@@ -262,7 +262,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """

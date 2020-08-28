@@ -15,7 +15,7 @@ __all__ = ['Runbook']
 
 class Runbook(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -128,7 +128,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[str]:
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the creation time.
         """
@@ -136,7 +136,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -144,7 +144,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def draft(self) -> Optional['outputs.RunbookDraftResponse']:
+    def draft(self) -> pulumi.Output[Optional['outputs.RunbookDraftResponse']]:
         """
         Gets or sets the draft runbook properties.
         """
@@ -152,7 +152,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the etag of the resource.
         """
@@ -160,7 +160,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobCount")
-    def job_count(self) -> Optional[float]:
+    def job_count(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the job count of the runbook.
         """
@@ -168,7 +168,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
+    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last modified by.
         """
@@ -176,7 +176,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[str]:
+    def last_modified_time(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last modified time.
         """
@@ -184,7 +184,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region where the resource lives
         """
@@ -192,7 +192,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logActivityTrace")
-    def log_activity_trace(self) -> Optional[float]:
+    def log_activity_trace(self) -> pulumi.Output[Optional[float]]:
         """
         Gets or sets the option to log activity trace of the runbook.
         """
@@ -200,7 +200,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logProgress")
-    def log_progress(self) -> Optional[bool]:
+    def log_progress(self) -> pulumi.Output[Optional[bool]]:
         """
         Gets or sets progress log option.
         """
@@ -208,7 +208,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logVerbose")
-    def log_verbose(self) -> Optional[bool]:
+    def log_verbose(self) -> pulumi.Output[Optional[bool]]:
         """
         Gets or sets verbose log option.
         """
@@ -216,7 +216,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -224,7 +224,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputTypes")
-    def output_types(self) -> Optional[List[str]]:
+    def output_types(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Gets or sets the runbook output types.
         """
@@ -232,7 +232,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, 'outputs.RunbookParameterResponse']]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.RunbookParameterResponse']]]:
         """
         Gets or sets the runbook parameters.
         """
@@ -240,7 +240,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the provisioning state of the runbook.
         """
@@ -248,7 +248,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publishContentLink")
-    def publish_content_link(self) -> Optional['outputs.ContentLinkResponse']:
+    def publish_content_link(self) -> pulumi.Output[Optional['outputs.ContentLinkResponse']]:
         """
         Gets or sets the published runbook content link.
         """
@@ -256,7 +256,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runbookType")
-    def runbook_type(self) -> Optional[str]:
+    def runbook_type(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the type of the runbook.
         """
@@ -264,7 +264,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the state of the runbook.
         """
@@ -272,7 +272,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -280,7 +280,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

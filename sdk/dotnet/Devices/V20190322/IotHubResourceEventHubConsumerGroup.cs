@@ -63,15 +63,15 @@ namespace Pulumi.AzureRM.Devices.V20190322
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:devices/v20160203:IotHubResourceEventHubConsumerGroup"},
-                    new Alias { Type = "azurerm:devices/v20170119:IotHubResourceEventHubConsumerGroup"},
-                    new Alias { Type = "azurerm:devices/v20170701:IotHubResourceEventHubConsumerGroup"},
-                    new Alias { Type = "azurerm:devices/v20180122:IotHubResourceEventHubConsumerGroup"},
-                    new Alias { Type = "azurerm:devices/v20180401:IotHubResourceEventHubConsumerGroup"},
-                    new Alias { Type = "azurerm:devices/v20191104:IotHubResourceEventHubConsumerGroup"},
-                    new Alias { Type = "azurerm:devices/v20200301:IotHubResourceEventHubConsumerGroup"},
-                    new Alias { Type = "azurerm:devices/v20200401:IotHubResourceEventHubConsumerGroup"},
-                    new Alias { Type = "azurerm:devices/v20200615:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20160203:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20170119:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20170701:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20180122:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20180401:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20191104:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200301:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200401:IotHubResourceEventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200615:IotHubResourceEventHubConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

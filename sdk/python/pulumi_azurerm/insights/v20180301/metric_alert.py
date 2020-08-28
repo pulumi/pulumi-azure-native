@@ -15,7 +15,7 @@ __all__ = ['MetricAlert']
 
 class MetricAlert(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
@@ -135,7 +135,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.MetricAlertActionResponse']]:
+    def actions(self) -> pulumi.Output[Optional[List['outputs.MetricAlertActionResponse']]]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """
@@ -143,7 +143,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoMitigate")
-    def auto_mitigate(self) -> Optional[bool]:
+    def auto_mitigate(self) -> pulumi.Output[Optional[bool]]:
         """
         the flag that indicates whether the alert should be auto resolved or not. The default is true.
         """
@@ -151,7 +151,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def criteria(self) -> 'outputs.MetricAlertCriteriaResponse':
+    def criteria(self) -> pulumi.Output['outputs.MetricAlertCriteriaResponse']:
         """
         defines the specific alert criteria information.
         """
@@ -159,7 +159,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         the description of the metric alert that will be included in the alert email.
         """
@@ -167,7 +167,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         the flag that indicates whether the metric alert is enabled.
         """
@@ -175,7 +175,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluationFrequency")
-    def evaluation_frequency(self) -> str:
+    def evaluation_frequency(self) -> pulumi.Output[str]:
         """
         how often the metric alert is evaluated represented in ISO 8601 duration format.
         """
@@ -183,7 +183,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> str:
+    def last_updated_time(self) -> pulumi.Output[str]:
         """
         Last time the rule was updated in ISO8601 format.
         """
@@ -191,7 +191,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -199,7 +199,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -207,7 +207,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         the list of resource id's that this metric alert is scoped to.
         """
@@ -215,7 +215,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> float:
+    def severity(self) -> pulumi.Output[float]:
         """
         Alert severity {0, 1, 2, 3, 4}
         """
@@ -223,7 +223,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -231,7 +231,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceRegion")
-    def target_resource_region(self) -> Optional[str]:
+    def target_resource_region(self) -> pulumi.Output[Optional[str]]:
         """
         the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
         """
@@ -239,7 +239,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional[str]:
+    def target_resource_type(self) -> pulumi.Output[Optional[str]]:
         """
         the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
         """
@@ -247,7 +247,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """
@@ -255,7 +255,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="windowSize")
-    def window_size(self) -> str:
+    def window_size(self) -> pulumi.Output[str]:
         """
         the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
         """

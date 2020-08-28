@@ -15,7 +15,7 @@ __all__ = ['ServiceRunner']
 
 class ServiceRunner(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class ServiceRunner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityPropertiesResponse']]:
         """
         The identity of the resource.
         """
@@ -104,7 +104,7 @@ class ServiceRunner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -112,7 +112,7 @@ class ServiceRunner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -120,7 +120,7 @@ class ServiceRunner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -128,7 +128,7 @@ class ServiceRunner(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

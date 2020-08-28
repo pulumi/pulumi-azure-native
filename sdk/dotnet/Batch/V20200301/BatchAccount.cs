@@ -138,14 +138,14 @@ namespace Pulumi.AzureRM.Batch.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:batch/v20151201:BatchAccount"},
-                    new Alias { Type = "azurerm:batch/v20170101:BatchAccount"},
-                    new Alias { Type = "azurerm:batch/v20170501:BatchAccount"},
-                    new Alias { Type = "azurerm:batch/v20170901:BatchAccount"},
-                    new Alias { Type = "azurerm:batch/v20181201:BatchAccount"},
-                    new Alias { Type = "azurerm:batch/v20190401:BatchAccount"},
-                    new Alias { Type = "azurerm:batch/v20190801:BatchAccount"},
-                    new Alias { Type = "azurerm:batch/v20200501:BatchAccount"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20151201:BatchAccount"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20170101:BatchAccount"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20170501:BatchAccount"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20170901:BatchAccount"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20181201:BatchAccount"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20190401:BatchAccount"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20190801:BatchAccount"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20200501:BatchAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

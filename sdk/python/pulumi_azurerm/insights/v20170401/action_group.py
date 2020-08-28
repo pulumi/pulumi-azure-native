@@ -15,7 +15,7 @@ __all__ = ['ActionGroup']
 
 class ActionGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_group_name: Optional[pulumi.Input[str]] = None,
                  automation_runbook_receivers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutomationRunbookReceiverArgs']]]]] = None,
@@ -119,7 +119,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationRunbookReceivers")
-    def automation_runbook_receivers(self) -> Optional[List['outputs.AutomationRunbookReceiverResponse']]:
+    def automation_runbook_receivers(self) -> pulumi.Output[Optional[List['outputs.AutomationRunbookReceiverResponse']]]:
         """
         The list of AutomationRunbook receivers that are part of this action group.
         """
@@ -127,7 +127,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureAppPushReceivers")
-    def azure_app_push_receivers(self) -> Optional[List['outputs.AzureAppPushReceiverResponse']]:
+    def azure_app_push_receivers(self) -> pulumi.Output[Optional[List['outputs.AzureAppPushReceiverResponse']]]:
         """
         The list of AzureAppPush receivers that are part of this action group.
         """
@@ -135,7 +135,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailReceivers")
-    def email_receivers(self) -> Optional[List['outputs.EmailReceiverResponse']]:
+    def email_receivers(self) -> pulumi.Output[Optional[List['outputs.EmailReceiverResponse']]]:
         """
         The list of email receivers that are part of this action group.
         """
@@ -143,7 +143,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
         """
@@ -151,7 +151,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupShortName")
-    def group_short_name(self) -> str:
+    def group_short_name(self) -> pulumi.Output[str]:
         """
         The short name of the action group. This will be used in SMS messages.
         """
@@ -159,7 +159,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="itsmReceivers")
-    def itsm_receivers(self) -> Optional[List['outputs.ItsmReceiverResponse']]:
+    def itsm_receivers(self) -> pulumi.Output[Optional[List['outputs.ItsmReceiverResponse']]]:
         """
         The list of ITSM receivers that are part of this action group.
         """
@@ -167,7 +167,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -175,7 +175,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -183,7 +183,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="smsReceivers")
-    def sms_receivers(self) -> Optional[List['outputs.SmsReceiverResponse']]:
+    def sms_receivers(self) -> pulumi.Output[Optional[List['outputs.SmsReceiverResponse']]]:
         """
         The list of SMS receivers that are part of this action group.
         """
@@ -191,7 +191,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -199,7 +199,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """
@@ -207,7 +207,7 @@ class ActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webhookReceivers")
-    def webhook_receivers(self) -> Optional[List['outputs.WebhookReceiverResponse']]:
+    def webhook_receivers(self) -> pulumi.Output[Optional[List['outputs.WebhookReceiverResponse']]]:
         """
         The list of webhook receivers that are part of this action group.
         """

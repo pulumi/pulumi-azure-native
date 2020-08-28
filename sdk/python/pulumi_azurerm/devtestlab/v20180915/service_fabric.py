@@ -14,7 +14,7 @@ __all__ = ['ServiceFabric']
 
 class ServiceFabric(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  external_service_fabric_id: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class ServiceFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicableSchedule")
-    def applicable_schedule(self) -> 'outputs.ApplicableScheduleResponse':
+    def applicable_schedule(self) -> pulumi.Output['outputs.ApplicableScheduleResponse']:
         """
         The applicable schedule for the virtual machine.
         """
@@ -112,7 +112,7 @@ class ServiceFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[str]:
+    def environment_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource id of the environment under which the service fabric resource is present
         """
@@ -120,7 +120,7 @@ class ServiceFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalServiceFabricId")
-    def external_service_fabric_id(self) -> Optional[str]:
+    def external_service_fabric_id(self) -> pulumi.Output[Optional[str]]:
         """
         The backing service fabric resource's id
         """
@@ -128,7 +128,7 @@ class ServiceFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -136,7 +136,7 @@ class ServiceFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -144,7 +144,7 @@ class ServiceFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the resource.
         """
@@ -152,7 +152,7 @@ class ServiceFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -160,7 +160,7 @@ class ServiceFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -168,7 +168,7 @@ class ServiceFabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
+    def unique_identifier(self) -> pulumi.Output[str]:
         """
         The unique immutable identifier of a resource (Guid).
         """

@@ -15,7 +15,7 @@ __all__ = ['ManagementLockByScope']
 
 class ManagementLockByScope(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  level: Optional[pulumi.Input[str]] = None,
                  lock_name: Optional[pulumi.Input[str]] = None,
@@ -92,7 +92,7 @@ class ManagementLockByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def level(self) -> str:
+    def level(self) -> pulumi.Output[str]:
         """
         The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         """
@@ -100,7 +100,7 @@ class ManagementLockByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the lock.
         """
@@ -108,7 +108,7 @@ class ManagementLockByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> Optional[str]:
+    def notes(self) -> pulumi.Output[Optional[str]]:
         """
         Notes about the lock. Maximum of 512 characters.
         """
@@ -116,7 +116,7 @@ class ManagementLockByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owners(self) -> Optional[List['outputs.ManagementLockOwnerResponse']]:
+    def owners(self) -> pulumi.Output[Optional[List['outputs.ManagementLockOwnerResponse']]]:
         """
         The owners of the lock.
         """
@@ -124,7 +124,7 @@ class ManagementLockByScope(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type of the lock - Microsoft.Authorization/locks.
         """

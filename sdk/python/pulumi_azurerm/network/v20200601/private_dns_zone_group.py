@@ -15,7 +15,7 @@ __all__ = ['PrivateDnsZoneGroup']
 
 class PrivateDnsZoneGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -105,7 +105,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -113,7 +113,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDnsZoneConfigs")
-    def private_dns_zone_configs(self) -> Optional[List['outputs.PrivateDnsZoneConfigResponse']]:
+    def private_dns_zone_configs(self) -> pulumi.Output[Optional[List['outputs.PrivateDnsZoneConfigResponse']]]:
         """
         A collection of private dns zone configurations of the private dns zone group.
         """
@@ -121,7 +121,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the private dns zone group resource.
         """

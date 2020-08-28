@@ -15,7 +15,7 @@ __all__ = ['RoleAssignment']
 
 class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assignment_name: Optional[pulumi.Input[str]] = None,
                  conflation_policies: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
@@ -145,7 +145,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assignmentName")
-    def assignment_name(self) -> str:
+    def assignment_name(self) -> pulumi.Output[str]:
         """
         The name of the metadata object.
         """
@@ -153,7 +153,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="conflationPolicies")
-    def conflation_policies(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def conflation_policies(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         Widget types set for the assignment.
         """
@@ -161,7 +161,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def connectors(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def connectors(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         Connectors set for the assignment.
         """
@@ -169,7 +169,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[Mapping[str, str]]:
+    def description(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized description for the metadata.
         """
@@ -177,7 +177,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[Mapping[str, str]]:
+    def display_name(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized display names for the metadata.
         """
@@ -185,7 +185,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def interactions(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def interactions(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         Interactions set for the assignment.
         """
@@ -193,7 +193,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kpis(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def kpis(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         Kpis set for the assignment.
         """
@@ -201,7 +201,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def links(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def links(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         Links set for the assignment.
         """
@@ -209,7 +209,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -217,7 +217,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def principals(self) -> List['outputs.AssignmentPrincipalResponse']:
+    def principals(self) -> pulumi.Output[List['outputs.AssignmentPrincipalResponse']]:
         """
         The principals being assigned to.
         """
@@ -225,7 +225,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def profiles(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def profiles(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         Profiles set for the assignment.
         """
@@ -233,7 +233,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state.
         """
@@ -241,7 +241,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relationshipLinks")
-    def relationship_links(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def relationship_links(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         The Role assignments set for the relationship links.
         """
@@ -249,7 +249,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def relationships(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def relationships(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         The Role assignments set for the relationships.
         """
@@ -257,7 +257,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> str:
+    def role(self) -> pulumi.Output[str]:
         """
         Type of roles.
         """
@@ -265,7 +265,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleAssignments")
-    def role_assignments(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def role_assignments(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         The Role assignments set for the assignment.
         """
@@ -273,7 +273,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sasPolicies")
-    def sas_policies(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def sas_policies(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         Sas Policies set for the assignment.
         """
@@ -281,7 +281,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def segments(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def segments(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         The Role assignments set for the assignment.
         """
@@ -289,7 +289,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The hub name.
         """
@@ -297,7 +297,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -305,7 +305,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def views(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def views(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         Views set for the assignment.
         """
@@ -313,7 +313,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="widgetTypes")
-    def widget_types(self) -> Optional['outputs.ResourceSetDescriptionResponse']:
+    def widget_types(self) -> pulumi.Output[Optional['outputs.ResourceSetDescriptionResponse']]:
         """
         Widget types set for the assignment.
         """

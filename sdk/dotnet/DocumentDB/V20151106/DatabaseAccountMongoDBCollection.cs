@@ -75,10 +75,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountMongoDBCollection"},
-                    new Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountMongoDBCollection"},
-                    new Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountMongoDBCollection"},
-                    new Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccountMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccountMongoDBCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

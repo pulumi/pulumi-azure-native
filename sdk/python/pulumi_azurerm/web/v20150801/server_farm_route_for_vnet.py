@@ -13,7 +13,7 @@ __all__ = ['ServerFarmRouteForVnet']
 
 class ServerFarmRouteForVnet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_address: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endAddress")
-    def end_address(self) -> Optional[str]:
+    def end_address(self) -> pulumi.Output[Optional[str]]:
         """
         The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
         """
@@ -129,7 +129,7 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -137,7 +137,7 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -145,7 +145,7 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -153,7 +153,7 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeType")
-    def route_type(self) -> Optional[str]:
+    def route_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of route this is:
                     DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
@@ -167,7 +167,7 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startAddress")
-    def start_address(self) -> Optional[str]:
+    def start_address(self) -> pulumi.Output[Optional[str]]:
         """
         The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         """
@@ -175,7 +175,7 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -183,7 +183,7 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """

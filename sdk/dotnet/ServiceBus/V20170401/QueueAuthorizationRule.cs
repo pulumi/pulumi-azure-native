@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:servicebus/v20140901:QueueAuthorizationRule"},
-                    new Alias { Type = "azurerm:servicebus/v20150801:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:QueueAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

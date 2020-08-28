@@ -15,7 +15,7 @@ __all__ = ['NetworkSecurityGroup']
 
 class NetworkSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSecurityRules")
-    def default_security_rules(self) -> List['outputs.SecurityRuleResponse']:
+    def default_security_rules(self) -> pulumi.Output[List['outputs.SecurityRuleResponse']]:
         """
         The default security rules of network security group.
         """
@@ -110,7 +110,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -118,7 +118,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="flowLogs")
-    def flow_logs(self) -> List['outputs.FlowLogResponse']:
+    def flow_logs(self) -> pulumi.Output[List['outputs.FlowLogResponse']]:
         """
         A collection of references to flow log resources.
         """
@@ -126,7 +126,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -134,7 +134,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -142,7 +142,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> pulumi.Output[List['outputs.NetworkInterfaceResponse']]:
         """
         A collection of references to network interfaces.
         """
@@ -150,7 +150,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the network security group resource.
         """
@@ -158,7 +158,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
+    def resource_guid(self) -> pulumi.Output[str]:
         """
         The resource GUID property of the network security group resource.
         """
@@ -166,7 +166,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityRules")
-    def security_rules(self) -> Optional[List['outputs.SecurityRuleResponse']]:
+    def security_rules(self) -> pulumi.Output[Optional[List['outputs.SecurityRuleResponse']]]:
         """
         A collection of security rules of the network security group.
         """
@@ -174,7 +174,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> List['outputs.SubnetResponse']:
+    def subnets(self) -> pulumi.Output[List['outputs.SubnetResponse']]:
         """
         A collection of references to subnets.
         """
@@ -182,7 +182,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -190,7 +190,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

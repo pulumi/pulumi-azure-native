@@ -15,7 +15,7 @@ __all__ = ['OpenShiftCluster']
 
 class OpenShiftCluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apiserver_profile: Optional[pulumi.Input[pulumi.InputType['APIServerProfileArgs']]] = None,
                  cluster_profile: Optional[pulumi.Input[pulumi.InputType['ClusterProfileArgs']]] = None,
@@ -116,7 +116,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiserverProfile")
-    def apiserver_profile(self) -> Optional['outputs.APIServerProfileResponse']:
+    def apiserver_profile(self) -> pulumi.Output[Optional['outputs.APIServerProfileResponse']]:
         """
         The cluster API server profile.
         """
@@ -124,7 +124,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterProfile")
-    def cluster_profile(self) -> Optional['outputs.ClusterProfileResponse']:
+    def cluster_profile(self) -> pulumi.Output[Optional['outputs.ClusterProfileResponse']]:
         """
         The cluster profile.
         """
@@ -132,7 +132,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="consoleProfile")
-    def console_profile(self) -> Optional['outputs.ConsoleProfileResponse']:
+    def console_profile(self) -> pulumi.Output[Optional['outputs.ConsoleProfileResponse']]:
         """
         The console profile.
         """
@@ -140,7 +140,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingressProfiles")
-    def ingress_profiles(self) -> Optional[List['outputs.IngressProfileResponse']]:
+    def ingress_profiles(self) -> pulumi.Output[Optional[List['outputs.IngressProfileResponse']]]:
         """
         The cluster ingress profiles.
         """
@@ -148,7 +148,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -156,7 +156,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterProfile")
-    def master_profile(self) -> Optional['outputs.MasterProfileResponse']:
+    def master_profile(self) -> pulumi.Output[Optional['outputs.MasterProfileResponse']]:
         """
         The cluster master profile.
         """
@@ -164,7 +164,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -172,7 +172,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+    def network_profile(self) -> pulumi.Output[Optional['outputs.NetworkProfileResponse']]:
         """
         The cluster network profile.
         """
@@ -180,7 +180,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The cluster provisioning state (immutable).
         """
@@ -188,7 +188,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicePrincipalProfile")
-    def service_principal_profile(self) -> Optional['outputs.ServicePrincipalProfileResponse']:
+    def service_principal_profile(self) -> pulumi.Output[Optional['outputs.ServicePrincipalProfileResponse']]:
         """
         The cluster service principal profile.
         """
@@ -196,7 +196,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -204,7 +204,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -212,7 +212,7 @@ class OpenShiftCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workerProfiles")
-    def worker_profiles(self) -> Optional[List['outputs.WorkerProfileResponse']]:
+    def worker_profiles(self) -> pulumi.Output[Optional[List['outputs.WorkerProfileResponse']]]:
         """
         The cluster worker profiles.
         """

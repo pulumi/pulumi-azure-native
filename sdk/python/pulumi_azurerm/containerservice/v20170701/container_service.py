@@ -15,7 +15,7 @@ __all__ = ['ContainerService']
 
 class ContainerService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]]] = None,
                  container_service_name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[List['outputs.ContainerServiceAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> pulumi.Output[Optional[List['outputs.ContainerServiceAgentPoolProfileResponse']]]:
         """
         Properties of the agent pool.
         """
@@ -130,7 +130,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customProfile")
-    def custom_profile(self) -> Optional['outputs.ContainerServiceCustomProfileResponse']:
+    def custom_profile(self) -> pulumi.Output[Optional['outputs.ContainerServiceCustomProfileResponse']]:
         """
         Properties to configure a custom container service cluster.
         """
@@ -138,7 +138,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diagnosticsProfile")
-    def diagnostics_profile(self) -> Optional['outputs.ContainerServiceDiagnosticsProfileResponse']:
+    def diagnostics_profile(self) -> pulumi.Output[Optional['outputs.ContainerServiceDiagnosticsProfileResponse']]:
         """
         Profile for diagnostics in the container service cluster.
         """
@@ -146,7 +146,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> 'outputs.ContainerServiceLinuxProfileResponse':
+    def linux_profile(self) -> pulumi.Output['outputs.ContainerServiceLinuxProfileResponse']:
         """
         Profile for Linux VMs in the container service cluster.
         """
@@ -154,7 +154,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -162,7 +162,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterProfile")
-    def master_profile(self) -> 'outputs.ContainerServiceMasterProfileResponse':
+    def master_profile(self) -> pulumi.Output['outputs.ContainerServiceMasterProfileResponse']:
         """
         Profile for the container service master.
         """
@@ -170,7 +170,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -178,7 +178,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="orchestratorProfile")
-    def orchestrator_profile(self) -> 'outputs.ContainerServiceOrchestratorProfileResponse':
+    def orchestrator_profile(self) -> pulumi.Output['outputs.ContainerServiceOrchestratorProfileResponse']:
         """
         Profile for the container service orchestrator.
         """
@@ -186,7 +186,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment or provisioning state, which only appears in the response.
         """
@@ -194,7 +194,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicePrincipalProfile")
-    def service_principal_profile(self) -> Optional['outputs.ContainerServiceServicePrincipalProfileResponse']:
+    def service_principal_profile(self) -> pulumi.Output[Optional['outputs.ContainerServiceServicePrincipalProfileResponse']]:
         """
         Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
         """
@@ -202,7 +202,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -210,7 +210,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -218,7 +218,7 @@ class ContainerService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional['outputs.ContainerServiceWindowsProfileResponse']:
+    def windows_profile(self) -> pulumi.Output[Optional['outputs.ContainerServiceWindowsProfileResponse']]:
         """
         Profile for Windows VMs in the container service cluster.
         """

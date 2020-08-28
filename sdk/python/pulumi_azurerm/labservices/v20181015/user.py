@@ -14,7 +14,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lab_account_name: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         The user email address, as it was specified during registration.
         """
@@ -116,7 +116,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="familyName")
-    def family_name(self) -> str:
+    def family_name(self) -> pulumi.Output[str]:
         """
         The user family name, as it was specified during registration.
         """
@@ -124,7 +124,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="givenName")
-    def given_name(self) -> str:
+    def given_name(self) -> pulumi.Output[str]:
         """
         The user given name, as it was specified during registration.
         """
@@ -132,7 +132,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> 'outputs.LatestOperationResultResponse':
+    def latest_operation_result(self) -> pulumi.Output['outputs.LatestOperationResultResponse']:
         """
         The details of the latest operation. ex: status, error
         """
@@ -140,7 +140,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -148,7 +148,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -156,7 +156,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -164,7 +164,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -172,7 +172,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The user tenant ID, as it was specified during registration.
         """
@@ -180,7 +180,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalUsage")
-    def total_usage(self) -> str:
+    def total_usage(self) -> pulumi.Output[str]:
         """
         How long the user has used his VMs in this lab
         """
@@ -188,7 +188,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -196,7 +196,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """

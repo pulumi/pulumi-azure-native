@@ -15,7 +15,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  compute_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]]] = None,
@@ -141,7 +141,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The unique identifier associated with this Data Lake Analytics account.
         """
@@ -149,7 +149,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computePolicies")
-    def compute_policies(self) -> List['outputs.ComputePolicyResponse']:
+    def compute_policies(self) -> pulumi.Output[List['outputs.ComputePolicyResponse']]:
         """
         The list of compute policies associated with this account.
         """
@@ -157,7 +157,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         The account creation time.
         """
@@ -165,7 +165,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentTier")
-    def current_tier(self) -> str:
+    def current_tier(self) -> pulumi.Output[str]:
         """
         The commitment tier in use for the current month.
         """
@@ -173,7 +173,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataLakeStoreAccounts")
-    def data_lake_store_accounts(self) -> List['outputs.DataLakeStoreAccountInformationResponse']:
+    def data_lake_store_accounts(self) -> pulumi.Output[List['outputs.DataLakeStoreAccountInformationResponse']]:
         """
         The list of Data Lake Store accounts associated with this account.
         """
@@ -181,7 +181,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultDataLakeStoreAccount")
-    def default_data_lake_store_account(self) -> str:
+    def default_data_lake_store_account(self) -> pulumi.Output[str]:
         """
         The default Data Lake Store account associated with this account.
         """
@@ -189,7 +189,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         The full CName endpoint for this account.
         """
@@ -197,7 +197,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallAllowAzureIps")
-    def firewall_allow_azure_ips(self) -> str:
+    def firewall_allow_azure_ips(self) -> pulumi.Output[str]:
         """
         The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         """
@@ -205,7 +205,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> List['outputs.FirewallRuleResponse']:
+    def firewall_rules(self) -> pulumi.Output[List['outputs.FirewallRuleResponse']]:
         """
         The list of firewall rules associated with this account.
         """
@@ -213,7 +213,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallState")
-    def firewall_state(self) -> str:
+    def firewall_state(self) -> pulumi.Output[str]:
         """
         The current state of the IP address firewall for this account.
         """
@@ -221,7 +221,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         The account last modified time.
         """
@@ -229,7 +229,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The resource location.
         """
@@ -237,7 +237,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelism")
-    def max_degree_of_parallelism(self) -> float:
+    def max_degree_of_parallelism(self) -> pulumi.Output[float]:
         """
         The maximum supported degree of parallelism for this account.
         """
@@ -245,7 +245,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> float:
+    def max_degree_of_parallelism_per_job(self) -> pulumi.Output[float]:
         """
         The maximum supported degree of parallelism per job for this account.
         """
@@ -253,7 +253,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxJobCount")
-    def max_job_count(self) -> float:
+    def max_job_count(self) -> pulumi.Output[float]:
         """
         The maximum supported jobs running under the account at the same time.
         """
@@ -261,7 +261,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minPriorityPerJob")
-    def min_priority_per_job(self) -> float:
+    def min_priority_per_job(self) -> pulumi.Output[float]:
         """
         The minimum supported priority per job for this account.
         """
@@ -269,7 +269,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -277,7 +277,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="newTier")
-    def new_tier(self) -> str:
+    def new_tier(self) -> pulumi.Output[str]:
         """
         The commitment tier for the next month.
         """
@@ -285,7 +285,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the Data Lake Analytics account.
         """
@@ -293,7 +293,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryStoreRetention")
-    def query_store_retention(self) -> float:
+    def query_store_retention(self) -> pulumi.Output[float]:
         """
         The number of days that job metadata is retained.
         """
@@ -301,7 +301,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The state of the Data Lake Analytics account.
         """
@@ -309,7 +309,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> List['outputs.StorageAccountInformationResponse']:
+    def storage_accounts(self) -> pulumi.Output[List['outputs.StorageAccountInformationResponse']]:
         """
         The list of Azure Blob Storage accounts associated with this account.
         """
@@ -317,7 +317,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemMaxDegreeOfParallelism")
-    def system_max_degree_of_parallelism(self) -> float:
+    def system_max_degree_of_parallelism(self) -> pulumi.Output[float]:
         """
         The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
         """
@@ -325,7 +325,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemMaxJobCount")
-    def system_max_job_count(self) -> float:
+    def system_max_job_count(self) -> pulumi.Output[float]:
         """
         The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
         """
@@ -333,7 +333,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The resource tags.
         """
@@ -341,7 +341,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """

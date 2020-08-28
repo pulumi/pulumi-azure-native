@@ -15,7 +15,7 @@ __all__ = ['Manager']
 
 class Manager(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cis_intrinsic_settings: Optional[pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class Manager(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cisIntrinsicSettings")
-    def cis_intrinsic_settings(self) -> Optional['outputs.ManagerIntrinsicSettingsResponse']:
+    def cis_intrinsic_settings(self) -> pulumi.Output[Optional['outputs.ManagerIntrinsicSettingsResponse']]:
         """
         Specifies if the Manager is Garda or Helsinki
         """
@@ -109,7 +109,7 @@ class Manager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         ETag of the Manager
         """
@@ -117,7 +117,7 @@ class Manager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Geo location of the Manager
         """
@@ -125,7 +125,7 @@ class Manager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Resource Name
         """
@@ -133,7 +133,7 @@ class Manager(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
         """
@@ -141,7 +141,7 @@ class Manager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ManagerSkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.ManagerSkuResponse']]:
         """
         Specifies the Sku
         """
@@ -149,7 +149,7 @@ class Manager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags attached to the Manager
         """
@@ -157,7 +157,7 @@ class Manager(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The Resource type
         """

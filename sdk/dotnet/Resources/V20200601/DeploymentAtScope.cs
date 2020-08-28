@@ -69,9 +69,9 @@ namespace Pulumi.AzureRM.Resources.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:resources/v20190701:DeploymentAtScope"},
-                    new Alias { Type = "azurerm:resources/v20190801:DeploymentAtScope"},
-                    new Alias { Type = "azurerm:resources/v20191001:DeploymentAtScope"},
+                    new Pulumi.Alias { Type = "azurerm:resources/v20190701:DeploymentAtScope"},
+                    new Pulumi.Alias { Type = "azurerm:resources/v20190801:DeploymentAtScope"},
+                    new Pulumi.Alias { Type = "azurerm:resources/v20191001:DeploymentAtScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

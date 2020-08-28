@@ -141,15 +141,15 @@ namespace Pulumi.AzureRM.Cdn.V20161002
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:cdn/v20150601:Endpoint"},
-                    new Alias { Type = "azurerm:cdn/v20160402:Endpoint"},
-                    new Alias { Type = "azurerm:cdn/v20170402:Endpoint"},
-                    new Alias { Type = "azurerm:cdn/v20171012:Endpoint"},
-                    new Alias { Type = "azurerm:cdn/v20190415:Endpoint"},
-                    new Alias { Type = "azurerm:cdn/v20190615:Endpoint"},
-                    new Alias { Type = "azurerm:cdn/v20191231:Endpoint"},
-                    new Alias { Type = "azurerm:cdn/v20200331:Endpoint"},
-                    new Alias { Type = "azurerm:cdn/v20200415:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20150601:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20160402:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20170402:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20171012:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190415:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20191231:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20200415:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

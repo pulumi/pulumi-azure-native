@@ -15,7 +15,7 @@ __all__ = ['WorkspaceCollection']
 
 class WorkspaceCollection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -88,7 +88,7 @@ class WorkspaceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Azure location
         """
@@ -96,7 +96,7 @@ class WorkspaceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Workspace collection name
         """
@@ -104,7 +104,7 @@ class WorkspaceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, Any]:
+    def properties(self) -> pulumi.Output[Mapping[str, Any]]:
         """
         Properties
         """
@@ -112,17 +112,17 @@ class WorkspaceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.AzureSkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.AzureSkuResponse']]:
         return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """

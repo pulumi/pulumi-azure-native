@@ -15,7 +15,7 @@ __all__ = ['P2sVpnGateway']
 
 class P2sVpnGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -117,7 +117,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -125,7 +125,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -133,7 +133,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SConnectionConfigurations")
-    def p2_s_connection_configurations(self) -> Optional[List['outputs.P2SConnectionConfigurationResponse']]:
+    def p2_s_connection_configurations(self) -> pulumi.Output[Optional[List['outputs.P2SConnectionConfigurationResponse']]]:
         """
         List of all p2s connection configurations of the gateway.
         """
@@ -141,7 +141,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the P2S VPN gateway resource.
         """
@@ -149,7 +149,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -157,7 +157,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -165,7 +165,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualHub")
-    def virtual_hub(self) -> Optional['outputs.SubResourceResponse']:
+    def virtual_hub(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The VirtualHub to which the gateway belongs.
         """
@@ -173,7 +173,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnClientConnectionHealth")
-    def vpn_client_connection_health(self) -> 'outputs.VpnClientConnectionHealthResponse':
+    def vpn_client_connection_health(self) -> pulumi.Output['outputs.VpnClientConnectionHealthResponse']:
         """
         All P2S VPN clients' connection health status.
         """
@@ -181,7 +181,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnGatewayScaleUnit")
-    def vpn_gateway_scale_unit(self) -> Optional[float]:
+    def vpn_gateway_scale_unit(self) -> pulumi.Output[Optional[float]]:
         """
         The scale unit for this p2s vpn gateway.
         """
@@ -189,7 +189,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnServerConfiguration")
-    def vpn_server_configuration(self) -> Optional['outputs.SubResourceResponse']:
+    def vpn_server_configuration(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         """

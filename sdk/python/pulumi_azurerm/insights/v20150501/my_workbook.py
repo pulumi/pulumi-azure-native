@@ -13,7 +13,7 @@ __all__ = ['MyWorkbook']
 
 class MyWorkbook(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> str:
+    def category(self) -> pulumi.Output[str]:
         """
         Workbook category, as defined by the user at creation time.
         """
@@ -126,7 +126,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The user-defined name of the private workbook.
         """
@@ -134,7 +134,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The kind of workbook. Choices are user and shared.
         """
@@ -142,7 +142,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -150,7 +150,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Azure resource name
         """
@@ -158,7 +158,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serializedData")
-    def serialized_data(self) -> str:
+    def serialized_data(self) -> pulumi.Output[str]:
         """
         Configuration of this particular private workbook. Configuration data is a string containing valid JSON
         """
@@ -166,7 +166,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceId")
-    def source_id(self) -> Optional[str]:
+    def source_id(self) -> pulumi.Output[Optional[str]]:
         """
         Optional resourceId for a source resource.
         """
@@ -174,7 +174,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -182,7 +182,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeModified")
-    def time_modified(self) -> str:
+    def time_modified(self) -> pulumi.Output[str]:
         """
         Date and time in UTC of the last modification that was made to this private workbook definition.
         """
@@ -190,7 +190,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Azure resource type
         """
@@ -198,7 +198,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         Unique user id of the specific user that owns this private workbook.
         """
@@ -206,7 +206,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         This instance's version of the data model. This can change as new features are added that can be marked private workbook.
         """

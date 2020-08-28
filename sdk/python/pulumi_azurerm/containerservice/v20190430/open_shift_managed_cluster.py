@@ -15,7 +15,7 @@ __all__ = ['OpenShiftManagedCluster']
 
 class OpenShiftManagedCluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]]] = None,
                  auth_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']]] = None,
@@ -116,7 +116,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[List['outputs.OpenShiftManagedClusterAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> pulumi.Output[Optional[List['outputs.OpenShiftManagedClusterAgentPoolProfileResponse']]]:
         """
         Configuration of OpenShift cluster VMs.
         """
@@ -124,7 +124,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authProfile")
-    def auth_profile(self) -> Optional['outputs.OpenShiftManagedClusterAuthProfileResponse']:
+    def auth_profile(self) -> pulumi.Output[Optional['outputs.OpenShiftManagedClusterAuthProfileResponse']]:
         """
         Configures OpenShift authentication.
         """
@@ -132,7 +132,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterVersion")
-    def cluster_version(self) -> str:
+    def cluster_version(self) -> pulumi.Output[str]:
         """
         Version of OpenShift specified when creating the cluster.
         """
@@ -140,7 +140,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         Service generated FQDN for OpenShift API server loadbalancer internal hostname.
         """
@@ -148,7 +148,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -156,7 +156,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterPoolProfile")
-    def master_pool_profile(self) -> Optional['outputs.OpenShiftManagedClusterMasterPoolProfileResponse']:
+    def master_pool_profile(self) -> pulumi.Output[Optional['outputs.OpenShiftManagedClusterMasterPoolProfileResponse']]:
         """
         Configuration for OpenShift master VMs.
         """
@@ -164,7 +164,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -172,7 +172,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+    def network_profile(self) -> pulumi.Output[Optional['outputs.NetworkProfileResponse']]:
         """
         Configuration for OpenShift networking.
         """
@@ -180,7 +180,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="openShiftVersion")
-    def open_shift_version(self) -> str:
+    def open_shift_version(self) -> pulumi.Output[str]:
         """
         Version of OpenShift specified when creating the cluster.
         """
@@ -188,7 +188,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.PurchasePlanResponse']:
+    def plan(self) -> pulumi.Output[Optional['outputs.PurchasePlanResponse']]:
         """
         Define the resource plan as required by ARM for billing purposes
         """
@@ -196,7 +196,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment or provisioning state, which only appears in the response.
         """
@@ -204,7 +204,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicHostname")
-    def public_hostname(self) -> str:
+    def public_hostname(self) -> pulumi.Output[str]:
         """
         Service generated FQDN for OpenShift API server.
         """
@@ -212,7 +212,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routerProfiles")
-    def router_profiles(self) -> Optional[List['outputs.OpenShiftRouterProfileResponse']]:
+    def router_profiles(self) -> pulumi.Output[Optional[List['outputs.OpenShiftRouterProfileResponse']]]:
         """
         Configuration for OpenShift router(s).
         """
@@ -220,7 +220,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -228,7 +228,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

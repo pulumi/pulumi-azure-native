@@ -13,7 +13,7 @@ __all__ = ['TrustedIdProvider']
 
 class TrustedIdProvider(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  id_provider: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class TrustedIdProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idProvider")
-    def id_provider(self) -> str:
+    def id_provider(self) -> pulumi.Output[str]:
         """
         The URL of this trusted identity provider.
         """
@@ -97,7 +97,7 @@ class TrustedIdProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource name.
         """
@@ -105,7 +105,7 @@ class TrustedIdProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """

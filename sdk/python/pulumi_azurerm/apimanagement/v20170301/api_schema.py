@@ -13,7 +13,7 @@ __all__ = ['ApiSchema']
 
 class ApiSchema(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> str:
+    def content_type(self) -> pulumi.Output[str]:
         """
         Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
         """
@@ -107,7 +107,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -115,7 +115,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -123,7 +123,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
         Json escaped string defining the document representing the Schema.
         """

@@ -15,7 +15,7 @@ __all__ = ['Bookmark']
 
 class Bookmark(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bookmark_id: Optional[pulumi.Input[str]] = None,
                  created: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> Optional[str]:
+    def created(self) -> pulumi.Output[Optional[str]]:
         """
         The time the bookmark was created
         """
@@ -131,7 +131,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional['outputs.UserInfoResponse']:
+    def created_by(self) -> pulumi.Output[Optional['outputs.UserInfoResponse']]:
         """
         Describes a user that created the bookmark
         """
@@ -139,7 +139,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The display name of the bookmark
         """
@@ -147,7 +147,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Etag of the azure resource
         """
@@ -155,7 +155,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="incidentInfo")
-    def incident_info(self) -> Optional['outputs.IncidentInfoResponse']:
+    def incident_info(self) -> pulumi.Output[Optional['outputs.IncidentInfoResponse']]:
         """
         Describes an incident that relates to bookmark
         """
@@ -163,7 +163,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List[str]]:
+    def labels(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of labels relevant to this bookmark
         """
@@ -171,7 +171,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -179,7 +179,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> Optional[str]:
+    def notes(self) -> pulumi.Output[Optional[str]]:
         """
         The notes of the bookmark
         """
@@ -187,7 +187,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> str:
+    def query(self) -> pulumi.Output[str]:
         """
         The query of the bookmark.
         """
@@ -195,7 +195,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryResult")
-    def query_result(self) -> Optional[str]:
+    def query_result(self) -> pulumi.Output[Optional[str]]:
         """
         The query result of the bookmark.
         """
@@ -203,7 +203,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """
@@ -211,7 +211,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def updated(self) -> Optional[str]:
+    def updated(self) -> pulumi.Output[Optional[str]]:
         """
         The last time the bookmark was updated
         """
@@ -219,7 +219,7 @@ class Bookmark(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> Optional['outputs.UserInfoResponse']:
+    def updated_by(self) -> pulumi.Output[Optional['outputs.UserInfoResponse']]:
         """
         Describes a user that updated the bookmark
         """

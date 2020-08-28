@@ -13,7 +13,7 @@ __all__ = ['ApiDiagnostic']
 
 class ApiDiagnostic(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  diagnostic_id: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Indicates whether a diagnostic should receive data or not.
         """
@@ -104,7 +104,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -112,7 +112,7 @@ class ApiDiagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

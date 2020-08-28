@@ -13,7 +13,7 @@ __all__ = ['SiteSourceControl']
 
 class SiteSourceControl(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  deployment_rollback_enabled: Optional[pulumi.Input[bool]] = None,
@@ -111,7 +111,7 @@ class SiteSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def branch(self) -> Optional[str]:
+    def branch(self) -> pulumi.Output[Optional[str]]:
         """
         Name of branch to use for deployment
         """
@@ -119,7 +119,7 @@ class SiteSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentRollbackEnabled")
-    def deployment_rollback_enabled(self) -> Optional[bool]:
+    def deployment_rollback_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to manual or continuous integration
         """
@@ -127,7 +127,7 @@ class SiteSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isManualIntegration")
-    def is_manual_integration(self) -> Optional[bool]:
+    def is_manual_integration(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to manual or continuous integration
         """
@@ -135,7 +135,7 @@ class SiteSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isMercurial")
-    def is_mercurial(self) -> Optional[bool]:
+    def is_mercurial(self) -> pulumi.Output[Optional[bool]]:
         """
         Mercurial or Git repository type
         """
@@ -143,7 +143,7 @@ class SiteSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -151,7 +151,7 @@ class SiteSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -159,7 +159,7 @@ class SiteSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -167,7 +167,7 @@ class SiteSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoUrl")
-    def repo_url(self) -> Optional[str]:
+    def repo_url(self) -> pulumi.Output[Optional[str]]:
         """
         Repository or source control url
         """
@@ -175,7 +175,7 @@ class SiteSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -183,7 +183,7 @@ class SiteSourceControl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """

@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:operationalinsights/v20150320:SavedSearch"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20150320:SavedSearch"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

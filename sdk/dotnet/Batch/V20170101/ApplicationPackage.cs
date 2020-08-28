@@ -75,9 +75,9 @@ namespace Pulumi.AzureRM.Batch.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:batch/v20151201:ApplicationPackage"},
-                    new Alias { Type = "azurerm:batch/v20170501:ApplicationPackage"},
-                    new Alias { Type = "azurerm:batch/v20170901:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20151201:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20170501:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20170901:ApplicationPackage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

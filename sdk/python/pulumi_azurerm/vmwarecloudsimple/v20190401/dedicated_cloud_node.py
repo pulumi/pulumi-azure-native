@@ -15,7 +15,7 @@ __all__ = ['DedicatedCloudNode']
 
 class DedicatedCloudNode(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  dedicated_cloud_node_name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> str:
+    def availability_zone_id(self) -> pulumi.Output[str]:
         """
         Availability Zone id, e.g. "az1"
         """
@@ -138,7 +138,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZoneName")
-    def availability_zone_name(self) -> str:
+    def availability_zone_name(self) -> pulumi.Output[str]:
         """
         Availability Zone name, e.g. "Availability Zone 1"
         """
@@ -146,7 +146,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudRackName")
-    def cloud_rack_name(self) -> str:
+    def cloud_rack_name(self) -> pulumi.Output[str]:
         """
         VMWare Cloud Rack Name
         """
@@ -154,7 +154,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> Mapping[str, Any]:
+    def created(self) -> pulumi.Output[Mapping[str, Any]]:
         """
         date time the resource was created
         """
@@ -162,7 +162,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Azure region
         """
@@ -170,7 +170,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         SKU's name
         """
@@ -178,7 +178,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodesCount")
-    def nodes_count(self) -> float:
+    def nodes_count(self) -> pulumi.Output[float]:
         """
         count of nodes to create
         """
@@ -186,7 +186,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="placementGroupId")
-    def placement_group_id(self) -> str:
+    def placement_group_id(self) -> pulumi.Output[str]:
         """
         Placement Group id, e.g. "n1"
         """
@@ -194,7 +194,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="placementGroupName")
-    def placement_group_name(self) -> str:
+    def placement_group_name(self) -> pulumi.Output[str]:
         """
         Placement Name, e.g. "Placement Group 1"
         """
@@ -202,7 +202,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateCloudId")
-    def private_cloud_id(self) -> str:
+    def private_cloud_id(self) -> pulumi.Output[str]:
         """
         Private Cloud Id
         """
@@ -210,7 +210,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateCloudName")
-    def private_cloud_name(self) -> str:
+    def private_cloud_name(self) -> pulumi.Output[str]:
         """
         Resource Pool Name
         """
@@ -218,7 +218,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning status of the resource
         """
@@ -226,7 +226,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="purchaseId")
-    def purchase_id(self) -> str:
+    def purchase_id(self) -> pulumi.Output[str]:
         """
         purchase id
         """
@@ -234,7 +234,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         Dedicated Cloud Nodes SKU
         """
@@ -242,7 +242,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         Node status, indicates is private cloud set up on this node or not
         """
@@ -250,7 +250,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Dedicated Cloud Nodes tags
         """
@@ -258,7 +258,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         {resourceProviderNamespace}/{resourceType}
         """
@@ -266,7 +266,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmwareClusterName")
-    def vmware_cluster_name(self) -> str:
+    def vmware_cluster_name(self) -> pulumi.Output[str]:
         """
         VMWare Cluster Name
         """

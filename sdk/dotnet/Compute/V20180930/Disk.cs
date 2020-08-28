@@ -141,14 +141,14 @@ namespace Pulumi.AzureRM.Compute.V20180930
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:compute/v20170330:Disk"},
-                    new Alias { Type = "azurerm:compute/v20180401:Disk"},
-                    new Alias { Type = "azurerm:compute/v20180601:Disk"},
-                    new Alias { Type = "azurerm:compute/v20190301:Disk"},
-                    new Alias { Type = "azurerm:compute/v20190701:Disk"},
-                    new Alias { Type = "azurerm:compute/v20191101:Disk"},
-                    new Alias { Type = "azurerm:compute/v20200501:Disk"},
-                    new Alias { Type = "azurerm:compute/v20200630:Disk"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:Disk"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:Disk"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:Disk"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:Disk"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:Disk"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20191101:Disk"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200501:Disk"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200630:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

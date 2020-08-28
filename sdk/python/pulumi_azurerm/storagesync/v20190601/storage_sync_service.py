@@ -13,7 +13,7 @@ __all__ = ['StorageSyncService']
 
 class StorageSyncService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -93,7 +93,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -101,7 +101,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -109,7 +109,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageSyncServiceStatus")
-    def storage_sync_service_status(self) -> float:
+    def storage_sync_service_status(self) -> pulumi.Output[float]:
         """
         Storage Sync service status.
         """
@@ -117,7 +117,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageSyncServiceUid")
-    def storage_sync_service_uid(self) -> str:
+    def storage_sync_service_uid(self) -> pulumi.Output[str]:
         """
         Storage Sync service Uid
         """
@@ -125,7 +125,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -133,7 +133,7 @@ class StorageSyncService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

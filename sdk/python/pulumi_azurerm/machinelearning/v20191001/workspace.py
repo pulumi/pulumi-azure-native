@@ -15,7 +15,7 @@ __all__ = ['Workspace']
 
 class Workspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_vault_identifier_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         The creation time for this workspace resource.
         """
@@ -120,7 +120,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultIdentifierId")
-    def key_vault_identifier_id(self) -> Optional[str]:
+    def key_vault_identifier_id(self) -> pulumi.Output[Optional[str]]:
         """
         The key vault identifier used for encrypted workspaces.
         """
@@ -128,7 +128,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
@@ -136,7 +136,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -144,7 +144,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerEmail")
-    def owner_email(self) -> str:
+    def owner_email(self) -> pulumi.Output[str]:
         """
         The email id of the owner for this workspace.
         """
@@ -152,7 +152,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The sku of the workspace.
         """
@@ -160,7 +160,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="studioEndpoint")
-    def studio_endpoint(self) -> str:
+    def studio_endpoint(self) -> pulumi.Output[str]:
         """
         The regional endpoint for the machine learning studio service which hosts this workspace.
         """
@@ -168,7 +168,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -176,7 +176,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -184,7 +184,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userStorageAccountId")
-    def user_storage_account_id(self) -> str:
+    def user_storage_account_id(self) -> pulumi.Output[str]:
         """
         The fully qualified arm id of the storage account associated with this workspace.
         """
@@ -192,7 +192,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> str:
+    def workspace_id(self) -> pulumi.Output[str]:
         """
         The immutable id associated with this workspace.
         """
@@ -200,7 +200,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceState")
-    def workspace_state(self) -> str:
+    def workspace_state(self) -> pulumi.Output[str]:
         """
         The current state of workspace resource.
         """
@@ -208,7 +208,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceType")
-    def workspace_type(self) -> str:
+    def workspace_type(self) -> pulumi.Output[str]:
         """
         The type of this workspace.
         """

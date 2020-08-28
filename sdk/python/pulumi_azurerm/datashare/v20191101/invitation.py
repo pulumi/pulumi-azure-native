@@ -13,7 +13,7 @@ __all__ = ['Invitation']
 
 class Invitation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  invitation_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> str:
+    def invitation_id(self) -> pulumi.Output[str]:
         """
         unique invitation id
         """
@@ -114,7 +114,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitationStatus")
-    def invitation_status(self) -> str:
+    def invitation_status(self) -> pulumi.Output[str]:
         """
         The status of the invitation.
         """
@@ -122,7 +122,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the azure resource
         """
@@ -130,7 +130,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="respondedAt")
-    def responded_at(self) -> str:
+    def responded_at(self) -> pulumi.Output[str]:
         """
         The time the recipient responded to the invitation.
         """
@@ -138,7 +138,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sentAt")
-    def sent_at(self) -> str:
+    def sent_at(self) -> pulumi.Output[str]:
         """
         Gets the time at which the invitation was sent.
         """
@@ -146,7 +146,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetActiveDirectoryId")
-    def target_active_directory_id(self) -> Optional[str]:
+    def target_active_directory_id(self) -> pulumi.Output[Optional[str]]:
         """
         The target Azure AD Id. Can't be combined with email.
         """
@@ -154,7 +154,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetEmail")
-    def target_email(self) -> Optional[str]:
+    def target_email(self) -> pulumi.Output[Optional[str]]:
         """
         The email the invitation is directed to.
         """
@@ -162,7 +162,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetObjectId")
-    def target_object_id(self) -> Optional[str]:
+    def target_object_id(self) -> pulumi.Output[Optional[str]]:
         """
         The target user or application Id that invitation is being sent to.
         Must be specified along TargetActiveDirectoryId. This enables sending
@@ -172,7 +172,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the azure resource
         """
@@ -180,7 +180,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userEmail")
-    def user_email(self) -> str:
+    def user_email(self) -> pulumi.Output[str]:
         """
         Email of the user who created the resource
         """
@@ -188,7 +188,7 @@ class Invitation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> pulumi.Output[str]:
         """
         Name of the user who created the resource
         """

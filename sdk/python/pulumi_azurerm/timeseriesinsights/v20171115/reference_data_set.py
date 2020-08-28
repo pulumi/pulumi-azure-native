@@ -15,7 +15,7 @@ __all__ = ['ReferenceDataSet']
 
 class ReferenceDataSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_string_comparison_behavior: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class ReferenceDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         The time the resource was created.
         """
@@ -114,7 +114,7 @@ class ReferenceDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataStringComparisonBehavior")
-    def data_string_comparison_behavior(self) -> Optional[str]:
+    def data_string_comparison_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
         """
@@ -122,7 +122,7 @@ class ReferenceDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyProperties")
-    def key_properties(self) -> List['outputs.ReferenceDataSetKeyPropertyResponse']:
+    def key_properties(self) -> pulumi.Output[List['outputs.ReferenceDataSetKeyPropertyResponse']]:
         """
         The list of key properties for the reference data set.
         """
@@ -130,7 +130,7 @@ class ReferenceDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -138,7 +138,7 @@ class ReferenceDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -146,7 +146,7 @@ class ReferenceDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Provisioning state of the resource.
         """
@@ -154,7 +154,7 @@ class ReferenceDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -162,7 +162,7 @@ class ReferenceDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

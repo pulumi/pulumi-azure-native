@@ -13,7 +13,7 @@ __all__ = ['DataSetMapping']
 
 class DataSetMapping(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  data_set_mapping_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class DataSetMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         Kind of data set mapping.
         """
@@ -102,7 +102,7 @@ class DataSetMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the azure resource
         """
@@ -110,7 +110,7 @@ class DataSetMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the azure resource
         """

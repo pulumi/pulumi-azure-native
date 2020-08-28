@@ -15,7 +15,7 @@ __all__ = ['NotificationHub']
 
 class NotificationHub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  adm_credential: Optional[pulumi.Input[pulumi.InputType['AdmCredentialArgs']]] = None,
                  apns_credential: Optional[pulumi.Input[pulumi.InputType['ApnsCredentialArgs']]] = None,
@@ -125,7 +125,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="admCredential")
-    def adm_credential(self) -> Optional['outputs.AdmCredentialResponse']:
+    def adm_credential(self) -> pulumi.Output[Optional['outputs.AdmCredentialResponse']]:
         """
         The AdmCredential of the created NotificationHub
         """
@@ -133,7 +133,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apnsCredential")
-    def apns_credential(self) -> Optional['outputs.ApnsCredentialResponse']:
+    def apns_credential(self) -> pulumi.Output[Optional['outputs.ApnsCredentialResponse']]:
         """
         The ApnsCredential of the created NotificationHub
         """
@@ -141,7 +141,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationRules")
-    def authorization_rules(self) -> Optional[List['outputs.SharedAccessAuthorizationRulePropertiesResponse']]:
+    def authorization_rules(self) -> pulumi.Output[Optional[List['outputs.SharedAccessAuthorizationRulePropertiesResponse']]]:
         """
         The AuthorizationRules of the created NotificationHub
         """
@@ -149,7 +149,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="baiduCredential")
-    def baidu_credential(self) -> Optional['outputs.BaiduCredentialResponse']:
+    def baidu_credential(self) -> pulumi.Output[Optional['outputs.BaiduCredentialResponse']]:
         """
         The BaiduCredential of the created NotificationHub
         """
@@ -157,7 +157,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gcmCredential")
-    def gcm_credential(self) -> Optional['outputs.GcmCredentialResponse']:
+    def gcm_credential(self) -> pulumi.Output[Optional['outputs.GcmCredentialResponse']]:
         """
         The GcmCredential of the created NotificationHub
         """
@@ -165,7 +165,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -173,7 +173,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mpnsCredential")
-    def mpns_credential(self) -> Optional['outputs.MpnsCredentialResponse']:
+    def mpns_credential(self) -> pulumi.Output[Optional['outputs.MpnsCredentialResponse']]:
         """
         The MpnsCredential of the created NotificationHub
         """
@@ -181,7 +181,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -189,7 +189,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationTtl")
-    def registration_ttl(self) -> Optional[str]:
+    def registration_ttl(self) -> pulumi.Output[Optional[str]]:
         """
         The RegistrationTtl of the created NotificationHub
         """
@@ -197,7 +197,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         The sku of the created namespace
         """
@@ -205,7 +205,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -213,7 +213,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -221,7 +221,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="wnsCredential")
-    def wns_credential(self) -> Optional['outputs.WnsCredentialResponse']:
+    def wns_credential(self) -> pulumi.Output[Optional['outputs.WnsCredentialResponse']]:
         """
         The WnsCredential of the created NotificationHub
         """

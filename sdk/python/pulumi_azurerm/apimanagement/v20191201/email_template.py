@@ -15,7 +15,7 @@ __all__ = ['EmailTemplate']
 
 class EmailTemplate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  body: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class EmailTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def body(self) -> str:
+    def body(self) -> pulumi.Output[str]:
         """
         Email Template Body. This should be a valid XDocument
         """
@@ -112,7 +112,7 @@ class EmailTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the Email Template.
         """
@@ -120,7 +120,7 @@ class EmailTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> bool:
+    def is_default(self) -> pulumi.Output[bool]:
         """
         Whether the template is the default template provided by Api Management or has been edited.
         """
@@ -128,7 +128,7 @@ class EmailTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -136,7 +136,7 @@ class EmailTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.EmailTemplateParametersContractPropertiesResponse']]:
+    def parameters(self) -> pulumi.Output[Optional[List['outputs.EmailTemplateParametersContractPropertiesResponse']]]:
         """
         Email Template Parameter values.
         """
@@ -144,7 +144,7 @@ class EmailTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subject(self) -> str:
+    def subject(self) -> pulumi.Output[str]:
         """
         Subject of the Template.
         """
@@ -152,7 +152,7 @@ class EmailTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> Optional[str]:
+    def title(self) -> pulumi.Output[Optional[str]]:
         """
         Title of the Template.
         """
@@ -160,7 +160,7 @@ class EmailTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

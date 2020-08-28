@@ -15,7 +15,7 @@ __all__ = ['Relationship']
 
 class Relationship(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cardinality: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -119,7 +119,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cardinality(self) -> Optional[str]:
+    def cardinality(self) -> pulumi.Output[Optional[str]]:
         """
         The Relationship Cardinality.
         """
@@ -127,7 +127,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[Mapping[str, str]]:
+    def description(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized descriptions for the Relationship.
         """
@@ -135,7 +135,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[Mapping[str, str]]:
+    def display_name(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Localized display name for the Relationship.
         """
@@ -143,7 +143,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expiryDateTimeUtc")
-    def expiry_date_time_utc(self) -> Optional[str]:
+    def expiry_date_time_utc(self) -> pulumi.Output[Optional[str]]:
         """
         The expiry date time in UTC.
         """
@@ -151,7 +151,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fields(self) -> Optional[List['outputs.PropertyDefinitionResponse']]:
+    def fields(self) -> pulumi.Output[Optional[List['outputs.PropertyDefinitionResponse']]]:
         """
         The properties of the Relationship.
         """
@@ -159,7 +159,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lookupMappings")
-    def lookup_mappings(self) -> Optional[List['outputs.RelationshipTypeMappingResponse']]:
+    def lookup_mappings(self) -> pulumi.Output[Optional[List['outputs.RelationshipTypeMappingResponse']]]:
         """
         Optional property to be used to map fields in profile to their strong ids in related profile.
         """
@@ -167,7 +167,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -175,7 +175,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="profileType")
-    def profile_type(self) -> str:
+    def profile_type(self) -> pulumi.Output[str]:
         """
         Profile type.
         """
@@ -183,7 +183,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state.
         """
@@ -191,7 +191,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relatedProfileType")
-    def related_profile_type(self) -> str:
+    def related_profile_type(self) -> pulumi.Output[str]:
         """
         Related profile being referenced.
         """
@@ -199,7 +199,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relationshipGuidId")
-    def relationship_guid_id(self) -> str:
+    def relationship_guid_id(self) -> pulumi.Output[str]:
         """
         The relationship guid id.
         """
@@ -207,7 +207,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relationshipName")
-    def relationship_name(self) -> str:
+    def relationship_name(self) -> pulumi.Output[str]:
         """
         The Relationship name.
         """
@@ -215,7 +215,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The hub name.
         """
@@ -223,7 +223,7 @@ class Relationship(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

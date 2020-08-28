@@ -15,7 +15,7 @@ __all__ = ['JitNetworkAccessPolicy']
 
 class JitNetworkAccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asc_location: Optional[pulumi.Input[str]] = None,
                  jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of the resource
         """
@@ -105,7 +105,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Location where the resource is stored
         """
@@ -113,7 +113,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -121,7 +121,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Gets the provisioning state of the Just-in-Time policy.
         """
@@ -129,12 +129,12 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.JitNetworkAccessRequestResponse']]:
+    def requests(self) -> pulumi.Output[Optional[List['outputs.JitNetworkAccessRequestResponse']]]:
         return pulumi.get(self, "requests")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -142,7 +142,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> List['outputs.JitNetworkAccessPolicyVirtualMachineResponse']:
+    def virtual_machines(self) -> pulumi.Output[List['outputs.JitNetworkAccessPolicyVirtualMachineResponse']]:
         """
         Configurations for Microsoft.Compute/virtualMachines resource type.
         """

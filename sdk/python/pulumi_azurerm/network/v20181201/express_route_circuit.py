@@ -15,7 +15,7 @@ __all__ = ['ExpressRouteCircuit']
 
 class ExpressRouteCircuit(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
                  allow_global_reach: Optional[pulumi.Input[bool]] = None,
@@ -139,7 +139,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowClassicOperations")
-    def allow_classic_operations(self) -> Optional[bool]:
+    def allow_classic_operations(self) -> pulumi.Output[Optional[bool]]:
         """
         Allow classic operations
         """
@@ -147,7 +147,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowGlobalReach")
-    def allow_global_reach(self) -> Optional[bool]:
+    def allow_global_reach(self) -> pulumi.Output[Optional[bool]]:
         """
         Flag to enable Global Reach on the circuit.
         """
@@ -155,7 +155,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[List['outputs.ExpressRouteCircuitAuthorizationResponse']]:
+    def authorizations(self) -> pulumi.Output[Optional[List['outputs.ExpressRouteCircuitAuthorizationResponse']]]:
         """
         The list of authorizations.
         """
@@ -163,7 +163,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bandwidthInGbps")
-    def bandwidth_in_gbps(self) -> Optional[float]:
+    def bandwidth_in_gbps(self) -> pulumi.Output[Optional[float]]:
         """
         The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         """
@@ -171,7 +171,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="circuitProvisioningState")
-    def circuit_provisioning_state(self) -> Optional[str]:
+    def circuit_provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The CircuitProvisioningState state of the resource.
         """
@@ -179,7 +179,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -187,7 +187,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRoutePort")
-    def express_route_port(self) -> Optional['outputs.SubResourceResponse']:
+    def express_route_port(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
         """
@@ -195,7 +195,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayManagerEtag")
-    def gateway_manager_etag(self) -> Optional[str]:
+    def gateway_manager_etag(self) -> pulumi.Output[Optional[str]]:
         """
         The GatewayManager Etag.
         """
@@ -203,7 +203,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalReachEnabled")
-    def global_reach_enabled(self) -> Optional[bool]:
+    def global_reach_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Flag denoting Global reach status.
         """
@@ -211,7 +211,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -219,7 +219,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -227,7 +227,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def peerings(self) -> Optional[List['outputs.ExpressRouteCircuitPeeringResponse']]:
+    def peerings(self) -> pulumi.Output[Optional[List['outputs.ExpressRouteCircuitPeeringResponse']]]:
         """
         The list of peerings.
         """
@@ -235,7 +235,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
@@ -243,7 +243,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceKey")
-    def service_key(self) -> Optional[str]:
+    def service_key(self) -> pulumi.Output[Optional[str]]:
         """
         The ServiceKey.
         """
@@ -251,7 +251,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceProviderNotes")
-    def service_provider_notes(self) -> Optional[str]:
+    def service_provider_notes(self) -> pulumi.Output[Optional[str]]:
         """
         The ServiceProviderNotes.
         """
@@ -259,7 +259,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceProviderProperties")
-    def service_provider_properties(self) -> Optional['outputs.ExpressRouteCircuitServiceProviderPropertiesResponse']:
+    def service_provider_properties(self) -> pulumi.Output[Optional['outputs.ExpressRouteCircuitServiceProviderPropertiesResponse']]:
         """
         The ServiceProviderProperties.
         """
@@ -267,7 +267,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceProviderProvisioningState")
-    def service_provider_provisioning_state(self) -> Optional[str]:
+    def service_provider_provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
         """
@@ -275,7 +275,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.ExpressRouteCircuitSkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.ExpressRouteCircuitSkuResponse']]:
         """
         The SKU.
         """
@@ -283,7 +283,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def stag(self) -> float:
+    def stag(self) -> pulumi.Output[float]:
         """
         The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
         """
@@ -291,7 +291,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -299,7 +299,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

@@ -13,7 +13,7 @@ __all__ = ['BackupPolicy']
 
 class BackupPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupPolicyCreationType")
-    def backup_policy_creation_type(self) -> str:
+    def backup_policy_creation_type(self) -> pulumi.Output[str]:
         """
         The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
         """
@@ -111,7 +111,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The Kind of the object. Currently only Series8000 is supported
         """
@@ -119,7 +119,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastBackupTime")
-    def last_backup_time(self) -> str:
+    def last_backup_time(self) -> pulumi.Output[str]:
         """
         The time of the last backup for the backup policy.
         """
@@ -127,7 +127,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the object.
         """
@@ -135,7 +135,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextBackupTime")
-    def next_backup_time(self) -> str:
+    def next_backup_time(self) -> pulumi.Output[str]:
         """
         The time of the next backup for the backup policy.
         """
@@ -143,7 +143,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduledBackupStatus")
-    def scheduled_backup_status(self) -> str:
+    def scheduled_backup_status(self) -> pulumi.Output[str]:
         """
         Indicates whether at least one of the schedules in the backup policy is active or not.
         """
@@ -151,7 +151,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schedulesCount")
-    def schedules_count(self) -> float:
+    def schedules_count(self) -> pulumi.Output[float]:
         """
         The count of schedules the backup policy contains.
         """
@@ -159,7 +159,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ssmHostName")
-    def ssm_host_name(self) -> str:
+    def ssm_host_name(self) -> pulumi.Output[str]:
         """
         If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
         """
@@ -167,7 +167,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """
@@ -175,7 +175,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeIds")
-    def volume_ids(self) -> List[str]:
+    def volume_ids(self) -> pulumi.Output[List[str]]:
         """
         The path IDs of the volumes which are part of the backup policy.
         """

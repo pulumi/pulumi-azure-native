@@ -15,7 +15,7 @@ __all__ = ['VirtualMachine']
 
 class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_claim: Optional[pulumi.Input[bool]] = None,
                  applicable_schedule: Optional[pulumi.Input[pulumi.InputType['ApplicableScheduleArgs']]] = None,
@@ -184,7 +184,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowClaim")
-    def allow_claim(self) -> Optional[bool]:
+    def allow_claim(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether another user can take ownership of the virtual machine
         """
@@ -192,7 +192,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicableSchedule")
-    def applicable_schedule(self) -> Optional['outputs.ApplicableScheduleResponse']:
+    def applicable_schedule(self) -> pulumi.Output[Optional['outputs.ApplicableScheduleResponse']]:
         """
         The applicable schedule for the virtual machine.
         """
@@ -200,7 +200,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="artifactDeploymentStatus")
-    def artifact_deployment_status(self) -> Optional['outputs.ArtifactDeploymentStatusPropertiesResponse']:
+    def artifact_deployment_status(self) -> pulumi.Output[Optional['outputs.ArtifactDeploymentStatusPropertiesResponse']]:
         """
         The artifact deployment status for the virtual machine.
         """
@@ -208,7 +208,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[List['outputs.ArtifactInstallPropertiesResponse']]:
+    def artifacts(self) -> pulumi.Output[Optional[List['outputs.ArtifactInstallPropertiesResponse']]]:
         """
         The artifacts to be installed on the virtual machine.
         """
@@ -216,7 +216,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeId")
-    def compute_id(self) -> str:
+    def compute_id(self) -> pulumi.Output[str]:
         """
         The resource identifier (Microsoft.Compute) of the virtual machine.
         """
@@ -224,7 +224,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeVm")
-    def compute_vm(self) -> Optional['outputs.ComputeVmPropertiesResponse']:
+    def compute_vm(self) -> pulumi.Output[Optional['outputs.ComputeVmPropertiesResponse']]:
         """
         The compute virtual machine properties.
         """
@@ -232,7 +232,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdByUser")
-    def created_by_user(self) -> Optional[str]:
+    def created_by_user(self) -> pulumi.Output[Optional[str]]:
         """
         The email address of creator of the virtual machine.
         """
@@ -240,7 +240,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdByUserId")
-    def created_by_user_id(self) -> Optional[str]:
+    def created_by_user_id(self) -> pulumi.Output[Optional[str]]:
         """
         The object identifier of the creator of the virtual machine.
         """
@@ -248,7 +248,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[str]:
+    def created_date(self) -> pulumi.Output[Optional[str]]:
         """
         The creation date of the virtual machine.
         """
@@ -256,7 +256,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customImageId")
-    def custom_image_id(self) -> Optional[str]:
+    def custom_image_id(self) -> pulumi.Output[Optional[str]]:
         """
         The custom image identifier of the virtual machine.
         """
@@ -264,7 +264,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disallowPublicIpAddress")
-    def disallow_public_ip_address(self) -> Optional[bool]:
+    def disallow_public_ip_address(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the virtual machine is to be created without a public IP address.
         """
@@ -272,7 +272,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[str]:
+    def environment_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID of the environment that contains this virtual machine, if any.
         """
@@ -280,7 +280,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[str]:
+    def expiration_date(self) -> pulumi.Output[Optional[str]]:
         """
         The expiration date for VM.
         """
@@ -288,7 +288,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> Optional[str]:
+    def fqdn(self) -> pulumi.Output[Optional[str]]:
         """
         The fully-qualified domain name of the virtual machine.
         """
@@ -296,7 +296,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="galleryImageReference")
-    def gallery_image_reference(self) -> Optional['outputs.GalleryImageReferenceResponse']:
+    def gallery_image_reference(self) -> pulumi.Output[Optional['outputs.GalleryImageReferenceResponse']]:
         """
         The Microsoft Azure Marketplace image reference of the virtual machine.
         """
@@ -304,7 +304,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isAuthenticationWithSshKey")
-    def is_authentication_with_ssh_key(self) -> Optional[bool]:
+    def is_authentication_with_ssh_key(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether this virtual machine uses an SSH key for authentication.
         """
@@ -312,7 +312,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="labSubnetName")
-    def lab_subnet_name(self) -> Optional[str]:
+    def lab_subnet_name(self) -> pulumi.Output[Optional[str]]:
         """
         The lab subnet name of the virtual machine.
         """
@@ -320,7 +320,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="labVirtualNetworkId")
-    def lab_virtual_network_id(self) -> Optional[str]:
+    def lab_virtual_network_id(self) -> pulumi.Output[Optional[str]]:
         """
         The lab virtual network identifier of the virtual machine.
         """
@@ -328,7 +328,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource.
         """
@@ -336,7 +336,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -344,7 +344,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterface")
-    def network_interface(self) -> Optional['outputs.NetworkInterfacePropertiesResponse']:
+    def network_interface(self) -> pulumi.Output[Optional['outputs.NetworkInterfacePropertiesResponse']]:
         """
         The network interface properties.
         """
@@ -352,7 +352,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> Optional[str]:
+    def notes(self) -> pulumi.Output[Optional[str]]:
         """
         The notes of the virtual machine.
         """
@@ -360,7 +360,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         The OS type of the virtual machine.
         """
@@ -368,7 +368,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerObjectId")
-    def owner_object_id(self) -> Optional[str]:
+    def owner_object_id(self) -> pulumi.Output[Optional[str]]:
         """
         The object identifier of the owner of the virtual machine.
         """
@@ -376,7 +376,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerUserPrincipalName")
-    def owner_user_principal_name(self) -> Optional[str]:
+    def owner_user_principal_name(self) -> pulumi.Output[Optional[str]]:
         """
         The user principal name of the virtual machine owner.
         """
@@ -384,7 +384,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The password of the virtual machine administrator.
         """
@@ -392,7 +392,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning status of the resource.
         """
@@ -400,7 +400,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[str]:
+    def size(self) -> pulumi.Output[Optional[str]]:
         """
         The size of the virtual machine.
         """
@@ -408,7 +408,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshKey")
-    def ssh_key(self) -> Optional[str]:
+    def ssh_key(self) -> pulumi.Output[Optional[str]]:
         """
         The SSH key of the virtual machine administrator.
         """
@@ -416,7 +416,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[str]:
+    def storage_type(self) -> pulumi.Output[Optional[str]]:
         """
         Storage type to use for virtual machine (i.e. Standard, Premium).
         """
@@ -424,7 +424,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -432,7 +432,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -440,7 +440,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[str]:
+    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique immutable identifier of a resource (Guid).
         """
@@ -448,7 +448,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[str]:
+    def user_name(self) -> pulumi.Output[Optional[str]]:
         """
         The user name of the virtual machine.
         """
@@ -456,7 +456,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineCreationSource")
-    def virtual_machine_creation_source(self) -> Optional[str]:
+    def virtual_machine_creation_source(self) -> pulumi.Output[Optional[str]]:
         """
         Tells source of creation of lab virtual machine. Output property only.
         """

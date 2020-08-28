@@ -15,7 +15,7 @@ __all__ = ['Registry']
 
 class Registry(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_user_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminUserEnabled")
-    def admin_user_enabled(self) -> Optional[bool]:
+    def admin_user_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         The value that indicates whether the admin user is enabled.
         """
@@ -115,7 +115,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The creation date of the container registry in ISO8601 format.
         """
@@ -123,7 +123,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
@@ -131,7 +131,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loginServer")
-    def login_server(self) -> str:
+    def login_server(self) -> pulumi.Output[str]:
         """
         The URL that can be used to log into the container registry.
         """
@@ -139,7 +139,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -147,7 +147,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the container registry at the time the operation was called.
         """
@@ -155,7 +155,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
         The SKU of the container registry.
         """
@@ -163,7 +163,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional['outputs.StorageAccountPropertiesResponse']:
+    def storage_account(self) -> pulumi.Output[Optional['outputs.StorageAccountPropertiesResponse']]:
         """
         The properties of the storage account for the container registry.
         """
@@ -171,7 +171,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -179,7 +179,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

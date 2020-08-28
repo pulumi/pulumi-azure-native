@@ -13,7 +13,7 @@ __all__ = ['Workspace']
 
 class Workspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -90,7 +90,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         Time when the Workspace was created.
         """
@@ -98,7 +98,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource
         """
@@ -106,7 +106,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -114,7 +114,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioned state of the Workspace
         """
@@ -122,7 +122,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningStateTransitionTime")
-    def provisioning_state_transition_time(self) -> str:
+    def provisioning_state_transition_time(self) -> pulumi.Output[str]:
         """
         The time at which the workspace entered its current provisioning state.
         """
@@ -130,7 +130,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The tags of the resource
         """
@@ -138,7 +138,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource
         """

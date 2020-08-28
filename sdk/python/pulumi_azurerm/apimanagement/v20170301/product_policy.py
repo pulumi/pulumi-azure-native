@@ -13,7 +13,7 @@ __all__ = ['ProductPolicy']
 
 class ProductPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_content: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class ProductPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -104,7 +104,7 @@ class ProductPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyContent")
-    def policy_content(self) -> str:
+    def policy_content(self) -> pulumi.Output[str]:
         """
         Json escaped Xml Encoded contents of the Policy.
         """
@@ -112,7 +112,7 @@ class ProductPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

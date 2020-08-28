@@ -15,7 +15,7 @@ __all__ = ['Cache']
 
 class Cache(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  cache_size_gb: Optional[pulumi.Input[float]] = None,
@@ -104,7 +104,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheSizeGB")
-    def cache_size_gb(self) -> Optional[float]:
+    def cache_size_gb(self) -> pulumi.Output[Optional[float]]:
         """
         The size of this Cache, in GB.
         """
@@ -112,7 +112,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def health(self) -> 'outputs.CacheHealthResponse':
+    def health(self) -> pulumi.Output['outputs.CacheHealthResponse']:
         """
         Health of the Cache.
         """
@@ -120,7 +120,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Region name string.
         """
@@ -128,7 +128,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountAddresses")
-    def mount_addresses(self) -> List[str]:
+    def mount_addresses(self) -> pulumi.Output[List[str]]:
         """
         Array of IP addresses that can be used by clients mounting this Cache.
         """
@@ -136,7 +136,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of Cache.
         """
@@ -144,7 +144,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
@@ -152,7 +152,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.CacheResponseSku']:
+    def sku(self) -> pulumi.Output[Optional['outputs.CacheResponseSku']]:
         """
         SKU for the Cache.
         """
@@ -160,7 +160,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional[str]:
+    def subnet(self) -> pulumi.Output[Optional[str]]:
         """
         Subnet used for the Cache.
         """
@@ -168,7 +168,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         ARM tags as name/value pairs.
         """
@@ -176,7 +176,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the Cache; Microsoft.StorageCache/Cache
         """
@@ -184,7 +184,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="upgradeStatus")
-    def upgrade_status(self) -> Optional['outputs.CacheUpgradeStatusResponse']:
+    def upgrade_status(self) -> pulumi.Output[Optional['outputs.CacheUpgradeStatusResponse']]:
         """
         Upgrade status of the Cache.
         """

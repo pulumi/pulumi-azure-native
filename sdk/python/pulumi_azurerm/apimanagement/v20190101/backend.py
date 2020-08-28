@@ -15,7 +15,7 @@ __all__ = ['Backend']
 
 class Backend(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_id: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsContractArgs']]] = None,
@@ -119,7 +119,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.BackendCredentialsContractResponse']:
+    def credentials(self) -> pulumi.Output[Optional['outputs.BackendCredentialsContractResponse']]:
         """
         Backend Credentials Contract Properties
         """
@@ -127,7 +127,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Backend Description.
         """
@@ -135,7 +135,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -143,7 +143,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.BackendPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.BackendPropertiesResponse']:
         """
         Backend Properties contract
         """
@@ -151,7 +151,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> pulumi.Output[str]:
         """
         Backend communication protocol.
         """
@@ -159,7 +159,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def proxy(self) -> Optional['outputs.BackendProxyContractResponse']:
+    def proxy(self) -> pulumi.Output[Optional['outputs.BackendProxyContractResponse']]:
         """
         Backend Proxy Contract Properties
         """
@@ -167,7 +167,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
+    def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
         """
@@ -175,7 +175,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> Optional[str]:
+    def title(self) -> pulumi.Output[Optional[str]]:
         """
         Backend Title.
         """
@@ -183,7 +183,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tls(self) -> Optional['outputs.BackendTlsPropertiesResponse']:
+    def tls(self) -> pulumi.Output[Optional['outputs.BackendTlsPropertiesResponse']]:
         """
         Backend TLS Properties
         """
@@ -191,7 +191,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -199,7 +199,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> pulumi.Output[str]:
         """
         Runtime Url of the Backend.
         """

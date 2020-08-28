@@ -57,10 +57,10 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20160801:WebAppDomainOwnershipIdentifierSlot"},
-                    new Alias { Type = "azurerm:web/v20181101:WebAppDomainOwnershipIdentifierSlot"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppDomainOwnershipIdentifierSlot"},
-                    new Alias { Type = "azurerm:web/v20200601:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppDomainOwnershipIdentifierSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppDomainOwnershipIdentifierSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

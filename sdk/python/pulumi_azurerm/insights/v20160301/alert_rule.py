@@ -15,7 +15,7 @@ __all__ = ['AlertRule']
 
 class AlertRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleActionArgs']]]]] = None,
                  condition: Optional[pulumi.Input[pulumi.InputType['RuleConditionArgs']]] = None,
@@ -110,7 +110,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.RuleActionResponse']]:
+    def actions(self) -> pulumi.Output[Optional[List['outputs.RuleActionResponse']]]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """
@@ -118,7 +118,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def condition(self) -> 'outputs.RuleConditionResponse':
+    def condition(self) -> pulumi.Output['outputs.RuleConditionResponse']:
         """
         the condition that results in the alert rule being activated.
         """
@@ -126,7 +126,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         the description of the alert rule that will be included in the alert email.
         """
@@ -134,7 +134,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> bool:
+    def is_enabled(self) -> pulumi.Output[bool]:
         """
         the flag that indicates whether the alert rule is enabled.
         """
@@ -142,7 +142,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> str:
+    def last_updated_time(self) -> pulumi.Output[str]:
         """
         Last time the rule was updated in ISO8601 format.
         """
@@ -150,7 +150,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -158,7 +158,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -166,7 +166,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -174,7 +174,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """

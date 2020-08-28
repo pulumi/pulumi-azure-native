@@ -15,7 +15,7 @@ __all__ = ['Diagnostic']
 
 class Diagnostic(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_log: Optional[pulumi.Input[str]] = None,
                  backend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
@@ -114,7 +114,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alwaysLog")
-    def always_log(self) -> Optional[str]:
+    def always_log(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies for what type of messages sampling settings should not apply.
         """
@@ -122,7 +122,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def backend(self) -> Optional['outputs.PipelineDiagnosticSettingsResponse']:
+    def backend(self) -> pulumi.Output[Optional['outputs.PipelineDiagnosticSettingsResponse']]:
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         """
@@ -130,7 +130,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableHttpCorrelationHeaders")
-    def enable_http_correlation_headers(self) -> Optional[bool]:
+    def enable_http_correlation_headers(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
         """
@@ -138,7 +138,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frontend(self) -> Optional['outputs.PipelineDiagnosticSettingsResponse']:
+    def frontend(self) -> pulumi.Output[Optional['outputs.PipelineDiagnosticSettingsResponse']]:
         """
         Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         """
@@ -146,7 +146,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpCorrelationProtocol")
-    def http_correlation_protocol(self) -> Optional[str]:
+    def http_correlation_protocol(self) -> pulumi.Output[Optional[str]]:
         """
         Sets correlation protocol to use for Application Insights diagnostics.
         """
@@ -154,7 +154,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loggerId")
-    def logger_id(self) -> str:
+    def logger_id(self) -> pulumi.Output[str]:
         """
         Resource Id of a target logger.
         """
@@ -162,7 +162,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -170,7 +170,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sampling(self) -> Optional['outputs.SamplingSettingsResponse']:
+    def sampling(self) -> pulumi.Output[Optional['outputs.SamplingSettingsResponse']]:
         """
         Sampling settings for Diagnostic.
         """
@@ -178,7 +178,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -186,7 +186,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def verbosity(self) -> Optional[str]:
+    def verbosity(self) -> pulumi.Output[Optional[str]]:
         """
         The verbosity level applied to traces emitted by trace policies.
         """

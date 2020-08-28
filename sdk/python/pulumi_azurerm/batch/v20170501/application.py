@@ -14,7 +14,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_updates: Optional[pulumi.Input[bool]] = None,
@@ -93,7 +93,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowUpdates")
-    def allow_updates(self) -> Optional[bool]:
+    def allow_updates(self) -> pulumi.Output[Optional[bool]]:
         """
         A value indicating whether packages within the application may be overwritten using the same version string.
         """
@@ -101,7 +101,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultVersion")
-    def default_version(self) -> Optional[str]:
+    def default_version(self) -> pulumi.Output[Optional[str]]:
         """
         The package to use if a client requests the application but does not specify a version.
         """
@@ -109,7 +109,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name for the application.
         """
@@ -117,7 +117,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def packages(self) -> Optional[List['outputs.ApplicationPackageResponse']]:
+    def packages(self) -> pulumi.Output[Optional[List['outputs.ApplicationPackageResponse']]]:
         """
         The list of packages under this application.
         """

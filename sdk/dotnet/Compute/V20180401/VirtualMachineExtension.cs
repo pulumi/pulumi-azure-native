@@ -111,16 +111,16 @@ namespace Pulumi.AzureRM.Compute.V20180401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:compute/v20150615:VirtualMachineExtension"},
-                    new Alias { Type = "azurerm:compute/v20160330:VirtualMachineExtension"},
-                    new Alias { Type = "azurerm:compute/v20170330:VirtualMachineExtension"},
-                    new Alias { Type = "azurerm:compute/v20171201:VirtualMachineExtension"},
-                    new Alias { Type = "azurerm:compute/v20180601:VirtualMachineExtension"},
-                    new Alias { Type = "azurerm:compute/v20181001:VirtualMachineExtension"},
-                    new Alias { Type = "azurerm:compute/v20190301:VirtualMachineExtension"},
-                    new Alias { Type = "azurerm:compute/v20190701:VirtualMachineExtension"},
-                    new Alias { Type = "azurerm:compute/v20191201:VirtualMachineExtension"},
-                    new Alias { Type = "azurerm:compute/v20200601:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20150615:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20160330:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20171201:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20181001:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200601:VirtualMachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

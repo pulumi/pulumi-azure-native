@@ -15,7 +15,7 @@ __all__ = ['ADCCatalog']
 
 class ADCCatalog(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
                  catalog_name: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def admins(self) -> Optional[List['outputs.PrincipalsResponse']]:
+    def admins(self) -> pulumi.Output[Optional[List['outputs.PrincipalsResponse']]]:
         """
         Azure data catalog admin list.
         """
@@ -116,7 +116,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAutomaticUnitAdjustment")
-    def enable_automatic_unit_adjustment(self) -> Optional[bool]:
+    def enable_automatic_unit_adjustment(self) -> pulumi.Output[Optional[bool]]:
         """
         Automatic unit adjustment enabled or not.
         """
@@ -124,7 +124,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Resource etag
         """
@@ -132,7 +132,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -140,7 +140,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -148,7 +148,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[str]:
+    def sku(self) -> pulumi.Output[Optional[str]]:
         """
         Azure data catalog SKU.
         """
@@ -156,7 +156,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="successfullyProvisioned")
-    def successfully_provisioned(self) -> Optional[bool]:
+    def successfully_provisioned(self) -> pulumi.Output[Optional[bool]]:
         """
         Azure data catalog provision status.
         """
@@ -164,7 +164,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -172,7 +172,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """
@@ -180,7 +180,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def units(self) -> Optional[float]:
+    def units(self) -> pulumi.Output[Optional[float]]:
         """
         Azure data catalog units.
         """
@@ -188,7 +188,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List['outputs.PrincipalsResponse']]:
+    def users(self) -> pulumi.Output[Optional[List['outputs.PrincipalsResponse']]]:
         """
         Azure data catalog user list.
         """

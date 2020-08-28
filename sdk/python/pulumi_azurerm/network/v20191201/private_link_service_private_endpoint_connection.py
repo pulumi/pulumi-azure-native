@@ -15,7 +15,7 @@ __all__ = ['PrivateLinkServicePrivateEndpointConnection']
 
 class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -108,7 +108,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkIdentifier")
-    def link_identifier(self) -> str:
+    def link_identifier(self) -> pulumi.Output[str]:
         """
         The consumer link id.
         """
@@ -116,7 +116,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -124,7 +124,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+    def private_endpoint(self) -> pulumi.Output['outputs.PrivateEndpointResponse']:
         """
         The resource of private end point.
         """
@@ -132,7 +132,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+    def private_link_service_connection_state(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceConnectionStateResponse']]:
         """
         A collection of information about the state of the connection between service consumer and provider.
         """
@@ -140,7 +140,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the private endpoint connection resource.
         """
@@ -148,7 +148,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The resource type.
         """

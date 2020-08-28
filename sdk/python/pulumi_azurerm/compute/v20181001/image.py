@@ -15,7 +15,7 @@ __all__ = ['Image']
 
 class Image(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -106,7 +106,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -114,7 +114,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state.
         """
@@ -122,7 +122,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceVirtualMachine")
-    def source_virtual_machine(self) -> Optional['outputs.SubResourceResponse']:
+    def source_virtual_machine(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The source virtual machine from which Image is created.
         """
@@ -130,7 +130,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional['outputs.ImageStorageProfileResponse']:
+    def storage_profile(self) -> pulumi.Output[Optional['outputs.ImageStorageProfileResponse']]:
         """
         Specifies the storage settings for the virtual machine disks.
         """
@@ -138,7 +138,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -146,7 +146,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

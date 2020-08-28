@@ -114,8 +114,8 @@ namespace Pulumi.AzureRM.Cdn.V20200331
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:cdn/v20190615:Policy"},
-                    new Alias { Type = "azurerm:cdn/v20200415:Policy"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Policy"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20200415:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

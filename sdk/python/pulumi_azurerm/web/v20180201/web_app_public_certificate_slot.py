@@ -13,7 +13,7 @@ __all__ = ['WebAppPublicCertificateSlot']
 
 class WebAppPublicCertificateSlot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blob: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def blob(self) -> Optional[str]:
+    def blob(self) -> pulumi.Output[Optional[str]]:
         """
         Public Certificate byte array
         """
@@ -108,7 +108,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -116,7 +116,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -124,7 +124,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicCertificateLocation")
-    def public_certificate_location(self) -> Optional[str]:
+    def public_certificate_location(self) -> pulumi.Output[Optional[str]]:
         """
         Public Certificate Location
         """
@@ -132,7 +132,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> str:
+    def thumbprint(self) -> pulumi.Output[str]:
         """
         Certificate Thumbprint
         """
@@ -140,7 +140,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

@@ -13,7 +13,7 @@ __all__ = ['NotebookWorkspace']
 
 class NotebookWorkspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  notebook_workspace_name: Optional[pulumi.Input[str]] = None,
@@ -88,7 +88,7 @@ class NotebookWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the database account.
         """
@@ -96,7 +96,7 @@ class NotebookWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notebookServerEndpoint")
-    def notebook_server_endpoint(self) -> str:
+    def notebook_server_endpoint(self) -> pulumi.Output[str]:
         """
         Specifies the endpoint of Notebook server.
         """
@@ -104,7 +104,7 @@ class NotebookWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
         """
@@ -112,7 +112,7 @@ class NotebookWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of Azure resource.
         """

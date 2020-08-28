@@ -63,7 +63,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:recoveryservices/v20180110:ReplicationMigrationItem"},
+                    new Pulumi.Alias { Type = "azurerm:recoveryservices/v20180110:ReplicationMigrationItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

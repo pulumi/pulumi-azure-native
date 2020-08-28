@@ -916,19 +916,19 @@ class FilterTrackPropertyConditionResponse(dict):
 
     @property
     @pulumi.getter
-    def property(self) -> str:
-        """
-        The track property type.
-        """
-        return pulumi.get(self, "property")
-
-    @property
-    @pulumi.getter
     def value(self) -> str:
         """
         The track property value.
         """
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def property(self) -> str:
+        """
+        The track property type.
+        """
+        return pulumi.get(self, "property")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2292,19 +2292,19 @@ class TrackPropertyConditionResponse(dict):
 
     @property
     @pulumi.getter
-    def property(self) -> str:
-        """
-        Track property type
-        """
-        return pulumi.get(self, "property")
-
-    @property
-    @pulumi.getter
     def value(self) -> Optional[str]:
         """
         Track property value
         """
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def property(self) -> str:
+        """
+        Track property type
+        """
+        return pulumi.get(self, "property")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

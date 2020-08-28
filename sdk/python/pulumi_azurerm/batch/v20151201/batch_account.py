@@ -15,7 +15,7 @@ __all__ = ['BatchAccount']
 
 class BatchAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_storage: Optional[pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']]] = None,
@@ -99,7 +99,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountEndpoint")
-    def account_endpoint(self) -> str:
+    def account_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint used by this account to interact with the Batch services.
         """
@@ -107,7 +107,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeJobAndJobScheduleQuota")
-    def active_job_and_job_schedule_quota(self) -> float:
+    def active_job_and_job_schedule_quota(self) -> pulumi.Output[float]:
         """
         The active job and job schedule quota for this Batch account.
         """
@@ -115,7 +115,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoStorage")
-    def auto_storage(self) -> Optional['outputs.AutoStoragePropertiesResponse']:
+    def auto_storage(self) -> pulumi.Output[Optional['outputs.AutoStoragePropertiesResponse']]:
         """
         The properties and status of any auto storage account associated with the account.
         """
@@ -123,7 +123,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreQuota")
-    def core_quota(self) -> float:
+    def core_quota(self) -> pulumi.Output[float]:
         """
         The core quota for this Batch account.
         """
@@ -131,7 +131,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource
         """
@@ -139,7 +139,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -147,7 +147,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolQuota")
-    def pool_quota(self) -> float:
+    def pool_quota(self) -> pulumi.Output[float]:
         """
         The pool quota for this Batch account.
         """
@@ -155,7 +155,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioned state of the resource
         """
@@ -163,7 +163,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource
         """
@@ -171,7 +171,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource
         """

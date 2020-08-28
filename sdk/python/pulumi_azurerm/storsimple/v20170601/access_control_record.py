@@ -13,7 +13,7 @@ __all__ = ['AccessControlRecord']
 
 class AccessControlRecord(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_record_name: Optional[pulumi.Input[str]] = None,
                  initiator_name: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class AccessControlRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="initiatorName")
-    def initiator_name(self) -> str:
+    def initiator_name(self) -> pulumi.Output[str]:
         """
         The iSCSI initiator name (IQN).
         """
@@ -103,7 +103,7 @@ class AccessControlRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The Kind of the object. Currently only Series8000 is supported
         """
@@ -111,7 +111,7 @@ class AccessControlRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the object.
         """
@@ -119,7 +119,7 @@ class AccessControlRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """
@@ -127,7 +127,7 @@ class AccessControlRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> float:
+    def volume_count(self) -> pulumi.Output[float]:
         """
         The number of volumes using the access control record.
         """

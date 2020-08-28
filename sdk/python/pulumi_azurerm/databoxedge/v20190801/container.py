@@ -14,7 +14,7 @@ __all__ = ['Container']
 
 class Container(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerStatus")
-    def container_status(self) -> str:
+    def container_status(self) -> pulumi.Output[str]:
         """
         Current status of the container.
         """
@@ -106,7 +106,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDateTime")
-    def created_date_time(self) -> str:
+    def created_date_time(self) -> pulumi.Output[str]:
         """
         The UTC time when container got created.
         """
@@ -114,7 +114,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataFormat")
-    def data_format(self) -> str:
+    def data_format(self) -> pulumi.Output[str]:
         """
         DataFormat for Container
         """
@@ -122,7 +122,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The object name.
         """
@@ -130,7 +130,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshDetails")
-    def refresh_details(self) -> 'outputs.RefreshDetailsResponse':
+    def refresh_details(self) -> pulumi.Output['outputs.RefreshDetailsResponse']:
         """
         Details of the refresh job on this container.
         """
@@ -138,7 +138,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The hierarchical type of the object.
         """

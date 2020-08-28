@@ -15,7 +15,7 @@ __all__ = ['AutomationAccount']
 
 class AutomationAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         Gets the creation time.
         """
@@ -106,7 +106,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the description.
         """
@@ -114,7 +114,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the etag of the resource.
         """
@@ -122,7 +122,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
+    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
         """
         Gets or sets the last modified by.
         """
@@ -130,7 +130,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         Gets the last modified time.
         """
@@ -138,7 +138,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region where the resource lives
         """
@@ -146,7 +146,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -154,7 +154,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         Gets or sets the SKU of account.
         """
@@ -162,7 +162,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         Gets status of account.
         """
@@ -170,7 +170,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -178,7 +178,7 @@ class AutomationAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

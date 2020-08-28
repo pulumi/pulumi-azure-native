@@ -153,8 +153,8 @@ namespace Pulumi.AzureRM.Aad.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:aad/v20170101:DomainService"},
-                    new Alias { Type = "azurerm:aad/v20200101:DomainService"},
+                    new Pulumi.Alias { Type = "azurerm:aad/v20170101:DomainService"},
+                    new Pulumi.Alias { Type = "azurerm:aad/v20200101:DomainService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

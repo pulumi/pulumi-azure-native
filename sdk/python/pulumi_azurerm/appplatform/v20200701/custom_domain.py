@@ -15,7 +15,7 @@ __all__ = ['CustomDomain']
 
 class CustomDomain(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_name: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -102,7 +102,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CustomDomainPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.CustomDomainPropertiesResponse']:
         """
         Properties of the custom domain resource.
         """
@@ -110,7 +110,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

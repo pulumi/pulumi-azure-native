@@ -15,7 +15,7 @@ __all__ = ['VirtualNetworkPeering']
 
 class VirtualNetworkPeering(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
@@ -115,7 +115,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowForwardedTraffic")
-    def allow_forwarded_traffic(self) -> Optional[bool]:
+    def allow_forwarded_traffic(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
         """
@@ -123,7 +123,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowGatewayTransit")
-    def allow_gateway_transit(self) -> Optional[bool]:
+    def allow_gateway_transit(self) -> pulumi.Output[Optional[bool]]:
         """
         If gateway links can be used in remote virtual networking to link to this virtual network.
         """
@@ -131,7 +131,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowVirtualNetworkAccess")
-    def allow_virtual_network_access(self) -> Optional[bool]:
+    def allow_virtual_network_access(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
         """
@@ -139,7 +139,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -147,7 +147,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -155,7 +155,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringState")
-    def peering_state(self) -> Optional[str]:
+    def peering_state(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the virtual network peering.
         """
@@ -163,7 +163,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the virtual network peering resource.
         """
@@ -171,7 +171,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remoteAddressSpace")
-    def remote_address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+    def remote_address_space(self) -> pulumi.Output[Optional['outputs.AddressSpaceResponse']]:
         """
         The reference of the remote virtual network address space.
         """
@@ -179,7 +179,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remoteVirtualNetwork")
-    def remote_virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+    def remote_virtual_network(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         """
@@ -187,7 +187,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="useRemoteGateways")
-    def use_remote_gateways(self) -> Optional[bool]:
+    def use_remote_gateways(self) -> pulumi.Output[Optional[bool]]:
         """
         If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """

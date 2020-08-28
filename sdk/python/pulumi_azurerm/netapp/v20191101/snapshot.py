@@ -13,7 +13,7 @@ __all__ = ['Snapshot']
 
 class Snapshot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The creation date of the snapshot
         """
@@ -115,7 +115,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[str]:
+    def file_system_id(self) -> pulumi.Output[Optional[str]]:
         """
         UUID v4 used to identify the FileSystem
         """
@@ -123,7 +123,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -131,7 +131,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -139,7 +139,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Azure lifecycle management
         """
@@ -147,7 +147,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> str:
+    def snapshot_id(self) -> pulumi.Output[str]:
         """
         UUID v4 used to identify the Snapshot
         """
@@ -155,7 +155,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

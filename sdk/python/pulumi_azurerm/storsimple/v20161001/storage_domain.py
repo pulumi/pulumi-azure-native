@@ -15,7 +15,7 @@ __all__ = ['StorageDomain']
 
 class StorageDomain(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  encryption_status: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class StorageDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
+    def encryption_key(self) -> pulumi.Output[Optional['outputs.AsymmetricEncryptedSecretResponse']]:
         """
         The encryption key used to encrypt the data. This is a user secret.
         """
@@ -107,7 +107,7 @@ class StorageDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionStatus")
-    def encryption_status(self) -> str:
+    def encryption_status(self) -> pulumi.Output[str]:
         """
         The encryption status "Enabled | Disabled".
         """
@@ -115,7 +115,7 @@ class StorageDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name.
         """
@@ -123,7 +123,7 @@ class StorageDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountCredentialIds")
-    def storage_account_credential_ids(self) -> List[str]:
+    def storage_account_credential_ids(self) -> pulumi.Output[List[str]]:
         """
         The storage account credentials.
         """
@@ -131,7 +131,7 @@ class StorageDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type.
         """

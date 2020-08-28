@@ -15,7 +15,7 @@ __all__ = ['DdosCustomPolicy']
 
 class DdosCustomPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ddos_custom_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -107,7 +107,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -115,7 +115,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -123,7 +123,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protocolCustomSettings")
-    def protocol_custom_settings(self) -> Optional[List['outputs.ProtocolCustomSettingsFormatResponse']]:
+    def protocol_custom_settings(self) -> pulumi.Output[Optional[List['outputs.ProtocolCustomSettingsFormatResponse']]]:
         """
         The protocol-specific DDoS policy customization parameters.
         """
@@ -131,7 +131,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the DDoS custom policy resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
         """
@@ -139,7 +139,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> List['outputs.SubResourceResponse']:
+    def public_ip_addresses(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
         """
         The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
         """
@@ -147,7 +147,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
+    def resource_guid(self) -> pulumi.Output[str]:
         """
         The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
         """
@@ -155,7 +155,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -163,7 +163,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

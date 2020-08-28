@@ -13,7 +13,7 @@ __all__ = ['UserAssignedIdentity']
 
 class UserAssignedIdentity(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -90,7 +90,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         The id of the app associated with the identity. This is a random generated UUID by MSI.
         """
@@ -98,7 +98,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -106,7 +106,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -114,7 +114,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    def principal_id(self) -> pulumi.Output[str]:
         """
         The id of the service principal object associated with the created identity.
         """
@@ -122,7 +122,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -130,7 +130,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The id of the tenant which the identity belongs to.
         """
@@ -138,7 +138,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """

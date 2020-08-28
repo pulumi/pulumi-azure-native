@@ -100,11 +100,11 @@ namespace Pulumi.AzureRM.Web.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20150801:WebAppVnetConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20160801:WebAppVnetConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20180201:WebAppVnetConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppVnetConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20200601:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppVnetConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

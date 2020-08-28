@@ -15,7 +15,7 @@ __all__ = ['GalleryImageVersion']
 
 class GalleryImageVersion(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gallery_image_name: Optional[pulumi.Input[str]] = None,
                  gallery_image_version_name: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class GalleryImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -119,7 +119,7 @@ class GalleryImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -127,7 +127,7 @@ class GalleryImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state, which only appears in the response.
         """
@@ -135,7 +135,7 @@ class GalleryImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publishingProfile")
-    def publishing_profile(self) -> Optional['outputs.GalleryImageVersionPublishingProfileResponse']:
+    def publishing_profile(self) -> pulumi.Output[Optional['outputs.GalleryImageVersionPublishingProfileResponse']]:
         """
         The publishing profile of a gallery Image Version.
         """
@@ -143,7 +143,7 @@ class GalleryImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationStatus")
-    def replication_status(self) -> 'outputs.ReplicationStatusResponse':
+    def replication_status(self) -> pulumi.Output['outputs.ReplicationStatusResponse']:
         """
         This is the replication status of the gallery Image Version.
         """
@@ -151,7 +151,7 @@ class GalleryImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> 'outputs.GalleryImageVersionStorageProfileResponse':
+    def storage_profile(self) -> pulumi.Output['outputs.GalleryImageVersionStorageProfileResponse']:
         """
         This is the storage profile of a Gallery Image Version.
         """
@@ -159,7 +159,7 @@ class GalleryImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -167,7 +167,7 @@ class GalleryImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

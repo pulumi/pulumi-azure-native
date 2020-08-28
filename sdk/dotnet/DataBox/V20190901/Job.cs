@@ -135,7 +135,7 @@ namespace Pulumi.AzureRM.DataBox.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:databox/v20180101:Job"},
+                    new Pulumi.Alias { Type = "azurerm:databox/v20180101:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

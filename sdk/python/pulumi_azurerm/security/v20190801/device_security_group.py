@@ -15,7 +15,7 @@ __all__ = ['DeviceSecurityGroup']
 
 class DeviceSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowlist_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]]] = None,
                  denylist_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DenylistCustomAlertRuleArgs']]]]] = None,
@@ -93,7 +93,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowlistRules")
-    def allowlist_rules(self) -> Optional[List['outputs.AllowlistCustomAlertRuleResponse']]:
+    def allowlist_rules(self) -> pulumi.Output[Optional[List['outputs.AllowlistCustomAlertRuleResponse']]]:
         """
         The allow-list custom alert rules.
         """
@@ -101,7 +101,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="denylistRules")
-    def denylist_rules(self) -> Optional[List['outputs.DenylistCustomAlertRuleResponse']]:
+    def denylist_rules(self) -> pulumi.Output[Optional[List['outputs.DenylistCustomAlertRuleResponse']]]:
         """
         The deny-list custom alert rules.
         """
@@ -109,7 +109,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -117,7 +117,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thresholdRules")
-    def threshold_rules(self) -> Optional[List['outputs.ThresholdCustomAlertRuleResponse']]:
+    def threshold_rules(self) -> pulumi.Output[Optional[List['outputs.ThresholdCustomAlertRuleResponse']]]:
         """
         The list of custom alert threshold rules.
         """
@@ -125,7 +125,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeWindowRules")
-    def time_window_rules(self) -> Optional[List['outputs.TimeWindowCustomAlertRuleResponse']]:
+    def time_window_rules(self) -> pulumi.Output[Optional[List['outputs.TimeWindowCustomAlertRuleResponse']]]:
         """
         The list of custom alert time-window rules.
         """
@@ -133,7 +133,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

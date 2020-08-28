@@ -15,7 +15,7 @@ __all__ = ['EventSubscription']
 
 class EventSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['DeadLetterDestinationArgs']]] = None,
                  destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']]] = None,
@@ -106,7 +106,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deadLetterDestination")
-    def dead_letter_destination(self) -> Optional['outputs.DeadLetterDestinationResponse']:
+    def dead_letter_destination(self) -> pulumi.Output[Optional['outputs.DeadLetterDestinationResponse']]:
         """
         The DeadLetter destination of the event subscription.
         """
@@ -114,7 +114,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.EventSubscriptionDestinationResponse']:
+    def destination(self) -> pulumi.Output[Optional['outputs.EventSubscriptionDestinationResponse']]:
         """
         Information about the destination where events have to be delivered for the event subscription.
         """
@@ -122,7 +122,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventDeliverySchema")
-    def event_delivery_schema(self) -> Optional[str]:
+    def event_delivery_schema(self) -> pulumi.Output[Optional[str]]:
         """
         The event delivery schema for the event subscription.
         """
@@ -130,7 +130,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationTimeUtc")
-    def expiration_time_utc(self) -> Optional[str]:
+    def expiration_time_utc(self) -> pulumi.Output[Optional[str]]:
         """
         Expiration time of the event subscription.
         """
@@ -138,7 +138,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.EventSubscriptionFilterResponse']:
+    def filter(self) -> pulumi.Output[Optional['outputs.EventSubscriptionFilterResponse']]:
         """
         Information about the filter for the event subscription.
         """
@@ -146,7 +146,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List[str]]:
+    def labels(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of user defined labels.
         """
@@ -154,7 +154,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the resource.
         """
@@ -162,7 +162,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the event subscription.
         """
@@ -170,7 +170,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retryPolicy")
-    def retry_policy(self) -> Optional['outputs.RetryPolicyResponse']:
+    def retry_policy(self) -> pulumi.Output[Optional['outputs.RetryPolicyResponse']]:
         """
         The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         """
@@ -178,7 +178,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def topic(self) -> str:
+    def topic(self) -> pulumi.Output[str]:
         """
         Name of the topic of the event subscription.
         """
@@ -186,7 +186,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['ExpressRouteCircuitConnection']
 
 class ExpressRouteCircuitConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[str]:
+    def address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         /29 IP address space to carve out Customer addresses for tunnels.
         """
@@ -122,7 +122,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> Optional[str]:
+    def authorization_key(self) -> pulumi.Output[Optional[str]]:
         """
         The authorization key.
         """
@@ -130,7 +130,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="circuitConnectionStatus")
-    def circuit_connection_status(self) -> Optional[str]:
+    def circuit_connection_status(self) -> pulumi.Output[Optional[str]]:
         """
         Express Route Circuit connection state.
         """
@@ -138,7 +138,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -146,7 +146,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
-    def express_route_circuit_peering(self) -> Optional['outputs.SubResourceResponse']:
+    def express_route_circuit_peering(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         """
@@ -154,7 +154,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -162,7 +162,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerExpressRouteCircuitPeering")
-    def peer_express_route_circuit_peering(self) -> Optional['outputs.SubResourceResponse']:
+    def peer_express_route_circuit_peering(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
         Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
@@ -170,7 +170,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
         """

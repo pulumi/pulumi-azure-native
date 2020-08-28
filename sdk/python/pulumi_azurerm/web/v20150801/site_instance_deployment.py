@@ -13,7 +13,7 @@ __all__ = ['SiteInstanceDeployment']
 
 class SiteInstanceDeployment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  author: Optional[pulumi.Input[str]] = None,
@@ -128,7 +128,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def active(self) -> Optional[bool]:
+    def active(self) -> pulumi.Output[Optional[bool]]:
         """
         Active
         """
@@ -136,7 +136,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def author(self) -> Optional[str]:
+    def author(self) -> pulumi.Output[Optional[str]]:
         """
         Author
         """
@@ -144,7 +144,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorEmail")
-    def author_email(self) -> Optional[str]:
+    def author_email(self) -> pulumi.Output[Optional[str]]:
         """
         AuthorEmail
         """
@@ -152,7 +152,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def deployer(self) -> Optional[str]:
+    def deployer(self) -> pulumi.Output[Optional[str]]:
         """
         Deployer
         """
@@ -160,7 +160,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[str]:
+    def details(self) -> pulumi.Output[Optional[str]]:
         """
         Detail
         """
@@ -168,7 +168,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[str]:
+    def end_time(self) -> pulumi.Output[Optional[str]]:
         """
         EndTime
         """
@@ -176,7 +176,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource
         """
@@ -184,7 +184,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location
         """
@@ -192,7 +192,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def message(self) -> Optional[str]:
+    def message(self) -> pulumi.Output[Optional[str]]:
         """
         Message
         """
@@ -200,7 +200,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Resource Name
         """
@@ -208,7 +208,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[str]:
+    def start_time(self) -> pulumi.Output[Optional[str]]:
         """
         StartTime
         """
@@ -216,7 +216,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[float]:
+    def status(self) -> pulumi.Output[Optional[float]]:
         """
         Status
         """
@@ -224,7 +224,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -232,7 +232,7 @@ class SiteInstanceDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Resource type
         """

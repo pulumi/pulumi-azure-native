@@ -15,7 +15,7 @@ __all__ = ['RulesEngine']
 
 class RulesEngine(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  front_door_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class RulesEngine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -102,7 +102,7 @@ class RulesEngine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> Optional[str]:
+    def resource_state(self) -> pulumi.Output[Optional[str]]:
         """
         Resource status.
         """
@@ -110,7 +110,7 @@ class RulesEngine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.RulesEngineRuleResponse']]:
+    def rules(self) -> pulumi.Output[Optional[List['outputs.RulesEngineRuleResponse']]]:
         """
         A list of rules that define a particular Rules Engine Configuration.
         """
@@ -118,7 +118,7 @@ class RulesEngine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

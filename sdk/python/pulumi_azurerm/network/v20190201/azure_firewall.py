@@ -15,7 +15,7 @@ __all__ = ['AzureFirewall']
 
 class AzureFirewall(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_rule_collections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureFirewallApplicationRuleCollectionArgs']]]]] = None,
                  azure_firewall_name: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationRuleCollections")
-    def application_rule_collections(self) -> Optional[List['outputs.AzureFirewallApplicationRuleCollectionResponse']]:
+    def application_rule_collections(self) -> pulumi.Output[Optional[List['outputs.AzureFirewallApplicationRuleCollectionResponse']]]:
         """
         Collection of application rule collections used by Azure Firewall.
         """
@@ -119,7 +119,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -127,7 +127,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.AzureFirewallIPConfigurationResponse']]:
+    def ip_configurations(self) -> pulumi.Output[Optional[List['outputs.AzureFirewallIPConfigurationResponse']]]:
         """
         IP configuration of the Azure Firewall resource.
         """
@@ -135,7 +135,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -143,7 +143,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -151,7 +151,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="natRuleCollections")
-    def nat_rule_collections(self) -> Optional[List['outputs.AzureFirewallNatRuleCollectionResponse']]:
+    def nat_rule_collections(self) -> pulumi.Output[Optional[List['outputs.AzureFirewallNatRuleCollectionResponse']]]:
         """
         Collection of NAT rule collections used by Azure Firewall.
         """
@@ -159,7 +159,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkRuleCollections")
-    def network_rule_collections(self) -> Optional[List['outputs.AzureFirewallNetworkRuleCollectionResponse']]:
+    def network_rule_collections(self) -> pulumi.Output[Optional[List['outputs.AzureFirewallNetworkRuleCollectionResponse']]]:
         """
         Collection of network rule collections used by Azure Firewall.
         """
@@ -167,7 +167,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the resource.
         """
@@ -175,7 +175,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -183,7 +183,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="threatIntelMode")
-    def threat_intel_mode(self) -> Optional[str]:
+    def threat_intel_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The operation mode for Threat Intelligence.
         """
@@ -191,7 +191,7 @@ class AzureFirewall(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

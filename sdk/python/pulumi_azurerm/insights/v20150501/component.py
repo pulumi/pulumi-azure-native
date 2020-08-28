@@ -14,7 +14,7 @@ __all__ = ['Component']
 
 class Component(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_type: Optional[pulumi.Input[str]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
@@ -131,7 +131,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appId")
-    def app_id(self) -> str:
+    def app_id(self) -> pulumi.Output[str]:
         """
         Application Insights Unique ID for your Application.
         """
@@ -139,7 +139,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> str:
+    def application_id(self) -> pulumi.Output[str]:
         """
         The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
         """
@@ -147,7 +147,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationType")
-    def application_type(self) -> str:
+    def application_type(self) -> pulumi.Output[str]:
         """
         Type of application being monitored.
         """
@@ -155,7 +155,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> str:
+    def connection_string(self) -> pulumi.Output[str]:
         """
         Application Insights component connection string.
         """
@@ -163,7 +163,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         Creation Date for the Application Insights component, in ISO 8601 format.
         """
@@ -171,7 +171,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableIpMasking")
-    def disable_ip_masking(self) -> Optional[bool]:
+    def disable_ip_masking(self) -> pulumi.Output[Optional[bool]]:
         """
         Disable IP masking.
         """
@@ -179,7 +179,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="flowType")
-    def flow_type(self) -> Optional[str]:
+    def flow_type(self) -> pulumi.Output[Optional[str]]:
         """
         Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         """
@@ -187,7 +187,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hockeyAppId")
-    def hockey_app_id(self) -> Optional[str]:
+    def hockey_app_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
         """
@@ -195,7 +195,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hockeyAppToken")
-    def hockey_app_token(self) -> str:
+    def hockey_app_token(self) -> pulumi.Output[str]:
         """
         Token used to authenticate communications with between Application Insights and HockeyApp.
         """
@@ -203,7 +203,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="immediatePurgeDataOn30Days")
-    def immediate_purge_data_on30_days(self) -> Optional[bool]:
+    def immediate_purge_data_on30_days(self) -> pulumi.Output[Optional[bool]]:
         """
         Purge data immediately after 30 days.
         """
@@ -211,7 +211,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ingestionMode")
-    def ingestion_mode(self) -> Optional[str]:
+    def ingestion_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates the flow of the ingestion.
         """
@@ -219,7 +219,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instrumentationKey")
-    def instrumentation_key(self) -> str:
+    def instrumentation_key(self) -> pulumi.Output[str]:
         """
         Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
         """
@@ -227,7 +227,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
         """
@@ -235,7 +235,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location
         """
@@ -243,7 +243,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Azure resource name
         """
@@ -251,7 +251,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkScopedResources")
-    def private_link_scoped_resources(self) -> List['outputs.PrivateLinkScopedResourceResponse']:
+    def private_link_scoped_resources(self) -> pulumi.Output[List['outputs.PrivateLinkScopedResourceResponse']]:
         """
         List of linked private link scope resources.
         """
@@ -259,7 +259,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         """
@@ -267,7 +267,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestSource")
-    def request_source(self) -> Optional[str]:
+    def request_source(self) -> pulumi.Output[Optional[str]]:
         """
         Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         """
@@ -275,7 +275,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[float]:
+    def retention_in_days(self) -> pulumi.Output[Optional[float]]:
         """
         Retention period in days.
         """
@@ -283,7 +283,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="samplingPercentage")
-    def sampling_percentage(self) -> Optional[float]:
+    def sampling_percentage(self) -> pulumi.Output[Optional[float]]:
         """
         Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         """
@@ -291,7 +291,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -299,7 +299,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         Azure Tenant Id.
         """
@@ -307,7 +307,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Azure resource type
         """

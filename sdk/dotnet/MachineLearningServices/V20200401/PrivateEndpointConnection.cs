@@ -93,9 +93,9 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:machinelearningservices/v20200101:PrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:machinelearningservices/v20200301:PrivateEndpointConnection"},
-                    new Alias { Type = "azurerm:machinelearningservices/v20200601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200101:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200301:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

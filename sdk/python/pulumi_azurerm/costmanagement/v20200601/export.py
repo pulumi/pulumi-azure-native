@@ -15,7 +15,7 @@ __all__ = ['Export']
 
 class Export(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['ExportDefinitionArgs']]] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']]] = None,
@@ -104,7 +104,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> 'outputs.ExportDefinitionResponse':
+    def definition(self) -> pulumi.Output['outputs.ExportDefinitionResponse']:
         """
         Has the definition for the export.
         """
@@ -112,7 +112,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryInfo")
-    def delivery_info(self) -> 'outputs.ExportDeliveryInfoResponse':
+    def delivery_info(self) -> pulumi.Output['outputs.ExportDeliveryInfoResponse']:
         """
         Has delivery information for the export.
         """
@@ -120,7 +120,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
@@ -128,7 +128,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[str]:
+    def format(self) -> pulumi.Output[Optional[str]]:
         """
         The format of the export being delivered. Currently only 'Csv' is supported.
         """
@@ -136,7 +136,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -144,7 +144,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextRunTimeEstimate")
-    def next_run_time_estimate(self) -> str:
+    def next_run_time_estimate(self) -> pulumi.Output[str]:
         """
         If the export has an active schedule, provides an estimate of the next execution time.
         """
@@ -152,7 +152,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runHistory")
-    def run_history(self) -> Optional['outputs.ExportExecutionListResultResponse']:
+    def run_history(self) -> pulumi.Output[Optional['outputs.ExportExecutionListResultResponse']]:
         """
         If requested, has the most recent execution history for the export.
         """
@@ -160,7 +160,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.ExportScheduleResponse']:
+    def schedule(self) -> pulumi.Output[Optional['outputs.ExportScheduleResponse']]:
         """
         Has schedule information for the export.
         """
@@ -168,7 +168,7 @@ class Export(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

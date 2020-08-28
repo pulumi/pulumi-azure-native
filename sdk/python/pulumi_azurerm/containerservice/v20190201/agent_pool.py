@@ -13,7 +13,7 @@ __all__ = ['AgentPool']
 
 class AgentPool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -124,7 +124,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[List[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         """
@@ -132,7 +132,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def count(self) -> float:
+    def count(self) -> pulumi.Output[float]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
@@ -140,7 +140,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAutoScaling")
-    def enable_auto_scaling(self) -> Optional[bool]:
+    def enable_auto_scaling(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable auto-scaler
         """
@@ -148,7 +148,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[float]:
+    def max_count(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum number of nodes for auto-scaling
         """
@@ -156,7 +156,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[float]:
+    def max_pods(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum number of pods that can run on a node.
         """
@@ -164,7 +164,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[float]:
+    def min_count(self) -> pulumi.Output[Optional[float]]:
         """
         Minimum number of nodes for auto-scaling
         """
@@ -172,7 +172,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -180,7 +180,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="orchestratorVersion")
-    def orchestrator_version(self) -> Optional[str]:
+    def orchestrator_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of orchestrator specified when creating the managed cluster.
         """
@@ -188,7 +188,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[float]:
+    def os_disk_size_gb(self) -> pulumi.Output[Optional[float]]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
@@ -196,7 +196,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         """
@@ -204,7 +204,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment or provisioning state, which only appears in the response.
         """
@@ -212,7 +212,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         AgentPoolType represents types of an agent pool
         """
@@ -220,7 +220,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
+    def vm_size(self) -> pulumi.Output[str]:
         """
         Size of agent VMs.
         """
@@ -228,7 +228,7 @@ class AgentPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vnetSubnetID")
-    def vnet_subnet_id(self) -> Optional[str]:
+    def vnet_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         VNet SubnetID specifies the VNet's subnet identifier.
         """

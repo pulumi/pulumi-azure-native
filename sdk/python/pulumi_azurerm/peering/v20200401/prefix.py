@@ -14,7 +14,7 @@ __all__ = ['Prefix']
 
 class Prefix(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  peering_service_name: Optional[pulumi.Input[str]] = None,
                  peering_service_prefix_key: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class Prefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="errorMessage")
-    def error_message(self) -> str:
+    def error_message(self) -> pulumi.Output[str]:
         """
         The error message for validation state
         """
@@ -104,7 +104,7 @@ class Prefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def events(self) -> List['outputs.PeeringServicePrefixEventResponse']:
+    def events(self) -> pulumi.Output[List['outputs.PeeringServicePrefixEventResponse']]:
         """
         The list of events for peering service prefix
         """
@@ -112,7 +112,7 @@ class Prefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="learnedType")
-    def learned_type(self) -> str:
+    def learned_type(self) -> pulumi.Output[str]:
         """
         The prefix learned type
         """
@@ -120,7 +120,7 @@ class Prefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -128,7 +128,7 @@ class Prefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringServicePrefixKey")
-    def peering_service_prefix_key(self) -> Optional[str]:
+    def peering_service_prefix_key(self) -> pulumi.Output[Optional[str]]:
         """
         The peering service prefix key
         """
@@ -136,7 +136,7 @@ class Prefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def prefix(self) -> Optional[str]:
+    def prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The prefix from which your traffic originates.
         """
@@ -144,7 +144,7 @@ class Prefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="prefixValidationState")
-    def prefix_validation_state(self) -> str:
+    def prefix_validation_state(self) -> pulumi.Output[str]:
         """
         The prefix validation state
         """
@@ -152,7 +152,7 @@ class Prefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the resource.
         """
@@ -160,7 +160,7 @@ class Prefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

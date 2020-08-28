@@ -15,7 +15,7 @@ __all__ = ['ApiOperation']
 
 class ApiOperation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the operation. May include HTML formatting tags.
         """
@@ -131,7 +131,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Operation Name.
         """
@@ -139,7 +139,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def method(self) -> str:
+    def method(self) -> pulumi.Output[str]:
         """
         A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
         """
@@ -147,7 +147,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -155,7 +155,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policies(self) -> Optional[str]:
+    def policies(self) -> pulumi.Output[Optional[str]]:
         """
         Operation Policies
         """
@@ -163,7 +163,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def request(self) -> Optional['outputs.RequestContractResponse']:
+    def request(self) -> pulumi.Output[Optional['outputs.RequestContractResponse']]:
         """
         An entity containing request details.
         """
@@ -171,7 +171,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def responses(self) -> Optional[List['outputs.ResponseContractResponse']]:
+    def responses(self) -> pulumi.Output[Optional[List['outputs.ResponseContractResponse']]]:
         """
         Array of Operation responses.
         """
@@ -179,7 +179,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateParameters")
-    def template_parameters(self) -> Optional[List['outputs.ParameterContractResponse']]:
+    def template_parameters(self) -> pulumi.Output[Optional[List['outputs.ParameterContractResponse']]]:
         """
         Collection of URL template parameters.
         """
@@ -187,7 +187,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """
@@ -195,7 +195,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="urlTemplate")
-    def url_template(self) -> str:
+    def url_template(self) -> pulumi.Output[str]:
         """
         Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
         """

@@ -14,7 +14,7 @@ __all__ = ['OuContainer']
 
 class OuContainer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  domain_service_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accounts(self) -> Optional[List['outputs.ContainerAccountResponse']]:
+    def accounts(self) -> pulumi.Output[Optional[List['outputs.ContainerAccountResponse']]]:
         """
         The list of container accounts
         """
@@ -114,7 +114,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerId")
-    def container_id(self) -> str:
+    def container_id(self) -> pulumi.Output[str]:
         """
         The OuContainer name
         """
@@ -122,7 +122,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentId")
-    def deployment_id(self) -> str:
+    def deployment_id(self) -> pulumi.Output[str]:
         """
         The Deployment id
         """
@@ -130,7 +130,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         The domain name of Domain Services.
         """
@@ -138,7 +138,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Resource etag
         """
@@ -146,7 +146,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location
         """
@@ -154,7 +154,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -162,7 +162,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The current deployment or provisioning state, which only appears in the response.
         """
@@ -170,7 +170,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceStatus")
-    def service_status(self) -> str:
+    def service_status(self) -> pulumi.Output[str]:
         """
         Status of OuContainer instance
         """
@@ -178,7 +178,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags
         """
@@ -186,7 +186,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         Azure Active Directory tenant id
         """
@@ -194,7 +194,7 @@ class OuContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

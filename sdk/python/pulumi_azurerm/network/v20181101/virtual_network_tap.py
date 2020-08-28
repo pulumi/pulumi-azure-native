@@ -15,7 +15,7 @@ __all__ = ['VirtualNetworkTap']
 
 class VirtualNetworkTap(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_load_balancer_front_end_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]] = None,
                  destination_network_interface_ip_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]] = None,
@@ -107,7 +107,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationLoadBalancerFrontEndIPConfiguration")
-    def destination_load_balancer_front_end_ip_configuration(self) -> Optional['outputs.FrontendIPConfigurationResponse']:
+    def destination_load_balancer_front_end_ip_configuration(self) -> pulumi.Output[Optional['outputs.FrontendIPConfigurationResponse']]:
         """
         The reference to the private IP address on the internal Load Balancer that will receive the tap
         """
@@ -115,7 +115,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationNetworkInterfaceIPConfiguration")
-    def destination_network_interface_ip_configuration(self) -> Optional['outputs.NetworkInterfaceIPConfigurationResponse']:
+    def destination_network_interface_ip_configuration(self) -> pulumi.Output[Optional['outputs.NetworkInterfaceIPConfigurationResponse']]:
         """
         The reference to the private IP Address of the collector nic that will receive the tap
         """
@@ -123,7 +123,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[float]:
+    def destination_port(self) -> pulumi.Output[Optional[float]]:
         """
         The VXLAN destination port that will receive the tapped traffic.
         """
@@ -131,7 +131,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -139,7 +139,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -147,7 +147,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -155,7 +155,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceTapConfigurations")
-    def network_interface_tap_configurations(self) -> List['outputs.NetworkInterfaceTapConfigurationResponse']:
+    def network_interface_tap_configurations(self) -> pulumi.Output[List['outputs.NetworkInterfaceTapConfigurationResponse']]:
         """
         Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
         """
@@ -163,7 +163,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the virtual network tap. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
@@ -171,7 +171,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGuid")
-    def resource_guid(self) -> str:
+    def resource_guid(self) -> pulumi.Output[str]:
         """
         The resourceGuid property of the virtual network tap.
         """
@@ -179,7 +179,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -187,7 +187,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

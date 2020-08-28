@@ -15,7 +15,7 @@ __all__ = ['DatabaseAccount']
 
 class DatabaseAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  capabilities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
@@ -137,7 +137,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[List['outputs.CapabilityResponse']]:
+    def capabilities(self) -> pulumi.Output[Optional[List['outputs.CapabilityResponse']]]:
         """
         List of Cosmos DB capabilities for the account
         """
@@ -145,7 +145,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorOffer")
-    def connector_offer(self) -> Optional[str]:
+    def connector_offer(self) -> pulumi.Output[Optional[str]]:
         """
         The cassandra connector offer type for the Cosmos DB database C* account.
         """
@@ -153,7 +153,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="consistencyPolicy")
-    def consistency_policy(self) -> Optional['outputs.ConsistencyPolicyResponse']:
+    def consistency_policy(self) -> pulumi.Output[Optional['outputs.ConsistencyPolicyResponse']]:
         """
         The consistency policy for the Cosmos DB database account.
         """
@@ -161,7 +161,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseAccountOfferType")
-    def database_account_offer_type(self) -> str:
+    def database_account_offer_type(self) -> pulumi.Output[str]:
         """
         The offer type for the Cosmos DB database account. Default value: Standard.
         """
@@ -169,7 +169,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableKeyBasedMetadataWriteAccess")
-    def disable_key_based_metadata_write_access(self) -> Optional[bool]:
+    def disable_key_based_metadata_write_access(self) -> pulumi.Output[Optional[bool]]:
         """
         Disable write operations on metadata resources (databases, containers, throughput) via account keys
         """
@@ -177,7 +177,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentEndpoint")
-    def document_endpoint(self) -> str:
+    def document_endpoint(self) -> pulumi.Output[str]:
         """
         The connection endpoint for the Cosmos DB database account.
         """
@@ -185,7 +185,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAutomaticFailover")
-    def enable_automatic_failover(self) -> Optional[bool]:
+    def enable_automatic_failover(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
         """
@@ -193,7 +193,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableCassandraConnector")
-    def enable_cassandra_connector(self) -> Optional[bool]:
+    def enable_cassandra_connector(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables the cassandra connector on the Cosmos DB C* account
         """
@@ -201,7 +201,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableMultipleWriteLocations")
-    def enable_multiple_write_locations(self) -> Optional[bool]:
+    def enable_multiple_write_locations(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables the account to write in multiple locations
         """
@@ -209,7 +209,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failoverPolicies")
-    def failover_policies(self) -> List['outputs.FailoverPolicyResponse']:
+    def failover_policies(self) -> pulumi.Output[List['outputs.FailoverPolicyResponse']]:
         """
         An array that contains the regions ordered by their failover priorities.
         """
@@ -217,7 +217,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipRangeFilter")
-    def ip_range_filter(self) -> Optional[str]:
+    def ip_range_filter(self) -> pulumi.Output[Optional[str]]:
         """
         Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         """
@@ -225,7 +225,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
-    def is_virtual_network_filter_enabled(self) -> Optional[bool]:
+    def is_virtual_network_filter_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Flag to indicate whether to enable/disable Virtual Network ACL rules.
         """
@@ -233,7 +233,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates the type of database account. This can only be set at database account creation.
         """
@@ -241,7 +241,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource group to which the resource belongs.
         """
@@ -249,7 +249,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> List['outputs.LocationResponse']:
+    def locations(self) -> pulumi.Output[List['outputs.LocationResponse']]:
         """
         An array that contains all of the locations enabled for the Cosmos DB account.
         """
@@ -257,7 +257,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the ARM resource.
         """
@@ -265,7 +265,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
         """
@@ -273,7 +273,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readLocations")
-    def read_locations(self) -> List['outputs.LocationResponse']:
+    def read_locations(self) -> pulumi.Output[List['outputs.LocationResponse']]:
         """
         An array that contains of the read locations enabled for the Cosmos DB account.
         """
@@ -281,7 +281,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
@@ -289,7 +289,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of Azure resource.
         """
@@ -297,7 +297,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.VirtualNetworkRuleResponse']]:
+    def virtual_network_rules(self) -> pulumi.Output[Optional[List['outputs.VirtualNetworkRuleResponse']]]:
         """
         List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
@@ -305,7 +305,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeLocations")
-    def write_locations(self) -> List['outputs.LocationResponse']:
+    def write_locations(self) -> pulumi.Output[List['outputs.LocationResponse']]:
         """
         An array that contains the write location for the Cosmos DB account.
         """

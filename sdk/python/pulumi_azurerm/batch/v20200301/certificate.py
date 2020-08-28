@@ -14,7 +14,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deleteCertificateError")
-    def delete_certificate_error(self) -> 'outputs.DeleteCertificateErrorResponse':
+    def delete_certificate_error(self) -> pulumi.Output['outputs.DeleteCertificateErrorResponse']:
         """
         This is only returned when the certificate provisioningState is 'Failed'.
         """
@@ -119,7 +119,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         The ETag of the resource, used for concurrency statements.
         """
@@ -127,7 +127,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[str]:
+    def format(self) -> pulumi.Output[Optional[str]]:
         """
         The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
         """
@@ -135,7 +135,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -143,7 +143,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="previousProvisioningState")
-    def previous_provisioning_state(self) -> str:
+    def previous_provisioning_state(self) -> pulumi.Output[str]:
         """
         The previous provisioned state of the resource
         """
@@ -151,22 +151,22 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="previousProvisioningStateTransitionTime")
-    def previous_provisioning_state_transition_time(self) -> str:
+    def previous_provisioning_state_transition_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "previous_provisioning_state_transition_time")
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="provisioningStateTransitionTime")
-    def provisioning_state_transition_time(self) -> str:
+    def provisioning_state_transition_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "provisioning_state_transition_time")
 
     @property
     @pulumi.getter(name="publicData")
-    def public_data(self) -> str:
+    def public_data(self) -> pulumi.Output[str]:
         """
         The public key of the certificate.
         """
@@ -174,7 +174,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> Optional[str]:
+    def thumbprint(self) -> pulumi.Output[Optional[str]]:
         """
         This must match the thumbprint from the name.
         """
@@ -182,7 +182,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thumbprintAlgorithm")
-    def thumbprint_algorithm(self) -> Optional[str]:
+    def thumbprint_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
         This must match the first portion of the certificate name. Currently required to be 'SHA1'.
         """
@@ -190,7 +190,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

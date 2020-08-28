@@ -13,7 +13,7 @@ __all__ = ['Route']
 
 class Route(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[str]:
+    def address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The destination CIDR to which the route applies.
         """
@@ -111,7 +111,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -119,7 +119,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -127,7 +127,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextHopIpAddress")
-    def next_hop_ip_address(self) -> Optional[str]:
+    def next_hop_ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
         """
@@ -135,7 +135,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextHopType")
-    def next_hop_type(self) -> str:
+    def next_hop_type(self) -> pulumi.Output[str]:
         """
         The type of Azure hop the packet should be sent to.
         """
@@ -143,7 +143,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the route resource.
         """

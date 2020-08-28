@@ -15,7 +15,7 @@ __all__ = ['StreamingEndpoint']
 
 class StreamingEndpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control: Optional[pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional['outputs.StreamingEndpointAccessControlResponse']:
+    def access_control(self) -> pulumi.Output[Optional['outputs.StreamingEndpointAccessControlResponse']]:
         """
         The access control definition of the StreamingEndpoint.
         """
@@ -143,7 +143,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilitySetName")
-    def availability_set_name(self) -> Optional[str]:
+    def availability_set_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
         """
@@ -151,7 +151,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cdnEnabled")
-    def cdn_enabled(self) -> Optional[bool]:
+    def cdn_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         The CDN enabled flag.
         """
@@ -159,7 +159,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cdnProfile")
-    def cdn_profile(self) -> Optional[str]:
+    def cdn_profile(self) -> pulumi.Output[Optional[str]]:
         """
         The CDN profile name.
         """
@@ -167,7 +167,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cdnProvider")
-    def cdn_provider(self) -> Optional[str]:
+    def cdn_provider(self) -> pulumi.Output[Optional[str]]:
         """
         The CDN provider name.
         """
@@ -175,7 +175,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def created(self) -> str:
+    def created(self) -> pulumi.Output[str]:
         """
         The exact time the StreamingEndpoint was created.
         """
@@ -183,7 +183,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="crossSiteAccessPolicies")
-    def cross_site_access_policies(self) -> Optional['outputs.CrossSiteAccessPoliciesResponse']:
+    def cross_site_access_policies(self) -> pulumi.Output[Optional['outputs.CrossSiteAccessPoliciesResponse']]:
         """
         The StreamingEndpoint access policies.
         """
@@ -191,7 +191,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHostNames")
-    def custom_host_names(self) -> Optional[List[str]]:
+    def custom_host_names(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The custom host names of the StreamingEndpoint
         """
@@ -199,7 +199,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The StreamingEndpoint description.
         """
@@ -207,7 +207,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="freeTrialEndTime")
-    def free_trial_end_time(self) -> str:
+    def free_trial_end_time(self) -> pulumi.Output[str]:
         """
         The free trial expiration time.
         """
@@ -215,7 +215,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
+    def host_name(self) -> pulumi.Output[str]:
         """
         The StreamingEndpoint host name.
         """
@@ -223,7 +223,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> str:
+    def last_modified(self) -> pulumi.Output[str]:
         """
         The exact time the StreamingEndpoint was last modified.
         """
@@ -231,7 +231,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure Region of the resource.
         """
@@ -239,7 +239,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxCacheAge")
-    def max_cache_age(self) -> Optional[float]:
+    def max_cache_age(self) -> pulumi.Output[Optional[float]]:
         """
         Max cache age
         """
@@ -247,7 +247,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -255,7 +255,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the StreamingEndpoint.
         """
@@ -263,7 +263,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         The resource state of the StreamingEndpoint.
         """
@@ -271,7 +271,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleUnits")
-    def scale_units(self) -> float:
+    def scale_units(self) -> pulumi.Output[float]:
         """
         The number of scale units.  Use the Scale operation to adjust this value.
         """
@@ -279,7 +279,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -287,7 +287,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

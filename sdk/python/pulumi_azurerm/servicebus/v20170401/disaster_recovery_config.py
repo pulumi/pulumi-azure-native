@@ -13,7 +13,7 @@ __all__ = ['DisasterRecoveryConfig']
 
 class DisasterRecoveryConfig(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  alternate_name: Optional[pulumi.Input[str]] = None,
@@ -93,7 +93,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alternateName")
-    def alternate_name(self) -> Optional[str]:
+    def alternate_name(self) -> pulumi.Output[Optional[str]]:
         """
         Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         """
@@ -101,7 +101,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -109,7 +109,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerNamespace")
-    def partner_namespace(self) -> Optional[str]:
+    def partner_namespace(self) -> pulumi.Output[Optional[str]]:
         """
         ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         """
@@ -117,7 +117,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pendingReplicationOperationsCount")
-    def pending_replication_operations_count(self) -> float:
+    def pending_replication_operations_count(self) -> pulumi.Output[float]:
         """
         Number of entities pending to be replicated.
         """
@@ -125,7 +125,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
         """
@@ -133,7 +133,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> str:
+    def role(self) -> pulumi.Output[str]:
         """
         role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
         """
@@ -141,7 +141,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

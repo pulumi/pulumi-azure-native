@@ -15,7 +15,7 @@ __all__ = ['AppServiceCertificateOrder']
 
 class AppServiceCertificateOrder(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
                  certificate_order_name: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServiceCertificateNotRenewableReasons")
-    def app_service_certificate_not_renewable_reasons(self) -> List[str]:
+    def app_service_certificate_not_renewable_reasons(self) -> pulumi.Output[List[str]]:
         """
         Reasons why App Service Certificate is not renewable at the current moment.
         """
@@ -137,7 +137,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoRenew")
-    def auto_renew(self) -> Optional[bool]:
+    def auto_renew(self) -> pulumi.Output[Optional[bool]]:
         """
         <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
         """
@@ -145,7 +145,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[Mapping[str, 'outputs.AppServiceCertificateResponse']]:
+    def certificates(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.AppServiceCertificateResponse']]]:
         """
         State of the Key Vault secret.
         """
@@ -153,7 +153,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def csr(self) -> Optional[str]:
+    def csr(self) -> pulumi.Output[Optional[str]]:
         """
         Last CSR that was created for this order.
         """
@@ -161,7 +161,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="distinguishedName")
-    def distinguished_name(self) -> Optional[str]:
+    def distinguished_name(self) -> pulumi.Output[Optional[str]]:
         """
         Certificate distinguished name.
         """
@@ -169,7 +169,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainVerificationToken")
-    def domain_verification_token(self) -> str:
+    def domain_verification_token(self) -> pulumi.Output[str]:
         """
         Domain verification token.
         """
@@ -177,7 +177,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationTime")
-    def expiration_time(self) -> str:
+    def expiration_time(self) -> pulumi.Output[str]:
         """
         Certificate expiration time.
         """
@@ -185,7 +185,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def intermediate(self) -> 'outputs.CertificateDetailsResponse':
+    def intermediate(self) -> pulumi.Output['outputs.CertificateDetailsResponse']:
         """
         Intermediate certificate.
         """
@@ -193,7 +193,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isPrivateKeyExternal")
-    def is_private_key_external(self) -> bool:
+    def is_private_key_external(self) -> pulumi.Output[bool]:
         """
         <code>true</code> if private key is external; otherwise, <code>false</code>.
         """
@@ -201,7 +201,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[float]:
+    def key_size(self) -> pulumi.Output[Optional[float]]:
         """
         Certificate key size.
         """
@@ -209,7 +209,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -217,7 +217,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastCertificateIssuanceTime")
-    def last_certificate_issuance_time(self) -> str:
+    def last_certificate_issuance_time(self) -> pulumi.Output[str]:
         """
         Certificate last issuance time.
         """
@@ -225,7 +225,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource Location.
         """
@@ -233,7 +233,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -241,7 +241,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextAutoRenewalTimeStamp")
-    def next_auto_renewal_time_stamp(self) -> str:
+    def next_auto_renewal_time_stamp(self) -> pulumi.Output[str]:
         """
         Time stamp when the certificate would be auto renewed next
         """
@@ -249,7 +249,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="productType")
-    def product_type(self) -> str:
+    def product_type(self) -> pulumi.Output[str]:
         """
         Certificate product type.
         """
@@ -257,7 +257,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Status of certificate order.
         """
@@ -265,7 +265,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def root(self) -> 'outputs.CertificateDetailsResponse':
+    def root(self) -> pulumi.Output['outputs.CertificateDetailsResponse']:
         """
         Root certificate.
         """
@@ -273,7 +273,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> str:
+    def serial_number(self) -> pulumi.Output[str]:
         """
         Current serial number of the certificate.
         """
@@ -281,7 +281,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signedCertificate")
-    def signed_certificate(self) -> 'outputs.CertificateDetailsResponse':
+    def signed_certificate(self) -> pulumi.Output['outputs.CertificateDetailsResponse']:
         """
         Signed certificate.
         """
@@ -289,7 +289,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         Current order status.
         """
@@ -297,7 +297,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -305,7 +305,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -313,7 +313,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validityInYears")
-    def validity_in_years(self) -> Optional[float]:
+    def validity_in_years(self) -> pulumi.Output[Optional[float]]:
         """
         Duration in years (must be between 1 and 3).
         """

@@ -15,7 +15,7 @@ __all__ = ['InterfaceEndpoint']
 
 class InterfaceEndpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_service: Optional[pulumi.Input[pulumi.InputType['EndpointServiceArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointService")
-    def endpoint_service(self) -> Optional['outputs.EndpointServiceResponse']:
+    def endpoint_service(self) -> pulumi.Output[Optional['outputs.EndpointServiceResponse']]:
         """
         A reference to the service being brought into the virtual network.
         """
@@ -115,7 +115,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -123,7 +123,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> Optional[str]:
+    def fqdn(self) -> pulumi.Output[Optional[str]]:
         """
         A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
         """
@@ -131,7 +131,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -139,7 +139,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -147,7 +147,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> pulumi.Output[List['outputs.NetworkInterfaceResponse']]:
         """
         Gets an array of references to the network interfaces created for this interface endpoint.
         """
@@ -155,7 +155,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> str:
+    def owner(self) -> pulumi.Output[str]:
         """
         A read-only property that identifies who created this interface endpoint.
         """
@@ -163,7 +163,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
@@ -171,7 +171,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.SubnetResponse']:
+    def subnet(self) -> pulumi.Output[Optional['outputs.SubnetResponse']]:
         """
         The ID of the subnet from which the private IP will be allocated.
         """
@@ -179,7 +179,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -187,7 +187,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

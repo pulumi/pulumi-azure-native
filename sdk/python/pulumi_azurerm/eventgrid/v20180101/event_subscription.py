@@ -15,7 +15,7 @@ __all__ = ['EventSubscription']
 
 class EventSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.EventSubscriptionDestinationResponse']:
+    def destination(self) -> pulumi.Output[Optional['outputs.EventSubscriptionDestinationResponse']]:
         """
         Information about the destination where events have to be delivered for the event subscription.
         """
@@ -102,7 +102,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.EventSubscriptionFilterResponse']:
+    def filter(self) -> pulumi.Output[Optional['outputs.EventSubscriptionFilterResponse']]:
         """
         Information about the filter for the event subscription.
         """
@@ -110,7 +110,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List[str]]:
+    def labels(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of user defined labels.
         """
@@ -118,7 +118,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the resource
         """
@@ -126,7 +126,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the event subscription.
         """
@@ -134,7 +134,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def topic(self) -> str:
+    def topic(self) -> pulumi.Output[str]:
         """
         Name of the topic of the event subscription.
         """
@@ -142,7 +142,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the resource
         """

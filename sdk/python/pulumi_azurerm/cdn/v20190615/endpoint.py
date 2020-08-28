@@ -15,7 +15,7 @@ __all__ = ['Endpoint']
 
 class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_types_to_compress: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  delivery_policy: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersDeliveryPolicyArgs']]] = None,
@@ -140,7 +140,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentTypesToCompress")
-    def content_types_to_compress(self) -> Optional[List[str]]:
+    def content_types_to_compress(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of content types on which compression applies. The value should be a valid MIME type.
         """
@@ -148,7 +148,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryPolicy")
-    def delivery_policy(self) -> Optional['outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy']:
+    def delivery_policy(self) -> pulumi.Output[Optional['outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy']]:
         """
         A policy that specifies the delivery rules to be used for an endpoint.
         """
@@ -156,7 +156,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoFilters")
-    def geo_filters(self) -> Optional[List['outputs.GeoFilterResponse']]:
+    def geo_filters(self) -> pulumi.Output[Optional[List['outputs.GeoFilterResponse']]]:
         """
         List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         """
@@ -164,7 +164,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
+    def host_name(self) -> pulumi.Output[str]:
         """
         The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
         """
@@ -172,7 +172,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isCompressionEnabled")
-    def is_compression_enabled(self) -> Optional[bool]:
+    def is_compression_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
         """
@@ -180,7 +180,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isHttpAllowed")
-    def is_http_allowed(self) -> Optional[bool]:
+    def is_http_allowed(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         """
@@ -188,7 +188,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isHttpsAllowed")
-    def is_https_allowed(self) -> Optional[bool]:
+    def is_https_allowed(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         """
@@ -196,7 +196,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -204,7 +204,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -212,7 +212,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optimizationType")
-    def optimization_type(self) -> Optional[str]:
+    def optimization_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
         """
@@ -220,7 +220,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originHostHeader")
-    def origin_host_header(self) -> Optional[str]:
+    def origin_host_header(self) -> pulumi.Output[Optional[str]]:
         """
         The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
         """
@@ -228,7 +228,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originPath")
-    def origin_path(self) -> Optional[str]:
+    def origin_path(self) -> pulumi.Output[Optional[str]]:
         """
         A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         """
@@ -236,7 +236,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origins(self) -> List['outputs.DeepCreatedOriginResponse']:
+    def origins(self) -> pulumi.Output[List['outputs.DeepCreatedOriginResponse']]:
         """
         The source of the content being delivered via CDN.
         """
@@ -244,7 +244,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="probePath")
-    def probe_path(self) -> Optional[str]:
+    def probe_path(self) -> pulumi.Output[Optional[str]]:
         """
         Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
         """
@@ -252,7 +252,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning status of the endpoint.
         """
@@ -260,7 +260,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryStringCachingBehavior")
-    def query_string_caching_behavior(self) -> Optional[str]:
+    def query_string_caching_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         """
@@ -268,7 +268,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         Resource status of the endpoint.
         """
@@ -276,7 +276,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -284,7 +284,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
@@ -292,7 +292,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webApplicationFirewallPolicyLink")
-    def web_application_firewall_policy_link(self) -> Optional['outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink']:
+    def web_application_firewall_policy_link(self) -> pulumi.Output[Optional['outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink']]:
         """
         Defines the Web Application Firewall policy for the endpoint (if applicable)
         """

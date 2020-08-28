@@ -15,7 +15,7 @@ __all__ = ['DataStore']
 
 class DataStore(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]]] = None,
                  data_manager_name: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class DataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerSecrets")
-    def customer_secrets(self) -> Optional[List['outputs.CustomerSecretResponse']]:
+    def customer_secrets(self) -> pulumi.Output[Optional[List['outputs.CustomerSecretResponse']]]:
         """
         List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         """
@@ -115,7 +115,7 @@ class DataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataStoreTypeId")
-    def data_store_type_id(self) -> str:
+    def data_store_type_id(self) -> pulumi.Output[str]:
         """
         The arm id of the data store type.
         """
@@ -123,7 +123,7 @@ class DataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> Optional[Mapping[str, Any]]:
+    def extended_properties(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         A generic json used differently by each data source type.
         """
@@ -131,7 +131,7 @@ class DataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the object.
         """
@@ -139,7 +139,7 @@ class DataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[str]:
+    def repository_id(self) -> pulumi.Output[Optional[str]]:
         """
         Arm Id for the manager resource to which the data source is associated. This is optional.
         """
@@ -147,7 +147,7 @@ class DataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         State of the data source.
         """
@@ -155,7 +155,7 @@ class DataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the object.
         """

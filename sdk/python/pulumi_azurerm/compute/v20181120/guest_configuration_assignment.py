@@ -15,7 +15,7 @@ __all__ = ['GuestConfigurationAssignment']
 
 class GuestConfigurationAssignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  guest_configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Region where the VM is located.
         """
@@ -104,7 +104,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the guest configuration assignment.
         """
@@ -112,7 +112,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.GuestConfigurationAssignmentPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.GuestConfigurationAssignmentPropertiesResponse']:
         """
         Properties of the Guest configuration assignment.
         """
@@ -120,7 +120,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

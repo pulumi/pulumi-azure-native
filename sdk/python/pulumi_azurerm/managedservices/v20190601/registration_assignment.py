@@ -15,7 +15,7 @@ __all__ = ['RegistrationAssignment']
 
 class RegistrationAssignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['RegistrationAssignmentPropertiesArgs']]] = None,
                  registration_assignment_id: Optional[pulumi.Input[str]] = None,
@@ -86,7 +86,7 @@ class RegistrationAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the registration assignment.
         """
@@ -94,7 +94,7 @@ class RegistrationAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RegistrationAssignmentPropertiesResponse':
+    def properties(self) -> pulumi.Output['outputs.RegistrationAssignmentPropertiesResponse']:
         """
         Properties of a registration assignment.
         """
@@ -102,7 +102,7 @@ class RegistrationAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of the resource.
         """

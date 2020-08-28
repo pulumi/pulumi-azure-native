@@ -106,10 +106,10 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:web/v20160801:WebAppHybridConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20180201:WebAppHybridConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20181101:WebAppHybridConnectionSlot"},
-                    new Alias { Type = "azurerm:web/v20190801:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppHybridConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

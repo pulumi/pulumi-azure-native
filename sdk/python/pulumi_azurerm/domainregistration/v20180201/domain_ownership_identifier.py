@@ -13,7 +13,7 @@ __all__ = ['DomainOwnershipIdentifier']
 
 class DomainOwnershipIdentifier(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,7 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Kind of resource.
         """
@@ -99,7 +99,7 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource Name.
         """
@@ -107,7 +107,7 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownershipId")
-    def ownership_id(self) -> Optional[str]:
+    def ownership_id(self) -> pulumi.Output[Optional[str]]:
         """
         Ownership Id.
         """
@@ -115,7 +115,7 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

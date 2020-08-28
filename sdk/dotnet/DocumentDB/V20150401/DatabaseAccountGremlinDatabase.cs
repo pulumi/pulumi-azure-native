@@ -81,10 +81,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountGremlinDatabase"},
-                    new Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountGremlinDatabase"},
-                    new Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountGremlinDatabase"},
-                    new Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccountGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountGremlinDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20160331:DatabaseAccountGremlinDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

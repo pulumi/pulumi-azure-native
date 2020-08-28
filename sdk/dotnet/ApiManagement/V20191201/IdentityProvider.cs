@@ -105,11 +105,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:apimanagement/v20160707:IdentityProvider"},
-                    new Alias { Type = "azurerm:apimanagement/v20161010:IdentityProvider"},
-                    new Alias { Type = "azurerm:apimanagement/v20170301:IdentityProvider"},
-                    new Alias { Type = "azurerm:apimanagement/v20180101:IdentityProvider"},
-                    new Alias { Type = "azurerm:apimanagement/v20190101:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:IdentityProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

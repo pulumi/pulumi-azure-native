@@ -171,16 +171,16 @@ namespace Pulumi.AzureRM.Compute.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:compute/v20150615:VirtualMachineScaleSet"},
-                    new Alias { Type = "azurerm:compute/v20160330:VirtualMachineScaleSet"},
-                    new Alias { Type = "azurerm:compute/v20170330:VirtualMachineScaleSet"},
-                    new Alias { Type = "azurerm:compute/v20171201:VirtualMachineScaleSet"},
-                    new Alias { Type = "azurerm:compute/v20180401:VirtualMachineScaleSet"},
-                    new Alias { Type = "azurerm:compute/v20180601:VirtualMachineScaleSet"},
-                    new Alias { Type = "azurerm:compute/v20181001:VirtualMachineScaleSet"},
-                    new Alias { Type = "azurerm:compute/v20190301:VirtualMachineScaleSet"},
-                    new Alias { Type = "azurerm:compute/v20190701:VirtualMachineScaleSet"},
-                    new Alias { Type = "azurerm:compute/v20191201:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20150615:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20160330:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20170330:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20171201:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180401:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180601:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20181001:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20190301:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20190701:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20191201:VirtualMachineScaleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

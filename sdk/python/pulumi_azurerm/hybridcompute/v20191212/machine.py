@@ -15,7 +15,7 @@ __all__ = ['Machine']
 
 class Machine(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]]] = None,
@@ -112,7 +112,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> str:
+    def agent_version(self) -> pulumi.Output[str]:
         """
         The hybrid machine agent full version.
         """
@@ -120,7 +120,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientPublicKey")
-    def client_public_key(self) -> Optional[str]:
+    def client_public_key(self) -> pulumi.Output[Optional[str]]:
         """
         Public Key that the client provides to be used during initial resource onboarding
         """
@@ -128,7 +128,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Specifies the hybrid machine display name.
         """
@@ -136,7 +136,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> List['outputs.ErrorDetailResponse']:
+    def error_details(self) -> pulumi.Output[List['outputs.ErrorDetailResponse']]:
         """
         Details about the error state.
         """
@@ -144,7 +144,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[List['outputs.MachineExtensionInstanceViewResponse']]:
+    def extensions(self) -> pulumi.Output[Optional[List['outputs.MachineExtensionInstanceViewResponse']]]:
         """
         Machine Extensions information
         """
@@ -152,12 +152,12 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.MachineResponseIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.MachineResponseIdentity']]:
         return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="lastStatusChange")
-    def last_status_change(self) -> str:
+    def last_status_change(self) -> pulumi.Output[str]:
         """
         The time of the last status change.
         """
@@ -165,7 +165,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -173,7 +173,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="locationData")
-    def location_data(self) -> Optional['outputs.LocationDataResponse']:
+    def location_data(self) -> pulumi.Output[Optional['outputs.LocationDataResponse']]:
         """
         Metadata pertaining to the geographic location of the resource.
         """
@@ -181,7 +181,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="machineFqdn")
-    def machine_fqdn(self) -> str:
+    def machine_fqdn(self) -> pulumi.Output[str]:
         """
         Specifies the hybrid machine FQDN.
         """
@@ -189,7 +189,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
@@ -197,7 +197,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osName")
-    def os_name(self) -> str:
+    def os_name(self) -> pulumi.Output[str]:
         """
         The Operating System running on the hybrid machine.
         """
@@ -205,7 +205,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.MachinePropertiesResponseOsProfile']:
+    def os_profile(self) -> pulumi.Output[Optional['outputs.MachinePropertiesResponseOsProfile']]:
         """
         Specifies the operating system settings for the hybrid machine.
         """
@@ -213,7 +213,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osVersion")
-    def os_version(self) -> str:
+    def os_version(self) -> pulumi.Output[str]:
         """
         The version of Operating System running on the hybrid machine.
         """
@@ -221,7 +221,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state, which only appears in the response.
         """
@@ -229,7 +229,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The status of the hybrid machine agent.
         """
@@ -237,7 +237,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -245,7 +245,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
@@ -253,7 +253,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmId")
-    def vm_id(self) -> Optional[str]:
+    def vm_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the hybrid machine unique ID.
         """

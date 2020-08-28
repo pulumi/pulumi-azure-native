@@ -15,7 +15,7 @@ __all__ = ['OriginGroup']
 
 class OriginGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  health_probe_settings: Optional[pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']]] = None,
@@ -109,7 +109,7 @@ class OriginGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthProbeSettings")
-    def health_probe_settings(self) -> Optional['outputs.HealthProbeParametersResponse']:
+    def health_probe_settings(self) -> pulumi.Output[Optional['outputs.HealthProbeParametersResponse']]:
         """
         Health probe settings to the origin that is used to determine the health of the origin.
         """
@@ -117,7 +117,7 @@ class OriginGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -125,7 +125,7 @@ class OriginGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origins(self) -> List['outputs.ResourceReferenceResponse']:
+    def origins(self) -> pulumi.Output[List['outputs.ResourceReferenceResponse']]:
         """
         The source of the content being delivered via CDN within given origin group.
         """
@@ -133,7 +133,7 @@ class OriginGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning status of the origin group.
         """
@@ -141,7 +141,7 @@ class OriginGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         """
         Resource status of the origin group.
         """
@@ -149,7 +149,7 @@ class OriginGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseBasedOriginErrorDetectionSettings")
-    def response_based_origin_error_detection_settings(self) -> Optional['outputs.ResponseBasedOriginErrorDetectionParametersResponse']:
+    def response_based_origin_error_detection_settings(self) -> pulumi.Output[Optional['outputs.ResponseBasedOriginErrorDetectionParametersResponse']]:
         """
         The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         """
@@ -157,7 +157,7 @@ class OriginGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
-    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[float]:
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
@@ -165,7 +165,7 @@ class OriginGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """

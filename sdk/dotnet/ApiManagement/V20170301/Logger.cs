@@ -82,9 +82,9 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:apimanagement/v20160707:Logger"},
-                    new Alias { Type = "azurerm:apimanagement/v20161010:Logger"},
-                    new Alias { Type = "azurerm:apimanagement/v20180101:Logger"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Logger"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Logger"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Logger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

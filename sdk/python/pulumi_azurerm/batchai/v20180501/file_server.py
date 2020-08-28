@@ -15,7 +15,7 @@ __all__ = ['FileServer']
 
 class FileServer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_disks: Optional[pulumi.Input[pulumi.InputType['DataDisksArgs']]] = None,
                  file_server_name: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         Time when the FileServer was created.
         """
@@ -116,7 +116,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional['outputs.DataDisksResponse']:
+    def data_disks(self) -> pulumi.Output[Optional['outputs.DataDisksResponse']]:
         """
         Information about disks attached to File Server VM.
         """
@@ -124,7 +124,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountSettings")
-    def mount_settings(self) -> 'outputs.MountSettingsResponse':
+    def mount_settings(self) -> pulumi.Output['outputs.MountSettingsResponse']:
         """
         File Server mount settings.
         """
@@ -132,7 +132,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -140,7 +140,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
         """
@@ -148,7 +148,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningStateTransitionTime")
-    def provisioning_state_transition_time(self) -> str:
+    def provisioning_state_transition_time(self) -> pulumi.Output[str]:
         """
         Time when the provisioning state was changed.
         """
@@ -156,7 +156,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshConfiguration")
-    def ssh_configuration(self) -> Optional['outputs.SshConfigurationResponse']:
+    def ssh_configuration(self) -> pulumi.Output[Optional['outputs.SshConfigurationResponse']]:
         """
         SSH configuration for accessing the File Server node.
         """
@@ -164,7 +164,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional['outputs.ResourceIdResponse']:
+    def subnet(self) -> pulumi.Output[Optional['outputs.ResourceIdResponse']]:
         """
         File Server virtual network subnet resource ID.
         """
@@ -172,7 +172,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """
@@ -180,7 +180,7 @@ class FileServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[str]:
+    def vm_size(self) -> pulumi.Output[Optional[str]]:
         """
         VM size of the File Server.
         """

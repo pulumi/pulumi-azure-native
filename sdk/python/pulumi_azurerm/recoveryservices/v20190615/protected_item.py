@@ -15,7 +15,7 @@ __all__ = ['ProtectedItem']
 
 class ProtectedItem(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class ProtectedItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    def e_tag(self) -> pulumi.Output[Optional[str]]:
         """
         Optional ETag.
         """
@@ -118,7 +118,7 @@ class ProtectedItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -126,7 +126,7 @@ class ProtectedItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name associated with the resource.
         """
@@ -134,7 +134,7 @@ class ProtectedItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProtectedItemResponse':
+    def properties(self) -> pulumi.Output['outputs.ProtectedItemResponse']:
         """
         ProtectedItemResource properties
         """
@@ -142,7 +142,7 @@ class ProtectedItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -150,7 +150,7 @@ class ProtectedItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """

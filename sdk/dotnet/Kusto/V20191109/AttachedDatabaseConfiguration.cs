@@ -87,9 +87,9 @@ namespace Pulumi.AzureRM.Kusto.V20191109
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azurerm:kusto/v20190907:AttachedDatabaseConfiguration"},
-                    new Alias { Type = "azurerm:kusto/v20200215:AttachedDatabaseConfiguration"},
-                    new Alias { Type = "azurerm:kusto/v20200614:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20190907:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20200215:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/v20200614:AttachedDatabaseConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

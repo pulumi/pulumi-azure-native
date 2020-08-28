@@ -15,7 +15,7 @@ __all__ = ['Task']
 
 class Task(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_configuration: Optional[pulumi.Input[pulumi.InputType['AgentPropertiesArgs']]] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['CredentialsArgs']]] = None,
@@ -124,7 +124,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentConfiguration")
-    def agent_configuration(self) -> Optional['outputs.AgentPropertiesResponse']:
+    def agent_configuration(self) -> pulumi.Output[Optional['outputs.AgentPropertiesResponse']]:
         """
         The machine configuration of the run agent.
         """
@@ -132,7 +132,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The creation date of task.
         """
@@ -140,7 +140,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.CredentialsResponse']:
+    def credentials(self) -> pulumi.Output[Optional['outputs.CredentialsResponse']]:
         """
         The properties that describes a set of credentials that will be used when this run is invoked.
         """
@@ -148,7 +148,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
@@ -156,7 +156,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the resource.
         """
@@ -164,7 +164,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def platform(self) -> 'outputs.PlatformPropertiesResponse':
+    def platform(self) -> pulumi.Output['outputs.PlatformPropertiesResponse']:
         """
         The platform properties against which the run has to happen.
         """
@@ -172,7 +172,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the task.
         """
@@ -180,7 +180,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The current status of task.
         """
@@ -188,7 +188,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def step(self) -> 'outputs.TaskStepPropertiesResponse':
+    def step(self) -> pulumi.Output['outputs.TaskStepPropertiesResponse']:
         """
         The properties of a task step.
         """
@@ -196,7 +196,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags of the resource.
         """
@@ -204,7 +204,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> pulumi.Output[Optional[float]]:
         """
         Run timeout in seconds.
         """
@@ -212,7 +212,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def trigger(self) -> Optional['outputs.TriggerPropertiesResponse']:
+    def trigger(self) -> pulumi.Output[Optional['outputs.TriggerPropertiesResponse']]:
         """
         The properties that describe all triggers for the task.
         """
@@ -220,7 +220,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the resource.
         """

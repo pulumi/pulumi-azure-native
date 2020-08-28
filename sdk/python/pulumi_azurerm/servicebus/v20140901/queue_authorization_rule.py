@@ -13,7 +13,7 @@ __all__ = ['QueueAuthorizationRule']
 
 class QueueAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  claim_type: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="claimType")
-    def claim_type(self) -> Optional[str]:
+    def claim_type(self) -> pulumi.Output[Optional[str]]:
         """
         A string that describes Claim Type for authorization rule.
         """
@@ -126,7 +126,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="claimValue")
-    def claim_value(self) -> Optional[str]:
+    def claim_value(self) -> pulumi.Output[Optional[str]]:
         """
         A string that describes Claim Value of authorization rule.
         """
@@ -134,7 +134,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         """
         The time the namespace was created.
         """
@@ -142,7 +142,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[str]:
+    def key_name(self) -> pulumi.Output[Optional[str]]:
         """
         A string that describes the Key Name of authorization rule.
         """
@@ -150,7 +150,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -158,7 +158,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modifiedTime")
-    def modified_time(self) -> str:
+    def modified_time(self) -> pulumi.Output[str]:
         """
         The time the namespace was updated.
         """
@@ -166,7 +166,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name
         """
@@ -174,7 +174,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[str]:
+    def primary_key(self) -> pulumi.Output[Optional[str]]:
         """
         A base64-encoded 256-bit primary key for signing and validating the SAS token.
         """
@@ -182,7 +182,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rights(self) -> List[str]:
+    def rights(self) -> pulumi.Output[List[str]]:
         """
         The rights associated with the rule.
         """
@@ -190,7 +190,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[str]:
+    def secondary_key(self) -> pulumi.Output[Optional[str]]:
         """
         A base64-encoded 256-bit primary key for signing and validating the SAS token.
         """
@@ -198,7 +198,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type
         """

@@ -15,7 +15,7 @@ __all__ = ['Subnet']
 
 class Subnet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[str]:
+    def address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The address prefix for the subnet.
         """
@@ -119,7 +119,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
@@ -127,7 +127,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.IPConfigurationResponse']:
+    def ip_configurations(self) -> pulumi.Output[List['outputs.IPConfigurationResponse']]:
         """
         Gets an array of references to the network interface IP configurations using subnet.
         """
@@ -135,7 +135,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
@@ -143,7 +143,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkSecurityGroup")
-    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupResponse']:
+    def network_security_group(self) -> pulumi.Output[Optional['outputs.NetworkSecurityGroupResponse']]:
         """
         The reference of the NetworkSecurityGroup resource.
         """
@@ -151,7 +151,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
         The provisioning state of the resource.
         """
@@ -159,7 +159,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceNavigationLinks")
-    def resource_navigation_links(self) -> Optional[List['outputs.ResourceNavigationLinkResponse']]:
+    def resource_navigation_links(self) -> pulumi.Output[Optional[List['outputs.ResourceNavigationLinkResponse']]]:
         """
         Gets an array of references to the external resources using subnet.
         """
@@ -167,7 +167,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeTable")
-    def route_table(self) -> Optional['outputs.RouteTableResponse']:
+    def route_table(self) -> pulumi.Output[Optional['outputs.RouteTableResponse']]:
         """
         The reference of the RouteTable resource.
         """

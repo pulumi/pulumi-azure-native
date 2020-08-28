@@ -13,7 +13,7 @@ __all__ = ['Logger']
 
 class Logger(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def credentials(self) -> Mapping[str, str]:
+    def credentials(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The name and SendRule connection string of the event hub for azureEventHub logger.
         Instrumentation key for applicationInsights logger.
@@ -112,7 +112,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Logger description.
         """
@@ -120,7 +120,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isBuffered")
-    def is_buffered(self) -> Optional[bool]:
+    def is_buffered(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether records are buffered in the logger before publishing. Default is assumed to be true.
         """
@@ -128,7 +128,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loggerType")
-    def logger_type(self) -> str:
+    def logger_type(self) -> pulumi.Output[str]:
         """
         Logger type.
         """
@@ -136,7 +136,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -144,7 +144,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type for API Management resource.
         """

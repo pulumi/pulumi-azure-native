@@ -13,7 +13,7 @@ __all__ = ['PolicyDefinition']
 
 class PolicyDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The policy definition description.
         """
@@ -97,7 +97,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name of the policy definition.
         """
@@ -105,7 +105,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
         """
@@ -113,7 +113,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyRule")
-    def policy_rule(self) -> Optional[Mapping[str, Any]]:
+    def policy_rule(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         The policy rule.
         """
@@ -121,7 +121,7 @@ class PolicyDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[str]:
+    def policy_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """

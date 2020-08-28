@@ -15,7 +15,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[pulumi.InputType['CustomRuleListArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional['outputs.CustomRuleListResponse']:
+    def custom_rules(self) -> pulumi.Output[Optional['outputs.CustomRuleListResponse']]:
         """
         Describes custom rules inside the policy.
         """
@@ -112,7 +112,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> Optional[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         Gets a unique read-only string that changes whenever the resource is updated.
         """
@@ -120,7 +120,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendEndpointLinks")
-    def frontend_endpoint_links(self) -> List['outputs.FrontendEndpointLinkResponse']:
+    def frontend_endpoint_links(self) -> pulumi.Output[List['outputs.FrontendEndpointLinkResponse']]:
         """
         Describes Frontend Endpoints associated with this Web Application Firewall policy.
         """
@@ -128,7 +128,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         Resource location.
         """
@@ -136,7 +136,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional['outputs.ManagedRuleSetListResponse']:
+    def managed_rules(self) -> pulumi.Output[Optional['outputs.ManagedRuleSetListResponse']]:
         """
         Describes managed rules inside the policy.
         """
@@ -144,7 +144,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
@@ -152,7 +152,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
+    def policy_settings(self) -> pulumi.Output[Optional['outputs.PolicySettingsResponse']]:
         """
         Describes settings for the policy.
         """
@@ -160,7 +160,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the policy.
         """
@@ -168,12 +168,12 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceState")
-    def resource_state(self) -> str:
+    def resource_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "resource_state")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -181,7 +181,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
