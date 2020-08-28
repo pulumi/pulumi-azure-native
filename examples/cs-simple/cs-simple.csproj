@@ -8,11 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Pulumi" Version="2.*" />
-    <!--PackageReference Include="Pulumi.AzureRM" Version="1.*" /-->
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="../../sdk/dotnet/Pulumi.AzureRM.csproj" />
+    <PackageReference Include="Pulumi.Random" Version="2.*" />
   </ItemGroup>
 
 </Project>
