@@ -4,7 +4,7 @@
 package examples
 
 import (
-	"path"
+	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
@@ -13,7 +13,7 @@ import (
 func TestAccSimpleTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "simple"),
+			Dir: filepath.Join(getCwd(t), "simple"),
 		})
 
 	integration.ProgramTest(t, &test)
