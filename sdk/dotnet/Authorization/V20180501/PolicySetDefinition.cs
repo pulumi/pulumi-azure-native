@@ -91,6 +91,7 @@ namespace Pulumi.AzureRM.Authorization.V20180501
                     new Pulumi.Alias { Type = "azurerm:authorization/v20190101:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20190601:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20190901:PolicySetDefinition"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/v20200301:PolicySetDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

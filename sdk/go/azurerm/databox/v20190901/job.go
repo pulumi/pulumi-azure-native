@@ -70,6 +70,9 @@ func NewJob(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:databox/v20180101:Job"),
 		},
+		{
+			Type: pulumi.String("azurerm:databox/v20200401:Job"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Job
