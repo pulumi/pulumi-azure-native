@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const HcxEnterpriseSiteStatus = {
+    Available: "Available",
+    Consumed: "Consumed",
+    Deactivated: "Deactivated",
+    Deleted: "Deleted",
+}
+
 /**
  * An HCX Enterprise Site resource
  */

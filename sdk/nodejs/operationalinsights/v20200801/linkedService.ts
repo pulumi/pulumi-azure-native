@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const LinkedServiceEntityStatus = {
+    Succeeded: "Succeeded",
+    Deleting: "Deleting",
+    ProvisioningAccount: "ProvisioningAccount",
+    Updating: "Updating",
+}
+
 /**
  * The top level Linked service resource container.
  */

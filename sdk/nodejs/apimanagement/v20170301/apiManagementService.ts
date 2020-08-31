@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const VirtualNetworkType = {
+    None: "None",
+    External: "External",
+    Internal: "Internal",
+}
+
 /**
  * A single API Management service resource in List or Get response.
  */

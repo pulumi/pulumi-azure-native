@@ -6,6 +6,17 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ContainerGroupRestartPolicy = {
+    Always: "Always",
+    OnFailure: "OnFailure",
+    Never: "Never",
+}
+
+export const OperatingSystemTypes = {
+    Windows: "Windows",
+    Linux: "Linux",
+}
+
 /**
  * A container group.
  */

@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const FileServerProvisioningState = {
+    creating: "creating",
+    updating: "updating",
+    deleting: "deleting",
+    succeeded: "succeeded",
+    failed: "failed",
+}
+
 /**
  * File Server information.
  */

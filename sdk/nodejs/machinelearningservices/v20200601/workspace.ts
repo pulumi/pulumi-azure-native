@@ -6,6 +6,16 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    Unknown: "Unknown",
+    Updating: "Updating",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+}
+
 /**
  * An object that represents a machine learning workspace.
  */

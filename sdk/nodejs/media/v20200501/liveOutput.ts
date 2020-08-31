@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const LiveOutputResourceState = {
+    Creating: "Creating",
+    Running: "Running",
+    Deleting: "Deleting",
+}
+
 /**
  * The Live Output.
  */

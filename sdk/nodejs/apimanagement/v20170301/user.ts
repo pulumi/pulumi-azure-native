@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const Confirmation = {
+    signup: "signup",
+    invite: "invite",
+}
+
+export const UserState = {
+    active: "active",
+    blocked: "blocked",
+    pending: "pending",
+    deleted: "deleted",
+}
+
 /**
  * User details.
  */

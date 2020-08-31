@@ -6,6 +6,15 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ResourceProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Canceled: "Canceled",
+    Failed: "Failed",
+}
+
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Get an existing PrivateEndpointConnection resource's state with the given name, ID, and optional extra

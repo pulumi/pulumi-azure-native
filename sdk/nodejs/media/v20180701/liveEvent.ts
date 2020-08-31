@@ -6,6 +6,19 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const LiveEventResourceState = {
+    Stopped: "Stopped",
+    Starting: "Starting",
+    Running: "Running",
+    Stopping: "Stopping",
+    Deleting: "Deleting",
+}
+
+export const StreamOptionsFlag = {
+    Default: "Default",
+    LowLatency: "LowLatency",
+}
+
 /**
  * The Live Event.
  */

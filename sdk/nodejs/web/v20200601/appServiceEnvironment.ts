@@ -21,6 +21,13 @@ export enum ProvisioningState {
     Deleting = "Deleting",
 }
 
+export const LoadBalancingMode = {
+    None: "None",
+    Web: "Web",
+    Publishing: "Publishing",
+    WebPublishing: "Web,Publishing",
+}
+
 /**
  * App Service Environment ARM resource.
  */

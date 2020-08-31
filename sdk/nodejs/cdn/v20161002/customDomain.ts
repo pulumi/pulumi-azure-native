@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const CustomDomainResourceState = {
+    Creating: "Creating",
+    Active: "Active",
+    Deleting: "Deleting",
+}
+
+export const CustomHttpsProvisioningState = {
+    Enabling: "Enabling",
+    Enabled: "Enabled",
+    Disabling: "Disabling",
+    Disabled: "Disabled",
+    Failed: "Failed",
+}
+
 /**
  * Customer provided domain for branding purposes, e.g. www.contoso.com.
  */

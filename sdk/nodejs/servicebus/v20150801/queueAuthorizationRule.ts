@@ -4,6 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export enum AccessRights {
+    Manage = "Manage",
+    Send = "Send",
+    Listen = "Listen",
+}
+
 /**
  * Description of a namespace authorization rule.
  */

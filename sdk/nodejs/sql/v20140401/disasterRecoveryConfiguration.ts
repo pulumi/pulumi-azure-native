@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const DisasterRecoveryConfigurationAutoFailover = {
+    Off: "Off",
+    On: "On",
+}
+
+export const DisasterRecoveryConfigurationFailoverPolicy = {
+    Manual: "Manual",
+    Automatic: "Automatic",
+}
+
+export const DisasterRecoveryConfigurationRole = {
+    None: "None",
+    Primary: "Primary",
+    Secondary: "Secondary",
+}
+
+export const DisasterRecoveryConfigurationStatus = {
+    Creating: "Creating",
+    Ready: "Ready",
+    FailingOver: "FailingOver",
+    Dropping: "Dropping",
+}
+
 /**
  * Represents a disaster recovery configuration.
  */

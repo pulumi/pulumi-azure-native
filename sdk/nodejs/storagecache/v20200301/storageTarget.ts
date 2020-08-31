@@ -6,6 +6,21 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProvisioningStateType = {
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Cancelled: "Cancelled",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Updating: "Updating",
+}
+
+export const StorageTargetType = {
+    nfs3: "nfs3",
+    clfs: "clfs",
+    unknown: "unknown",
+}
+
 /**
  * Type of the Storage Target.
  */

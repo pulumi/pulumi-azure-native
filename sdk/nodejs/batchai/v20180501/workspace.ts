@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    creating: "creating",
+    deleting: "deleting",
+    succeeded: "succeeded",
+    failed: "failed",
+}
+
 /**
  * Batch AI Workspace information.
  */

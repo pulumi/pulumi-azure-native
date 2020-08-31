@@ -6,6 +6,27 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const DataBoxEdgeDeviceStatus = {
+    ReadyToSetup: "ReadyToSetup",
+    Online: "Online",
+    Offline: "Offline",
+    NeedsAttention: "NeedsAttention",
+    Disconnected: "Disconnected",
+    PartiallyDisconnected: "PartiallyDisconnected",
+    Maintenance: "Maintenance",
+}
+
+export const DeviceType = {
+    DataBoxEdgeDevice: "DataBoxEdgeDevice",
+}
+
+export const RoleTypes = {
+    IOT: "IOT",
+    ASA: "ASA",
+    Functions: "Functions",
+    Cognitive: "Cognitive",
+}
+
 /**
  * The Data Box Edge/Gateway device.
  */

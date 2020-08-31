@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const policyType = {
+    NotSpecified: "NotSpecified",
+    BuiltIn: "BuiltIn",
+    Custom: "Custom",
+    Static: "Static",
+}
+
 /**
  * The policy set definition.
  */

@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const prefixValidationState = {
+    None: "None",
+    Invalid: "Invalid",
+    Verified: "Verified",
+    Failed: "Failed",
+    Pending: "Pending",
+    Warning: "Warning",
+    Unknown: "Unknown",
+}
+
+export const provisioningState = {
+    Succeeded: "Succeeded",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Failed: "Failed",
+}
+
 /**
  * The customer's prefix that is registered by the peering service provider.
  */

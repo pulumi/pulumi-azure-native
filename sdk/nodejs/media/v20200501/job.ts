@@ -6,6 +6,22 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const JobState = {
+    Canceled: "Canceled",
+    Canceling: "Canceling",
+    Error: "Error",
+    Finished: "Finished",
+    Processing: "Processing",
+    Queued: "Queued",
+    Scheduled: "Scheduled",
+}
+
+export const Priority = {
+    Low: "Low",
+    Normal: "Normal",
+    High: "High",
+}
+
 /**
  * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
  */

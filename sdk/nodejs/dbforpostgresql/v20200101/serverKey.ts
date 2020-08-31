@@ -4,6 +4,10 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const ServerKeyType = {
+    AzureKeyVault: "AzureKeyVault",
+}
+
 /**
  * A PostgreSQL Server key.
  */

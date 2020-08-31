@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    Unknown: "Unknown",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+    Running: "Running",
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Moving: "Moving",
+}
+
 /**
  * A class represent a SignalR service resource.
  */

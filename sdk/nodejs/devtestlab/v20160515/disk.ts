@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const StorageType = {
+    Standard: "Standard",
+    Premium: "Premium",
+}
+
 /**
  * A Disk.
  */

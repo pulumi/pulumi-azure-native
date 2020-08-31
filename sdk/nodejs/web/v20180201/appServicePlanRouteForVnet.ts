@@ -4,6 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const RouteType = {
+    DEFAULT: "DEFAULT",
+    INHERITED: "INHERITED",
+    STATIC: "STATIC",
+}
+
 /**
  * Virtual Network route contract used to pass routing information for a Virtual Network.
  */

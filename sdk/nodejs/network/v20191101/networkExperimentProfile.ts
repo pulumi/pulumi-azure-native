@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const state = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
 /**
  * Defines an Network Experiment Profile and lists of Experiments
  */

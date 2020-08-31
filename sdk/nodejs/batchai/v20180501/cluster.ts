@@ -11,6 +11,18 @@ export enum VmPriority {
     lowpriority = "lowpriority",
 }
 
+export const AllocationState = {
+    steady: "steady",
+    resizing: "resizing",
+}
+
+export const ProvisioningState = {
+    creating: "creating",
+    succeeded: "succeeded",
+    failed: "failed",
+    deleting: "deleting",
+}
+
 /**
  * Information about a Cluster.
  */

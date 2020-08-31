@@ -6,6 +6,19 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ConfigurationState = {
+    NotApplicable: "NotApplicable",
+    Completed: "Completed",
+}
+
+export const PublishingState = {
+    Draft: "Draft",
+    Publishing: "Publishing",
+    Published: "Published",
+    PublishFailed: "PublishFailed",
+    Scaling: "Scaling",
+}
+
 /**
  * Represents settings of an environment, from which environment instances would be created
  */

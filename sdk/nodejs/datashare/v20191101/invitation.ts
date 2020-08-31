@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const invitationStatus = {
+    Pending: "Pending",
+    Accepted: "Accepted",
+    Rejected: "Rejected",
+    Withdrawn: "Withdrawn",
+}
+
 /**
  * A Invitation data transfer object.
  */

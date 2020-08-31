@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const OriginGroupResourceState = {
+    Creating: "Creating",
+    Active: "Active",
+    Deleting: "Deleting",
+}
+
 /**
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  */

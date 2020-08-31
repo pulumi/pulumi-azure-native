@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const validationState = {
+    None: "None",
+    Pending: "Pending",
+    Approved: "Approved",
+    Failed: "Failed",
+}
+
 /**
  * The essential information related to the peer's ASN.
  */

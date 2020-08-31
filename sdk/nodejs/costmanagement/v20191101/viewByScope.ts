@@ -6,6 +6,36 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const AccumulatedType = {
+    true: "true",
+    false: "false",
+}
+
+export const ChartType = {
+    Area: "Area",
+    Line: "Line",
+    StackedColumn: "StackedColumn",
+    GroupedColumn: "GroupedColumn",
+    Table: "Table",
+}
+
+export const MetricType = {
+    ActualCost: "ActualCost",
+    AmortizedCost: "AmortizedCost",
+    AHUB: "AHUB",
+}
+
+export const ReportTimeframeType = {
+    WeekToDate: "WeekToDate",
+    MonthToDate: "MonthToDate",
+    YearToDate: "YearToDate",
+    Custom: "Custom",
+}
+
+export const ReportType = {
+    Usage: "Usage",
+}
+
 /**
  * States and configurations of Cost Analysis.
  */

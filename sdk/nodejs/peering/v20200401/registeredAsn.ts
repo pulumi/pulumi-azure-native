@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const provisioningState = {
+    Succeeded: "Succeeded",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Failed: "Failed",
+}
+
 /**
  * The customer's ASN that is registered by the peering service provider.
  */

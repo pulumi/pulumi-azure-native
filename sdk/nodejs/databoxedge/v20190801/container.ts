@@ -6,6 +6,20 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const AzureContainerDataFormat = {
+    BlockBlob: "BlockBlob",
+    PageBlob: "PageBlob",
+    AzureFile: "AzureFile",
+}
+
+export const ContainerStatus = {
+    OK: "OK",
+    Offline: "Offline",
+    Unknown: "Unknown",
+    Updating: "Updating",
+    NeedsAttention: "NeedsAttention",
+}
+
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
  */

@@ -6,6 +6,33 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const IncidentClassification = {
+    Undetermined: "Undetermined",
+    TruePositive: "TruePositive",
+    BenignPositive: "BenignPositive",
+    FalsePositive: "FalsePositive",
+}
+
+export const IncidentClassificationReason = {
+    SuspiciousActivity: "SuspiciousActivity",
+    SuspiciousButExpected: "SuspiciousButExpected",
+    IncorrectAlertLogic: "IncorrectAlertLogic",
+    InaccurateData: "InaccurateData",
+}
+
+export const IncidentSeverity = {
+    High: "High",
+    Medium: "Medium",
+    Low: "Low",
+    Informational: "Informational",
+}
+
+export const IncidentStatus = {
+    New: "New",
+    Active: "Active",
+    Closed: "Closed",
+}
+
 /**
  * Represents an incident in Azure Security Insights.
  */

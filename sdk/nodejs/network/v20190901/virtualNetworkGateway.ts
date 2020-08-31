@@ -6,6 +6,22 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const VirtualNetworkGatewayType = {
+    Vpn: "Vpn",
+    ExpressRoute: "ExpressRoute",
+}
+
+export const VpnGatewayGeneration = {
+    None: "None",
+    Generation1: "Generation1",
+    Generation2: "Generation2",
+}
+
+export const VpnType = {
+    PolicyBased: "PolicyBased",
+    RouteBased: "RouteBased",
+}
+
 /**
  * A common class for general resource information.
  */

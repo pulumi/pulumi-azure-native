@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const HubBgpConnectionStatus = {
+    Unknown: "Unknown",
+    Connecting: "Connecting",
+    Connected: "Connected",
+    NotConnected: "NotConnected",
+}
+
 /**
  * Virtual Appliance Site resource.
  */

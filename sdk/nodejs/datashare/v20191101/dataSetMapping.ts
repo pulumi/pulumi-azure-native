@@ -4,6 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const kind = {
+    Blob: "Blob",
+    Container: "Container",
+    BlobFolder: "BlobFolder",
+    AdlsGen2FileSystem: "AdlsGen2FileSystem",
+    AdlsGen2Folder: "AdlsGen2Folder",
+    AdlsGen2File: "AdlsGen2File",
+    KustoCluster: "KustoCluster",
+    KustoDatabase: "KustoDatabase",
+    SqlDBTable: "SqlDBTable",
+    SqlDWTable: "SqlDWTable",
+}
+
 /**
  * A data set mapping data transfer object.
  */

@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const LoggerType = {
+    azureEventHub: "azureEventHub",
+    applicationInsights: "applicationInsights",
+}
+
 /**
  * Logger details.
  */

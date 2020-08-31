@@ -4,6 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const ExpressRouteAuthorizationProvisioningState = {
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Updating: "Updating",
+}
+
 /**
  * ExpressRoute Circuit Authorization
  */

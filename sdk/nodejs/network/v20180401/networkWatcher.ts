@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    Succeeded: "Succeeded",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Failed: "Failed",
+}
+
 /**
  * Network watcher in a resource group.
  */

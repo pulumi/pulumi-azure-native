@@ -6,6 +6,22 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const EnvironmentPermission = {
+    Reader: "Reader",
+    Contributor: "Contributor",
+}
+
+export const PremiumDataDisk = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+}
+
+export const StorageType = {
+    Standard: "Standard",
+    Premium: "Premium",
+    StandardSSD: "StandardSSD",
+}
+
 /**
  * A lab.
  */

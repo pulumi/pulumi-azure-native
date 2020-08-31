@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const EnabledProtocols = {
+    SMB: "SMB",
+    NFS: "NFS",
+}
+
+export const RootSquashType = {
+    NoRootSquash: "NoRootSquash",
+    RootSquash: "RootSquash",
+    AllSquash: "AllSquash",
+}
+
+export const ShareAccessTier = {
+    TransactionOptimized: "TransactionOptimized",
+    Hot: "Hot",
+    Cool: "Cool",
+    Premium: "Premium",
+}
+
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
  */

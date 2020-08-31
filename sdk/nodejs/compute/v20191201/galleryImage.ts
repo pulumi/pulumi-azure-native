@@ -16,6 +16,11 @@ export enum OperatingSystemTypes {
     Linux = "Linux",
 }
 
+export const HyperVGeneration = {
+    V1: "V1",
+    V2: "V2",
+}
+
 /**
  * Specifies information about the gallery Image Definition that you want to create or update.
  */

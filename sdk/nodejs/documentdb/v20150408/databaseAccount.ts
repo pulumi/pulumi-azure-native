@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const DatabaseAccountKind = {
+    GlobalDocumentDB: "GlobalDocumentDB",
+    MongoDB: "MongoDB",
+    Parse: "Parse",
+}
+
 /**
  * An Azure Cosmos DB database account.
  */

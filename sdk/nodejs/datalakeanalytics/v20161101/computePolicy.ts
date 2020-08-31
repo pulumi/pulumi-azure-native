@@ -4,6 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const AADObjectType = {
+    User: "User",
+    Group: "Group",
+    ServicePrincipal: "ServicePrincipal",
+}
+
 /**
  * Data Lake Analytics compute policy information.
  */

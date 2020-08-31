@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const Kind = {
+    EventHub: "EventHub",
+    EventGrid: "EventGrid",
+}
+
 /**
  * Class representing an data connection.
  */

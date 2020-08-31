@@ -6,6 +6,33 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const CustomDomainResourceState = {
+    Creating: "Creating",
+    Active: "Active",
+    Deleting: "Deleting",
+}
+
+export const CustomHttpsProvisioningState = {
+    Enabling: "Enabling",
+    Enabled: "Enabled",
+    Disabling: "Disabling",
+    Disabled: "Disabled",
+    Failed: "Failed",
+}
+
+export const CustomHttpsProvisioningSubstate = {
+    SubmittingDomainControlValidationRequest: "SubmittingDomainControlValidationRequest",
+    PendingDomainControlValidationREquestApproval: "PendingDomainControlValidationREquestApproval",
+    DomainControlValidationRequestApproved: "DomainControlValidationRequestApproved",
+    DomainControlValidationRequestRejected: "DomainControlValidationRequestRejected",
+    DomainControlValidationRequestTimedOut: "DomainControlValidationRequestTimedOut",
+    IssuingCertificate: "IssuingCertificate",
+    DeployingCertificate: "DeployingCertificate",
+    CertificateDeployed: "CertificateDeployed",
+    DeletingCertificate: "DeletingCertificate",
+    CertificateDeleted: "CertificateDeleted",
+}
+
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  */

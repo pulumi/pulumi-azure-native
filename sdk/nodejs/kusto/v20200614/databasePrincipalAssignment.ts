@@ -4,6 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const DatabasePrincipalRole = {
+    Admin: "Admin",
+    Ingestor: "Ingestor",
+    Monitor: "Monitor",
+    User: "User",
+    UnrestrictedViewers: "UnrestrictedViewers",
+    Viewer: "Viewer",
+}
+
+export const PrincipalType = {
+    App: "App",
+    Group: "Group",
+    User: "User",
+}
+
+export const ProvisioningState = {
+    Running: "Running",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Moving: "Moving",
+}
+
 /**
  * Class representing a database principal assignment.
  */

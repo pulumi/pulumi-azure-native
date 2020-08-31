@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ServerState = {
+    Ready: "Ready",
+    Dropping: "Dropping",
+    Disabled: "Disabled",
+    Inaccessible: "Inaccessible",
+}
+
 /**
  * Represents a server.
  */

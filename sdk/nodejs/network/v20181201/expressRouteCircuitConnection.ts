@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const CircuitConnectionStatus = {
+    Connected: "Connected",
+    Connecting: "Connecting",
+    Disconnected: "Disconnected",
+}
+
 /**
  * Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
  */

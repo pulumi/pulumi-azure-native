@@ -6,6 +6,24 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const DataSource = {
+    TwinData: "TwinData",
+}
+
+export const ExportData = {
+    RawEvents: "RawEvents",
+}
+
+export const SecuritySolutionStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
+export const UnmaskedIpLoggingStatus = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+}
+
 /**
  * IoT Security solution configuration and resource information.
  */

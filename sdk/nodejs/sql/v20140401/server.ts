@@ -9,6 +9,11 @@ export enum ServerState {
     Disabled = "Disabled",
 }
 
+export const ServerVersion = {
+    20: "2.0",
+    120: "12.0",
+}
+
 /**
  * Represents a server.
  */

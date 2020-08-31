@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const Kind = {
+    Gen1: "Gen1",
+    Gen2: "Gen2",
+}
+
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
  */

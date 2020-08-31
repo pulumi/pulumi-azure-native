@@ -6,6 +6,17 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ExpressRouteCircuitPeeringState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+}
+
+export const ExpressRouteCircuitPeeringType = {
+    AzurePublicPeering: "AzurePublicPeering",
+    AzurePrivatePeering: "AzurePrivatePeering",
+    MicrosoftPeering: "MicrosoftPeering",
+}
+
 /**
  * Peering in a ExpressRouteCircuit resource
  */

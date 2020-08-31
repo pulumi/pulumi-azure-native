@@ -6,6 +6,26 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    Running: "Running",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+}
+
+export const State = {
+    Creating: "Creating",
+    Unavailable: "Unavailable",
+    Running: "Running",
+    Deleting: "Deleting",
+    Deleted: "Deleted",
+    Stopping: "Stopping",
+    Stopped: "Stopped",
+    Starting: "Starting",
+    Updating: "Updating",
+}
+
 /**
  * Class representing a Kusto cluster.
  */

@@ -4,6 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const versioningScheme = {
+    Segment: "Segment",
+    Query: "Query",
+    Header: "Header",
+}
+
 /**
  * Api Version Set Contract details.
  */

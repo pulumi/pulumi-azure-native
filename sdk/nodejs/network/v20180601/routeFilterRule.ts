@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const Access = {
+    Allow: "Allow",
+    Deny: "Deny",
+}
+
+export const RouteFilterRuleType = {
+    Community: "Community",
+}
+
 /**
  * Route Filter Rule Resource
  */

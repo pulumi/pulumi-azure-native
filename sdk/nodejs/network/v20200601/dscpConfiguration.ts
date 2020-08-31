@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProtocolType = {
+    DoNotUse: "DoNotUse",
+    Icmp: "Icmp",
+    Tcp: "Tcp",
+    Udp: "Udp",
+    Gre: "Gre",
+    Esp: "Esp",
+    Ah: "Ah",
+    Vxlan: "Vxlan",
+    All: "All",
+}
+
 /**
  * DSCP Configuration in a resource group.
  */

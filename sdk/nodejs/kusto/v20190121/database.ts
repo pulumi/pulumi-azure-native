@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    Running: "Running",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+}
+
 /**
  * Class representing a Kusto database.
  */

@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const UserType = {
+    Share: "Share",
+    LocalManagement: "LocalManagement",
+    ARM: "ARM",
+}
+
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
  */

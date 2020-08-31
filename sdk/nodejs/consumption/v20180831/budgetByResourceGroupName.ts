@@ -6,6 +6,17 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const CategoryType = {
+    Cost: "Cost",
+    Usage: "Usage",
+}
+
+export const TimeGrainType = {
+    Monthly: "Monthly",
+    Quarterly: "Quarterly",
+    Annually: "Annually",
+}
+
 /**
  * A budget resource.
  */

@@ -6,6 +6,16 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+    Updating: "Updating",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Deleted: "Deleted",
+}
+
 export class Controller extends pulumi.CustomResource {
     /**
      * Get an existing Controller resource's state with the given name, ID, and optional extra

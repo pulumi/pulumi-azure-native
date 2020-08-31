@@ -6,6 +6,26 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const DataPolicy = {
+    Cloud: "Cloud",
+    Local: "Local",
+}
+
+export const MonitoringStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
+export const ShareAccessProtocol = {
+    SMB: "SMB",
+    NFS: "NFS",
+}
+
+export const ShareStatus = {
+    Online: "Online",
+    Offline: "Offline",
+}
+
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
  */

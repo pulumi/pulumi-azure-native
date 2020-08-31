@@ -6,6 +6,16 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ClusterEntityStatus = {
+    Creating: "Creating",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+    Deleting: "Deleting",
+    ProvisioningAccount: "ProvisioningAccount",
+    Updating: "Updating",
+}
+
 /**
  * The top level Log Analytics cluster resource container.
  */

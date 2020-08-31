@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ConnectionMonitorType = {
+    MultiEndpoint: "MultiEndpoint",
+    SingleSourceDestination: "SingleSourceDestination",
+}
+
 /**
  * Information about the connection monitor.
  */

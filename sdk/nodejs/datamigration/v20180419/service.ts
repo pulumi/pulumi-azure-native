@@ -6,6 +6,19 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ServiceProvisioningState = {
+    Accepted: "Accepted",
+    Deleting: "Deleting",
+    Deploying: "Deploying",
+    Stopped: "Stopped",
+    Stopping: "Stopping",
+    Starting: "Starting",
+    FailedToStart: "FailedToStart",
+    FailedToStop: "FailedToStop",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+}
+
 /**
  * A Database Migration Service resource
  */

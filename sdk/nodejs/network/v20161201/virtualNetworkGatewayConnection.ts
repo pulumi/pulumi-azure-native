@@ -6,6 +6,20 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const VirtualNetworkGatewayConnectionStatus = {
+    Unknown: "Unknown",
+    Connecting: "Connecting",
+    Connected: "Connected",
+    NotConnected: "NotConnected",
+}
+
+export const VirtualNetworkGatewayConnectionType = {
+    IPsec: "IPsec",
+    Vnet2Vnet: "Vnet2Vnet",
+    ExpressRoute: "ExpressRoute",
+    VPNClient: "VPNClient",
+}
+
 /**
  * A common class for general resource information
  */

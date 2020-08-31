@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+}
+
+export const WebhookAction = {
+    push: "push",
+    delete: "delete",
+    quarantine: "quarantine",
+    chart_push: "chart_push",
+    chart_delete: "chart_delete",
+}
+
+export const WebhookStatus = {
+    enabled: "enabled",
+    disabled: "disabled",
+}
+
 /**
  * An object that represents a webhook for a container registry.
  */

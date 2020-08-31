@@ -6,6 +6,34 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum Protocol {
+    http = "http",
+    https = "https",
+}
+
+export const ApiType = {
+    http: "http",
+    soap: "soap",
+}
+
+export const ContentFormat = {
+    wadlxml: "wadl-xml",
+    wadllinkjson: "wadl-link-json",
+    swaggerjson: "swagger-json",
+    swaggerlinkjson: "swagger-link-json",
+    wsdl: "wsdl",
+    wsdllink: "wsdl-link",
+    openapi: "openapi",
+    openapi_json: "openapi+json",
+    openapilink: "openapi-link",
+    openapi_jsonlink: "openapi+json-link",
+}
+
+export const SoapApiType = {
+    http: "http",
+    soap: "soap",
+}
+
 /**
  * Api details.
  */

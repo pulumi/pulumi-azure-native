@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProfileStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
+export const TrafficRoutingMethod = {
+    Performance: "Performance",
+    Priority: "Priority",
+    Weighted: "Weighted",
+    Geographic: "Geographic",
+}
+
 /**
  * Class representing a Traffic Manager profile.
  */

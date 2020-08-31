@@ -6,6 +6,22 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const AlwaysLog = {
+    allErrors: "allErrors",
+}
+
+export const HttpCorrelationProtocol = {
+    None: "None",
+    Legacy: "Legacy",
+    W3C: "W3C",
+}
+
+export const Verbosity = {
+    verbose: "verbose",
+    information: "information",
+    error: "error",
+}
+
 /**
  * Diagnostic details.
  */

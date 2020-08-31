@@ -6,6 +6,17 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const VpnAuthenticationType = {
+    Certificate: "Certificate",
+    Radius: "Radius",
+    AAD: "AAD",
+}
+
+export const VpnGatewayTunnelingProtocol = {
+    IkeV2: "IkeV2",
+    OpenVPN: "OpenVPN",
+}
+
 /**
  * VpnServerConfiguration Resource.
  */

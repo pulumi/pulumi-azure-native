@@ -4,6 +4,14 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const State = {
+    proposed: "proposed",
+    open: "open",
+    removed: "removed",
+    resolved: "resolved",
+    closed: "closed",
+}
+
 /**
  * Issue Contract details.
  */

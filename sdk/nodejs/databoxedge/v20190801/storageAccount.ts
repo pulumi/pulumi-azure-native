@@ -4,6 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const DataPolicy = {
+    Cloud: "Cloud",
+    Local: "Local",
+}
+
+export const StorageAccountStatus = {
+    OK: "OK",
+    Offline: "Offline",
+    Unknown: "Unknown",
+    Updating: "Updating",
+    NeedsAttention: "NeedsAttention",
+}
+
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  */

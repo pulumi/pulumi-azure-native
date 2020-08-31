@@ -6,6 +6,16 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const EventSubscriptionProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Canceled: "Canceled",
+    Failed: "Failed",
+    AwaitingManualAction: "AwaitingManualAction",
+}
+
 /**
  * Event Subscription
  */

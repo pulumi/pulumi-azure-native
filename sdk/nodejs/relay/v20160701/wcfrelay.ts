@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const Relaytype = {
+    NetTcp: "NetTcp",
+    Http: "Http",
+}
+
 /**
  * Description of WcfRelays Resource.
  */

@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const EndpointMonitorStatus = {
+    CheckingEndpoint: "CheckingEndpoint",
+    Online: "Online",
+    Degraded: "Degraded",
+    Disabled: "Disabled",
+    Inactive: "Inactive",
+    Stopped: "Stopped",
+}
+
+export const EndpointStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
 /**
  * Class representing a Traffic Manager endpoint.
  */

@@ -6,6 +6,21 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const PolicyResourceState = {
+    Creating: "Creating",
+    Enabling: "Enabling",
+    Enabled: "Enabled",
+    Disabling: "Disabling",
+    Disabled: "Disabled",
+    Deleting: "Deleting",
+}
+
+export const ProvisioningState = {
+    Creating: "Creating",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+}
+
 /**
  * Defines web application firewall policy for Azure CDN.
  */

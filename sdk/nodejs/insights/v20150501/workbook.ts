@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const SharedTypeKind = {
+    user: "user",
+    shared: "shared",
+}
+
 /**
  * An Application Insights workbook definition.
  */

@@ -6,6 +6,29 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const learnedType = {
+    None: "None",
+    ViaServiceProvider: "ViaServiceProvider",
+    ViaSession: "ViaSession",
+}
+
+export const prefixValidationState = {
+    None: "None",
+    Invalid: "Invalid",
+    Verified: "Verified",
+    Failed: "Failed",
+    Pending: "Pending",
+    Warning: "Warning",
+    Unknown: "Unknown",
+}
+
+export const provisioningState = {
+    Succeeded: "Succeeded",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Failed: "Failed",
+}
+
 /**
  * The peering service prefix class.
  */

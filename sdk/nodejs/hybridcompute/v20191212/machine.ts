@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const StatusTypes = {
+    Connected: "Connected",
+    Disconnected: "Disconnected",
+    Error: "Error",
+}
+
 /**
  * Describes a hybrid machine.
  */

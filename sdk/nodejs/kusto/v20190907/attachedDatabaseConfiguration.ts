@@ -4,6 +4,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const DefaultPrincipalsModificationKind = {
+    Union: "Union",
+    Replace: "Replace",
+    None: "None",
+}
+
+export const ProvisioningState = {
+    Running: "Running",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Moving: "Moving",
+}
+
 /**
  * Class representing an attached database configuration.
  */

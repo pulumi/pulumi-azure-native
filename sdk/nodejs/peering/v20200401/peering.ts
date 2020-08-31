@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const kind = {
+    Direct: "Direct",
+    Exchange: "Exchange",
+}
+
+export const provisioningState = {
+    Succeeded: "Succeeded",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Failed: "Failed",
+}
+
 /**
  * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
  */

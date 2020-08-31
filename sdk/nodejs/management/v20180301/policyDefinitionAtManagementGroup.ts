@@ -4,6 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const policyMode = {
+    NotSpecified: "NotSpecified",
+    Indexed: "Indexed",
+    All: "All",
+}
+
+export const policyType = {
+    NotSpecified: "NotSpecified",
+    BuiltIn: "BuiltIn",
+    Custom: "Custom",
+}
+
 /**
  * The policy definition.
  */

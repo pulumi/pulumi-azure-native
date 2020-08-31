@@ -6,6 +6,21 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const InternetEnum = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
+export const PrivateCloudProvisioningState = {
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Cancelled: "Cancelled",
+    Pending: "Pending",
+    Building: "Building",
+    Deleting: "Deleting",
+    Updating: "Updating",
+}
+
 /**
  * A private cloud resource
  */

@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ServiceProviderProvisioningState = {
+    NotProvisioned: "NotProvisioned",
+    Provisioning: "Provisioning",
+    Provisioned: "Provisioned",
+    Deprovisioning: "Deprovisioning",
+}
+
 /**
  * ExpressRouteCircuit resource
  */

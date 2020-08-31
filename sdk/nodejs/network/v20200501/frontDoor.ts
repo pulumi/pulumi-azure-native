@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const FrontDoorEnabledState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
 /**
  * Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
  */

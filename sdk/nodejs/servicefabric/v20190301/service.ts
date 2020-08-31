@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ArmServicePackageActivationMode = {
+    SharedProcess: "SharedProcess",
+    ExclusiveProcess: "ExclusiveProcess",
+}
+
 /**
  * The service resource.
  */

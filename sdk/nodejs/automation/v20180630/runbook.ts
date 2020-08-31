@@ -10,6 +10,21 @@ export enum RunbookProvisioningState {
     Succeeded = "Succeeded",
 }
 
+export const RunbookState = {
+    New: "New",
+    Edit: "Edit",
+    Published: "Published",
+}
+
+export const RunbookTypeEnum = {
+    Script: "Script",
+    Graph: "Graph",
+    PowerShellWorkflow: "PowerShellWorkflow",
+    PowerShell: "PowerShell",
+    GraphPowerShellWorkflow: "GraphPowerShellWorkflow",
+    GraphPowerShell: "GraphPowerShell",
+}
+
 /**
  * Definition of the runbook type.
  */

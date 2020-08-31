@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProfileResourceState = {
+    Creating: "Creating",
+    Active: "Active",
+    Deleting: "Deleting",
+    Disabled: "Disabled",
+}
+
 /**
  * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
  */

@@ -6,6 +6,20 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+}
+
+export const TaskStatus = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+}
+
 /**
  * The task that has the ARM resource and task properties.
  * The task will have all information to schedule a run against it.

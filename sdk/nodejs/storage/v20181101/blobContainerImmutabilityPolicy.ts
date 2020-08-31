@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const ImmutabilityPolicyState = {
+    Locked: "Locked",
+    Unlocked: "Unlocked",
+}
+
 /**
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
  */

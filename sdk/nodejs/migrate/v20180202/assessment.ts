@@ -4,6 +4,161 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const AssessmentSizingCriterion = {
+    PerformanceBased: "PerformanceBased",
+    AsOnPremises: "AsOnPremises",
+}
+
+export const AssessmentStage = {
+    InProgress: "InProgress",
+    UnderReview: "UnderReview",
+    Approved: "Approved",
+}
+
+export const AssessmentStatus = {
+    Created: "Created",
+    Updated: "Updated",
+    Running: "Running",
+    Completed: "Completed",
+    Invalid: "Invalid",
+}
+
+export const AzureHybridUseBenefit = {
+    Unknown: "Unknown",
+    Yes: "Yes",
+    No: "No",
+}
+
+export const AzureLocation = {
+    Unknown: "Unknown",
+    EastAsia: "EastAsia",
+    SoutheastAsia: "SoutheastAsia",
+    AustraliaEast: "AustraliaEast",
+    AustraliaSoutheast: "AustraliaSoutheast",
+    BrazilSouth: "BrazilSouth",
+    CanadaCentral: "CanadaCentral",
+    CanadaEast: "CanadaEast",
+    WestEurope: "WestEurope",
+    NorthEurope: "NorthEurope",
+    CentralIndia: "CentralIndia",
+    SouthIndia: "SouthIndia",
+    WestIndia: "WestIndia",
+    JapanEast: "JapanEast",
+    JapanWest: "JapanWest",
+    KoreaCentral: "KoreaCentral",
+    KoreaSouth: "KoreaSouth",
+    UkWest: "UkWest",
+    UkSouth: "UkSouth",
+    NorthCentralUs: "NorthCentralUs",
+    EastUs: "EastUs",
+    WestUs2: "WestUs2",
+    SouthCentralUs: "SouthCentralUs",
+    CentralUs: "CentralUs",
+    EastUs2: "EastUs2",
+    WestUs: "WestUs",
+    WestCentralUs: "WestCentralUs",
+    GermanyCentral: "GermanyCentral",
+    GermanyNortheast: "GermanyNortheast",
+    ChinaNorth: "ChinaNorth",
+    ChinaEast: "ChinaEast",
+}
+
+export const AzureOfferCode = {
+    Unknown: "Unknown",
+    MSAZR0003P: "MSAZR0003P",
+    MSAZR0044P: "MSAZR0044P",
+    MSAZR0059P: "MSAZR0059P",
+    MSAZR0060P: "MSAZR0060P",
+    MSAZR0062P: "MSAZR0062P",
+    MSAZR0063P: "MSAZR0063P",
+    MSAZR0064P: "MSAZR0064P",
+    MSAZR0029P: "MSAZR0029P",
+    MSAZR0022P: "MSAZR0022P",
+    MSAZR0023P: "MSAZR0023P",
+    MSAZR0148P: "MSAZR0148P",
+    MSAZR0025P: "MSAZR0025P",
+    MSAZR0036P: "MSAZR0036P",
+    MSAZR0120P: "MSAZR0120P",
+    MSAZR0121P: "MSAZR0121P",
+    MSAZR0122P: "MSAZR0122P",
+    MSAZR0123P: "MSAZR0123P",
+    MSAZR0124P: "MSAZR0124P",
+    MSAZR0125P: "MSAZR0125P",
+    MSAZR0126P: "MSAZR0126P",
+    MSAZR0127P: "MSAZR0127P",
+    MSAZR0128P: "MSAZR0128P",
+    MSAZR0129P: "MSAZR0129P",
+    MSAZR0130P: "MSAZR0130P",
+    MSAZR0111P: "MSAZR0111P",
+    MSAZR0144P: "MSAZR0144P",
+    MSAZR0149P: "MSAZR0149P",
+    MSMCAZR0044P: "MSMCAZR0044P",
+    MSMCAZR0059P: "MSMCAZR0059P",
+    MSMCAZR0060P: "MSMCAZR0060P",
+    MSMCAZR0063P: "MSMCAZR0063P",
+    MSMCAZR0120P: "MSMCAZR0120P",
+    MSMCAZR0121P: "MSMCAZR0121P",
+    MSMCAZR0125P: "MSMCAZR0125P",
+    MSMCAZR0128P: "MSMCAZR0128P",
+    MSAZRDE0003P: "MSAZRDE0003P",
+    MSAZRDE0044P: "MSAZRDE0044P",
+}
+
+export const AzurePricingTier = {
+    Standard: "Standard",
+    Basic: "Basic",
+}
+
+export const AzureStorageRedundancy = {
+    Unknown: "Unknown",
+    LocallyRedundant: "LocallyRedundant",
+    ZoneRedundant: "ZoneRedundant",
+    GeoRedundant: "GeoRedundant",
+    ReadAccessGeoRedundant: "ReadAccessGeoRedundant",
+}
+
+export const Currency = {
+    Unknown: "Unknown",
+    USD: "USD",
+    DKK: "DKK",
+    CAD: "CAD",
+    IDR: "IDR",
+    JPY: "JPY",
+    KRW: "KRW",
+    NZD: "NZD",
+    NOK: "NOK",
+    RUB: "RUB",
+    SAR: "SAR",
+    ZAR: "ZAR",
+    SEK: "SEK",
+    TRY: "TRY",
+    GBP: "GBP",
+    MXN: "MXN",
+    MYR: "MYR",
+    INR: "INR",
+    HKD: "HKD",
+    BRL: "BRL",
+    TWD: "TWD",
+    EUR: "EUR",
+    CHF: "CHF",
+    ARS: "ARS",
+    AUD: "AUD",
+    CNY: "CNY",
+}
+
+export const Percentile = {
+    Percentile50: "Percentile50",
+    Percentile90: "Percentile90",
+    Percentile95: "Percentile95",
+    Percentile99: "Percentile99",
+}
+
+export const TimeRange = {
+    Day: "Day",
+    Week: "Week",
+    Month: "Month",
+}
+
 /**
  * An assessment created for a group in the Migration project.
  */

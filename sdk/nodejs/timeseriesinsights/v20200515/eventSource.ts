@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const Kind = {
+    MicrosoftEventHub: "Microsoft.EventHub",
+    MicrosoftIoTHub: "Microsoft.IoTHub",
+}
+
 /**
  * An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
  */

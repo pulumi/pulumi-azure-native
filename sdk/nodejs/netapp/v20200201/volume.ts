@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const VolumeServiceLevel = {
+    Standard: "Standard",
+    Premium: "Premium",
+    Ultra: "Ultra",
+}
+
 /**
  * Volume resource
  */

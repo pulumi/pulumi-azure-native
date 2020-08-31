@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const provisioningState = {
+    Succeeded: "Succeeded",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Moving: "Moving",
+    Failed: "Failed",
+}
+
+export const shareKind = {
+    CopyBased: "CopyBased",
+    InPlace: "InPlace",
+}
+
+export const shareSubscriptionStatus = {
+    Active: "Active",
+    Revoked: "Revoked",
+    SourceDeleted: "SourceDeleted",
+    Revoking: "Revoking",
+}
+
 /**
  * A share subscription data transfer object.
  */

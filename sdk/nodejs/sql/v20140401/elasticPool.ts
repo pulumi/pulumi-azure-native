@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const ElasticPoolEdition = {
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
+    GeneralPurpose: "GeneralPurpose",
+    BusinessCritical: "BusinessCritical",
+}
+
+export const ElasticPoolState = {
+    Creating: "Creating",
+    Ready: "Ready",
+    Disabled: "Disabled",
+}
+
 /**
  * Represents a database elastic pool.
  */

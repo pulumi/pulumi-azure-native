@@ -6,6 +6,26 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const DomainProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Canceled: "Canceled",
+    Failed: "Failed",
+}
+
+export const InputSchema = {
+    EventGridSchema: "EventGridSchema",
+    CustomEventSchema: "CustomEventSchema",
+    CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
+}
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
 /**
  * EventGrid Domain.
  */

@@ -4,6 +4,16 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const PremiumDataDisk = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+}
+
+export const StorageType = {
+    Standard: "Standard",
+    Premium: "Premium",
+}
+
 /**
  * A lab.
  */

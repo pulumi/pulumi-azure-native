@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const IPVersion = {
+    IPv4: "IPv4",
+    IPv6: "IPv6",
+}
+
 /**
  * Public IP prefix resource.
  */

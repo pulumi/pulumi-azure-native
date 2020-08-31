@@ -12,6 +12,24 @@ export enum PublicAccess {
     None = "None",
 }
 
+export const LeaseDuration = {
+    Infinite: "Infinite",
+    Fixed: "Fixed",
+}
+
+export const LeaseState = {
+    Available: "Available",
+    Leased: "Leased",
+    Expired: "Expired",
+    Breaking: "Breaking",
+    Broken: "Broken",
+}
+
+export const LeaseStatus = {
+    Locked: "Locked",
+    Unlocked: "Unlocked",
+}
+
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  */

@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const DiscoveryStatus = {
+    Unknown: "Unknown",
+    NotStarted: "NotStarted",
+    InProgress: "InProgress",
+    Completed: "Completed",
+}
+
+export const ProvisioningState = {
+    Accepted: "Accepted",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Failed: "Failed",
+    Moving: "Moving",
+    Succeeded: "Succeeded",
+}
+
 /**
  * Azure Migrate Project.
  */

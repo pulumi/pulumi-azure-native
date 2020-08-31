@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const PolicyEvaluatorType = {
+    AllowedValuesPolicy: "AllowedValuesPolicy",
+    MaxValuePolicy: "MaxValuePolicy",
+}
+
+export const PolicyFactName = {
+    UserOwnedLabVmCount: "UserOwnedLabVmCount",
+    UserOwnedLabPremiumVmCount: "UserOwnedLabPremiumVmCount",
+    LabVmCount: "LabVmCount",
+    LabPremiumVmCount: "LabPremiumVmCount",
+    LabVmSize: "LabVmSize",
+    GalleryImage: "GalleryImage",
+    UserOwnedLabVmCountInSubnet: "UserOwnedLabVmCountInSubnet",
+    LabTargetCost: "LabTargetCost",
+}
+
+export const PolicyStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
 /**
  * A Policy.
  */

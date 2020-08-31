@@ -4,6 +4,14 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const VirtualNetworkRuleState = {
+    Initializing: "Initializing",
+    InProgress: "InProgress",
+    Ready: "Ready",
+    Deleting: "Deleting",
+    Unknown: "Unknown",
+}
+
 /**
  * A virtual network rule.
  */

@@ -6,6 +6,36 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Paused: "Paused",
+    Suspended: "Suspended",
+    Provisioning: "Provisioning",
+    Updating: "Updating",
+    Suspending: "Suspending",
+    Pausing: "Pausing",
+    Resuming: "Resuming",
+    Preparing: "Preparing",
+    Scaling: "Scaling",
+}
+
+export const State = {
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Paused: "Paused",
+    Suspended: "Suspended",
+    Provisioning: "Provisioning",
+    Updating: "Updating",
+    Suspending: "Suspending",
+    Pausing: "Pausing",
+    Resuming: "Resuming",
+    Preparing: "Preparing",
+    Scaling: "Scaling",
+}
+
 /**
  * Represents an instance of a Dedicated Capacity resource.
  */

@@ -4,6 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const ServiceLevel = {
+    Standard: "Standard",
+    Premium: "Premium",
+    Ultra: "Ultra",
+}
+
+export const qosType = {
+    Auto: "Auto",
+    Manual: "Manual",
+}
+
 /**
  * Capacity pool resource
  */

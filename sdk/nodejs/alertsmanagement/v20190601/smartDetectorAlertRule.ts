@@ -6,6 +6,19 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const AlertRuleState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
+export const Severity = {
+    Sev0: "Sev0",
+    Sev1: "Sev1",
+    Sev2: "Sev2",
+    Sev3: "Sev3",
+    Sev4: "Sev4",
+}
+
 /**
  * The alert rule information
  */

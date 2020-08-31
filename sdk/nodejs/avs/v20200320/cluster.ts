@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ClusterProvisioningState = {
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Cancelled: "Cancelled",
+    Deleting: "Deleting",
+    Updating: "Updating",
+}
+
 /**
  * A cluster resource
  */

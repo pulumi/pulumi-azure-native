@@ -6,6 +6,34 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum AuthorizationMethod {
+    HEAD = "HEAD",
+    OPTIONS = "OPTIONS",
+    TRACE = "TRACE",
+    GET = "GET",
+    POST = "POST",
+    PUT = "PUT",
+    PATCH = "PATCH",
+    DELETE = "DELETE",
+}
+
+export const BearerTokenSendingMethod = {
+    authorizationHeader: "authorizationHeader",
+    query: "query",
+}
+
+export const ClientAuthenticationMethod = {
+    Basic: "Basic",
+    Body: "Body",
+}
+
+export const GrantType = {
+    authorizationCode: "authorizationCode",
+    implicit: "implicit",
+    resourceOwnerPassword: "resourceOwnerPassword",
+    clientCredentials: "clientCredentials",
+}
+
 /**
  * External OAuth authorization server settings.
  */

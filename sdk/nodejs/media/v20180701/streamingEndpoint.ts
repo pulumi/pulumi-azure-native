@@ -6,6 +6,15 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const StreamingEndpointResourceState = {
+    Stopped: "Stopped",
+    Starting: "Starting",
+    Running: "Running",
+    Stopping: "Stopping",
+    Deleting: "Deleting",
+    Scaling: "Scaling",
+}
+
 /**
  * The StreamingEndpoint.
  */

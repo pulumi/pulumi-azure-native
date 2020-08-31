@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const RoleTypes = {
+    IOT: "IOT",
+    ASA: "ASA",
+    Functions: "Functions",
+    Cognitive: "Cognitive",
+}
+
 /**
  * Compute role.
  */

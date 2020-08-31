@@ -4,6 +4,14 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const RouteNextHopType = {
+    VirtualNetworkGateway: "VirtualNetworkGateway",
+    VnetLocal: "VnetLocal",
+    Internet: "Internet",
+    VirtualAppliance: "VirtualAppliance",
+    None: "None",
+}
+
 /**
  * Route resource
  */

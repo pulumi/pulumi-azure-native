@@ -6,6 +6,27 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ExecutionState = {
+    queued: "queued",
+    running: "running",
+    terminating: "terminating",
+    succeeded: "succeeded",
+    failed: "failed",
+}
+
+export const JobPriority = {
+    low: "low",
+    normal: "normal",
+    high: "high",
+}
+
+export const ProvisioningState = {
+    creating: "creating",
+    deleting: "deleting",
+    succeeded: "succeeded",
+    failed: "failed",
+}
+
 /**
  * Information about a Job.
  */

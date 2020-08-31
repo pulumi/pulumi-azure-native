@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ItemScope = {
+    shared: "shared",
+    user: "user",
+}
+
+export const ItemType = {
+    query: "query",
+    function: "function",
+    folder: "folder",
+    recent: "recent",
+}
+
 /**
  * Properties that define an Analytics item that is associated to an Application Insights component.
  */

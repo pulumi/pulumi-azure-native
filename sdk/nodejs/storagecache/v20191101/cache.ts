@@ -6,6 +6,15 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProvisioningStateType = {
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Cancelled: "Cancelled",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Updating: "Updating",
+}
+
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
  */

@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const BackendProtocol = {
+    http: "http",
+    soap: "soap",
+}
+
 /**
  * Backend details.
  */

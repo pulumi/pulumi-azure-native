@@ -6,6 +6,22 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const SecurityRuleAccess = {
+    Allow: "Allow",
+    Deny: "Deny",
+}
+
+export const SecurityRuleDirection = {
+    Inbound: "Inbound",
+    Outbound: "Outbound",
+}
+
+export const SecurityRuleProtocol = {
+    Tcp: "Tcp",
+    Udp: "Udp",
+    Asterisk: "*",
+}
+
 /**
  * Network security rule.
  */

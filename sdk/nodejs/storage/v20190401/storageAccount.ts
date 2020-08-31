@@ -22,6 +22,25 @@ export enum ProvisioningState {
     Succeeded = "Succeeded",
 }
 
+export const Kind = {
+    Storage: "Storage",
+    StorageV2: "StorageV2",
+    BlobStorage: "BlobStorage",
+    FileStorage: "FileStorage",
+    BlockBlobStorage: "BlockBlobStorage",
+}
+
+export const LargeFileSharesState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+}
+
+export const MinimumTlsVersion = {
+    TLS1_0: "TLS1_0",
+    TLS1_1: "TLS1_1",
+    TLS1_2: "TLS1_2",
+}
+
 /**
  * The storage account.
  */

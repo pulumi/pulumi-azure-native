@@ -4,6 +4,10 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const kind = {
+    ScheduleBased: "ScheduleBased",
+}
+
 /**
  * A Synchronization Setting data transfer object.
  */

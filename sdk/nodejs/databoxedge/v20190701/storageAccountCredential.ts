@@ -6,6 +6,16 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const AccountType = {
+    GeneralPurposeStorage: "GeneralPurposeStorage",
+    BlobStorage: "BlobStorage",
+}
+
+export const SSLStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
 /**
  * The storage account credential.
  */

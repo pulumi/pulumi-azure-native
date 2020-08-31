@@ -11,6 +11,20 @@ export enum OperatingSystemTypes {
     Linux = "Linux",
 }
 
+export const DiskState = {
+    Unattached: "Unattached",
+    Attached: "Attached",
+    Reserved: "Reserved",
+    ActiveSAS: "ActiveSAS",
+    ReadyToUpload: "ReadyToUpload",
+    ActiveUpload: "ActiveUpload",
+}
+
+export const HyperVGeneration = {
+    V1: "V1",
+    V2: "V2",
+}
+
 /**
  * Disk resource.
  */

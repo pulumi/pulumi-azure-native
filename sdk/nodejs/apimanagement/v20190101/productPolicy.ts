@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const PolicyContentFormat = {
+    xml: "xml",
+    xmllink: "xml-link",
+    rawxml: "rawxml",
+    rawxmllink: "rawxml-link",
+}
+
 /**
  * Policy Contract details.
  */

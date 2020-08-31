@@ -6,6 +6,17 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const SecurityStyle = {
+    ntfs: "ntfs",
+    unix: "unix",
+}
+
+export const ServiceLevel = {
+    Standard: "Standard",
+    Premium: "Premium",
+    Ultra: "Ultra",
+}
+
 /**
  * Volume resource
  */

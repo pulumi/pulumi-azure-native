@@ -6,6 +6,27 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ProvisioningState = {
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Disabled: "Disabled",
+    Failed: "Failed",
+    Linking: "Linking",
+    Provisioning: "Provisioning",
+    RecoveringScaleFailure: "RecoveringScaleFailure",
+    Scaling: "Scaling",
+    Succeeded: "Succeeded",
+    Unlinking: "Unlinking",
+    Unprovisioning: "Unprovisioning",
+    Updating: "Updating",
+}
+
+export const TlsVersion = {
+    10: "1.0",
+    11: "1.1",
+    12: "1.2",
+}
+
 /**
  * A single Redis item in List or Get Operation.
  */

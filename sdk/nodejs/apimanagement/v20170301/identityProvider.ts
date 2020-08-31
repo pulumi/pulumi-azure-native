@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const IdentityProviderType = {
+    facebook: "facebook",
+    google: "google",
+    microsoft: "microsoft",
+    twitter: "twitter",
+    aad: "aad",
+    aadB2C: "aadB2C",
+}
+
 /**
  * Identity Provider details.
  */

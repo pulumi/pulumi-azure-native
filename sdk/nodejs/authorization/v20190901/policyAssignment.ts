@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const enforcementMode = {
+    Default: "Default",
+    DoNotEnforce: "DoNotEnforce",
+}
+
 /**
  * The policy assignment.
  */

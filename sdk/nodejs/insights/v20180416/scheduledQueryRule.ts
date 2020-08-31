@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const enabled = {
+    true: "true",
+    false: "false",
+}
+
+export const provisioningState = {
+    Succeeded: "Succeeded",
+    Deploying: "Deploying",
+    Canceled: "Canceled",
+    Failed: "Failed",
+}
+
 /**
  * The Log Search Rule resource.
  */

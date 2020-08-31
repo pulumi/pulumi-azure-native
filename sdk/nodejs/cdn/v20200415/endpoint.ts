@@ -6,6 +6,15 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const EndpointResourceState = {
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Running: "Running",
+    Starting: "Starting",
+    Stopped: "Stopped",
+    Stopping: "Stopping",
+}
+
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
  */

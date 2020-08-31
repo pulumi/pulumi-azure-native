@@ -10,6 +10,12 @@ export enum DscConfigurationProvisioningState {
     Succeeded = "Succeeded",
 }
 
+export const DscConfigurationState = {
+    New: "New",
+    Edit: "Edit",
+    Published: "Published",
+}
+
 /**
  * Definition of the configuration type.
  */

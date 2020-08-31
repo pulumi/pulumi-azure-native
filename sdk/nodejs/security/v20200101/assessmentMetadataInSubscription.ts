@@ -6,6 +6,50 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const assessmentType = {
+    BuiltIn: "BuiltIn",
+    CustomPolicy: "CustomPolicy",
+    CustomerManaged: "CustomerManaged",
+    VerifiedPartner: "VerifiedPartner",
+}
+
+export const category = {
+    Compute: "Compute",
+    Networking: "Networking",
+    Data: "Data",
+    IdentityAndAccess: "IdentityAndAccess",
+    IoT: "IoT",
+}
+
+export const implementationEffort = {
+    Low: "Low",
+    Moderate: "Moderate",
+    High: "High",
+}
+
+export const severity = {
+    Low: "Low",
+    Medium: "Medium",
+    High: "High",
+}
+
+export const threats = {
+    accountBreach: "accountBreach",
+    dataExfiltration: "dataExfiltration",
+    dataSpillage: "dataSpillage",
+    maliciousInsider: "maliciousInsider",
+    elevationOfPrivilege: "elevationOfPrivilege",
+    threatResistance: "threatResistance",
+    missingCoverage: "missingCoverage",
+    denialOfService: "denialOfService",
+}
+
+export const userImpact = {
+    Low: "Low",
+    Moderate: "Moderate",
+    High: "High",
+}
+
 /**
  * Security assessment metadata
  */

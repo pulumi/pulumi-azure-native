@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const MaintenanceScope = {
+    All: "All",
+    Host: "Host",
+    Resource: "Resource",
+    InResource: "InResource",
+}
+
 /**
  * Maintenance configuration record type
  */

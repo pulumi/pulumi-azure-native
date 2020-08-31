@@ -6,6 +6,25 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export const ApplicationType = {
+    web: "web",
+    other: "other",
+}
+
+export const FlowType = {
+    Bluefield: "Bluefield",
+}
+
+export const IngestionMode = {
+    ApplicationInsights: "ApplicationInsights",
+    ApplicationInsightsWithDiagnosticSettings: "ApplicationInsightsWithDiagnosticSettings",
+    LogAnalytics: "LogAnalytics",
+}
+
+export const RequestSource = {
+    rest: "rest",
+}
+
 /**
  * An Application Insights component definition.
  */

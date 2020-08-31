@@ -4,6 +4,16 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+export const EnableStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+}
+
+export const SourceControlType = {
+    VsoGit: "VsoGit",
+    GitHub: "GitHub",
+}
+
 /**
  * Properties of an artifact source.
  */
