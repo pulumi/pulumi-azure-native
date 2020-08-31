@@ -341,27 +341,6 @@ func (g *packageGenerator) providerToModule(prov string) string {
 	return fmt.Sprintf("%s/v%s", strings.ToLower(prov), g.apiVersion())
 }
 
-// mergeParameters combines the Path Item parameters with Operation parameters.
-func (g *packageGenerator) mergeParameters (operation []spec.Parameter, pathItem []spec.Parameter) []spec.Parameter {
-	// Open API spec for operations:
-	// > If a parameter is already defined at the Path Item, the new definition will override it.
-	// > A unique parameter is defined by a combination of a name and location.
-	var result []spec.Parameter
-	seen := map[string]bool{}
-	for _, p := range operation {
-		key := fmt.Sprintf("%s@%s", p.Name, p.In)
-		seen[key] = true
-		result = append(result, p)
-	}
-	for _, p := range pathItem {
-		key := fmt.Sprintf("%s@%s", p.Name, p.In)
-		if _, ok := seen[key]; !ok {
-			result = append(result, p)
-		}
-	}
-	return result
-}
-
 type moduleGenerator struct {
 	pkg           *pschema.PackageSpec
 	metadata      *provider.AzureApiMetadata
