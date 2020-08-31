@@ -68,6 +68,12 @@ func NewMachine(ctx *pulumi.Context,
 	if args == nil {
 		args = &MachineArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20200802:Machine"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Machine
 	err := ctx.RegisterResource("azurerm:hybridcompute/v20191212:Machine", name, args, &resource, opts...)
 	if err != nil {

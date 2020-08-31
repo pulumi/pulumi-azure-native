@@ -58,6 +58,12 @@ func NewMachineExtension(ctx *pulumi.Context,
 	if args == nil {
 		args = &MachineExtensionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20200802:MachineExtension"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MachineExtension
 	err := ctx.RegisterResource("azurerm:hybridcompute/v20191212:MachineExtension", name, args, &resource, opts...)
 	if err != nil {

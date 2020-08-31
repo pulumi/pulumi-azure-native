@@ -57,6 +57,9 @@ func NewPolicyDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:authorization/v20190901:PolicyDefinition"),
 		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20200301:PolicyDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PolicyDefinition

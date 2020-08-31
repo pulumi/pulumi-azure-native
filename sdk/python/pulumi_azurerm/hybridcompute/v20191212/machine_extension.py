@@ -91,6 +91,8 @@ class MachineExtension(pulumi.CustomResource):
             __props__['type'] = type
             __props__['type_handler_version'] = type_handler_version
             __props__['provisioning_state'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybridcompute/v20200802:MachineExtension")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineExtension, __self__).__init__(
             'azurerm:hybridcompute/v20191212:MachineExtension',
             resource_name,

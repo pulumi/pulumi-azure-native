@@ -160,6 +160,8 @@ export class Machine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/v20200802:Machine" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Machine.__pulumiType, name, inputs, opts);
     }
 }
