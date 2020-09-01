@@ -98,7 +98,7 @@ class Lab(pulumi.CustomResource):
             __props__['unique_identifier'] = None
             __props__['vault_name'] = None
             __props__['vm_creation_resource_group'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:Lab"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:Lab")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:Lab"), pulumi.Alias(type_="azurerm:devtestlab/preview:Lab"), pulumi.Alias(type_="azurerm:devtestlab/v20150521preview:Lab"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:Lab")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Lab, __self__).__init__(
             'azurerm:devtestlab/v20180915:Lab',

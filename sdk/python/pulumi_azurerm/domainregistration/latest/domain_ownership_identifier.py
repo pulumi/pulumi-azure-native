@@ -63,7 +63,7 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:domainregistration/v20150401:DomainOwnershipIdentifier"), pulumi.Alias(type_="azurerm:domainregistration/v20180201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azurerm:domainregistration/v20190801:DomainOwnershipIdentifier"), pulumi.Alias(type_="azurerm:domainregistration/v20200601:DomainOwnershipIdentifier")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:domainregistration/preview:DomainOwnershipIdentifier"), pulumi.Alias(type_="azurerm:domainregistration/v20150401:DomainOwnershipIdentifier"), pulumi.Alias(type_="azurerm:domainregistration/v20180201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azurerm:domainregistration/v20190801:DomainOwnershipIdentifier"), pulumi.Alias(type_="azurerm:domainregistration/v20200601:DomainOwnershipIdentifier")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainOwnershipIdentifier, __self__).__init__(
             'azurerm:domainregistration/latest:DomainOwnershipIdentifier',

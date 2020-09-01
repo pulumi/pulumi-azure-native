@@ -63,7 +63,7 @@ class Group(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:migrate/latest:Group")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:migrate/latest:Group"), pulumi.Alias(type_="azurerm:migrate/preview:Group")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(
             'azurerm:migrate/v20191001:Group',

@@ -62,7 +62,7 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
             __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationServiceEnvironmentManagedApi")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/preview:IntegrationServiceEnvironmentManagedApi"), pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationServiceEnvironmentManagedApi")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationServiceEnvironmentManagedApi, __self__).__init__(
             'azurerm:logic/latest:IntegrationServiceEnvironmentManagedApi',

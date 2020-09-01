@@ -109,7 +109,7 @@ class RecordSet(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20160401:RecordSet"), pulumi.Alias(type_="azurerm:network/v20170901:RecordSet"), pulumi.Alias(type_="azurerm:network/v20171001:RecordSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20150504preview:RecordSet"), pulumi.Alias(type_="azurerm:network/v20160401:RecordSet"), pulumi.Alias(type_="azurerm:network/v20170901:RecordSet"), pulumi.Alias(type_="azurerm:network/v20171001:RecordSet"), pulumi.Alias(type_="azurerm:network/v20180301preview:RecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RecordSet, __self__).__init__(
             'azurerm:network/v20180501:RecordSet',

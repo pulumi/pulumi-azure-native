@@ -81,7 +81,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['node_count'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/latest:DscNodeConfiguration"), pulumi.Alias(type_="azurerm:automation/v20151031:DscNodeConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/latest:DscNodeConfiguration"), pulumi.Alias(type_="azurerm:automation/preview:DscNodeConfiguration"), pulumi.Alias(type_="azurerm:automation/v20151031:DscNodeConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscNodeConfiguration, __self__).__init__(
             'azurerm:automation/v20180115:DscNodeConfiguration',

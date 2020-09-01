@@ -80,7 +80,7 @@ class ShareSubscription(pulumi.CustomResource):
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datashare/v20191101:ShareSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datashare/preview:ShareSubscription"), pulumi.Alias(type_="azurerm:datashare/v20181101preview:ShareSubscription"), pulumi.Alias(type_="azurerm:datashare/v20191101:ShareSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ShareSubscription, __self__).__init__(
             'azurerm:datashare/latest:ShareSubscription',

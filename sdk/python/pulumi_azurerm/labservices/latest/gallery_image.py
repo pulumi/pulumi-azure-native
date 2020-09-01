@@ -87,7 +87,7 @@ class GalleryImage(pulumi.CustomResource):
             __props__['name'] = None
             __props__['plan_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:labservices/v20181015:GalleryImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:labservices/preview:GalleryImage"), pulumi.Alias(type_="azurerm:labservices/v20181015:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImage, __self__).__init__(
             'azurerm:labservices/latest:GalleryImage',

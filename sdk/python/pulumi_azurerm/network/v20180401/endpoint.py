@@ -105,7 +105,7 @@ class Endpoint(pulumi.CustomResource):
             __props__['target_resource_id'] = target_resource_id
             __props__['type'] = type
             __props__['weight'] = weight
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:Endpoint"), pulumi.Alias(type_="azurerm:network/v20151101:Endpoint"), pulumi.Alias(type_="azurerm:network/v20170301:Endpoint"), pulumi.Alias(type_="azurerm:network/v20170501:Endpoint"), pulumi.Alias(type_="azurerm:network/v20180201:Endpoint"), pulumi.Alias(type_="azurerm:network/v20180301:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:Endpoint"), pulumi.Alias(type_="azurerm:network/preview:Endpoint"), pulumi.Alias(type_="azurerm:network/v20151101:Endpoint"), pulumi.Alias(type_="azurerm:network/v20170301:Endpoint"), pulumi.Alias(type_="azurerm:network/v20170501:Endpoint"), pulumi.Alias(type_="azurerm:network/v20180201:Endpoint"), pulumi.Alias(type_="azurerm:network/v20180301:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azurerm:network/v20180401:Endpoint',

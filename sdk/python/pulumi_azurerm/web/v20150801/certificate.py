@@ -115,7 +115,7 @@ class Certificate(pulumi.CustomResource):
             __props__['thumbprint'] = thumbprint
             __props__['type'] = type
             __props__['valid'] = valid
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:Certificate"), pulumi.Alias(type_="azurerm:web/v20160301:Certificate"), pulumi.Alias(type_="azurerm:web/v20180201:Certificate"), pulumi.Alias(type_="azurerm:web/v20181101:Certificate"), pulumi.Alias(type_="azurerm:web/v20190801:Certificate"), pulumi.Alias(type_="azurerm:web/v20200601:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:Certificate"), pulumi.Alias(type_="azurerm:web/preview:Certificate"), pulumi.Alias(type_="azurerm:web/v20160301:Certificate"), pulumi.Alias(type_="azurerm:web/v20180201:Certificate"), pulumi.Alias(type_="azurerm:web/v20181101:Certificate"), pulumi.Alias(type_="azurerm:web/v20190801:Certificate"), pulumi.Alias(type_="azurerm:web/v20200601:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azurerm:web/v20150801:Certificate',

@@ -83,7 +83,7 @@ class Server(pulumi.CustomResource):
             __props__['type'] = None
             __props__['user_visible_state'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformariadb/latest:Server")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformariadb/latest:Server"), pulumi.Alias(type_="azurerm:dbformariadb/preview:Server"), pulumi.Alias(type_="azurerm:dbformariadb/v20180601preview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azurerm:dbformariadb/v20180601:Server',

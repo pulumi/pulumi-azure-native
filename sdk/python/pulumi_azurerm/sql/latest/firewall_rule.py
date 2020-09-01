@@ -70,7 +70,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:sql/v20140401:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:sql/preview:FirewallRule"), pulumi.Alias(type_="azurerm:sql/v20140401:FirewallRule"), pulumi.Alias(type_="azurerm:sql/v20150501preview:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azurerm:sql/latest:FirewallRule',

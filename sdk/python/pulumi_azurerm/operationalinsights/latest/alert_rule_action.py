@@ -75,7 +75,7 @@ class AlertRuleAction(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['workflow_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/v20200101:AlertRuleAction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/preview:AlertRuleAction"), pulumi.Alias(type_="azurerm:operationalinsights/v20200101:AlertRuleAction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AlertRuleAction, __self__).__init__(
             'azurerm:operationalinsights/latest:AlertRuleAction',

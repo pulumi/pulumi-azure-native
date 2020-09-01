@@ -73,7 +73,7 @@ class PeeringService(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:peering/latest:PeeringService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:peering/latest:PeeringService"), pulumi.Alias(type_="azurerm:peering/preview:PeeringService"), pulumi.Alias(type_="azurerm:peering/v20190801preview:PeeringService"), pulumi.Alias(type_="azurerm:peering/v20190901preview:PeeringService"), pulumi.Alias(type_="azurerm:peering/v20200101preview:PeeringService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PeeringService, __self__).__init__(
             'azurerm:peering/v20200401:PeeringService',

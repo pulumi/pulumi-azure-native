@@ -82,7 +82,7 @@ class AnalyticsItem(pulumi.CustomResource):
             __props__['time_created'] = None
             __props__['time_modified'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:AnalyticsItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:AnalyticsItem"), pulumi.Alias(type_="azurerm:insights/preview:AnalyticsItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AnalyticsItem, __self__).__init__(
             'azurerm:insights/v20150501:AnalyticsItem',

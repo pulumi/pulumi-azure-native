@@ -47,13 +47,19 @@ __all__ = [
     'AzureFirewallNetworkRuleResponse',
     'AzureFirewallRCActionResponse',
     'BackendAddressPoolResponse',
+    'BackendPoolResponse',
+    'BackendResponse',
     'BgpSettingsResponse',
+    'CacheConfigurationResponse',
     'ConnectionMonitorDestinationResponse',
     'ConnectionMonitorSourceResponse',
     'ContainerNetworkInterfaceConfigurationResponse',
     'ContainerNetworkInterfaceIpConfigurationResponse',
     'ContainerNetworkInterfaceResponse',
     'ContainerResponse',
+    'CustomHttpsConfigurationResponse',
+    'CustomRuleResponse',
+    'CustomRulesResponse',
     'DelegationResponse',
     'DevicePropertiesResponse',
     'DhcpOptionsResponse',
@@ -71,7 +77,10 @@ __all__ = [
     'ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration',
     'ExpressRouteGatewayPropertiesResponseBounds',
     'ExpressRouteLinkResponse',
+    'FrontendEndpointResponse',
+    'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink',
     'FrontendIPConfigurationResponse',
+    'HealthProbeSettingsModelResponse',
     'HubVirtualNetworkConnectionResponse',
     'IPConfigurationProfileResponse',
     'IPConfigurationResponse',
@@ -81,9 +90,14 @@ __all__ = [
     'IpTagResponse',
     'IpsecPolicyResponse',
     'Ipv6ExpressRouteCircuitPeeringConfigResponse',
+    'KeyVaultCertificateSourceParametersResponseVault',
     'LoadBalancerSkuResponse',
     'LoadBalancingRuleResponse',
+    'LoadBalancingSettingsModelResponse',
     'LocalNetworkGatewayResponse',
+    'ManagedRuleSetResponse',
+    'ManagedRuleSetsResponse',
+    'MatchConditionResponse',
     'NetworkInterfaceDnsSettingsResponse',
     'NetworkInterfaceIPConfigurationResponse',
     'NetworkInterfaceResponse',
@@ -108,6 +122,7 @@ __all__ = [
     'RouteFilterRuleResponse',
     'RouteResponse',
     'RouteTableResponse',
+    'RoutingRuleResponse',
     'SecurityRuleResponse',
     'ServiceAssociationLinkResponse',
     'ServiceEndpointPolicyDefinitionResponse',
@@ -129,6 +144,7 @@ __all__ = [
     'VpnClientRevokedCertificateResponse',
     'VpnClientRootCertificateResponse',
     'VpnConnectionResponse',
+    'PolicySettingsResponse',
 ]
 
 @pulumi.output_type
@@ -3446,6 +3462,201 @@ class BackendAddressPoolResponse(dict):
 
 
 @pulumi.output_type
+class BackendPoolResponse(dict):
+    """
+    A backend pool is a collection of backends that can be routed to.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 backends: Optional[List['outputs.BackendResponse']] = None,
+                 health_probe_settings: Optional['outputs.SubResourceResponse'] = None,
+                 id: Optional[str] = None,
+                 load_balancing_settings: Optional['outputs.SubResourceResponse'] = None,
+                 name: Optional[str] = None,
+                 resource_state: Optional[str] = None):
+        """
+        A backend pool is a collection of backends that can be routed to.
+        :param str type: Resource type.
+        :param List['BackendResponseArgs'] backends: The set of backends for this pool
+        :param 'SubResourceResponseArgs' health_probe_settings: L7 health probe settings for a backend pool
+        :param str id: Resource ID.
+        :param 'SubResourceResponseArgs' load_balancing_settings: Load balancing settings for a backend pool
+        :param str name: Resource name.
+        :param str resource_state: Resource status.
+        """
+        pulumi.set(__self__, "type", type)
+        if backends is not None:
+            pulumi.set(__self__, "backends", backends)
+        if health_probe_settings is not None:
+            pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if load_balancing_settings is not None:
+            pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_state is not None:
+            pulumi.set(__self__, "resource_state", resource_state)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def backends(self) -> Optional[List['outputs.BackendResponse']]:
+        """
+        The set of backends for this pool
+        """
+        return pulumi.get(self, "backends")
+
+    @property
+    @pulumi.getter(name="healthProbeSettings")
+    def health_probe_settings(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        L7 health probe settings for a backend pool
+        """
+        return pulumi.get(self, "health_probe_settings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="loadBalancingSettings")
+    def load_balancing_settings(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Load balancing settings for a backend pool
+        """
+        return pulumi.get(self, "load_balancing_settings")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> Optional[str]:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BackendResponse(dict):
+    """
+    Backend address of a frontDoor load balancer.
+    """
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 backend_host_header: Optional[str] = None,
+                 enabled_state: Optional[str] = None,
+                 http_port: Optional[float] = None,
+                 https_port: Optional[float] = None,
+                 priority: Optional[float] = None,
+                 weight: Optional[float] = None):
+        """
+        Backend address of a frontDoor load balancer.
+        :param str address: Location of the backend (IP address or FQDN)
+        :param str backend_host_header: The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
+        :param str enabled_state: Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
+        :param float http_port: The HTTP TCP port number. Must be between 1 and 65535.
+        :param float https_port: The HTTPS TCP port number. Must be between 1 and 65535.
+        :param float priority: Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
+        :param float weight: Weight of this endpoint for load balancing purposes.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if backend_host_header is not None:
+            pulumi.set(__self__, "backend_host_header", backend_host_header)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Location of the backend (IP address or FQDN)
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="backendHostHeader")
+    def backend_host_header(self) -> Optional[str]:
+        """
+        The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
+        """
+        return pulumi.get(self, "backend_host_header")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[float]:
+        """
+        The HTTP TCP port number. Must be between 1 and 65535.
+        """
+        return pulumi.get(self, "http_port")
+
+    @property
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[float]:
+        """
+        The HTTPS TCP port number. Must be between 1 and 65535.
+        """
+        return pulumi.get(self, "https_port")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        """
+        Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[float]:
+        """
+        Weight of this endpoint for load balancing purposes.
+        """
+        return pulumi.get(self, "weight")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class BgpSettingsResponse(dict):
     """
     BGP settings details
@@ -3490,6 +3701,44 @@ class BgpSettingsResponse(dict):
         The weight added to routes learned from this BGP speaker.
         """
         return pulumi.get(self, "peer_weight")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CacheConfigurationResponse(dict):
+    """
+    Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
+    """
+    def __init__(__self__, *,
+                 dynamic_compression: Optional[str] = None,
+                 query_parameter_strip_directive: Optional[str] = None):
+        """
+        Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
+        :param str dynamic_compression: Whether to use dynamic compression for cached content
+        :param str query_parameter_strip_directive: Treatment of URL query terms when forming the cache key.
+        """
+        if dynamic_compression is not None:
+            pulumi.set(__self__, "dynamic_compression", dynamic_compression)
+        if query_parameter_strip_directive is not None:
+            pulumi.set(__self__, "query_parameter_strip_directive", query_parameter_strip_directive)
+
+    @property
+    @pulumi.getter(name="dynamicCompression")
+    def dynamic_compression(self) -> Optional[str]:
+        """
+        Whether to use dynamic compression for cached content
+        """
+        return pulumi.get(self, "dynamic_compression")
+
+    @property
+    @pulumi.getter(name="queryParameterStripDirective")
+    def query_parameter_strip_directive(self) -> Optional[str]:
+        """
+        Treatment of URL query terms when forming the cache key.
+        """
+        return pulumi.get(self, "query_parameter_strip_directive")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3867,6 +4116,235 @@ class ContainerResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CustomHttpsConfigurationResponse(dict):
+    """
+    Https settings for a domain
+    """
+    def __init__(__self__, *,
+                 certificate_source: Optional[str] = None,
+                 certificate_type: Optional[str] = None,
+                 protocol_type: Optional[str] = None,
+                 secret_name: Optional[str] = None,
+                 secret_version: Optional[str] = None,
+                 vault: Optional['outputs.KeyVaultCertificateSourceParametersResponseVault'] = None):
+        """
+        Https settings for a domain
+        :param str certificate_source: Defines the source of the SSL certificate
+        :param str certificate_type: Defines the type of the certificate used for secure connections to a frontendEndpoint
+        :param str protocol_type: Defines the TLS extension protocol that is used for secure delivery
+        :param str secret_name: The name of the Key Vault secret representing the full certificate PFX
+        :param str secret_version: The version of the Key Vault secret representing the full certificate PFX
+        :param 'KeyVaultCertificateSourceParametersResponseVaultArgs' vault: The Key Vault containing the SSL certificate
+        """
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_type is not None:
+            pulumi.set(__self__, "certificate_type", certificate_type)
+        if protocol_type is not None:
+            pulumi.set(__self__, "protocol_type", protocol_type)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+        if vault is not None:
+            pulumi.set(__self__, "vault", vault)
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        """
+        Defines the source of the SSL certificate
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> Optional[str]:
+        """
+        Defines the type of the certificate used for secure connections to a frontendEndpoint
+        """
+        return pulumi.get(self, "certificate_type")
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> Optional[str]:
+        """
+        Defines the TLS extension protocol that is used for secure delivery
+        """
+        return pulumi.get(self, "protocol_type")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[str]:
+        """
+        The name of the Key Vault secret representing the full certificate PFX
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[str]:
+        """
+        The version of the Key Vault secret representing the full certificate PFX
+        """
+        return pulumi.get(self, "secret_version")
+
+    @property
+    @pulumi.getter
+    def vault(self) -> Optional['outputs.KeyVaultCertificateSourceParametersResponseVault']:
+        """
+        The Key Vault containing the SSL certificate
+        """
+        return pulumi.get(self, "vault")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CustomRuleResponse(dict):
+    """
+    Defines contents of a web application rule
+    """
+    def __init__(__self__, *,
+                 action: str,
+                 etag: str,
+                 match_conditions: List['outputs.MatchConditionResponse'],
+                 priority: float,
+                 rule_type: str,
+                 name: Optional[str] = None,
+                 rate_limit_duration_in_minutes: Optional[float] = None,
+                 rate_limit_threshold: Optional[float] = None,
+                 transforms: Optional[List[str]] = None):
+        """
+        Defines contents of a web application rule
+        :param str action: Type of Actions
+        :param str etag: Gets a unique read-only string that changes whenever the resource is updated.
+        :param List['MatchConditionResponseArgs'] match_conditions: List of match conditions
+        :param float priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+        :param str rule_type: Describes type of rule
+        :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        :param float rate_limit_duration_in_minutes: Defines rate limit duration. Default - 1 minute
+        :param float rate_limit_threshold: Defines rate limit threshold
+        :param List[str] transforms: List of transforms
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "match_conditions", match_conditions)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rule_type", rule_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rate_limit_duration_in_minutes is not None:
+            pulumi.set(__self__, "rate_limit_duration_in_minutes", rate_limit_duration_in_minutes)
+        if rate_limit_threshold is not None:
+            pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Type of Actions
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> List['outputs.MatchConditionResponse']:
+        """
+        List of match conditions
+        """
+        return pulumi.get(self, "match_conditions")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> float:
+        """
+        Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> str:
+        """
+        Describes type of rule
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rateLimitDurationInMinutes")
+    def rate_limit_duration_in_minutes(self) -> Optional[float]:
+        """
+        Defines rate limit duration. Default - 1 minute
+        """
+        return pulumi.get(self, "rate_limit_duration_in_minutes")
+
+    @property
+    @pulumi.getter(name="rateLimitThreshold")
+    def rate_limit_threshold(self) -> Optional[float]:
+        """
+        Defines rate limit threshold
+        """
+        return pulumi.get(self, "rate_limit_threshold")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[List[str]]:
+        """
+        List of transforms
+        """
+        return pulumi.get(self, "transforms")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CustomRulesResponse(dict):
+    """
+    Defines contents of custom rules
+    """
+    def __init__(__self__, *,
+                 rules: Optional[List['outputs.CustomRuleResponse']] = None):
+        """
+        Defines contents of custom rules
+        :param List['CustomRuleResponseArgs'] rules: List of rules
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[List['outputs.CustomRuleResponse']]:
+        """
+        List of rules
+        """
+        return pulumi.get(self, "rules")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -5114,6 +5592,174 @@ class ExpressRouteLinkResponse(dict):
 
 
 @pulumi.output_type
+class FrontendEndpointResponse(dict):
+    """
+    A frontend endpoint used for routing.
+    """
+    def __init__(__self__, *,
+                 custom_https_configuration: 'outputs.CustomHttpsConfigurationResponse',
+                 custom_https_provisioning_state: str,
+                 custom_https_provisioning_substate: str,
+                 type: str,
+                 host_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resource_state: Optional[str] = None,
+                 session_affinity_enabled_state: Optional[str] = None,
+                 session_affinity_ttl_seconds: Optional[float] = None,
+                 web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
+        """
+        A frontend endpoint used for routing.
+        :param 'CustomHttpsConfigurationResponseArgs' custom_https_configuration: The configuration specifying how to enable HTTPS
+        :param str custom_https_provisioning_state: Provisioning status of Custom Https of the frontendEndpoint.
+        :param str custom_https_provisioning_substate: Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+        :param str type: Resource type.
+        :param str host_name: The host name of the frontendEndpoint. Must be a domain name.
+        :param str id: Resource ID.
+        :param str name: Resource name.
+        :param str resource_state: Resource status.
+        :param str session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+        :param float session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
+        :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
+        """
+        pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
+        pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
+        pulumi.set(__self__, "custom_https_provisioning_substate", custom_https_provisioning_substate)
+        pulumi.set(__self__, "type", type)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_state is not None:
+            pulumi.set(__self__, "resource_state", resource_state)
+        if session_affinity_enabled_state is not None:
+            pulumi.set(__self__, "session_affinity_enabled_state", session_affinity_enabled_state)
+        if session_affinity_ttl_seconds is not None:
+            pulumi.set(__self__, "session_affinity_ttl_seconds", session_affinity_ttl_seconds)
+        if web_application_firewall_policy_link is not None:
+            pulumi.set(__self__, "web_application_firewall_policy_link", web_application_firewall_policy_link)
+
+    @property
+    @pulumi.getter(name="customHttpsConfiguration")
+    def custom_https_configuration(self) -> 'outputs.CustomHttpsConfigurationResponse':
+        """
+        The configuration specifying how to enable HTTPS
+        """
+        return pulumi.get(self, "custom_https_configuration")
+
+    @property
+    @pulumi.getter(name="customHttpsProvisioningState")
+    def custom_https_provisioning_state(self) -> str:
+        """
+        Provisioning status of Custom Https of the frontendEndpoint.
+        """
+        return pulumi.get(self, "custom_https_provisioning_state")
+
+    @property
+    @pulumi.getter(name="customHttpsProvisioningSubstate")
+    def custom_https_provisioning_substate(self) -> str:
+        """
+        Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+        """
+        return pulumi.get(self, "custom_https_provisioning_substate")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[str]:
+        """
+        The host name of the frontendEndpoint. Must be a domain name.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> Optional[str]:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="sessionAffinityEnabledState")
+    def session_affinity_enabled_state(self) -> Optional[str]:
+        """
+        Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "session_affinity_enabled_state")
+
+    @property
+    @pulumi.getter(name="sessionAffinityTtlSeconds")
+    def session_affinity_ttl_seconds(self) -> Optional[float]:
+        """
+        UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
+        """
+        return pulumi.get(self, "session_affinity_ttl_seconds")
+
+    @property
+    @pulumi.getter(name="webApplicationFirewallPolicyLink")
+    def web_application_firewall_policy_link(self) -> Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink']:
+        """
+        Defines the Web Application Firewall policy for each host (if applicable)
+        """
+        return pulumi.get(self, "web_application_firewall_policy_link")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink(dict):
+    """
+    Defines the Web Application Firewall policy for each host (if applicable)
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Defines the Web Application Firewall policy for each host (if applicable)
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class FrontendIPConfigurationResponse(dict):
     """
     Frontend IP address of the load balancer.
@@ -5286,6 +5932,103 @@ class FrontendIPConfigurationResponse(dict):
         A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
         return pulumi.get(self, "zones")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HealthProbeSettingsModelResponse(dict):
+    """
+    Load balancing settings for a backend pool
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 id: Optional[str] = None,
+                 interval_in_seconds: Optional[float] = None,
+                 name: Optional[str] = None,
+                 path: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 resource_state: Optional[str] = None):
+        """
+        Load balancing settings for a backend pool
+        :param str type: Resource type.
+        :param str id: Resource ID.
+        :param float interval_in_seconds: The number of seconds between health probes.
+        :param str name: Resource name.
+        :param str path: The path to use for the health probe. Default is /
+        :param str protocol: Protocol scheme to use for this probe
+        :param str resource_state: Resource status.
+        """
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if resource_state is not None:
+            pulumi.set(__self__, "resource_state", resource_state)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[float]:
+        """
+        The number of seconds between health probes.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path to use for the health probe. Default is /
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Protocol scheme to use for this probe
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> Optional[str]:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -6273,6 +7016,32 @@ class Ipv6ExpressRouteCircuitPeeringConfigResponse(dict):
 
 
 @pulumi.output_type
+class KeyVaultCertificateSourceParametersResponseVault(dict):
+    """
+    The Key Vault containing the SSL certificate
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The Key Vault containing the SSL certificate
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class LoadBalancerSkuResponse(dict):
     """
     SKU of a load balancer
@@ -6491,6 +7260,103 @@ class LoadBalancingRuleResponse(dict):
 
 
 @pulumi.output_type
+class LoadBalancingSettingsModelResponse(dict):
+    """
+    Load balancing settings for a backend pool
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 additional_latency_milliseconds: Optional[float] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resource_state: Optional[str] = None,
+                 sample_size: Optional[float] = None,
+                 successful_samples_required: Optional[float] = None):
+        """
+        Load balancing settings for a backend pool
+        :param str type: Resource type.
+        :param float additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket
+        :param str id: Resource ID.
+        :param str name: Resource name.
+        :param str resource_state: Resource status.
+        :param float sample_size: The number of samples to consider for load balancing decisions
+        :param float successful_samples_required: The number of samples within the sample period that must succeed
+        """
+        pulumi.set(__self__, "type", type)
+        if additional_latency_milliseconds is not None:
+            pulumi.set(__self__, "additional_latency_milliseconds", additional_latency_milliseconds)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_state is not None:
+            pulumi.set(__self__, "resource_state", resource_state)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
+        if successful_samples_required is not None:
+            pulumi.set(__self__, "successful_samples_required", successful_samples_required)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="additionalLatencyMilliseconds")
+    def additional_latency_milliseconds(self) -> Optional[float]:
+        """
+        The additional latency in milliseconds for probes to fall into the lowest latency bucket
+        """
+        return pulumi.get(self, "additional_latency_milliseconds")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> Optional[str]:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[float]:
+        """
+        The number of samples to consider for load balancing decisions
+        """
+        return pulumi.get(self, "sample_size")
+
+    @property
+    @pulumi.getter(name="successfulSamplesRequired")
+    def successful_samples_required(self) -> Optional[float]:
+        """
+        The number of samples within the sample period that must succeed
+        """
+        return pulumi.get(self, "successful_samples_required")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class LocalNetworkGatewayResponse(dict):
     """
     A common class for general resource information
@@ -6628,6 +7494,152 @@ class LocalNetworkGatewayResponse(dict):
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedRuleSetResponse(dict):
+    """
+    Base class for all types of ManagedRuleSet.
+    """
+    def __init__(__self__, *,
+                 rule_set_type: str,
+                 priority: Optional[float] = None,
+                 version: Optional[float] = None):
+        """
+        Base class for all types of ManagedRuleSet.
+        :param str rule_set_type: RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+        :param float priority: Describes priority of the rule
+        :param float version: defines version of the rule set
+        """
+        pulumi.set(__self__, "rule_set_type", rule_set_type)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> str:
+        """
+        RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        """
+        Describes priority of the rule
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[float]:
+        """
+        defines version of the rule set
+        """
+        return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedRuleSetsResponse(dict):
+    """
+    Defines ManagedRuleSets - array of managedRuleSet
+    """
+    def __init__(__self__, *,
+                 rule_sets: Optional[List['outputs.ManagedRuleSetResponse']] = None):
+        """
+        Defines ManagedRuleSets - array of managedRuleSet
+        :param List['ManagedRuleSetResponseArgs'] rule_sets: List of rules
+        """
+        if rule_sets is not None:
+            pulumi.set(__self__, "rule_sets", rule_sets)
+
+    @property
+    @pulumi.getter(name="ruleSets")
+    def rule_sets(self) -> Optional[List['outputs.ManagedRuleSetResponse']]:
+        """
+        List of rules
+        """
+        return pulumi.get(self, "rule_sets")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MatchConditionResponse(dict):
+    """
+    Define match conditions
+    """
+    def __init__(__self__, *,
+                 match_value: List[str],
+                 match_variable: str,
+                 operator: str,
+                 negate_condition: Optional[bool] = None,
+                 selector: Optional[str] = None):
+        """
+        Define match conditions
+        :param List[str] match_value: Match value
+        :param str match_variable: Match Variable
+        :param str operator: Describes operator to be matched
+        :param bool negate_condition: Describes if this is negate condition or not
+        :param str selector: Name of selector in RequestHeader or RequestBody to be matched
+        """
+        pulumi.set(__self__, "match_value", match_value)
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+
+    @property
+    @pulumi.getter(name="matchValue")
+    def match_value(self) -> List[str]:
+        """
+        Match value
+        """
+        return pulumi.get(self, "match_value")
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        Match Variable
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Describes operator to be matched
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if this is negate condition or not
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Name of selector in RequestHeader or RequestBody to be matched
+        """
+        return pulumi.get(self, "selector")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -9101,6 +10113,163 @@ class RouteTableResponse(dict):
 
 
 @pulumi.output_type
+class RoutingRuleResponse(dict):
+    """
+    A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 accepted_protocols: Optional[List[str]] = None,
+                 backend_pool: Optional['outputs.SubResourceResponse'] = None,
+                 cache_configuration: Optional['outputs.CacheConfigurationResponse'] = None,
+                 custom_forwarding_path: Optional[str] = None,
+                 enabled_state: Optional[str] = None,
+                 forwarding_protocol: Optional[str] = None,
+                 frontend_endpoints: Optional[List['outputs.SubResourceResponse']] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 patterns_to_match: Optional[List[str]] = None,
+                 resource_state: Optional[str] = None):
+        """
+        A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
+        :param str type: Resource type.
+        :param List[str] accepted_protocols: Protocol schemes to match for this rule
+        :param 'SubResourceResponseArgs' backend_pool: A reference to the BackendPool which this rule routes to.
+        :param 'CacheConfigurationResponseArgs' cache_configuration: The caching configuration associated with this rule.
+        :param str custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
+        :param str enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+        :param str forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
+        :param List['SubResourceResponseArgs'] frontend_endpoints: Frontend endpoints associated with this rule
+        :param str id: Resource ID.
+        :param str name: Resource name.
+        :param List[str] patterns_to_match: The route patterns of the rule.
+        :param str resource_state: Resource status.
+        """
+        pulumi.set(__self__, "type", type)
+        if accepted_protocols is not None:
+            pulumi.set(__self__, "accepted_protocols", accepted_protocols)
+        if backend_pool is not None:
+            pulumi.set(__self__, "backend_pool", backend_pool)
+        if cache_configuration is not None:
+            pulumi.set(__self__, "cache_configuration", cache_configuration)
+        if custom_forwarding_path is not None:
+            pulumi.set(__self__, "custom_forwarding_path", custom_forwarding_path)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if forwarding_protocol is not None:
+            pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+        if frontend_endpoints is not None:
+            pulumi.set(__self__, "frontend_endpoints", frontend_endpoints)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if patterns_to_match is not None:
+            pulumi.set(__self__, "patterns_to_match", patterns_to_match)
+        if resource_state is not None:
+            pulumi.set(__self__, "resource_state", resource_state)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="acceptedProtocols")
+    def accepted_protocols(self) -> Optional[List[str]]:
+        """
+        Protocol schemes to match for this rule
+        """
+        return pulumi.get(self, "accepted_protocols")
+
+    @property
+    @pulumi.getter(name="backendPool")
+    def backend_pool(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        A reference to the BackendPool which this rule routes to.
+        """
+        return pulumi.get(self, "backend_pool")
+
+    @property
+    @pulumi.getter(name="cacheConfiguration")
+    def cache_configuration(self) -> Optional['outputs.CacheConfigurationResponse']:
+        """
+        The caching configuration associated with this rule.
+        """
+        return pulumi.get(self, "cache_configuration")
+
+    @property
+    @pulumi.getter(name="customForwardingPath")
+    def custom_forwarding_path(self) -> Optional[str]:
+        """
+        A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
+        """
+        return pulumi.get(self, "custom_forwarding_path")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter(name="forwardingProtocol")
+    def forwarding_protocol(self) -> Optional[str]:
+        """
+        Protocol this rule will use when forwarding traffic to backends.
+        """
+        return pulumi.get(self, "forwarding_protocol")
+
+    @property
+    @pulumi.getter(name="frontendEndpoints")
+    def frontend_endpoints(self) -> Optional[List['outputs.SubResourceResponse']]:
+        """
+        Frontend endpoints associated with this rule
+        """
+        return pulumi.get(self, "frontend_endpoints")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="patternsToMatch")
+    def patterns_to_match(self) -> Optional[List[str]]:
+        """
+        The route patterns of the rule.
+        """
+        return pulumi.get(self, "patterns_to_match")
+
+    @property
+    @pulumi.getter(name="resourceState")
+    def resource_state(self) -> Optional[str]:
+        """
+        Resource status.
+        """
+        return pulumi.get(self, "resource_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SecurityRuleResponse(dict):
     """
     Network security rule.
@@ -11260,6 +12429,44 @@ class VpnConnectionResponse(dict):
         Connection protocol used for this connection
         """
         return pulumi.get(self, "vpn_connection_protocol_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PolicySettingsResponse(dict):
+    """
+    Defines contents of a web application firewall global configuration
+    """
+    def __init__(__self__, *,
+                 enabled_state: Optional[str] = None,
+                 mode: Optional[str] = None):
+        """
+        Defines contents of a web application firewall global configuration
+        :param str enabled_state: describes if the policy is in enabled state or disabled state
+        :param str mode: Describes if it is in detection mode  or prevention mode at policy level
+        """
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        describes if the policy is in enabled state or disabled state
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Describes if it is in detection mode  or prevention mode at policy level
+        """
+        return pulumi.get(self, "mode")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

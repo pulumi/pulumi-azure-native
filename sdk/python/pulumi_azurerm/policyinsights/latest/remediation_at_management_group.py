@@ -76,7 +76,7 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:policyinsights/v20190701:RemediationAtManagementGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:policyinsights/preview:RemediationAtManagementGroup"), pulumi.Alias(type_="azurerm:policyinsights/v20180701preview:RemediationAtManagementGroup"), pulumi.Alias(type_="azurerm:policyinsights/v20190701:RemediationAtManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RemediationAtManagementGroup, __self__).__init__(
             'azurerm:policyinsights/latest:RemediationAtManagementGroup',

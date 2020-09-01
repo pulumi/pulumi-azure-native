@@ -109,7 +109,7 @@ class Api(pulumi.CustomResource):
             __props__['is_online'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20160707:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Api")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:Api"), pulumi.Alias(type_="azurerm:apimanagement/preview:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20160707:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Api"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:Api")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Api, __self__).__init__(
             'azurerm:apimanagement/v20170301:Api',

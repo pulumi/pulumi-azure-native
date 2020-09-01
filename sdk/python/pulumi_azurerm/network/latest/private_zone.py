@@ -69,7 +69,7 @@ class PrivateZone(pulumi.CustomResource):
             __props__['number_of_virtual_network_links_with_registration'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180901:PrivateZone")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/preview:PrivateZone"), pulumi.Alias(type_="azurerm:network/v20180901:PrivateZone")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateZone, __self__).__init__(
             'azurerm:network/latest:PrivateZone',

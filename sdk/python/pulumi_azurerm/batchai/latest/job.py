@@ -142,7 +142,7 @@ class Job(pulumi.CustomResource):
             __props__['provisioning_state_transition_time'] = None
             __props__['tool_type'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:batchai/v20180501:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:batchai/preview:Job"), pulumi.Alias(type_="azurerm:batchai/v20180501:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azurerm:batchai/latest:Job',

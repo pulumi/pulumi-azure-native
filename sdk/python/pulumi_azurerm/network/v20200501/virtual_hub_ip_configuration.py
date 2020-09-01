@@ -79,7 +79,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:VirtualHubIpConfiguration"), pulumi.Alias(type_="azurerm:network/v20200601:VirtualHubIpConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:VirtualHubIpConfiguration"), pulumi.Alias(type_="azurerm:network/preview:VirtualHubIpConfiguration"), pulumi.Alias(type_="azurerm:network/v20200601:VirtualHubIpConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHubIpConfiguration, __self__).__init__(
             'azurerm:network/v20200501:VirtualHubIpConfiguration',

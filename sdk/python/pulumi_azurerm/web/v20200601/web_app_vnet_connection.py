@@ -77,7 +77,7 @@ class WebAppVnetConnection(pulumi.CustomResource):
             __props__['resync_required'] = None
             __props__['routes'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppVnetConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/preview:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppVnetConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppVnetConnection, __self__).__init__(
             'azurerm:web/v20200601:WebAppVnetConnection',

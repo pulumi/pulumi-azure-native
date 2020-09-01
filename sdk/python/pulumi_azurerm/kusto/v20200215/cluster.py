@@ -103,7 +103,7 @@ class Cluster(pulumi.CustomResource):
             __props__['state_reason'] = None
             __props__['type'] = None
             __props__['uri'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:kusto/latest:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20190121:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20190515:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20190907:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20191109:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20200614:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:kusto/latest:Cluster"), pulumi.Alias(type_="azurerm:kusto/preview:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20190121:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20190515:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20190907:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20191109:Cluster"), pulumi.Alias(type_="azurerm:kusto/v20200614:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azurerm:kusto/v20200215:Cluster',

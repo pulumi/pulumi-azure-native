@@ -6,6 +6,9 @@
 # Make subpackages available:
 from . import (
     latest,
+    preview,
+    v20150501preview,
+    v20150504preview,
     v20150615,
     v20151101,
     v20160330,
@@ -18,11 +21,13 @@ from . import (
     v20170601,
     v20170801,
     v20170901,
+    v20170901preview,
     v20171001,
     v20171101,
     v20180101,
     v20180201,
     v20180301,
+    v20180301preview,
     v20180401,
     v20180501,
     v20180601,
@@ -48,4 +53,5 @@ from . import (
     v20200401,
     v20200501,
     v20200601,
+    v20200808preview,
 )

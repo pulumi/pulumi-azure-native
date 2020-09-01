@@ -86,7 +86,7 @@ class Lab(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['user_quota'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:labservices/v20181015:Lab")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:labservices/preview:Lab"), pulumi.Alias(type_="azurerm:labservices/v20181015:Lab")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Lab, __self__).__init__(
             'azurerm:labservices/latest:Lab',

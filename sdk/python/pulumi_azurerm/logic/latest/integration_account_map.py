@@ -86,7 +86,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountMap"), pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationAccountMap")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/preview:IntegrationAccountMap"), pulumi.Alias(type_="azurerm:logic/v20150801preview:IntegrationAccountMap"), pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountMap"), pulumi.Alias(type_="azurerm:logic/v20180701preview:IntegrationAccountMap"), pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationAccountMap")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountMap, __self__).__init__(
             'azurerm:logic/latest:IntegrationAccountMap',

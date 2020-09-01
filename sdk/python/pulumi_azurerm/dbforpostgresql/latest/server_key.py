@@ -68,7 +68,7 @@ class ServerKey(pulumi.CustomResource):
             __props__['kind'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbforpostgresql/v20200101:ServerKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbforpostgresql/preview:ServerKey"), pulumi.Alias(type_="azurerm:dbforpostgresql/v20200101:ServerKey"), pulumi.Alias(type_="azurerm:dbforpostgresql/v20200101privatepreview:ServerKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerKey, __self__).__init__(
             'azurerm:dbforpostgresql/latest:ServerKey',

@@ -91,7 +91,7 @@ class Backend(pulumi.CustomResource):
             __props__['url'] = url
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20160707:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Backend")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/preview:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20160707:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Backend"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:Backend")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backend, __self__).__init__(
             'azurerm:apimanagement/latest:Backend',

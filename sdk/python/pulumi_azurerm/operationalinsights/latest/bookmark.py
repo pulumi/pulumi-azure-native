@@ -97,7 +97,7 @@ class Bookmark(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/v20200101:Bookmark")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/preview:Bookmark"), pulumi.Alias(type_="azurerm:operationalinsights/v20200101:Bookmark")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Bookmark, __self__).__init__(
             'azurerm:operationalinsights/latest:Bookmark',

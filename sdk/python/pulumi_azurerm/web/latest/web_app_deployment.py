@@ -87,7 +87,7 @@ class WebAppDeployment(pulumi.CustomResource):
             __props__['start_time'] = start_time
             __props__['status'] = status
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppDeployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/preview:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20150801:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppDeployment"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppDeployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppDeployment, __self__).__init__(
             'azurerm:web/latest:WebAppDeployment',

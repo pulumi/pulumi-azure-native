@@ -89,7 +89,7 @@ class Workspace(pulumi.CustomResource):
             __props__['updated_by'] = None
             __props__['workspace_id'] = None
             __props__['workspace_url'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databricks/v20180401:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databricks/preview:Workspace"), pulumi.Alias(type_="azurerm:databricks/v20180401:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azurerm:databricks/latest:Workspace',

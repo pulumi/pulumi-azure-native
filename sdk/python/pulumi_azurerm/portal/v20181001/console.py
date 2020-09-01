@@ -53,7 +53,7 @@ class Console(pulumi.CustomResource):
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:portal/latest:Console")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:portal/latest:Console"), pulumi.Alias(type_="azurerm:portal/preview:Console")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Console, __self__).__init__(
             'azurerm:portal/v20181001:Console',

@@ -108,7 +108,7 @@ class RecordSet(pulumi.CustomResource):
             if zone_name is None:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20170901:RecordSet"), pulumi.Alias(type_="azurerm:network/v20171001:RecordSet"), pulumi.Alias(type_="azurerm:network/v20180501:RecordSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20150504preview:RecordSet"), pulumi.Alias(type_="azurerm:network/v20170901:RecordSet"), pulumi.Alias(type_="azurerm:network/v20171001:RecordSet"), pulumi.Alias(type_="azurerm:network/v20180301preview:RecordSet"), pulumi.Alias(type_="azurerm:network/v20180501:RecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RecordSet, __self__).__init__(
             'azurerm:network/v20160401:RecordSet',
