@@ -100,8 +100,10 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:analysisservices/latest:ServerDetails"},
+                    new Pulumi.Alias { Type = "azurerm:analysisservices/preview:ServerDetails"},
                     new Pulumi.Alias { Type = "azurerm:analysisservices/v20170714:ServerDetails"},
                     new Pulumi.Alias { Type = "azurerm:analysisservices/v20170801:ServerDetails"},
+                    new Pulumi.Alias { Type = "azurerm:analysisservices/v20170801beta:ServerDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

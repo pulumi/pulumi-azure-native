@@ -147,9 +147,11 @@ namespace Pulumi.AzureRM.Network.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/v20150504preview:RecordSet"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160401:RecordSet"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170901:RecordSet"},
                     new Pulumi.Alias { Type = "azurerm:network/v20171001:RecordSet"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20180301preview:RecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Cdn.V20191231
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cdn/latest:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/preview:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20150601:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20160402:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20161002:Profile"},
@@ -89,6 +90,7 @@ namespace Pulumi.AzureRM.Cdn.V20191231
                     new Pulumi.Alias { Type = "azurerm:cdn/v20171012:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190415:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615preview:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200415:Profile"},
                 },

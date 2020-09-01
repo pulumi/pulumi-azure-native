@@ -75,6 +75,8 @@ namespace Pulumi.AzureRM.Security.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:security/preview:DeviceSecurityGroup"},
+                    new Pulumi.Alias { Type = "azurerm:security/v20170801preview:DeviceSecurityGroup"},
                     new Pulumi.Alias { Type = "azurerm:security/v20190801:DeviceSecurityGroup"},
                 },
             };

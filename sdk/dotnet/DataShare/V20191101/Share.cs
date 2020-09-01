@@ -94,6 +94,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datashare/latest:Share"},
+                    new Pulumi.Alias { Type = "azurerm:datashare/preview:Share"},
+                    new Pulumi.Alias { Type = "azurerm:datashare/v20181101preview:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

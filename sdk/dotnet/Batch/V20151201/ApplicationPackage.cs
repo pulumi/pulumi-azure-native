@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.Batch.V20151201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:batch/latest:ApplicationPackage"},
+                    new Pulumi.Alias { Type = "azurerm:batch/preview:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20170101:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20170501:ApplicationPackage"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20170901:ApplicationPackage"},

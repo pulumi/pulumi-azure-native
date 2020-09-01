@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.Kusto.V20191109
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:kusto/latest:DatabasePrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/preview:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20200215:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20200614:DatabasePrincipalAssignment"},
                 },

@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.Authorization.V20150101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:authorization/latest:ManagementLock"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/preview:ManagementLock"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20160901:ManagementLock"},
                 },
             };

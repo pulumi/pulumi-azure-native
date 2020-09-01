@@ -70,12 +70,14 @@ namespace Pulumi.AzureRM.Cdn.V20160402
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cdn/latest:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20150601:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20161002:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20170402:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20171012:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190415:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190615:CustomDomain"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20191231:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200331:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200415:CustomDomain"},

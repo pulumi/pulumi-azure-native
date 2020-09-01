@@ -107,6 +107,7 @@ namespace Pulumi.AzureRM.Web.V20181101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppHybridConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppHybridConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppHybridConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppHybridConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppHybridConnection"},

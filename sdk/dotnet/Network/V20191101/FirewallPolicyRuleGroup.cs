@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:FirewallPolicyRuleGroup"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190601:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190701:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190801:FirewallPolicyRuleGroup"},

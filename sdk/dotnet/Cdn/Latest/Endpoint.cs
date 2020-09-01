@@ -177,6 +177,7 @@ namespace Pulumi.AzureRM.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:cdn/preview:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20150601:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20160402:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20161002:Endpoint"},
@@ -184,6 +185,7 @@ namespace Pulumi.AzureRM.Cdn.Latest
                     new Pulumi.Alias { Type = "azurerm:cdn/v20171012:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190415:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615preview:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20191231:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200415:Endpoint"},

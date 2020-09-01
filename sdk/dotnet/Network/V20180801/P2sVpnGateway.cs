@@ -106,6 +106,7 @@ namespace Pulumi.AzureRM.Network.V20180801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181001:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181101:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181201:P2sVpnGateway"},

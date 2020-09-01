@@ -112,6 +112,8 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:CustomImage"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:CustomImage"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20150521preview:CustomImage"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:CustomImage"},
                 },
             };

@@ -196,6 +196,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datalakeanalytics/latest:Account"},
+                    new Pulumi.Alias { Type = "azurerm:datalakeanalytics/preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

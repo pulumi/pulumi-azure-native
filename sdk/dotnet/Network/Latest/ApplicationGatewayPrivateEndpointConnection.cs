@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/preview:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200601:ApplicationGatewayPrivateEndpointConnection"},
                 },

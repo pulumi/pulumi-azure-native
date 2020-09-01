@@ -130,12 +130,14 @@ namespace Pulumi.AzureRM.Cdn.V20160402
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cdn/latest:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/preview:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20150601:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20161002:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20170402:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20171012:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190415:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615preview:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20191231:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200415:Endpoint"},

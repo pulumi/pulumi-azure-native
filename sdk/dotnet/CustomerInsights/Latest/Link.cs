@@ -129,6 +129,7 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:customerinsights/preview:Link"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:Link"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170426:Link"},
                 },

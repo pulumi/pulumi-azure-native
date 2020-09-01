@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppDeploymentSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppDeploymentSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppDeploymentSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppDeploymentSlot"},

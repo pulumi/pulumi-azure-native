@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:automation/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:automation/preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -76,10 +76,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Property"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:Property"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Property"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Property"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Property"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Property"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Property"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

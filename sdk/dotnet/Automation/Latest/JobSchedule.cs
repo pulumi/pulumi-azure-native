@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:automation/preview:JobSchedule"},
                     new Pulumi.Alias { Type = "azurerm:automation/v20151031:JobSchedule"},
                 },
             };

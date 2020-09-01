@@ -93,6 +93,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:netapp/preview:snapshotPolicy"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20200601:snapshotPolicy"},
                 },
             };

@@ -70,6 +70,8 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformariadb/latest:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azurerm:dbformariadb/preview:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azurerm:dbformariadb/v20180601preview:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

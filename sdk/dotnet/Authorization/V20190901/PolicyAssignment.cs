@@ -118,9 +118,12 @@ namespace Pulumi.AzureRM.Authorization.V20190901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:authorization/latest:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/preview:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/v20151001preview:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20151101:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20160401:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20161201:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/v20170601preview:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20180301:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20180501:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20190101:PolicyAssignment"},

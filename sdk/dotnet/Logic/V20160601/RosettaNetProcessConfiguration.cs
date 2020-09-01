@@ -124,6 +124,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:RosettaNetProcessConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:logic/preview:RosettaNetProcessConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

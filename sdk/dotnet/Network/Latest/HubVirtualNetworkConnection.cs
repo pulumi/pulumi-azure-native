@@ -87,6 +87,7 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/preview:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200601:HubVirtualNetworkConnection"},
                 },

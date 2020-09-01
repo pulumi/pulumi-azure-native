@@ -111,6 +111,9 @@ namespace Pulumi.AzureRM.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:media/preview:Job"},
+                    new Pulumi.Alias { Type = "azurerm:media/v20180330preview:Job"},
+                    new Pulumi.Alias { Type = "azurerm:media/v20180601preview:Job"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:Job"},
                     new Pulumi.Alias { Type = "azurerm:media/v20200501:Job"},
                 },

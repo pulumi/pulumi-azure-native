@@ -75,6 +75,8 @@ namespace Pulumi.AzureRM.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:netapp/preview:Snapshot"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20170815:Snapshot"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190501:Snapshot"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Snapshot"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190701:Snapshot"},

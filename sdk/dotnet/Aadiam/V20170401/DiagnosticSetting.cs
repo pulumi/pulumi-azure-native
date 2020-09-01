@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.Aadiam.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:aadiam/latest:DiagnosticSetting"},
+                    new Pulumi.Alias { Type = "azurerm:aadiam/preview:DiagnosticSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

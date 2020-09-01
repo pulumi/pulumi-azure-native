@@ -75,6 +75,9 @@ namespace Pulumi.AzureRM.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:media/preview:Transform"},
+                    new Pulumi.Alias { Type = "azurerm:media/v20180330preview:Transform"},
+                    new Pulumi.Alias { Type = "azurerm:media/v20180601preview:Transform"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:Transform"},
                     new Pulumi.Alias { Type = "azurerm:media/v20200501:Transform"},
                 },

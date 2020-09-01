@@ -70,6 +70,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

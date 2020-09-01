@@ -49,6 +49,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:migrate/latest:HyperVCollector"},
+                    new Pulumi.Alias { Type = "azurerm:migrate/preview:HyperVCollector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

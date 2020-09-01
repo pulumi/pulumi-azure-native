@@ -76,6 +76,10 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:LinkedService"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20151101preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20190801preview:LinkedService"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:LinkedService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

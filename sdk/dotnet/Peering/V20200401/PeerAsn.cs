@@ -82,6 +82,10 @@ namespace Pulumi.AzureRM.Peering.V20200401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:peering/latest:PeerAsn"},
+                    new Pulumi.Alias { Type = "azurerm:peering/preview:PeerAsn"},
+                    new Pulumi.Alias { Type = "azurerm:peering/v20190801preview:PeerAsn"},
+                    new Pulumi.Alias { Type = "azurerm:peering/v20190901preview:PeerAsn"},
+                    new Pulumi.Alias { Type = "azurerm:peering/v20200101preview:PeerAsn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

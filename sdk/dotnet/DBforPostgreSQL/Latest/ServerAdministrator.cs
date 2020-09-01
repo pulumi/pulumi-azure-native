@@ -75,7 +75,9 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/preview:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201preview:ServerAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -124,6 +124,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:Disk"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:Disk"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:Disk"},
                 },
             };

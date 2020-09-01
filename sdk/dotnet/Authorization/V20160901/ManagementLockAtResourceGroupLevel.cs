@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.Authorization.V20160901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:authorization/latest:ManagementLockAtResourceGroupLevel"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/preview:ManagementLockAtResourceGroupLevel"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20150101:ManagementLockAtResourceGroupLevel"},
                 },
             };

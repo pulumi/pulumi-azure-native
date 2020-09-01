@@ -63,7 +63,9 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/preview:Database"},
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:Database"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

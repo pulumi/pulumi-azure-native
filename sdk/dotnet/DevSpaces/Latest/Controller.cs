@@ -102,6 +102,7 @@ namespace Pulumi.AzureRM.DevSpaces.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:devspaces/preview:Controller"},
                     new Pulumi.Alias { Type = "azurerm:devspaces/v20190401:Controller"},
                 },
             };

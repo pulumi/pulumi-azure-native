@@ -125,7 +125,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerregistry/latest:Task"},
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/preview:Task"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20180901:Task"},
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20190601preview:Task"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

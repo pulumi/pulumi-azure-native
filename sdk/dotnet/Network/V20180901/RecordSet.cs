@@ -130,6 +130,7 @@ namespace Pulumi.AzureRM.Network.V20180901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:RecordSet"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:RecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

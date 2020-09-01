@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:migrate/preview:Assessment"},
                     new Pulumi.Alias { Type = "azurerm:migrate/v20191001:Assessment"},
                 },
             };

@@ -147,6 +147,7 @@ namespace Pulumi.AzureRM.NotificationHubs.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:notificationhubs/preview:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/v20160301:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/v20170401:Namespace"},

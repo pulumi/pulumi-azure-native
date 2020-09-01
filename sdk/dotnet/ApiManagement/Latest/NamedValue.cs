@@ -75,7 +75,9 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:NamedValue"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:NamedValue"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:NamedValue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

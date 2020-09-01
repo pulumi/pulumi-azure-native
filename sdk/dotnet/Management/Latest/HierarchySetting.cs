@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.Management.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:management/preview:HierarchySetting"},
                     new Pulumi.Alias { Type = "azurerm:management/v20200201:HierarchySetting"},
                     new Pulumi.Alias { Type = "azurerm:management/v20200501:HierarchySetting"},
                 },

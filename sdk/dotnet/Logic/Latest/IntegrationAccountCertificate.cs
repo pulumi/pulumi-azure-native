@@ -93,7 +93,10 @@ namespace Pulumi.AzureRM.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:logic/preview:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20150801preview:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20160601:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20190501:IntegrationAccountCertificate"},
                 },
             };

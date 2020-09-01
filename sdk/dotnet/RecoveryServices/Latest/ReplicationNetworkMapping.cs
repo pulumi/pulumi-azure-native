@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:recoveryservices/preview:ReplicationNetworkMapping"},
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/v20160810:ReplicationNetworkMapping"},
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/v20180110:ReplicationNetworkMapping"},
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/v20180710:ReplicationNetworkMapping"},

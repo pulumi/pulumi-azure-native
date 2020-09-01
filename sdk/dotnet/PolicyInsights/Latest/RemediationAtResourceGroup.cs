@@ -99,6 +99,8 @@ namespace Pulumi.AzureRM.PolicyInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:policyinsights/preview:RemediationAtResourceGroup"},
+                    new Pulumi.Alias { Type = "azurerm:policyinsights/v20180701preview:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azurerm:policyinsights/v20190701:RemediationAtResourceGroup"},
                 },
             };

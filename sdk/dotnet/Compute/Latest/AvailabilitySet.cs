@@ -99,8 +99,10 @@ namespace Pulumi.AzureRM.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:compute/preview:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20150615:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20160330:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20170330:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20171201:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180401:AvailabilitySet"},

@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.Compute.V20190701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:compute/latest:DiskEncryptionSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/preview:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191101:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20200501:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20200630:DiskEncryptionSet"},

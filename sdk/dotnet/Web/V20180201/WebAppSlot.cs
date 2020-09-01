@@ -302,6 +302,7 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppSlot"},

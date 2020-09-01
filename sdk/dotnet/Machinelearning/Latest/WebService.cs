@@ -69,6 +69,8 @@ namespace Pulumi.AzureRM.MachineLearning.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:machinelearning/preview:WebService"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearning/v20160501preview:WebService"},
                     new Pulumi.Alias { Type = "azurerm:machinelearning/v20170101:WebService"},
                 },
             };

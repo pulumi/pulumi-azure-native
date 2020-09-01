@@ -93,6 +93,7 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:customerinsights/preview:Hub"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:Hub"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170426:Hub"},
                 },

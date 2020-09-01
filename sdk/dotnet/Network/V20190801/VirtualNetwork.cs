@@ -130,6 +130,8 @@ namespace Pulumi.AzureRM.Network.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20150501preview:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:VirtualNetwork"},

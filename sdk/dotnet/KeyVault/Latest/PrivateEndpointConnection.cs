@@ -81,8 +81,10 @@ namespace Pulumi.AzureRM.KeyVault.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:keyvault/preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:keyvault/v20180214:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:keyvault/v20190901:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:keyvault/v20200401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

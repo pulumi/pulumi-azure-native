@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppDeployment"},

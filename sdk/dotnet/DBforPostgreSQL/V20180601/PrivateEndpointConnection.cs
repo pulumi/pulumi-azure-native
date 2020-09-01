@@ -70,6 +70,8 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbforpostgresql/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

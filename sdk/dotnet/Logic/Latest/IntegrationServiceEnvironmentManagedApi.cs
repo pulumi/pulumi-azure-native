@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:logic/preview:IntegrationServiceEnvironmentManagedApi"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20190501:IntegrationServiceEnvironmentManagedApi"},
                 },
             };

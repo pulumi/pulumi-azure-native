@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:servicebus/preview:Rule"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:Rule"},
                 },
             };

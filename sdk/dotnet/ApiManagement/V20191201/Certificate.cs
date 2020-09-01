@@ -70,11 +70,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

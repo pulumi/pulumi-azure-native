@@ -69,10 +69,12 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:TableResourceTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:TableResourceTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:TableResourceTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:TableResourceTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:TableResourceTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

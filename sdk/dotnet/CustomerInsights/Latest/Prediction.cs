@@ -153,6 +153,7 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:customerinsights/preview:Prediction"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170426:Prediction"},
                 },
             };

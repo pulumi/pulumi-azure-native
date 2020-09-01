@@ -76,6 +76,9 @@ namespace Pulumi.AzureRM.Sql.V20140401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:sql/latest:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azurerm:sql/preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azurerm:sql/v20180601preview:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azurerm:sql/v20190601preview:ServerAzureADAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

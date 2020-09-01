@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20140901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/latest:NotificationHub"},
+                    new Pulumi.Alias { Type = "azurerm:notificationhubs/preview:NotificationHub"},
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/v20160301:NotificationHub"},
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/v20170401:NotificationHub"},
                 },

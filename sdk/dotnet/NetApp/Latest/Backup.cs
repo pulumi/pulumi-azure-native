@@ -87,6 +87,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:netapp/preview:Backup"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20200601:Backup"},
                 },
             };

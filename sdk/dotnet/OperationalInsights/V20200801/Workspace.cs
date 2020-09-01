@@ -118,6 +118,9 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:Workspace"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20151101preview:Workspace"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -73,6 +73,7 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppPrivateEndpointConnection"},
                 },
             };

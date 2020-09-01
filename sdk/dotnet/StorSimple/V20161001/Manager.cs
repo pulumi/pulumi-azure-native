@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:Manager"},
+                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:Manager"},
                     new Pulumi.Alias { Type = "azurerm:storsimple/v20170601:Manager"},
                 },
             };

@@ -87,7 +87,10 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/preview:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20170228preview:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20171115:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20180815preview:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20200515:ReferenceDataSet"},
                 },
             };

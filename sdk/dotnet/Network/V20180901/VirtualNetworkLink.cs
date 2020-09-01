@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.Network.V20180901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:VirtualNetworkLink"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualNetworkLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

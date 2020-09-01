@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Compute.V20190701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:compute/latest:DedicatedHostGroup"},
+                    new Pulumi.Alias { Type = "azurerm:compute/preview:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190301:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191201:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20200601:DedicatedHostGroup"},

@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteSourceControl"},

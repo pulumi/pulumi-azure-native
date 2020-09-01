@@ -52,6 +52,10 @@ namespace Pulumi.AzureRM.Cache.Latest
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// List of the Redis instances associated with the cache
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RedisInstanceDetailsResponseResult> Instances;
+        /// <summary>
         /// List of the linked servers associated with the cache
         /// </summary>
         public readonly ImmutableArray<Outputs.RedisLinkedServerResponseResult> LinkedServers;
@@ -83,6 +87,10 @@ namespace Pulumi.AzureRM.Cache.Latest
         /// Redis version.
         /// </summary>
         public readonly string RedisVersion;
+        /// <summary>
+        /// The number of replicas to be created per master.
+        /// </summary>
+        public readonly int? ReplicasPerMaster;
         /// <summary>
         /// The number of shards to be created on a Premium Cluster Cache.
         /// </summary>
@@ -128,6 +136,8 @@ namespace Pulumi.AzureRM.Cache.Latest
 
             string hostName,
 
+            ImmutableArray<Outputs.RedisInstanceDetailsResponseResult> instances,
+
             ImmutableArray<Outputs.RedisLinkedServerResponseResult> linkedServers,
 
             string location,
@@ -143,6 +153,8 @@ namespace Pulumi.AzureRM.Cache.Latest
             ImmutableDictionary<string, string>? redisConfiguration,
 
             string redisVersion,
+
+            int? replicasPerMaster,
 
             int? shardCount,
 
@@ -165,6 +177,7 @@ namespace Pulumi.AzureRM.Cache.Latest
             AccessKeys = accessKeys;
             EnableNonSslPort = enableNonSslPort;
             HostName = hostName;
+            Instances = instances;
             LinkedServers = linkedServers;
             Location = location;
             MinimumTlsVersion = minimumTlsVersion;
@@ -173,6 +186,7 @@ namespace Pulumi.AzureRM.Cache.Latest
             ProvisioningState = provisioningState;
             RedisConfiguration = redisConfiguration;
             RedisVersion = redisVersion;
+            ReplicasPerMaster = replicasPerMaster;
             ShardCount = shardCount;
             Sku = sku;
             SslPort = sslPort;

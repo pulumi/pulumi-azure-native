@@ -99,6 +99,7 @@ namespace Pulumi.AzureRM.Consumption.V20180831
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:consumption/v20171230preview:Budget"},
                     new Pulumi.Alias { Type = "azurerm:consumption/v20180131:Budget"},
                     new Pulumi.Alias { Type = "azurerm:consumption/v20180331:Budget"},
                     new Pulumi.Alias { Type = "azurerm:consumption/v20180630:Budget"},

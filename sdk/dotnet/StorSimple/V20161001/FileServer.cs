@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:FileServer"},
+                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:FileServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

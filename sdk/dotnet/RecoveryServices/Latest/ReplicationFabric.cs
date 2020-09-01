@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:recoveryservices/preview:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/v20160810:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/v20180110:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/v20180710:ReplicationFabric"},

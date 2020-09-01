@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualWan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180401:VirtualWan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180601:VirtualWan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180701:VirtualWan"},

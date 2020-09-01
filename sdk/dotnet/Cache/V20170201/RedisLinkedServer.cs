@@ -76,8 +76,10 @@ namespace Pulumi.AzureRM.Cache.V20170201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cache/latest:RedisLinkedServer"},
+                    new Pulumi.Alias { Type = "azurerm:cache/preview:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20171001:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20180301:RedisLinkedServer"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20190701:RedisLinkedServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

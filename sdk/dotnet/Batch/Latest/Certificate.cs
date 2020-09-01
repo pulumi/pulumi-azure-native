@@ -102,6 +102,7 @@ namespace Pulumi.AzureRM.Batch.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:batch/preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20170901:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20181201:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20190401:Certificate"},

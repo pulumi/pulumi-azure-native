@@ -45,6 +45,7 @@ namespace Pulumi.AzureRM.Portal.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:portal/preview:ConsoleWithLocation"},
                     new Pulumi.Alias { Type = "azurerm:portal/v20181001:ConsoleWithLocation"},
                 },
             };

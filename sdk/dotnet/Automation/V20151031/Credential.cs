@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:automation/latest:Credential"},
+                    new Pulumi.Alias { Type = "azurerm:automation/preview:Credential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

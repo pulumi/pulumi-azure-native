@@ -124,6 +124,8 @@ namespace Pulumi.AzureRM.Security.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:security/latest:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azurerm:security/preview:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azurerm:security/v20170801preview:IotSecuritySolution"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

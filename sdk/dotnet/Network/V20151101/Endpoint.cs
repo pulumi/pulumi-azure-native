@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.Network.V20151101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:Endpoint"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170301:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170501:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180201:Endpoint"},

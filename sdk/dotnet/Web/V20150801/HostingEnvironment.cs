@@ -251,6 +251,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:HostingEnvironment"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:HostingEnvironment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160901:HostingEnvironment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:HostingEnvironment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:HostingEnvironment"},

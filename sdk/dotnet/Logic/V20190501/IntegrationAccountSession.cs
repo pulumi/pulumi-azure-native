@@ -82,7 +82,9 @@ namespace Pulumi.AzureRM.Logic.V20190501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:IntegrationAccountSession"},
+                    new Pulumi.Alias { Type = "azurerm:logic/preview:IntegrationAccountSession"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20160601:IntegrationAccountSession"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:IntegrationAccountSession"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

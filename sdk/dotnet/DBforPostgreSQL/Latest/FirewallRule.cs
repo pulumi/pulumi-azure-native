@@ -63,7 +63,9 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201:FirewallRule"},
+                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

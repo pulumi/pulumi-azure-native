@@ -148,10 +148,12 @@ namespace Pulumi.AzureRM.Cache.V20170201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cache/latest:Redis"},
+                    new Pulumi.Alias { Type = "azurerm:cache/preview:Redis"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20150801:Redis"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20160401:Redis"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20171001:Redis"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20180301:Redis"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20190701:Redis"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -107,6 +107,8 @@ namespace Pulumi.AzureRM.DataShare.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:datashare/preview:Invitation"},
+                    new Pulumi.Alias { Type = "azurerm:datashare/v20181101preview:Invitation"},
                     new Pulumi.Alias { Type = "azurerm:datashare/v20191101:Invitation"},
                 },
             };

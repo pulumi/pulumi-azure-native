@@ -91,6 +91,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:SiteRelayServiceConnection"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:SiteRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteRelayServiceConnection"},

@@ -67,9 +67,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:CassandraResourceCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:CassandraResourceCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:CassandraResourceCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

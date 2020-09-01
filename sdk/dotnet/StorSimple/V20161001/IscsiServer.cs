@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:IscsiServer"},
+                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:IscsiServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

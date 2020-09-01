@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:BackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

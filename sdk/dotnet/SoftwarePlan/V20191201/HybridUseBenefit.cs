@@ -82,6 +82,8 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20191201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:softwareplan/latest:HybridUseBenefit"},
+                    new Pulumi.Alias { Type = "azurerm:softwareplan/preview:HybridUseBenefit"},
+                    new Pulumi.Alias { Type = "azurerm:softwareplan/v20190601preview:HybridUseBenefit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -93,6 +93,7 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/preview:NetworkProfile"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180801:NetworkProfile"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181001:NetworkProfile"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181101:NetworkProfile"},

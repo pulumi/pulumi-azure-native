@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cognitiveservices/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:cognitiveservices/preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

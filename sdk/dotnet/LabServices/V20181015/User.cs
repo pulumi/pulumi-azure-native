@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:labservices/latest:User"},
+                    new Pulumi.Alias { Type = "azurerm:labservices/preview:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

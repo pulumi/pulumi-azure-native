@@ -57,7 +57,9 @@ namespace Pulumi.AzureRM.Search.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:search/preview:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azurerm:search/v20200801:SharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azurerm:search/v20200801preview:SharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:insights/preview:Favorite"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20150501:Favorite"},
                 },
             };

@@ -64,6 +64,8 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datafactory/latest:Trigger"},
+                    new Pulumi.Alias { Type = "azurerm:datafactory/preview:Trigger"},
+                    new Pulumi.Alias { Type = "azurerm:datafactory/v20170901preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

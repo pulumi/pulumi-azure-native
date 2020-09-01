@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.EventHub.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:eventhub/latest:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azurerm:eventhub/preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20140901:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:NamespaceAuthorizationRule"},
                 },

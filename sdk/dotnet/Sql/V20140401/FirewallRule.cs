@@ -76,6 +76,8 @@ namespace Pulumi.AzureRM.Sql.V20140401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:sql/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azurerm:sql/preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azurerm:sql/v20150501preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

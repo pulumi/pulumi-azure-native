@@ -88,6 +88,8 @@ namespace Pulumi.AzureRM.HealthcareApis.V20190916
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:healthcareapis/latest:Service"},
+                    new Pulumi.Alias { Type = "azurerm:healthcareapis/preview:Service"},
+                    new Pulumi.Alias { Type = "azurerm:healthcareapis/v20180820preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

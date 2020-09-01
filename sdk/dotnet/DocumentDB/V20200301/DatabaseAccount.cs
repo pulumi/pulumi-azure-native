@@ -190,6 +190,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccount"},
@@ -198,6 +199,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:DatabaseAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

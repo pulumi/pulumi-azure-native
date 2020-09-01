@@ -93,6 +93,8 @@ namespace Pulumi.AzureRM.CognitiveServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:cognitiveservices/preview:Account"},
+                    new Pulumi.Alias { Type = "azurerm:cognitiveservices/v20160201preview:Account"},
                     new Pulumi.Alias { Type = "azurerm:cognitiveservices/v20170418:Account"},
                 },
             };

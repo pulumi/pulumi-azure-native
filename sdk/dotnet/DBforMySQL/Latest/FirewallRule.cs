@@ -63,7 +63,9 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:FirewallRule"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -99,10 +99,13 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:ApiDiagnostic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

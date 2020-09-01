@@ -148,11 +148,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Api"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:Api"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Api"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Api"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Api"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Api"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Api"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Api"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:Api"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

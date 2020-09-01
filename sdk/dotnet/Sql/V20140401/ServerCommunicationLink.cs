@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.Sql.V20140401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:sql/latest:ServerCommunicationLink"},
+                    new Pulumi.Alias { Type = "azurerm:sql/preview:ServerCommunicationLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

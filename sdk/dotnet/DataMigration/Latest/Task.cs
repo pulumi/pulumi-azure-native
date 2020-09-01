@@ -63,7 +63,12 @@ namespace Pulumi.AzureRM.DataMigration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:datamigration/preview:Task"},
+                    new Pulumi.Alias { Type = "azurerm:datamigration/v20171115preview:Task"},
+                    new Pulumi.Alias { Type = "azurerm:datamigration/v20180315preview:Task"},
+                    new Pulumi.Alias { Type = "azurerm:datamigration/v20180331preview:Task"},
                     new Pulumi.Alias { Type = "azurerm:datamigration/v20180419:Task"},
+                    new Pulumi.Alias { Type = "azurerm:datamigration/v20180715preview:Task"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

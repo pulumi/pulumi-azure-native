@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:sql/preview:ServerCommunicationLink"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20140401:ServerCommunicationLink"},
                 },
             };

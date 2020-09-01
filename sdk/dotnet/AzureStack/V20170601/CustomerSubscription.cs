@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:azurestack/latest:CustomerSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:azurestack/preview:CustomerSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

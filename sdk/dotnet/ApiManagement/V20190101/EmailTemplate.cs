@@ -88,9 +88,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:EmailTemplate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:EmailTemplate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:EmailTemplate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:EmailTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

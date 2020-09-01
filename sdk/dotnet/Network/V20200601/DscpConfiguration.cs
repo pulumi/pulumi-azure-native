@@ -130,6 +130,7 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:DscpConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:DscpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

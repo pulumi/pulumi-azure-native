@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:StorageDomain"},
+                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:StorageDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

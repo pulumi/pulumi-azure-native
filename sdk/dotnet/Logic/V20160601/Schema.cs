@@ -124,6 +124,9 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:Schema"},
+                    new Pulumi.Alias { Type = "azurerm:logic/preview:Schema"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20150801preview:Schema"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:Schema"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20190501:Schema"},
                 },
             };

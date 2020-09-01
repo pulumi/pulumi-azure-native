@@ -117,6 +117,10 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:virtualmachineimages/preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azurerm:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azurerm:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"},
+                    new Pulumi.Alias { Type = "azurerm:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azurerm:virtualmachineimages/v20200214:VirtualMachineImageTemplate"},
                 },
             };

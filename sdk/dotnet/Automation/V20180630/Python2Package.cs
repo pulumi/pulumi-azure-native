@@ -136,6 +136,7 @@ namespace Pulumi.AzureRM.Automation.V20180630
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:automation/latest:Python2Package"},
+                    new Pulumi.Alias { Type = "azurerm:automation/preview:Python2Package"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

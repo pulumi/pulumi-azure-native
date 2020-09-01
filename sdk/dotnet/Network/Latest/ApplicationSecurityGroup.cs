@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/preview:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170901:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20171001:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20171101:ApplicationSecurityGroup"},
