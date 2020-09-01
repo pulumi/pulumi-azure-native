@@ -61,6 +61,9 @@ func NewIdentityProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/latest:IdentityProvider"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:IdentityProvider"),
 		},
 		{

@@ -72,6 +72,8 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:GatewayHostnameConfiguration")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayHostnameConfiguration, __self__).__init__(
             'azurerm:apimanagement/v20191201:GatewayHostnameConfiguration',
             resource_name,

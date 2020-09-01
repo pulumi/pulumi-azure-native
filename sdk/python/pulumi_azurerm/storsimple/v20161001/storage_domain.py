@@ -73,6 +73,8 @@ class StorageDomain(pulumi.CustomResource):
             __props__['storage_domain_name'] = storage_domain_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/latest:StorageDomain")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageDomain, __self__).__init__(
             'azurerm:storsimple/v20161001:StorageDomain',
             resource_name,

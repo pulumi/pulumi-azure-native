@@ -57,6 +57,9 @@ func NewOuContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:aad/latest:OuContainer"),
+		},
+		{
 			Type: pulumi.String("azurerm:aad/v20170601:OuContainer"),
 		},
 	})

@@ -61,6 +61,21 @@ func NewBackend(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/latest:Backend"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20160707:Backend"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20161010:Backend"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20170301:Backend"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:Backend"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:Backend"),
 		},
 	})

@@ -47,6 +47,12 @@ func NewBotConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &BotConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:botservice/latest:BotConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BotConnection
 	err := ctx.RegisterResource("azurerm:botservice/v20200602:BotConnection", name, args, &resource, opts...)
 	if err != nil {

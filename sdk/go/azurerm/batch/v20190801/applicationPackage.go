@@ -52,6 +52,21 @@ func NewApplicationPackage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:batch/latest:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20151201:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20170101:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20170501:ApplicationPackage"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20170901:ApplicationPackage"),
+		},
+		{
 			Type: pulumi.String("azurerm:batch/v20181201:ApplicationPackage"),
 		},
 		{

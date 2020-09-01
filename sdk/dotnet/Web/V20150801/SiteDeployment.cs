@@ -123,6 +123,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/latest:SiteDeployment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteDeployment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteDeployment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteDeployment"},

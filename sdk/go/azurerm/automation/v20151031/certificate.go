@@ -53,6 +53,12 @@ func NewCertificate(ctx *pulumi.Context,
 	if args == nil {
 		args = &CertificateArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:Certificate"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Certificate
 	err := ctx.RegisterResource("azurerm:automation/v20151031:Certificate", name, args, &resource, opts...)
 	if err != nil {

@@ -61,6 +61,12 @@ func NewMyWorkbook(ctx *pulumi.Context,
 	if args == nil {
 		args = &MyWorkbookArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:MyWorkbook"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MyWorkbook
 	err := ctx.RegisterResource("azurerm:insights/v20150501:MyWorkbook", name, args, &resource, opts...)
 	if err != nil {

@@ -52,6 +52,12 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &SnapshotPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:netapp/latest:snapshotPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SnapshotPolicy
 	err := ctx.RegisterResource("azurerm:netapp/v20200601:snapshotPolicy", name, args, &resource, opts...)
 	if err != nil {

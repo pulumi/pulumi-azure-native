@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:servicebus/latest:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:Namespace"},
                 },

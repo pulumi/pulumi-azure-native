@@ -57,6 +57,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ProductPolicy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ProductPolicy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ProductPolicy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ProductPolicy"},

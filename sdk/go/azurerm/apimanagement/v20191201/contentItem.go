@@ -38,6 +38,12 @@ func NewContentItem(ctx *pulumi.Context,
 	if args == nil {
 		args = &ContentItemArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/latest:ContentItem"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ContentItem
 	err := ctx.RegisterResource("azurerm:apimanagement/v20191201:ContentItem", name, args, &resource, opts...)
 	if err != nil {

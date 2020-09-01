@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Group"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Group"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Group"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Group"},

@@ -72,6 +72,12 @@ func NewSchedule(ctx *pulumi.Context,
 	if args == nil {
 		args = &ScheduleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:Schedule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Schedule
 	err := ctx.RegisterResource("azurerm:automation/v20151031:Schedule", name, args, &resource, opts...)
 	if err != nil {

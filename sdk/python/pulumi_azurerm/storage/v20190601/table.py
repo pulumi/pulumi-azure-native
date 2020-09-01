@@ -58,6 +58,8 @@ class Table(pulumi.CustomResource):
             __props__['table_name'] = table_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/latest:Table")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Table, __self__).__init__(
             'azurerm:storage/v20190601:Table',
             resource_name,

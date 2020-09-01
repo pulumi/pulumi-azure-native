@@ -47,6 +47,12 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &StorageAccountArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databoxedge/latest:StorageAccount"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource StorageAccount
 	err := ctx.RegisterResource("azurerm:databoxedge/v20190801:StorageAccount", name, args, &resource, opts...)
 	if err != nil {

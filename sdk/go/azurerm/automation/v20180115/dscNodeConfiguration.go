@@ -55,6 +55,9 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:automation/latest:DscNodeConfiguration"),
+		},
+		{
 			Type: pulumi.String("azurerm:automation/v20151031:DscNodeConfiguration"),
 		},
 	})

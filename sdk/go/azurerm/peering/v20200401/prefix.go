@@ -49,6 +49,12 @@ func NewPrefix(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrefixArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:peering/latest:Prefix"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Prefix
 	err := ctx.RegisterResource("azurerm:peering/v20200401:Prefix", name, args, &resource, opts...)
 	if err != nil {

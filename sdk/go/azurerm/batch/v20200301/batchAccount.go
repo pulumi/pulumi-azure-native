@@ -66,6 +66,9 @@ func NewBatchAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:batch/latest:BatchAccount"),
+		},
+		{
 			Type: pulumi.String("azurerm:batch/v20151201:BatchAccount"),
 		},
 		{

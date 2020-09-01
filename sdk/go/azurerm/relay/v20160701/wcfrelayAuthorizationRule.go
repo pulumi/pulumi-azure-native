@@ -43,6 +43,15 @@ func NewWCFRelayAuthorizationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &WCFRelayAuthorizationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:relay/latest:WCFRelayAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:relay/v20170401:WCFRelayAuthorizationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WCFRelayAuthorizationRule
 	err := ctx.RegisterResource("azurerm:relay/v20160701:WCFRelayAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

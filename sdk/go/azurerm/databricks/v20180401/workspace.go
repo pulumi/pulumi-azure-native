@@ -66,6 +66,12 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkspaceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databricks/latest:Workspace"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Workspace
 	err := ctx.RegisterResource("azurerm:databricks/v20180401:Workspace", name, args, &resource, opts...)
 	if err != nil {

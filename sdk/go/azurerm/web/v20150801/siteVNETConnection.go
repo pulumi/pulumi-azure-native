@@ -59,6 +59,9 @@ func NewSiteVNETConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:SiteVNETConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160801:SiteVNETConnection"),
 		},
 		{

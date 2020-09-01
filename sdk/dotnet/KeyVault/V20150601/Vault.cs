@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.KeyVault.V20150601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:keyvault/latest:Vault"},
                     new Pulumi.Alias { Type = "azurerm:keyvault/v20161001:Vault"},
                     new Pulumi.Alias { Type = "azurerm:keyvault/v20180214:Vault"},
                     new Pulumi.Alias { Type = "azurerm:keyvault/v20190901:Vault"},

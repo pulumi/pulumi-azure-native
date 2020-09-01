@@ -71,6 +71,9 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:servicefabric/latest:Service"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicefabric/v20190301:Service"),
 		},
 	})

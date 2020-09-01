@@ -118,7 +118,7 @@ export class Asset extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/v20200501:Asset" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:Asset" }, { type: "azurerm:media/v20200501:Asset" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Asset.__pulumiType, name, inputs, opts);
     }

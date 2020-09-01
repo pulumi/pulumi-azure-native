@@ -45,13 +45,7 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:recoveryservices/v20161201:ProtectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azurerm:recoveryservices/v20190513:ProtectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azurerm:recoveryservices/v20190615:ProtectionPolicy"),
+			Type: pulumi.String("azurerm:recoveryservices/latest:ProtectionPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

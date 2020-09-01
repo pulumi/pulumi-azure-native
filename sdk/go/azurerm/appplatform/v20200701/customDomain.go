@@ -40,6 +40,12 @@ func NewCustomDomain(ctx *pulumi.Context,
 	if args == nil {
 		args = &CustomDomainArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:appplatform/latest:CustomDomain"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CustomDomain
 	err := ctx.RegisterResource("azurerm:appplatform/v20200701:CustomDomain", name, args, &resource, opts...)
 	if err != nil {

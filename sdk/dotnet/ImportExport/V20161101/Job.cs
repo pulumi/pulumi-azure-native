@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.ImportExport.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:importexport/latest:Job"},
                     new Pulumi.Alias { Type = "azurerm:importexport/v20200801:Job"},
                 },
             };

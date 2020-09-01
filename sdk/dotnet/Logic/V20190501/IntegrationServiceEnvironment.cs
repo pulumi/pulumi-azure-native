@@ -73,6 +73,10 @@ namespace Pulumi.AzureRM.Logic.V20190501
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azurerm:logic/latest:IntegrationServiceEnvironment"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

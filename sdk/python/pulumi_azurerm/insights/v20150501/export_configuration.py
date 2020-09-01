@@ -95,6 +95,8 @@ class ExportConfiguration(pulumi.CustomResource):
             __props__['resource_group'] = None
             __props__['storage_name'] = None
             __props__['subscription_id'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:ExportConfiguration")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExportConfiguration, __self__).__init__(
             'azurerm:insights/v20150501:ExportConfiguration',
             resource_name,

@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20161201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/v20160601:ProtectionContainer"},
+                    new Pulumi.Alias { Type = "azurerm:recoveryservices/latest:ProtectionContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

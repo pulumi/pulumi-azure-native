@@ -53,6 +53,12 @@ func NewExperiment(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExperimentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/latest:Experiment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Experiment
 	err := ctx.RegisterResource("azurerm:network/v20191101:Experiment", name, args, &resource, opts...)
 	if err != nil {

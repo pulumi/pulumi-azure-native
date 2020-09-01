@@ -109,6 +109,8 @@ export class MigrationConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/latest:MigrationConfig" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MigrationConfig.__pulumiType, name, inputs, opts);
     }
 }

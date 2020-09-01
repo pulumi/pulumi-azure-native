@@ -105,6 +105,12 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedHostingEnvironmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/latest:ManagedHostingEnvironment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedHostingEnvironment
 	err := ctx.RegisterResource("azurerm:web/v20150801:ManagedHostingEnvironment", name, args, &resource, opts...)
 	if err != nil {

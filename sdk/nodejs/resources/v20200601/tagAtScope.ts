@@ -80,7 +80,7 @@ export class TagAtScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:resources/v20191001:TagAtScope" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:resources/latest:TagAtScope" }, { type: "azurerm:resources/v20191001:TagAtScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagAtScope.__pulumiType, name, inputs, opts);
     }

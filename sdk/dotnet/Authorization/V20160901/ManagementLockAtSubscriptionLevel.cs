@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.Authorization.V20160901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:authorization/latest:ManagementLockAtSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20150101:ManagementLockAtSubscriptionLevel"},
                 },
             };

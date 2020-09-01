@@ -44,6 +44,12 @@ func NewGatewayHostnameConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &GatewayHostnameConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/latest:GatewayHostnameConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource GatewayHostnameConfiguration
 	err := ctx.RegisterResource("azurerm:apimanagement/v20191201:GatewayHostnameConfiguration", name, args, &resource, opts...)
 	if err != nil {

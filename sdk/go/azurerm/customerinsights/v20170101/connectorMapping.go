@@ -79,6 +79,9 @@ func NewConnectorMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:customerinsights/latest:ConnectorMapping"),
+		},
+		{
 			Type: pulumi.String("azurerm:customerinsights/v20170426:ConnectorMapping"),
 		},
 	})

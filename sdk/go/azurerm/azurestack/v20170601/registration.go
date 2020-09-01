@@ -50,6 +50,12 @@ func NewRegistration(ctx *pulumi.Context,
 	if args == nil {
 		args = &RegistrationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:azurestack/latest:Registration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Registration
 	err := ctx.RegisterResource("azurerm:azurestack/v20170601:Registration", name, args, &resource, opts...)
 	if err != nil {

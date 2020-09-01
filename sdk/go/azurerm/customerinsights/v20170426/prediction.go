@@ -90,6 +90,12 @@ func NewPrediction(ctx *pulumi.Context,
 	if args == nil {
 		args = &PredictionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:customerinsights/latest:Prediction"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Prediction
 	err := ctx.RegisterResource("azurerm:customerinsights/v20170426:Prediction", name, args, &resource, opts...)
 	if err != nil {

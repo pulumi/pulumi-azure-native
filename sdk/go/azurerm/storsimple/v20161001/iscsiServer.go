@@ -54,6 +54,12 @@ func NewIscsiServer(ctx *pulumi.Context,
 	if args == nil {
 		args = &IscsiServerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/latest:IscsiServer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IscsiServer
 	err := ctx.RegisterResource("azurerm:storsimple/v20161001:IscsiServer", name, args, &resource, opts...)
 	if err != nil {

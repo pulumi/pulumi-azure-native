@@ -119,7 +119,7 @@ export class NotificationChannel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/v20180915:NotificationChannel" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:NotificationChannel" }, { type: "azurerm:devtestlab/v20180915:NotificationChannel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotificationChannel.__pulumiType, name, inputs, opts);
     }

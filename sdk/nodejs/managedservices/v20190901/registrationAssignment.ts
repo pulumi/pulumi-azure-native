@@ -81,7 +81,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:managedservices/v20190601:RegistrationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:managedservices/latest:RegistrationAssignment" }, { type: "azurerm:managedservices/v20190601:RegistrationAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegistrationAssignment.__pulumiType, name, inputs, opts);
     }

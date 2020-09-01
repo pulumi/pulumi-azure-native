@@ -27,6 +27,12 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &TrafficManagerUserMetricsKeyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/latest:TrafficManagerUserMetricsKey"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TrafficManagerUserMetricsKey
 	err := ctx.RegisterResource("azurerm:network/v20180401:TrafficManagerUserMetricsKey", name, args, &resource, opts...)
 	if err != nil {

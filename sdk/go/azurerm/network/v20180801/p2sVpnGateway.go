@@ -55,6 +55,9 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:P2sVpnGateway"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20181001:P2sVpnGateway"),
 		},
 		{

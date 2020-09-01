@@ -117,6 +117,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:logic/latest:Agreement"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20190501:Agreement"},
                 },
             };

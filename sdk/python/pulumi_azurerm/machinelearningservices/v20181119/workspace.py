@@ -88,7 +88,7 @@ class Workspace(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['workspace_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningservices/v20190501:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20190601:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20191101:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200101:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200301:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200401:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200601:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningservices/latest:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20190501:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20190601:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20191101:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200101:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200301:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200401:Workspace"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200601:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azurerm:machinelearningservices/v20181119:Workspace',

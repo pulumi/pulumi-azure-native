@@ -43,6 +43,12 @@ func NewOutput(ctx *pulumi.Context,
 	if args == nil {
 		args = &OutputArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:streamanalytics/latest:Output"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Output
 	err := ctx.RegisterResource("azurerm:streamanalytics/v20160301:Output", name, args, &resource, opts...)
 	if err != nil {

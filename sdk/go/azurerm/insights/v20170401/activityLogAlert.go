@@ -58,6 +58,12 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	if args == nil {
 		args = &ActivityLogAlertArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:ActivityLogAlert"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ActivityLogAlert
 	err := ctx.RegisterResource("azurerm:insights/v20170401:ActivityLogAlert", name, args, &resource, opts...)
 	if err != nil {

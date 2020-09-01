@@ -134,7 +134,7 @@ export class Policy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cdn/v20190615:Policy" }, { type: "azurerm:cdn/v20200331:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Policy" }, { type: "azurerm:cdn/v20190615:Policy" }, { type: "azurerm:cdn/v20200331:Policy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Policy.__pulumiType, name, inputs, opts);
     }

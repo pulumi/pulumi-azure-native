@@ -42,6 +42,12 @@ func NewDataFlow(ctx *pulumi.Context,
 	if args == nil {
 		args = &DataFlowArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datafactory/latest:DataFlow"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataFlow
 	err := ctx.RegisterResource("azurerm:datafactory/v20180601:DataFlow", name, args, &resource, opts...)
 	if err != nil {

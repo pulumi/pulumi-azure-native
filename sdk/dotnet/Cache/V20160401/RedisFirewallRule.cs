@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.Cache.V20160401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:cache/latest:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20170201:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20171001:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20180301:RedisFirewallRule"},

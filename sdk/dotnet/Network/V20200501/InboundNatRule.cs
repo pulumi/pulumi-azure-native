@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:InboundNatRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170601:InboundNatRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170801:InboundNatRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170901:InboundNatRule"},

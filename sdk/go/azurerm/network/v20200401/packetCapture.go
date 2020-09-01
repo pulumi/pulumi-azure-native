@@ -57,6 +57,9 @@ func NewPacketCapture(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:PacketCapture"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20160901:PacketCapture"),
 		},
 		{

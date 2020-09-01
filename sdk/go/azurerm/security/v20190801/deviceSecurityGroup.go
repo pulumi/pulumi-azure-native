@@ -40,6 +40,12 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &DeviceSecurityGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:security/latest:DeviceSecurityGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DeviceSecurityGroup
 	err := ctx.RegisterResource("azurerm:security/v20190801:DeviceSecurityGroup", name, args, &resource, opts...)
 	if err != nil {

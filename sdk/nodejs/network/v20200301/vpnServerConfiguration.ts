@@ -157,7 +157,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20190801:VpnServerConfiguration" }, { type: "azurerm:network/v20190901:VpnServerConfiguration" }, { type: "azurerm:network/v20191101:VpnServerConfiguration" }, { type: "azurerm:network/v20191201:VpnServerConfiguration" }, { type: "azurerm:network/v20200401:VpnServerConfiguration" }, { type: "azurerm:network/v20200501:VpnServerConfiguration" }, { type: "azurerm:network/v20200601:VpnServerConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VpnServerConfiguration" }, { type: "azurerm:network/v20190801:VpnServerConfiguration" }, { type: "azurerm:network/v20190901:VpnServerConfiguration" }, { type: "azurerm:network/v20191101:VpnServerConfiguration" }, { type: "azurerm:network/v20191201:VpnServerConfiguration" }, { type: "azurerm:network/v20200401:VpnServerConfiguration" }, { type: "azurerm:network/v20200501:VpnServerConfiguration" }, { type: "azurerm:network/v20200601:VpnServerConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VpnServerConfiguration.__pulumiType, name, inputs, opts);
     }

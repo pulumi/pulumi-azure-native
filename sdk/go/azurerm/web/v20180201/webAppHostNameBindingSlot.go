@@ -60,6 +60,9 @@ func NewWebAppHostNameBindingSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:WebAppHostNameBindingSlot"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppHostNameBindingSlot"),
 		},
 		{

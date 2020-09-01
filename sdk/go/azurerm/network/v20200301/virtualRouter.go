@@ -52,6 +52,9 @@ func NewVirtualRouter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:VirtualRouter"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20190701:VirtualRouter"),
 		},
 		{

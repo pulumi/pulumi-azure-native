@@ -41,6 +41,12 @@ func NewSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &SignalRPrivateEndpointConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:signalrservice/latest:SignalRPrivateEndpointConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SignalRPrivateEndpointConnection
 	err := ctx.RegisterResource("azurerm:signalrservice/v20200501:SignalRPrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

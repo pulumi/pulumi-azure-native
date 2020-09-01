@@ -107,7 +107,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20200401:SqlResourceSqlUserDefinedFunction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlUserDefinedFunction.__pulumiType, name, inputs, opts);
     }

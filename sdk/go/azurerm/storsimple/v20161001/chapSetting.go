@@ -43,6 +43,12 @@ func NewChapSetting(ctx *pulumi.Context,
 	if args == nil {
 		args = &ChapSettingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/latest:ChapSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ChapSetting
 	err := ctx.RegisterResource("azurerm:storsimple/v20161001:ChapSetting", name, args, &resource, opts...)
 	if err != nil {

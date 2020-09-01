@@ -91,7 +91,7 @@ class Schema(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20190501:Schema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/latest:Schema"), pulumi.Alias(type_="azurerm:logic/v20190501:Schema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schema, __self__).__init__(
             'azurerm:logic/v20160601:Schema',

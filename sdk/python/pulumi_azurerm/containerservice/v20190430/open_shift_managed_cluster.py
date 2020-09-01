@@ -90,6 +90,8 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['public_hostname'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/latest:OpenShiftManagedCluster")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenShiftManagedCluster, __self__).__init__(
             'azurerm:containerservice/v20190430:OpenShiftManagedCluster',
             resource_name,

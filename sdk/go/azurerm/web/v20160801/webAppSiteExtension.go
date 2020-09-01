@@ -75,6 +75,9 @@ func NewWebAppSiteExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:WebAppSiteExtension"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20180201:WebAppSiteExtension"),
 		},
 		{

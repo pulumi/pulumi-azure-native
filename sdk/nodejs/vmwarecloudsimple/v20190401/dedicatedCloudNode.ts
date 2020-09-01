@@ -178,6 +178,8 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:vmwarecloudsimple/latest:DedicatedCloudNode" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DedicatedCloudNode.__pulumiType, name, inputs, opts);
     }
 }

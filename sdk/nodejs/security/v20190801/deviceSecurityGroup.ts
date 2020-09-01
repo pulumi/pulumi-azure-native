@@ -96,6 +96,8 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:security/latest:DeviceSecurityGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeviceSecurityGroup.__pulumiType, name, inputs, opts);
     }
 }

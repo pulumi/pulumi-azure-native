@@ -64,7 +64,7 @@ class SshPublicKey(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20200601:SshPublicKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/latest:SshPublicKey"), pulumi.Alias(type_="azurerm:compute/v20200601:SshPublicKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SshPublicKey, __self__).__init__(
             'azurerm:compute/v20191201:SshPublicKey',

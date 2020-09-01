@@ -53,6 +53,12 @@ func NewPipeline(ctx *pulumi.Context,
 	if args == nil {
 		args = &PipelineArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datafactory/latest:Pipeline"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Pipeline
 	err := ctx.RegisterResource("azurerm:datafactory/v20180601:Pipeline", name, args, &resource, opts...)
 	if err != nil {

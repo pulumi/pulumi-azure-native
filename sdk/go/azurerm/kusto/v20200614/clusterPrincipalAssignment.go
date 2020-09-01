@@ -60,6 +60,9 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:kusto/latest:ClusterPrincipalAssignment"),
+		},
+		{
 			Type: pulumi.String("azurerm:kusto/v20191109:ClusterPrincipalAssignment"),
 		},
 		{

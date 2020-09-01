@@ -84,6 +84,9 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:certificateregistration/latest:AppServiceCertificateOrder"),
+		},
+		{
 			Type: pulumi.String("azurerm:certificateregistration/v20150801:AppServiceCertificateOrder"),
 		},
 		{

@@ -93,7 +93,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
             __props__['vpn_protocols'] = vpn_protocols
             __props__['p2_s_vpn_gateways'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20180801:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20181001:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20181201:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20190201:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20190401:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20190601:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20190701:P2sVpnServerConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20180801:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20181001:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20181201:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20190201:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20190401:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20190601:P2sVpnServerConfiguration"), pulumi.Alias(type_="azurerm:network/v20190701:P2sVpnServerConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(P2sVpnServerConfiguration, __self__).__init__(
             'azurerm:network/v20181101:P2sVpnServerConfiguration',

@@ -115,7 +115,7 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20160601:IntegrationAccountCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:IntegrationAccountCertificate" }, { type: "azurerm:logic/v20160601:IntegrationAccountCertificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountCertificate.__pulumiType, name, inputs, opts);
     }

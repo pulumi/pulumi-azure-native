@@ -96,6 +96,8 @@ export class CustomApi extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:CustomApi" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomApi.__pulumiType, name, inputs, opts);
     }
 }

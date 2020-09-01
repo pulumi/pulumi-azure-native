@@ -92,6 +92,12 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualMachineArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:vmwarecloudsimple/latest:VirtualMachine"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualMachine
 	err := ctx.RegisterResource("azurerm:vmwarecloudsimple/v20190401:VirtualMachine", name, args, &resource, opts...)
 	if err != nil {

@@ -64,6 +64,12 @@ func NewRecordSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &RecordSetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/latest:RecordSet"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RecordSet
 	err := ctx.RegisterResource("azurerm:network/v20180901:RecordSet", name, args, &resource, opts...)
 	if err != nil {

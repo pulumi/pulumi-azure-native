@@ -135,13 +135,9 @@ namespace Pulumi.AzureRM.Cdn.V20200415
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:cdn/latest:Origin"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20150601:Origin"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20160402:Origin"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20161002:Origin"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20170402:Origin"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20171012:Origin"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20190415:Origin"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Origin"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20191231:Origin"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Origin"},
                 },

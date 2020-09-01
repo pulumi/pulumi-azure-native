@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:CassandraResourceCassandraTable"},

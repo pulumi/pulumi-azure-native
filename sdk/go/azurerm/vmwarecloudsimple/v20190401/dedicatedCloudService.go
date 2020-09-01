@@ -50,6 +50,12 @@ func NewDedicatedCloudService(ctx *pulumi.Context,
 	if args == nil {
 		args = &DedicatedCloudServiceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:vmwarecloudsimple/latest:DedicatedCloudService"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DedicatedCloudService
 	err := ctx.RegisterResource("azurerm:vmwarecloudsimple/v20190401:DedicatedCloudService", name, args, &resource, opts...)
 	if err != nil {

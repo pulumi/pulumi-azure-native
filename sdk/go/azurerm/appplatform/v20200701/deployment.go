@@ -42,6 +42,12 @@ func NewDeployment(ctx *pulumi.Context,
 	if args == nil {
 		args = &DeploymentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:appplatform/latest:Deployment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Deployment
 	err := ctx.RegisterResource("azurerm:appplatform/v20200701:Deployment", name, args, &resource, opts...)
 	if err != nil {

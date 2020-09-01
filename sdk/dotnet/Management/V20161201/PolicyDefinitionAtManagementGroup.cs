@@ -87,11 +87,13 @@ namespace Pulumi.AzureRM.Management.V20161201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:management/latest:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azurerm:management/v20180301:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azurerm:management/v20180501:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azurerm:management/v20190101:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azurerm:management/v20190601:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azurerm:management/v20190901:PolicyDefinitionAtManagementGroup"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20200301:PolicyDefinitionAtManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

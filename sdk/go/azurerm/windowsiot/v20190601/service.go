@@ -48,6 +48,12 @@ func NewService(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServiceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:windowsiot/latest:Service"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Service
 	err := ctx.RegisterResource("azurerm:windowsiot/v20190601:Service", name, args, &resource, opts...)
 	if err != nil {

@@ -93,6 +93,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200301:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200601:SecurityPartnerProvider"},

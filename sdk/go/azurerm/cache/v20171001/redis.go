@@ -74,6 +74,9 @@ func NewRedis(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:cache/latest:Redis"),
+		},
+		{
 			Type: pulumi.String("azurerm:cache/v20150801:Redis"),
 		},
 		{

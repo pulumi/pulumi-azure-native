@@ -46,6 +46,12 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &JitNetworkAccessPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:security/latest:JitNetworkAccessPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource JitNetworkAccessPolicy
 	err := ctx.RegisterResource("azurerm:security/v20200101:JitNetworkAccessPolicy", name, args, &resource, opts...)
 	if err != nil {

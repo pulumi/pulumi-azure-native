@@ -44,6 +44,12 @@ func NewBot(ctx *pulumi.Context,
 	if args == nil {
 		args = &BotArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:botservice/latest:Bot"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Bot
 	err := ctx.RegisterResource("azurerm:botservice/v20200602:Bot", name, args, &resource, opts...)
 	if err != nil {

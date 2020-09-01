@@ -47,6 +47,9 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:servicebus/latest:TopicAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicebus/v20140901:TopicAuthorizationRule"),
 		},
 		{

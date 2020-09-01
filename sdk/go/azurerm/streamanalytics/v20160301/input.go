@@ -37,6 +37,12 @@ func NewInput(ctx *pulumi.Context,
 	if args == nil {
 		args = &InputArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:streamanalytics/latest:Input"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Input
 	err := ctx.RegisterResource("azurerm:streamanalytics/v20160301:Input", name, args, &resource, opts...)
 	if err != nil {

@@ -75,6 +75,11 @@ namespace Pulumi.AzureRM.Batch.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:batch/latest:Application"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20151201:Application"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20170101:Application"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20170501:Application"},
+                    new Pulumi.Alias { Type = "azurerm:batch/v20170901:Application"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20181201:Application"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20190801:Application"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20200301:Application"},

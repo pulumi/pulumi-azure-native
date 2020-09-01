@@ -73,6 +73,8 @@ class ServerAdministrator(pulumi.CustomResource):
             __props__['tenant_id'] = tenant_id
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformysql/latest:ServerAdministrator")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerAdministrator, __self__).__init__(
             'azurerm:dbformysql/v20171201:ServerAdministrator',
             resource_name,

@@ -45,6 +45,12 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedPrivateEndpointArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datafactory/latest:ManagedPrivateEndpoint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedPrivateEndpoint
 	err := ctx.RegisterResource("azurerm:datafactory/v20180601:ManagedPrivateEndpoint", name, args, &resource, opts...)
 	if err != nil {

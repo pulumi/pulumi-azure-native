@@ -129,6 +129,7 @@ namespace Pulumi.AzureRM.NetApp.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:netapp/latest:Volume"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Volume"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190701:Volume"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190801:Volume"},

@@ -38,6 +38,9 @@ func NewResourceGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:resources/latest:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:resources/v20160201:ResourceGroup"),
 		},
 		{

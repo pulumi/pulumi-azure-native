@@ -42,6 +42,12 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	if args == nil {
 		args = &IntegrationRuntimeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datafactory/latest:IntegrationRuntime"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationRuntime
 	err := ctx.RegisterResource("azurerm:datafactory/v20180601:IntegrationRuntime", name, args, &resource, opts...)
 	if err != nil {

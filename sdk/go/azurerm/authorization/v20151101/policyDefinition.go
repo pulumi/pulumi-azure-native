@@ -31,7 +31,31 @@ func NewPolicyDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:authorization/latest:PolicyDefinition"),
+		},
+		{
 			Type: pulumi.String("azurerm:authorization/v20160401:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20161201:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20180301:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20180501:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20190101:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20190601:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20190901:PolicyDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20200301:PolicyDefinition"),
 		},
 	})
 	opts = append(opts, aliases)

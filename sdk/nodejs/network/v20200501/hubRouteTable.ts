@@ -111,7 +111,7 @@ export class HubRouteTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20200401:HubRouteTable" }, { type: "azurerm:network/v20200601:HubRouteTable" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:HubRouteTable" }, { type: "azurerm:network/v20200401:HubRouteTable" }, { type: "azurerm:network/v20200601:HubRouteTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HubRouteTable.__pulumiType, name, inputs, opts);
     }

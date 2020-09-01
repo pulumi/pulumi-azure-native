@@ -52,6 +52,12 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerAdministratorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:dbformysql/latest:ServerAdministrator"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerAdministrator
 	err := ctx.RegisterResource("azurerm:dbformysql/v20171201:ServerAdministrator", name, args, &resource, opts...)
 	if err != nil {

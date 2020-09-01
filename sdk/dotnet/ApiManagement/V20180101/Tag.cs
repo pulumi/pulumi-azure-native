@@ -57,6 +57,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Tag"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Tag"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Tag"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Tag"},

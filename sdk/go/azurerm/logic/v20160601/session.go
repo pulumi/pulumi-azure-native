@@ -47,6 +47,9 @@ func NewSession(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:logic/latest:Session"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20190501:Session"),
 		},
 	})

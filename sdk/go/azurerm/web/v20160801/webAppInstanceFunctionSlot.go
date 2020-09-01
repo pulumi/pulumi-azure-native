@@ -60,6 +60,9 @@ func NewWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:WebAppInstanceFunctionSlot"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20180201:WebAppInstanceFunctionSlot"),
 		},
 		{

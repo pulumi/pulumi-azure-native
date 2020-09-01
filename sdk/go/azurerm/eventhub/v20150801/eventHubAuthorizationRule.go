@@ -47,6 +47,9 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:eventhub/latest:EventHubAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventhub/v20140901:EventHubAuthorizationRule"),
 		},
 		{

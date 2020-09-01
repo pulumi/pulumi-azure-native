@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:media/latest:AccountFilter"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:AccountFilter"},
                 },
             };

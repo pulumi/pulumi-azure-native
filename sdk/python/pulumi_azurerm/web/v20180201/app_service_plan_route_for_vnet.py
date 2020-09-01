@@ -79,7 +79,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20200601:AppServicePlanRouteForVnet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20200601:AppServicePlanRouteForVnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlanRouteForVnet, __self__).__init__(
             'azurerm:web/v20180201:AppServicePlanRouteForVnet',

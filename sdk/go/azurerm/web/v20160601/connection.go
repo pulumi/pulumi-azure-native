@@ -39,6 +39,12 @@ func NewConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/latest:Connection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Connection
 	err := ctx.RegisterResource("azurerm:web/v20160601:Connection", name, args, &resource, opts...)
 	if err != nil {

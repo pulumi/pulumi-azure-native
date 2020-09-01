@@ -57,6 +57,9 @@ func NewDatabaseAccountSqlDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:documentdb/latest:DatabaseAccountSqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20150408:DatabaseAccountSqlDatabase"),
 		},
 		{

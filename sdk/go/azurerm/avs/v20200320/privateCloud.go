@@ -78,6 +78,12 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateCloudArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:avs/latest:PrivateCloud"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateCloud
 	err := ctx.RegisterResource("azurerm:avs/v20200320:PrivateCloud", name, args, &resource, opts...)
 	if err != nil {

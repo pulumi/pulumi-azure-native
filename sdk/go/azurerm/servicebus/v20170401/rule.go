@@ -49,6 +49,12 @@ func NewRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &RuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:servicebus/latest:Rule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Rule
 	err := ctx.RegisterResource("azurerm:servicebus/v20170401:Rule", name, args, &resource, opts...)
 	if err != nil {

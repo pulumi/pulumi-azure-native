@@ -59,6 +59,12 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &ScheduledQueryRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:ScheduledQueryRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ScheduledQueryRule
 	err := ctx.RegisterResource("azurerm:insights/v20180416:ScheduledQueryRule", name, args, &resource, opts...)
 	if err != nil {

@@ -49,6 +49,12 @@ func NewVirtualNetworkLink(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualNetworkLinkArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/latest:VirtualNetworkLink"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualNetworkLink
 	err := ctx.RegisterResource("azurerm:network/v20180901:VirtualNetworkLink", name, args, &resource, opts...)
 	if err != nil {

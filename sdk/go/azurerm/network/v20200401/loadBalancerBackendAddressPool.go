@@ -51,73 +51,7 @@ func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:network/v20170601:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20170801:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20170901:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20171001:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20171101:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20180101:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20180201:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20180401:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20180601:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20180701:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20180801:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20181001:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20181101:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20181201:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20190201:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20190401:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20190601:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20190701:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20190801:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20190901:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20191101:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20191201:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azurerm:network/v20200301:LoadBalancerBackendAddressPool"),
+			Type: pulumi.String("azurerm:network/latest:LoadBalancerBackendAddressPool"),
 		},
 		{
 			Type: pulumi.String("azurerm:network/v20200501:LoadBalancerBackendAddressPool"),

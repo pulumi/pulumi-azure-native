@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Cache"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Cache"},
                 },
             };

@@ -135,6 +135,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/latest:CustomImage"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:CustomImage"},
                 },
             };

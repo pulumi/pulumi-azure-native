@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.EventHub.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:eventhub/latest:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:Namespace"},
                 },

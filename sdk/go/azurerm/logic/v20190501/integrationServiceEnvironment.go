@@ -40,6 +40,12 @@ func NewIntegrationServiceEnvironment(ctx *pulumi.Context,
 	if args == nil {
 		args = &IntegrationServiceEnvironmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/latest:IntegrationServiceEnvironment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationServiceEnvironment
 	err := ctx.RegisterResource("azurerm:logic/v20190501:IntegrationServiceEnvironment", name, args, &resource, opts...)
 	if err != nil {

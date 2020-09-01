@@ -135,6 +135,7 @@ namespace Pulumi.AzureRM.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppInstanceFunctionSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppInstanceFunctionSlot"},

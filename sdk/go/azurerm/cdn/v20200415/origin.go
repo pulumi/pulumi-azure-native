@@ -71,25 +71,13 @@ func NewOrigin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:cdn/latest:Origin"),
+		},
+		{
 			Type: pulumi.String("azurerm:cdn/v20150601:Origin"),
 		},
 		{
 			Type: pulumi.String("azurerm:cdn/v20160402:Origin"),
-		},
-		{
-			Type: pulumi.String("azurerm:cdn/v20161002:Origin"),
-		},
-		{
-			Type: pulumi.String("azurerm:cdn/v20170402:Origin"),
-		},
-		{
-			Type: pulumi.String("azurerm:cdn/v20171012:Origin"),
-		},
-		{
-			Type: pulumi.String("azurerm:cdn/v20190415:Origin"),
-		},
-		{
-			Type: pulumi.String("azurerm:cdn/v20190615:Origin"),
 		},
 		{
 			Type: pulumi.String("azurerm:cdn/v20191231:Origin"),

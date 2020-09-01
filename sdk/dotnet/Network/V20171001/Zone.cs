@@ -87,6 +87,7 @@ namespace Pulumi.AzureRM.Network.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:Zone"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160401:Zone"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170901:Zone"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180501:Zone"},

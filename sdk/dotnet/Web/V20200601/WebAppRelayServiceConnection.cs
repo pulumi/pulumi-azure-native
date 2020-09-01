@@ -78,6 +78,7 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppRelayServiceConnection"},

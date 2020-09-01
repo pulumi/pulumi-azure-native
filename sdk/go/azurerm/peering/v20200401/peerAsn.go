@@ -39,6 +39,12 @@ func NewPeerAsn(ctx *pulumi.Context,
 	if args == nil {
 		args = &PeerAsnArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:peering/latest:PeerAsn"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PeerAsn
 	err := ctx.RegisterResource("azurerm:peering/v20200401:PeerAsn", name, args, &resource, opts...)
 	if err != nil {

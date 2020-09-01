@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:storsimple/latest:AccessControlRecord"},
                     new Pulumi.Alias { Type = "azurerm:storsimple/v20161001:AccessControlRecord"},
                 },
             };

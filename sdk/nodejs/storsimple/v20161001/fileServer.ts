@@ -111,6 +111,8 @@ export class FileServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/latest:FileServer" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServer.__pulumiType, name, inputs, opts);
     }
 }

@@ -50,6 +50,12 @@ func NewCapacityDetails(ctx *pulumi.Context,
 	if args == nil {
 		args = &CapacityDetailsArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:powerbidedicated/latest:CapacityDetails"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CapacityDetails
 	err := ctx.RegisterResource("azurerm:powerbidedicated/v20171001:CapacityDetails", name, args, &resource, opts...)
 	if err != nil {

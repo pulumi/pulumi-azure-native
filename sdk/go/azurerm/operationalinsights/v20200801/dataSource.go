@@ -49,6 +49,12 @@ func NewDataSource(ctx *pulumi.Context,
 	if args == nil {
 		args = &DataSourceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationalinsights/latest:DataSource"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataSource
 	err := ctx.RegisterResource("azurerm:operationalinsights/v20200801:DataSource", name, args, &resource, opts...)
 	if err != nil {

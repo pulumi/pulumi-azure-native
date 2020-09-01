@@ -34,6 +34,12 @@ func NewAlias(ctx *pulumi.Context,
 	if args == nil {
 		args = &AliasArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:subscription/latest:Alias"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Alias
 	err := ctx.RegisterResource("azurerm:subscription/v20200901:Alias", name, args, &resource, opts...)
 	if err != nil {

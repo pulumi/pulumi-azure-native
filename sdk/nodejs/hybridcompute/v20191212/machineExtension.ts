@@ -132,7 +132,7 @@ export class MachineExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/v20200802:MachineExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/latest:MachineExtension" }, { type: "azurerm:hybridcompute/v20200802:MachineExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineExtension.__pulumiType, name, inputs, opts);
     }

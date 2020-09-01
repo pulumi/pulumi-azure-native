@@ -93,6 +93,7 @@ namespace Pulumi.AzureRM.Network.V20180401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:VirtualHub"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180601:VirtualHub"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180701:VirtualHub"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180801:VirtualHub"},

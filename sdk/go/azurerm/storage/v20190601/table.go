@@ -37,6 +37,12 @@ func NewTable(ctx *pulumi.Context,
 	if args == nil {
 		args = &TableArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storage/latest:Table"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Table
 	err := ctx.RegisterResource("azurerm:storage/v20190601:Table", name, args, &resource, opts...)
 	if err != nil {

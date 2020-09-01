@@ -53,6 +53,12 @@ func NewFavorite(ctx *pulumi.Context,
 	if args == nil {
 		args = &FavoriteArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:Favorite"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Favorite
 	err := ctx.RegisterResource("azurerm:insights/v20150501:Favorite", name, args, &resource, opts...)
 	if err != nil {

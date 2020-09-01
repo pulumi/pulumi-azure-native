@@ -67,6 +67,10 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:AlertRuleAction"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

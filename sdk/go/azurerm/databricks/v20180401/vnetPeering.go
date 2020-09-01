@@ -58,6 +58,12 @@ func NewVNetPeering(ctx *pulumi.Context,
 	if args == nil {
 		args = &VNetPeeringArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databricks/latest:vNetPeering"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VNetPeering
 	err := ctx.RegisterResource("azurerm:databricks/v20180401:vNetPeering", name, args, &resource, opts...)
 	if err != nil {

@@ -54,6 +54,9 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storsimple/latest:ManagerExtendedInfo"),
+		},
+		{
 			Type: pulumi.String("azurerm:storsimple/v20170601:ManagerExtendedInfo"),
 		},
 	})

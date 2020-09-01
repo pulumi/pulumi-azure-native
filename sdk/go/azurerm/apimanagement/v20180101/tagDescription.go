@@ -48,10 +48,16 @@ func NewTagDescription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/latest:TagDescription"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:TagDescription"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:TagDescription"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:TagDescription"),
 		},
 	})
 	opts = append(opts, aliases)

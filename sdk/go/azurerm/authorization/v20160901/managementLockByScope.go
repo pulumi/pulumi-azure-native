@@ -41,6 +41,12 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagementLockByScopeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:authorization/latest:ManagementLockByScope"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementLockByScope
 	err := ctx.RegisterResource("azurerm:authorization/v20160901:ManagementLockByScope", name, args, &resource, opts...)
 	if err != nil {

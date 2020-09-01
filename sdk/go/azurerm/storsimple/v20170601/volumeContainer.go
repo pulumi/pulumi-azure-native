@@ -59,6 +59,12 @@ func NewVolumeContainer(ctx *pulumi.Context,
 	if args == nil {
 		args = &VolumeContainerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/latest:VolumeContainer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VolumeContainer
 	err := ctx.RegisterResource("azurerm:storsimple/v20170601:VolumeContainer", name, args, &resource, opts...)
 	if err != nil {

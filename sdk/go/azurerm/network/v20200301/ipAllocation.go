@@ -54,6 +54,9 @@ func NewIpAllocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:IpAllocation"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20200401:IpAllocation"),
 		},
 		{

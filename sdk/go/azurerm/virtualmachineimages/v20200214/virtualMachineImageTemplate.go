@@ -66,6 +66,12 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualMachineImageTemplateArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:virtualmachineimages/latest:VirtualMachineImageTemplate"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualMachineImageTemplate
 	err := ctx.RegisterResource("azurerm:virtualmachineimages/v20200214:VirtualMachineImageTemplate", name, args, &resource, opts...)
 	if err != nil {

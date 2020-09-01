@@ -46,6 +46,12 @@ func NewProtectionIntent(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProtectionIntentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:recoveryservices/latest:ProtectionIntent"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ProtectionIntent
 	err := ctx.RegisterResource("azurerm:recoveryservices/v20170701:ProtectionIntent", name, args, &resource, opts...)
 	if err != nil {

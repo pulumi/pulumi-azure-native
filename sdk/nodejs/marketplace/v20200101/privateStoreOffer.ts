@@ -113,6 +113,8 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:marketplace/latest:PrivateStoreOffer" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateStoreOffer.__pulumiType, name, inputs, opts);
     }
 }

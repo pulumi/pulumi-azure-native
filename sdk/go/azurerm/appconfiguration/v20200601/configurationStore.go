@@ -60,6 +60,9 @@ func NewConfigurationStore(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:appconfiguration/latest:ConfigurationStore"),
+		},
+		{
 			Type: pulumi.String("azurerm:appconfiguration/v20191001:ConfigurationStore"),
 		},
 	})

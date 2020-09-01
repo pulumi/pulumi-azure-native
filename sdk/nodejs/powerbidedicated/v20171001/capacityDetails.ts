@@ -112,6 +112,8 @@ export class CapacityDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:powerbidedicated/latest:CapacityDetails" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CapacityDetails.__pulumiType, name, inputs, opts);
     }
 }

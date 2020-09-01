@@ -47,6 +47,12 @@ func NewStorageDomain(ctx *pulumi.Context,
 	if args == nil {
 		args = &StorageDomainArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/latest:StorageDomain"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource StorageDomain
 	err := ctx.RegisterResource("azurerm:storsimple/v20161001:StorageDomain", name, args, &resource, opts...)
 	if err != nil {

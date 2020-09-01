@@ -165,6 +165,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:customerinsights/latest:Kpi"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170426:Kpi"},
                 },
             };

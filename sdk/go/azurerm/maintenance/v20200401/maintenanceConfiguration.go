@@ -42,6 +42,12 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &MaintenanceConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:maintenance/latest:MaintenanceConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MaintenanceConfiguration
 	err := ctx.RegisterResource("azurerm:maintenance/v20200401:MaintenanceConfiguration", name, args, &resource, opts...)
 	if err != nil {

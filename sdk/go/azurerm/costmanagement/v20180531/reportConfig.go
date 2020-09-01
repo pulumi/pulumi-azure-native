@@ -45,6 +45,12 @@ func NewReportConfig(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReportConfigArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:costmanagement/latest:ReportConfig"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReportConfig
 	err := ctx.RegisterResource("azurerm:costmanagement/v20180531:ReportConfig", name, args, &resource, opts...)
 	if err != nil {

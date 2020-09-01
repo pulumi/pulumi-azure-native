@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20150408
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:DatabaseAccountGremlinDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountGremlinDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountGremlinDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountGremlinDatabase"},

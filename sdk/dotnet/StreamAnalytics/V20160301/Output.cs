@@ -73,6 +73,10 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azurerm:streamanalytics/latest:Output"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

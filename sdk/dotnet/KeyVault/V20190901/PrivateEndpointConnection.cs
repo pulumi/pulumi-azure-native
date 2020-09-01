@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:keyvault/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:keyvault/v20180214:PrivateEndpointConnection"},
                 },
             };

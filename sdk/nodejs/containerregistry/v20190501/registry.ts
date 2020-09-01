@@ -137,7 +137,7 @@ export class Registry extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/v20170301:Registry" }, { type: "azurerm:containerregistry/v20171001:Registry" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/latest:Registry" }, { type: "azurerm:containerregistry/v20170301:Registry" }, { type: "azurerm:containerregistry/v20171001:Registry" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Registry.__pulumiType, name, inputs, opts);
     }

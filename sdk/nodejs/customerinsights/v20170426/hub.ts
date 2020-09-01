@@ -111,7 +111,7 @@ export class Hub extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/v20170101:Hub" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/latest:Hub" }, { type: "azurerm:customerinsights/v20170101:Hub" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Hub.__pulumiType, name, inputs, opts);
     }

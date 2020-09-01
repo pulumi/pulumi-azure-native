@@ -55,6 +55,12 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerAzureADAdministratorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/latest:ServerAzureADAdministrator"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerAzureADAdministrator
 	err := ctx.RegisterResource("azurerm:sql/v20140401:ServerAzureADAdministrator", name, args, &resource, opts...)
 	if err != nil {

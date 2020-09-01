@@ -38,6 +38,9 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:scheduler/latest:Job"),
+		},
+		{
 			Type: pulumi.String("azurerm:scheduler/v20160101:Job"),
 		},
 	})

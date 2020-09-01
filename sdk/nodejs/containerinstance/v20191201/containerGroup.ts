@@ -170,7 +170,7 @@ export class ContainerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerinstance/v20180401:ContainerGroup" }, { type: "azurerm:containerinstance/v20180601:ContainerGroup" }, { type: "azurerm:containerinstance/v20180901:ContainerGroup" }, { type: "azurerm:containerinstance/v20181001:ContainerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerinstance/latest:ContainerGroup" }, { type: "azurerm:containerinstance/v20180401:ContainerGroup" }, { type: "azurerm:containerinstance/v20180601:ContainerGroup" }, { type: "azurerm:containerinstance/v20180901:ContainerGroup" }, { type: "azurerm:containerinstance/v20181001:ContainerGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContainerGroup.__pulumiType, name, inputs, opts);
     }

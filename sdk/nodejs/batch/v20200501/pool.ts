@@ -186,7 +186,7 @@ export class Pool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:batch/v20170901:Pool" }, { type: "azurerm:batch/v20181201:Pool" }, { type: "azurerm:batch/v20190401:Pool" }, { type: "azurerm:batch/v20190801:Pool" }, { type: "azurerm:batch/v20200301:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:batch/latest:Pool" }, { type: "azurerm:batch/v20170901:Pool" }, { type: "azurerm:batch/v20181201:Pool" }, { type: "azurerm:batch/v20190401:Pool" }, { type: "azurerm:batch/v20190801:Pool" }, { type: "azurerm:batch/v20200301:Pool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Pool.__pulumiType, name, inputs, opts);
     }

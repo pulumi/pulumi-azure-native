@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.Kusto.V20190907
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:kusto/latest:DataConnection"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190121:DataConnection"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190515:DataConnection"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20191109:DataConnection"},

@@ -93,6 +93,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200101:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200401:PrivateEndpointConnection"},

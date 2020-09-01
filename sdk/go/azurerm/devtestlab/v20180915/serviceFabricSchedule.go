@@ -67,6 +67,12 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServiceFabricScheduleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/latest:ServiceFabricSchedule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServiceFabricSchedule
 	err := ctx.RegisterResource("azurerm:devtestlab/v20180915:ServiceFabricSchedule", name, args, &resource, opts...)
 	if err != nil {

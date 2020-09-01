@@ -61,6 +61,12 @@ func NewController(ctx *pulumi.Context,
 	if args == nil {
 		args = &ControllerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devspaces/latest:Controller"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Controller
 	err := ctx.RegisterResource("azurerm:devspaces/v20190401:Controller", name, args, &resource, opts...)
 	if err != nil {

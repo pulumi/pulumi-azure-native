@@ -14,7 +14,7 @@ namespace Pulumi.AzureRM.Devices.V20180122.Outputs
     public sealed class CertificatePropertiesResponseResult
     {
         /// <summary>
-        /// The certificate's create date and time.
+        /// The certificate's creation date and time.
         /// </summary>
         public readonly string Created;
         /// <summary>

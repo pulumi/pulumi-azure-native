@@ -77,6 +77,12 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &RosettaNetProcessConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/latest:RosettaNetProcessConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RosettaNetProcessConfiguration
 	err := ctx.RegisterResource("azurerm:logic/v20160601:RosettaNetProcessConfiguration", name, args, &resource, opts...)
 	if err != nil {

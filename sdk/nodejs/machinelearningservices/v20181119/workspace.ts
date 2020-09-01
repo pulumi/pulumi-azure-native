@@ -141,7 +141,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/v20190501:Workspace" }, { type: "azurerm:machinelearningservices/v20190601:Workspace" }, { type: "azurerm:machinelearningservices/v20191101:Workspace" }, { type: "azurerm:machinelearningservices/v20200101:Workspace" }, { type: "azurerm:machinelearningservices/v20200301:Workspace" }, { type: "azurerm:machinelearningservices/v20200401:Workspace" }, { type: "azurerm:machinelearningservices/v20200601:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/latest:Workspace" }, { type: "azurerm:machinelearningservices/v20190501:Workspace" }, { type: "azurerm:machinelearningservices/v20190601:Workspace" }, { type: "azurerm:machinelearningservices/v20191101:Workspace" }, { type: "azurerm:machinelearningservices/v20200101:Workspace" }, { type: "azurerm:machinelearningservices/v20200301:Workspace" }, { type: "azurerm:machinelearningservices/v20200401:Workspace" }, { type: "azurerm:machinelearningservices/v20200601:Workspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workspace.__pulumiType, name, inputs, opts);
     }

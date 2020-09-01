@@ -37,6 +37,12 @@ func NewWorkspaceCollection(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkspaceCollectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:powerbi/latest:WorkspaceCollection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkspaceCollection
 	err := ctx.RegisterResource("azurerm:powerbi/v20160129:WorkspaceCollection", name, args, &resource, opts...)
 	if err != nil {

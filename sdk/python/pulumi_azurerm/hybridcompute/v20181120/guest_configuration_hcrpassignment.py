@@ -68,7 +68,7 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybridcompute/latest:GuestConfigurationHCRPAssignment"), pulumi.Alias(type_="azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestConfigurationHCRPAssignment, __self__).__init__(
             'azurerm:hybridcompute/v20181120:GuestConfigurationHCRPAssignment',

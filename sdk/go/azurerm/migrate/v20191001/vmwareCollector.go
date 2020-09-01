@@ -34,6 +34,12 @@ func NewVMwareCollector(ctx *pulumi.Context,
 	if args == nil {
 		args = &VMwareCollectorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:migrate/latest:VMwareCollector"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VMwareCollector
 	err := ctx.RegisterResource("azurerm:migrate/v20191001:VMwareCollector", name, args, &resource, opts...)
 	if err != nil {

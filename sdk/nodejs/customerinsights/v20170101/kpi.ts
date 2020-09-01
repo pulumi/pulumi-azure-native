@@ -189,7 +189,7 @@ export class Kpi extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/v20170426:Kpi" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/latest:Kpi" }, { type: "azurerm:customerinsights/v20170426:Kpi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Kpi.__pulumiType, name, inputs, opts);
     }

@@ -90,6 +90,8 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             __props__['provisioning_error'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:virtualmachineimages/latest:VirtualMachineImageTemplate")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineImageTemplate, __self__).__init__(
             'azurerm:virtualmachineimages/v20200214:VirtualMachineImageTemplate',
             resource_name,

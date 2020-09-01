@@ -63,6 +63,8 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
             __props__['account_id'] = None
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:mixedreality/latest:SpatialAnchorsAccount")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SpatialAnchorsAccount, __self__).__init__(
             'azurerm:mixedreality/v20200501:SpatialAnchorsAccount',
             resource_name,

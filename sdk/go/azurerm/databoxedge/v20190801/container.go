@@ -49,6 +49,12 @@ func NewContainer(ctx *pulumi.Context,
 	if args == nil {
 		args = &ContainerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:databoxedge/latest:Container"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Container
 	err := ctx.RegisterResource("azurerm:databoxedge/v20190801:Container", name, args, &resource, opts...)
 	if err != nil {

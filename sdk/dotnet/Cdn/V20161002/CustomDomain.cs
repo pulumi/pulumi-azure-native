@@ -93,6 +93,7 @@ namespace Pulumi.AzureRM.Cdn.V20161002
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:cdn/latest:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20150601:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20160402:CustomDomain"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20170402:CustomDomain"},

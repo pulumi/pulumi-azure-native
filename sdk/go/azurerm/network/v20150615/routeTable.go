@@ -46,6 +46,9 @@ func NewRouteTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:RouteTable"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20160330:RouteTable"),
 		},
 		{

@@ -69,7 +69,7 @@ class Replication(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/v20171001:Replication")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/latest:Replication"), pulumi.Alias(type_="azurerm:containerregistry/v20171001:Replication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Replication, __self__).__init__(
             'azurerm:containerregistry/v20190501:Replication',

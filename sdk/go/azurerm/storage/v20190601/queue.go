@@ -38,6 +38,12 @@ func NewQueue(ctx *pulumi.Context,
 	if args == nil {
 		args = &QueueArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storage/latest:Queue"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Queue
 	err := ctx.RegisterResource("azurerm:storage/v20190601:Queue", name, args, &resource, opts...)
 	if err != nil {

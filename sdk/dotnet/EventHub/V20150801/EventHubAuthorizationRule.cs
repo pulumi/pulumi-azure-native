@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.EventHub.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:eventhub/latest:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20140901:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:EventHubAuthorizationRule"},
                 },

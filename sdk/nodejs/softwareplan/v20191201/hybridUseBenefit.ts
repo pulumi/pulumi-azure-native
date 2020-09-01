@@ -104,6 +104,8 @@ export class HybridUseBenefit extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:softwareplan/latest:HybridUseBenefit" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HybridUseBenefit.__pulumiType, name, inputs, opts);
     }
 }

@@ -48,7 +48,7 @@ func NewProtectionContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:recoveryservices/v20160601:ProtectionContainer"),
+			Type: pulumi.String("azurerm:recoveryservices/latest:ProtectionContainer"),
 		},
 	})
 	opts = append(opts, aliases)

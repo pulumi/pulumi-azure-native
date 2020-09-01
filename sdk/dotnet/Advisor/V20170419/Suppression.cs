@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.Advisor.V20170419
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:advisor/latest:Suppression"},
                     new Pulumi.Alias { Type = "azurerm:advisor/v20170331:Suppression"},
                     new Pulumi.Alias { Type = "azurerm:advisor/v20200101:Suppression"},
                 },

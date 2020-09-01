@@ -36,6 +36,9 @@ func NewTagAtScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:resources/latest:TagAtScope"),
+		},
+		{
 			Type: pulumi.String("azurerm:resources/v20200601:TagAtScope"),
 		},
 	})

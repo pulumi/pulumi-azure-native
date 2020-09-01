@@ -71,6 +71,8 @@ class Task(pulumi.CustomResource):
             __props__['task_name'] = task_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datamigration/latest:Task")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Task, __self__).__init__(
             'azurerm:datamigration/v20180419:Task',
             resource_name,

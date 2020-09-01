@@ -50,6 +50,12 @@ func NewAutomationAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &AutomationAccountArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:AutomationAccount"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AutomationAccount
 	err := ctx.RegisterResource("azurerm:automation/v20151031:AutomationAccount", name, args, &resource, opts...)
 	if err != nil {

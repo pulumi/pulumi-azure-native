@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/latest:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:BandwidthSchedule"},
                 },

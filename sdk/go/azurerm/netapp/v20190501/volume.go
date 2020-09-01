@@ -78,6 +78,9 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:netapp/latest:Volume"),
+		},
+		{
 			Type: pulumi.String("azurerm:netapp/v20190601:Volume"),
 		},
 		{

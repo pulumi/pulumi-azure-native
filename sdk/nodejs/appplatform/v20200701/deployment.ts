@@ -94,6 +94,8 @@ export class Deployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:appplatform/latest:Deployment" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Deployment.__pulumiType, name, inputs, opts);
     }
 }

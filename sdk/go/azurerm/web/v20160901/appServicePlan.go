@@ -78,6 +78,9 @@ func NewAppServicePlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:AppServicePlan"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:AppServicePlan"),
 		},
 		{

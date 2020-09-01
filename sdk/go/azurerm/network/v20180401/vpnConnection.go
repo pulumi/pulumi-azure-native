@@ -57,6 +57,9 @@ func NewVpnConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:VpnConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180601:VpnConnection"),
 		},
 		{

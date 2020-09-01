@@ -105,9 +105,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Backend"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Backend"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Backend"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Backend"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Backend"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Backend"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

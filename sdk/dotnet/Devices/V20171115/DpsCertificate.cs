@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.Devices.V20171115
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:devices/latest:DpsCertificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20180122:DpsCertificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200101:DpsCertificate"},
                 },

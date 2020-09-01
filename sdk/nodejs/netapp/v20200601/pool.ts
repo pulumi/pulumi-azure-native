@@ -132,7 +132,7 @@ export class Pool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:netapp/v20190501:Pool" }, { type: "azurerm:netapp/v20190601:Pool" }, { type: "azurerm:netapp/v20190701:Pool" }, { type: "azurerm:netapp/v20190801:Pool" }, { type: "azurerm:netapp/v20191001:Pool" }, { type: "azurerm:netapp/v20191101:Pool" }, { type: "azurerm:netapp/v20200201:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:netapp/latest:Pool" }, { type: "azurerm:netapp/v20190501:Pool" }, { type: "azurerm:netapp/v20190601:Pool" }, { type: "azurerm:netapp/v20190701:Pool" }, { type: "azurerm:netapp/v20190801:Pool" }, { type: "azurerm:netapp/v20191001:Pool" }, { type: "azurerm:netapp/v20191101:Pool" }, { type: "azurerm:netapp/v20200201:Pool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Pool.__pulumiType, name, inputs, opts);
     }

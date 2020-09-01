@@ -42,6 +42,12 @@ func NewRoleDefinition(ctx *pulumi.Context,
 	if args == nil {
 		args = &RoleDefinitionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:authorization/latest:RoleDefinition"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RoleDefinition
 	err := ctx.RegisterResource("azurerm:authorization/v20150701:RoleDefinition", name, args, &resource, opts...)
 	if err != nil {

@@ -144,7 +144,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:alertsmanagement/v20190301:SmartDetectorAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:alertsmanagement/latest:SmartDetectorAlertRule" }, { type: "azurerm:alertsmanagement/v20190301:SmartDetectorAlertRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SmartDetectorAlertRule.__pulumiType, name, inputs, opts);
     }

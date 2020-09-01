@@ -42,6 +42,12 @@ func NewNetworkExperimentProfile(ctx *pulumi.Context,
 	if args == nil {
 		args = &NetworkExperimentProfileArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/latest:NetworkExperimentProfile"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NetworkExperimentProfile
 	err := ctx.RegisterResource("azurerm:network/v20191101:NetworkExperimentProfile", name, args, &resource, opts...)
 	if err != nil {

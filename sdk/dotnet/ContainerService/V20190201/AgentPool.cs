@@ -121,6 +121,21 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azurerm:containerservice/latest:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190401:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190601:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190801:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20191001:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20191101:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200101:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200201:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200301:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200401:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200601:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200701:AgentPool"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

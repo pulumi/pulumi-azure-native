@@ -103,7 +103,7 @@ export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azurerm:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azurerm:documentdb/v20200401:MongoDBResourceMongoDBCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:MongoDBResourceMongoDBCollection" }, { type: "azurerm:documentdb/v20190801:MongoDBResourceMongoDBCollection" }, { type: "azurerm:documentdb/v20200301:MongoDBResourceMongoDBCollection" }, { type: "azurerm:documentdb/v20200401:MongoDBResourceMongoDBCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MongoDBResourceMongoDBCollection.__pulumiType, name, inputs, opts);
     }

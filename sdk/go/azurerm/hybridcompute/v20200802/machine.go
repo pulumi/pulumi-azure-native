@@ -80,6 +80,9 @@ func NewMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:hybridcompute/latest:Machine"),
+		},
+		{
 			Type: pulumi.String("azurerm:hybridcompute/v20191212:Machine"),
 		},
 	})

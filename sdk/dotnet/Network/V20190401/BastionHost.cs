@@ -87,6 +87,7 @@ namespace Pulumi.AzureRM.Network.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:BastionHost"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190601:BastionHost"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190701:BastionHost"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190801:BastionHost"},

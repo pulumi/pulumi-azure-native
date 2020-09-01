@@ -46,6 +46,12 @@ func NewLabAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &LabAccountArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:labservices/latest:LabAccount"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LabAccount
 	err := ctx.RegisterResource("azurerm:labservices/v20181015:LabAccount", name, args, &resource, opts...)
 	if err != nil {

@@ -51,6 +51,12 @@ func NewRemediationAtManagementGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &RemediationAtManagementGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:policyinsights/latest:RemediationAtManagementGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RemediationAtManagementGroup
 	err := ctx.RegisterResource("azurerm:policyinsights/v20190701:RemediationAtManagementGroup", name, args, &resource, opts...)
 	if err != nil {

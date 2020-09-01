@@ -84,6 +84,8 @@ class Module(pulumi.CustomResource):
             __props__['size_in_bytes'] = None
             __props__['type'] = None
             __props__['version'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/latest:Module")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Module, __self__).__init__(
             'azurerm:automation/v20151031:Module',
             resource_name,

@@ -92,7 +92,7 @@ export class ManagementGroupSubscriptionSubscription extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:management/v20191101:ManagementGroupSubscriptionSubscription" }, { type: "azurerm:management/v20200201:ManagementGroupSubscriptionSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:management/latest:ManagementGroupSubscriptionSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementGroupSubscriptionSubscription.__pulumiType, name, inputs, opts);
     }

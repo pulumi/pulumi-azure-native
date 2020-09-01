@@ -49,6 +49,12 @@ func NewComputePolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &ComputePolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datalakeanalytics/latest:ComputePolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ComputePolicy
 	err := ctx.RegisterResource("azurerm:datalakeanalytics/v20161101:ComputePolicy", name, args, &resource, opts...)
 	if err != nil {

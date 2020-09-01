@@ -94,6 +94,8 @@ class Environment(pulumi.CustomResource):
             __props__['password_last_reset'] = None
             __props__['total_usage'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:labservices/latest:Environment")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Environment, __self__).__init__(
             'azurerm:labservices/v20181015:Environment',
             resource_name,

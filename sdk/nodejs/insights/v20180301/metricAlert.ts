@@ -167,6 +167,8 @@ export class MetricAlert extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:MetricAlert" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MetricAlert.__pulumiType, name, inputs, opts);
     }
 }

@@ -40,6 +40,12 @@ func NewCustomApi(ctx *pulumi.Context,
 	if args == nil {
 		args = &CustomApiArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/latest:CustomApi"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CustomApi
 	err := ctx.RegisterResource("azurerm:web/v20160601:CustomApi", name, args, &resource, opts...)
 	if err != nil {

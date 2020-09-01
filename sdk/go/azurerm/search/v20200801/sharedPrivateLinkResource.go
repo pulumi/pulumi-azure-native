@@ -37,6 +37,12 @@ func NewSharedPrivateLinkResource(ctx *pulumi.Context,
 	if args == nil {
 		args = &SharedPrivateLinkResourceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:search/latest:SharedPrivateLinkResource"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SharedPrivateLinkResource
 	err := ctx.RegisterResource("azurerm:search/v20200801:SharedPrivateLinkResource", name, args, &resource, opts...)
 	if err != nil {

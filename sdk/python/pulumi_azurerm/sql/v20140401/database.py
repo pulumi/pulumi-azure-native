@@ -160,6 +160,8 @@ class Database(pulumi.CustomResource):
             __props__['status'] = None
             __props__['transparent_data_encryption'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:sql/latest:Database")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azurerm:sql/v20140401:Database',
             resource_name,

@@ -80,6 +80,8 @@ class Python2Package(pulumi.CustomResource):
             __props__['size_in_bytes'] = None
             __props__['type'] = None
             __props__['version'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/latest:Python2Package")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Python2Package, __self__).__init__(
             'azurerm:automation/v20180630:Python2Package',
             resource_name,

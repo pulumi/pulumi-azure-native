@@ -89,6 +89,8 @@ export class CustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:appplatform/latest:CustomDomain" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }
 }

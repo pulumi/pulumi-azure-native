@@ -106,6 +106,7 @@ namespace Pulumi.AzureRM.Web.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppHybridConnectionSlot"},

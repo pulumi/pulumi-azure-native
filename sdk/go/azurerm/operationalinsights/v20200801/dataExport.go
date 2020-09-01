@@ -54,6 +54,12 @@ func NewDataExport(ctx *pulumi.Context,
 	if args == nil {
 		args = &DataExportArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationalinsights/latest:DataExport"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataExport
 	err := ctx.RegisterResource("azurerm:operationalinsights/v20200801:DataExport", name, args, &resource, opts...)
 	if err != nil {

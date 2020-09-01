@@ -87,6 +87,7 @@ namespace Pulumi.AzureRM.Network.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:RouteTable"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:RouteTable"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:RouteTable"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:RouteTable"},

@@ -92,6 +92,8 @@ class DscConfiguration(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/latest:DscConfiguration")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscConfiguration, __self__).__init__(
             'azurerm:automation/v20151031:DscConfiguration',
             resource_name,

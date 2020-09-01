@@ -35,6 +35,9 @@ func NewManagementLock(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:authorization/latest:ManagementLock"),
+		},
+		{
 			Type: pulumi.String("azurerm:authorization/v20160901:ManagementLock"),
 		},
 	})

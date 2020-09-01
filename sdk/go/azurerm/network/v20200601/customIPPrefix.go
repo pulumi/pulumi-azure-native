@@ -50,6 +50,12 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 	if args == nil {
 		args = &CustomIPPrefixArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/latest:CustomIPPrefix"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CustomIPPrefix
 	err := ctx.RegisterResource("azurerm:network/v20200601:CustomIPPrefix", name, args, &resource, opts...)
 	if err != nil {

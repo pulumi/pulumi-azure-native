@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/latest:SiteHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteHostNameBindingSlot"},

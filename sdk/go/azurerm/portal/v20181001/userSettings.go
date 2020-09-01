@@ -30,6 +30,12 @@ func NewUserSettings(ctx *pulumi.Context,
 	if args == nil {
 		args = &UserSettingsArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:portal/latest:UserSettings"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource UserSettings
 	err := ctx.RegisterResource("azurerm:portal/v20181001:UserSettings", name, args, &resource, opts...)
 	if err != nil {

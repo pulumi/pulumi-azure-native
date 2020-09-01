@@ -102,6 +102,7 @@ namespace Pulumi.AzureRM.Network.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:Policy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190301:Policy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200401:Policy"},
                 },

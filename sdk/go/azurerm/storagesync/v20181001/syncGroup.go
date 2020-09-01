@@ -41,6 +41,9 @@ func NewSyncGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storagesync/latest:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:storagesync/v20180402:SyncGroup"),
 		},
 		{

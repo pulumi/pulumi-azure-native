@@ -72,6 +72,8 @@ class WorkspaceConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningservices/latest:WorkspaceConnection")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceConnection, __self__).__init__(
             'azurerm:machinelearningservices/v20200601:WorkspaceConnection',
             resource_name,

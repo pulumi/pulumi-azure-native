@@ -177,7 +177,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20150615:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20160330:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20170330:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20200601:VirtualMachineScaleSetVM" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azurerm:compute/v20200601:VirtualMachineScaleSetVM" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachineScaleSetVM.__pulumiType, name, inputs, opts);
     }

@@ -37,6 +37,9 @@ func NewDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:resources/latest:Deployment"),
+		},
+		{
 			Type: pulumi.String("azurerm:resources/v20151101:Deployment"),
 		},
 		{

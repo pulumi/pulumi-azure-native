@@ -41,6 +41,12 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 	if args == nil {
 		args = &DiagnosticSettingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:aadiam/latest:DiagnosticSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DiagnosticSetting
 	err := ctx.RegisterResource("azurerm:aadiam/v20170401:DiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {

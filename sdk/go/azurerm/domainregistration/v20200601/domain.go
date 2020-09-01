@@ -98,6 +98,9 @@ func NewDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:domainregistration/latest:Domain"),
+		},
+		{
 			Type: pulumi.String("azurerm:domainregistration/v20150401:Domain"),
 		},
 		{

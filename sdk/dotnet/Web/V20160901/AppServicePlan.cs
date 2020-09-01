@@ -172,6 +172,7 @@ namespace Pulumi.AzureRM.Web.V20160901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/latest:AppServicePlan"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:AppServicePlan"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:AppServicePlan"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:AppServicePlan"},

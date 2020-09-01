@@ -64,6 +64,12 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 	if args == nil {
 		args = &OpenShiftManagedClusterArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerservice/latest:OpenShiftManagedCluster"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource OpenShiftManagedCluster
 	err := ctx.RegisterResource("azurerm:containerservice/v20190430:OpenShiftManagedCluster", name, args, &resource, opts...)
 	if err != nil {

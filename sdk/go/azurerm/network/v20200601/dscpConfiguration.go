@@ -58,6 +58,12 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &DscpConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/latest:DscpConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DscpConfiguration
 	err := ctx.RegisterResource("azurerm:network/v20200601:DscpConfiguration", name, args, &resource, opts...)
 	if err != nil {

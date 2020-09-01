@@ -45,6 +45,12 @@ func NewHybridUseBenefit(ctx *pulumi.Context,
 	if args == nil {
 		args = &HybridUseBenefitArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:softwareplan/latest:HybridUseBenefit"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HybridUseBenefit
 	err := ctx.RegisterResource("azurerm:softwareplan/v20191201:HybridUseBenefit", name, args, &resource, opts...)
 	if err != nil {

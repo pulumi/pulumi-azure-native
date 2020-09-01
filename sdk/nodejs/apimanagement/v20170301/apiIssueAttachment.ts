@@ -110,7 +110,7 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20180101:ApiIssueAttachment" }, { type: "azurerm:apimanagement/v20190101:ApiIssueAttachment" }, { type: "azurerm:apimanagement/v20191201:ApiIssueAttachment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiIssueAttachment" }, { type: "azurerm:apimanagement/v20180101:ApiIssueAttachment" }, { type: "azurerm:apimanagement/v20190101:ApiIssueAttachment" }, { type: "azurerm:apimanagement/v20191201:ApiIssueAttachment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiIssueAttachment.__pulumiType, name, inputs, opts);
     }

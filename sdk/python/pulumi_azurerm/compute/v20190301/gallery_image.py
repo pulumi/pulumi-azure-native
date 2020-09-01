@@ -108,7 +108,7 @@ class GalleryImage(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/latest:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImage, __self__).__init__(
             'azurerm:compute/v20190301:GalleryImage',

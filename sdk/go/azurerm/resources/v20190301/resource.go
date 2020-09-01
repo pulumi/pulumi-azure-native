@@ -59,6 +59,9 @@ func NewResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:resources/latest:Resource"),
+		},
+		{
 			Type: pulumi.String("azurerm:resources/v20151101:Resource"),
 		},
 		{

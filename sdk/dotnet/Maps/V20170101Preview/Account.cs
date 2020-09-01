@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.Maps.V20170101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:maps/latest:Account"},
                     new Pulumi.Alias { Type = "azurerm:maps/v20180501:Account"},
                 },
             };

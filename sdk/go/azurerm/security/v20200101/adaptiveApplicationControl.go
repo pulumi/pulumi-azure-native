@@ -46,6 +46,12 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 	if args == nil {
 		args = &AdaptiveApplicationControlArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:security/latest:AdaptiveApplicationControl"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AdaptiveApplicationControl
 	err := ctx.RegisterResource("azurerm:security/v20200101:AdaptiveApplicationControl", name, args, &resource, opts...)
 	if err != nil {

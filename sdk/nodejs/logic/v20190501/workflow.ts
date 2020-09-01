@@ -151,7 +151,7 @@ export class Workflow extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20160601:Workflow" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:Workflow" }, { type: "azurerm:logic/v20160601:Workflow" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workflow.__pulumiType, name, inputs, opts);
     }

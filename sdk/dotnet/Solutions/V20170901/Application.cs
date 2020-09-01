@@ -129,6 +129,7 @@ namespace Pulumi.AzureRM.Solutions.V20170901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:solutions/latest:Application"},
                     new Pulumi.Alias { Type = "azurerm:solutions/v20180601:Application"},
                     new Pulumi.Alias { Type = "azurerm:solutions/v20190701:Application"},
                 },

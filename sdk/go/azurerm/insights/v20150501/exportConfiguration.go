@@ -69,6 +69,12 @@ func NewExportConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &ExportConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:ExportConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ExportConfiguration
 	err := ctx.RegisterResource("azurerm:insights/v20150501:ExportConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -104,6 +104,8 @@ class Account(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datalakestore/latest:Account")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azurerm:datalakestore/v20161101:Account',
             resource_name,

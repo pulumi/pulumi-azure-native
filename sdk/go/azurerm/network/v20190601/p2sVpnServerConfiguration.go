@@ -57,6 +57,9 @@ func NewP2sVpnServerConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:P2sVpnServerConfiguration"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180801:P2sVpnServerConfiguration"),
 		},
 		{

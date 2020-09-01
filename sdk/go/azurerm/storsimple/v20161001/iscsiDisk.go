@@ -72,6 +72,12 @@ func NewIscsiDisk(ctx *pulumi.Context,
 	if args == nil {
 		args = &IscsiDiskArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/latest:IscsiDisk"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IscsiDisk
 	err := ctx.RegisterResource("azurerm:storsimple/v20161001:IscsiDisk", name, args, &resource, opts...)
 	if err != nil {

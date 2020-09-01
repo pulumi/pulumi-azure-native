@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/latest:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20190101:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20190601:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20200601:EventSubscription"},

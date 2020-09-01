@@ -77,6 +77,8 @@ class Credential(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/latest:Credential")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Credential, __self__).__init__(
             'azurerm:automation/v20151031:Credential',
             resource_name,

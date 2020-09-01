@@ -68,6 +68,9 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:solutions/latest:ApplicationDefinition"),
+		},
+		{
 			Type: pulumi.String("azurerm:solutions/v20180601:ApplicationDefinition"),
 		},
 		{

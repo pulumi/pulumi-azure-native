@@ -76,7 +76,7 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppRelayServiceConnectionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20150801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppRelayServiceConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppRelayServiceConnectionSlot, __self__).__init__(
             'azurerm:web/v20160801:WebAppRelayServiceConnectionSlot',

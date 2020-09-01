@@ -43,6 +43,12 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 	if args == nil {
 		args = &SynchronizationSettingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datashare/latest:SynchronizationSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SynchronizationSetting
 	err := ctx.RegisterResource("azurerm:datashare/v20191101:SynchronizationSetting", name, args, &resource, opts...)
 	if err != nil {

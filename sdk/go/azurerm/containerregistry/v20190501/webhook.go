@@ -58,6 +58,9 @@ func NewWebhook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:containerregistry/latest:Webhook"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerregistry/v20171001:Webhook"),
 		},
 	})

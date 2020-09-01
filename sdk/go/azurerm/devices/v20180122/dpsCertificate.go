@@ -41,6 +41,9 @@ func NewDpsCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devices/latest:DpsCertificate"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20171115:DpsCertificate"),
 		},
 		{

@@ -153,6 +153,7 @@ namespace Pulumi.AzureRM.Network.V20150615
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160901:ApplicationGateway"},

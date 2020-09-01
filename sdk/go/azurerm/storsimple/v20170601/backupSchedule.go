@@ -70,6 +70,12 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	if args == nil {
 		args = &BackupScheduleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/latest:BackupSchedule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BackupSchedule
 	err := ctx.RegisterResource("azurerm:storsimple/v20170601:BackupSchedule", name, args, &resource, opts...)
 	if err != nil {

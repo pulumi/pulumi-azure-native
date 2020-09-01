@@ -295,6 +295,7 @@ namespace Pulumi.AzureRM.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/latest:WebApp"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebApp"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebApp"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebApp"},

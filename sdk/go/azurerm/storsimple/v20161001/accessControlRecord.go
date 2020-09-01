@@ -42,6 +42,9 @@ func NewAccessControlRecord(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storsimple/latest:AccessControlRecord"),
+		},
+		{
 			Type: pulumi.String("azurerm:storsimple/v20170601:AccessControlRecord"),
 		},
 	})

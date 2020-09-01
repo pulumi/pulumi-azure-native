@@ -49,6 +49,9 @@ func NewImage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:compute/latest:Image"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20170330:Image"),
 		},
 		{

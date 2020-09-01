@@ -69,6 +69,12 @@ func NewShareSubscription(ctx *pulumi.Context,
 	if args == nil {
 		args = &ShareSubscriptionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datashare/latest:ShareSubscription"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ShareSubscription
 	err := ctx.RegisterResource("azurerm:datashare/v20191101:ShareSubscription", name, args, &resource, opts...)
 	if err != nil {
