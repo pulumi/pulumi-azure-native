@@ -1,5 +1,5 @@
 {
-    "name": "azure-ts-hdinsight-spark",
+    "name": "arm-hdinsight-spark",
     "version": "0.1.0",
     "devDependencies": {
         "@types/node": "latest"

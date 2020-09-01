@@ -1,16 +1,19 @@
-import * as pulumi from "@pulumi/pulumi";
-import * as azurerm from "../../sdk/nodejs";
+import * as random from "@pulumi/random";
+import * as resources from "@pulumi/azurerm/resources/latest";
 import * as cosmosdb from "./component";
 
-const resourceGroup = new azurerm.resources.latest.ResourceGroup("rg", {
-    resourceGroupName: "azurerm-cosmos",
-    location: "westeurope",
-    tags: {
-        Owner: "mikhailshilkov",
-    },
+const randomString = new random.RandomString("random", {
+    length: 12,
+    special: false,
+    upper: false,
 });
 
-export const cosmosdbAccount = new cosmosdb.DatabaseAccount("pulumicosmosdb", {
+const resourceGroup = new resources.ResourceGroup("rg", {
+    resourceGroupName: randomString.result,
+    location: "westeurope",
+});
+
+export const cosmosdbAccount = new cosmosdb.DatabaseAccount(randomString.result, {
     resourceGroup,
     api: "Sql",
     consisencyPolicy: { defaultConsistencyLevel: "Session" },
@@ -21,26 +24,3 @@ export const cosmosdbAccount = new cosmosdb.DatabaseAccount("pulumicosmosdb", {
         enableAutomaticFailover: true,
     },    
 });
-
-// const cosmosdbAccount2 = new azurerm.documentdb.latest.DatabaseAccount("pulumicosmosdb", {
-//     resourceGroupName: resourceGroup.name,
-//     accountName: "pulumicosmosdb",
-//     location: resourceGroup.location,
-//     kind: "GlobalDocumentDB",
-//     consistencyPolicy: {
-//         defaultConsistencyLevel: "Session",
-//     },        
-//     locations: [{
-//         locationName: "westeurope",
-//         failoverPriority: 0,
-//         isZoneRedundant: false
-//     }, {
-//         locationName: "northeurope",
-//         failoverPriority: 1,
-//         isZoneRedundant: false
-//     }],
-//     databaseAccountOfferType: "Standard",
-//     enableAutomaticFailover: true,
-//     capabilities: [],
-//     enableMultipleWriteLocations: true,
-// });

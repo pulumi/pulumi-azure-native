@@ -10,6 +10,24 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
+func TestAccAppServiceTs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "appservice"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccCosmosDBTs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "cosmosdb"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccSimpleTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{

@@ -1,23 +1,25 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as azurerm from "@pulumi/azurerm";
 import * as random from "@pulumi/random";
+
+import * as compute from "@pulumi/azurerm/compute/latest";
+import * as containerinstance from "@pulumi/azurerm/containerinstance/latest";
+import * as network from "@pulumi/azurerm/network/latest";
+import * as resources from "@pulumi/azurerm/resources/latest";
+import * as storage from "@pulumi/azurerm/storage/latest";
+import * as web from "@pulumi/azurerm/web/latest";
 
 const randomString = new random.RandomString("random", {
     length: 12,
     special: false,
     upper: false,
-})
-
-const resourceGroup = new azurerm.resources.latest.ResourceGroup("rg", {
-    resourceGroupName: randomString.result,
-    location: "westus2",
-    tags: {
-        Owner: "mikhailshilkov",
-        Env: "prod2",
-    },
 });
 
-const staticSite = new azurerm.web.latest.StaticSite("staticsite", {
+const resourceGroup = new resources.ResourceGroup("rg", {
+    resourceGroupName: randomString.result,
+    location: "westus2",
+});
+
+const staticSite = new web.StaticSite("staticsite", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     repositoryUrl: "",
@@ -35,7 +37,7 @@ const staticSite = new azurerm.web.latest.StaticSite("staticsite", {
     name: randomString.result,
 });
 
-const containerinstance = new azurerm.containerinstance.latest.ContainerGroup("containergroup", {
+const container = new containerinstance.ContainerGroup("containergroup", {
     resourceGroupName: resourceGroup.name,
     // should be autonamed?
     containerGroupName: randomString.result,
@@ -53,7 +55,7 @@ const containerinstance = new azurerm.containerinstance.latest.ContainerGroup("c
     }],
 });
 
-const vnet = new azurerm.network.latest.VirtualNetwork("vnet", {
+const vnet = new network.VirtualNetwork("vnet", {
     resourceGroupName: resourceGroup.name,
     virtualNetworkName: randomString.result,
     location: "westus2",
@@ -66,14 +68,14 @@ const vnet = new azurerm.network.latest.VirtualNetwork("vnet", {
     }],
 });
 
-const subnet = new azurerm.network.latest.Subnet("subnet2", {
+const subnet = new network.Subnet("subnet2", {
     resourceGroupName: resourceGroup.name,
     subnetName: randomString.result,
     virtualNetworkName: vnet.name,
     addressPrefix: "10.1.1.0/24",
 });
 
-const networkInterface = new azurerm.network.latest.NetworkInterface("nic", {
+const networkInterface = new network.NetworkInterface("nic", {
     resourceGroupName: resourceGroup.name,
     networkInterfaceName: randomString.result,
     location: "westus2",
@@ -86,7 +88,7 @@ const networkInterface = new azurerm.network.latest.NetworkInterface("nic", {
     }],
 });
 
-const virtualmachine  = new azurerm.compute.latest.VirtualMachine("vm", {
+const virtualmachine  = new compute.VirtualMachine("vm", {
     resourceGroupName: resourceGroup.name,
     vmName: randomString.result,
     location: "westus2",
@@ -113,7 +115,7 @@ const virtualmachine  = new azurerm.compute.latest.VirtualMachine("vm", {
     },
 });
 
-const appServicePlan  = new azurerm.web.latest.AppServicePlan("app-plan", {
+const appServicePlan  = new web.AppServicePlan("app-plan", {
     resourceGroupName: resourceGroup.name,
     name: randomString.result,
     location: "westus2",
@@ -124,14 +126,14 @@ const appServicePlan  = new azurerm.web.latest.AppServicePlan("app-plan", {
     },
 });
 
-const appService = new azurerm.web.latest.WebApp("app", {
+const appService = new web.WebApp("app", {
     resourceGroupName: resourceGroup.name,
     name: randomString.result,
     location: "westus2",
     serverFarmId: appServicePlan.id,
 });
 
-const storageAccount = new azurerm.storage.latest.StorageAccount("sa", {
+const storageAccount = new storage.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
     accountName: randomString.result,
     location: "westus2",
@@ -145,9 +147,9 @@ const storageAccount = new azurerm.storage.latest.StorageAccount("sa", {
 
 export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;
 
-export const existingRg = azurerm.resources.latest.getResourceGroup({ resourceGroupName: "Azure-Account-Cleanup" });
+export const existingRg = resources.getResourceGroup({ resourceGroupName: "Azure-Account-Cleanup" });
 
 const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, storageAccount.id]).apply(([resourceGroupName, accountName]) =>
-    azurerm.storage.latest.listStorageAccountKeys({ resourceGroupName, accountName }));
+    storage.listStorageAccountKeys({ resourceGroupName, accountName }));
 
 export const primaryStorageKey = storageAccountKeys.keys[0].value;

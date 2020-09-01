@@ -1,49 +1,56 @@
 // Copyright 2020, Pulumi Corporation.  All rights reserved.
 
-import * as azurerm from "@pulumi/azurerm";
 import * as pulumi from "@pulumi/pulumi";
+import * as random from "@pulumi/random";
+
+import * as hdinsight from "@pulumi/azurerm/hdinsight/v20180601preview";
+import * as resources from "@pulumi/azurerm/resources/latest";
+import * as storage from "@pulumi/azurerm/storage/latest";
 
 const config = new pulumi.Config();
 const location = config.require("location");
 const username = config.require("username");
 const password = config.require("password");
 
+const randomString = new random.RandomString("random", {
+    length: 12,
+    special: false,
+    upper: false,
+});
+
 // Create an Azure Resource Group
-const resourceGroup = new azurerm.resources.latest.ResourceGroup("spark-rg", {
-    resourceGroupName: "azurerm",
+const resourceGroup = new resources.ResourceGroup("spark-rg", {
+    resourceGroupName: randomString.result,
     location: location,
-    tags: {
-        Owner: "azurerm-test",
-    },
 });
 
 // Create a storage account and a container for Spark
-const storageAccount = new azurerm.storage.latest.StorageAccount("sparksa", {
+const storageAccount = new storage.StorageAccount("sparksa", {
     resourceGroupName: resourceGroup.name,
     sku: {
         name: "Standard_LRS",
         tier: "Standard",
     },
-    accountName: "sparksa12345",
+    accountName: randomString.result,
     location: location,
     kind: "StorageV2",
 });
 
-const storageContainer = new azurerm.storage.latest.BlobContainer("spark", {
-    containerName: "spark-sc12345",
+const storageContainer = new storage.BlobContainer("spark", {
+    containerName: randomString.result,
     accountName: storageAccount.name,
     resourceGroupName: resourceGroup.name,
 });
 
 const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, storageAccount.id]).apply(
     ([resourceGroupName, accountName]) =>
-        azurerm.storage.latest.listStorageAccountKeys({ resourceGroupName, accountName }));
+        storage.listStorageAccountKeys({ resourceGroupName, accountName }));
 
 const primaryStorageKey = storageAccountKeys.keys[0].value;
 
 // Create a Spark cluster in HDInsight
-const sparkCluster = new azurerm.hdinsight.preview.Cluster("myspark", {
-    clusterName: "spark-cluster12345",
+const sparkCluster = new hdinsight.Cluster("myspark", {
+    clusterName: randomString.result,
     resourceGroupName: resourceGroup.name,
     location: location,
     properties: {
