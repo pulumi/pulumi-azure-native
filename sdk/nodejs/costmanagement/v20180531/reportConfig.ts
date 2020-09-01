@@ -103,7 +103,7 @@ export class ReportConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:costmanagement/latest:ReportConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:costmanagement/latest:ReportConfig" }, { type: "azurerm:costmanagement/preview:ReportConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReportConfig.__pulumiType, name, inputs, opts);
     }

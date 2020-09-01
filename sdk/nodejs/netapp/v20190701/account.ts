@@ -99,7 +99,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:netapp/latest:Account" }, { type: "azurerm:netapp/v20190501:Account" }, { type: "azurerm:netapp/v20190601:Account" }, { type: "azurerm:netapp/v20190801:Account" }, { type: "azurerm:netapp/v20191001:Account" }, { type: "azurerm:netapp/v20191101:Account" }, { type: "azurerm:netapp/v20200201:Account" }, { type: "azurerm:netapp/v20200601:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:netapp/latest:Account" }, { type: "azurerm:netapp/preview:Account" }, { type: "azurerm:netapp/v20170815:Account" }, { type: "azurerm:netapp/v20190501:Account" }, { type: "azurerm:netapp/v20190601:Account" }, { type: "azurerm:netapp/v20190801:Account" }, { type: "azurerm:netapp/v20191001:Account" }, { type: "azurerm:netapp/v20191101:Account" }, { type: "azurerm:netapp/v20200201:Account" }, { type: "azurerm:netapp/v20200601:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

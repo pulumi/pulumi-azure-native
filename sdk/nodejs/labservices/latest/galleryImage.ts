@@ -150,7 +150,7 @@ export class GalleryImage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:labservices/v20181015:GalleryImage" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:labservices/preview:GalleryImage" }, { type: "azurerm:labservices/v20181015:GalleryImage" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryImage.__pulumiType, name, inputs, opts);
     }

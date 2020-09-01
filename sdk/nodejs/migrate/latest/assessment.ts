@@ -97,7 +97,7 @@ export class Assessment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:migrate/v20191001:Assessment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:migrate/preview:Assessment" }, { type: "azurerm:migrate/v20191001:Assessment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Assessment.__pulumiType, name, inputs, opts);
     }

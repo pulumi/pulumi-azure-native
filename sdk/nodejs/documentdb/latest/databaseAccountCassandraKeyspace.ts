@@ -98,7 +98,7 @@ export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20150401:DatabaseAccountCassandraKeyspace" }, { type: "azurerm:documentdb/v20150408:DatabaseAccountCassandraKeyspace" }, { type: "azurerm:documentdb/v20151106:DatabaseAccountCassandraKeyspace" }, { type: "azurerm:documentdb/v20160319:DatabaseAccountCassandraKeyspace" }, { type: "azurerm:documentdb/v20160331:DatabaseAccountCassandraKeyspace" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/preview:DatabaseAccountCassandraKeyspace" }, { type: "azurerm:documentdb/v20150401:DatabaseAccountCassandraKeyspace" }, { type: "azurerm:documentdb/v20150408:DatabaseAccountCassandraKeyspace" }, { type: "azurerm:documentdb/v20151106:DatabaseAccountCassandraKeyspace" }, { type: "azurerm:documentdb/v20160319:DatabaseAccountCassandraKeyspace" }, { type: "azurerm:documentdb/v20160331:DatabaseAccountCassandraKeyspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountCassandraKeyspace.__pulumiType, name, inputs, opts);
     }

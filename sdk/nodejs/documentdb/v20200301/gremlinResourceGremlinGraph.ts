@@ -104,7 +104,7 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:GremlinResourceGremlinGraph" }, { type: "azurerm:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azurerm:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azurerm:documentdb/v20200401:GremlinResourceGremlinGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:GremlinResourceGremlinGraph" }, { type: "azurerm:documentdb/preview:GremlinResourceGremlinGraph" }, { type: "azurerm:documentdb/v20190801:GremlinResourceGremlinGraph" }, { type: "azurerm:documentdb/v20191212:GremlinResourceGremlinGraph" }, { type: "azurerm:documentdb/v20200401:GremlinResourceGremlinGraph" }, { type: "azurerm:documentdb/v20200601preview:GremlinResourceGremlinGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GremlinResourceGremlinGraph.__pulumiType, name, inputs, opts);
     }

@@ -129,7 +129,7 @@ export class SavedSearch extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/v20150320:SavedSearch" }, { type: "azurerm:operationalinsights/v20200801:SavedSearch" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/preview:SavedSearch" }, { type: "azurerm:operationalinsights/v20150320:SavedSearch" }, { type: "azurerm:operationalinsights/v20200301preview:SavedSearch" }, { type: "azurerm:operationalinsights/v20200801:SavedSearch" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SavedSearch.__pulumiType, name, inputs, opts);
     }

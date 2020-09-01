@@ -97,7 +97,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/v20180601:ManagedPrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/preview:ManagedPrivateEndpoint" }, { type: "azurerm:datafactory/v20180601:ManagedPrivateEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedPrivateEndpoint.__pulumiType, name, inputs, opts);
     }

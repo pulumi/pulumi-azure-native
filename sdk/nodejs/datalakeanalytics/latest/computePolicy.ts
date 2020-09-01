@@ -104,7 +104,7 @@ export class ComputePolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datalakeanalytics/v20161101:ComputePolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datalakeanalytics/preview:ComputePolicy" }, { type: "azurerm:datalakeanalytics/v20161101:ComputePolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ComputePolicy.__pulumiType, name, inputs, opts);
     }

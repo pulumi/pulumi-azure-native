@@ -133,7 +133,7 @@ export class OuContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:aad/v20170601:OuContainer" }, { type: "azurerm:aad/v20200101:OuContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:aad/preview:OuContainer" }, { type: "azurerm:aad/v20170601:OuContainer" }, { type: "azurerm:aad/v20200101:OuContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OuContainer.__pulumiType, name, inputs, opts);
     }

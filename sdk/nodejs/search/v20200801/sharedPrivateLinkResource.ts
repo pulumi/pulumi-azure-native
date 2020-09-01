@@ -85,7 +85,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:search/latest:SharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:search/latest:SharedPrivateLinkResource" }, { type: "azurerm:search/preview:SharedPrivateLinkResource" }, { type: "azurerm:search/v20200801preview:SharedPrivateLinkResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SharedPrivateLinkResource.__pulumiType, name, inputs, opts);
     }

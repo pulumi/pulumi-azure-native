@@ -71,7 +71,7 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:portal/latest:ConsoleWithLocation" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:portal/latest:ConsoleWithLocation" }, { type: "azurerm:portal/preview:ConsoleWithLocation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConsoleWithLocation.__pulumiType, name, inputs, opts);
     }

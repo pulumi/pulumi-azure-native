@@ -92,7 +92,7 @@ export class ChapSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20161001:ChapSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/preview:ChapSetting" }, { type: "azurerm:storsimple/v20161001:ChapSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ChapSetting.__pulumiType, name, inputs, opts);
     }

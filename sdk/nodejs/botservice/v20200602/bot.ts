@@ -106,7 +106,7 @@ export class Bot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:botservice/latest:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:botservice/latest:Bot" }, { type: "azurerm:botservice/preview:Bot" }, { type: "azurerm:botservice/v20171201:Bot" }, { type: "azurerm:botservice/v20180712:Bot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Bot.__pulumiType, name, inputs, opts);
     }

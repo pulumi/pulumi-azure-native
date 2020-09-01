@@ -90,7 +90,7 @@ export class RulesEngine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20200101:RulesEngine" }, { type: "azurerm:network/v20200401:RulesEngine" }, { type: "azurerm:network/v20200501:RulesEngine" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/preview:RulesEngine" }, { type: "azurerm:network/v20200101:RulesEngine" }, { type: "azurerm:network/v20200401:RulesEngine" }, { type: "azurerm:network/v20200501:RulesEngine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RulesEngine.__pulumiType, name, inputs, opts);
     }

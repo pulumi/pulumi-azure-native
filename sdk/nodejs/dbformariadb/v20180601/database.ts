@@ -88,7 +88,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformariadb/latest:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbformariadb/latest:Database" }, { type: "azurerm:dbformariadb/preview:Database" }, { type: "azurerm:dbformariadb/v20180601preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

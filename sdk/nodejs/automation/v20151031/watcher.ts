@@ -138,7 +138,7 @@ export class Watcher extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:Watcher" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:Watcher" }, { type: "azurerm:automation/preview:Watcher" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Watcher.__pulumiType, name, inputs, opts);
     }

@@ -95,7 +95,7 @@ export class App extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:appplatform/v20200701:App" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:appplatform/preview:App" }, { type: "azurerm:appplatform/v20190501preview:App" }, { type: "azurerm:appplatform/v20200701:App" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(App.__pulumiType, name, inputs, opts);
     }

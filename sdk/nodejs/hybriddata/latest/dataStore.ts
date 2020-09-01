@@ -111,7 +111,7 @@ export class DataStore extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hybriddata/v20160601:DataStore" }, { type: "azurerm:hybriddata/v20190601:DataStore" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:hybriddata/preview:DataStore" }, { type: "azurerm:hybriddata/v20160601:DataStore" }, { type: "azurerm:hybriddata/v20190601:DataStore" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataStore.__pulumiType, name, inputs, opts);
     }

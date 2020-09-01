@@ -92,7 +92,7 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20161001:BackupScheduleGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/preview:BackupScheduleGroup" }, { type: "azurerm:storsimple/v20161001:BackupScheduleGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BackupScheduleGroup.__pulumiType, name, inputs, opts);
     }

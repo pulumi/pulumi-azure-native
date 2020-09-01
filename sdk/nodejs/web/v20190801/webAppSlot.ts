@@ -286,7 +286,7 @@ export class WebAppSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppSlot" }, { type: "azurerm:web/v20150801:WebAppSlot" }, { type: "azurerm:web/v20160801:WebAppSlot" }, { type: "azurerm:web/v20180201:WebAppSlot" }, { type: "azurerm:web/v20181101:WebAppSlot" }, { type: "azurerm:web/v20200601:WebAppSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppSlot" }, { type: "azurerm:web/preview:WebAppSlot" }, { type: "azurerm:web/v20150801:WebAppSlot" }, { type: "azurerm:web/v20160801:WebAppSlot" }, { type: "azurerm:web/v20180201:WebAppSlot" }, { type: "azurerm:web/v20181101:WebAppSlot" }, { type: "azurerm:web/v20200601:WebAppSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSlot.__pulumiType, name, inputs, opts);
     }

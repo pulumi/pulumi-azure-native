@@ -106,7 +106,7 @@ export class LinkedServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cache/latest:LinkedServer" }, { type: "azurerm:cache/v20170201:LinkedServer" }, { type: "azurerm:cache/v20171001:LinkedServer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:cache/latest:LinkedServer" }, { type: "azurerm:cache/preview:LinkedServer" }, { type: "azurerm:cache/v20170201:LinkedServer" }, { type: "azurerm:cache/v20171001:LinkedServer" }, { type: "azurerm:cache/v20190701:LinkedServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedServer.__pulumiType, name, inputs, opts);
     }

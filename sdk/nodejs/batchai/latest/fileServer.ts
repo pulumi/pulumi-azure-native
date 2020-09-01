@@ -129,7 +129,7 @@ export class FileServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:batchai/v20180501:FileServer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:batchai/preview:FileServer" }, { type: "azurerm:batchai/v20180501:FileServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FileServer.__pulumiType, name, inputs, opts);
     }

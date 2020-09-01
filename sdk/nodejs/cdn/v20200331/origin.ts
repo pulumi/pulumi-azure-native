@@ -130,7 +130,7 @@ export class Origin extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Origin" }, { type: "azurerm:cdn/v20150601:Origin" }, { type: "azurerm:cdn/v20160402:Origin" }, { type: "azurerm:cdn/v20191231:Origin" }, { type: "azurerm:cdn/v20200415:Origin" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Origin" }, { type: "azurerm:cdn/preview:Origin" }, { type: "azurerm:cdn/v20150601:Origin" }, { type: "azurerm:cdn/v20160402:Origin" }, { type: "azurerm:cdn/v20191231:Origin" }, { type: "azurerm:cdn/v20200415:Origin" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Origin.__pulumiType, name, inputs, opts);
     }

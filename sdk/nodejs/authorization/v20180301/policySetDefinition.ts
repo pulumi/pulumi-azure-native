@@ -105,7 +105,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:PolicySetDefinition" }, { type: "azurerm:authorization/v20180501:PolicySetDefinition" }, { type: "azurerm:authorization/v20190101:PolicySetDefinition" }, { type: "azurerm:authorization/v20190601:PolicySetDefinition" }, { type: "azurerm:authorization/v20190901:PolicySetDefinition" }, { type: "azurerm:authorization/v20200301:PolicySetDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:PolicySetDefinition" }, { type: "azurerm:authorization/preview:PolicySetDefinition" }, { type: "azurerm:authorization/v20170601preview:PolicySetDefinition" }, { type: "azurerm:authorization/v20180501:PolicySetDefinition" }, { type: "azurerm:authorization/v20190101:PolicySetDefinition" }, { type: "azurerm:authorization/v20190601:PolicySetDefinition" }, { type: "azurerm:authorization/v20190901:PolicySetDefinition" }, { type: "azurerm:authorization/v20200301:PolicySetDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicySetDefinition.__pulumiType, name, inputs, opts);
     }

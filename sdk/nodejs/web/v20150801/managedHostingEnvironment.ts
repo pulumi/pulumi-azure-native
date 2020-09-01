@@ -248,7 +248,7 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:ManagedHostingEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:ManagedHostingEnvironment" }, { type: "azurerm:web/preview:ManagedHostingEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedHostingEnvironment.__pulumiType, name, inputs, opts);
     }

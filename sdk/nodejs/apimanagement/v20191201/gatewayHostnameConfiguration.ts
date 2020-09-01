@@ -97,7 +97,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:GatewayHostnameConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:GatewayHostnameConfiguration" }, { type: "azurerm:apimanagement/preview:GatewayHostnameConfiguration" }, { type: "azurerm:apimanagement/v20191201preview:GatewayHostnameConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GatewayHostnameConfiguration.__pulumiType, name, inputs, opts);
     }

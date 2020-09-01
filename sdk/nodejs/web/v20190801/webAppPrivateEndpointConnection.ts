@@ -96,7 +96,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppPrivateEndpointConnection" }, { type: "azurerm:web/v20200601:WebAppPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppPrivateEndpointConnection" }, { type: "azurerm:web/preview:WebAppPrivateEndpointConnection" }, { type: "azurerm:web/v20200601:WebAppPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

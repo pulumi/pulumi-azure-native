@@ -93,7 +93,7 @@ export class ContentType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20191201:ContentType" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/preview:ContentType" }, { type: "azurerm:apimanagement/v20191201:ContentType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContentType.__pulumiType, name, inputs, opts);
     }

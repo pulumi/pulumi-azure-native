@@ -183,7 +183,7 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppSiteExtensionSlot" }, { type: "azurerm:web/v20160801:WebAppSiteExtensionSlot" }, { type: "azurerm:web/v20180201:WebAppSiteExtensionSlot" }, { type: "azurerm:web/v20181101:WebAppSiteExtensionSlot" }, { type: "azurerm:web/v20190801:WebAppSiteExtensionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppSiteExtensionSlot" }, { type: "azurerm:web/preview:WebAppSiteExtensionSlot" }, { type: "azurerm:web/v20160801:WebAppSiteExtensionSlot" }, { type: "azurerm:web/v20180201:WebAppSiteExtensionSlot" }, { type: "azurerm:web/v20181101:WebAppSiteExtensionSlot" }, { type: "azurerm:web/v20190801:WebAppSiteExtensionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSiteExtensionSlot.__pulumiType, name, inputs, opts);
     }

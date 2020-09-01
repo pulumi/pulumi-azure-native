@@ -133,7 +133,7 @@ export class ApiOperation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:ApiOperation" }, { type: "azurerm:apimanagement/v20161010:ApiOperation" }, { type: "azurerm:apimanagement/v20170301:ApiOperation" }, { type: "azurerm:apimanagement/v20180101:ApiOperation" }, { type: "azurerm:apimanagement/v20190101:ApiOperation" }, { type: "azurerm:apimanagement/v20191201:ApiOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/preview:ApiOperation" }, { type: "azurerm:apimanagement/v20160707:ApiOperation" }, { type: "azurerm:apimanagement/v20161010:ApiOperation" }, { type: "azurerm:apimanagement/v20170301:ApiOperation" }, { type: "azurerm:apimanagement/v20180101:ApiOperation" }, { type: "azurerm:apimanagement/v20180601preview:ApiOperation" }, { type: "azurerm:apimanagement/v20190101:ApiOperation" }, { type: "azurerm:apimanagement/v20191201:ApiOperation" }, { type: "azurerm:apimanagement/v20191201preview:ApiOperation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiOperation.__pulumiType, name, inputs, opts);
     }

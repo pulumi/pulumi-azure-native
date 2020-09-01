@@ -286,7 +286,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:AppServiceEnvironment" }, { type: "azurerm:web/v20160901:AppServiceEnvironment" }, { type: "azurerm:web/v20180201:AppServiceEnvironment" }, { type: "azurerm:web/v20190801:AppServiceEnvironment" }, { type: "azurerm:web/v20200601:AppServiceEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/preview:AppServiceEnvironment" }, { type: "azurerm:web/v20150801:AppServiceEnvironment" }, { type: "azurerm:web/v20160901:AppServiceEnvironment" }, { type: "azurerm:web/v20180201:AppServiceEnvironment" }, { type: "azurerm:web/v20190801:AppServiceEnvironment" }, { type: "azurerm:web/v20200601:AppServiceEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServiceEnvironment.__pulumiType, name, inputs, opts);
     }

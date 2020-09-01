@@ -121,7 +121,7 @@ export class DataExport extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:DataExport" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:DataExport" }, { type: "azurerm:operationalinsights/preview:DataExport" }, { type: "azurerm:operationalinsights/v20190801preview:DataExport" }, { type: "azurerm:operationalinsights/v20200301preview:DataExport" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataExport.__pulumiType, name, inputs, opts);
     }

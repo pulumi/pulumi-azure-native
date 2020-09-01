@@ -134,7 +134,7 @@ export class MyWorkbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/v20150501:MyWorkbook" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/preview:MyWorkbook" }, { type: "azurerm:insights/v20150501:MyWorkbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MyWorkbook.__pulumiType, name, inputs, opts);
     }

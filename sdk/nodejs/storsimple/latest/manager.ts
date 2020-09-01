@@ -109,7 +109,7 @@ export class Manager extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20161001:Manager" }, { type: "azurerm:storsimple/v20170601:Manager" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/preview:Manager" }, { type: "azurerm:storsimple/v20161001:Manager" }, { type: "azurerm:storsimple/v20170601:Manager" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Manager.__pulumiType, name, inputs, opts);
     }

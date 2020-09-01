@@ -104,7 +104,7 @@ export class ProtectionIntent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/v20170701:ProtectionIntent" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/preview:ProtectionIntent" }, { type: "azurerm:recoveryservices/v20170701:ProtectionIntent" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionIntent.__pulumiType, name, inputs, opts);
     }

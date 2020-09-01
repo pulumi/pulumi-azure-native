@@ -98,7 +98,7 @@ export class LinkedService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:LinkedService" }, { type: "azurerm:operationalinsights/preview:LinkedService" }, { type: "azurerm:operationalinsights/v20151101preview:LinkedService" }, { type: "azurerm:operationalinsights/v20190801preview:LinkedService" }, { type: "azurerm:operationalinsights/v20200301preview:LinkedService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LinkedService.__pulumiType, name, inputs, opts);
     }

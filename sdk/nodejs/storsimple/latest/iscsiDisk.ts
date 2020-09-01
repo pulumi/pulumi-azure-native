@@ -141,7 +141,7 @@ export class IscsiDisk extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20161001:IscsiDisk" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/preview:IscsiDisk" }, { type: "azurerm:storsimple/v20161001:IscsiDisk" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IscsiDisk.__pulumiType, name, inputs, opts);
     }

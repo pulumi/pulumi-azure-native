@@ -114,7 +114,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/v20160515:User" }, { type: "azurerm:devtestlab/v20180915:User" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/preview:User" }, { type: "azurerm:devtestlab/v20160515:User" }, { type: "azurerm:devtestlab/v20180915:User" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(User.__pulumiType, name, inputs, opts);
     }

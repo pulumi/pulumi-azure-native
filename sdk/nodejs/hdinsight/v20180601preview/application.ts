@@ -95,7 +95,7 @@ export class Application extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hdinsight/latest:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:hdinsight/preview:Application" }, { type: "azurerm:hdinsight/v20150301preview:Application" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Application.__pulumiType, name, inputs, opts);
     }

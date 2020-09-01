@@ -111,7 +111,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VirtualHubIpConfiguration" }, { type: "azurerm:network/v20200501:VirtualHubIpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VirtualHubIpConfiguration" }, { type: "azurerm:network/preview:VirtualHubIpConfiguration" }, { type: "azurerm:network/v20200501:VirtualHubIpConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualHubIpConfiguration.__pulumiType, name, inputs, opts);
     }

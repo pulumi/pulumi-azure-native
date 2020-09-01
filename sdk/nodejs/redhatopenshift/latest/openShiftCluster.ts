@@ -134,7 +134,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:redhatopenshift/v20200430:OpenShiftCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:redhatopenshift/preview:OpenShiftCluster" }, { type: "azurerm:redhatopenshift/v20200430:OpenShiftCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OpenShiftCluster.__pulumiType, name, inputs, opts);
     }

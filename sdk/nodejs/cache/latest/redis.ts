@@ -49,6 +49,10 @@ export class Redis extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
+     * List of the Redis instances associated with the cache
+     */
+    public /*out*/ readonly instances!: pulumi.Output<outputs.cache.latest.RedisInstanceDetailsResponse[]>;
+    /**
      * List of the linked servers associated with the cache
      */
     public /*out*/ readonly linkedServers!: pulumi.Output<outputs.cache.latest.RedisLinkedServerResponse[]>;
@@ -80,6 +84,10 @@ export class Redis extends pulumi.CustomResource {
      * Redis version.
      */
     public /*out*/ readonly redisVersion!: pulumi.Output<string>;
+    /**
+     * The number of replicas to be created per master.
+     */
+    public readonly replicasPerMaster!: pulumi.Output<number | undefined>;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */
@@ -147,6 +155,7 @@ export class Redis extends pulumi.CustomResource {
             inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
+            inputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shardCount"] = args ? args.shardCount : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -157,6 +166,7 @@ export class Redis extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["accessKeys"] = undefined /*out*/;
             inputs["hostName"] = undefined /*out*/;
+            inputs["instances"] = undefined /*out*/;
             inputs["linkedServers"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -171,7 +181,7 @@ export class Redis extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cache/v20150801:Redis" }, { type: "azurerm:cache/v20160401:Redis" }, { type: "azurerm:cache/v20170201:Redis" }, { type: "azurerm:cache/v20171001:Redis" }, { type: "azurerm:cache/v20180301:Redis" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:cache/preview:Redis" }, { type: "azurerm:cache/v20150801:Redis" }, { type: "azurerm:cache/v20160401:Redis" }, { type: "azurerm:cache/v20170201:Redis" }, { type: "azurerm:cache/v20171001:Redis" }, { type: "azurerm:cache/v20180301:Redis" }, { type: "azurerm:cache/v20190701:Redis" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Redis.__pulumiType, name, inputs, opts);
     }
@@ -201,6 +211,10 @@ export interface RedisArgs {
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */
     readonly redisConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The number of replicas to be created per master.
+     */
+    readonly replicasPerMaster?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */

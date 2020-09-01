@@ -75,7 +75,7 @@ export class HyperVCollector extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:migrate/latest:HyperVCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:migrate/latest:HyperVCollector" }, { type: "azurerm:migrate/preview:HyperVCollector" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HyperVCollector.__pulumiType, name, inputs, opts);
     }

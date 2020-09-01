@@ -93,7 +93,7 @@ export class DataFlow extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/v20180601:DataFlow" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/preview:DataFlow" }, { type: "azurerm:datafactory/v20180601:DataFlow" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataFlow.__pulumiType, name, inputs, opts);
     }

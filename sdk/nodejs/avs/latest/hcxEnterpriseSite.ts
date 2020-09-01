@@ -88,7 +88,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:avs/v20200320:HcxEnterpriseSite" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:avs/preview:HcxEnterpriseSite" }, { type: "azurerm:avs/v20200320:HcxEnterpriseSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HcxEnterpriseSite.__pulumiType, name, inputs, opts);
     }

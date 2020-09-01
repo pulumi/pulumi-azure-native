@@ -129,7 +129,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:CloudEndpoint" }, { type: "azurerm:storagesync/v20180701:CloudEndpoint" }, { type: "azurerm:storagesync/v20181001:CloudEndpoint" }, { type: "azurerm:storagesync/v20190201:CloudEndpoint" }, { type: "azurerm:storagesync/v20190301:CloudEndpoint" }, { type: "azurerm:storagesync/v20190601:CloudEndpoint" }, { type: "azurerm:storagesync/v20191001:CloudEndpoint" }, { type: "azurerm:storagesync/v20200301:CloudEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:CloudEndpoint" }, { type: "azurerm:storagesync/preview:CloudEndpoint" }, { type: "azurerm:storagesync/v20170605preview:CloudEndpoint" }, { type: "azurerm:storagesync/v20180701:CloudEndpoint" }, { type: "azurerm:storagesync/v20181001:CloudEndpoint" }, { type: "azurerm:storagesync/v20190201:CloudEndpoint" }, { type: "azurerm:storagesync/v20190301:CloudEndpoint" }, { type: "azurerm:storagesync/v20190601:CloudEndpoint" }, { type: "azurerm:storagesync/v20191001:CloudEndpoint" }, { type: "azurerm:storagesync/v20200301:CloudEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CloudEndpoint.__pulumiType, name, inputs, opts);
     }

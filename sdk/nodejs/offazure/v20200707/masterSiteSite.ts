@@ -91,7 +91,7 @@ export class MasterSiteSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:offazure/latest:MasterSiteSite" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:offazure/latest:MasterSiteSite" }, { type: "azurerm:offazure/preview:MasterSiteSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MasterSiteSite.__pulumiType, name, inputs, opts);
     }

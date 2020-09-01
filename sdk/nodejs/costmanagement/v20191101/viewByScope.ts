@@ -146,7 +146,7 @@ export class ViewByScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:costmanagement/latest:ViewByScope" }, { type: "azurerm:costmanagement/v20200601:ViewByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:costmanagement/latest:ViewByScope" }, { type: "azurerm:costmanagement/preview:ViewByScope" }, { type: "azurerm:costmanagement/v20190401preview:ViewByScope" }, { type: "azurerm:costmanagement/v20200601:ViewByScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ViewByScope.__pulumiType, name, inputs, opts);
     }

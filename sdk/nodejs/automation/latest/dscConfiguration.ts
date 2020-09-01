@@ -149,7 +149,7 @@ export class DscConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/v20151031:DscConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/preview:DscConfiguration" }, { type: "azurerm:automation/v20151031:DscConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DscConfiguration.__pulumiType, name, inputs, opts);
     }

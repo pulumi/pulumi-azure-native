@@ -157,7 +157,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/latest:Service" }, { type: "azurerm:servicefabric/v20190301:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/latest:Service" }, { type: "azurerm:servicefabric/preview:Service" }, { type: "azurerm:servicefabric/v20170701preview:Service" }, { type: "azurerm:servicefabric/v20190301:Service" }, { type: "azurerm:servicefabric/v20190301preview:Service" }, { type: "azurerm:servicefabric/v20190601preview:Service" }, { type: "azurerm:servicefabric/v20191101preview:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

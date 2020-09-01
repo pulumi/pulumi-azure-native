@@ -118,7 +118,7 @@ export class WCFRelay extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:relay/v20160701:WCFRelay" }, { type: "azurerm:relay/v20170401:WCFRelay" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:relay/preview:WCFRelay" }, { type: "azurerm:relay/v20160701:WCFRelay" }, { type: "azurerm:relay/v20170401:WCFRelay" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WCFRelay.__pulumiType, name, inputs, opts);
     }

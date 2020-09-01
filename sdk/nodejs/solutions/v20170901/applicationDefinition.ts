@@ -152,7 +152,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:solutions/latest:ApplicationDefinition" }, { type: "azurerm:solutions/v20180601:ApplicationDefinition" }, { type: "azurerm:solutions/v20190701:ApplicationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:solutions/latest:ApplicationDefinition" }, { type: "azurerm:solutions/preview:ApplicationDefinition" }, { type: "azurerm:solutions/v20180601:ApplicationDefinition" }, { type: "azurerm:solutions/v20190701:ApplicationDefinition" }, { type: "azurerm:solutions/v20200821preview:ApplicationDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationDefinition.__pulumiType, name, inputs, opts);
     }

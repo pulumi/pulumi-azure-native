@@ -138,7 +138,7 @@ export class Webhook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/v20151031:Webhook" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/preview:Webhook" }, { type: "azurerm:automation/v20151031:Webhook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Webhook.__pulumiType, name, inputs, opts);
     }

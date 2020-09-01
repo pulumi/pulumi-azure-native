@@ -103,7 +103,7 @@ export class Replication extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/v20171001:Replication" }, { type: "azurerm:containerregistry/v20190501:Replication" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/preview:Replication" }, { type: "azurerm:containerregistry/v20170601preview:Replication" }, { type: "azurerm:containerregistry/v20171001:Replication" }, { type: "azurerm:containerregistry/v20190501:Replication" }, { type: "azurerm:containerregistry/v20191201preview:Replication" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Replication.__pulumiType, name, inputs, opts);
     }

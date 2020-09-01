@@ -117,7 +117,7 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/v20151031:DscNodeConfiguration" }, { type: "azurerm:automation/v20180115:DscNodeConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/preview:DscNodeConfiguration" }, { type: "azurerm:automation/v20151031:DscNodeConfiguration" }, { type: "azurerm:automation/v20180115:DscNodeConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DscNodeConfiguration.__pulumiType, name, inputs, opts);
     }

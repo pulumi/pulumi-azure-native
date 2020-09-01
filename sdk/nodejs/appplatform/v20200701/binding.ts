@@ -89,7 +89,7 @@ export class Binding extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:appplatform/latest:Binding" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:appplatform/latest:Binding" }, { type: "azurerm:appplatform/preview:Binding" }, { type: "azurerm:appplatform/v20190501preview:Binding" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Binding.__pulumiType, name, inputs, opts);
     }

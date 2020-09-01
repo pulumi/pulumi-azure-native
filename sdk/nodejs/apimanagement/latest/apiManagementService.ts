@@ -228,7 +228,7 @@ export class ApiManagementService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:ApiManagementService" }, { type: "azurerm:apimanagement/v20161010:ApiManagementService" }, { type: "azurerm:apimanagement/v20170301:ApiManagementService" }, { type: "azurerm:apimanagement/v20180101:ApiManagementService" }, { type: "azurerm:apimanagement/v20190101:ApiManagementService" }, { type: "azurerm:apimanagement/v20191201:ApiManagementService" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/preview:ApiManagementService" }, { type: "azurerm:apimanagement/v20160707:ApiManagementService" }, { type: "azurerm:apimanagement/v20161010:ApiManagementService" }, { type: "azurerm:apimanagement/v20170301:ApiManagementService" }, { type: "azurerm:apimanagement/v20180101:ApiManagementService" }, { type: "azurerm:apimanagement/v20180601preview:ApiManagementService" }, { type: "azurerm:apimanagement/v20190101:ApiManagementService" }, { type: "azurerm:apimanagement/v20191201:ApiManagementService" }, { type: "azurerm:apimanagement/v20191201preview:ApiManagementService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiManagementService.__pulumiType, name, inputs, opts);
     }

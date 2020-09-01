@@ -105,7 +105,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:PolicyDefinition" }, { type: "azurerm:authorization/v20151101:PolicyDefinition" }, { type: "azurerm:authorization/v20160401:PolicyDefinition" }, { type: "azurerm:authorization/v20161201:PolicyDefinition" }, { type: "azurerm:authorization/v20180301:PolicyDefinition" }, { type: "azurerm:authorization/v20180501:PolicyDefinition" }, { type: "azurerm:authorization/v20190101:PolicyDefinition" }, { type: "azurerm:authorization/v20190901:PolicyDefinition" }, { type: "azurerm:authorization/v20200301:PolicyDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:PolicyDefinition" }, { type: "azurerm:authorization/preview:PolicyDefinition" }, { type: "azurerm:authorization/v20151001preview:PolicyDefinition" }, { type: "azurerm:authorization/v20151101:PolicyDefinition" }, { type: "azurerm:authorization/v20160401:PolicyDefinition" }, { type: "azurerm:authorization/v20161201:PolicyDefinition" }, { type: "azurerm:authorization/v20180301:PolicyDefinition" }, { type: "azurerm:authorization/v20180501:PolicyDefinition" }, { type: "azurerm:authorization/v20190101:PolicyDefinition" }, { type: "azurerm:authorization/v20190901:PolicyDefinition" }, { type: "azurerm:authorization/v20200301:PolicyDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyDefinition.__pulumiType, name, inputs, opts);
     }

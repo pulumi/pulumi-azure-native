@@ -101,7 +101,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:aadiam/v20170401:DiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:aadiam/preview:DiagnosticSetting" }, { type: "azurerm:aadiam/v20170401:DiagnosticSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiagnosticSetting.__pulumiType, name, inputs, opts);
     }

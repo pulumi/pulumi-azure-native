@@ -101,7 +101,7 @@ export class StorageDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20161001:StorageDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/preview:StorageDomain" }, { type: "azurerm:storsimple/v20161001:StorageDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageDomain.__pulumiType, name, inputs, opts);
     }

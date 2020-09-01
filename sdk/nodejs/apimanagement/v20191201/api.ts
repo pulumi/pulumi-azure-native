@@ -177,7 +177,7 @@ export class Api extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Api" }, { type: "azurerm:apimanagement/v20160707:Api" }, { type: "azurerm:apimanagement/v20161010:Api" }, { type: "azurerm:apimanagement/v20170301:Api" }, { type: "azurerm:apimanagement/v20180101:Api" }, { type: "azurerm:apimanagement/v20190101:Api" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Api" }, { type: "azurerm:apimanagement/preview:Api" }, { type: "azurerm:apimanagement/v20160707:Api" }, { type: "azurerm:apimanagement/v20161010:Api" }, { type: "azurerm:apimanagement/v20170301:Api" }, { type: "azurerm:apimanagement/v20180101:Api" }, { type: "azurerm:apimanagement/v20180601preview:Api" }, { type: "azurerm:apimanagement/v20190101:Api" }, { type: "azurerm:apimanagement/v20191201preview:Api" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Api.__pulumiType, name, inputs, opts);
     }

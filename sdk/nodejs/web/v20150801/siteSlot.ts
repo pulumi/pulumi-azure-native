@@ -242,7 +242,7 @@ export class SiteSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:SiteSlot" }, { type: "azurerm:web/v20160801:SiteSlot" }, { type: "azurerm:web/v20180201:SiteSlot" }, { type: "azurerm:web/v20181101:SiteSlot" }, { type: "azurerm:web/v20190801:SiteSlot" }, { type: "azurerm:web/v20200601:SiteSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:SiteSlot" }, { type: "azurerm:web/preview:SiteSlot" }, { type: "azurerm:web/v20160801:SiteSlot" }, { type: "azurerm:web/v20180201:SiteSlot" }, { type: "azurerm:web/v20181101:SiteSlot" }, { type: "azurerm:web/v20190801:SiteSlot" }, { type: "azurerm:web/v20200601:SiteSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteSlot.__pulumiType, name, inputs, opts);
     }
