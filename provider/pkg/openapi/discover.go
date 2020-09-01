@@ -68,6 +68,14 @@ func Providers() AzureProviders {
 			Invokes:   latestInvokes,
 		}
 
+		// Add a `preview` (latest stable or preview) version for each resource and invoke.
+		previewResources := calculateLatestVersions(versionMap, false /* invokes */, true /* preview */)
+		previewInvokes := calculateLatestVersions(versionMap, true /* invokes */, true /* preview */)
+		versionMap["preview"] = VersionResources {
+			Resources: previewResources,
+			Invokes:   previewInvokes,
+		}
+
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)
 		for version, items := range versionMap {
