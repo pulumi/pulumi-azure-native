@@ -2101,6 +2101,8 @@ type DeploymentInstanceResponse struct {
 	Name string `pulumi:"name"`
 	// Failed reason of the deployment instance
 	Reason string `pulumi:"reason"`
+	// Start time of the deployment instance
+	StartTime string `pulumi:"startTime"`
 	// Status of the deployment instance
 	Status string `pulumi:"status"`
 }
@@ -2124,6 +2126,8 @@ type DeploymentInstanceResponseArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Failed reason of the deployment instance
 	Reason pulumi.StringInput `pulumi:"reason"`
+	// Start time of the deployment instance
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 	// Status of the deployment instance
 	Status pulumi.StringInput `pulumi:"status"`
 }
@@ -2193,6 +2197,11 @@ func (o DeploymentInstanceResponseOutput) Name() pulumi.StringOutput {
 // Failed reason of the deployment instance
 func (o DeploymentInstanceResponseOutput) Reason() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentInstanceResponse) string { return v.Reason }).(pulumi.StringOutput)
+}
+
+// Start time of the deployment instance
+func (o DeploymentInstanceResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentInstanceResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
 // Status of the deployment instance

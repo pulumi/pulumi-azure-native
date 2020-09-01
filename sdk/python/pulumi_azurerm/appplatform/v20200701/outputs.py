@@ -492,17 +492,20 @@ class DeploymentInstanceResponse(dict):
                  discovery_status: str,
                  name: str,
                  reason: str,
+                 start_time: str,
                  status: str):
         """
         Deployment instance payload
         :param str discovery_status: Discovery status of the deployment instance
         :param str name: Name of the deployment instance
         :param str reason: Failed reason of the deployment instance
+        :param str start_time: Start time of the deployment instance
         :param str status: Status of the deployment instance
         """
         pulumi.set(__self__, "discovery_status", discovery_status)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "reason", reason)
+        pulumi.set(__self__, "start_time", start_time)
         pulumi.set(__self__, "status", status)
 
     @property
@@ -528,6 +531,14 @@ class DeploymentInstanceResponse(dict):
         Failed reason of the deployment instance
         """
         return pulumi.get(self, "reason")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Start time of the deployment instance
+        """
+        return pulumi.get(self, "start_time")
 
     @property
     @pulumi.getter

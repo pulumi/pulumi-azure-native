@@ -26,6 +26,10 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701.Outputs
         /// </summary>
         public readonly string Reason;
         /// <summary>
+        /// Start time of the deployment instance
+        /// </summary>
+        public readonly string StartTime;
+        /// <summary>
         /// Status of the deployment instance
         /// </summary>
         public readonly string Status;
@@ -38,11 +42,14 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701.Outputs
 
             string reason,
 
+            string startTime,
+
             string status)
         {
             DiscoveryStatus = discoveryStatus;
             Name = name;
             Reason = reason;
+            StartTime = startTime;
             Status = status;
         }
     }
