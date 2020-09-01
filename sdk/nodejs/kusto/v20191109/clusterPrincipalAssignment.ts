@@ -4,25 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const ClusterPrincipalRole = {
-    AllDatabasesAdmin: "AllDatabasesAdmin",
-    AllDatabasesViewer: "AllDatabasesViewer",
-}
+export type ClusterPrincipalRole = "AllDatabasesAdmin" | "AllDatabasesViewer" | string;
 
-export const PrincipalType = {
-    App: "App",
-    Group: "Group",
-    User: "User",
-}
+export type PrincipalType = "App" | "Group" | "User" | string;
 
-export const ProvisioningState = {
-    Running: "Running",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Moving: "Moving",
-}
+export type ProvisioningState = "Running" | "Creating" | "Deleting" | "Succeeded" | "Failed" | "Moving" | string;
 
 /**
  * Class representing a cluster principal assignment.
@@ -69,15 +55,15 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     /**
      * Principal type.
      */
-    public readonly principalType!: pulumi.Output<string>;
+    public readonly principalType!: pulumi.Output<PrincipalType>;
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Cluster principal role.
      */
-    public readonly role!: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<ClusterPrincipalRole>;
     /**
      * The tenant id of the principal
      */
@@ -167,7 +153,7 @@ export interface ClusterPrincipalAssignmentArgs {
     /**
      * Principal type.
      */
-    readonly principalType: pulumi.Input<string>;
+    readonly principalType: pulumi.Input<PrincipalType>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
@@ -175,7 +161,7 @@ export interface ClusterPrincipalAssignmentArgs {
     /**
      * Cluster principal role.
      */
-    readonly role: pulumi.Input<string>;
+    readonly role: pulumi.Input<ClusterPrincipalRole>;
     /**
      * The tenant id of the principal
      */

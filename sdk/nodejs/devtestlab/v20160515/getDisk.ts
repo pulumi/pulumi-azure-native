@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type StorageType = "Standard" | "Premium" | string;
+
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
     if (!opts) {
         opts = {}
@@ -65,7 +67,7 @@ export interface GetDiskResult {
     /**
      * The storage type for the disk (i.e. Standard, Premium).
      */
-    readonly diskType?: string;
+    readonly diskType?: StorageType;
     /**
      * When backed by a blob, the URI of underlying blob.
      */

@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type EndpointMonitorStatus = "CheckingEndpoint" | "Online" | "Degraded" | "Disabled" | "Inactive" | "Stopped" | string;
+
+export type EndpointStatus = "Enabled" | "Disabled" | string;
+
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     if (!opts) {
         opts = {}
@@ -56,11 +60,11 @@ export interface GetEndpointResult {
     /**
      * The monitoring status of the endpoint.
      */
-    readonly endpointMonitorStatus?: string;
+    readonly endpointMonitorStatus?: EndpointMonitorStatus;
     /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */
-    readonly endpointStatus?: string;
+    readonly endpointStatus?: EndpointStatus;
     /**
      * The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
      */

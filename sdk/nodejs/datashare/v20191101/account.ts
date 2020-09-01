@@ -6,13 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const provisioningState = {
-    Succeeded: "Succeeded",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Moving: "Moving",
-    Failed: "Failed",
-}
+export type provisioningState = "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed" | string;
 
 /**
  * An account data transfer object.
@@ -63,7 +57,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Provisioning state of the Account
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<provisioningState>;
     /**
      * Tags on the azure resource.
      */

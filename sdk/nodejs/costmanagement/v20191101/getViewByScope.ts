@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AccumulatedType = "true" | "false" | string;
+
+export type ChartType = "Area" | "Line" | "StackedColumn" | "GroupedColumn" | "Table" | string;
+
+export type MetricType = "ActualCost" | "AmortizedCost" | "AHUB" | string;
+
+export type ReportTimeframeType = "WeekToDate" | "MonthToDate" | "YearToDate" | "Custom" | string;
+
 export function getViewByScope(args: GetViewByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetViewByScopeResult> {
     if (!opts) {
         opts = {}
@@ -38,11 +46,11 @@ export interface GetViewByScopeResult {
     /**
      * Show costs accumulated over time.
      */
-    readonly accumulated?: string;
+    readonly accumulated?: AccumulatedType;
     /**
      * Chart type of the main view in Cost Analysis. Required.
      */
-    readonly chart?: string;
+    readonly chart?: ChartType;
     /**
      * Date the user created this view.
      */
@@ -66,7 +74,7 @@ export interface GetViewByScopeResult {
     /**
      * Metric to use when displaying costs.
      */
-    readonly metric?: string;
+    readonly metric?: MetricType;
     /**
      * Date when the user last modified this view.
      */
@@ -90,7 +98,7 @@ export interface GetViewByScopeResult {
     /**
      * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
      */
-    readonly timeframe: string;
+    readonly timeframe: ReportTimeframeType;
     /**
      * Resource type.
      */

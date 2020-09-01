@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const OriginGroupResourceState = {
-    Creating: "Creating",
-    Active: "Active",
-    Deleting: "Deleting",
-}
+export type OriginGroupResourceState = "Creating" | "Active" | "Deleting" | string;
 
 /**
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
@@ -61,7 +57,7 @@ export class OriginGroup extends pulumi.CustomResource {
     /**
      * Resource status of the origin group.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<OriginGroupResourceState>;
     /**
      * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
      */

@@ -6,17 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const enabled = {
-    true: "true",
-    false: "false",
-}
+export type enabled = "true" | "false" | string;
 
-export const provisioningState = {
-    Succeeded: "Succeeded",
-    Deploying: "Deploying",
-    Canceled: "Canceled",
-    Failed: "Failed",
-}
+export type provisioningState = "Succeeded" | "Deploying" | "Canceled" | "Failed" | string;
 
 /**
  * The Log Search Rule resource.
@@ -59,7 +51,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
      */
-    public readonly enabled!: pulumi.Output<string | undefined>;
+    public readonly enabled!: pulumi.Output<enabled | undefined>;
     /**
      * Last time the rule was updated in IS08601 format.
      */
@@ -75,7 +67,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * Provisioning state of the scheduled query rule
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<provisioningState>;
     /**
      * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
      */
@@ -161,7 +153,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
      */
-    readonly enabled?: pulumi.Input<string>;
+    readonly enabled?: pulumi.Input<enabled>;
     /**
      * Resource location
      */

@@ -6,22 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const AppType = {
-    portal: "portal",
-    developerPortal: "developerPortal",
-}
+export type AppType = "portal" | "developerPortal" | string;
 
-export const Confirmation = {
-    signup: "signup",
-    invite: "invite",
-}
+export type Confirmation = "signup" | "invite" | string;
 
-export const UserState = {
-    active: "active",
-    blocked: "blocked",
-    pending: "pending",
-    deleted: "deleted",
-}
+export type UserState = "active" | "blocked" | "pending" | "deleted" | string;
 
 /**
  * User details.
@@ -88,7 +77,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<UserState | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -163,11 +152,11 @@ export interface UserArgs {
     /**
      * Determines the type of application which send the create user request. Default is legacy portal.
      */
-    readonly appType?: pulumi.Input<string>;
+    readonly appType?: pulumi.Input<AppType>;
     /**
      * Determines the type of confirmation e-mail that will be sent to the newly created user.
      */
-    readonly confirmation?: pulumi.Input<string>;
+    readonly confirmation?: pulumi.Input<Confirmation>;
     /**
      * Email address. Must not be empty and must be unique within the service instance.
      */
@@ -207,7 +196,7 @@ export interface UserArgs {
     /**
      * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<UserState>;
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */

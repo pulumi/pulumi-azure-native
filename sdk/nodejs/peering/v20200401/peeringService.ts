@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const provisioningState = {
-    Succeeded: "Succeeded",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-}
+export type provisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
 
 /**
  * Peering Service
@@ -62,7 +57,7 @@ export class PeeringService extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<provisioningState>;
     /**
      * The SKU that defines the type of the peering service.
      */

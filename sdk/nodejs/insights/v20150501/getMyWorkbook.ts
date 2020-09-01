@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type SharedTypeKind = "user" | "shared" | string;
+
 export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetMyWorkbookResult> {
     if (!opts) {
         opts = {}
@@ -46,7 +48,7 @@ export interface GetMyWorkbookResult {
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: string;
+    readonly kind?: SharedTypeKind;
     /**
      * Resource location
      */

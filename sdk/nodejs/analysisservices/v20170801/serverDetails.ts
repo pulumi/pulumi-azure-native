@@ -11,35 +11,9 @@ export enum ConnectionMode {
     ReadOnly = "ReadOnly",
 }
 
-export const ProvisioningState = {
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Paused: "Paused",
-    Suspended: "Suspended",
-    Provisioning: "Provisioning",
-    Updating: "Updating",
-    Suspending: "Suspending",
-    Pausing: "Pausing",
-    Resuming: "Resuming",
-    Preparing: "Preparing",
-    Scaling: "Scaling",
-}
+export type ProvisioningState = "Deleting" | "Succeeded" | "Failed" | "Paused" | "Suspended" | "Provisioning" | "Updating" | "Suspending" | "Pausing" | "Resuming" | "Preparing" | "Scaling" | string;
 
-export const State = {
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Paused: "Paused",
-    Suspended: "Suspended",
-    Provisioning: "Provisioning",
-    Updating: "Updating",
-    Suspending: "Suspending",
-    Pausing: "Pausing",
-    Resuming: "Resuming",
-    Preparing: "Preparing",
-    Scaling: "Scaling",
-}
+export type State = "Deleting" | "Succeeded" | "Failed" | "Paused" | "Suspended" | "Provisioning" | "Updating" | "Suspending" | "Pausing" | "Resuming" | "Preparing" | "Scaling" | string;
 
 /**
  * Represents an instance of an Analysis Services resource.
@@ -98,7 +72,7 @@ export class ServerDetails extends pulumi.CustomResource {
     /**
      * The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
      */
@@ -114,7 +88,7 @@ export class ServerDetails extends pulumi.CustomResource {
     /**
      * The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<State>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

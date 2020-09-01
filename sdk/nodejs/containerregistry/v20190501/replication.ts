@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-}
+export type ProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
 
 /**
  * An object that represents a replication for a container registry.
@@ -56,7 +49,7 @@ export class Replication extends pulumi.CustomResource {
     /**
      * The provisioning state of the replication at the time the operation was called.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The status of the replication at the time the operation was called.
      */

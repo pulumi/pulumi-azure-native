@@ -6,16 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ContainerGroupRestartPolicy = {
-    Always: "Always",
-    OnFailure: "OnFailure",
-    Never: "Never",
-}
+export type ContainerGroupRestartPolicy = "Always" | "OnFailure" | "Never" | string;
 
-export const OperatingSystemTypes = {
-    Windows: "Windows",
-    Linux: "Linux",
-}
+export type OperatingSystemTypes = "Windows" | "Linux" | string;
 
 /**
  * A container group.
@@ -98,7 +91,7 @@ export class ContainerGroup extends pulumi.CustomResource {
     /**
      * The operating system type required by the containers in the container group.
      */
-    public readonly osType!: pulumi.Output<string>;
+    public readonly osType!: pulumi.Output<OperatingSystemTypes>;
     /**
      * The provisioning state of the container group. This only appears in the response.
      */
@@ -109,7 +102,7 @@ export class ContainerGroup extends pulumi.CustomResource {
      * - `OnFailure` Restart on failure
      * - `Never` Never restart
      */
-    public readonly restartPolicy!: pulumi.Output<string | undefined>;
+    public readonly restartPolicy!: pulumi.Output<ContainerGroupRestartPolicy | undefined>;
     /**
      * The SKU for a container group.
      */
@@ -238,7 +231,7 @@ export interface ContainerGroupArgs {
     /**
      * The operating system type required by the containers in the container group.
      */
-    readonly osType: pulumi.Input<string>;
+    readonly osType: pulumi.Input<OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */
@@ -249,7 +242,7 @@ export interface ContainerGroupArgs {
      * - `OnFailure` Restart on failure
      * - `Never` Never restart
      */
-    readonly restartPolicy?: pulumi.Input<string>;
+    readonly restartPolicy?: pulumi.Input<ContainerGroupRestartPolicy>;
     /**
      * The SKU for a container group.
      */

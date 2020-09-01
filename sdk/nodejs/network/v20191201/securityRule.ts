@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const SecurityRuleProtocol = {
-    Tcp: "Tcp",
-    Udp: "Udp",
-    Icmp: "Icmp",
-    Esp: "Esp",
-    Asterisk: "*",
-    Ah: "Ah",
-}
+export type SecurityRuleProtocol = "Tcp" | "Udp" | "Icmp" | "Esp" | "*" | "Ah" | string;
 
 /**
  * Network security rule.
@@ -92,7 +85,7 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * Network protocol this rule applies to.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<SecurityRuleProtocol>;
     /**
      * The provisioning state of the security rule resource.
      */
@@ -240,7 +233,7 @@ export interface SecurityRuleArgs {
     /**
      * Network protocol this rule applies to.
      */
-    readonly protocol: pulumi.Input<string>;
+    readonly protocol: pulumi.Input<SecurityRuleProtocol>;
     /**
      * The name of the resource group.
      */

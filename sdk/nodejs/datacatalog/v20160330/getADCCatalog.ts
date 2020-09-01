@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type SkuType = "Free" | "Standard" | string;
+
 export function getADCCatalog(args: GetADCCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetADCCatalogResult> {
     if (!opts) {
         opts = {}
@@ -58,7 +60,7 @@ export interface GetADCCatalogResult {
     /**
      * Azure data catalog SKU.
      */
-    readonly sku?: string;
+    readonly sku?: SkuType;
     /**
      * Azure data catalog provision status.
      */

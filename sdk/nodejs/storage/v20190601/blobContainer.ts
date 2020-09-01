@@ -12,23 +12,11 @@ export enum PublicAccess {
     None = "None",
 }
 
-export const LeaseDuration = {
-    Infinite: "Infinite",
-    Fixed: "Fixed",
-}
+export type LeaseDuration = "Infinite" | "Fixed" | string;
 
-export const LeaseState = {
-    Available: "Available",
-    Leased: "Leased",
-    Expired: "Expired",
-    Breaking: "Breaking",
-    Broken: "Broken",
-}
+export type LeaseState = "Available" | "Leased" | "Expired" | "Breaking" | "Broken" | string;
 
-export const LeaseStatus = {
-    Locked: "Locked",
-    Unlocked: "Unlocked",
-}
+export type LeaseStatus = "Locked" | "Unlocked" | string;
 
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
@@ -99,15 +87,15 @@ export class BlobContainer extends pulumi.CustomResource {
     /**
      * Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
      */
-    public /*out*/ readonly leaseDuration!: pulumi.Output<string>;
+    public /*out*/ readonly leaseDuration!: pulumi.Output<LeaseDuration>;
     /**
      * Lease state of the container.
      */
-    public /*out*/ readonly leaseState!: pulumi.Output<string>;
+    public /*out*/ readonly leaseState!: pulumi.Output<LeaseState>;
     /**
      * The lease status of the container.
      */
-    public /*out*/ readonly leaseStatus!: pulumi.Output<string>;
+    public /*out*/ readonly leaseStatus!: pulumi.Output<LeaseStatus>;
     /**
      * The LegalHold property of the container.
      */

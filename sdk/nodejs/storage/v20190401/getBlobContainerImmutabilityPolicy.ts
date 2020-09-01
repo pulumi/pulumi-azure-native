@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ImmutabilityPolicyState = "Locked" | "Unlocked" | string;
+
 export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutabilityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerImmutabilityPolicyResult> {
     if (!opts) {
         opts = {}
@@ -60,7 +62,7 @@ export interface GetBlobContainerImmutabilityPolicyResult {
     /**
      * The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
      */
-    readonly state: string;
+    readonly state: ImmutabilityPolicyState;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

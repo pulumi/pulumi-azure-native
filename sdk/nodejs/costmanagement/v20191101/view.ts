@@ -6,35 +6,15 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const AccumulatedType = {
-    true: "true",
-    false: "false",
-}
+export type AccumulatedType = "true" | "false" | string;
 
-export const ChartType = {
-    Area: "Area",
-    Line: "Line",
-    StackedColumn: "StackedColumn",
-    GroupedColumn: "GroupedColumn",
-    Table: "Table",
-}
+export type ChartType = "Area" | "Line" | "StackedColumn" | "GroupedColumn" | "Table" | string;
 
-export const MetricType = {
-    ActualCost: "ActualCost",
-    AmortizedCost: "AmortizedCost",
-    AHUB: "AHUB",
-}
+export type MetricType = "ActualCost" | "AmortizedCost" | "AHUB" | string;
 
-export const ReportTimeframeType = {
-    WeekToDate: "WeekToDate",
-    MonthToDate: "MonthToDate",
-    YearToDate: "YearToDate",
-    Custom: "Custom",
-}
+export type ReportTimeframeType = "WeekToDate" | "MonthToDate" | "YearToDate" | "Custom" | string;
 
-export const ReportType = {
-    Usage: "Usage",
-}
+export type ReportType = "Usage" | string;
 
 /**
  * States and configurations of Cost Analysis.
@@ -69,11 +49,11 @@ export class View extends pulumi.CustomResource {
     /**
      * Show costs accumulated over time.
      */
-    public readonly accumulated!: pulumi.Output<string | undefined>;
+    public readonly accumulated!: pulumi.Output<AccumulatedType | undefined>;
     /**
      * Chart type of the main view in Cost Analysis. Required.
      */
-    public readonly chart!: pulumi.Output<string | undefined>;
+    public readonly chart!: pulumi.Output<ChartType | undefined>;
     /**
      * Date the user created this view.
      */
@@ -97,7 +77,7 @@ export class View extends pulumi.CustomResource {
     /**
      * Metric to use when displaying costs.
      */
-    public readonly metric!: pulumi.Output<string | undefined>;
+    public readonly metric!: pulumi.Output<MetricType | undefined>;
     /**
      * Date when the user last modified this view.
      */
@@ -121,7 +101,7 @@ export class View extends pulumi.CustomResource {
     /**
      * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
      */
-    public readonly timeframe!: pulumi.Output<string>;
+    public readonly timeframe!: pulumi.Output<ReportTimeframeType>;
     /**
      * Resource type.
      */
@@ -186,11 +166,11 @@ export interface ViewArgs {
     /**
      * Show costs accumulated over time.
      */
-    readonly accumulated?: pulumi.Input<string>;
+    readonly accumulated?: pulumi.Input<AccumulatedType>;
     /**
      * Chart type of the main view in Cost Analysis. Required.
      */
-    readonly chart?: pulumi.Input<string>;
+    readonly chart?: pulumi.Input<ChartType>;
     /**
      * Has definition for data in this report config.
      */
@@ -210,7 +190,7 @@ export interface ViewArgs {
     /**
      * Metric to use when displaying costs.
      */
-    readonly metric?: pulumi.Input<string>;
+    readonly metric?: pulumi.Input<MetricType>;
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */
@@ -226,11 +206,11 @@ export interface ViewArgs {
     /**
      * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
      */
-    readonly timeframe: pulumi.Input<string>;
+    readonly timeframe: pulumi.Input<ReportTimeframeType>;
     /**
      * The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
      */
-    readonly type: pulumi.Input<string>;
+    readonly type: pulumi.Input<ReportType>;
     /**
      * View name
      */

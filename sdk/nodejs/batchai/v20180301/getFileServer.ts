@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum FileServerProvisioningState {
+    creating = "creating",
+    updating = "updating",
+    deleting = "deleting",
+    succeeded = "succeeded",
+    failed = "failed",
+}
+
 export function getFileServer(args: GetFileServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServerResult> {
     if (!opts) {
         opts = {}

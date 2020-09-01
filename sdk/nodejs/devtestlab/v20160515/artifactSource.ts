@@ -4,15 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const EnableStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type EnableStatus = "Enabled" | "Disabled" | string;
 
-export const SourceControlType = {
-    VsoGit: "VsoGit",
-    GitHub: "GitHub",
-}
+export type SourceControlType = "VsoGit" | "GitHub" | string;
 
 /**
  * Properties of an artifact source.
@@ -83,11 +77,11 @@ export class ArtifactSource extends pulumi.CustomResource {
     /**
      * The artifact source's type.
      */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
+    public readonly sourceType!: pulumi.Output<SourceControlType | undefined>;
     /**
      * Indicates if the artifact source is enabled (values: Enabled, Disabled).
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<EnableStatus | undefined>;
     /**
      * The tags of the resource.
      */
@@ -205,11 +199,11 @@ export interface ArtifactSourceArgs {
     /**
      * The artifact source's type.
      */
-    readonly sourceType?: pulumi.Input<string>;
+    readonly sourceType?: pulumi.Input<SourceControlType>;
     /**
      * Indicates if the artifact source is enabled (values: Enabled, Disabled).
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<EnableStatus>;
     /**
      * The tags of the resource.
      */

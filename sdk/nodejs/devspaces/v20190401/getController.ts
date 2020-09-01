@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Succeeded" | "Failed" | "Canceled" | "Updating" | "Creating" | "Deleting" | "Deleted" | string;
+
 export function getController(args: GetControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerResult> {
     if (!opts) {
         opts = {}
@@ -51,7 +53,7 @@ export interface GetControllerResult {
     /**
      * Provisioning state of the Azure Dev Spaces Controller.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * Model representing SKU for Azure Dev Spaces Controller.
      */

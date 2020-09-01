@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Running" | "Creating" | "Deleting" | "Succeeded" | "Failed" | "Moving" | string;
+
+export type State = "Creating" | "Unavailable" | "Running" | "Deleting" | "Deleted" | "Stopping" | "Stopped" | "Starting" | "Updating" | string;
+
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
@@ -70,7 +74,7 @@ export interface GetClusterResult {
     /**
      * The provisioned state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The SKU of the cluster.
      */
@@ -78,7 +82,7 @@ export interface GetClusterResult {
     /**
      * The state of the resource.
      */
-    readonly state: string;
+    readonly state: State;
     /**
      * The reason for the cluster's current state.
      */

@@ -21,12 +21,7 @@ export enum ProvisioningState {
     Deleting = "Deleting",
 }
 
-export const LoadBalancingMode = {
-    None: "None",
-    Web: "Web",
-    Publishing: "Publishing",
-    WebPublishing: "Web,Publishing",
-}
+export type LoadBalancingMode = "None" | "Web" | "Publishing" | "Web,Publishing" | string;
 
 /**
  * App Service Environment ARM resource.
@@ -118,7 +113,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
+    public readonly internalLoadBalancingMode!: pulumi.Output<LoadBalancingMode | undefined>;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */
@@ -346,7 +341,7 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    readonly internalLoadBalancingMode?: pulumi.Input<string>;
+    readonly internalLoadBalancingMode?: pulumi.Input<LoadBalancingMode>;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */

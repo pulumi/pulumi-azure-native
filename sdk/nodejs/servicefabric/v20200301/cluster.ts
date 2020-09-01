@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Updating: "Updating",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-}
+export type ProvisioningState = "Updating" | "Succeeded" | "Failed" | "Canceled" | string;
 
 /**
  * The cluster resource
@@ -137,7 +132,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The provisioning state of the cluster resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
      *

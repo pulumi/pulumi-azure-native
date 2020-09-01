@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const provisioningState = {
-    Succeeded: "Succeeded",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-}
+export type provisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
 
 /**
  * The customer's ASN that is registered by the peering service provider.
@@ -56,7 +51,7 @@ export class RegisteredAsn extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<provisioningState>;
     /**
      * The type of the resource.
      */

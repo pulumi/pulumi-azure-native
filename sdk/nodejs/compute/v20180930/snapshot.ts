@@ -11,10 +11,7 @@ export enum OperatingSystemTypes {
     Linux = "Linux",
 }
 
-export const HyperVGeneration = {
-    V1: "V1",
-    V2: "V2",
-}
+export type HyperVGeneration = "V1" | "V2" | string;
 
 /**
  * Snapshot resource.
@@ -61,7 +58,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    public readonly hyperVGeneration!: pulumi.Output<HyperVGeneration | undefined>;
     /**
      * Resource location
      */
@@ -172,7 +169,7 @@ export interface SnapshotArgs {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: pulumi.Input<string>;
+    readonly hyperVGeneration?: pulumi.Input<HyperVGeneration>;
     /**
      * Resource location
      */

@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DataSource = "TwinData" | string;
+
+export type ExportData = "RawEvents" | string;
+
+export type SecuritySolutionStatus = "Enabled" | "Disabled" | string;
+
+export type UnmaskedIpLoggingStatus = "Disabled" | "Enabled" | string;
+
 export function getIotSecuritySolution(args: GetIotSecuritySolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotSecuritySolutionResult> {
     if (!opts) {
         opts = {}
@@ -42,7 +50,7 @@ export interface GetIotSecuritySolutionResult {
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
-    readonly disabledDataSources?: string[];
+    readonly disabledDataSources?: DataSource[];
     /**
      * Resource display name.
      */
@@ -50,7 +58,7 @@ export interface GetIotSecuritySolutionResult {
     /**
      * List of additional options for exporting to workspace data.
      */
-    readonly export?: string[];
+    readonly export?: ExportData[];
     /**
      * IoT Hub resource IDs
      */
@@ -70,7 +78,7 @@ export interface GetIotSecuritySolutionResult {
     /**
      * Status of the IoT Security solution.
      */
-    readonly status?: string;
+    readonly status?: SecuritySolutionStatus;
     /**
      * Resource tags
      */
@@ -82,7 +90,7 @@ export interface GetIotSecuritySolutionResult {
     /**
      * Unmasked IP address logging status
      */
-    readonly unmaskedIpLoggingStatus?: string;
+    readonly unmaskedIpLoggingStatus?: UnmaskedIpLoggingStatus;
     /**
      * Properties of the IoT Security solution's user defined resources.
      */

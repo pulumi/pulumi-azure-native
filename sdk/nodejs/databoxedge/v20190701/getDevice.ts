@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DataBoxEdgeDeviceStatus = "ReadyToSetup" | "Online" | "Offline" | "NeedsAttention" | "Disconnected" | "PartiallyDisconnected" | "Maintenance" | string;
+
+export type DeviceType = "DataBoxEdgeDevice" | string;
+
+export type RoleTypes = "IOT" | "ASA" | "Functions" | "Cognitive" | string;
+
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     if (!opts) {
         opts = {}
@@ -38,7 +44,7 @@ export interface GetDeviceResult {
     /**
      * Type of compute roles configured.
      */
-    readonly configuredRoleTypes: string[];
+    readonly configuredRoleTypes: RoleTypes[];
     /**
      * The Data Box Edge/Gateway device culture.
      */
@@ -46,7 +52,7 @@ export interface GetDeviceResult {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    readonly dataBoxEdgeDeviceStatus?: string;
+    readonly dataBoxEdgeDeviceStatus?: DataBoxEdgeDeviceStatus;
     /**
      * The Description of the Data Box Edge/Gateway device.
      */
@@ -70,7 +76,7 @@ export interface GetDeviceResult {
     /**
      * The type of the Data Box Edge/Gateway device.
      */
-    readonly deviceType: string;
+    readonly deviceType: DeviceType;
     /**
      * The etag for the devices.
      */

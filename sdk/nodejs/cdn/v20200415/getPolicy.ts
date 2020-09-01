@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type PolicyResourceState = "Creating" | "Enabling" | "Enabled" | "Disabling" | "Disabled" | "Deleting" | string;
+
+export type ProvisioningState = "Creating" | "Succeeded" | "Failed" | string;
+
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     if (!opts) {
         opts = {}
@@ -66,12 +70,12 @@ export interface GetPolicyResult {
     /**
      * Provisioning state of the WebApplicationFirewallPolicy.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * Describes rate limit rules inside the policy.
      */
     readonly rateLimitRules?: outputs.cdn.v20200415.RateLimitRuleListResponse;
-    readonly resourceState: string;
+    readonly resourceState: PolicyResourceState;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
      */

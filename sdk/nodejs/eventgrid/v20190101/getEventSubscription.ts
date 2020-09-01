@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type EventSubscriptionProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Canceled" | "Failed" | "AwaitingManualAction" | string;
+
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
     if (!opts) {
         opts = {}
@@ -58,7 +60,7 @@ export interface GetEventSubscriptionResult {
     /**
      * Provisioning state of the event subscription.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: EventSubscriptionProvisioningState;
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */

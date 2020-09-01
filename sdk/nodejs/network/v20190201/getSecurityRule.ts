@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type SecurityRuleProtocol = "Tcp" | "Udp" | "Icmp" | "Esp" | "*" | string;
+
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
     if (!opts) {
         opts = {}
@@ -87,7 +89,7 @@ export interface GetSecurityRuleResult {
     /**
      * Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', 'Icmp', 'Esp', and '*'.
      */
-    readonly protocol: string;
+    readonly protocol: SecurityRuleProtocol;
     /**
      * The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */

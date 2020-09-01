@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type CategoryType = "Cost" | "Usage" | string;
+
+export type TimeGrainType = "Monthly" | "Quarterly" | "Annually" | "BillingMonth" | "BillingQuarter" | "BillingAnnual" | string;
+
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
     if (!opts) {
         opts = {}
@@ -42,7 +46,7 @@ export interface GetBudgetResult {
     /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
-    readonly category: string;
+    readonly category: CategoryType;
     /**
      * The current amount of cost which is being tracked for a budget.
      */
@@ -66,7 +70,7 @@ export interface GetBudgetResult {
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
      */
-    readonly timeGrain: string;
+    readonly timeGrain: TimeGrainType;
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */

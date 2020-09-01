@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AlwaysLog = "allErrors" | string;
+
+export type HttpCorrelationProtocol = "None" | "Legacy" | "W3C" | string;
+
+export type Verbosity = "verbose" | "information" | "error" | string;
+
 export function getDiagnostic(args: GetDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +49,7 @@ export interface GetDiagnosticResult {
     /**
      * Specifies for what type of messages sampling settings should not apply.
      */
-    readonly alwaysLog?: string;
+    readonly alwaysLog?: AlwaysLog;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */
@@ -59,7 +65,7 @@ export interface GetDiagnosticResult {
     /**
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
-    readonly httpCorrelationProtocol?: string;
+    readonly httpCorrelationProtocol?: HttpCorrelationProtocol;
     /**
      * Resource Id of a target logger.
      */
@@ -79,5 +85,5 @@ export interface GetDiagnosticResult {
     /**
      * The verbosity level applied to traces emitted by trace policies.
      */
-    readonly verbosity?: string;
+    readonly verbosity?: Verbosity;
 }

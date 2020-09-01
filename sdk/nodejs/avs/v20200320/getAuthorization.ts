@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ExpressRouteAuthorizationProvisioningState = "Succeeded" | "Failed" | "Updating" | string;
+
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
     if (!opts) {
         opts = {}
@@ -55,7 +57,7 @@ export interface GetAuthorizationResult {
     /**
      * The state of the  ExpressRoute Circuit Authorization provisioning
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ExpressRouteAuthorizationProvisioningState;
     /**
      * Resource type.
      */

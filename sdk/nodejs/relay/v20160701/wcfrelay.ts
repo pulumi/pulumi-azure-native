@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const Relaytype = {
-    NetTcp: "NetTcp",
-    Http: "Http",
-}
+export type Relaytype = "NetTcp" | "Http" | string;
 
 /**
  * Description of WcfRelays Resource.
@@ -58,7 +55,7 @@ export class WCFRelay extends pulumi.CustomResource {
     /**
      * WCFRelay Type.
      */
-    public readonly relayType!: pulumi.Output<string | undefined>;
+    public readonly relayType!: pulumi.Output<Relaytype | undefined>;
     /**
      * true if client authorization is needed for this relay; otherwise, false.
      */
@@ -142,7 +139,7 @@ export interface WCFRelayArgs {
     /**
      * WCFRelay Type.
      */
-    readonly relayType?: pulumi.Input<string>;
+    readonly relayType?: pulumi.Input<Relaytype>;
     /**
      * true if client authorization is needed for this relay; otherwise, false.
      */

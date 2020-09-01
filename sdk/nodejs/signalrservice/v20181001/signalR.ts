@@ -6,17 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Unknown: "Unknown",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-    Running: "Running",
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Moving: "Moving",
-}
+export type ProvisioningState = "Unknown" | "Succeeded" | "Failed" | "Canceled" | "Running" | "Creating" | "Updating" | "Deleting" | "Moving" | string;
 
 /**
  * A class represent a SignalR service resource.
@@ -85,7 +75,7 @@ export class SignalR extends pulumi.CustomResource {
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The publicly accessible port of the SignalR service which is designed for browser/client side usage.
      */

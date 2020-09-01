@@ -6,25 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const DomainProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Canceled: "Canceled",
-    Failed: "Failed",
-}
+export type DomainProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Canceled" | "Failed" | string;
 
-export const InputSchema = {
-    EventGridSchema: "EventGridSchema",
-    CustomEventSchema: "CustomEventSchema",
-    CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
-}
+export type InputSchema = "EventGridSchema" | "CustomEventSchema" | "CloudEventSchemaV1_0" | string;
 
-export const PublicNetworkAccess = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type PublicNetworkAccess = "Enabled" | "Disabled" | string;
 
 /**
  * EventGrid Domain.
@@ -67,7 +53,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
-    public readonly inputSchema!: pulumi.Output<string | undefined>;
+    public readonly inputSchema!: pulumi.Output<InputSchema | undefined>;
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
@@ -91,12 +77,12 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Provisioning state of the domain.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<DomainProvisioningState>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    public readonly publicNetworkAccess!: pulumi.Output<PublicNetworkAccess | undefined>;
     /**
      * Tags of the resource.
      */
@@ -171,7 +157,7 @@ export interface DomainArgs {
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
-    readonly inputSchema?: pulumi.Input<string>;
+    readonly inputSchema?: pulumi.Input<InputSchema>;
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
@@ -188,7 +174,7 @@ export interface DomainArgs {
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
      */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
+    readonly publicNetworkAccess?: pulumi.Input<PublicNetworkAccess>;
     /**
      * The name of the resource group within the user's subscription.
      */

@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const BackendProtocol = {
-    http: "http",
-    soap: "soap",
-}
+export type BackendProtocol = "http" | "soap" | string;
 
 /**
  * Backend details.
@@ -60,7 +57,7 @@ export class Backend extends pulumi.CustomResource {
     /**
      * Backend communication protocol.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<BackendProtocol>;
     /**
      * Backend Proxy Contract Properties
      */
@@ -165,7 +162,7 @@ export interface BackendArgs {
     /**
      * Backend communication protocol.
      */
-    readonly protocol: pulumi.Input<string>;
+    readonly protocol: pulumi.Input<BackendProtocol>;
     /**
      * Backend Proxy Contract Properties
      */

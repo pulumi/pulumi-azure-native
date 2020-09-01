@@ -6,26 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ExecutionState = {
-    queued: "queued",
-    running: "running",
-    terminating: "terminating",
-    succeeded: "succeeded",
-    failed: "failed",
-}
+export type ExecutionState = "queued" | "running" | "terminating" | "succeeded" | "failed" | string;
 
-export const JobPriority = {
-    low: "low",
-    normal: "normal",
-    high: "high",
-}
+export type JobPriority = "low" | "normal" | "high" | string;
 
-export const ProvisioningState = {
-    creating: "creating",
-    deleting: "deleting",
-    succeeded: "succeeded",
-    failed: "failed",
-}
+export type ProvisioningState = "creating" | "deleting" | "succeeded" | "failed" | string;
 
 /**
  * Information about a Job.
@@ -108,7 +93,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
      */
-    public /*out*/ readonly executionState!: pulumi.Output<string>;
+    public /*out*/ readonly executionState!: pulumi.Output<ExecutionState>;
     /**
      * The time at which the job entered its current execution state.
      */
@@ -148,7 +133,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The provisioned state of the Batch AI job
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The time at which the job entered its current provisioning state.
      */
@@ -160,7 +145,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Scheduling priority associated with the job.
      */
-    public readonly schedulingPriority!: pulumi.Output<string | undefined>;
+    public readonly schedulingPriority!: pulumi.Output<JobPriority | undefined>;
     /**
      * A collection of user defined environment variables with secret values to be setup for the job. Server will never report values of these variables back.
      */
@@ -350,7 +335,7 @@ export interface JobArgs {
     /**
      * Scheduling priority associated with the job. Possible values: low, normal, high.
      */
-    readonly schedulingPriority?: pulumi.Input<string>;
+    readonly schedulingPriority?: pulumi.Input<JobPriority>;
     /**
      * A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
      */

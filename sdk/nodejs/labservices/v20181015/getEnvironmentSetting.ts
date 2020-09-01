@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ConfigurationState = "NotApplicable" | "Completed" | string;
+
+export type PublishingState = "Draft" | "Publishing" | "Published" | "PublishFailed" | "Scaling" | string;
+
 export function getEnvironmentSetting(args: GetEnvironmentSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentSettingResult> {
     if (!opts) {
         opts = {}
@@ -53,7 +57,7 @@ export interface GetEnvironmentSettingResult {
     /**
      * Describes the user's progress in configuring their environment setting
      */
-    readonly configurationState?: string;
+    readonly configurationState?: ConfigurationState;
     /**
      * Describes the environment and its resource settings
      */
@@ -85,7 +89,7 @@ export interface GetEnvironmentSettingResult {
     /**
      * Describes the readiness of this environment setting
      */
-    readonly publishingState: string;
+    readonly publishingState: PublishingState;
     /**
      * The resource specific settings
      */

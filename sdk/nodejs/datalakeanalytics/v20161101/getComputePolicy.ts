@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AADObjectType = "User" | "Group" | "ServicePrincipal" | string;
+
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
     if (!opts) {
         opts = {}
@@ -59,7 +61,7 @@ export interface GetComputePolicyResult {
     /**
      * The type of AAD object the object identifier refers to.
      */
-    readonly objectType: string;
+    readonly objectType: AADObjectType;
     /**
      * The resource type.
      */

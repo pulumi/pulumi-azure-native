@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum PublicAccess {
+    Container = "Container",
+    Blob = "Blob",
+    None = "None",
+}
+
+export type LeaseDuration = "Infinite" | "Fixed" | string;
+
+export type LeaseState = "Available" | "Leased" | "Expired" | "Breaking" | "Broken" | string;
+
+export type LeaseStatus = "Locked" | "Unlocked" | string;
+
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
     if (!opts) {
         opts = {}
@@ -79,15 +91,15 @@ export interface GetBlobContainerResult {
     /**
      * Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
      */
-    readonly leaseDuration: string;
+    readonly leaseDuration: LeaseDuration;
     /**
      * Lease state of the container.
      */
-    readonly leaseState: string;
+    readonly leaseState: LeaseState;
     /**
      * The lease status of the container.
      */
-    readonly leaseStatus: string;
+    readonly leaseStatus: LeaseStatus;
     /**
      * The LegalHold property of the container.
      */

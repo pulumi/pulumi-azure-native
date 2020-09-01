@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const LiveOutputResourceState = {
-    Creating: "Creating",
-    Running: "Running",
-    Deleting: "Deleting",
-}
+export type LiveOutputResourceState = "Creating" | "Running" | "Deleting" | string;
 
 /**
  * The Live Output.
@@ -85,7 +81,7 @@ export class LiveOutput extends pulumi.CustomResource {
     /**
      * The resource state of the Live Output.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<LiveOutputResourceState>;
     /**
      * The type of the resource.
      */

@@ -6,49 +6,17 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const assessmentType = {
-    BuiltIn: "BuiltIn",
-    CustomPolicy: "CustomPolicy",
-    CustomerManaged: "CustomerManaged",
-    VerifiedPartner: "VerifiedPartner",
-}
+export type assessmentType = "BuiltIn" | "CustomPolicy" | "CustomerManaged" | "VerifiedPartner" | string;
 
-export const category = {
-    Compute: "Compute",
-    Networking: "Networking",
-    Data: "Data",
-    IdentityAndAccess: "IdentityAndAccess",
-    IoT: "IoT",
-}
+export type category = "Compute" | "Networking" | "Data" | "IdentityAndAccess" | "IoT" | string;
 
-export const implementationEffort = {
-    Low: "Low",
-    Moderate: "Moderate",
-    High: "High",
-}
+export type implementationEffort = "Low" | "Moderate" | "High" | string;
 
-export const severity = {
-    Low: "Low",
-    Medium: "Medium",
-    High: "High",
-}
+export type severity = "Low" | "Medium" | "High" | string;
 
-export const threats = {
-    accountBreach: "accountBreach",
-    dataExfiltration: "dataExfiltration",
-    dataSpillage: "dataSpillage",
-    maliciousInsider: "maliciousInsider",
-    elevationOfPrivilege: "elevationOfPrivilege",
-    threatResistance: "threatResistance",
-    missingCoverage: "missingCoverage",
-    denialOfService: "denialOfService",
-}
+export type threats = "accountBreach" | "dataExfiltration" | "dataSpillage" | "maliciousInsider" | "elevationOfPrivilege" | "threatResistance" | "missingCoverage" | "denialOfService" | string;
 
-export const userImpact = {
-    Low: "Low",
-    Moderate: "Moderate",
-    High: "High",
-}
+export type userImpact = "Low" | "Moderate" | "High" | string;
 
 /**
  * Security assessment metadata
@@ -83,8 +51,8 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     /**
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
-    public readonly assessmentType!: pulumi.Output<string>;
-    public readonly category!: pulumi.Output<string[] | undefined>;
+    public readonly assessmentType!: pulumi.Output<assessmentType>;
+    public readonly category!: pulumi.Output<category[] | undefined>;
     /**
      * Human readable description of the assessment
      */
@@ -96,7 +64,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     /**
      * The implementation effort required to remediate this assessment
      */
-    public readonly implementationEffort!: pulumi.Output<string | undefined>;
+    public readonly implementationEffort!: pulumi.Output<implementationEffort | undefined>;
     /**
      * Resource name
      */
@@ -120,8 +88,8 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     /**
      * The severity level of the assessment
      */
-    public readonly severity!: pulumi.Output<string>;
-    public readonly threats!: pulumi.Output<string[] | undefined>;
+    public readonly severity!: pulumi.Output<severity>;
+    public readonly threats!: pulumi.Output<threats[] | undefined>;
     /**
      * Resource type
      */
@@ -129,7 +97,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     /**
      * The user impact of the assessment
      */
-    public readonly userImpact!: pulumi.Output<string | undefined>;
+    public readonly userImpact!: pulumi.Output<userImpact | undefined>;
 
     /**
      * Create a AssessmentMetadataInSubscription resource with the given unique name, arguments, and options.
@@ -194,8 +162,8 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
-    readonly assessmentType: pulumi.Input<string>;
-    readonly category?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly assessmentType: pulumi.Input<assessmentType>;
+    readonly category?: pulumi.Input<pulumi.Input<category>[]>;
     /**
      * Human readable description of the assessment
      */
@@ -207,7 +175,7 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * The implementation effort required to remediate this assessment
      */
-    readonly implementationEffort?: pulumi.Input<string>;
+    readonly implementationEffort?: pulumi.Input<implementationEffort>;
     /**
      * Describes the partner that created the assessment
      */
@@ -223,10 +191,10 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * The severity level of the assessment
      */
-    readonly severity: pulumi.Input<string>;
-    readonly threats?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly severity: pulumi.Input<severity>;
+    readonly threats?: pulumi.Input<pulumi.Input<threats>[]>;
     /**
      * The user impact of the assessment
      */
-    readonly userImpact?: pulumi.Input<string>;
+    readonly userImpact?: pulumi.Input<userImpact>;
 }

@@ -4,17 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const policyMode = {
-    NotSpecified: "NotSpecified",
-    Indexed: "Indexed",
-    All: "All",
-}
+export type policyMode = "NotSpecified" | "Indexed" | "All" | string;
 
-export const policyType = {
-    NotSpecified: "NotSpecified",
-    BuiltIn: "BuiltIn",
-    Custom: "Custom",
-}
+export type policyType = "NotSpecified" | "BuiltIn" | "Custom" | string;
 
 /**
  * The policy definition.
@@ -61,7 +53,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
     /**
      * The policy definition mode. Possible values are NotSpecified, Indexed, and All.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    public readonly mode!: pulumi.Output<policyMode | undefined>;
     /**
      * The name of the policy definition.
      */
@@ -77,7 +69,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
-    public readonly policyType!: pulumi.Output<string | undefined>;
+    public readonly policyType!: pulumi.Output<policyType | undefined>;
     /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */
@@ -142,7 +134,7 @@ export interface PolicyDefinitionArgs {
     /**
      * The policy definition mode. Possible values are NotSpecified, Indexed, and All.
      */
-    readonly mode?: pulumi.Input<string>;
+    readonly mode?: pulumi.Input<policyMode>;
     /**
      * Required if a parameter is used in policy rule.
      */
@@ -158,5 +150,5 @@ export interface PolicyDefinitionArgs {
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
-    readonly policyType?: pulumi.Input<string>;
+    readonly policyType?: pulumi.Input<policyType>;
 }

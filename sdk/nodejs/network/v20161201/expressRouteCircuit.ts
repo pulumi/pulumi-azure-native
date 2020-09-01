@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ServiceProviderProvisioningState = {
-    NotProvisioned: "NotProvisioned",
-    Provisioning: "Provisioning",
-    Provisioned: "Provisioned",
-    Deprovisioning: "Deprovisioning",
-}
+export type ServiceProviderProvisioningState = "NotProvisioned" | "Provisioning" | "Provisioned" | "Deprovisioning" | string;
 
 /**
  * ExpressRouteCircuit resource
@@ -94,7 +89,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
      */
-    public readonly serviceProviderProvisioningState!: pulumi.Output<string | undefined>;
+    public readonly serviceProviderProvisioningState!: pulumi.Output<ServiceProviderProvisioningState | undefined>;
     /**
      * The SKU.
      */
@@ -219,7 +214,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
      */
-    readonly serviceProviderProvisioningState?: pulumi.Input<string>;
+    readonly serviceProviderProvisioningState?: pulumi.Input<ServiceProviderProvisioningState>;
     /**
      * The SKU.
      */

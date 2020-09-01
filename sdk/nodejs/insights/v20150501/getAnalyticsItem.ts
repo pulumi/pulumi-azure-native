@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ItemScope = "shared" | "user" | string;
+
+export type ItemType = "query" | "function" | "folder" | "recent" | string;
+
 export function getAnalyticsItem(args: GetAnalyticsItemArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsItemResult> {
     if (!opts) {
         opts = {}
@@ -65,7 +69,7 @@ export interface GetAnalyticsItemResult {
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly scope?: string;
+    readonly scope?: ItemScope;
     /**
      * Date and time in UTC when this item was created.
      */
@@ -77,7 +81,7 @@ export interface GetAnalyticsItemResult {
     /**
      * Enum indicating the type of the Analytics item.
      */
-    readonly type?: string;
+    readonly type?: ItemType;
     /**
      * This instance's version of the data model. This can change as new features are added.
      */

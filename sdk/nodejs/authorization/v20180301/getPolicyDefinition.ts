@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type policyMode = "NotSpecified" | "Indexed" | "All" | string;
+
+export type policyType = "NotSpecified" | "BuiltIn" | "Custom" | string;
+
 export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionResult> {
     if (!opts) {
         opts = {}
@@ -45,7 +49,7 @@ export interface GetPolicyDefinitionResult {
     /**
      * The policy definition mode. Possible values are NotSpecified, Indexed, and All.
      */
-    readonly mode?: string;
+    readonly mode?: policyMode;
     /**
      * The name of the policy definition.
      */
@@ -61,7 +65,7 @@ export interface GetPolicyDefinitionResult {
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
-    readonly policyType?: string;
+    readonly policyType?: policyType;
     /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */

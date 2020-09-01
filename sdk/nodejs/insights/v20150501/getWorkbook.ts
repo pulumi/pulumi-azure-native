@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type SharedTypeKind = "user" | "shared" | string;
+
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
     if (!opts) {
         opts = {}
@@ -42,7 +44,7 @@ export interface GetWorkbookResult {
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: string;
+    readonly kind?: SharedTypeKind;
     /**
      * Resource location
      */
@@ -58,7 +60,7 @@ export interface GetWorkbookResult {
     /**
      * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly sharedTypeKind: string;
+    readonly sharedTypeKind: SharedTypeKind;
     /**
      * Optional resourceId for a source resource.
      */

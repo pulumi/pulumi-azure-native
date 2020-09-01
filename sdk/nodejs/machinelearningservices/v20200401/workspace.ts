@@ -6,15 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Unknown: "Unknown",
-    Updating: "Updating",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-}
+export type ProvisioningState = "Unknown" | "Updating" | "Creating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
 
 /**
  * An object that represents a machine learning workspace.
@@ -117,7 +109,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
      */

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type VpnGatewayTunnelingProtocol = "IkeV2" | "OpenVPN" | string;
+
 export function getP2sVpnServerConfiguration(args: GetP2sVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnServerConfigurationResult> {
     if (!opts) {
         opts = {}
@@ -84,5 +86,5 @@ export interface GetP2sVpnServerConfigurationResult {
     /**
      * vpnProtocols for the P2SVpnServerConfiguration.
      */
-    readonly vpnProtocols?: string[];
+    readonly vpnProtocols?: VpnGatewayTunnelingProtocol[];
 }

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Updating" | "Succeeded" | "Failed" | "Canceled" | string;
+
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
@@ -98,7 +100,7 @@ export interface GetClusterResult {
     /**
      * The provisioning state of the cluster resource
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * Cluster reliability level indicates replica set size of system service
      */

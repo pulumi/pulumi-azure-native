@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type SecurityStyle = "ntfs" | "unix" | string;
+
+export type ServiceLevel = "Standard" | "Premium" | "Ultra" | string;
+
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     if (!opts) {
         opts = {}
@@ -100,11 +104,11 @@ export interface GetVolumeResult {
     /**
      * The security style of volume
      */
-    readonly securityStyle?: string;
+    readonly securityStyle?: SecurityStyle;
     /**
      * The service level of the file system
      */
-    readonly serviceLevel?: string;
+    readonly serviceLevel?: ServiceLevel;
     /**
      * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
      */

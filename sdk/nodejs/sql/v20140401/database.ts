@@ -11,105 +11,13 @@ export enum ReadScale {
     Disabled = "Disabled",
 }
 
-export const CreateMode = {
-    Copy: "Copy",
-    Default: "Default",
-    NonReadableSecondary: "NonReadableSecondary",
-    OnlineSecondary: "OnlineSecondary",
-    PointInTimeRestore: "PointInTimeRestore",
-    Recovery: "Recovery",
-    Restore: "Restore",
-    RestoreLongTermRetentionBackup: "RestoreLongTermRetentionBackup",
-}
+export type CreateMode = "Copy" | "Default" | "NonReadableSecondary" | "OnlineSecondary" | "PointInTimeRestore" | "Recovery" | "Restore" | "RestoreLongTermRetentionBackup" | string;
 
-export const DatabaseEdition = {
-    Web: "Web",
-    Business: "Business",
-    Basic: "Basic",
-    Standard: "Standard",
-    Premium: "Premium",
-    PremiumRS: "PremiumRS",
-    Free: "Free",
-    Stretch: "Stretch",
-    DataWarehouse: "DataWarehouse",
-    System: "System",
-    System2: "System2",
-    GeneralPurpose: "GeneralPurpose",
-    BusinessCritical: "BusinessCritical",
-    Hyperscale: "Hyperscale",
-}
+export type DatabaseEdition = "Web" | "Business" | "Basic" | "Standard" | "Premium" | "PremiumRS" | "Free" | "Stretch" | "DataWarehouse" | "System" | "System2" | "GeneralPurpose" | "BusinessCritical" | "Hyperscale" | string;
 
-export const SampleName = {
-    AdventureWorksLT: "AdventureWorksLT",
-}
+export type SampleName = "AdventureWorksLT" | string;
 
-export const ServiceObjectiveName = {
-    System: "System",
-    System0: "System0",
-    System1: "System1",
-    System2: "System2",
-    System3: "System3",
-    System4: "System4",
-    System2L: "System2L",
-    System3L: "System3L",
-    System4L: "System4L",
-    Free: "Free",
-    Basic: "Basic",
-    S0: "S0",
-    S1: "S1",
-    S2: "S2",
-    S3: "S3",
-    S4: "S4",
-    S6: "S6",
-    S7: "S7",
-    S9: "S9",
-    S12: "S12",
-    P1: "P1",
-    P2: "P2",
-    P3: "P3",
-    P4: "P4",
-    P6: "P6",
-    P11: "P11",
-    P15: "P15",
-    PRS1: "PRS1",
-    PRS2: "PRS2",
-    PRS4: "PRS4",
-    PRS6: "PRS6",
-    DW100: "DW100",
-    DW200: "DW200",
-    DW300: "DW300",
-    DW400: "DW400",
-    DW500: "DW500",
-    DW600: "DW600",
-    DW1000: "DW1000",
-    DW1200: "DW1200",
-    DW1000c: "DW1000c",
-    DW1500: "DW1500",
-    DW1500c: "DW1500c",
-    DW2000: "DW2000",
-    DW2000c: "DW2000c",
-    DW3000: "DW3000",
-    DW2500c: "DW2500c",
-    DW3000c: "DW3000c",
-    DW6000: "DW6000",
-    DW5000c: "DW5000c",
-    DW6000c: "DW6000c",
-    DW7500c: "DW7500c",
-    DW10000c: "DW10000c",
-    DW15000c: "DW15000c",
-    DW30000c: "DW30000c",
-    DS100: "DS100",
-    DS200: "DS200",
-    DS300: "DS300",
-    DS400: "DS400",
-    DS500: "DS500",
-    DS600: "DS600",
-    DS1000: "DS1000",
-    DS1200: "DS1200",
-    DS1500: "DS1500",
-    DS2000: "DS2000",
-    ElasticPool: "ElasticPool",
-}
+export type ServiceObjectiveName = "System" | "System0" | "System1" | "System2" | "System3" | "System4" | "System2L" | "System3L" | "System4L" | "Free" | "Basic" | "S0" | "S1" | "S2" | "S3" | "S4" | "S6" | "S7" | "S9" | "S12" | "P1" | "P2" | "P3" | "P4" | "P6" | "P11" | "P15" | "PRS1" | "PRS2" | "PRS4" | "PRS6" | "DW100" | "DW200" | "DW300" | "DW400" | "DW500" | "DW600" | "DW1000" | "DW1200" | "DW1000c" | "DW1500" | "DW1500c" | "DW2000" | "DW2000c" | "DW3000" | "DW2500c" | "DW3000c" | "DW6000" | "DW5000c" | "DW6000c" | "DW7500c" | "DW10000c" | "DW15000c" | "DW30000c" | "DS100" | "DS200" | "DS300" | "DS400" | "DS500" | "DS600" | "DS1000" | "DS1200" | "DS1500" | "DS2000" | "ElasticPool" | string;
 
 /**
  * Represents a database.
@@ -168,7 +76,7 @@ export class Database extends pulumi.CustomResource {
      *
      * Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
-    public readonly createMode!: pulumi.Output<string | undefined>;
+    public readonly createMode!: pulumi.Output<CreateMode | undefined>;
     /**
      * The creation date of the database (ISO8601 format).
      */
@@ -202,7 +110,7 @@ export class Database extends pulumi.CustomResource {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    public readonly edition!: pulumi.Output<string | undefined>;
+    public readonly edition!: pulumi.Output<DatabaseEdition | undefined>;
     /**
      * The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
      */
@@ -258,7 +166,7 @@ export class Database extends pulumi.CustomResource {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    public readonly requestedServiceObjectiveName!: pulumi.Output<string | undefined>;
+    public readonly requestedServiceObjectiveName!: pulumi.Output<ServiceObjectiveName | undefined>;
     /**
      * Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
      */
@@ -266,11 +174,11 @@ export class Database extends pulumi.CustomResource {
     /**
      * Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
      */
-    public readonly sampleName!: pulumi.Output<string | undefined>;
+    public readonly sampleName!: pulumi.Output<SampleName | undefined>;
     /**
      * The current service level objective of the database.
      */
-    public /*out*/ readonly serviceLevelObjective!: pulumi.Output<string>;
+    public /*out*/ readonly serviceLevelObjective!: pulumi.Output<ServiceObjectiveName>;
     /**
      * The list of service tier advisors for this database. Expanded property
      */
@@ -402,7 +310,7 @@ export interface DatabaseArgs {
      *
      * Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
-    readonly createMode?: pulumi.Input<string>;
+    readonly createMode?: pulumi.Input<CreateMode>;
     /**
      * The name of the database to be operated on (updated or created).
      */
@@ -420,7 +328,7 @@ export interface DatabaseArgs {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly edition?: pulumi.Input<string>;
+    readonly edition?: pulumi.Input<DatabaseEdition>;
     /**
      * The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
      */
@@ -460,7 +368,7 @@ export interface DatabaseArgs {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly requestedServiceObjectiveName?: pulumi.Input<string>;
+    readonly requestedServiceObjectiveName?: pulumi.Input<ServiceObjectiveName>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -472,7 +380,7 @@ export interface DatabaseArgs {
     /**
      * Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
      */
-    readonly sampleName?: pulumi.Input<string>;
+    readonly sampleName?: pulumi.Input<SampleName>;
     /**
      * The name of the server.
      */

@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const EndpointResourceState = {
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Running: "Running",
-    Starting: "Starting",
-    Stopped: "Stopped",
-    Stopping: "Stopping",
-}
+export type EndpointResourceState = "Creating" | "Deleting" | "Running" | "Starting" | "Stopped" | "Stopping" | string;
 
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
@@ -104,7 +97,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Resource status of the endpoint.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<EndpointResourceState>;
     /**
      * Resource tags.
      */

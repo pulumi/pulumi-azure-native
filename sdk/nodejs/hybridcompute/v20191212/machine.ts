@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const StatusTypes = {
-    Connected: "Connected",
-    Disconnected: "Disconnected",
-    Error: "Error",
-}
+export type StatusTypes = "Connected" | "Disconnected" | "Error" | string;
 
 /**
  * Describes a hybrid machine.
@@ -102,7 +98,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * The status of the hybrid machine agent.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<StatusTypes>;
     /**
      * Resource tags.
      */

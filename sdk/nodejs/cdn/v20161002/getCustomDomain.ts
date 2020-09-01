@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type CustomDomainResourceState = "Creating" | "Active" | "Deleting" | string;
+
+export type CustomHttpsProvisioningState = "Enabling" | "Enabled" | "Disabling" | "Disabled" | "Failed" | string;
+
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
     if (!opts) {
         opts = {}
@@ -48,7 +52,7 @@ export interface GetCustomDomainResult {
     /**
      * Provisioning state of Custom Https of the custom domain.
      */
-    readonly customHttpsProvisioningState: string;
+    readonly customHttpsProvisioningState: CustomHttpsProvisioningState;
     /**
      * The host name of the custom domain. Must be a domain name.
      */
@@ -68,7 +72,7 @@ export interface GetCustomDomainResult {
     /**
      * Resource status of the custom domain.
      */
-    readonly resourceState: string;
+    readonly resourceState: CustomDomainResourceState;
     /**
      * Resource tags.
      */

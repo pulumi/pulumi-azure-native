@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "creating" | "deleting" | "succeeded" | "failed" | string;
+
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
     if (!opts) {
         opts = {}
@@ -51,7 +53,7 @@ export interface GetExperimentResult {
     /**
      * The provisioned state of the experiment
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The time at which the experiment entered its current provisioning state.
      */

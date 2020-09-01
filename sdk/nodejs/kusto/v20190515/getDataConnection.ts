@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type Kind = "EventHub" | "EventGrid" | "IotHub" | string;
+
 export function getDataConnection(args: GetDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectionResult> {
     if (!opts) {
         opts = {}
@@ -48,7 +50,7 @@ export interface GetDataConnectionResult {
     /**
      * Kind of the endpoint for the data connection
      */
-    readonly kind: string;
+    readonly kind: Kind;
     /**
      * Resource location.
      */

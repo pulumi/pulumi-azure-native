@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const AccessPolicyRole = {
-    Reader: "Reader",
-    Contributor: "Contributor",
-}
+export type AccessPolicyRole = "Reader" | "Contributor" | string;
 
 /**
  * An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
@@ -54,7 +51,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    public readonly roles!: pulumi.Output<string[] | undefined>;
+    public readonly roles!: pulumi.Output<AccessPolicyRole[] | undefined>;
     /**
      * Resource type
      */
@@ -131,5 +128,5 @@ export interface AccessPolicyArgs {
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<AccessPolicyRole>[]>;
 }

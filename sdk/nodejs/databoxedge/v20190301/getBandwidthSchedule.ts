@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DayOfWeek = "Sunday" | "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | string;
+
 export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthScheduleResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +45,7 @@ export interface GetBandwidthScheduleResult {
     /**
      * The days of the week when this schedule is applicable.
      */
-    readonly days: string[];
+    readonly days: DayOfWeek[];
     /**
      * The object name.
      */

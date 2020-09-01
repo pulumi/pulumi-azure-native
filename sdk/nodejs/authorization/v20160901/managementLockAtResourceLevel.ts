@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const LockLevel = {
-    NotSpecified: "NotSpecified",
-    CanNotDelete: "CanNotDelete",
-    ReadOnly: "ReadOnly",
-}
+export type LockLevel = "NotSpecified" | "CanNotDelete" | "ReadOnly" | string;
 
 /**
  * The lock information.
@@ -45,7 +41,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
     /**
      * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
      */
-    public readonly level!: pulumi.Output<string>;
+    public readonly level!: pulumi.Output<LockLevel>;
     /**
      * The name of the lock.
      */
@@ -129,7 +125,7 @@ export interface ManagementLockAtResourceLevelArgs {
     /**
      * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
      */
-    readonly level: pulumi.Input<string>;
+    readonly level: pulumi.Input<LockLevel>;
     /**
      * The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
      */

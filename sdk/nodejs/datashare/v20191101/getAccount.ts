@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type provisioningState = "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed" | string;
+
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
         opts = {}
@@ -54,7 +56,7 @@ export interface GetAccountResult {
     /**
      * Provisioning state of the Account
      */
-    readonly provisioningState: string;
+    readonly provisioningState: provisioningState;
     /**
      * Tags on the azure resource.
      */

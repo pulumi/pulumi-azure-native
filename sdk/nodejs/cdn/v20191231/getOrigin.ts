@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type OriginResourceState = "Creating" | "Active" | "Deleting" | string;
+
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
     if (!opts) {
         opts = {}
@@ -80,7 +82,7 @@ export interface GetOriginResult {
     /**
      * Resource status of the origin.
      */
-    readonly resourceState: string;
+    readonly resourceState: OriginResourceState;
     /**
      * Resource type.
      */

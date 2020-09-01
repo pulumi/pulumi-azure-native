@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ConnectionMonitorType = {
-    MultiEndpoint: "MultiEndpoint",
-    SingleSourceDestination: "SingleSourceDestination",
-}
+export type ConnectionMonitorType = "MultiEndpoint" | "SingleSourceDestination" | string;
 
 /**
  * Information about the connection monitor.
@@ -48,7 +45,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * Type of connection monitor.
      */
-    public /*out*/ readonly connectionMonitorType!: pulumi.Output<string>;
+    public /*out*/ readonly connectionMonitorType!: pulumi.Output<ConnectionMonitorType>;
     /**
      * Describes the destination of connection monitor.
      */

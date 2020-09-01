@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ArmServicePackageActivationMode = {
-    SharedProcess: "SharedProcess",
-    ExclusiveProcess: "ExclusiveProcess",
-}
+export type ArmServicePackageActivationMode = "SharedProcess" | "ExclusiveProcess" | string;
 
 /**
  * The service resource.
@@ -84,7 +81,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The activation Mode of the service package
      */
-    public readonly servicePackageActivationMode!: pulumi.Output<string | undefined>;
+    public readonly servicePackageActivationMode!: pulumi.Output<ArmServicePackageActivationMode | undefined>;
     /**
      * A list that describes the correlation of the service with other services.
      */
@@ -214,7 +211,7 @@ export interface ServiceArgs {
     /**
      * The activation Mode of the service package
      */
-    readonly servicePackageActivationMode?: pulumi.Input<string>;
+    readonly servicePackageActivationMode?: pulumi.Input<ArmServicePackageActivationMode>;
     /**
      * A list that describes the correlation of the service with other services.
      */

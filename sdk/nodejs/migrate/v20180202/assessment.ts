@@ -4,160 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const AssessmentSizingCriterion = {
-    PerformanceBased: "PerformanceBased",
-    AsOnPremises: "AsOnPremises",
-}
+export type AssessmentSizingCriterion = "PerformanceBased" | "AsOnPremises" | string;
 
-export const AssessmentStage = {
-    InProgress: "InProgress",
-    UnderReview: "UnderReview",
-    Approved: "Approved",
-}
+export type AssessmentStage = "InProgress" | "UnderReview" | "Approved" | string;
 
-export const AssessmentStatus = {
-    Created: "Created",
-    Updated: "Updated",
-    Running: "Running",
-    Completed: "Completed",
-    Invalid: "Invalid",
-}
+export type AssessmentStatus = "Created" | "Updated" | "Running" | "Completed" | "Invalid" | string;
 
-export const AzureHybridUseBenefit = {
-    Unknown: "Unknown",
-    Yes: "Yes",
-    No: "No",
-}
+export type AzureHybridUseBenefit = "Unknown" | "Yes" | "No" | string;
 
-export const AzureLocation = {
-    Unknown: "Unknown",
-    EastAsia: "EastAsia",
-    SoutheastAsia: "SoutheastAsia",
-    AustraliaEast: "AustraliaEast",
-    AustraliaSoutheast: "AustraliaSoutheast",
-    BrazilSouth: "BrazilSouth",
-    CanadaCentral: "CanadaCentral",
-    CanadaEast: "CanadaEast",
-    WestEurope: "WestEurope",
-    NorthEurope: "NorthEurope",
-    CentralIndia: "CentralIndia",
-    SouthIndia: "SouthIndia",
-    WestIndia: "WestIndia",
-    JapanEast: "JapanEast",
-    JapanWest: "JapanWest",
-    KoreaCentral: "KoreaCentral",
-    KoreaSouth: "KoreaSouth",
-    UkWest: "UkWest",
-    UkSouth: "UkSouth",
-    NorthCentralUs: "NorthCentralUs",
-    EastUs: "EastUs",
-    WestUs2: "WestUs2",
-    SouthCentralUs: "SouthCentralUs",
-    CentralUs: "CentralUs",
-    EastUs2: "EastUs2",
-    WestUs: "WestUs",
-    WestCentralUs: "WestCentralUs",
-    GermanyCentral: "GermanyCentral",
-    GermanyNortheast: "GermanyNortheast",
-    ChinaNorth: "ChinaNorth",
-    ChinaEast: "ChinaEast",
-}
+export type AzureLocation = "Unknown" | "EastAsia" | "SoutheastAsia" | "AustraliaEast" | "AustraliaSoutheast" | "BrazilSouth" | "CanadaCentral" | "CanadaEast" | "WestEurope" | "NorthEurope" | "CentralIndia" | "SouthIndia" | "WestIndia" | "JapanEast" | "JapanWest" | "KoreaCentral" | "KoreaSouth" | "UkWest" | "UkSouth" | "NorthCentralUs" | "EastUs" | "WestUs2" | "SouthCentralUs" | "CentralUs" | "EastUs2" | "WestUs" | "WestCentralUs" | "GermanyCentral" | "GermanyNortheast" | "ChinaNorth" | "ChinaEast" | string;
 
-export const AzureOfferCode = {
-    Unknown: "Unknown",
-    MSAZR0003P: "MSAZR0003P",
-    MSAZR0044P: "MSAZR0044P",
-    MSAZR0059P: "MSAZR0059P",
-    MSAZR0060P: "MSAZR0060P",
-    MSAZR0062P: "MSAZR0062P",
-    MSAZR0063P: "MSAZR0063P",
-    MSAZR0064P: "MSAZR0064P",
-    MSAZR0029P: "MSAZR0029P",
-    MSAZR0022P: "MSAZR0022P",
-    MSAZR0023P: "MSAZR0023P",
-    MSAZR0148P: "MSAZR0148P",
-    MSAZR0025P: "MSAZR0025P",
-    MSAZR0036P: "MSAZR0036P",
-    MSAZR0120P: "MSAZR0120P",
-    MSAZR0121P: "MSAZR0121P",
-    MSAZR0122P: "MSAZR0122P",
-    MSAZR0123P: "MSAZR0123P",
-    MSAZR0124P: "MSAZR0124P",
-    MSAZR0125P: "MSAZR0125P",
-    MSAZR0126P: "MSAZR0126P",
-    MSAZR0127P: "MSAZR0127P",
-    MSAZR0128P: "MSAZR0128P",
-    MSAZR0129P: "MSAZR0129P",
-    MSAZR0130P: "MSAZR0130P",
-    MSAZR0111P: "MSAZR0111P",
-    MSAZR0144P: "MSAZR0144P",
-    MSAZR0149P: "MSAZR0149P",
-    MSMCAZR0044P: "MSMCAZR0044P",
-    MSMCAZR0059P: "MSMCAZR0059P",
-    MSMCAZR0060P: "MSMCAZR0060P",
-    MSMCAZR0063P: "MSMCAZR0063P",
-    MSMCAZR0120P: "MSMCAZR0120P",
-    MSMCAZR0121P: "MSMCAZR0121P",
-    MSMCAZR0125P: "MSMCAZR0125P",
-    MSMCAZR0128P: "MSMCAZR0128P",
-    MSAZRDE0003P: "MSAZRDE0003P",
-    MSAZRDE0044P: "MSAZRDE0044P",
-}
+export type AzureOfferCode = "Unknown" | "MSAZR0003P" | "MSAZR0044P" | "MSAZR0059P" | "MSAZR0060P" | "MSAZR0062P" | "MSAZR0063P" | "MSAZR0064P" | "MSAZR0029P" | "MSAZR0022P" | "MSAZR0023P" | "MSAZR0148P" | "MSAZR0025P" | "MSAZR0036P" | "MSAZR0120P" | "MSAZR0121P" | "MSAZR0122P" | "MSAZR0123P" | "MSAZR0124P" | "MSAZR0125P" | "MSAZR0126P" | "MSAZR0127P" | "MSAZR0128P" | "MSAZR0129P" | "MSAZR0130P" | "MSAZR0111P" | "MSAZR0144P" | "MSAZR0149P" | "MSMCAZR0044P" | "MSMCAZR0059P" | "MSMCAZR0060P" | "MSMCAZR0063P" | "MSMCAZR0120P" | "MSMCAZR0121P" | "MSMCAZR0125P" | "MSMCAZR0128P" | "MSAZRDE0003P" | "MSAZRDE0044P" | string;
 
-export const AzurePricingTier = {
-    Standard: "Standard",
-    Basic: "Basic",
-}
+export type AzurePricingTier = "Standard" | "Basic" | string;
 
-export const AzureStorageRedundancy = {
-    Unknown: "Unknown",
-    LocallyRedundant: "LocallyRedundant",
-    ZoneRedundant: "ZoneRedundant",
-    GeoRedundant: "GeoRedundant",
-    ReadAccessGeoRedundant: "ReadAccessGeoRedundant",
-}
+export type AzureStorageRedundancy = "Unknown" | "LocallyRedundant" | "ZoneRedundant" | "GeoRedundant" | "ReadAccessGeoRedundant" | string;
 
-export const Currency = {
-    Unknown: "Unknown",
-    USD: "USD",
-    DKK: "DKK",
-    CAD: "CAD",
-    IDR: "IDR",
-    JPY: "JPY",
-    KRW: "KRW",
-    NZD: "NZD",
-    NOK: "NOK",
-    RUB: "RUB",
-    SAR: "SAR",
-    ZAR: "ZAR",
-    SEK: "SEK",
-    TRY: "TRY",
-    GBP: "GBP",
-    MXN: "MXN",
-    MYR: "MYR",
-    INR: "INR",
-    HKD: "HKD",
-    BRL: "BRL",
-    TWD: "TWD",
-    EUR: "EUR",
-    CHF: "CHF",
-    ARS: "ARS",
-    AUD: "AUD",
-    CNY: "CNY",
-}
+export type Currency = "Unknown" | "USD" | "DKK" | "CAD" | "IDR" | "JPY" | "KRW" | "NZD" | "NOK" | "RUB" | "SAR" | "ZAR" | "SEK" | "TRY" | "GBP" | "MXN" | "MYR" | "INR" | "HKD" | "BRL" | "TWD" | "EUR" | "CHF" | "ARS" | "AUD" | "CNY" | string;
 
-export const Percentile = {
-    Percentile50: "Percentile50",
-    Percentile90: "Percentile90",
-    Percentile95: "Percentile95",
-    Percentile99: "Percentile99",
-}
+export type Percentile = "Percentile50" | "Percentile90" | "Percentile95" | "Percentile99" | string;
 
-export const TimeRange = {
-    Day: "Day",
-    Week: "Week",
-    Month: "Month",
-}
+export type TimeRange = "Day" | "Week" | "Month" | string;
 
 /**
  * An assessment created for a group in the Migration project.
@@ -192,23 +59,23 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * AHUB discount on windows virtual machines.
      */
-    public readonly azureHybridUseBenefit!: pulumi.Output<string>;
+    public readonly azureHybridUseBenefit!: pulumi.Output<AzureHybridUseBenefit>;
     /**
      * Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
      */
-    public readonly azureLocation!: pulumi.Output<string>;
+    public readonly azureLocation!: pulumi.Output<AzureLocation>;
     /**
      * Offer code according to which cost estimation is done.
      */
-    public readonly azureOfferCode!: pulumi.Output<string>;
+    public readonly azureOfferCode!: pulumi.Output<AzureOfferCode>;
     /**
      * Pricing tier for Size evaluation.
      */
-    public readonly azurePricingTier!: pulumi.Output<string>;
+    public readonly azurePricingTier!: pulumi.Output<AzurePricingTier>;
     /**
      * Storage Redundancy type offered by Azure.
      */
-    public readonly azureStorageRedundancy!: pulumi.Output<string>;
+    public readonly azureStorageRedundancy!: pulumi.Output<AzureStorageRedundancy>;
     /**
      * Confidence rating percentage for assessment. Can be in the range [0, 100].
      */
@@ -220,7 +87,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Currency to report prices in.
      */
-    public readonly currency!: pulumi.Output<string>;
+    public readonly currency!: pulumi.Output<Currency>;
     /**
      * Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
      */
@@ -252,7 +119,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Percentile of performance data used to recommend Azure size.
      */
-    public readonly percentile!: pulumi.Output<string>;
+    public readonly percentile!: pulumi.Output<Percentile>;
     /**
      * Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
      */
@@ -264,19 +131,19 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Assessment sizing criterion.
      */
-    public readonly sizingCriterion!: pulumi.Output<string>;
+    public readonly sizingCriterion!: pulumi.Output<AssessmentSizingCriterion>;
     /**
      * User configurable setting that describes the status of the assessment.
      */
-    public readonly stage!: pulumi.Output<string>;
+    public readonly stage!: pulumi.Output<AssessmentStage>;
     /**
      * Whether the assessment has been created and is valid.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<AssessmentStatus>;
     /**
      * Time range of performance data used to recommend a size.
      */
-    public readonly timeRange!: pulumi.Output<string>;
+    public readonly timeRange!: pulumi.Output<TimeRange>;
     /**
      * Type of the object = [Microsoft.Migrate/projects/groups/assessments].
      */
@@ -398,27 +265,27 @@ export interface AssessmentArgs {
     /**
      * AHUB discount on windows virtual machines.
      */
-    readonly azureHybridUseBenefit: pulumi.Input<string>;
+    readonly azureHybridUseBenefit: pulumi.Input<AzureHybridUseBenefit>;
     /**
      * Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
      */
-    readonly azureLocation: pulumi.Input<string>;
+    readonly azureLocation: pulumi.Input<AzureLocation>;
     /**
      * Offer code according to which cost estimation is done.
      */
-    readonly azureOfferCode: pulumi.Input<string>;
+    readonly azureOfferCode: pulumi.Input<AzureOfferCode>;
     /**
      * Pricing tier for Size evaluation.
      */
-    readonly azurePricingTier: pulumi.Input<string>;
+    readonly azurePricingTier: pulumi.Input<AzurePricingTier>;
     /**
      * Storage Redundancy type offered by Azure.
      */
-    readonly azureStorageRedundancy: pulumi.Input<string>;
+    readonly azureStorageRedundancy: pulumi.Input<AzureStorageRedundancy>;
     /**
      * Currency to report prices in.
      */
-    readonly currency: pulumi.Input<string>;
+    readonly currency: pulumi.Input<Currency>;
     /**
      * Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
      */
@@ -434,7 +301,7 @@ export interface AssessmentArgs {
     /**
      * Percentile of performance data used to recommend Azure size.
      */
-    readonly percentile: pulumi.Input<string>;
+    readonly percentile: pulumi.Input<Percentile>;
     /**
      * Name of the Azure Migrate project.
      */
@@ -450,13 +317,13 @@ export interface AssessmentArgs {
     /**
      * Assessment sizing criterion.
      */
-    readonly sizingCriterion: pulumi.Input<string>;
+    readonly sizingCriterion: pulumi.Input<AssessmentSizingCriterion>;
     /**
      * User configurable setting that describes the status of the assessment.
      */
-    readonly stage: pulumi.Input<string>;
+    readonly stage: pulumi.Input<AssessmentStage>;
     /**
      * Time range of performance data used to recommend a size.
      */
-    readonly timeRange: pulumi.Input<string>;
+    readonly timeRange: pulumi.Input<TimeRange>;
 }

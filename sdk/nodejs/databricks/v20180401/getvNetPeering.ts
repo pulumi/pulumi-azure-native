@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type peeringState = "Initiated" | "Connected" | "Disconnected" | string;
+
 export function getvNetPeering(args: GetvNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetvNetPeeringResult> {
     if (!opts) {
         opts = {}
@@ -67,7 +69,7 @@ export interface GetvNetPeeringResult {
     /**
      * The status of the virtual network peering.
      */
-    readonly peeringState: string;
+    readonly peeringState: peeringState;
     /**
      * The provisioning state of the virtual network peering resource.
      */

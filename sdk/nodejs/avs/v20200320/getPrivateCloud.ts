@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type InternetEnum = "Enabled" | "Disabled" | string;
+
+export type PrivateCloudProvisioningState = "Succeeded" | "Failed" | "Cancelled" | "Pending" | "Building" | "Deleting" | "Updating" | string;
+
 export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateCloudResult> {
     if (!opts) {
         opts = {}
@@ -50,7 +54,7 @@ export interface GetPrivateCloudResult {
     /**
      * Connectivity to internet is enabled or disabled
      */
-    readonly internet?: string;
+    readonly internet?: InternetEnum;
     /**
      * Resource location
      */
@@ -86,7 +90,7 @@ export interface GetPrivateCloudResult {
     /**
      * The provisioning state
      */
-    readonly provisioningState: string;
+    readonly provisioningState: PrivateCloudProvisioningState;
     /**
      * The private cloud SKU
      */

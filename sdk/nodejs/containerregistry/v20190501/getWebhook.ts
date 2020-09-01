@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
+
+export type WebhookAction = "push" | "delete" | "quarantine" | "chart_push" | "chart_delete" | string;
+
+export type WebhookStatus = "enabled" | "disabled" | string;
+
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +49,7 @@ export interface GetWebhookResult {
     /**
      * The list of actions that trigger the webhook to post notifications.
      */
-    readonly actions: string[];
+    readonly actions: WebhookAction[];
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -55,7 +61,7 @@ export interface GetWebhookResult {
     /**
      * The provisioning state of the webhook at the time the operation was called.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
      */
@@ -63,7 +69,7 @@ export interface GetWebhookResult {
     /**
      * The status of the webhook at the time the operation was called.
      */
-    readonly status?: string;
+    readonly status?: WebhookStatus;
     /**
      * The tags of the resource.
      */

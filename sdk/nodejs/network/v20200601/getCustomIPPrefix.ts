@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type CommissionedState = "Provisioning" | "Provisioned" | "Commissioning" | "Commissioned" | "Decommissioning" | "Deprovisioning" | string;
+
 export function getCustomIPPrefix(args: GetCustomIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomIPPrefixResult> {
     if (!opts) {
         opts = {}
@@ -47,7 +49,7 @@ export interface GetCustomIPPrefixResult {
     /**
      * The commissioned state of the Custom IP Prefix.
      */
-    readonly commissionedState?: string;
+    readonly commissionedState?: CommissionedState;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

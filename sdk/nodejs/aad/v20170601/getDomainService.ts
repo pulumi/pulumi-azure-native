@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type filteredSync = "Enabled" | "Disabled" | string;
+
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
     if (!opts) {
         opts = {}
@@ -54,7 +56,7 @@ export interface GetDomainServiceResult {
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */
-    readonly filteredSync?: string;
+    readonly filteredSync?: filteredSync;
     /**
      * List of Domain Health Alerts
      */

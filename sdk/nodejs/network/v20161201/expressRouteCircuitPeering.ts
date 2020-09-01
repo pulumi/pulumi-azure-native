@@ -6,16 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ExpressRouteCircuitPeeringState = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-}
+export type ExpressRouteCircuitPeeringState = "Disabled" | "Enabled" | string;
 
-export const ExpressRouteCircuitPeeringType = {
-    AzurePublicPeering: "AzurePublicPeering",
-    AzurePrivatePeering: "AzurePrivatePeering",
-    MicrosoftPeering: "MicrosoftPeering",
-}
+export type ExpressRouteCircuitPeeringType = "AzurePublicPeering" | "AzurePrivatePeering" | "MicrosoftPeering" | string;
 
 /**
  * Peering in an ExpressRouteCircuit resource.
@@ -78,7 +71,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
      */
-    public readonly peeringType!: pulumi.Output<string | undefined>;
+    public readonly peeringType!: pulumi.Output<ExpressRouteCircuitPeeringType | undefined>;
     /**
      * The primary port.
      */
@@ -110,7 +103,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * The state of peering. Possible values are: 'Disabled' and 'Enabled'
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<ExpressRouteCircuitPeeringState | undefined>;
     /**
      * Gets peering stats.
      */
@@ -221,7 +214,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
      */
-    readonly peeringType?: pulumi.Input<string>;
+    readonly peeringType?: pulumi.Input<ExpressRouteCircuitPeeringType>;
     /**
      * The primary port.
      */
@@ -257,7 +250,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The state of peering. Possible values are: 'Disabled' and 'Enabled'
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<ExpressRouteCircuitPeeringState>;
     /**
      * Gets peering stats.
      */

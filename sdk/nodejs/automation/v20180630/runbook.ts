@@ -10,20 +10,9 @@ export enum RunbookProvisioningState {
     Succeeded = "Succeeded",
 }
 
-export const RunbookState = {
-    New: "New",
-    Edit: "Edit",
-    Published: "Published",
-}
+export type RunbookState = "New" | "Edit" | "Published" | string;
 
-export const RunbookTypeEnum = {
-    Script: "Script",
-    Graph: "Graph",
-    PowerShellWorkflow: "PowerShellWorkflow",
-    PowerShell: "PowerShell",
-    GraphPowerShellWorkflow: "GraphPowerShellWorkflow",
-    GraphPowerShell: "GraphPowerShell",
-}
+export type RunbookTypeEnum = "Script" | "Graph" | "PowerShellWorkflow" | "PowerShell" | "GraphPowerShellWorkflow" | "GraphPowerShell" | string;
 
 /**
  * Definition of the runbook type.
@@ -122,11 +111,11 @@ export class Runbook extends pulumi.CustomResource {
     /**
      * Gets or sets the type of the runbook.
      */
-    public readonly runbookType!: pulumi.Output<string | undefined>;
+    public readonly runbookType!: pulumi.Output<RunbookTypeEnum | undefined>;
     /**
      * Gets or sets the state of the runbook.
      */
-    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly state!: pulumi.Output<RunbookState | undefined>;
     /**
      * Resource tags.
      */
@@ -249,7 +238,7 @@ export interface RunbookArgs {
     /**
      * Gets or sets the type of the runbook.
      */
-    readonly runbookType: pulumi.Input<string>;
+    readonly runbookType: pulumi.Input<RunbookTypeEnum>;
     /**
      * Gets or sets the tags attached to the resource.
      */

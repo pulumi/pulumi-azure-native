@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ServerState = "Ready" | "Dropping" | "Disabled" | "Inaccessible" | string;
+
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
         opts = {}
@@ -114,7 +116,7 @@ export interface GetServerResult {
     /**
      * A state of a server that is visible to user.
      */
-    readonly userVisibleState?: string;
+    readonly userVisibleState?: ServerState;
     /**
      * Server version.
      */

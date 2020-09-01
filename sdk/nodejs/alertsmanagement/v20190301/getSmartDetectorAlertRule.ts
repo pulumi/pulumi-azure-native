@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AlertRuleState = "Enabled" | "Disabled" | string;
+
+export type Severity = "Sev0" | "Sev1" | "Sev2" | "Sev3" | "Sev4" | string;
+
 export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSmartDetectorAlertRuleResult> {
     if (!opts) {
         opts = {}
@@ -67,11 +71,11 @@ export interface GetSmartDetectorAlertRuleResult {
     /**
      * The alert rule severity.
      */
-    readonly severity: string;
+    readonly severity: Severity;
     /**
      * The alert rule state.
      */
-    readonly state: string;
+    readonly state: AlertRuleState;
     /**
      * The alert rule throttling information.
      */

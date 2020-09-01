@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type TransportProtocol = "Udp" | "Tcp" | string;
+
 export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundNatRuleResult> {
     if (!opts) {
         opts = {}
@@ -80,7 +82,7 @@ export interface GetInboundNatRuleResult {
     /**
      * The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'
      */
-    readonly protocol?: string;
+    readonly protocol?: TransportProtocol;
     /**
      * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */

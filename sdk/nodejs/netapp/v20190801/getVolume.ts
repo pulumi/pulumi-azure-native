@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ServiceLevel = "Standard" | "Premium" | "Ultra" | string;
+
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     if (!opts) {
         opts = {}
@@ -88,7 +90,7 @@ export interface GetVolumeResult {
     /**
      * The service level of the file system
      */
-    readonly serviceLevel?: string;
+    readonly serviceLevel?: ServiceLevel;
     /**
      * UUID v4 or resource identifier used to identify the Snapshot.
      */

@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ServerState = {
-    Ready: "Ready",
-    Dropping: "Dropping",
-    Disabled: "Disabled",
-    Inaccessible: "Inaccessible",
-}
+export type ServerState = "Ready" | "Dropping" | "Disabled" | "Inaccessible" | string;
 
 /**
  * Represents a server.
@@ -122,7 +117,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * A state of a server that is visible to user.
      */
-    public /*out*/ readonly userVisibleState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly userVisibleState!: pulumi.Output<ServerState | undefined>;
     /**
      * Server version.
      */

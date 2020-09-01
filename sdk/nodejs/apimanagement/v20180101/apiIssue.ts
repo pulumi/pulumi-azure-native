@@ -4,13 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const State = {
-    proposed: "proposed",
-    open: "open",
-    removed: "removed",
-    resolved: "resolved",
-    closed: "closed",
-}
+export type State = "proposed" | "open" | "removed" | "resolved" | "closed" | string;
 
 /**
  * Issue Contract details.
@@ -61,7 +55,7 @@ export class ApiIssue extends pulumi.CustomResource {
     /**
      * Status of the issue.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<State | undefined>;
     /**
      * The issue title.
      */
@@ -165,7 +159,7 @@ export interface ApiIssueArgs {
     /**
      * Status of the issue.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<State>;
     /**
      * The issue title.
      */

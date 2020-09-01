@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type versioningScheme = "Segment" | "Query" | "Header" | string;
+
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
     if (!opts) {
         opts = {}
@@ -67,5 +69,5 @@ export interface GetApiVersionSetResult {
     /**
      * An value that determines where the API Version identifer will be located in a HTTP request.
      */
-    readonly versioningScheme: string;
+    readonly versioningScheme: versioningScheme;
 }

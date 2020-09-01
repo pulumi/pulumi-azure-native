@@ -6,23 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const DataSource = {
-    TwinData: "TwinData",
-}
+export type DataSource = "TwinData" | string;
 
-export const ExportData = {
-    RawEvents: "RawEvents",
-}
+export type ExportData = "RawEvents" | string;
 
-export const SecuritySolutionStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type SecuritySolutionStatus = "Enabled" | "Disabled" | string;
 
-export const UnmaskedIpLoggingStatus = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-}
+export type UnmaskedIpLoggingStatus = "Disabled" | "Enabled" | string;
 
 /**
  * IoT Security solution configuration and resource information.
@@ -61,7 +51,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
-    public readonly disabledDataSources!: pulumi.Output<string[] | undefined>;
+    public readonly disabledDataSources!: pulumi.Output<DataSource[] | undefined>;
     /**
      * Resource display name.
      */
@@ -69,7 +59,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     /**
      * List of additional options for exporting to workspace data.
      */
-    public readonly export!: pulumi.Output<string[] | undefined>;
+    public readonly export!: pulumi.Output<ExportData[] | undefined>;
     /**
      * IoT Hub resource IDs
      */
@@ -89,7 +79,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     /**
      * Status of the IoT Security solution.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<SecuritySolutionStatus | undefined>;
     /**
      * Resource tags
      */
@@ -101,7 +91,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     /**
      * Unmasked IP address logging status
      */
-    public readonly unmaskedIpLoggingStatus!: pulumi.Output<string | undefined>;
+    public readonly unmaskedIpLoggingStatus!: pulumi.Output<UnmaskedIpLoggingStatus | undefined>;
     /**
      * Properties of the IoT Security solution's user defined resources.
      */
@@ -171,7 +161,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
-    readonly disabledDataSources?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly disabledDataSources?: pulumi.Input<pulumi.Input<DataSource>[]>;
     /**
      * Resource display name.
      */
@@ -179,7 +169,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * List of additional options for exporting to workspace data.
      */
-    readonly export?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly export?: pulumi.Input<pulumi.Input<ExportData>[]>;
     /**
      * IoT Hub resource IDs
      */
@@ -203,7 +193,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * Status of the IoT Security solution.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<SecuritySolutionStatus>;
     /**
      * Resource tags
      */
@@ -211,7 +201,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * Unmasked IP address logging status
      */
-    readonly unmaskedIpLoggingStatus?: pulumi.Input<string>;
+    readonly unmaskedIpLoggingStatus?: pulumi.Input<UnmaskedIpLoggingStatus>;
     /**
      * Properties of the IoT Security solution's user defined resources.
      */

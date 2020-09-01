@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
+
 export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorResult> {
     if (!opts) {
         opts = {}
@@ -68,7 +70,7 @@ export interface GetConnectionMonitorResult {
     /**
      * The provisioning state of the connection monitor.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: ProvisioningState;
     /**
      * Describes the source of connection monitor.
      */

@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const UserType = {
-    Share: "Share",
-    LocalManagement: "LocalManagement",
-    ARM: "ARM",
-}
+export type UserType = "Share" | "LocalManagement" | "ARM" | string;
 
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
@@ -61,7 +57,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Type of the user.
      */
-    public readonly userType!: pulumi.Output<string>;
+    public readonly userType!: pulumi.Output<UserType>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -136,5 +132,5 @@ export interface UserArgs {
     /**
      * Type of the user.
      */
-    readonly userType: pulumi.Input<string>;
+    readonly userType: pulumi.Input<UserType>;
 }

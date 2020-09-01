@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type VirtualNetworkGatewayConnectionStatus = "Unknown" | "Connecting" | "Connected" | "NotConnected" | string;
+
+export type VirtualNetworkGatewayConnectionType = "IPsec" | "Vnet2Vnet" | "ExpressRoute" | "VPNClient" | string;
+
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
     if (!opts) {
         opts = {}
@@ -46,11 +50,11 @@ export interface GetVirtualNetworkGatewayConnectionResult {
     /**
      * Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
      */
-    readonly connectionStatus: string;
+    readonly connectionStatus: VirtualNetworkGatewayConnectionStatus;
     /**
      * Gateway connection type. Possible values are: 'Ipsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
      */
-    readonly connectionType: string;
+    readonly connectionType: VirtualNetworkGatewayConnectionType;
     /**
      * The egress bytes transferred in this connection.
      */

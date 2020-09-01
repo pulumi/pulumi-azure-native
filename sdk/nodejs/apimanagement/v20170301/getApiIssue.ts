@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type State = "proposed" | "open" | "removed" | "resolved" | "closed" | string;
+
 export function getApiIssue(args: GetApiIssueArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueResult> {
     if (!opts) {
         opts = {}
@@ -64,7 +66,7 @@ export interface GetApiIssueResult {
     /**
      * Status of the issue.
      */
-    readonly state?: string;
+    readonly state?: State;
     /**
      * The issue title.
      */

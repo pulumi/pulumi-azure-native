@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Deleting" | "Succeeded" | "Failed" | "Paused" | "Suspended" | "Provisioning" | "Updating" | "Suspending" | "Pausing" | "Resuming" | "Preparing" | "Scaling" | string;
+
+export type State = "Deleting" | "Succeeded" | "Failed" | "Paused" | "Suspended" | "Provisioning" | "Updating" | "Suspending" | "Pausing" | "Resuming" | "Preparing" | "Scaling" | string;
+
 export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDetailsResult> {
     if (!opts) {
         opts = {}
@@ -58,7 +62,7 @@ export interface GetServerDetailsResult {
     /**
      * The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The full name of the Analysis Services resource.
      */
@@ -70,7 +74,7 @@ export interface GetServerDetailsResult {
     /**
      * The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
      */
-    readonly state: string;
+    readonly state: State;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const state = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type state = "Enabled" | "Disabled" | string;
 
 /**
  * Defines an Network Experiment Profile and lists of Experiments
@@ -42,7 +39,7 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
     /**
      * The state of the Experiment
      */
-    public readonly enabledState!: pulumi.Output<string | undefined>;
+    public readonly enabledState!: pulumi.Output<state | undefined>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
@@ -115,7 +112,7 @@ export interface NetworkExperimentProfileArgs {
     /**
      * The state of the Experiment
      */
-    readonly enabledState?: pulumi.Input<string>;
+    readonly enabledState?: pulumi.Input<state>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */

@@ -6,6 +6,15 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum VmPriority {
+    dedicated = "dedicated",
+    lowpriority = "lowpriority",
+}
+
+export type AllocationState = "steady" | "resizing" | string;
+
+export type ProvisioningState = "creating" | "succeeded" | "failed" | "deleting" | string;
+
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +52,7 @@ export interface GetClusterResult {
     /**
      * Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
      */
-    readonly allocationState: string;
+    readonly allocationState: AllocationState;
     /**
      * The time at which the cluster entered its current allocation state.
      */
@@ -75,7 +84,7 @@ export interface GetClusterResult {
     /**
      * Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * Time when the provisioning state was changed.
      */

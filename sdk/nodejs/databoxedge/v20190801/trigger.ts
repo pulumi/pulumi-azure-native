@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const TriggerEventType = {
-    FileEvent: "FileEvent",
-    PeriodicTimerEvent: "PeriodicTimerEvent",
-}
+export type TriggerEventType = "FileEvent" | "PeriodicTimerEvent" | string;
 
 /**
  * Trigger details.
@@ -42,7 +39,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * Trigger Kind.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<TriggerEventType>;
     /**
      * The object name.
      */
@@ -107,7 +104,7 @@ export interface TriggerArgs {
     /**
      * Trigger Kind.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<TriggerEventType>;
     /**
      * The trigger name.
      */

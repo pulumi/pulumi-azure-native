@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type RouteFilterRuleType = "Community" | string;
+
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
     if (!opts) {
         opts = {}
@@ -67,5 +69,5 @@ export interface GetRouteFilterRuleResult {
     /**
      * The rule type of the rule. Valid value is: 'Community'
      */
-    readonly routeFilterRuleType: string;
+    readonly routeFilterRuleType: RouteFilterRuleType;
 }

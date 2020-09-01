@@ -6,18 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const AlertRuleState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type AlertRuleState = "Enabled" | "Disabled" | string;
 
-export const Severity = {
-    Sev0: "Sev0",
-    Sev1: "Sev1",
-    Sev2: "Sev2",
-    Sev3: "Sev3",
-    Sev4: "Sev4",
-}
+export type Severity = "Sev0" | "Sev1" | "Sev2" | "Sev3" | "Sev4" | string;
 
 /**
  * The alert rule information
@@ -80,11 +71,11 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**
      * The alert rule severity.
      */
-    public readonly severity!: pulumi.Output<string>;
+    public readonly severity!: pulumi.Output<Severity>;
     /**
      * The alert rule state.
      */
-    public readonly state!: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<AlertRuleState>;
     /**
      * The resource tags.
      */
@@ -202,11 +193,11 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * The alert rule severity.
      */
-    readonly severity: pulumi.Input<string>;
+    readonly severity: pulumi.Input<Severity>;
     /**
      * The alert rule state.
      */
-    readonly state: pulumi.Input<string>;
+    readonly state: pulumi.Input<AlertRuleState>;
     /**
      * The resource tags.
      */

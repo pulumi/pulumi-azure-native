@@ -6,6 +6,19 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum BuiltInAuthenticationProvider {
+    AzureActiveDirectory = "AzureActiveDirectory",
+    Facebook = "Facebook",
+    Google = "Google",
+    MicrosoftAccount = "MicrosoftAccount",
+    Twitter = "Twitter",
+}
+
+export enum UnauthenticatedClientAction {
+    RedirectToLoginPage = "RedirectToLoginPage",
+    AllowAnonymous = "AllowAnonymous",
+}
+
 export function listSiteAuthSettingsSlot(args: ListSiteAuthSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteAuthSettingsSlotResult> {
     if (!opts) {
         opts = {}

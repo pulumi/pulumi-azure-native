@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const AutomationAccountState = {
-    Ok: "Ok",
-    Unavailable: "Unavailable",
-    Suspended: "Suspended",
-}
+export type AutomationAccountState = "Ok" | "Unavailable" | "Suspended" | string;
 
 /**
  * Definition of the automation account type.
@@ -77,7 +73,7 @@ export class AutomationAccount extends pulumi.CustomResource {
     /**
      * Gets status of account.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<AutomationAccountState>;
     /**
      * Resource tags.
      */

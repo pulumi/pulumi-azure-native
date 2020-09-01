@@ -6,6 +6,27 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum HostingEnvironmentStatus {
+    Preparing = "Preparing",
+    Ready = "Ready",
+    Scaling = "Scaling",
+    Deleting = "Deleting",
+}
+
+export enum InternalLoadBalancingMode {
+    None = "None",
+    Web = "Web",
+    Publishing = "Publishing",
+}
+
+export enum ProvisioningState {
+    Succeeded = "Succeeded",
+    Failed = "Failed",
+    Canceled = "Canceled",
+    InProgress = "InProgress",
+    Deleting = "Deleting",
+}
+
 export function getHostingEnvironment(args: GetHostingEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetHostingEnvironmentResult> {
     if (!opts) {
         opts = {}

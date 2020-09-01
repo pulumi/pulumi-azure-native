@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ExpressRoutePortsEncapsulation = {
-    Dot1Q: "Dot1Q",
-    QinQ: "QinQ",
-}
+export type ExpressRoutePortsEncapsulation = "Dot1Q" | "QinQ" | string;
 
 /**
  * ExpressRoutePort resource definition.
@@ -56,7 +53,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
     /**
      * Encapsulation method on physical ports.
      */
-    public readonly encapsulation!: pulumi.Output<string | undefined>;
+    public readonly encapsulation!: pulumi.Output<ExpressRoutePortsEncapsulation | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -169,7 +166,7 @@ export interface ExpressRoutePortArgs {
     /**
      * Encapsulation method on physical ports.
      */
-    readonly encapsulation?: pulumi.Input<string>;
+    readonly encapsulation?: pulumi.Input<ExpressRoutePortsEncapsulation>;
     /**
      * The name of the ExpressRoutePort resource.
      */

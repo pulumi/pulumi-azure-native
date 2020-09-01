@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum PublicCertificateLocation {
+    CurrentUserMy = "CurrentUserMy",
+    LocalMachineMy = "LocalMachineMy",
+    Unknown = "Unknown",
+}
+
 export function getWebAppPublicCertificate(args: GetWebAppPublicCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateResult> {
     if (!opts) {
         opts = {}

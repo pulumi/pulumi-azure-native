@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type UserType = "Share" | "LocalManagement" | "ARM" | string;
+
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {
         opts = {}
@@ -59,5 +61,5 @@ export interface GetUserResult {
     /**
      * Type of the user.
      */
-    readonly userType: string;
+    readonly userType: UserType;
 }

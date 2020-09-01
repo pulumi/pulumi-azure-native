@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type enabled = "true" | "false" | string;
+
+export type provisioningState = "Succeeded" | "Deploying" | "Canceled" | "Failed" | string;
+
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
     if (!opts) {
         opts = {}
@@ -46,7 +50,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
      */
-    readonly enabled?: string;
+    readonly enabled?: enabled;
     /**
      * Last time the rule was updated in IS08601 format.
      */
@@ -62,7 +66,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * Provisioning state of the scheduled query rule
      */
-    readonly provisioningState: string;
+    readonly provisioningState: provisioningState;
     /**
      * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
      */

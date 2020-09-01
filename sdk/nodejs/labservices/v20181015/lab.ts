@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const LabUserAccessMode = {
-    Restricted: "Restricted",
-    Open: "Open",
-}
+export type LabUserAccessMode = "Restricted" | "Open" | string;
 
 /**
  * Represents a lab.
@@ -96,7 +93,7 @@ export class Lab extends pulumi.CustomResource {
     /**
      * Lab user access mode (open to all vs. restricted to those listed on the lab).
      */
-    public readonly userAccessMode!: pulumi.Output<string | undefined>;
+    public readonly userAccessMode!: pulumi.Output<LabUserAccessMode | undefined>;
     /**
      * Maximum value MaxUsersInLab can be set to, as specified by the service
      */
@@ -197,5 +194,5 @@ export interface LabArgs {
     /**
      * Lab user access mode (open to all vs. restricted to those listed on the lab).
      */
-    readonly userAccessMode?: pulumi.Input<string>;
+    readonly userAccessMode?: pulumi.Input<LabUserAccessMode>;
 }

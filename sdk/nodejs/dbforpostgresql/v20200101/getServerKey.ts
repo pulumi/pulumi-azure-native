@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ServerKeyType = "AzureKeyVault" | string;
+
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
     if (!opts) {
         opts = {}
@@ -55,7 +57,7 @@ export interface GetServerKeyResult {
     /**
      * The key type like 'AzureKeyVault'.
      */
-    readonly serverKeyType: string;
+    readonly serverKeyType: ServerKeyType;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

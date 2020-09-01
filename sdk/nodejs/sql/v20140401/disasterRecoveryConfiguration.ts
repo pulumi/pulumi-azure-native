@@ -4,28 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const DisasterRecoveryConfigurationAutoFailover = {
-    Off: "Off",
-    On: "On",
-}
+export type DisasterRecoveryConfigurationAutoFailover = "Off" | "On" | string;
 
-export const DisasterRecoveryConfigurationFailoverPolicy = {
-    Manual: "Manual",
-    Automatic: "Automatic",
-}
+export type DisasterRecoveryConfigurationFailoverPolicy = "Manual" | "Automatic" | string;
 
-export const DisasterRecoveryConfigurationRole = {
-    None: "None",
-    Primary: "Primary",
-    Secondary: "Secondary",
-}
+export type DisasterRecoveryConfigurationRole = "None" | "Primary" | "Secondary" | string;
 
-export const DisasterRecoveryConfigurationStatus = {
-    Creating: "Creating",
-    Ready: "Ready",
-    FailingOver: "FailingOver",
-    Dropping: "Dropping",
-}
+export type DisasterRecoveryConfigurationStatus = "Creating" | "Ready" | "FailingOver" | "Dropping" | string;
 
 /**
  * Represents a disaster recovery configuration.
@@ -60,11 +45,11 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     /**
      * Whether or not failover can be done automatically.
      */
-    public /*out*/ readonly autoFailover!: pulumi.Output<string>;
+    public /*out*/ readonly autoFailover!: pulumi.Output<DisasterRecoveryConfigurationAutoFailover>;
     /**
      * How aggressive the automatic failover should be.
      */
-    public /*out*/ readonly failoverPolicy!: pulumi.Output<string>;
+    public /*out*/ readonly failoverPolicy!: pulumi.Output<DisasterRecoveryConfigurationFailoverPolicy>;
     /**
      * Location of the server that contains this disaster recovery configuration.
      */
@@ -88,11 +73,11 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     /**
      * The role of the current server in the disaster recovery configuration.
      */
-    public /*out*/ readonly role!: pulumi.Output<string>;
+    public /*out*/ readonly role!: pulumi.Output<DisasterRecoveryConfigurationRole>;
     /**
      * The status of the disaster recovery configuration.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<DisasterRecoveryConfigurationStatus>;
     /**
      * Resource type.
      */

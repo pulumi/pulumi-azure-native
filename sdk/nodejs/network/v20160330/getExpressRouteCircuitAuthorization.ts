@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AuthorizationUseStatus = "Available" | "InUse" | string;
+
 export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuitAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitAuthorizationResult> {
     if (!opts) {
         opts = {}
@@ -47,7 +49,7 @@ export interface GetExpressRouteCircuitAuthorizationResult {
     /**
      * Gets or sets AuthorizationUseStatus
      */
-    readonly authorizationUseStatus?: string;
+    readonly authorizationUseStatus?: AuthorizationUseStatus;
     /**
      * A unique read-only string that changes whenever the resource is updated
      */

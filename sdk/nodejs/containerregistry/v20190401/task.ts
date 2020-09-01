@@ -6,19 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-}
+export type ProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
 
-export const TaskStatus = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-}
+export type TaskStatus = "Disabled" | "Enabled" | string;
 
 /**
  * The task that has the ARM resource and task properties.
@@ -82,11 +72,11 @@ export class Task extends pulumi.CustomResource {
     /**
      * The provisioning state of the task.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The current status of task.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<TaskStatus | undefined>;
     /**
      * The properties of a task step.
      */
@@ -205,7 +195,7 @@ export interface TaskArgs {
     /**
      * The current status of task.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<TaskStatus>;
     /**
      * The properties of a task step.
      */

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DataStringComparisonBehavior = "Ordinal" | "OrdinalIgnoreCase" | string;
+
 export function getReferenceDataSet(args: GetReferenceDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReferenceDataSetResult> {
     if (!opts) {
         opts = {}
@@ -47,7 +49,7 @@ export interface GetReferenceDataSetResult {
     /**
      * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
      */
-    readonly dataStringComparisonBehavior?: string;
+    readonly dataStringComparisonBehavior?: DataStringComparisonBehavior;
     /**
      * The list of key properties for the reference data set.
      */

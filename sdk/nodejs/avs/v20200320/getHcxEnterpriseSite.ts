@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type HcxEnterpriseSiteStatus = "Available" | "Consumed" | "Deactivated" | "Deleted" | string;
+
 export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHcxEnterpriseSiteResult> {
     if (!opts) {
         opts = {}
@@ -51,7 +53,7 @@ export interface GetHcxEnterpriseSiteResult {
     /**
      * The status of the HCX Enterprise Site
      */
-    readonly status: string;
+    readonly status: HcxEnterpriseSiteStatus;
     /**
      * Resource type.
      */

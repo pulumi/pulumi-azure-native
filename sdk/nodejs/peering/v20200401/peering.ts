@@ -6,17 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const kind = {
-    Direct: "Direct",
-    Exchange: "Exchange",
-}
+export type kind = "Direct" | "Exchange" | string;
 
-export const provisioningState = {
-    Succeeded: "Succeeded",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-}
+export type provisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
 
 /**
  * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
@@ -59,7 +51,7 @@ export class Peering extends pulumi.CustomResource {
     /**
      * The kind of the peering.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<kind>;
     /**
      * The location of the resource.
      */
@@ -75,7 +67,7 @@ export class Peering extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<provisioningState>;
     /**
      * The SKU that defines the tier and kind of the peering.
      */
@@ -156,7 +148,7 @@ export interface PeeringArgs {
     /**
      * The kind of the peering.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<kind>;
     /**
      * The location of the resource.
      */

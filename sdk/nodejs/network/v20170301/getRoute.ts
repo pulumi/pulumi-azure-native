@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type RouteNextHopType = "VirtualNetworkGateway" | "VnetLocal" | "Internet" | "VirtualAppliance" | "None" | string;
+
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     if (!opts) {
         opts = {}
@@ -59,7 +61,7 @@ export interface GetRouteResult {
     /**
      * The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
      */
-    readonly nextHopType: string;
+    readonly nextHopType: RouteNextHopType;
     /**
      * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */

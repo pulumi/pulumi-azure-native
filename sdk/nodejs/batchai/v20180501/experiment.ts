@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    creating: "creating",
-    deleting: "deleting",
-    succeeded: "succeeded",
-    failed: "failed",
-}
+export type ProvisioningState = "creating" | "deleting" | "succeeded" | "failed" | string;
 
 /**
  * Experiment information.
@@ -52,7 +47,7 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * The provisioned state of the experiment
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The time at which the experiment entered its current provisioning state.
      */

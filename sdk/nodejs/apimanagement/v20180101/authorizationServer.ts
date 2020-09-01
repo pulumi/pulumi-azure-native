@@ -17,22 +17,11 @@ export enum AuthorizationMethod {
     DELETE = "DELETE",
 }
 
-export const BearerTokenSendingMethod = {
-    authorizationHeader: "authorizationHeader",
-    query: "query",
-}
+export type BearerTokenSendingMethod = "authorizationHeader" | "query" | string;
 
-export const ClientAuthenticationMethod = {
-    Basic: "Basic",
-    Body: "Body",
-}
+export type ClientAuthenticationMethod = "Basic" | "Body" | string;
 
-export const GrantType = {
-    authorizationCode: "authorizationCode",
-    implicit: "implicit",
-    resourceOwnerPassword: "resourceOwnerPassword",
-    clientCredentials: "clientCredentials",
-}
+export type GrantType = "authorizationCode" | "implicit" | "resourceOwnerPassword" | "clientCredentials" | string;
 
 /**
  * External OAuth authorization server settings.
@@ -75,11 +64,11 @@ export class AuthorizationServer extends pulumi.CustomResource {
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */
-    public readonly bearerTokenSendingMethods!: pulumi.Output<string[] | undefined>;
+    public readonly bearerTokenSendingMethods!: pulumi.Output<BearerTokenSendingMethod[] | undefined>;
     /**
      * Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
      */
-    public readonly clientAuthenticationMethod!: pulumi.Output<string[] | undefined>;
+    public readonly clientAuthenticationMethod!: pulumi.Output<ClientAuthenticationMethod[] | undefined>;
     /**
      * Client or app id registered with this authorization server.
      */
@@ -107,7 +96,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
     /**
      * Form of an authorization grant, which the client uses to request the access token.
      */
-    public readonly grantTypes!: pulumi.Output<string[]>;
+    public readonly grantTypes!: pulumi.Output<GrantType[]>;
     /**
      * Resource name.
      */
@@ -228,11 +217,11 @@ export interface AuthorizationServerArgs {
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */
-    readonly bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<BearerTokenSendingMethod>[]>;
     /**
      * Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
      */
-    readonly clientAuthenticationMethod?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly clientAuthenticationMethod?: pulumi.Input<pulumi.Input<ClientAuthenticationMethod>[]>;
     /**
      * Client or app id registered with this authorization server.
      */
@@ -260,7 +249,7 @@ export interface AuthorizationServerArgs {
     /**
      * Form of an authorization grant, which the client uses to request the access token.
      */
-    readonly grantTypes: pulumi.Input<pulumi.Input<string>[]>;
+    readonly grantTypes: pulumi.Input<pulumi.Input<GrantType>[]>;
     /**
      * The name of the resource group.
      */

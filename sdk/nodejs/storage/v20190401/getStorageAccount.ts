@@ -6,6 +6,28 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum AccessTier {
+    Hot = "Hot",
+    Cool = "Cool",
+}
+
+export enum AccountStatus {
+    available = "available",
+    unavailable = "unavailable",
+}
+
+export enum ProvisioningState {
+    Creating = "Creating",
+    ResolvingDNS = "ResolvingDNS",
+    Succeeded = "Succeeded",
+}
+
+export type Kind = "Storage" | "StorageV2" | "BlobStorage" | "FileStorage" | "BlockBlobStorage" | string;
+
+export type LargeFileSharesState = "Disabled" | "Enabled" | string;
+
+export type MinimumTlsVersion = "TLS1_0" | "TLS1_1" | "TLS1_2" | string;
+
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
     if (!opts) {
         opts = {}
@@ -87,11 +109,11 @@ export interface GetStorageAccountResult {
     /**
      * Gets the Kind.
      */
-    readonly kind: string;
+    readonly kind: Kind;
     /**
      * Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
      */
-    readonly largeFileSharesState?: string;
+    readonly largeFileSharesState?: LargeFileSharesState;
     /**
      * Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
      */
@@ -103,7 +125,7 @@ export interface GetStorageAccountResult {
     /**
      * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
      */
-    readonly minimumTlsVersion?: string;
+    readonly minimumTlsVersion?: MinimumTlsVersion;
     /**
      * The name of the resource
      */

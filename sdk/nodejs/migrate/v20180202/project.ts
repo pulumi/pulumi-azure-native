@@ -4,21 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const DiscoveryStatus = {
-    Unknown: "Unknown",
-    NotStarted: "NotStarted",
-    InProgress: "InProgress",
-    Completed: "Completed",
-}
+export type DiscoveryStatus = "Unknown" | "NotStarted" | "InProgress" | "Completed" | string;
 
-export const ProvisioningState = {
-    Accepted: "Accepted",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-    Moving: "Moving",
-    Succeeded: "Succeeded",
-}
+export type ProvisioningState = "Accepted" | "Creating" | "Deleting" | "Failed" | "Moving" | "Succeeded" | string;
 
 /**
  * Azure Migrate Project.
@@ -65,7 +53,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Reports whether project is under discovery.
      */
-    public /*out*/ readonly discoveryStatus!: pulumi.Output<string>;
+    public /*out*/ readonly discoveryStatus!: pulumi.Output<DiscoveryStatus>;
     /**
      * For optimistic concurrency control.
      */
@@ -105,7 +93,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Provisioning state of the project.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly provisioningState!: pulumi.Output<ProvisioningState | undefined>;
     /**
      * Tags provided by Azure Tagging service.
      */
@@ -196,7 +184,7 @@ export interface ProjectArgs {
     /**
      * Provisioning state of the project.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<ProvisioningState>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

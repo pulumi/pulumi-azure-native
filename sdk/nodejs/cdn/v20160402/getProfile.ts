@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum ProfileResourceState {
+    Creating = "Creating",
+    Active = "Active",
+    Deleting = "Deleting",
+    Disabled = "Disabled",
+}
+
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     if (!opts) {
         opts = {}

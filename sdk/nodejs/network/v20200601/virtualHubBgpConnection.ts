@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const HubBgpConnectionStatus = {
-    Unknown: "Unknown",
-    Connecting: "Connecting",
-    Connected: "Connected",
-    NotConnected: "NotConnected",
-}
+export type HubBgpConnectionStatus = "Unknown" | "Connecting" | "Connected" | "NotConnected" | string;
 
 /**
  * Virtual Appliance Site resource.
@@ -44,7 +39,7 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
     /**
      * The current state of the VirtualHub to Peer.
      */
-    public /*out*/ readonly connectionState!: pulumi.Output<string>;
+    public /*out*/ readonly connectionState!: pulumi.Output<HubBgpConnectionStatus>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

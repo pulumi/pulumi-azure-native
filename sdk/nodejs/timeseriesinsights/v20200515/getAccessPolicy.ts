@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AccessPolicyRole = "Reader" | "Contributor" | string;
+
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
     if (!opts) {
         opts = {}
@@ -55,7 +57,7 @@ export interface GetAccessPolicyResult {
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    readonly roles?: string[];
+    readonly roles?: AccessPolicyRole[];
     /**
      * Resource type
      */

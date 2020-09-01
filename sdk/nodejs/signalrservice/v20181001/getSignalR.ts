@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Unknown" | "Succeeded" | "Failed" | "Canceled" | "Running" | "Creating" | "Updating" | "Deleting" | "Moving" | string;
+
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
     if (!opts) {
         opts = {}
@@ -72,7 +74,7 @@ export interface GetSignalRResult {
     /**
      * Provisioning state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The publicly accessible port of the SignalR service which is designed for browser/client side usage.
      */

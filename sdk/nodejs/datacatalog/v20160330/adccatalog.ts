@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const SkuType = {
-    Free: "Free",
-    Standard: "Standard",
-}
+export type SkuType = "Free" | "Standard" | string;
 
 /**
  * Azure Data Catalog.
@@ -64,7 +61,7 @@ export class ADCCatalog extends pulumi.CustomResource {
     /**
      * Azure data catalog SKU.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    public readonly sku!: pulumi.Output<SkuType | undefined>;
     /**
      * Azure data catalog provision status.
      */
@@ -161,7 +158,7 @@ export interface ADCCatalogArgs {
     /**
      * Azure data catalog SKU.
      */
-    readonly sku?: pulumi.Input<string>;
+    readonly sku?: pulumi.Input<SkuType>;
     /**
      * Azure data catalog provision status.
      */

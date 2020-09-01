@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ArmServicePackageActivationMode = "SharedProcess" | "ExclusiveProcess" | string;
+
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
         opts = {}
@@ -92,7 +94,7 @@ export interface GetServiceResult {
     /**
      * The activation Mode of the service package
      */
-    readonly servicePackageActivationMode?: string;
+    readonly servicePackageActivationMode?: ArmServicePackageActivationMode;
     /**
      * A list that describes the correlation of the service with other services.
      */

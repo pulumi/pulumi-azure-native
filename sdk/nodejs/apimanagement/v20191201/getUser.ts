@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type UserState = "active" | "blocked" | "pending" | "deleted" | string;
+
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {
         opts = {}
@@ -75,7 +77,7 @@ export interface GetUserResult {
     /**
      * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
      */
-    readonly state?: string;
+    readonly state?: UserState;
     /**
      * Resource type for API Management resource.
      */

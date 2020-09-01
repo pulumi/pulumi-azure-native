@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const StorageType = {
-    Standard: "Standard",
-    Premium: "Premium",
-    StandardSSD: "StandardSSD",
-}
+export type StorageType = "Standard" | "Premium" | "StandardSSD" | string;
 
 /**
  * A Disk.
@@ -55,7 +51,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The storage type for the disk (i.e. Standard, Premium).
      */
-    public readonly diskType!: pulumi.Output<string | undefined>;
+    public readonly diskType!: pulumi.Output<StorageType | undefined>;
     /**
      * When backed by a blob, the URI of underlying blob.
      */
@@ -168,7 +164,7 @@ export interface DiskArgs {
     /**
      * The storage type for the disk (i.e. Standard, Premium).
      */
-    readonly diskType?: pulumi.Input<string>;
+    readonly diskType?: pulumi.Input<StorageType>;
     /**
      * When backed by a blob, the URI of underlying blob.
      */

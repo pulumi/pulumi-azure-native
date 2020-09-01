@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const policyType = {
-    NotSpecified: "NotSpecified",
-    BuiltIn: "BuiltIn",
-    Custom: "Custom",
-}
+export type policyType = "NotSpecified" | "BuiltIn" | "Custom" | string;
 
 /**
  * The policy definition.
@@ -59,7 +55,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
-    public readonly policyType!: pulumi.Output<string | undefined>;
+    public readonly policyType!: pulumi.Output<policyType | undefined>;
 
     /**
      * Create a PolicyDefinition resource with the given unique name, arguments, and options.
@@ -124,5 +120,5 @@ export interface PolicyDefinitionArgs {
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
-    readonly policyType?: pulumi.Input<string>;
+    readonly policyType?: pulumi.Input<policyType>;
 }

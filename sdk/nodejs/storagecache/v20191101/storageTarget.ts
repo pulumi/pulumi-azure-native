@@ -6,20 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningStateType = {
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Cancelled: "Cancelled",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Updating: "Updating",
-}
+export type ProvisioningStateType = "Succeeded" | "Failed" | "Cancelled" | "Creating" | "Deleting" | "Updating" | string;
 
-export const StorageTargetType = {
-    nfs3: "nfs3",
-    clfs: "clfs",
-    unknown: "unknown",
-}
+export type StorageTargetType = "nfs3" | "clfs" | "unknown" | string;
 
 /**
  * A storage system being cached by a Cache.
@@ -70,11 +59,11 @@ export class StorageTarget extends pulumi.CustomResource {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly provisioningState!: pulumi.Output<ProvisioningStateType | undefined>;
     /**
      * Type of the Storage Target.
      */
-    public readonly targetType!: pulumi.Output<string | undefined>;
+    public readonly targetType!: pulumi.Output<StorageTargetType | undefined>;
     /**
      * Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
      */
@@ -154,7 +143,7 @@ export interface StorageTargetArgs {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<ProvisioningStateType>;
     /**
      * Target resource group.
      */
@@ -166,7 +155,7 @@ export interface StorageTargetArgs {
     /**
      * Type of the Storage Target.
      */
-    readonly targetType?: pulumi.Input<string>;
+    readonly targetType?: pulumi.Input<StorageTargetType>;
     /**
      * Properties when targetType is unknown.
      */

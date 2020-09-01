@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Succeeded: "Succeeded",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-}
+export type ProvisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
 
 /**
  * Network watcher in a resource group.
@@ -53,7 +48,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Resource tags.
      */

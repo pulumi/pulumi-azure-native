@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const circuitConnectionStatus = {
-    Connected: "Connected",
-    Connecting: "Connecting",
-    Disconnected: "Disconnected",
-}
+export type circuitConnectionStatus = "Connected" | "Connecting" | "Disconnected" | string;
 
 /**
  * Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
@@ -53,7 +49,7 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
     /**
      * Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
      */
-    public /*out*/ readonly circuitConnectionStatus!: pulumi.Output<string>;
+    public /*out*/ readonly circuitConnectionStatus!: pulumi.Output<circuitConnectionStatus>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

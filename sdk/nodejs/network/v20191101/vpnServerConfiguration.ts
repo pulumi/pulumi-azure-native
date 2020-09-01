@@ -6,16 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const VpnAuthenticationType = {
-    Certificate: "Certificate",
-    Radius: "Radius",
-    AAD: "AAD",
-}
+export type VpnAuthenticationType = "Certificate" | "Radius" | "AAD" | string;
 
-export const VpnGatewayTunnelingProtocol = {
-    IkeV2: "IkeV2",
-    OpenVPN: "OpenVPN",
-}
+export type VpnGatewayTunnelingProtocol = "IkeV2" | "OpenVPN" | string;
 
 /**
  * VpnServerConfiguration Resource.
@@ -98,7 +91,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
     /**
      * VPN authentication types for the VpnServerConfiguration.
      */
-    public readonly vpnAuthenticationTypes!: pulumi.Output<string[] | undefined>;
+    public readonly vpnAuthenticationTypes!: pulumi.Output<VpnAuthenticationType[] | undefined>;
     /**
      * VpnClientIpsecPolicies for VpnServerConfiguration.
      */
@@ -114,7 +107,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
     /**
      * VPN protocols for the VpnServerConfiguration.
      */
-    public readonly vpnProtocols!: pulumi.Output<string[] | undefined>;
+    public readonly vpnProtocols!: pulumi.Output<VpnGatewayTunnelingProtocol[] | undefined>;
 
     /**
      * Create a VpnServerConfiguration resource with the given unique name, arguments, and options.
@@ -216,7 +209,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * VPN authentication types for the VpnServerConfiguration.
      */
-    readonly vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<VpnAuthenticationType>[]>;
     /**
      * VpnClientIpsecPolicies for VpnServerConfiguration.
      */
@@ -232,7 +225,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * VPN protocols for the VpnServerConfiguration.
      */
-    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpnProtocols?: pulumi.Input<pulumi.Input<VpnGatewayTunnelingProtocol>[]>;
     /**
      * The name of the VpnServerConfiguration being created or updated.
      */

@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const StorageAuthentication = {
-    System: "System",
-    ManagedIdentity: "ManagedIdentity",
-}
+export type StorageAuthentication = "System" | "ManagedIdentity" | string;
 
 /**
  * A Media Services account.
@@ -65,7 +62,7 @@ export class MediaService extends pulumi.CustomResource {
      * The storage accounts for this resource.
      */
     public readonly storageAccounts!: pulumi.Output<outputs.media.v20200501.StorageAccountResponse[] | undefined>;
-    public readonly storageAuthentication!: pulumi.Output<string | undefined>;
+    public readonly storageAuthentication!: pulumi.Output<StorageAuthentication | undefined>;
     /**
      * Resource tags.
      */
@@ -150,7 +147,7 @@ export interface MediaServiceArgs {
      * The storage accounts for this resource.
      */
     readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20200501.StorageAccount>[]>;
-    readonly storageAuthentication?: pulumi.Input<string>;
+    readonly storageAuthentication?: pulumi.Input<StorageAuthentication>;
     /**
      * Resource tags.
      */

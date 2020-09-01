@@ -6,6 +6,32 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum CalculationWindowTypes {
+    Lifetime = "Lifetime",
+    Hour = "Hour",
+    Day = "Day",
+    Week = "Week",
+    Month = "Month",
+}
+
+export enum EntityTypes {
+    None = "None",
+    Profile = "Profile",
+    Interaction = "Interaction",
+    Relationship = "Relationship",
+}
+
+export enum KpiFunctions {
+    Sum = "Sum",
+    Avg = "Avg",
+    Min = "Min",
+    Max = "Max",
+    Last = "Last",
+    Count = "Count",
+    None = "None",
+    CountDistinct = "CountDistinct",
+}
+
 export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<GetKpiResult> {
     if (!opts) {
         opts = {}

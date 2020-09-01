@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum OperatingSystemTypes {
+    Windows = "Windows",
+    Linux = "Linux",
+}
+
+export type HyperVGeneration = "V1" | "V2" | string;
+
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     if (!opts) {
         opts = {}
@@ -54,7 +61,7 @@ export interface GetSnapshotResult {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: string;
+    readonly hyperVGeneration?: HyperVGeneration;
     /**
      * Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
      */

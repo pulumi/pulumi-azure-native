@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type provisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
+
 export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredAsnResult> {
     if (!opts) {
         opts = {}
@@ -55,7 +57,7 @@ export interface GetRegisteredAsnResult {
     /**
      * The provisioning state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: provisioningState;
     /**
      * The type of the resource.
      */

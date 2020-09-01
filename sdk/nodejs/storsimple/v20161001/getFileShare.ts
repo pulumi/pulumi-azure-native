@@ -6,6 +6,23 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum DataPolicy {
+    Invalid = "Invalid",
+    Local = "Local",
+    Tiered = "Tiered",
+    Cloud = "Cloud",
+}
+
+export enum MonitoringStatus {
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+}
+
+export enum ShareStatus {
+    Online = "Online",
+    Offline = "Offline",
+}
+
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
     if (!opts) {
         opts = {}

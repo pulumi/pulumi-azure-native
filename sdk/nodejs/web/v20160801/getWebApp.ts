@@ -6,6 +6,17 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum SiteAvailabilityState {
+    Normal = "Normal",
+    Limited = "Limited",
+    DisasterRecoveryMode = "DisasterRecoveryMode",
+}
+
+export enum UsageState {
+    Normal = "Normal",
+    Exceeded = "Exceeded",
+}
+
 export function getWebApp(args: GetWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppResult> {
     if (!opts) {
         opts = {}

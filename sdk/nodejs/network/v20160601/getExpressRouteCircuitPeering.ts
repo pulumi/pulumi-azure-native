@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ExpressRouteCircuitPeeringState = "Disabled" | "Enabled" | string;
+
+export type ExpressRouteCircuitPeeringType = "AzurePublicPeering" | "AzurePrivatePeering" | "MicrosoftPeering" | string;
+
 export function getExpressRouteCircuitPeering(args: GetExpressRouteCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitPeeringResult> {
     if (!opts) {
         opts = {}
@@ -71,7 +75,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * Gets or sets PeeringType
      */
-    readonly peeringType?: string;
+    readonly peeringType?: ExpressRouteCircuitPeeringType;
     /**
      * Gets or sets the primary port
      */
@@ -99,7 +103,7 @@ export interface GetExpressRouteCircuitPeeringResult {
     /**
      * Gets or sets state of Peering
      */
-    readonly state?: string;
+    readonly state?: ExpressRouteCircuitPeeringState;
     /**
      * Gets or peering stats
      */

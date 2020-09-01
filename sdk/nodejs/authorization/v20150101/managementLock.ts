@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const LockLevel = {
-    NotSpecified: "NotSpecified",
-    CanNotDelete: "CanNotDelete",
-    ReadOnly: "ReadOnly",
-}
+export type LockLevel = "NotSpecified" | "CanNotDelete" | "ReadOnly" | string;
 
 /**
  * Management lock information.
@@ -43,7 +39,7 @@ export class ManagementLock extends pulumi.CustomResource {
     /**
      * The lock level of the management lock.
      */
-    public readonly level!: pulumi.Output<string | undefined>;
+    public readonly level!: pulumi.Output<LockLevel | undefined>;
     /**
      * The name of the lock.
      */
@@ -99,7 +95,7 @@ export interface ManagementLockArgs {
     /**
      * The lock level of the management lock.
      */
-    readonly level?: pulumi.Input<string>;
+    readonly level?: pulumi.Input<LockLevel>;
     /**
      * The name of lock.
      */

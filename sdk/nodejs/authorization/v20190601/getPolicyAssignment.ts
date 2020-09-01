@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type enforcementMode = "Default" | "DoNotEnforce" | string;
+
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
     if (!opts) {
         opts = {}
@@ -46,7 +48,7 @@ export interface GetPolicyAssignmentResult {
     /**
      * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
      */
-    readonly enforcementMode?: string;
+    readonly enforcementMode?: enforcementMode;
     /**
      * The managed identity associated with the policy assignment.
      */

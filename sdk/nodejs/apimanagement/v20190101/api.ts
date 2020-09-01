@@ -11,28 +11,11 @@ export enum Protocol {
     https = "https",
 }
 
-export const ApiType = {
-    http: "http",
-    soap: "soap",
-}
+export type ApiType = "http" | "soap" | string;
 
-export const ContentFormat = {
-    wadlxml: "wadl-xml",
-    wadllinkjson: "wadl-link-json",
-    swaggerjson: "swagger-json",
-    swaggerlinkjson: "swagger-link-json",
-    wsdl: "wsdl",
-    wsdllink: "wsdl-link",
-    openapi: "openapi",
-    openapi_json: "openapi+json",
-    openapilink: "openapi-link",
-    openapi_jsonlink: "openapi+json-link",
-}
+export type ContentFormat = "wadl-xml" | "wadl-link-json" | "swagger-json" | "swagger-link-json" | "wsdl" | "wsdl-link" | "openapi" | "openapi+json" | "openapi-link" | "openapi+json-link" | string;
 
-export const SoapApiType = {
-    http: "http",
-    soap: "soap",
-}
+export type SoapApiType = "http" | "soap" | string;
 
 /**
  * Api details.
@@ -75,7 +58,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * Type of API.
      */
-    public readonly apiType!: pulumi.Output<string | undefined>;
+    public readonly apiType!: pulumi.Output<ApiType | undefined>;
     /**
      * Indicates the Version identifier of the API if the API is versioned
      */
@@ -230,7 +213,7 @@ export interface ApiArgs {
     /**
      * Type of API.
      */
-    readonly apiType?: pulumi.Input<string>;
+    readonly apiType?: pulumi.Input<ApiType>;
     /**
      * Indicates the Version identifier of the API if the API is versioned
      */
@@ -262,7 +245,7 @@ export interface ApiArgs {
     /**
      * Format of the Content in which the API is getting imported.
      */
-    readonly format?: pulumi.Input<string>;
+    readonly format?: pulumi.Input<ContentFormat>;
     /**
      * Indicates if API revision is current api revision.
      */
@@ -292,7 +275,7 @@ export interface ApiArgs {
      *  * `http` creates a SOAP to REST API 
      *  * `soap` creates a SOAP pass-through API .
      */
-    readonly soapApiType?: pulumi.Input<string>;
+    readonly soapApiType?: pulumi.Input<SoapApiType>;
     /**
      * API identifier of the source API.
      */

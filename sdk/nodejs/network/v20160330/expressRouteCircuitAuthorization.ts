@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const AuthorizationUseStatus = {
-    Available: "Available",
-    InUse: "InUse",
-}
+export type AuthorizationUseStatus = "Available" | "InUse" | string;
 
 /**
  * Authorization in a ExpressRouteCircuit resource
@@ -46,7 +43,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     /**
      * Gets or sets AuthorizationUseStatus
      */
-    public readonly authorizationUseStatus!: pulumi.Output<string | undefined>;
+    public readonly authorizationUseStatus!: pulumi.Output<AuthorizationUseStatus | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
@@ -120,7 +117,7 @@ export interface ExpressRouteCircuitAuthorizationArgs {
     /**
      * Gets or sets AuthorizationUseStatus
      */
-    readonly authorizationUseStatus?: pulumi.Input<string>;
+    readonly authorizationUseStatus?: pulumi.Input<AuthorizationUseStatus>;
     /**
      * The name of the express route circuit.
      */

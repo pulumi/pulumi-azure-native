@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Running" | "Creating" | "Deleting" | "Succeeded" | "Failed" | "Moving" | string;
+
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
         opts = {}
@@ -55,7 +57,7 @@ export interface GetDatabaseResult {
     /**
      * The provisioned state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The time the data should be kept before it stops being accessible to queries in TimeSpan.
      */

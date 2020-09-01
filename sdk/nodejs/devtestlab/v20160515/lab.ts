@@ -4,15 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const PremiumDataDisk = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-}
+export type PremiumDataDisk = "Disabled" | "Enabled" | string;
 
-export const StorageType = {
-    Standard: "Standard",
-    Premium: "Premium",
-}
+export type StorageType = "Standard" | "Premium" | string;
 
 /**
  * A lab.
@@ -63,7 +57,7 @@ export class Lab extends pulumi.CustomResource {
     /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
-    public readonly labStorageType!: pulumi.Output<string | undefined>;
+    public readonly labStorageType!: pulumi.Output<StorageType | undefined>;
     /**
      * The location of the resource.
      */
@@ -81,7 +75,7 @@ export class Lab extends pulumi.CustomResource {
      * When its value is 'Enabled', creation of standard or premium data disks is allowed.
      * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    public readonly premiumDataDisks!: pulumi.Output<string | undefined>;
+    public readonly premiumDataDisks!: pulumi.Output<PremiumDataDisk | undefined>;
     /**
      * The provisioning status of the resource.
      */
@@ -158,7 +152,7 @@ export interface LabArgs {
     /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
-    readonly labStorageType?: pulumi.Input<string>;
+    readonly labStorageType?: pulumi.Input<StorageType>;
     /**
      * The location of the resource.
      */
@@ -172,7 +166,7 @@ export interface LabArgs {
      * When its value is 'Enabled', creation of standard or premium data disks is allowed.
      * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    readonly premiumDataDisks?: pulumi.Input<string>;
+    readonly premiumDataDisks?: pulumi.Input<PremiumDataDisk>;
     /**
      * The provisioning status of the resource.
      */

@@ -11,19 +11,9 @@ export enum OperatingSystemTypes {
     Linux = "Linux",
 }
 
-export const DiskState = {
-    Unattached: "Unattached",
-    Attached: "Attached",
-    Reserved: "Reserved",
-    ActiveSAS: "ActiveSAS",
-    ReadyToUpload: "ReadyToUpload",
-    ActiveUpload: "ActiveUpload",
-}
+export type DiskState = "Unattached" | "Attached" | "Reserved" | "ActiveSAS" | "ReadyToUpload" | "ActiveUpload" | string;
 
-export const HyperVGeneration = {
-    V1: "V1",
-    V2: "V2",
-}
+export type HyperVGeneration = "V1" | "V2" | string;
 
 /**
  * Disk resource.
@@ -74,7 +64,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The state of the disk.
      */
-    public /*out*/ readonly diskState!: pulumi.Output<string>;
+    public /*out*/ readonly diskState!: pulumi.Output<DiskState>;
     /**
      * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
@@ -82,7 +72,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    public readonly hyperVGeneration!: pulumi.Output<HyperVGeneration | undefined>;
     /**
      * Resource location
      */
@@ -213,7 +203,7 @@ export interface DiskArgs {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: pulumi.Input<string>;
+    readonly hyperVGeneration?: pulumi.Input<HyperVGeneration>;
     /**
      * Resource location
      */

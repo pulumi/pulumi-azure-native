@@ -6,6 +6,19 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum ReadScale {
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+}
+
+export type CreateMode = "Copy" | "Default" | "NonReadableSecondary" | "OnlineSecondary" | "PointInTimeRestore" | "Recovery" | "Restore" | "RestoreLongTermRetentionBackup" | string;
+
+export type DatabaseEdition = "Web" | "Business" | "Basic" | "Standard" | "Premium" | "PremiumRS" | "Free" | "Stretch" | "DataWarehouse" | "System" | "System2" | "GeneralPurpose" | "BusinessCritical" | "Hyperscale" | string;
+
+export type SampleName = "AdventureWorksLT" | string;
+
+export type ServiceObjectiveName = "System" | "System0" | "System1" | "System2" | "System3" | "System4" | "System2L" | "System3L" | "System4L" | "Free" | "Basic" | "S0" | "S1" | "S2" | "S3" | "S4" | "S6" | "S7" | "S9" | "S12" | "P1" | "P2" | "P3" | "P4" | "P6" | "P11" | "P15" | "PRS1" | "PRS2" | "PRS4" | "PRS6" | "DW100" | "DW200" | "DW300" | "DW400" | "DW500" | "DW600" | "DW1000" | "DW1200" | "DW1000c" | "DW1500" | "DW1500c" | "DW2000" | "DW2000c" | "DW3000" | "DW2500c" | "DW3000c" | "DW6000" | "DW5000c" | "DW6000c" | "DW7500c" | "DW10000c" | "DW15000c" | "DW30000c" | "DS100" | "DS200" | "DS300" | "DS400" | "DS500" | "DS600" | "DS1000" | "DS1200" | "DS1500" | "DS2000" | "ElasticPool" | string;
+
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
         opts = {}
@@ -72,7 +85,7 @@ export interface GetDatabaseResult {
      *
      * Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
-    readonly createMode?: string;
+    readonly createMode?: CreateMode;
     /**
      * The creation date of the database (ISO8601 format).
      */
@@ -106,7 +119,7 @@ export interface GetDatabaseResult {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly edition?: string;
+    readonly edition?: DatabaseEdition;
     /**
      * The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
      */
@@ -162,7 +175,7 @@ export interface GetDatabaseResult {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly requestedServiceObjectiveName?: string;
+    readonly requestedServiceObjectiveName?: ServiceObjectiveName;
     /**
      * Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
      */
@@ -170,11 +183,11 @@ export interface GetDatabaseResult {
     /**
      * Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
      */
-    readonly sampleName?: string;
+    readonly sampleName?: SampleName;
     /**
      * The current service level objective of the database.
      */
-    readonly serviceLevelObjective: string;
+    readonly serviceLevelObjective: ServiceObjectiveName;
     /**
      * The list of service tier advisors for this database. Expanded property
      */

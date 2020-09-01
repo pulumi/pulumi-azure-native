@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const RouteType = {
-    DEFAULT: "DEFAULT",
-    INHERITED: "INHERITED",
-    STATIC: "STATIC",
-}
+export type RouteType = "DEFAULT" | "INHERITED" | "STATIC" | string;
 
 /**
  * Virtual Network route contract used to pass routing information for a Virtual Network.
@@ -60,7 +56,7 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
      *
      * These values will be used for syncing an app's routes with those from a Virtual Network.
      */
-    public readonly routeType!: pulumi.Output<string | undefined>;
+    public readonly routeType!: pulumi.Output<RouteType | undefined>;
     /**
      * The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
      */
@@ -155,7 +151,7 @@ export interface AppServicePlanRouteForVnetArgs {
      *
      * These values will be used for syncing an app's routes with those from a Virtual Network.
      */
-    readonly routeType?: pulumi.Input<string>;
+    readonly routeType?: pulumi.Input<RouteType>;
     /**
      * The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
      */

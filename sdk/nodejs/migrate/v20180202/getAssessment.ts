@@ -6,6 +6,28 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AssessmentSizingCriterion = "PerformanceBased" | "AsOnPremises" | string;
+
+export type AssessmentStage = "InProgress" | "UnderReview" | "Approved" | string;
+
+export type AssessmentStatus = "Created" | "Updated" | "Running" | "Completed" | "Invalid" | string;
+
+export type AzureHybridUseBenefit = "Unknown" | "Yes" | "No" | string;
+
+export type AzureLocation = "Unknown" | "EastAsia" | "SoutheastAsia" | "AustraliaEast" | "AustraliaSoutheast" | "BrazilSouth" | "CanadaCentral" | "CanadaEast" | "WestEurope" | "NorthEurope" | "CentralIndia" | "SouthIndia" | "WestIndia" | "JapanEast" | "JapanWest" | "KoreaCentral" | "KoreaSouth" | "UkWest" | "UkSouth" | "NorthCentralUs" | "EastUs" | "WestUs2" | "SouthCentralUs" | "CentralUs" | "EastUs2" | "WestUs" | "WestCentralUs" | "GermanyCentral" | "GermanyNortheast" | "ChinaNorth" | "ChinaEast" | string;
+
+export type AzureOfferCode = "Unknown" | "MSAZR0003P" | "MSAZR0044P" | "MSAZR0059P" | "MSAZR0060P" | "MSAZR0062P" | "MSAZR0063P" | "MSAZR0064P" | "MSAZR0029P" | "MSAZR0022P" | "MSAZR0023P" | "MSAZR0148P" | "MSAZR0025P" | "MSAZR0036P" | "MSAZR0120P" | "MSAZR0121P" | "MSAZR0122P" | "MSAZR0123P" | "MSAZR0124P" | "MSAZR0125P" | "MSAZR0126P" | "MSAZR0127P" | "MSAZR0128P" | "MSAZR0129P" | "MSAZR0130P" | "MSAZR0111P" | "MSAZR0144P" | "MSAZR0149P" | "MSMCAZR0044P" | "MSMCAZR0059P" | "MSMCAZR0060P" | "MSMCAZR0063P" | "MSMCAZR0120P" | "MSMCAZR0121P" | "MSMCAZR0125P" | "MSMCAZR0128P" | "MSAZRDE0003P" | "MSAZRDE0044P" | string;
+
+export type AzurePricingTier = "Standard" | "Basic" | string;
+
+export type AzureStorageRedundancy = "Unknown" | "LocallyRedundant" | "ZoneRedundant" | "GeoRedundant" | "ReadAccessGeoRedundant" | string;
+
+export type Currency = "Unknown" | "USD" | "DKK" | "CAD" | "IDR" | "JPY" | "KRW" | "NZD" | "NOK" | "RUB" | "SAR" | "ZAR" | "SEK" | "TRY" | "GBP" | "MXN" | "MYR" | "INR" | "HKD" | "BRL" | "TWD" | "EUR" | "CHF" | "ARS" | "AUD" | "CNY" | string;
+
+export type Percentile = "Percentile50" | "Percentile90" | "Percentile95" | "Percentile99" | string;
+
+export type TimeRange = "Day" | "Week" | "Month" | string;
+
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
     if (!opts) {
         opts = {}
@@ -48,23 +70,23 @@ export interface GetAssessmentResult {
     /**
      * AHUB discount on windows virtual machines.
      */
-    readonly azureHybridUseBenefit: string;
+    readonly azureHybridUseBenefit: AzureHybridUseBenefit;
     /**
      * Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
      */
-    readonly azureLocation: string;
+    readonly azureLocation: AzureLocation;
     /**
      * Offer code according to which cost estimation is done.
      */
-    readonly azureOfferCode: string;
+    readonly azureOfferCode: AzureOfferCode;
     /**
      * Pricing tier for Size evaluation.
      */
-    readonly azurePricingTier: string;
+    readonly azurePricingTier: AzurePricingTier;
     /**
      * Storage Redundancy type offered by Azure.
      */
-    readonly azureStorageRedundancy: string;
+    readonly azureStorageRedundancy: AzureStorageRedundancy;
     /**
      * Confidence rating percentage for assessment. Can be in the range [0, 100].
      */
@@ -76,7 +98,7 @@ export interface GetAssessmentResult {
     /**
      * Currency to report prices in.
      */
-    readonly currency: string;
+    readonly currency: Currency;
     /**
      * Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
      */
@@ -108,7 +130,7 @@ export interface GetAssessmentResult {
     /**
      * Percentile of performance data used to recommend Azure size.
      */
-    readonly percentile: string;
+    readonly percentile: Percentile;
     /**
      * Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
      */
@@ -120,19 +142,19 @@ export interface GetAssessmentResult {
     /**
      * Assessment sizing criterion.
      */
-    readonly sizingCriterion: string;
+    readonly sizingCriterion: AssessmentSizingCriterion;
     /**
      * User configurable setting that describes the status of the assessment.
      */
-    readonly stage: string;
+    readonly stage: AssessmentStage;
     /**
      * Whether the assessment has been created and is valid.
      */
-    readonly status: string;
+    readonly status: AssessmentStatus;
     /**
      * Time range of performance data used to recommend a size.
      */
-    readonly timeRange: string;
+    readonly timeRange: TimeRange;
     /**
      * Type of the object = [Microsoft.Migrate/projects/groups/assessments].
      */

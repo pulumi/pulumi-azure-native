@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ServiceProviderProvisioningState = "NotProvisioned" | "Provisioning" | "Provisioned" | "Deprovisioning" | string;
+
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
     if (!opts) {
         opts = {}
@@ -82,7 +84,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * Gets or sets ServiceProviderProvisioningState state of the resource 
      */
-    readonly serviceProviderProvisioningState?: string;
+    readonly serviceProviderProvisioningState?: ServiceProviderProvisioningState;
     /**
      * Gets or sets sku
      */

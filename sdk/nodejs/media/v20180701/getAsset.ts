@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AssetStorageEncryptionFormat = "None" | "MediaStorageClientEncryption" | string;
+
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
     if (!opts) {
         opts = {}
@@ -75,7 +77,7 @@ export interface GetAssetResult {
     /**
      * The Asset encryption format. One of None or MediaStorageEncryption.
      */
-    readonly storageEncryptionFormat: string;
+    readonly storageEncryptionFormat: AssetStorageEncryptionFormat;
     /**
      * The type of the resource.
      */

@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type EnabledProtocols = "SMB" | "NFS" | string;
+
+export type RootSquashType = "NoRootSquash" | "RootSquash" | "AllSquash" | string;
+
+export type ShareAccessTier = "TransactionOptimized" | "Hot" | "Cool" | "Premium" | string;
+
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
     if (!opts) {
         opts = {}
@@ -48,7 +54,7 @@ export interface GetFileShareResult {
     /**
      * Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
      */
-    readonly accessTier?: string;
+    readonly accessTier?: ShareAccessTier;
     /**
      * Indicates the last modification time for share access tier.
      */
@@ -68,7 +74,7 @@ export interface GetFileShareResult {
     /**
      * The authentication protocol that is used for the file share. Can only be specified when creating a share.
      */
-    readonly enabledProtocols?: string;
+    readonly enabledProtocols?: EnabledProtocols;
     /**
      * Resource Etag.
      */
@@ -92,7 +98,7 @@ export interface GetFileShareResult {
     /**
      * The property is for NFS share only. The default is NoRootSquash.
      */
-    readonly rootSquash?: string;
+    readonly rootSquash?: RootSquashType;
     /**
      * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
      */

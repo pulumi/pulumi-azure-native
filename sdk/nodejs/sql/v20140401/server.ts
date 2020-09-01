@@ -9,10 +9,7 @@ export enum ServerState {
     Disabled = "Disabled",
 }
 
-export const ServerVersion = {
-    20: "2.0",
-    120: "12.0",
-}
+export type ServerVersion = "2.0" | "12.0" | string;
 
 /**
  * Represents a server.
@@ -91,7 +88,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The version of the server.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    public readonly version!: pulumi.Output<ServerVersion | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -172,5 +169,5 @@ export interface ServerArgs {
     /**
      * The version of the server.
      */
-    readonly version?: pulumi.Input<string>;
+    readonly version?: pulumi.Input<ServerVersion>;
 }

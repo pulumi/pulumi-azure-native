@@ -4,20 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const kind = {
-    Blob: "Blob",
-    Container: "Container",
-    BlobFolder: "BlobFolder",
-    AdlsGen2FileSystem: "AdlsGen2FileSystem",
-    AdlsGen2Folder: "AdlsGen2Folder",
-    AdlsGen2File: "AdlsGen2File",
-    AdlsGen1Folder: "AdlsGen1Folder",
-    AdlsGen1File: "AdlsGen1File",
-    KustoCluster: "KustoCluster",
-    KustoDatabase: "KustoDatabase",
-    SqlDBTable: "SqlDBTable",
-    SqlDWTable: "SqlDWTable",
-}
+export type kind = "Blob" | "Container" | "BlobFolder" | "AdlsGen2FileSystem" | "AdlsGen2Folder" | "AdlsGen2File" | "AdlsGen1Folder" | "AdlsGen1File" | "KustoCluster" | "KustoDatabase" | "SqlDBTable" | "SqlDWTable" | string;
 
 /**
  * A DataSet data transfer object.
@@ -52,7 +39,7 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * Kind of data set.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<kind>;
     /**
      * Name of the azure resource
      */
@@ -124,7 +111,7 @@ export interface DataSetArgs {
     /**
      * Kind of data set.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<kind>;
     /**
      * The resource group name.
      */

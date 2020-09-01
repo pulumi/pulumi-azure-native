@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const CommissionedState = {
-    Provisioning: "Provisioning",
-    Provisioned: "Provisioned",
-    Commissioning: "Commissioning",
-    Commissioned: "Commissioned",
-    Decommissioning: "Decommissioning",
-    Deprovisioning: "Deprovisioning",
-}
+export type CommissionedState = "Provisioning" | "Provisioned" | "Commissioning" | "Commissioned" | "Decommissioning" | "Deprovisioning" | string;
 
 /**
  * Custom IP prefix resource.
@@ -52,7 +45,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
     /**
      * The commissioned state of the Custom IP Prefix.
      */
-    public readonly commissionedState!: pulumi.Output<string | undefined>;
+    public readonly commissionedState!: pulumi.Output<CommissionedState | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -146,7 +139,7 @@ export interface CustomIPPrefixArgs {
     /**
      * The commissioned state of the Custom IP Prefix.
      */
-    readonly commissionedState?: pulumi.Input<string>;
+    readonly commissionedState?: pulumi.Input<CommissionedState>;
     /**
      * The name of the custom IP prefix.
      */

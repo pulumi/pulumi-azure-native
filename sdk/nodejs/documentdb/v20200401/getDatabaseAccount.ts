@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DatabaseAccountKind = "GlobalDocumentDB" | "MongoDB" | "Parse" | string;
+
 export function getDatabaseAccount(args: GetDatabaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountResult> {
     if (!opts) {
         opts = {}
@@ -106,7 +108,7 @@ export interface GetDatabaseAccountResult {
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
-    readonly kind?: string;
+    readonly kind?: DatabaseAccountKind;
     /**
      * The location of the resource group to which the resource belongs.
      */

@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum EncryptionStatus {
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+}
+
 export function getStorageDomain(args: GetStorageDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageDomainResult> {
     if (!opts) {
         opts = {}

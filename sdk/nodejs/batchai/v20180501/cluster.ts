@@ -11,17 +11,9 @@ export enum VmPriority {
     lowpriority = "lowpriority",
 }
 
-export const AllocationState = {
-    steady: "steady",
-    resizing: "resizing",
-}
+export type AllocationState = "steady" | "resizing" | string;
 
-export const ProvisioningState = {
-    creating: "creating",
-    succeeded: "succeeded",
-    failed: "failed",
-    deleting: "deleting",
-}
+export type ProvisioningState = "creating" | "succeeded" | "failed" | "deleting" | string;
 
 /**
  * Information about a Cluster.
@@ -56,7 +48,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
      */
-    public /*out*/ readonly allocationState!: pulumi.Output<string>;
+    public /*out*/ readonly allocationState!: pulumi.Output<AllocationState>;
     /**
      * The time at which the cluster entered its current allocation state.
      */
@@ -88,7 +80,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Time when the provisioning state was changed.
      */

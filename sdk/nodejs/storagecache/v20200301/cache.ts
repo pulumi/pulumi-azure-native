@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningStateType = {
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Cancelled: "Cancelled",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Updating: "Updating",
-}
+export type ProvisioningStateType = "Succeeded" | "Failed" | "Cancelled" | "Creating" | "Deleting" | "Updating" | string;
 
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
@@ -80,7 +73,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly provisioningState!: pulumi.Output<ProvisioningStateType | undefined>;
     /**
      * Specifies security settings of the cache.
      */
@@ -187,7 +180,7 @@ export interface CacheArgs {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<ProvisioningStateType>;
     /**
      * Target resource group.
      */

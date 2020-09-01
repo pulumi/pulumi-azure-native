@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const SharedTypeKind = {
-    user: "user",
-    shared: "shared",
-}
+export type SharedTypeKind = "user" | "shared" | string;
 
 /**
  * An Application Insights private workbook definition.
@@ -50,7 +47,7 @@ export class MyWorkbook extends pulumi.CustomResource {
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<SharedTypeKind | undefined>;
     /**
      * Resource location
      */
@@ -162,7 +159,7 @@ export interface MyWorkbookArgs {
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<SharedTypeKind>;
     /**
      * Resource location
      */

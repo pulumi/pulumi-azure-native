@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const LoggerType = {
-    azureEventHub: "azureEventHub",
-    applicationInsights: "applicationInsights",
-}
+export type LoggerType = "azureEventHub" | "applicationInsights" | string;
 
 /**
  * Logger details.
@@ -57,7 +54,7 @@ export class Logger extends pulumi.CustomResource {
     /**
      * Logger type.
      */
-    public readonly loggerType!: pulumi.Output<string>;
+    public readonly loggerType!: pulumi.Output<LoggerType>;
     /**
      * Resource name.
      */
@@ -143,7 +140,7 @@ export interface LoggerArgs {
     /**
      * Logger type.
      */
-    readonly loggerType: pulumi.Input<string>;
+    readonly loggerType: pulumi.Input<LoggerType>;
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */

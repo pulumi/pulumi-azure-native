@@ -6,6 +6,20 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum BackupType {
+    LocalSnapshot = "LocalSnapshot",
+    CloudSnapshot = "CloudSnapshot",
+}
+
+export enum Kind {
+    Series8000 = "Series8000",
+}
+
+export enum ScheduleStatus {
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+}
+
 export function getBackupSchedule(args: GetBackupScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupScheduleResult> {
     if (!opts) {
         opts = {}

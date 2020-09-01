@@ -6,21 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const EventDeliverySchema = {
-    EventGridSchema: "EventGridSchema",
-    CustomInputSchema: "CustomInputSchema",
-    CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
-}
+export type EventDeliverySchema = "EventGridSchema" | "CustomInputSchema" | "CloudEventSchemaV1_0" | string;
 
-export const EventSubscriptionProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Canceled: "Canceled",
-    Failed: "Failed",
-    AwaitingManualAction: "AwaitingManualAction",
-}
+export type EventSubscriptionProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Canceled" | "Failed" | "AwaitingManualAction" | string;
 
 /**
  * Event Subscription
@@ -63,7 +51,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The event delivery schema for the event subscription.
      */
-    public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
+    public readonly eventDeliverySchema!: pulumi.Output<EventDeliverySchema | undefined>;
     /**
      * Expiration time of the event subscription.
      */
@@ -83,7 +71,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * Provisioning state of the event subscription.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<EventSubscriptionProvisioningState>;
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
@@ -158,7 +146,7 @@ export interface EventSubscriptionArgs {
     /**
      * The event delivery schema for the event subscription.
      */
-    readonly eventDeliverySchema?: pulumi.Input<string>;
+    readonly eventDeliverySchema?: pulumi.Input<EventDeliverySchema>;
     /**
      * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
      */

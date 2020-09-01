@@ -6,32 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const IncidentClassification = {
-    Undetermined: "Undetermined",
-    TruePositive: "TruePositive",
-    BenignPositive: "BenignPositive",
-    FalsePositive: "FalsePositive",
-}
+export type IncidentClassification = "Undetermined" | "TruePositive" | "BenignPositive" | "FalsePositive" | string;
 
-export const IncidentClassificationReason = {
-    SuspiciousActivity: "SuspiciousActivity",
-    SuspiciousButExpected: "SuspiciousButExpected",
-    IncorrectAlertLogic: "IncorrectAlertLogic",
-    InaccurateData: "InaccurateData",
-}
+export type IncidentClassificationReason = "SuspiciousActivity" | "SuspiciousButExpected" | "IncorrectAlertLogic" | "InaccurateData" | string;
 
-export const IncidentSeverity = {
-    High: "High",
-    Medium: "Medium",
-    Low: "Low",
-    Informational: "Informational",
-}
+export type IncidentSeverity = "High" | "Medium" | "Low" | "Informational" | string;
 
-export const IncidentStatus = {
-    New: "New",
-    Active: "Active",
-    Closed: "Closed",
-}
+export type IncidentStatus = "New" | "Active" | "Closed" | string;
 
 /**
  * Represents an incident in Azure Security Insights.
@@ -70,7 +51,7 @@ export class Incident extends pulumi.CustomResource {
     /**
      * The reason the incident was closed
      */
-    public readonly classification!: pulumi.Output<string | undefined>;
+    public readonly classification!: pulumi.Output<IncidentClassification | undefined>;
     /**
      * Describes the reason the incident was closed
      */
@@ -78,7 +59,7 @@ export class Incident extends pulumi.CustomResource {
     /**
      * The classification reason the incident was closed with
      */
-    public readonly classificationReason!: pulumi.Output<string | undefined>;
+    public readonly classificationReason!: pulumi.Output<IncidentClassificationReason | undefined>;
     /**
      * The time the incident was created
      */
@@ -130,11 +111,11 @@ export class Incident extends pulumi.CustomResource {
     /**
      * The severity of the incident
      */
-    public readonly severity!: pulumi.Output<string>;
+    public readonly severity!: pulumi.Output<IncidentSeverity>;
     /**
      * The status of the incident
      */
-    public readonly status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<IncidentStatus>;
     /**
      * The title of the incident
      */
@@ -217,7 +198,7 @@ export interface IncidentArgs {
     /**
      * The reason the incident was closed
      */
-    readonly classification?: pulumi.Input<string>;
+    readonly classification?: pulumi.Input<IncidentClassification>;
     /**
      * Describes the reason the incident was closed
      */
@@ -225,7 +206,7 @@ export interface IncidentArgs {
     /**
      * The classification reason the incident was closed with
      */
-    readonly classificationReason?: pulumi.Input<string>;
+    readonly classificationReason?: pulumi.Input<IncidentClassificationReason>;
     /**
      * The description of the incident
      */
@@ -261,11 +242,11 @@ export interface IncidentArgs {
     /**
      * The severity of the incident
      */
-    readonly severity: pulumi.Input<string>;
+    readonly severity: pulumi.Input<IncidentSeverity>;
     /**
      * The status of the incident
      */
-    readonly status: pulumi.Input<string>;
+    readonly status: pulumi.Input<IncidentStatus>;
     /**
      * The title of the incident
      */

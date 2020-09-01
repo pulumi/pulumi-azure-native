@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProfileStatus = "Enabled" | "Disabled" | string;
+
+export type TrafficRoutingMethod = "Performance" | "Priority" | "Weighted" | "Geographic" | "MultiValue" | "Subnet" | string;
+
+export type TrafficViewEnrollmentStatus = "Enabled" | "Disabled" | string;
+
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     if (!opts) {
         opts = {}
@@ -62,7 +68,7 @@ export interface GetProfileResult {
     /**
      * The status of the Traffic Manager profile.
      */
-    readonly profileStatus?: string;
+    readonly profileStatus?: ProfileStatus;
     /**
      * Resource tags.
      */
@@ -70,11 +76,11 @@ export interface GetProfileResult {
     /**
      * The traffic routing method of the Traffic Manager profile.
      */
-    readonly trafficRoutingMethod?: string;
+    readonly trafficRoutingMethod?: TrafficRoutingMethod;
     /**
      * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
      */
-    readonly trafficViewEnrollmentStatus?: string;
+    readonly trafficViewEnrollmentStatus?: TrafficViewEnrollmentStatus;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */

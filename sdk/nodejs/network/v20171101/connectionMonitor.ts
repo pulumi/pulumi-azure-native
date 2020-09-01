@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Succeeded: "Succeeded",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-}
+export type ProvisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
 
 /**
  * Information about the connection monitor.
@@ -71,7 +66,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * The provisioning state of the connection monitor.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState | undefined>;
     /**
      * Describes the source of connection monitor.
      */

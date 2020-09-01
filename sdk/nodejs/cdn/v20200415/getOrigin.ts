@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type OriginResourceState = "Creating" | "Active" | "Deleting" | string;
+
+export type PrivateEndpointStatus = "Pending" | "Approved" | "Rejected" | "Disconnected" | "Timeout" | string;
+
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
     if (!opts) {
         opts = {}
@@ -76,7 +80,7 @@ export interface GetOriginResult {
     /**
      * The approval status for the connection to the Private Link
      */
-    readonly privateEndpointStatus: string;
+    readonly privateEndpointStatus: PrivateEndpointStatus;
     /**
      * The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
      */
@@ -100,7 +104,7 @@ export interface GetOriginResult {
     /**
      * Resource status of the origin.
      */
-    readonly resourceState: string;
+    readonly resourceState: OriginResourceState;
     /**
      * Resource type.
      */

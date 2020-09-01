@@ -4,14 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const IdentityProviderType = {
-    facebook: "facebook",
-    google: "google",
-    microsoft: "microsoft",
-    twitter: "twitter",
-    aad: "aad",
-    aadB2C: "aadB2C",
-}
+export type IdentityProviderType = "facebook" | "google" | "microsoft" | "twitter" | "aad" | "aadB2C" | string;
 
 /**
  * Identity Provider details.
@@ -181,5 +174,5 @@ export interface IdentityProviderArgs {
     /**
      * Identity Provider Type identifier.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<IdentityProviderType>;
 }

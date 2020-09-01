@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
+
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
     if (!opts) {
         opts = {}
@@ -51,7 +53,7 @@ export interface GetReplicationResult {
     /**
      * The provisioning state of the replication at the time the operation was called.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The status of the replication at the time the operation was called.
      */

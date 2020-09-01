@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type EnableStatus = "Enabled" | "Disabled" | string;
+
+export type SourceControlType = "VsoGit" | "GitHub" | string;
+
 export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResult> {
     if (!opts) {
         opts = {}
@@ -84,11 +88,11 @@ export interface GetArtifactSourceResult {
     /**
      * The artifact source's type.
      */
-    readonly sourceType?: string;
+    readonly sourceType?: SourceControlType;
     /**
      * Indicates if the artifact source is enabled (values: Enabled, Disabled).
      */
-    readonly status?: string;
+    readonly status?: EnableStatus;
     /**
      * The tags of the resource.
      */

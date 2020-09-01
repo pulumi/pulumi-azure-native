@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const IPVersion = {
-    IPv4: "IPv4",
-    IPv6: "IPv6",
-}
+export type IPVersion = "IPv4" | "IPv6" | string;
 
 /**
  * Public IP prefix resource.
@@ -76,7 +73,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
     /**
      * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
      */
-    public readonly publicIPAddressVersion!: pulumi.Output<string | undefined>;
+    public readonly publicIPAddressVersion!: pulumi.Output<IPVersion | undefined>;
     /**
      * The list of all referenced PublicIPAddresses
      */
@@ -188,7 +185,7 @@ export interface PublicIPPrefixArgs {
     /**
      * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
      */
-    readonly publicIPAddressVersion?: pulumi.Input<string>;
+    readonly publicIPAddressVersion?: pulumi.Input<IPVersion>;
     /**
      * The list of all referenced PublicIPAddresses
      */

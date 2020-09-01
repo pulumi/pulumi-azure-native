@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type IncidentClassification = "Undetermined" | "TruePositive" | "BenignPositive" | "FalsePositive" | string;
+
+export type IncidentClassificationReason = "SuspiciousActivity" | "SuspiciousButExpected" | "IncorrectAlertLogic" | "InaccurateData" | string;
+
+export type IncidentSeverity = "High" | "Medium" | "Low" | "Informational" | string;
+
+export type IncidentStatus = "New" | "Active" | "Closed" | string;
+
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
     if (!opts) {
         opts = {}
@@ -47,7 +55,7 @@ export interface GetIncidentResult {
     /**
      * The reason the incident was closed
      */
-    readonly classification?: string;
+    readonly classification?: IncidentClassification;
     /**
      * Describes the reason the incident was closed
      */
@@ -55,7 +63,7 @@ export interface GetIncidentResult {
     /**
      * The classification reason the incident was closed with
      */
-    readonly classificationReason?: string;
+    readonly classificationReason?: IncidentClassificationReason;
     /**
      * The time the incident was created
      */
@@ -107,11 +115,11 @@ export interface GetIncidentResult {
     /**
      * The severity of the incident
      */
-    readonly severity: string;
+    readonly severity: IncidentSeverity;
     /**
      * The status of the incident
      */
-    readonly status: string;
+    readonly status: IncidentStatus;
     /**
      * The title of the incident
      */

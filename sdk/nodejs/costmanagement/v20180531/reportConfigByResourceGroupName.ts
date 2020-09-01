@@ -6,9 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const FormatType = {
-    Csv: "Csv",
-}
+export type FormatType = "Csv" | string;
 
 /**
  * A report config resource.
@@ -51,7 +49,7 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
     /**
      * The format of the report being delivered.
      */
-    public readonly format!: pulumi.Output<string | undefined>;
+    public readonly format!: pulumi.Output<FormatType | undefined>;
     /**
      * Resource name.
      */
@@ -130,7 +128,7 @@ export interface ReportConfigByResourceGroupNameArgs {
     /**
      * The format of the report being delivered.
      */
-    readonly format?: pulumi.Input<string>;
+    readonly format?: pulumi.Input<FormatType>;
     /**
      * Report Config Name.
      */

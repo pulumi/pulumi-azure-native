@@ -4,13 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const RouteNextHopType = {
-    VirtualNetworkGateway: "VirtualNetworkGateway",
-    VnetLocal: "VnetLocal",
-    Internet: "Internet",
-    VirtualAppliance: "VirtualAppliance",
-    None: "None",
-}
+export type RouteNextHopType = "VirtualNetworkGateway" | "VnetLocal" | "Internet" | "VirtualAppliance" | "None" | string;
 
 /**
  * Route resource
@@ -61,7 +55,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
      */
-    public readonly nextHopType!: pulumi.Output<string>;
+    public readonly nextHopType!: pulumi.Output<RouteNextHopType>;
     /**
      * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -143,7 +137,7 @@ export interface RouteArgs {
     /**
      * The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
      */
-    readonly nextHopType: pulumi.Input<string>;
+    readonly nextHopType: pulumi.Input<RouteNextHopType>;
     /**
      * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */

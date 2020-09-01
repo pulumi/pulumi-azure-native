@@ -6,19 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-}
+export type ProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
 
-export const PublicNetworkAccess = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type PublicNetworkAccess = "Enabled" | "Disabled" | string;
 
 /**
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
@@ -81,11 +71,11 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * The provisioning state of the configuration store.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    public readonly publicNetworkAccess!: pulumi.Output<PublicNetworkAccess | undefined>;
     /**
      * The sku of the configuration store.
      */
@@ -175,7 +165,7 @@ export interface ConfigurationStoreArgs {
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
+    readonly publicNetworkAccess?: pulumi.Input<PublicNetworkAccess>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

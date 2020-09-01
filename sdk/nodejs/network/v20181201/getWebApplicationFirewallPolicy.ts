@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type WebApplicationFirewallPolicyResourceState = "Creating" | "Enabling" | "Enabled" | "Disabling" | "Disabled" | "Deleting" | string;
+
 export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWebApplicationFirewallPolicyResult> {
     if (!opts) {
         opts = {}
@@ -63,7 +65,7 @@ export interface GetWebApplicationFirewallPolicyResult {
      * Provisioning state of the WebApplicationFirewallPolicy.
      */
     readonly provisioningState: string;
-    readonly resourceState: string;
+    readonly resourceState: WebApplicationFirewallPolicyResourceState;
     /**
      * Resource tags.
      */

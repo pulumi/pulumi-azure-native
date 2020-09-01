@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ApplicationGatewayOperationalState = {
-    Stopped: "Stopped",
-    Starting: "Starting",
-    Running: "Running",
-    Stopping: "Stopping",
-}
+export type ApplicationGatewayOperationalState = "Stopped" | "Starting" | "Running" | "Stopping" | string;
 
 /**
  * ApplicationGateways resource
@@ -82,7 +77,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * Gets operational state of application gateway resource
      */
-    public /*out*/ readonly operationalState!: pulumi.Output<string>;
+    public /*out*/ readonly operationalState!: pulumi.Output<ApplicationGatewayOperationalState>;
     /**
      * Gets or sets probes of application gateway resource
      */

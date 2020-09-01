@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const EnableStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type EnableStatus = "Enabled" | "Disabled" | string;
 
 /**
  * A schedule.
@@ -72,7 +69,7 @@ export class GlobalSchedule extends pulumi.CustomResource {
     /**
      * The status of the schedule (i.e. Enabled, Disabled)
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<EnableStatus | undefined>;
     /**
      * The tags of the resource.
      */
@@ -186,7 +183,7 @@ export interface GlobalScheduleArgs {
     /**
      * The status of the schedule (i.e. Enabled, Disabled)
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<EnableStatus>;
     /**
      * The tags of the resource.
      */

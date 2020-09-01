@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Deleting" | "Succeeded" | "Failed" | "Paused" | "Suspended" | "Provisioning" | "Updating" | "Suspending" | "Pausing" | "Resuming" | "Preparing" | "Scaling" | string;
+
+export type State = "Deleting" | "Succeeded" | "Failed" | "Paused" | "Suspended" | "Provisioning" | "Updating" | "Suspending" | "Pausing" | "Resuming" | "Preparing" | "Scaling" | string;
+
 export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityDetailsResult> {
     if (!opts) {
         opts = {}
@@ -50,7 +54,7 @@ export interface GetCapacityDetailsResult {
     /**
      * The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The SKU of the PowerBI Dedicated resource.
      */
@@ -58,7 +62,7 @@ export interface GetCapacityDetailsResult {
     /**
      * The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
      */
-    readonly state: string;
+    readonly state: State;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

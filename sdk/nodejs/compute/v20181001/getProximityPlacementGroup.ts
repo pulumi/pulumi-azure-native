@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProximityPlacementGroupType = "Standard" | "Ultra" | string;
+
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
     if (!opts) {
         opts = {}
@@ -50,7 +52,7 @@ export interface GetProximityPlacementGroupResult {
     /**
      * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
      */
-    readonly proximityPlacementGroupType?: string;
+    readonly proximityPlacementGroupType?: ProximityPlacementGroupType;
     /**
      * Resource tags
      */

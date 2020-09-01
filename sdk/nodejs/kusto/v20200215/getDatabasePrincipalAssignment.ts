@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DatabasePrincipalRole = "Admin" | "Ingestor" | "Monitor" | "User" | "UnrestrictedViewers" | "Viewer" | string;
+
+export type PrincipalType = "App" | "Group" | "User" | string;
+
+export type ProvisioningState = "Running" | "Creating" | "Deleting" | "Succeeded" | "Failed" | "Moving" | string;
+
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
     if (!opts) {
         opts = {}
@@ -60,15 +66,15 @@ export interface GetDatabasePrincipalAssignmentResult {
     /**
      * Principal type.
      */
-    readonly principalType: string;
+    readonly principalType: PrincipalType;
     /**
      * The provisioned state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * Database principal role.
      */
-    readonly role: string;
+    readonly role: DatabasePrincipalRole;
     /**
      * The tenant id of the principal
      */

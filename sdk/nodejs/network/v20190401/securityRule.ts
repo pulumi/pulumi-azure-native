@@ -6,13 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const SecurityRuleProtocol = {
-    Tcp: "Tcp",
-    Udp: "Udp",
-    Icmp: "Icmp",
-    Esp: "Esp",
-    Asterisk: "*",
-}
+export type SecurityRuleProtocol = "Tcp" | "Udp" | "Icmp" | "Esp" | "*" | string;
 
 /**
  * Network security rule.
@@ -91,7 +85,7 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * Network protocol this rule applies to.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<SecurityRuleProtocol>;
     /**
      * The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -243,7 +237,7 @@ export interface SecurityRuleArgs {
     /**
      * Network protocol this rule applies to.
      */
-    readonly protocol: pulumi.Input<string>;
+    readonly protocol: pulumi.Input<SecurityRuleProtocol>;
     /**
      * The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */

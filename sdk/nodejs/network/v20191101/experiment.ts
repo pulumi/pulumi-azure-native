@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const state = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type state = "Enabled" | "Disabled" | string;
 
 /**
  * Defines the properties of an Experiment
@@ -48,7 +45,7 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * The state of the Experiment
      */
-    public readonly enabledState!: pulumi.Output<string | undefined>;
+    public readonly enabledState!: pulumi.Output<state | undefined>;
     /**
      * The endpoint A of an experiment
      */
@@ -145,7 +142,7 @@ export interface ExperimentArgs {
     /**
      * The state of the Experiment
      */
-    readonly enabledState?: pulumi.Input<string>;
+    readonly enabledState?: pulumi.Input<state>;
     /**
      * The endpoint A of an experiment
      */

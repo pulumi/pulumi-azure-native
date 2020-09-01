@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const PoolServiceLevel = {
-    Standard: "Standard",
-    Premium: "Premium",
-    Ultra: "Ultra",
-}
+export type PoolServiceLevel = "Standard" | "Premium" | "Ultra" | string;
 
 /**
  * Capacity pool resource
@@ -59,7 +55,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * The service level of the file system
      */
-    public readonly serviceLevel!: pulumi.Output<string>;
+    public readonly serviceLevel!: pulumi.Output<PoolServiceLevel>;
     /**
      * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
      */
@@ -152,7 +148,7 @@ export interface PoolArgs {
     /**
      * The service level of the file system
      */
-    readonly serviceLevel: pulumi.Input<string>;
+    readonly serviceLevel: pulumi.Input<PoolServiceLevel>;
     /**
      * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
      */

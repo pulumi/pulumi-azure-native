@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
+
+export type VirtualNetworkLinkState = "InProgress" | "Completed" | string;
+
 export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkLinkResult> {
     if (!opts) {
         opts = {}
@@ -55,7 +59,7 @@ export interface GetVirtualNetworkLinkResult {
     /**
      * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
      */
@@ -75,5 +79,5 @@ export interface GetVirtualNetworkLinkResult {
     /**
      * The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
      */
-    readonly virtualNetworkLinkState: string;
+    readonly virtualNetworkLinkState: VirtualNetworkLinkState;
 }

@@ -6,21 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const JobState = {
-    Canceled: "Canceled",
-    Canceling: "Canceling",
-    Error: "Error",
-    Finished: "Finished",
-    Processing: "Processing",
-    Queued: "Queued",
-    Scheduled: "Scheduled",
-}
+export type JobState = "Canceled" | "Canceling" | "Error" | "Finished" | "Processing" | "Queued" | "Scheduled" | string;
 
-export const Priority = {
-    Low: "Low",
-    Normal: "Normal",
-    High: "High",
-}
+export type Priority = "Low" | "Normal" | "High" | string;
 
 /**
  * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
@@ -87,7 +75,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
      */
-    public readonly priority!: pulumi.Output<string | undefined>;
+    public readonly priority!: pulumi.Output<Priority | undefined>;
     /**
      * The UTC date and time at which this Job began processing.
      */
@@ -95,7 +83,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The current state of the job.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<JobState>;
     /**
      * The type of the resource.
      */
@@ -193,7 +181,7 @@ export interface JobArgs {
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
      */
-    readonly priority?: pulumi.Input<string>;
+    readonly priority?: pulumi.Input<Priority>;
     /**
      * The name of the resource group within the Azure subscription.
      */

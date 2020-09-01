@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type PolicyContentFormat = "xml" | "xml-link" | "rawxml" | "rawxml-link" | string;
+
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     if (!opts) {
         opts = {}
@@ -48,7 +50,7 @@ export interface GetPolicyResult {
     /**
      * Format of the policyContent.
      */
-    readonly format?: string;
+    readonly format?: PolicyContentFormat;
     /**
      * Resource name.
      */

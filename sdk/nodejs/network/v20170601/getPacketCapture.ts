@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
+
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
     if (!opts) {
         opts = {}
@@ -53,7 +55,7 @@ export interface GetPacketCaptureResult {
     /**
      * The provisioning state of the packet capture session.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: ProvisioningState;
     /**
      * Describes the storage location for a packet capture session.
      */

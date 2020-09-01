@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DisasterRecoveryConfigurationAutoFailover = "Off" | "On" | string;
+
+export type DisasterRecoveryConfigurationFailoverPolicy = "Manual" | "Automatic" | string;
+
+export type DisasterRecoveryConfigurationRole = "None" | "Primary" | "Secondary" | string;
+
+export type DisasterRecoveryConfigurationStatus = "Creating" | "Ready" | "FailingOver" | "Dropping" | string;
+
 export function getDisasterRecoveryConfiguration(args: GetDisasterRecoveryConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigurationResult> {
     if (!opts) {
         opts = {}
@@ -43,11 +51,11 @@ export interface GetDisasterRecoveryConfigurationResult {
     /**
      * Whether or not failover can be done automatically.
      */
-    readonly autoFailover: string;
+    readonly autoFailover: DisasterRecoveryConfigurationAutoFailover;
     /**
      * How aggressive the automatic failover should be.
      */
-    readonly failoverPolicy: string;
+    readonly failoverPolicy: DisasterRecoveryConfigurationFailoverPolicy;
     /**
      * Location of the server that contains this disaster recovery configuration.
      */
@@ -71,11 +79,11 @@ export interface GetDisasterRecoveryConfigurationResult {
     /**
      * The role of the current server in the disaster recovery configuration.
      */
-    readonly role: string;
+    readonly role: DisasterRecoveryConfigurationRole;
     /**
      * The status of the disaster recovery configuration.
      */
-    readonly status: string;
+    readonly status: DisasterRecoveryConfigurationStatus;
     /**
      * Resource type.
      */

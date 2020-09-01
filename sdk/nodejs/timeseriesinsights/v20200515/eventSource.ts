@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const Kind = {
-    MicrosoftEventHub: "Microsoft.EventHub",
-    MicrosoftIoTHub: "Microsoft.IoTHub",
-}
+export type Kind = "Microsoft.EventHub" | "Microsoft.IoTHub" | string;
 
 /**
  * An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
@@ -128,7 +125,7 @@ export interface EventSourceArgs {
     /**
      * The kind of the event source.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<Kind>;
     /**
      * An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
      */

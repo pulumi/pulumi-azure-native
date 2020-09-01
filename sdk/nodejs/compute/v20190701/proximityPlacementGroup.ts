@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProximityPlacementGroupType = {
-    Standard: "Standard",
-    Ultra: "Ultra",
-}
+export type ProximityPlacementGroupType = "Standard" | "Ultra" | string;
 
 /**
  * Specifies information about the proximity placement group.
@@ -60,7 +57,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
     /**
      * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
      */
-    public readonly proximityPlacementGroupType!: pulumi.Output<string | undefined>;
+    public readonly proximityPlacementGroupType!: pulumi.Output<ProximityPlacementGroupType | undefined>;
     /**
      * Resource tags
      */
@@ -144,7 +141,7 @@ export interface ProximityPlacementGroupArgs {
     /**
      * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
      */
-    readonly proximityPlacementGroupType?: pulumi.Input<string>;
+    readonly proximityPlacementGroupType?: pulumi.Input<ProximityPlacementGroupType>;
     /**
      * The name of the resource group.
      */

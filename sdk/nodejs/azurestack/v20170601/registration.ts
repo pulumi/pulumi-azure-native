@@ -4,9 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const Location = {
-    global: "global",
-}
+export type Location = "global" | string;
 
 /**
  * Registration information.
@@ -53,7 +51,7 @@ export class Registration extends pulumi.CustomResource {
     /**
      * Location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<Location>;
     /**
      * Name of the resource.
      */
@@ -126,7 +124,7 @@ export interface RegistrationArgs {
     /**
      * Location of the resource.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location: pulumi.Input<Location>;
     /**
      * Name of the Azure Stack registration.
      */

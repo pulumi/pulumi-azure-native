@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ResourceDiscoveryMode = "ExistingNonCompliant" | "ReEvaluateCompliance" | string;
+
 export function getRemediationAtResourceGroup(args: GetRemediationAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceGroupResult> {
     if (!opts) {
         opts = {}
@@ -70,7 +72,7 @@ export interface GetRemediationAtResourceGroupResult {
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */
-    readonly resourceDiscoveryMode?: string;
+    readonly resourceDiscoveryMode?: ResourceDiscoveryMode;
     /**
      * The type of the remediation.
      */

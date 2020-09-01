@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const AccessRights = {
-    Manage: "Manage",
-    Send: "Send",
-    Listen: "Listen",
-}
+export type AccessRights = "Manage" | "Send" | "Listen" | string;
 
 /**
  * Single item in a List or Get AuthorizationRule operation
@@ -47,7 +43,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**
      * The rights associated with the rule.
      */
-    public readonly rights!: pulumi.Output<string[]>;
+    public readonly rights!: pulumi.Output<AccessRights[]>;
     /**
      * Resource type.
      */
@@ -125,5 +121,5 @@ export interface EventHubAuthorizationRuleArgs {
     /**
      * The rights associated with the rule.
      */
-    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
+    readonly rights: pulumi.Input<pulumi.Input<AccessRights>[]>;
 }

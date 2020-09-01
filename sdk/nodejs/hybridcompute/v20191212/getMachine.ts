@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type StatusTypes = "Connected" | "Disconnected" | "Error" | string;
+
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
     if (!opts) {
         opts = {}
@@ -100,7 +102,7 @@ export interface GetMachineResult {
     /**
      * The status of the hybrid machine agent.
      */
-    readonly status: string;
+    readonly status: StatusTypes;
     /**
      * Resource tags.
      */

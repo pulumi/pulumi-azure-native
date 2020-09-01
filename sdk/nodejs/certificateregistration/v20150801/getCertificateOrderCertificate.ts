@@ -6,6 +6,19 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum KeyVaultSecretStatus {
+    Initialized = "Initialized",
+    WaitingOnCertificateOrder = "WaitingOnCertificateOrder",
+    Succeeded = "Succeeded",
+    CertificateOrderFailed = "CertificateOrderFailed",
+    OperationNotPermittedOnKeyVault = "OperationNotPermittedOnKeyVault",
+    AzureServiceUnauthorizedToAccessKeyVault = "AzureServiceUnauthorizedToAccessKeyVault",
+    KeyVaultDoesNotExist = "KeyVaultDoesNotExist",
+    KeyVaultSecretDoesNotExist = "KeyVaultSecretDoesNotExist",
+    UnknownError = "UnknownError",
+    Unknown = "Unknown",
+}
+
 export function getCertificateOrderCertificate(args: GetCertificateOrderCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateOrderCertificateResult> {
     if (!opts) {
         opts = {}

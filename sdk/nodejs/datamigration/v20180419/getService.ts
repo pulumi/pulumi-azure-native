@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ServiceProvisioningState = "Accepted" | "Deleting" | "Deploying" | "Stopped" | "Stopping" | "Starting" | "FailedToStart" | "FailedToStop" | "Succeeded" | "Failed" | string;
+
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
         opts = {}
@@ -54,7 +56,7 @@ export interface GetServiceResult {
     /**
      * The resource's provisioning state
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ServiceProvisioningState;
     /**
      * The public key of the service, used to encrypt secrets sent to the service
      */

@@ -6,6 +6,22 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum AllocationState {
+    Steady = "Steady",
+    Resizing = "Resizing",
+    Stopping = "Stopping",
+}
+
+export enum InterNodeCommunicationState {
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+}
+
+export enum PoolProvisioningState {
+    Succeeded = "Succeeded",
+    Deleting = "Deleting",
+}
+
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     if (!opts) {
         opts = {}

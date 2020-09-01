@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type provisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
+
 export function getPeeringService(args: GetPeeringServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringServiceResult> {
     if (!opts) {
         opts = {}
@@ -54,7 +56,7 @@ export interface GetPeeringServiceResult {
     /**
      * The provisioning state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: provisioningState;
     /**
      * The SKU that defines the type of the peering service.
      */

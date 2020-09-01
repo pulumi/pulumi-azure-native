@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type SecurityRuleAccess = "Allow" | "Deny" | string;
+
+export type SecurityRuleDirection = "Inbound" | "Outbound" | string;
+
+export type SecurityRuleProtocol = "Tcp" | "Udp" | "*" | string;
+
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +49,7 @@ export interface GetSecurityRuleResult {
     /**
      * Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
      */
-    readonly access: string;
+    readonly access: SecurityRuleAccess;
     /**
      * Gets or sets a description for this rule. Restricted to 140 chars.
      */
@@ -59,7 +65,7 @@ export interface GetSecurityRuleResult {
     /**
      * Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
      */
-    readonly direction: string;
+    readonly direction: SecurityRuleDirection;
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
@@ -75,7 +81,7 @@ export interface GetSecurityRuleResult {
     /**
      * Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
      */
-    readonly protocol: string;
+    readonly protocol: SecurityRuleProtocol;
     /**
      * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
      */

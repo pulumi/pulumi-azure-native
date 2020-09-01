@@ -6,21 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const EnvironmentPermission = {
-    Reader: "Reader",
-    Contributor: "Contributor",
-}
+export type EnvironmentPermission = "Reader" | "Contributor" | string;
 
-export const PremiumDataDisk = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-}
+export type PremiumDataDisk = "Disabled" | "Enabled" | string;
 
-export const StorageType = {
-    Standard: "Standard",
-    Premium: "Premium",
-    StandardSSD: "StandardSSD",
-}
+export type StorageType = "Standard" | "Premium" | "StandardSSD" | string;
 
 /**
  * A lab.
@@ -75,7 +65,7 @@ export class Lab extends pulumi.CustomResource {
     /**
      * The access rights to be granted to the user when provisioning an environment
      */
-    public readonly environmentPermission!: pulumi.Output<string | undefined>;
+    public readonly environmentPermission!: pulumi.Output<EnvironmentPermission | undefined>;
     /**
      * Extended properties of the lab used for experimental features
      */
@@ -83,7 +73,7 @@ export class Lab extends pulumi.CustomResource {
     /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
-    public readonly labStorageType!: pulumi.Output<string | undefined>;
+    public readonly labStorageType!: pulumi.Output<StorageType | undefined>;
     /**
      * The load balancer used to for lab VMs that use shared IP address.
      */
@@ -117,7 +107,7 @@ export class Lab extends pulumi.CustomResource {
      * When its value is 'Enabled', creation of standard or premium data disks is allowed.
      * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    public readonly premiumDataDisks!: pulumi.Output<string | undefined>;
+    public readonly premiumDataDisks!: pulumi.Output<PremiumDataDisk | undefined>;
     /**
      * The provisioning status of the resource.
      */
@@ -220,7 +210,7 @@ export interface LabArgs {
     /**
      * The access rights to be granted to the user when provisioning an environment
      */
-    readonly environmentPermission?: pulumi.Input<string>;
+    readonly environmentPermission?: pulumi.Input<EnvironmentPermission>;
     /**
      * Extended properties of the lab used for experimental features
      */
@@ -228,7 +218,7 @@ export interface LabArgs {
     /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
-    readonly labStorageType?: pulumi.Input<string>;
+    readonly labStorageType?: pulumi.Input<StorageType>;
     /**
      * The location of the resource.
      */
@@ -250,7 +240,7 @@ export interface LabArgs {
      * When its value is 'Enabled', creation of standard or premium data disks is allowed.
      * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    readonly premiumDataDisks?: pulumi.Input<string>;
+    readonly premiumDataDisks?: pulumi.Input<PremiumDataDisk>;
     /**
      * The name of the resource group.
      */

@@ -6,13 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ClusterProvisioningState = {
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Cancelled: "Cancelled",
-    Deleting: "Deleting",
-    Updating: "Updating",
-}
+export type ClusterProvisioningState = "Succeeded" | "Failed" | "Cancelled" | "Deleting" | "Updating" | string;
 
 /**
  * A cluster resource
@@ -63,7 +57,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The state of the cluster provisioning
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ClusterProvisioningState>;
     /**
      * The cluster SKU
      */

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type LoggerType = "azureEventHub" | "applicationInsights" | string;
+
 export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerResult> {
     if (!opts) {
         opts = {}
@@ -56,7 +58,7 @@ export interface GetLoggerResult {
     /**
      * Logger type.
      */
-    readonly loggerType: string;
+    readonly loggerType: LoggerType;
     /**
      * Resource name.
      */

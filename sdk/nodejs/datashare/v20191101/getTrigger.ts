@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type kind = "ScheduleBased" | string;
+
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
     if (!opts) {
         opts = {}
@@ -48,7 +50,7 @@ export interface GetTriggerResult {
     /**
      * Kind of synchronization
      */
-    readonly kind: string;
+    readonly kind: kind;
     /**
      * Name of the azure resource
      */

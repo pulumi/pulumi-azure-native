@@ -4,14 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const DomainProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Canceled: "Canceled",
-    Failed: "Failed",
-}
+export type DomainProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Canceled" | "Failed" | string;
 
 /**
  * EventGrid Domain.
@@ -58,7 +51,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Provisioning state of the domain.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<DomainProvisioningState>;
     /**
      * Tags of the resource.
      */

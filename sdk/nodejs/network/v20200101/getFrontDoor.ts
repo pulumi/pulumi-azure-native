@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type FrontDoorEnabledState = "Enabled" | "Disabled" | string;
+
 export function getFrontDoor(args: GetFrontDoorArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontDoorResult> {
     if (!opts) {
         opts = {}
@@ -50,7 +52,7 @@ export interface GetFrontDoorResult {
     /**
      * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
      */
-    readonly enabledState?: string;
+    readonly enabledState?: FrontDoorEnabledState;
     /**
      * A friendly name for the frontDoor
      */

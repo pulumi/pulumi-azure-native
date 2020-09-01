@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum RunbookProvisioningState {
+    Succeeded = "Succeeded",
+}
+
+export type RunbookState = "New" | "Edit" | "Published" | string;
+
+export type RunbookTypeEnum = "Script" | "Graph" | "PowerShellWorkflow" | "PowerShell" | "GraphPowerShellWorkflow" | "GraphPowerShell" | string;
+
 export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): Promise<GetRunbookResult> {
     if (!opts) {
         opts = {}
@@ -107,11 +115,11 @@ export interface GetRunbookResult {
     /**
      * Gets or sets the type of the runbook.
      */
-    readonly runbookType?: string;
+    readonly runbookType?: RunbookTypeEnum;
     /**
      * Gets or sets the state of the runbook.
      */
-    readonly state?: string;
+    readonly state?: RunbookState;
     /**
      * Resource tags.
      */

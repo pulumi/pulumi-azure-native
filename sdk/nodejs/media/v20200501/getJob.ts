@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type JobState = "Canceled" | "Canceling" | "Error" | "Finished" | "Processing" | "Queued" | "Scheduled" | string;
+
+export type Priority = "Low" | "Normal" | "High" | string;
+
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     if (!opts) {
         opts = {}
@@ -80,7 +84,7 @@ export interface GetJobResult {
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
      */
-    readonly priority?: string;
+    readonly priority?: Priority;
     /**
      * The UTC date and time at which this Job began processing.
      */
@@ -88,7 +92,7 @@ export interface GetJobResult {
     /**
      * The current state of the job.
      */
-    readonly state: string;
+    readonly state: JobState;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

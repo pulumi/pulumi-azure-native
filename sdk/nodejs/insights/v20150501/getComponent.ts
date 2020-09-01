@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ApplicationType = "web" | "other" | string;
+
+export type FlowType = "Bluefield" | string;
+
+export type IngestionMode = "ApplicationInsights" | "ApplicationInsightsWithDiagnosticSettings" | "LogAnalytics" | string;
+
+export type RequestSource = "rest" | string;
+
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
     if (!opts) {
         opts = {}
@@ -46,7 +54,7 @@ export interface GetComponentResult {
     /**
      * Type of application being monitored.
      */
-    readonly applicationType: string;
+    readonly applicationType: ApplicationType;
     /**
      * Application Insights component connection string.
      */
@@ -62,7 +70,7 @@ export interface GetComponentResult {
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
-    readonly flowType?: string;
+    readonly flowType?: FlowType;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
@@ -78,7 +86,7 @@ export interface GetComponentResult {
     /**
      * Indicates the flow of the ingestion.
      */
-    readonly ingestionMode?: string;
+    readonly ingestionMode?: IngestionMode;
     /**
      * Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
      */
@@ -106,7 +114,7 @@ export interface GetComponentResult {
     /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
-    readonly requestSource?: string;
+    readonly requestSource?: RequestSource;
     /**
      * Retention period in days.
      */

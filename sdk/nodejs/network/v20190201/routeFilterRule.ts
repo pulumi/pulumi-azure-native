@@ -4,9 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const RouteFilterRuleType = {
-    Community: "Community",
-}
+export type RouteFilterRuleType = "Community" | string;
 
 /**
  * Route Filter Rule Resource
@@ -65,7 +63,7 @@ export class RouteFilterRule extends pulumi.CustomResource {
     /**
      * The rule type of the rule. Valid value is: 'Community'
      */
-    public readonly routeFilterRuleType!: pulumi.Output<string>;
+    public readonly routeFilterRuleType!: pulumi.Output<RouteFilterRuleType>;
 
     /**
      * Create a RouteFilterRule resource with the given unique name, arguments, and options.
@@ -158,7 +156,7 @@ export interface RouteFilterRuleArgs {
     /**
      * The rule type of the rule. Valid value is: 'Community'
      */
-    readonly routeFilterRuleType: pulumi.Input<string>;
+    readonly routeFilterRuleType: pulumi.Input<RouteFilterRuleType>;
     /**
      * The name of the route filter rule.
      */

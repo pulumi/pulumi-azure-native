@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type CircuitConnectionStatus = "Connected" | "Connecting" | "Disconnected" | string;
+
 export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitConnectionResult> {
     if (!opts) {
         opts = {}
@@ -56,7 +58,7 @@ export interface GetExpressRouteCircuitConnectionResult {
     /**
      * Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
      */
-    readonly circuitConnectionStatus: string;
+    readonly circuitConnectionStatus: CircuitConnectionStatus;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

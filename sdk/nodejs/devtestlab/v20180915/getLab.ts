@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type EnvironmentPermission = "Reader" | "Contributor" | string;
+
+export type PremiumDataDisk = "Disabled" | "Enabled" | string;
+
+export type StorageType = "Standard" | "Premium" | "StandardSSD" | string;
+
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     if (!opts) {
         opts = {}
@@ -63,7 +69,7 @@ export interface GetLabResult {
     /**
      * The access rights to be granted to the user when provisioning an environment
      */
-    readonly environmentPermission?: string;
+    readonly environmentPermission?: EnvironmentPermission;
     /**
      * Extended properties of the lab used for experimental features
      */
@@ -71,7 +77,7 @@ export interface GetLabResult {
     /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
-    readonly labStorageType?: string;
+    readonly labStorageType?: StorageType;
     /**
      * The load balancer used to for lab VMs that use shared IP address.
      */
@@ -105,7 +111,7 @@ export interface GetLabResult {
      * When its value is 'Enabled', creation of standard or premium data disks is allowed.
      * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    readonly premiumDataDisks?: string;
+    readonly premiumDataDisks?: PremiumDataDisk;
     /**
      * The provisioning status of the resource.
      */

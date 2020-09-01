@@ -6,15 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ClusterEntityStatus = {
-    Creating: "Creating",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-    Deleting: "Deleting",
-    ProvisioningAccount: "ProvisioningAccount",
-    Updating: "Updating",
-}
+export type ClusterEntityStatus = "Creating" | "Succeeded" | "Failed" | "Canceled" | "Deleting" | "ProvisioningAccount" | "Updating" | string;
 
 /**
  * The top level Log Analytics cluster resource container.
@@ -73,7 +65,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The provisioning state of the cluster.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ClusterEntityStatus>;
     /**
      * The sku properties.
      */

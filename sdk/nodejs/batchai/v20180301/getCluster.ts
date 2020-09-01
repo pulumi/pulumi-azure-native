@@ -6,6 +6,23 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum AllocationState {
+    steady = "steady",
+    resizing = "resizing",
+}
+
+export enum ProvisioningState {
+    creating = "creating",
+    succeeded = "succeeded",
+    failed = "failed",
+    deleting = "deleting",
+}
+
+export enum VmPriority {
+    dedicated = "dedicated",
+    lowpriority = "lowpriority",
+}
+
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}

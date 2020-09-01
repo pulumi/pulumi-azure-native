@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const AssetStorageEncryptionFormat = {
-    None: "None",
-    MediaStorageClientEncryption: "MediaStorageClientEncryption",
-}
+export type AssetStorageEncryptionFormat = "None" | "MediaStorageClientEncryption" | string;
 
 /**
  * An Asset.
@@ -74,7 +71,7 @@ export class Asset extends pulumi.CustomResource {
     /**
      * The Asset encryption format. One of None or MediaStorageEncryption.
      */
-    public /*out*/ readonly storageEncryptionFormat!: pulumi.Output<string>;
+    public /*out*/ readonly storageEncryptionFormat!: pulumi.Output<AssetStorageEncryptionFormat>;
     /**
      * The type of the resource.
      */

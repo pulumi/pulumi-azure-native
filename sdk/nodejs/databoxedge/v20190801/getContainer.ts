@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AzureContainerDataFormat = "BlockBlob" | "PageBlob" | "AzureFile" | string;
+
+export type ContainerStatus = "OK" | "Offline" | "Unknown" | "Updating" | "NeedsAttention" | string;
+
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
     if (!opts) {
         opts = {}
@@ -48,7 +52,7 @@ export interface GetContainerResult {
     /**
      * Current status of the container.
      */
-    readonly containerStatus: string;
+    readonly containerStatus: ContainerStatus;
     /**
      * The UTC time when container got created.
      */
@@ -56,7 +60,7 @@ export interface GetContainerResult {
     /**
      * DataFormat for Container
      */
-    readonly dataFormat: string;
+    readonly dataFormat: AzureContainerDataFormat;
     /**
      * The object name.
      */

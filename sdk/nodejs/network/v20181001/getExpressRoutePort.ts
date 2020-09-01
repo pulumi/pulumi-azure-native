@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ExpressRoutePortsEncapsulation = "Dot1Q" | "QinQ" | string;
+
 export function getExpressRoutePort(args: GetExpressRoutePortArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortResult> {
     if (!opts) {
         opts = {}
@@ -50,7 +52,7 @@ export interface GetExpressRoutePortResult {
     /**
      * Encapsulation method on physical ports.
      */
-    readonly encapsulation?: string;
+    readonly encapsulation?: ExpressRoutePortsEncapsulation;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

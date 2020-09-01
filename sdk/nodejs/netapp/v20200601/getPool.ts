@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ServiceLevel = "Standard" | "Premium" | "Ultra" | string;
+
+export type qosType = "Auto" | "Manual" | string;
+
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     if (!opts) {
         opts = {}
@@ -59,11 +63,11 @@ export interface GetPoolResult {
     /**
      * The qos type of the pool
      */
-    readonly qosType?: string;
+    readonly qosType?: qosType;
     /**
      * The service level of the file system
      */
-    readonly serviceLevel: string;
+    readonly serviceLevel: ServiceLevel;
     /**
      * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
      */

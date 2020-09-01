@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const SharedTypeKind = {
-    user: "user",
-    shared: "shared",
-}
+export type SharedTypeKind = "user" | "shared" | string;
 
 /**
  * An Application Insights workbook definition.
@@ -46,7 +43,7 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<SharedTypeKind | undefined>;
     /**
      * Resource location
      */
@@ -62,7 +59,7 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    public readonly sharedTypeKind!: pulumi.Output<string>;
+    public readonly sharedTypeKind!: pulumi.Output<SharedTypeKind>;
     /**
      * Optional resourceId for a source resource.
      */
@@ -167,7 +164,7 @@ export interface WorkbookArgs {
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<SharedTypeKind>;
     /**
      * Resource location
      */
@@ -191,7 +188,7 @@ export interface WorkbookArgs {
     /**
      * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly sharedTypeKind: pulumi.Input<string>;
+    readonly sharedTypeKind: pulumi.Input<SharedTypeKind>;
     /**
      * Optional resourceId for a source resource.
      */

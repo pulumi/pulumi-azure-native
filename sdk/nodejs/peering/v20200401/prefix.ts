@@ -6,28 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const learnedType = {
-    None: "None",
-    ViaServiceProvider: "ViaServiceProvider",
-    ViaSession: "ViaSession",
-}
+export type learnedType = "None" | "ViaServiceProvider" | "ViaSession" | string;
 
-export const prefixValidationState = {
-    None: "None",
-    Invalid: "Invalid",
-    Verified: "Verified",
-    Failed: "Failed",
-    Pending: "Pending",
-    Warning: "Warning",
-    Unknown: "Unknown",
-}
+export type prefixValidationState = "None" | "Invalid" | "Verified" | "Failed" | "Pending" | "Warning" | "Unknown" | string;
 
-export const provisioningState = {
-    Succeeded: "Succeeded",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-}
+export type provisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
 
 /**
  * The peering service prefix class.
@@ -70,7 +53,7 @@ export class Prefix extends pulumi.CustomResource {
     /**
      * The prefix learned type
      */
-    public /*out*/ readonly learnedType!: pulumi.Output<string>;
+    public /*out*/ readonly learnedType!: pulumi.Output<learnedType>;
     /**
      * The name of the resource.
      */
@@ -86,11 +69,11 @@ export class Prefix extends pulumi.CustomResource {
     /**
      * The prefix validation state
      */
-    public /*out*/ readonly prefixValidationState!: pulumi.Output<string>;
+    public /*out*/ readonly prefixValidationState!: pulumi.Output<prefixValidationState>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<provisioningState>;
     /**
      * The type of the resource.
      */

@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ResourceProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Canceled: "Canceled",
-    Failed: "Failed",
-}
+export type ResourceProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Canceled" | "Failed" | string;
 
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -61,7 +54,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Provisioning state of the Private Endpoint Connection.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly provisioningState!: pulumi.Output<ResourceProvisioningState | undefined>;
     /**
      * Type of the resource.
      */
@@ -145,7 +138,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Provisioning state of the Private Endpoint Connection.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<ResourceProvisioningState>;
     /**
      * The name of the resource group within the user's subscription.
      */

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProfileResourceState = "Creating" | "Active" | "Deleting" | "Disabled" | string;
+
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     if (!opts) {
         opts = {}
@@ -50,7 +52,7 @@ export interface GetProfileResult {
     /**
      * Resource status of the profile.
      */
-    readonly resourceState: string;
+    readonly resourceState: ProfileResourceState;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
      */

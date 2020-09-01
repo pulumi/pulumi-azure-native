@@ -6,6 +6,15 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum OperatingSystemTypes {
+    Windows = "Windows",
+    Linux = "Linux",
+}
+
+export type DiskState = "Unattached" | "Attached" | "Reserved" | "ActiveSAS" | "ReadyToUpload" | "ActiveUpload" | string;
+
+export type HyperVGeneration = "V1" | "V2" | string;
+
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
     if (!opts) {
         opts = {}
@@ -66,7 +75,7 @@ export interface GetDiskResult {
     /**
      * The state of the disk.
      */
-    readonly diskState: string;
+    readonly diskState: DiskState;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
@@ -78,7 +87,7 @@ export interface GetDiskResult {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: string;
+    readonly hyperVGeneration?: HyperVGeneration;
     /**
      * Resource location
      */

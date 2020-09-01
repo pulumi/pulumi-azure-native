@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const StreamingEndpointResourceState = {
-    Stopped: "Stopped",
-    Starting: "Starting",
-    Running: "Running",
-    Stopping: "Stopping",
-    Deleting: "Deleting",
-    Scaling: "Scaling",
-}
+export type StreamingEndpointResourceState = "Stopped" | "Starting" | "Running" | "Stopping" | "Deleting" | "Scaling" | string;
 
 /**
  * The StreamingEndpoint.
@@ -112,7 +105,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
     /**
      * The resource state of the StreamingEndpoint.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<StreamingEndpointResourceState>;
     /**
      * The number of scale units.  Use the Scale operation to adjust this value.
      */

@@ -6,13 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const FileServerProvisioningState = {
-    creating: "creating",
-    updating: "updating",
-    deleting: "deleting",
-    succeeded: "succeeded",
-    failed: "failed",
-}
+export type FileServerProvisioningState = "creating" | "updating" | "deleting" | "succeeded" | "failed" | string;
 
 /**
  * File Server information.
@@ -63,7 +57,7 @@ export class FileServer extends pulumi.CustomResource {
     /**
      * Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<FileServerProvisioningState>;
     /**
      * Time when the provisioning state was changed.
      */

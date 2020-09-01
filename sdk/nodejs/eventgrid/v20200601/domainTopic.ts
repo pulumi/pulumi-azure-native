@@ -4,14 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const DomainTopicProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Canceled: "Canceled",
-    Failed: "Failed",
-}
+export type DomainTopicProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Canceled" | "Failed" | string;
 
 /**
  * Domain Topic.
@@ -50,7 +43,7 @@ export class DomainTopic extends pulumi.CustomResource {
     /**
      * Provisioning state of the domain topic.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<DomainTopicProvisioningState | undefined>;
     /**
      * Type of the resource.
      */

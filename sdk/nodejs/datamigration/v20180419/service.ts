@@ -6,18 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ServiceProvisioningState = {
-    Accepted: "Accepted",
-    Deleting: "Deleting",
-    Deploying: "Deploying",
-    Stopped: "Stopped",
-    Stopping: "Stopping",
-    Starting: "Starting",
-    FailedToStart: "FailedToStart",
-    FailedToStop: "FailedToStop",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-}
+export type ServiceProvisioningState = "Accepted" | "Deleting" | "Deploying" | "Stopped" | "Stopping" | "Starting" | "FailedToStart" | "FailedToStop" | "Succeeded" | "Failed" | string;
 
 /**
  * A Database Migration Service resource
@@ -68,7 +57,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The resource's provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ServiceProvisioningState>;
     /**
      * The public key of the service, used to encrypt secrets sent to the service
      */

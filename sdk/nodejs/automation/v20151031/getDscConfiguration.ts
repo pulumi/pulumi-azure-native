@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum DscConfigurationProvisioningState {
+    Succeeded = "Succeeded",
+}
+
+export type DscConfigurationState = "New" | "Edit" | "Published" | string;
+
 export function getDscConfiguration(args: GetDscConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscConfigurationResult> {
     if (!opts) {
         opts = {}
@@ -91,7 +97,7 @@ export interface GetDscConfigurationResult {
     /**
      * Gets or sets the state of the configuration.
      */
-    readonly state?: string;
+    readonly state?: DscConfigurationState;
     /**
      * Resource tags.
      */

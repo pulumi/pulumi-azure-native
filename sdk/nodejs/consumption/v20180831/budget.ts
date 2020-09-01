@@ -6,16 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const CategoryType = {
-    Cost: "Cost",
-    Usage: "Usage",
-}
+export type CategoryType = "Cost" | "Usage" | string;
 
-export const TimeGrainType = {
-    Monthly: "Monthly",
-    Quarterly: "Quarterly",
-    Annually: "Annually",
-}
+export type TimeGrainType = "Monthly" | "Quarterly" | "Annually" | string;
 
 /**
  * A budget resource.
@@ -54,7 +47,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
-    public readonly category!: pulumi.Output<string>;
+    public readonly category!: pulumi.Output<CategoryType>;
     /**
      * The current amount of cost which is being tracked for a budget.
      */
@@ -78,7 +71,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
      */
-    public readonly timeGrain!: pulumi.Output<string>;
+    public readonly timeGrain!: pulumi.Output<TimeGrainType>;
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */
@@ -156,7 +149,7 @@ export interface BudgetArgs {
     /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
-    readonly category: pulumi.Input<string>;
+    readonly category: pulumi.Input<CategoryType>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
@@ -172,7 +165,7 @@ export interface BudgetArgs {
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
      */
-    readonly timeGrain: pulumi.Input<string>;
+    readonly timeGrain: pulumi.Input<TimeGrainType>;
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */

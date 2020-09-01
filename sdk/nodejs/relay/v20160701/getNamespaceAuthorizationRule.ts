@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AccessRights = "Manage" | "Send" | "Listen" | string;
+
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
     if (!opts) {
         opts = {}
@@ -47,7 +49,7 @@ export interface GetNamespaceAuthorizationRuleResult {
     /**
      * The rights associated with the rule.
      */
-    readonly rights: string[];
+    readonly rights: AccessRights[];
     /**
      * Resource type
      */

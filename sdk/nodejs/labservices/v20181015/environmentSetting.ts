@@ -6,18 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ConfigurationState = {
-    NotApplicable: "NotApplicable",
-    Completed: "Completed",
-}
+export type ConfigurationState = "NotApplicable" | "Completed" | string;
 
-export const PublishingState = {
-    Draft: "Draft",
-    Publishing: "Publishing",
-    Published: "Published",
-    PublishFailed: "PublishFailed",
-    Scaling: "Scaling",
-}
+export type PublishingState = "Draft" | "Publishing" | "Published" | "PublishFailed" | "Scaling" | string;
 
 /**
  * Represents settings of an environment, from which environment instances would be created
@@ -52,7 +43,7 @@ export class EnvironmentSetting extends pulumi.CustomResource {
     /**
      * Describes the user's progress in configuring their environment setting
      */
-    public readonly configurationState!: pulumi.Output<string | undefined>;
+    public readonly configurationState!: pulumi.Output<ConfigurationState | undefined>;
     /**
      * Describes the environment and its resource settings
      */
@@ -84,7 +75,7 @@ export class EnvironmentSetting extends pulumi.CustomResource {
     /**
      * Describes the readiness of this environment setting
      */
-    public /*out*/ readonly publishingState!: pulumi.Output<string>;
+    public /*out*/ readonly publishingState!: pulumi.Output<PublishingState>;
     /**
      * The resource specific settings
      */
@@ -171,7 +162,7 @@ export interface EnvironmentSettingArgs {
     /**
      * Describes the user's progress in configuring their environment setting
      */
-    readonly configurationState?: pulumi.Input<string>;
+    readonly configurationState?: pulumi.Input<ConfigurationState>;
     /**
      * Describes the environment and its resource settings
      */

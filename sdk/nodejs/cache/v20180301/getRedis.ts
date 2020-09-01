@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Creating" | "Deleting" | "Disabled" | "Failed" | "Linking" | "Provisioning" | "RecoveringScaleFailure" | "Scaling" | "Succeeded" | "Unlinking" | "Unprovisioning" | "Updating" | string;
+
+export type TlsVersion = "1.0" | "1.1" | "1.2" | string;
+
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
     if (!opts) {
         opts = {}
@@ -58,7 +62,7 @@ export interface GetRedisResult {
     /**
      * Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
      */
-    readonly minimumTlsVersion?: string;
+    readonly minimumTlsVersion?: TlsVersion;
     /**
      * Resource name.
      */
@@ -70,7 +74,7 @@ export interface GetRedisResult {
     /**
      * Redis instance provisioning status.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */

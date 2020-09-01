@@ -6,6 +6,23 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum HostingEnvironmentStatus {
+    Preparing = "Preparing",
+    Ready = "Ready",
+    Scaling = "Scaling",
+    Deleting = "Deleting",
+}
+
+export enum ProvisioningState {
+    Succeeded = "Succeeded",
+    Failed = "Failed",
+    Canceled = "Canceled",
+    InProgress = "InProgress",
+    Deleting = "Deleting",
+}
+
+export type LoadBalancingMode = "None" | "Web" | "Publishing" | "Web,Publishing" | string;
+
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
     if (!opts) {
         opts = {}
@@ -95,7 +112,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    readonly internalLoadBalancingMode?: string;
+    readonly internalLoadBalancingMode?: LoadBalancingMode;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */

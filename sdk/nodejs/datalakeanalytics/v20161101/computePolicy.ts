@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const AADObjectType = {
-    User: "User",
-    Group: "Group",
-    ServicePrincipal: "ServicePrincipal",
-}
+export type AADObjectType = "User" | "Group" | "ServicePrincipal" | string;
 
 /**
  * Data Lake Analytics compute policy information.
@@ -59,7 +55,7 @@ export class ComputePolicy extends pulumi.CustomResource {
     /**
      * The type of AAD object the object identifier refers to.
      */
-    public readonly objectType!: pulumi.Output<string>;
+    public readonly objectType!: pulumi.Output<AADObjectType>;
     /**
      * The resource type.
      */
@@ -141,7 +137,7 @@ export interface ComputePolicyArgs {
     /**
      * The type of AAD object the object identifier refers to.
      */
-    readonly objectType: pulumi.Input<string>;
+    readonly objectType: pulumi.Input<AADObjectType>;
     /**
      * The name of the Azure resource group.
      */

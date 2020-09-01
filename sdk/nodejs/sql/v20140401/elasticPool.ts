@@ -4,19 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const ElasticPoolEdition = {
-    Basic: "Basic",
-    Standard: "Standard",
-    Premium: "Premium",
-    GeneralPurpose: "GeneralPurpose",
-    BusinessCritical: "BusinessCritical",
-}
+export type ElasticPoolEdition = "Basic" | "Standard" | "Premium" | "GeneralPurpose" | "BusinessCritical" | string;
 
-export const ElasticPoolState = {
-    Creating: "Creating",
-    Ready: "Ready",
-    Disabled: "Disabled",
-}
+export type ElasticPoolState = "Creating" | "Ready" | "Disabled" | string;
 
 /**
  * Represents a database elastic pool.
@@ -67,7 +57,7 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * The edition of the elastic pool.
      */
-    public readonly edition!: pulumi.Output<string | undefined>;
+    public readonly edition!: pulumi.Output<ElasticPoolEdition | undefined>;
     /**
      * Kind of elastic pool.  This is metadata used for the Azure portal experience.
      */
@@ -83,7 +73,7 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * The state of the elastic pool.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<ElasticPoolState>;
     /**
      * Gets storage limit for the database elastic pool in MB.
      */
@@ -173,7 +163,7 @@ export interface ElasticPoolArgs {
     /**
      * The edition of the elastic pool.
      */
-    readonly edition?: pulumi.Input<string>;
+    readonly edition?: pulumi.Input<ElasticPoolEdition>;
     /**
      * The name of the elastic pool to be operated on (updated or created).
      */

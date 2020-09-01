@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const PrivateEndpointConnectionProvisioningState = {
-    Succeeded: "Succeeded",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-}
+export type PrivateEndpointConnectionProvisioningState = "Succeeded" | "Creating" | "Deleting" | "Failed" | string;
 
 /**
  * A private endpoint connection
@@ -58,7 +53,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The current provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<PrivateEndpointConnectionProvisioningState>;
     /**
      * The resource type.
      */

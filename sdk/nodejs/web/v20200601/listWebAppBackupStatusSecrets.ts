@@ -6,6 +6,19 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum BackupItemStatus {
+    InProgress = "InProgress",
+    Failed = "Failed",
+    Succeeded = "Succeeded",
+    TimedOut = "TimedOut",
+    Created = "Created",
+    Skipped = "Skipped",
+    PartiallySucceeded = "PartiallySucceeded",
+    DeleteInProgress = "DeleteInProgress",
+    DeleteFailed = "DeleteFailed",
+    Deleted = "Deleted",
+}
+
 export function listWebAppBackupStatusSecrets(args: ListWebAppBackupStatusSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsResult> {
     if (!opts) {
         opts = {}

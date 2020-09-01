@@ -4,25 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const provisioningState = {
-    Succeeded: "Succeeded",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Moving: "Moving",
-    Failed: "Failed",
-}
+export type provisioningState = "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed" | string;
 
-export const shareKind = {
-    CopyBased: "CopyBased",
-    InPlace: "InPlace",
-}
+export type shareKind = "CopyBased" | "InPlace" | string;
 
-export const shareSubscriptionStatus = {
-    Active: "Active",
-    Revoked: "Revoked",
-    SourceDeleted: "SourceDeleted",
-    Revoking: "Revoking",
-}
+export type shareSubscriptionStatus = "Active" | "Revoked" | "SourceDeleted" | "Revoking" | string;
 
 /**
  * A share subscription data transfer object.
@@ -81,7 +67,7 @@ export class ShareSubscription extends pulumi.CustomResource {
     /**
      * Provisioning state of the share subscription
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<provisioningState>;
     /**
      * Description of share
      */
@@ -89,7 +75,7 @@ export class ShareSubscription extends pulumi.CustomResource {
     /**
      * Kind of share
      */
-    public /*out*/ readonly shareKind!: pulumi.Output<string>;
+    public /*out*/ readonly shareKind!: pulumi.Output<shareKind>;
     /**
      * Name of the share
      */
@@ -97,7 +83,7 @@ export class ShareSubscription extends pulumi.CustomResource {
     /**
      * Gets the current status of share subscription.
      */
-    public /*out*/ readonly shareSubscriptionStatus!: pulumi.Output<string>;
+    public /*out*/ readonly shareSubscriptionStatus!: pulumi.Output<shareSubscriptionStatus>;
     /**
      * Terms of a share
      */

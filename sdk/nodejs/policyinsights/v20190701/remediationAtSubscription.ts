@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ResourceDiscoveryMode = {
-    ExistingNonCompliant: "ExistingNonCompliant",
-    ReEvaluateCompliance: "ReEvaluateCompliance",
-}
+export type ResourceDiscoveryMode = "ExistingNonCompliant" | "ReEvaluateCompliance" | string;
 
 /**
  * The remediation definition.
@@ -76,7 +73,7 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */
-    public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
+    public readonly resourceDiscoveryMode!: pulumi.Output<ResourceDiscoveryMode | undefined>;
     /**
      * The type of the remediation.
      */
@@ -144,5 +141,5 @@ export interface RemediationAtSubscriptionArgs {
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */
-    readonly resourceDiscoveryMode?: pulumi.Input<string>;
+    readonly resourceDiscoveryMode?: pulumi.Input<ResourceDiscoveryMode>;
 }

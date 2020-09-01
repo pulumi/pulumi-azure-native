@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum OperatingSystemStateTypes {
+    Generalized = "Generalized",
+    Specialized = "Specialized",
+}
+
+export enum OperatingSystemTypes {
+    Windows = "Windows",
+    Linux = "Linux",
+}
+
+export type HyperVGeneration = "V1" | "V2" | string;
+
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
     if (!opts) {
         opts = {}
@@ -59,7 +71,7 @@ export interface GetGalleryImageResult {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: string;
+    readonly hyperVGeneration?: HyperVGeneration;
     /**
      * This is the gallery Image Definition identifier.
      */

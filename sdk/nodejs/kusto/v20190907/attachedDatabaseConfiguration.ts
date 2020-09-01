@@ -4,20 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const DefaultPrincipalsModificationKind = {
-    Union: "Union",
-    Replace: "Replace",
-    None: "None",
-}
+export type DefaultPrincipalsModificationKind = "Union" | "Replace" | "None" | string;
 
-export const ProvisioningState = {
-    Running: "Running",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Moving: "Moving",
-}
+export type ProvisioningState = "Running" | "Creating" | "Deleting" | "Succeeded" | "Failed" | "Moving" | string;
 
 /**
  * Class representing an attached database configuration.
@@ -64,7 +53,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
      * The default principals modification kind
      */
-    public readonly defaultPrincipalsModificationKind!: pulumi.Output<string>;
+    public readonly defaultPrincipalsModificationKind!: pulumi.Output<DefaultPrincipalsModificationKind>;
     /**
      * Resource location.
      */
@@ -76,7 +65,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -161,7 +150,7 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * The default principals modification kind
      */
-    readonly defaultPrincipalsModificationKind: pulumi.Input<string>;
+    readonly defaultPrincipalsModificationKind: pulumi.Input<DefaultPrincipalsModificationKind>;
     /**
      * Resource location.
      */

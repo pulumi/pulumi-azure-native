@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const enforcementMode = {
-    Default: "Default",
-    DoNotEnforce: "DoNotEnforce",
-}
+export type enforcementMode = "Default" | "DoNotEnforce" | string;
 
 /**
  * The policy assignment.
@@ -52,7 +49,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
      */
-    public readonly enforcementMode!: pulumi.Output<string | undefined>;
+    public readonly enforcementMode!: pulumi.Output<enforcementMode | undefined>;
     /**
      * The managed identity associated with the policy assignment.
      */
@@ -156,7 +153,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
      */
-    readonly enforcementMode?: pulumi.Input<string>;
+    readonly enforcementMode?: pulumi.Input<enforcementMode>;
     /**
      * The managed identity associated with the policy assignment.
      */

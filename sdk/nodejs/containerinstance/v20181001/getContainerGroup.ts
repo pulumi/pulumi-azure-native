@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ContainerGroupRestartPolicy = "Always" | "OnFailure" | "Never" | string;
+
+export type OperatingSystemTypes = "Windows" | "Linux" | string;
+
 export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupResult> {
     if (!opts) {
         opts = {}
@@ -78,7 +82,7 @@ export interface GetContainerGroupResult {
     /**
      * The operating system type required by the containers in the container group.
      */
-    readonly osType: string;
+    readonly osType: OperatingSystemTypes;
     /**
      * The provisioning state of the container group. This only appears in the response.
      */
@@ -89,7 +93,7 @@ export interface GetContainerGroupResult {
      * - `OnFailure` Restart on failure
      * - `Never` Never restart
      */
-    readonly restartPolicy?: string;
+    readonly restartPolicy?: ContainerGroupRestartPolicy;
     /**
      * The resource tags.
      */

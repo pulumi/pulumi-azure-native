@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type validationState = "None" | "Pending" | "Approved" | "Failed" | string;
+
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
     if (!opts) {
         opts = {}
@@ -57,5 +59,5 @@ export interface GetPeerAsnResult {
     /**
      * The validation state of the ASN associated with the peer.
      */
-    readonly validationState?: string;
+    readonly validationState?: validationState;
 }

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type TriggerEventType = "FileEvent" | "PeriodicTimerEvent" | string;
+
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +45,7 @@ export interface GetTriggerResult {
     /**
      * Trigger Kind.
      */
-    readonly kind: string;
+    readonly kind: TriggerEventType;
     /**
      * The object name.
      */

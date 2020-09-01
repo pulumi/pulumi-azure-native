@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type VirtualMachineCreationSource = "FromCustomImage" | "FromGalleryImage" | string;
+
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
     if (!opts) {
         opts = {}
@@ -184,5 +186,5 @@ export interface GetVirtualMachineResult {
     /**
      * Tells source of creation of lab virtual machine. Output property only.
      */
-    readonly virtualMachineCreationSource?: string;
+    readonly virtualMachineCreationSource?: VirtualMachineCreationSource;
 }

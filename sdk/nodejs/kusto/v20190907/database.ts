@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const Kind = {
-    ReadWrite: "ReadWrite",
-    ReadOnlyFollowing: "ReadOnlyFollowing",
-}
+export type Kind = "ReadWrite" | "ReadOnlyFollowing" | string;
 
 /**
  * Class representing a Kusto database.
@@ -42,7 +39,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * Kind of the database
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<Kind | undefined>;
     /**
      * Resource location.
      */
@@ -114,7 +111,7 @@ export interface DatabaseArgs {
     /**
      * Kind of the database
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<Kind>;
     /**
      * Resource location.
      */

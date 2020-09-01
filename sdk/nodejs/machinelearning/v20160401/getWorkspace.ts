@@ -6,6 +6,24 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum WorkspaceState {
+    Deleted = "Deleted",
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+    Migrated = "Migrated",
+    Updated = "Updated",
+    Registered = "Registered",
+    Unregistered = "Unregistered",
+}
+
+export enum WorkspaceType {
+    Production = "Production",
+    Free = "Free",
+    Anonymous = "Anonymous",
+    PaidStandard = "PaidStandard",
+    PaidPremium = "PaidPremium",
+}
+
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
         opts = {}

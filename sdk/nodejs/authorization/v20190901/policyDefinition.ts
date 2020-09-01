@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const policyType = {
-    NotSpecified: "NotSpecified",
-    BuiltIn: "BuiltIn",
-    Custom: "Custom",
-    Static: "Static",
-}
+export type policyType = "NotSpecified" | "BuiltIn" | "Custom" | "Static" | string;
 
 /**
  * The policy definition.
@@ -74,7 +69,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
-    public readonly policyType!: pulumi.Output<string | undefined>;
+    public readonly policyType!: pulumi.Output<policyType | undefined>;
     /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */
@@ -155,5 +150,5 @@ export interface PolicyDefinitionArgs {
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
-    readonly policyType?: pulumi.Input<string>;
+    readonly policyType?: pulumi.Input<policyType>;
 }

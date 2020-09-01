@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type VpnAuthenticationType = "Certificate" | "Radius" | "AAD" | string;
+
+export type VpnGatewayTunnelingProtocol = "IkeV2" | "OpenVPN" | string;
+
 export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnServerConfigurationResult> {
     if (!opts) {
         opts = {}
@@ -90,7 +94,7 @@ export interface GetVpnServerConfigurationResult {
     /**
      * VPN authentication types for the VpnServerConfiguration.
      */
-    readonly vpnAuthenticationTypes?: string[];
+    readonly vpnAuthenticationTypes?: VpnAuthenticationType[];
     /**
      * VpnClientIpsecPolicies for VpnServerConfiguration.
      */
@@ -106,5 +110,5 @@ export interface GetVpnServerConfigurationResult {
     /**
      * VPN protocols for the VpnServerConfiguration.
      */
-    readonly vpnProtocols?: string[];
+    readonly vpnProtocols?: VpnGatewayTunnelingProtocol[];
 }

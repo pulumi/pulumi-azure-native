@@ -6,6 +6,17 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum CertificateFormat {
+    Pfx = "Pfx",
+    Cer = "Cer",
+}
+
+export enum CertificateProvisioningState {
+    Succeeded = "Succeeded",
+    Deleting = "Deleting",
+    Failed = "Failed",
+}
+
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {
         opts = {}

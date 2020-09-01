@@ -6,24 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProfileStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type ProfileStatus = "Enabled" | "Disabled" | string;
 
-export const TrafficRoutingMethod = {
-    Performance: "Performance",
-    Priority: "Priority",
-    Weighted: "Weighted",
-    Geographic: "Geographic",
-    MultiValue: "MultiValue",
-    Subnet: "Subnet",
-}
+export type TrafficRoutingMethod = "Performance" | "Priority" | "Weighted" | "Geographic" | "MultiValue" | "Subnet" | string;
 
-export const TrafficViewEnrollmentStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type TrafficViewEnrollmentStatus = "Enabled" | "Disabled" | string;
 
 /**
  * Class representing a Traffic Manager profile.
@@ -82,7 +69,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The status of the Traffic Manager profile.
      */
-    public readonly profileStatus!: pulumi.Output<string | undefined>;
+    public readonly profileStatus!: pulumi.Output<ProfileStatus | undefined>;
     /**
      * Resource tags.
      */
@@ -90,11 +77,11 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The traffic routing method of the Traffic Manager profile.
      */
-    public readonly trafficRoutingMethod!: pulumi.Output<string | undefined>;
+    public readonly trafficRoutingMethod!: pulumi.Output<TrafficRoutingMethod | undefined>;
     /**
      * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
      */
-    public readonly trafficViewEnrollmentStatus!: pulumi.Output<string | undefined>;
+    public readonly trafficViewEnrollmentStatus!: pulumi.Output<TrafficViewEnrollmentStatus | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
@@ -186,7 +173,7 @@ export interface ProfileArgs {
     /**
      * The status of the Traffic Manager profile.
      */
-    readonly profileStatus?: pulumi.Input<string>;
+    readonly profileStatus?: pulumi.Input<ProfileStatus>;
     /**
      * The name of the resource group containing the Traffic Manager profile.
      */
@@ -198,11 +185,11 @@ export interface ProfileArgs {
     /**
      * The traffic routing method of the Traffic Manager profile.
      */
-    readonly trafficRoutingMethod?: pulumi.Input<string>;
+    readonly trafficRoutingMethod?: pulumi.Input<TrafficRoutingMethod>;
     /**
      * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
      */
-    readonly trafficViewEnrollmentStatus?: pulumi.Input<string>;
+    readonly trafficViewEnrollmentStatus?: pulumi.Input<TrafficViewEnrollmentStatus>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */

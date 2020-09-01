@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type provisioningState = "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed" | string;
+
+export type shareKind = "CopyBased" | "InPlace" | string;
+
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
     if (!opts) {
         opts = {}
@@ -55,11 +59,11 @@ export interface GetShareResult {
     /**
      * Gets or sets the provisioning state
      */
-    readonly provisioningState: string;
+    readonly provisioningState: provisioningState;
     /**
      * Share kind.
      */
-    readonly shareKind?: string;
+    readonly shareKind?: shareKind;
     /**
      * Share terms.
      */

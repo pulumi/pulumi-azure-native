@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
+
+export type TaskStatus = "Disabled" | "Enabled" | string;
+
 export function listTaskDetails(args: ListTaskDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListTaskDetailsResult> {
     if (!opts) {
         opts = {}
@@ -68,11 +72,11 @@ export interface ListTaskDetailsResult {
     /**
      * The provisioning state of the task.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The current status of task.
      */
-    readonly status?: string;
+    readonly status?: TaskStatus;
     /**
      * The properties of a task step.
      */

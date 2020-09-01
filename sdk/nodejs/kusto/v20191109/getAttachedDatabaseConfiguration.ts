@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DefaultPrincipalsModificationKind = "Union" | "Replace" | "None" | string;
+
+export type ProvisioningState = "Running" | "Creating" | "Deleting" | "Succeeded" | "Failed" | "Moving" | string;
+
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
     if (!opts) {
         opts = {}
@@ -55,7 +59,7 @@ export interface GetAttachedDatabaseConfigurationResult {
     /**
      * The default principals modification kind
      */
-    readonly defaultPrincipalsModificationKind: string;
+    readonly defaultPrincipalsModificationKind: DefaultPrincipalsModificationKind;
     /**
      * Resource location.
      */
@@ -67,7 +71,7 @@ export interface GetAttachedDatabaseConfigurationResult {
     /**
      * The provisioned state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

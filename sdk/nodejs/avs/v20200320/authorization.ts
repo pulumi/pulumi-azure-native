@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const ExpressRouteAuthorizationProvisioningState = {
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Updating: "Updating",
-}
+export type ExpressRouteAuthorizationProvisioningState = "Succeeded" | "Failed" | "Updating" | string;
 
 /**
  * ExpressRoute Circuit Authorization
@@ -55,7 +51,7 @@ export class Authorization extends pulumi.CustomResource {
     /**
      * The state of the  ExpressRoute Circuit Authorization provisioning
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ExpressRouteAuthorizationProvisioningState>;
     /**
      * Resource type.
      */

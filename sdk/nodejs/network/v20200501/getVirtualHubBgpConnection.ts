@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type HubBgpConnectionStatus = "Unknown" | "Connecting" | "Connected" | "NotConnected" | string;
+
 export function getVirtualHubBgpConnection(args: GetVirtualHubBgpConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubBgpConnectionResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +45,7 @@ export interface GetVirtualHubBgpConnectionResult {
     /**
      * The current state of the VirtualHub to Peer.
      */
-    readonly connectionState: string;
+    readonly connectionState: HubBgpConnectionStatus;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

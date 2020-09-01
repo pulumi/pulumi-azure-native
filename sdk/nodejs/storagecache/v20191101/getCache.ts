@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningStateType = "Succeeded" | "Failed" | "Cancelled" | "Creating" | "Deleting" | "Updating" | string;
+
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
     if (!opts) {
         opts = {}
@@ -58,7 +60,7 @@ export interface GetCacheResult {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: ProvisioningStateType;
     /**
      * SKU for the Cache.
      */

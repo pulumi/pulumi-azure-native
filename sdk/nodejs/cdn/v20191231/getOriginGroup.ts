@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type OriginGroupResourceState = "Creating" | "Active" | "Deleting" | string;
+
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
     if (!opts) {
         opts = {}
@@ -64,7 +66,7 @@ export interface GetOriginGroupResult {
     /**
      * Resource status of the origin group.
      */
-    readonly resourceState: string;
+    readonly resourceState: OriginGroupResourceState;
     /**
      * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
      */

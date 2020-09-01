@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type FormatType = "Csv" | string;
+
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
     if (!opts) {
         opts = {}
@@ -46,7 +48,7 @@ export interface GetExportResult {
     /**
      * The format of the export being delivered.
      */
-    readonly format?: string;
+    readonly format?: FormatType;
     /**
      * Resource name.
      */

@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const HcxEnterpriseSiteStatus = {
-    Available: "Available",
-    Consumed: "Consumed",
-    Deactivated: "Deactivated",
-    Deleted: "Deleted",
-}
+export type HcxEnterpriseSiteStatus = "Available" | "Consumed" | "Deactivated" | "Deleted" | string;
 
 /**
  * An HCX Enterprise Site resource
@@ -52,7 +47,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
     /**
      * The status of the HCX Enterprise Site
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<HcxEnterpriseSiteStatus>;
     /**
      * Resource type.
      */

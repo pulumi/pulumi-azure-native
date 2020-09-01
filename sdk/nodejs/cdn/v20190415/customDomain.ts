@@ -6,32 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const CustomDomainResourceState = {
-    Creating: "Creating",
-    Active: "Active",
-    Deleting: "Deleting",
-}
+export type CustomDomainResourceState = "Creating" | "Active" | "Deleting" | string;
 
-export const CustomHttpsProvisioningState = {
-    Enabling: "Enabling",
-    Enabled: "Enabled",
-    Disabling: "Disabling",
-    Disabled: "Disabled",
-    Failed: "Failed",
-}
+export type CustomHttpsProvisioningState = "Enabling" | "Enabled" | "Disabling" | "Disabled" | "Failed" | string;
 
-export const CustomHttpsProvisioningSubstate = {
-    SubmittingDomainControlValidationRequest: "SubmittingDomainControlValidationRequest",
-    PendingDomainControlValidationREquestApproval: "PendingDomainControlValidationREquestApproval",
-    DomainControlValidationRequestApproved: "DomainControlValidationRequestApproved",
-    DomainControlValidationRequestRejected: "DomainControlValidationRequestRejected",
-    DomainControlValidationRequestTimedOut: "DomainControlValidationRequestTimedOut",
-    IssuingCertificate: "IssuingCertificate",
-    DeployingCertificate: "DeployingCertificate",
-    CertificateDeployed: "CertificateDeployed",
-    DeletingCertificate: "DeletingCertificate",
-    CertificateDeleted: "CertificateDeleted",
-}
+export type CustomHttpsProvisioningSubstate = "SubmittingDomainControlValidationRequest" | "PendingDomainControlValidationREquestApproval" | "DomainControlValidationRequestApproved" | "DomainControlValidationRequestRejected" | "DomainControlValidationRequestTimedOut" | "IssuingCertificate" | "DeployingCertificate" | "CertificateDeployed" | "DeletingCertificate" | "CertificateDeleted" | string;
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
@@ -70,11 +49,11 @@ export class CustomDomain extends pulumi.CustomResource {
     /**
      * Provisioning status of Custom Https of the custom domain.
      */
-    public /*out*/ readonly customHttpsProvisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly customHttpsProvisioningState!: pulumi.Output<CustomHttpsProvisioningState>;
     /**
      * Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
      */
-    public /*out*/ readonly customHttpsProvisioningSubstate!: pulumi.Output<string>;
+    public /*out*/ readonly customHttpsProvisioningSubstate!: pulumi.Output<CustomHttpsProvisioningSubstate>;
     /**
      * The host name of the custom domain. Must be a domain name.
      */
@@ -90,7 +69,7 @@ export class CustomDomain extends pulumi.CustomResource {
     /**
      * Resource status of the custom domain.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<CustomDomainResourceState>;
     /**
      * Resource type.
      */

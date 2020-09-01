@@ -22,24 +22,11 @@ export enum ProvisioningState {
     Succeeded = "Succeeded",
 }
 
-export const Kind = {
-    Storage: "Storage",
-    StorageV2: "StorageV2",
-    BlobStorage: "BlobStorage",
-    FileStorage: "FileStorage",
-    BlockBlobStorage: "BlockBlobStorage",
-}
+export type Kind = "Storage" | "StorageV2" | "BlobStorage" | "FileStorage" | "BlockBlobStorage" | string;
 
-export const LargeFileSharesState = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-}
+export type LargeFileSharesState = "Disabled" | "Enabled" | string;
 
-export const MinimumTlsVersion = {
-    TLS1_0: "TLS1_0",
-    TLS1_1: "TLS1_1",
-    TLS1_2: "TLS1_2",
-}
+export type MinimumTlsVersion = "TLS1_0" | "TLS1_1" | "TLS1_2" | string;
 
 /**
  * The storage account.
@@ -118,11 +105,11 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Gets the Kind.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<Kind>;
     /**
      * Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
      */
-    public readonly largeFileSharesState!: pulumi.Output<string | undefined>;
+    public readonly largeFileSharesState!: pulumi.Output<LargeFileSharesState | undefined>;
     /**
      * Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
      */
@@ -134,7 +121,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    public readonly minimumTlsVersion!: pulumi.Output<MinimumTlsVersion | undefined>;
     /**
      * The name of the resource
      */
@@ -299,11 +286,11 @@ export interface StorageAccountArgs {
     /**
      * Required. Indicates the type of storage account.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<Kind>;
     /**
      * Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
      */
-    readonly largeFileSharesState?: pulumi.Input<string>;
+    readonly largeFileSharesState?: pulumi.Input<LargeFileSharesState>;
     /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
@@ -311,7 +298,7 @@ export interface StorageAccountArgs {
     /**
      * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
      */
-    readonly minimumTlsVersion?: pulumi.Input<string>;
+    readonly minimumTlsVersion?: pulumi.Input<MinimumTlsVersion>;
     /**
      * Network rule set
      */

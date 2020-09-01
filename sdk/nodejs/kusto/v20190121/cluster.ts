@@ -6,25 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Running: "Running",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-}
+export type ProvisioningState = "Running" | "Creating" | "Deleting" | "Succeeded" | "Failed" | string;
 
-export const State = {
-    Creating: "Creating",
-    Unavailable: "Unavailable",
-    Running: "Running",
-    Deleting: "Deleting",
-    Deleted: "Deleted",
-    Stopping: "Stopping",
-    Stopped: "Stopped",
-    Starting: "Starting",
-    Updating: "Updating",
-}
+export type State = "Creating" | "Unavailable" | "Running" | "Deleting" | "Deleted" | "Stopping" | "Stopped" | "Starting" | "Updating" | string;
 
 /**
  * Class representing a Kusto cluster.
@@ -71,7 +55,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The SKU of the cluster.
      */
@@ -79,7 +63,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The state of the resource.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<State>;
     /**
      * Resource tags.
      */

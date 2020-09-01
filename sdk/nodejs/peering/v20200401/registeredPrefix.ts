@@ -4,22 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const prefixValidationState = {
-    None: "None",
-    Invalid: "Invalid",
-    Verified: "Verified",
-    Failed: "Failed",
-    Pending: "Pending",
-    Warning: "Warning",
-    Unknown: "Unknown",
-}
+export type prefixValidationState = "None" | "Invalid" | "Verified" | "Failed" | "Pending" | "Warning" | "Unknown" | string;
 
-export const provisioningState = {
-    Succeeded: "Succeeded",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-}
+export type provisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
 
 /**
  * The customer's prefix that is registered by the peering service provider.
@@ -70,11 +57,11 @@ export class RegisteredPrefix extends pulumi.CustomResource {
     /**
      * The prefix validation state.
      */
-    public /*out*/ readonly prefixValidationState!: pulumi.Output<string>;
+    public /*out*/ readonly prefixValidationState!: pulumi.Output<prefixValidationState>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<provisioningState>;
     /**
      * The type of the resource.
      */

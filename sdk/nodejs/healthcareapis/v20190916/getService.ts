@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum kind {
+    fhir = "fhir",
+    fhirStu3 = "fhir-Stu3",
+    fhirR4 = "fhir-R4",
+}
+
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
         opts = {}

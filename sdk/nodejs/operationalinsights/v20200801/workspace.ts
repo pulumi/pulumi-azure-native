@@ -6,15 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const WorkspaceEntityStatus = {
-    Creating: "Creating",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-    Deleting: "Deleting",
-    ProvisioningAccount: "ProvisioningAccount",
-    Updating: "Updating",
-}
+export type WorkspaceEntityStatus = "Creating" | "Succeeded" | "Failed" | "Canceled" | "Deleting" | "ProvisioningAccount" | "Updating" | string;
 
 /**
  * The top level Workspace resource container.
@@ -69,7 +61,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The provisioning state of the workspace.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly provisioningState!: pulumi.Output<WorkspaceEntityStatus | undefined>;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */
@@ -163,7 +155,7 @@ export interface WorkspaceArgs {
     /**
      * The provisioning state of the workspace.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<WorkspaceEntityStatus>;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */

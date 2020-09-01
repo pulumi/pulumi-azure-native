@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const PolicyContentFormat = {
-    xml: "xml",
-    xmllink: "xml-link",
-    rawxml: "rawxml",
-    rawxmllink: "rawxml-link",
-}
+export type PolicyContentFormat = "xml" | "xml-link" | "rawxml" | "rawxml-link" | string;
 
 /**
  * Policy Contract details.
@@ -44,7 +39,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
     /**
      * Format of the policyContent.
      */
-    public readonly contentFormat!: pulumi.Output<string | undefined>;
+    public readonly contentFormat!: pulumi.Output<PolicyContentFormat | undefined>;
     /**
      * Resource name.
      */
@@ -123,7 +118,7 @@ export interface ApiOperationPolicyArgs {
     /**
      * Format of the policyContent.
      */
-    readonly contentFormat?: pulumi.Input<string>;
+    readonly contentFormat?: pulumi.Input<PolicyContentFormat>;
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */

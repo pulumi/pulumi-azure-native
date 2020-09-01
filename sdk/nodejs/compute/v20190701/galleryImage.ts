@@ -16,10 +16,7 @@ export enum OperatingSystemTypes {
     Linux = "Linux",
 }
 
-export const HyperVGeneration = {
-    V1: "V1",
-    V2: "V2",
-}
+export type HyperVGeneration = "V1" | "V2" | string;
 
 /**
  * Specifies information about the gallery Image Definition that you want to create or update.
@@ -70,7 +67,7 @@ export class GalleryImage extends pulumi.CustomResource {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    public readonly hyperVGeneration!: pulumi.Output<HyperVGeneration | undefined>;
     /**
      * This is the gallery Image Definition identifier.
      */
@@ -219,7 +216,7 @@ export interface GalleryImageArgs {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    readonly hyperVGeneration?: pulumi.Input<string>;
+    readonly hyperVGeneration?: pulumi.Input<HyperVGeneration>;
     /**
      * This is the gallery Image Definition identifier.
      */

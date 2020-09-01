@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type LabUserAccessMode = "Restricted" | "Open" | string;
+
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     if (!opts) {
         opts = {}
@@ -100,7 +102,7 @@ export interface GetLabResult {
     /**
      * Lab user access mode (open to all vs. restricted to those listed on the lab).
      */
-    readonly userAccessMode?: string;
+    readonly userAccessMode?: LabUserAccessMode;
     /**
      * Maximum value MaxUsersInLab can be set to, as specified by the service
      */

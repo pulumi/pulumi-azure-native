@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const VirtualMachineCreationSource = {
-    FromCustomImage: "FromCustomImage",
-    FromGalleryImage: "FromGalleryImage",
-}
+export type VirtualMachineCreationSource = "FromCustomImage" | "FromGalleryImage" | string;
 
 /**
  * A virtual machine.
@@ -180,7 +177,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Tells source of creation of lab virtual machine. Output property only.
      */
-    public readonly virtualMachineCreationSource!: pulumi.Output<string | undefined>;
+    public readonly virtualMachineCreationSource!: pulumi.Output<VirtualMachineCreationSource | undefined>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -398,5 +395,5 @@ export interface VirtualMachineArgs {
     /**
      * Tells source of creation of lab virtual machine. Output property only.
      */
-    readonly virtualMachineCreationSource?: pulumi.Input<string>;
+    readonly virtualMachineCreationSource?: pulumi.Input<VirtualMachineCreationSource>;
 }

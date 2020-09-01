@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Succeeded: "Succeeded",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-}
+export type ProvisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
 
 /**
  * ExpressRouteConnection resource.
@@ -58,7 +53,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * The routing weight associated to the connection.
      */

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type StorageAuthentication = "System" | "ManagedIdentity" | string;
+
 export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaServiceResult> {
     if (!opts) {
         opts = {}
@@ -59,7 +61,7 @@ export interface GetMediaServiceResult {
      * The storage accounts for this resource.
      */
     readonly storageAccounts?: outputs.media.v20200501.StorageAccountResponse[];
-    readonly storageAuthentication?: string;
+    readonly storageAuthentication?: StorageAuthentication;
     /**
      * Resource tags.
      */

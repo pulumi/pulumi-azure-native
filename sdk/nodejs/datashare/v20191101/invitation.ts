@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const invitationStatus = {
-    Pending: "Pending",
-    Accepted: "Accepted",
-    Rejected: "Rejected",
-    Withdrawn: "Withdrawn",
-}
+export type invitationStatus = "Pending" | "Accepted" | "Rejected" | "Withdrawn" | string;
 
 /**
  * A Invitation data transfer object.
@@ -48,7 +43,7 @@ export class Invitation extends pulumi.CustomResource {
     /**
      * The status of the invitation.
      */
-    public /*out*/ readonly invitationStatus!: pulumi.Output<string>;
+    public /*out*/ readonly invitationStatus!: pulumi.Output<invitationStatus>;
     /**
      * Name of the azure resource
      */

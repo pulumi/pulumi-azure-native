@@ -6,24 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ApplicationType = {
-    web: "web",
-    other: "other",
-}
+export type ApplicationType = "web" | "other" | string;
 
-export const FlowType = {
-    Bluefield: "Bluefield",
-}
+export type FlowType = "Bluefield" | string;
 
-export const IngestionMode = {
-    ApplicationInsights: "ApplicationInsights",
-    ApplicationInsightsWithDiagnosticSettings: "ApplicationInsightsWithDiagnosticSettings",
-    LogAnalytics: "LogAnalytics",
-}
+export type IngestionMode = "ApplicationInsights" | "ApplicationInsightsWithDiagnosticSettings" | "LogAnalytics" | string;
 
-export const RequestSource = {
-    rest: "rest",
-}
+export type RequestSource = "rest" | string;
 
 /**
  * An Application Insights component definition.
@@ -66,7 +55,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Type of application being monitored.
      */
-    public readonly applicationType!: pulumi.Output<string>;
+    public readonly applicationType!: pulumi.Output<ApplicationType>;
     /**
      * Application Insights component connection string.
      */
@@ -82,7 +71,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
-    public readonly flowType!: pulumi.Output<string | undefined>;
+    public readonly flowType!: pulumi.Output<FlowType | undefined>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
@@ -98,7 +87,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Indicates the flow of the ingestion.
      */
-    public readonly ingestionMode!: pulumi.Output<string | undefined>;
+    public readonly ingestionMode!: pulumi.Output<IngestionMode | undefined>;
     /**
      * Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
      */
@@ -126,7 +115,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
-    public readonly requestSource!: pulumi.Output<string | undefined>;
+    public readonly requestSource!: pulumi.Output<RequestSource | undefined>;
     /**
      * Retention period in days.
      */
@@ -220,7 +209,7 @@ export interface ComponentArgs {
     /**
      * Type of application being monitored.
      */
-    readonly applicationType: pulumi.Input<string>;
+    readonly applicationType: pulumi.Input<ApplicationType>;
     /**
      * Disable IP masking.
      */
@@ -228,7 +217,7 @@ export interface ComponentArgs {
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
-    readonly flowType?: pulumi.Input<string>;
+    readonly flowType?: pulumi.Input<FlowType>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
@@ -240,7 +229,7 @@ export interface ComponentArgs {
     /**
      * Indicates the flow of the ingestion.
      */
-    readonly ingestionMode?: pulumi.Input<string>;
+    readonly ingestionMode?: pulumi.Input<IngestionMode>;
     /**
      * The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
      */
@@ -252,7 +241,7 @@ export interface ComponentArgs {
     /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
-    readonly requestSource?: pulumi.Input<string>;
+    readonly requestSource?: pulumi.Input<RequestSource>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

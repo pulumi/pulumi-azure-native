@@ -6,16 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ExpressRouteCircuitPeeringState = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-}
+export type ExpressRouteCircuitPeeringState = "Disabled" | "Enabled" | string;
 
-export const ExpressRouteCircuitPeeringType = {
-    AzurePublicPeering: "AzurePublicPeering",
-    AzurePrivatePeering: "AzurePrivatePeering",
-    MicrosoftPeering: "MicrosoftPeering",
-}
+export type ExpressRouteCircuitPeeringType = "AzurePublicPeering" | "AzurePrivatePeering" | "MicrosoftPeering" | string;
 
 /**
  * Peering in a ExpressRouteCircuit resource
@@ -78,7 +71,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * Gets or sets PeeringType
      */
-    public readonly peeringType!: pulumi.Output<string | undefined>;
+    public readonly peeringType!: pulumi.Output<ExpressRouteCircuitPeeringType | undefined>;
     /**
      * Gets or sets the primary port
      */
@@ -106,7 +99,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * Gets or sets state of Peering
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<ExpressRouteCircuitPeeringState | undefined>;
     /**
      * Gets or peering stats
      */
@@ -220,7 +213,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * Gets or sets PeeringType
      */
-    readonly peeringType?: pulumi.Input<string>;
+    readonly peeringType?: pulumi.Input<ExpressRouteCircuitPeeringType>;
     /**
      * Gets or sets the primary port
      */
@@ -252,7 +245,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * Gets or sets state of Peering
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<ExpressRouteCircuitPeeringState>;
     /**
      * Gets or peering stats
      */

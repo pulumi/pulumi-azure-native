@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Succeeded: "Succeeded",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-}
+export type ProvisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
 
 /**
  * Information about packet capture session.
@@ -56,7 +51,7 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * The provisioning state of the packet capture session.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState | undefined>;
     /**
      * Describes the storage location for a packet capture session.
      */

@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const MaintenanceScope = {
-    All: "All",
-    Host: "Host",
-    Resource: "Resource",
-    InResource: "InResource",
-}
+export type MaintenanceScope = "All" | "Host" | "Resource" | "InResource" | string;
 
 /**
  * Maintenance configuration record type
@@ -52,7 +47,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
      * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
      */
-    public readonly maintenanceScope!: pulumi.Output<string | undefined>;
+    public readonly maintenanceScope!: pulumi.Output<MaintenanceScope | undefined>;
     /**
      * Name of the resource
      */
@@ -125,7 +120,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
      */
-    readonly maintenanceScope?: pulumi.Input<string>;
+    readonly maintenanceScope?: pulumi.Input<MaintenanceScope>;
     /**
      * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */

@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum Protocol {
+    http = "http",
+    https = "https",
+}
+
+export type ApiType = "http" | "soap" | string;
+
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
     if (!opts) {
         opts = {}
@@ -47,7 +54,7 @@ export interface GetApiResult {
     /**
      * Type of API.
      */
-    readonly apiType?: string;
+    readonly apiType?: ApiType;
     /**
      * Indicates the Version identifier of the API if the API is versioned
      */

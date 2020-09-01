@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type LockLevel = "NotSpecified" | "CanNotDelete" | "ReadOnly" | string;
+
 export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtResourceGroupLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceGroupLevelResult> {
     if (!opts) {
         opts = {}
@@ -38,7 +40,7 @@ export interface GetManagementLockAtResourceGroupLevelResult {
     /**
      * The lock level of the management lock.
      */
-    readonly level?: string;
+    readonly level?: LockLevel;
     /**
      * The name of the lock.
      */

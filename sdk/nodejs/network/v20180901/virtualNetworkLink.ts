@@ -6,19 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-}
+export type ProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
 
-export const VirtualNetworkLinkState = {
-    InProgress: "InProgress",
-    Completed: "Completed",
-}
+export type VirtualNetworkLinkState = "InProgress" | "Completed" | string;
 
 /**
  * Describes a link to virtual network for a Private DNS zone.
@@ -65,7 +55,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
     /**
      * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
      */
@@ -85,7 +75,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
     /**
      * The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly virtualNetworkLinkState!: pulumi.Output<string>;
+    public /*out*/ readonly virtualNetworkLinkState!: pulumi.Output<VirtualNetworkLinkState>;
 
     /**
      * Create a VirtualNetworkLink resource with the given unique name, arguments, and options.

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ApplicationGatewayOperationalState = "Stopped" | "Starting" | "Running" | "Stopping" | string;
+
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
     if (!opts) {
         opts = {}
@@ -82,7 +84,7 @@ export interface GetApplicationGatewayResult {
     /**
      * Operational state of the application gateway resource.
      */
-    readonly operationalState: string;
+    readonly operationalState: ApplicationGatewayOperationalState;
     /**
      * Probes of the application gateway resource.
      */

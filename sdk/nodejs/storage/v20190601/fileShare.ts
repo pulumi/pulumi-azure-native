@@ -4,23 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const EnabledProtocols = {
-    SMB: "SMB",
-    NFS: "NFS",
-}
+export type EnabledProtocols = "SMB" | "NFS" | string;
 
-export const RootSquashType = {
-    NoRootSquash: "NoRootSquash",
-    RootSquash: "RootSquash",
-    AllSquash: "AllSquash",
-}
+export type RootSquashType = "NoRootSquash" | "RootSquash" | "AllSquash" | string;
 
-export const ShareAccessTier = {
-    TransactionOptimized: "TransactionOptimized",
-    Hot: "Hot",
-    Cool: "Cool",
-    Premium: "Premium",
-}
+export type ShareAccessTier = "TransactionOptimized" | "Hot" | "Cool" | "Premium" | string;
 
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
@@ -55,7 +43,7 @@ export class FileShare extends pulumi.CustomResource {
     /**
      * Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
      */
-    public readonly accessTier!: pulumi.Output<string | undefined>;
+    public readonly accessTier!: pulumi.Output<ShareAccessTier | undefined>;
     /**
      * Indicates the last modification time for share access tier.
      */
@@ -75,7 +63,7 @@ export class FileShare extends pulumi.CustomResource {
     /**
      * The authentication protocol that is used for the file share. Can only be specified when creating a share.
      */
-    public readonly enabledProtocols!: pulumi.Output<string | undefined>;
+    public readonly enabledProtocols!: pulumi.Output<EnabledProtocols | undefined>;
     /**
      * Resource Etag.
      */
@@ -99,7 +87,7 @@ export class FileShare extends pulumi.CustomResource {
     /**
      * The property is for NFS share only. The default is NoRootSquash.
      */
-    public readonly rootSquash!: pulumi.Output<string | undefined>;
+    public readonly rootSquash!: pulumi.Output<RootSquashType | undefined>;
     /**
      * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
      */
@@ -179,7 +167,7 @@ export interface FileShareArgs {
     /**
      * Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    readonly accessTier?: pulumi.Input<ShareAccessTier>;
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
@@ -187,7 +175,7 @@ export interface FileShareArgs {
     /**
      * The authentication protocol that is used for the file share. Can only be specified when creating a share.
      */
-    readonly enabledProtocols?: pulumi.Input<string>;
+    readonly enabledProtocols?: pulumi.Input<EnabledProtocols>;
     /**
      * A name-value pair to associate with the share as metadata.
      */
@@ -199,7 +187,7 @@ export interface FileShareArgs {
     /**
      * The property is for NFS share only. The default is NoRootSquash.
      */
-    readonly rootSquash?: pulumi.Input<string>;
+    readonly rootSquash?: pulumi.Input<RootSquashType>;
     /**
      * The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */

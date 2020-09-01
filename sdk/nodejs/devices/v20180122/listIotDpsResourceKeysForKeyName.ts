@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AccessRightsDescription = "ServiceConfig" | "EnrollmentRead" | "EnrollmentWrite" | "DeviceConnect" | "RegistrationStatusRead" | "RegistrationStatusWrite" | string;
+
 export function listIotDpsResourceKeysForKeyName(args: ListIotDpsResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysForKeyNameResult> {
     if (!opts) {
         opts = {}
@@ -51,7 +53,7 @@ export interface ListIotDpsResourceKeysForKeyNameResult {
     /**
      * Rights that this key has.
      */
-    readonly rights: string;
+    readonly rights: AccessRightsDescription;
     /**
      * Secondary SAS key value.
      */

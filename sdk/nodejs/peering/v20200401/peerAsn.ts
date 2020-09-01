@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const validationState = {
-    None: "None",
-    Pending: "Pending",
-    Approved: "Approved",
-    Failed: "Failed",
-}
+export type validationState = "None" | "Pending" | "Approved" | "Failed" | string;
 
 /**
  * The essential information related to the peer's ASN.
@@ -70,7 +65,7 @@ export class PeerAsn extends pulumi.CustomResource {
     /**
      * The validation state of the ASN associated with the peer.
      */
-    public readonly validationState!: pulumi.Output<string | undefined>;
+    public readonly validationState!: pulumi.Output<validationState | undefined>;
 
     /**
      * Create a PeerAsn resource with the given unique name, arguments, and options.
@@ -131,5 +126,5 @@ export interface PeerAsnArgs {
     /**
      * The validation state of the ASN associated with the peer.
      */
-    readonly validationState?: pulumi.Input<string>;
+    readonly validationState?: pulumi.Input<validationState>;
 }

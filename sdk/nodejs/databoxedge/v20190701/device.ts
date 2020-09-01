@@ -6,26 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const DataBoxEdgeDeviceStatus = {
-    ReadyToSetup: "ReadyToSetup",
-    Online: "Online",
-    Offline: "Offline",
-    NeedsAttention: "NeedsAttention",
-    Disconnected: "Disconnected",
-    PartiallyDisconnected: "PartiallyDisconnected",
-    Maintenance: "Maintenance",
-}
+export type DataBoxEdgeDeviceStatus = "ReadyToSetup" | "Online" | "Offline" | "NeedsAttention" | "Disconnected" | "PartiallyDisconnected" | "Maintenance" | string;
 
-export const DeviceType = {
-    DataBoxEdgeDevice: "DataBoxEdgeDevice",
-}
+export type DeviceType = "DataBoxEdgeDevice" | string;
 
-export const RoleTypes = {
-    IOT: "IOT",
-    ASA: "ASA",
-    Functions: "Functions",
-    Cognitive: "Cognitive",
-}
+export type RoleTypes = "IOT" | "ASA" | "Functions" | "Cognitive" | string;
 
 /**
  * The Data Box Edge/Gateway device.
@@ -60,7 +45,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * Type of compute roles configured.
      */
-    public /*out*/ readonly configuredRoleTypes!: pulumi.Output<string[]>;
+    public /*out*/ readonly configuredRoleTypes!: pulumi.Output<RoleTypes[]>;
     /**
      * The Data Box Edge/Gateway device culture.
      */
@@ -68,7 +53,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    public readonly dataBoxEdgeDeviceStatus!: pulumi.Output<string | undefined>;
+    public readonly dataBoxEdgeDeviceStatus!: pulumi.Output<DataBoxEdgeDeviceStatus | undefined>;
     /**
      * The Description of the Data Box Edge/Gateway device.
      */
@@ -92,7 +77,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The type of the Data Box Edge/Gateway device.
      */
-    public /*out*/ readonly deviceType!: pulumi.Output<string>;
+    public /*out*/ readonly deviceType!: pulumi.Output<DeviceType>;
     /**
      * The etag for the devices.
      */
@@ -203,7 +188,7 @@ export interface DeviceArgs {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    readonly dataBoxEdgeDeviceStatus?: pulumi.Input<string>;
+    readonly dataBoxEdgeDeviceStatus?: pulumi.Input<DataBoxEdgeDeviceStatus>;
     /**
      * The Description of the Data Box Edge/Gateway device.
      */

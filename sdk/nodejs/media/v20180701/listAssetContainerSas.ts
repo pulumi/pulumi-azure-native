@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AssetContainerPermission = "Read" | "ReadWrite" | "ReadWriteDelete" | string;
+
 export function listAssetContainerSas(args: ListAssetContainerSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetContainerSasResult> {
     if (!opts) {
         opts = {}
@@ -39,7 +41,7 @@ export interface ListAssetContainerSasArgs {
     /**
      * The permissions to set on the SAS URL.
      */
-    readonly permissions?: string;
+    readonly permissions?: AssetContainerPermission;
     /**
      * The name of the resource group within the Azure subscription.
      */

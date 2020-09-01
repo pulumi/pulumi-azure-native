@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type Relaytype = "NetTcp" | "Http" | string;
+
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
     if (!opts) {
         opts = {}
@@ -59,7 +61,7 @@ export interface GetWCFRelayResult {
     /**
      * WCFRelay Type.
      */
-    readonly relayType?: string;
+    readonly relayType?: Relaytype;
     /**
      * true if client authorization is needed for this relay; otherwise, false.
      */

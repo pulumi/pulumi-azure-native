@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type PoolServiceLevel = "Standard" | "Premium" | "Ultra" | string;
+
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     if (!opts) {
         opts = {}
@@ -59,7 +61,7 @@ export interface GetPoolResult {
     /**
      * The service level of the file system
      */
-    readonly serviceLevel: string;
+    readonly serviceLevel: PoolServiceLevel;
     /**
      * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
      */

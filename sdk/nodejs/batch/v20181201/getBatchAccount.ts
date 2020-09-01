@@ -6,6 +6,15 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum ProvisioningState {
+    Invalid = "Invalid",
+    Creating = "Creating",
+    Deleting = "Deleting",
+    Succeeded = "Succeeded",
+    Failed = "Failed",
+    Cancelled = "Cancelled",
+}
+
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
     if (!opts) {
         opts = {}

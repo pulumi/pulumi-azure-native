@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type prefixValidationState = "None" | "Invalid" | "Verified" | "Failed" | "Pending" | "Warning" | "Unknown" | string;
+
+export type provisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
+
 export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredPrefixResult> {
     if (!opts) {
         opts = {}
@@ -59,11 +63,11 @@ export interface GetRegisteredPrefixResult {
     /**
      * The prefix validation state.
      */
-    readonly prefixValidationState: string;
+    readonly prefixValidationState: prefixValidationState;
     /**
      * The provisioning state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: provisioningState;
     /**
      * The type of the resource.
      */

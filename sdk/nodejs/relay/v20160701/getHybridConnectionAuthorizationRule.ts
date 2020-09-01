@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AccessRights = "Manage" | "Send" | "Listen" | string;
+
 export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionAuthorizationRuleResult> {
     if (!opts) {
         opts = {}
@@ -52,7 +54,7 @@ export interface GetHybridConnectionAuthorizationRuleResult {
     /**
      * The rights associated with the rule.
      */
-    readonly rights: string[];
+    readonly rights: AccessRights[];
     /**
      * Resource type
      */

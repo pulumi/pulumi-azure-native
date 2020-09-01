@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type LockLevel = "NotSpecified" | "CanNotDelete" | "ReadOnly" | string;
+
 export function getManagementLockAtSubscriptionLevel(args: GetManagementLockAtSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtSubscriptionLevelResult> {
     if (!opts) {
         opts = {}
@@ -33,7 +35,7 @@ export interface GetManagementLockAtSubscriptionLevelResult {
     /**
      * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
      */
-    readonly level: string;
+    readonly level: LockLevel;
     /**
      * The name of the lock.
      */

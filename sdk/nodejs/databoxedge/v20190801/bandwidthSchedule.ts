@@ -4,15 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const DayOfWeek = {
-    Sunday: "Sunday",
-    Monday: "Monday",
-    Tuesday: "Tuesday",
-    Wednesday: "Wednesday",
-    Thursday: "Thursday",
-    Friday: "Friday",
-    Saturday: "Saturday",
-}
+export type DayOfWeek = "Sunday" | "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | string;
 
 /**
  * The bandwidth schedule details.
@@ -47,7 +39,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
     /**
      * The days of the week when this schedule is applicable.
      */
-    public readonly days!: pulumi.Output<string[]>;
+    public readonly days!: pulumi.Output<DayOfWeek[]>;
     /**
      * The object name.
      */
@@ -132,7 +124,7 @@ export interface BandwidthScheduleArgs {
     /**
      * The days of the week when this schedule is applicable.
      */
-    readonly days: pulumi.Input<pulumi.Input<string>[]>;
+    readonly days: pulumi.Input<pulumi.Input<DayOfWeek>[]>;
     /**
      * The device name.
      */

@@ -11,19 +11,9 @@ export enum Protocol {
     https = "https",
 }
 
-export const ApiType = {
-    http: "http",
-    soap: "soap",
-}
+export type ApiType = "http" | "soap" | string;
 
-export const ContentFormat = {
-    wadlxml: "wadl-xml",
-    wadllinkjson: "wadl-link-json",
-    swaggerjson: "swagger-json",
-    swaggerlinkjson: "swagger-link-json",
-    wsdl: "wsdl",
-    wsdllink: "wsdl-link",
-}
+export type ContentFormat = "wadl-xml" | "wadl-link-json" | "swagger-json" | "swagger-link-json" | "wsdl" | "wsdl-link" | string;
 
 /**
  * API details.
@@ -62,7 +52,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * Type of API.
      */
-    public readonly apiType!: pulumi.Output<string | undefined>;
+    public readonly apiType!: pulumi.Output<ApiType | undefined>;
     /**
      * Indicates the Version identifier of the API if the API is versioned
      */
@@ -196,7 +186,7 @@ export interface ApiArgs {
     /**
      * Type of API.
      */
-    readonly apiType?: pulumi.Input<string>;
+    readonly apiType?: pulumi.Input<ApiType>;
     /**
      * Indicates the Version identifier of the API if the API is versioned
      */
@@ -216,7 +206,7 @@ export interface ApiArgs {
     /**
      * Format of the Content in which the API is getting imported.
      */
-    readonly contentFormat?: pulumi.Input<string>;
+    readonly contentFormat?: pulumi.Input<ContentFormat>;
     /**
      * Content value when Importing an API.
      */

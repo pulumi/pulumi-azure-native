@@ -6,6 +6,18 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type assessmentType = "BuiltIn" | "CustomPolicy" | "CustomerManaged" | "VerifiedPartner" | string;
+
+export type category = "Compute" | "Networking" | "Data" | "IdentityAndAccess" | "IoT" | string;
+
+export type implementationEffort = "Low" | "Moderate" | "High" | string;
+
+export type severity = "Low" | "Medium" | "High" | string;
+
+export type threats = "accountBreach" | "dataExfiltration" | "dataSpillage" | "maliciousInsider" | "elevationOfPrivilege" | "threatResistance" | "missingCoverage" | "denialOfService" | string;
+
+export type userImpact = "Low" | "Moderate" | "High" | string;
+
 export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataInSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentMetadataInSubscriptionResult> {
     if (!opts) {
         opts = {}
@@ -33,8 +45,8 @@ export interface GetAssessmentMetadataInSubscriptionResult {
     /**
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
-    readonly assessmentType: string;
-    readonly category?: string[];
+    readonly assessmentType: assessmentType;
+    readonly category?: category[];
     /**
      * Human readable description of the assessment
      */
@@ -46,7 +58,7 @@ export interface GetAssessmentMetadataInSubscriptionResult {
     /**
      * The implementation effort required to remediate this assessment
      */
-    readonly implementationEffort?: string;
+    readonly implementationEffort?: implementationEffort;
     /**
      * Resource name
      */
@@ -70,8 +82,8 @@ export interface GetAssessmentMetadataInSubscriptionResult {
     /**
      * The severity level of the assessment
      */
-    readonly severity: string;
-    readonly threats?: string[];
+    readonly severity: severity;
+    readonly threats?: threats[];
     /**
      * Resource type
      */
@@ -79,5 +91,5 @@ export interface GetAssessmentMetadataInSubscriptionResult {
     /**
      * The user impact of the assessment
      */
-    readonly userImpact?: string;
+    readonly userImpact?: userImpact;
 }

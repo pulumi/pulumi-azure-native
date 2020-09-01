@@ -6,6 +6,23 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum AuthorizationMethod {
+    HEAD = "HEAD",
+    OPTIONS = "OPTIONS",
+    TRACE = "TRACE",
+    GET = "GET",
+    POST = "POST",
+    PUT = "PUT",
+    PATCH = "PATCH",
+    DELETE = "DELETE",
+}
+
+export type BearerTokenSendingMethod = "authorizationHeader" | "query" | string;
+
+export type ClientAuthenticationMethod = "Basic" | "Body" | string;
+
+export type GrantType = "authorizationCode" | "implicit" | "resourceOwnerPassword" | "clientCredentials" | string;
+
 export function getAuthorizationServer(args: GetAuthorizationServerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationServerResult> {
     if (!opts) {
         opts = {}
@@ -51,11 +68,11 @@ export interface GetAuthorizationServerResult {
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */
-    readonly bearerTokenSendingMethods?: string[];
+    readonly bearerTokenSendingMethods?: BearerTokenSendingMethod[];
     /**
      * Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
      */
-    readonly clientAuthenticationMethod?: string[];
+    readonly clientAuthenticationMethod?: ClientAuthenticationMethod[];
     /**
      * Client or app id registered with this authorization server.
      */
@@ -83,7 +100,7 @@ export interface GetAuthorizationServerResult {
     /**
      * Form of an authorization grant, which the client uses to request the access token.
      */
-    readonly grantTypes: string[];
+    readonly grantTypes: GrantType[];
     /**
      * Resource name.
      */

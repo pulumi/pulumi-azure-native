@@ -6,26 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Disabled: "Disabled",
-    Failed: "Failed",
-    Linking: "Linking",
-    Provisioning: "Provisioning",
-    RecoveringScaleFailure: "RecoveringScaleFailure",
-    Scaling: "Scaling",
-    Succeeded: "Succeeded",
-    Unlinking: "Unlinking",
-    Unprovisioning: "Unprovisioning",
-    Updating: "Updating",
-}
+export type ProvisioningState = "Creating" | "Deleting" | "Disabled" | "Failed" | "Linking" | "Provisioning" | "RecoveringScaleFailure" | "Scaling" | "Succeeded" | "Unlinking" | "Unprovisioning" | "Updating" | string;
 
-export const TlsVersion = {
-    10: "1.0",
-    11: "1.1",
-    12: "1.2",
-}
+export type TlsVersion = "1.0" | "1.1" | "1.2" | string;
 
 /**
  * A single Redis item in List or Get Operation.
@@ -80,7 +63,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    public readonly minimumTlsVersion!: pulumi.Output<TlsVersion | undefined>;
     /**
      * Resource name.
      */
@@ -92,7 +75,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * Redis instance provisioning status.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */
@@ -213,7 +196,7 @@ export interface RedisArgs {
     /**
      * Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
      */
-    readonly minimumTlsVersion?: pulumi.Input<string>;
+    readonly minimumTlsVersion?: pulumi.Input<TlsVersion>;
     /**
      * The name of the Redis cache.
      */

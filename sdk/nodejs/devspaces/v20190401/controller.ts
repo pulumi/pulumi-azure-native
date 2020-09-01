@@ -6,15 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-    Updating: "Updating",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Deleted: "Deleted",
-}
+export type ProvisioningState = "Succeeded" | "Failed" | "Canceled" | "Updating" | "Creating" | "Deleting" | "Deleted" | string;
 
 export class Controller extends pulumi.CustomResource {
     /**
@@ -62,7 +54,7 @@ export class Controller extends pulumi.CustomResource {
     /**
      * Provisioning state of the Azure Dev Spaces Controller.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Model representing SKU for Azure Dev Spaces Controller.
      */

@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProjectProvisioningState = {
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-}
+export type ProjectProvisioningState = "Deleting" | "Succeeded" | string;
 
 /**
  * A project resource
@@ -60,7 +57,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * The project's provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProjectProvisioningState>;
     /**
      * Information for connecting to source
      */

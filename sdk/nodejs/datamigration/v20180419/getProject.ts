@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProjectProvisioningState = "Deleting" | "Succeeded" | string;
+
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     if (!opts) {
         opts = {}
@@ -59,7 +61,7 @@ export interface GetProjectResult {
     /**
      * The project's provisioning state
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProjectProvisioningState;
     /**
      * Information for connecting to source
      */

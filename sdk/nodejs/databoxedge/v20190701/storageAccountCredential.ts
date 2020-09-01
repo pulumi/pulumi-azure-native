@@ -6,15 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const AccountType = {
-    GeneralPurposeStorage: "GeneralPurposeStorage",
-    BlobStorage: "BlobStorage",
-}
+export type AccountType = "GeneralPurposeStorage" | "BlobStorage" | string;
 
-export const SSLStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type SSLStatus = "Enabled" | "Disabled" | string;
 
 /**
  * The storage account credential.
@@ -53,7 +47,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * Type of storage accessed on the storage account.
      */
-    public readonly accountType!: pulumi.Output<string>;
+    public readonly accountType!: pulumi.Output<AccountType>;
     /**
      * Alias for the storage account.
      */
@@ -73,7 +67,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    public readonly sslStatus!: pulumi.Output<string>;
+    public readonly sslStatus!: pulumi.Output<SSLStatus>;
     /**
      * Id of the storage account.
      */
@@ -155,7 +149,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * Type of storage accessed on the storage account.
      */
-    readonly accountType: pulumi.Input<string>;
+    readonly accountType: pulumi.Input<AccountType>;
     /**
      * Alias for the storage account.
      */
@@ -183,7 +177,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    readonly sslStatus: pulumi.Input<string>;
+    readonly sslStatus: pulumi.Input<SSLStatus>;
     /**
      * Id of the storage account.
      */

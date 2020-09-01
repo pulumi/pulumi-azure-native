@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type learnedType = "None" | "ViaServiceProvider" | "ViaSession" | string;
+
+export type prefixValidationState = "None" | "Invalid" | "Verified" | "Failed" | "Pending" | "Warning" | "Unknown" | string;
+
+export type provisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
+
 export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixResult> {
     if (!opts) {
         opts = {}
@@ -56,7 +62,7 @@ export interface GetPrefixResult {
     /**
      * The prefix learned type
      */
-    readonly learnedType: string;
+    readonly learnedType: learnedType;
     /**
      * The name of the resource.
      */
@@ -72,11 +78,11 @@ export interface GetPrefixResult {
     /**
      * The prefix validation state
      */
-    readonly prefixValidationState: string;
+    readonly prefixValidationState: prefixValidationState;
     /**
      * The provisioning state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: provisioningState;
     /**
      * The type of the resource.
      */

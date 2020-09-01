@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ClusterEntityStatus = "Creating" | "Succeeded" | "Failed" | "Canceled" | "Deleting" | "ProvisioningAccount" | "Updating" | string;
+
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
         opts = {}
@@ -62,7 +64,7 @@ export interface GetClusterResult {
     /**
      * The provisioning state of the cluster.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ClusterEntityStatus;
     /**
      * The sku properties.
      */

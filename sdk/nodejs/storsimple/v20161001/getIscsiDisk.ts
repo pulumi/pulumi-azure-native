@@ -6,6 +6,23 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum DataPolicy {
+    Invalid = "Invalid",
+    Local = "Local",
+    Tiered = "Tiered",
+    Cloud = "Cloud",
+}
+
+export enum DiskStatus {
+    Online = "Online",
+    Offline = "Offline",
+}
+
+export enum MonitoringStatus {
+    Enabled = "Enabled",
+    Disabled = "Disabled",
+}
+
 export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiDiskResult> {
     if (!opts) {
         opts = {}

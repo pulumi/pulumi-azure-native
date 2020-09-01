@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type VirtualNetworkRuleState = "Initializing" | "InProgress" | "Ready" | "Deleting" | "Unknown" | string;
+
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
     if (!opts) {
         opts = {}
@@ -51,7 +53,7 @@ export interface GetVirtualNetworkRuleResult {
     /**
      * Virtual Network Rule State
      */
-    readonly state: string;
+    readonly state: VirtualNetworkRuleState;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

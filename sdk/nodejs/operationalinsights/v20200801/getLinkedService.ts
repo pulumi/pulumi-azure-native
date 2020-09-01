@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type LinkedServiceEntityStatus = "Succeeded" | "Deleting" | "ProvisioningAccount" | "Updating" | string;
+
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
     if (!opts) {
         opts = {}
@@ -47,7 +49,7 @@ export interface GetLinkedServiceResult {
     /**
      * The provisioning state of the linked service.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: LinkedServiceEntityStatus;
     /**
      * The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
      */

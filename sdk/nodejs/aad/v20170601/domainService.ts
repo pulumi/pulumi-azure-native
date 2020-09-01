@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const filteredSync = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type filteredSync = "Enabled" | "Disabled" | string;
 
 /**
  * Domain service.
@@ -60,7 +57,7 @@ export class DomainService extends pulumi.CustomResource {
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */
-    public readonly filteredSync!: pulumi.Output<string | undefined>;
+    public readonly filteredSync!: pulumi.Output<filteredSync | undefined>;
     /**
      * List of Domain Health Alerts
      */
@@ -195,7 +192,7 @@ export interface DomainServiceArgs {
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */
-    readonly filteredSync?: pulumi.Input<string>;
+    readonly filteredSync?: pulumi.Input<filteredSync>;
     /**
      * Secure LDAP Settings
      */

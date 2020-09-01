@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type EndpointResourceState = "Creating" | "Deleting" | "Running" | "Starting" | "Stopped" | "Stopping" | string;
+
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     if (!opts) {
         opts = {}
@@ -103,7 +105,7 @@ export interface GetEndpointResult {
     /**
      * Resource status of the endpoint.
      */
-    readonly resourceState: string;
+    readonly resourceState: EndpointResourceState;
     /**
      * Resource tags.
      */

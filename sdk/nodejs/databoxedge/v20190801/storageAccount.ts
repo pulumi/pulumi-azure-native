@@ -4,18 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const DataPolicy = {
-    Cloud: "Cloud",
-    Local: "Local",
-}
+export type DataPolicy = "Cloud" | "Local" | string;
 
-export const StorageAccountStatus = {
-    OK: "OK",
-    Offline: "Offline",
-    Unknown: "Unknown",
-    Updating: "Updating",
-    NeedsAttention: "NeedsAttention",
-}
+export type StorageAccountStatus = "OK" | "Offline" | "Unknown" | "Updating" | "NeedsAttention" | string;
 
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
@@ -58,7 +49,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Data policy of the storage Account.
      */
-    public readonly dataPolicy!: pulumi.Output<string | undefined>;
+    public readonly dataPolicy!: pulumi.Output<DataPolicy | undefined>;
     /**
      * Description for the storage Account.
      */
@@ -74,7 +65,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Current status of the storage account
      */
-    public readonly storageAccountStatus!: pulumi.Output<string | undefined>;
+    public readonly storageAccountStatus!: pulumi.Output<StorageAccountStatus | undefined>;
     /**
      * The hierarchical type of the object.
      */
@@ -132,7 +123,7 @@ export interface StorageAccountArgs {
     /**
      * Data policy of the storage Account.
      */
-    readonly dataPolicy?: pulumi.Input<string>;
+    readonly dataPolicy?: pulumi.Input<DataPolicy>;
     /**
      * Description for the storage Account.
      */
@@ -156,5 +147,5 @@ export interface StorageAccountArgs {
     /**
      * Current status of the storage account
      */
-    readonly storageAccountStatus?: pulumi.Input<string>;
+    readonly storageAccountStatus?: pulumi.Input<StorageAccountStatus>;
 }

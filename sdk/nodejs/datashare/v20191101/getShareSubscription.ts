@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type provisioningState = "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed" | string;
+
+export type shareKind = "CopyBased" | "InPlace" | string;
+
+export type shareSubscriptionStatus = "Active" | "Revoked" | "SourceDeleted" | "Revoking" | string;
+
 export function getShareSubscription(args: GetShareSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetShareSubscriptionResult> {
     if (!opts) {
         opts = {}
@@ -67,7 +73,7 @@ export interface GetShareSubscriptionResult {
     /**
      * Provisioning state of the share subscription
      */
-    readonly provisioningState: string;
+    readonly provisioningState: provisioningState;
     /**
      * Description of share
      */
@@ -75,7 +81,7 @@ export interface GetShareSubscriptionResult {
     /**
      * Kind of share
      */
-    readonly shareKind: string;
+    readonly shareKind: shareKind;
     /**
      * Name of the share
      */
@@ -83,7 +89,7 @@ export interface GetShareSubscriptionResult {
     /**
      * Gets the current status of share subscription.
      */
-    readonly shareSubscriptionStatus: string;
+    readonly shareSubscriptionStatus: shareSubscriptionStatus;
     /**
      * Terms of a share
      */

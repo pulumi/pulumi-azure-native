@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type Location = "global" | string;
+
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
     if (!opts) {
         opts = {}
@@ -50,7 +52,7 @@ export interface GetRegistrationResult {
     /**
      * Location of the resource.
      */
-    readonly location: string;
+    readonly location: Location;
     /**
      * Name of the resource.
      */

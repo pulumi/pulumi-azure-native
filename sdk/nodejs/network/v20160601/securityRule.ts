@@ -4,21 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const SecurityRuleAccess = {
-    Allow: "Allow",
-    Deny: "Deny",
-}
+export type SecurityRuleAccess = "Allow" | "Deny" | string;
 
-export const SecurityRuleDirection = {
-    Inbound: "Inbound",
-    Outbound: "Outbound",
-}
+export type SecurityRuleDirection = "Inbound" | "Outbound" | string;
 
-export const SecurityRuleProtocol = {
-    Tcp: "Tcp",
-    Udp: "Udp",
-    Asterisk: "*",
-}
+export type SecurityRuleProtocol = "Tcp" | "Udp" | "*" | string;
 
 /**
  * Network security rule
@@ -53,7 +43,7 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
      */
-    public readonly access!: pulumi.Output<string>;
+    public readonly access!: pulumi.Output<SecurityRuleAccess>;
     /**
      * Gets or sets a description for this rule. Restricted to 140 chars.
      */
@@ -69,7 +59,7 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
      */
-    public readonly direction!: pulumi.Output<string>;
+    public readonly direction!: pulumi.Output<SecurityRuleDirection>;
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
@@ -85,7 +75,7 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
      */
-    public readonly protocol!: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<SecurityRuleProtocol>;
     /**
      * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
@@ -173,7 +163,7 @@ export interface SecurityRuleArgs {
     /**
      * Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
      */
-    readonly access: pulumi.Input<string>;
+    readonly access: pulumi.Input<SecurityRuleAccess>;
     /**
      * Gets or sets a description for this rule. Restricted to 140 chars.
      */
@@ -189,7 +179,7 @@ export interface SecurityRuleArgs {
     /**
      * Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
      */
-    readonly direction: pulumi.Input<string>;
+    readonly direction: pulumi.Input<SecurityRuleDirection>;
     /**
      * A unique read-only string that changes whenever the resource is updated
      */
@@ -213,7 +203,7 @@ export interface SecurityRuleArgs {
     /**
      * Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
      */
-    readonly protocol: pulumi.Input<string>;
+    readonly protocol: pulumi.Input<SecurityRuleProtocol>;
     /**
      * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
      */

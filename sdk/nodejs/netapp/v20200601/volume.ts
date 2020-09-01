@@ -6,16 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const SecurityStyle = {
-    ntfs: "ntfs",
-    unix: "unix",
-}
+export type SecurityStyle = "ntfs" | "unix" | string;
 
-export const ServiceLevel = {
-    Standard: "Standard",
-    Premium: "Premium",
-    Ultra: "Ultra",
-}
+export type ServiceLevel = "Standard" | "Premium" | "Ultra" | string;
 
 /**
  * Volume resource
@@ -102,11 +95,11 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The security style of volume
      */
-    public readonly securityStyle!: pulumi.Output<string | undefined>;
+    public readonly securityStyle!: pulumi.Output<SecurityStyle | undefined>;
     /**
      * The service level of the file system
      */
-    public readonly serviceLevel!: pulumi.Output<string | undefined>;
+    public readonly serviceLevel!: pulumi.Output<ServiceLevel | undefined>;
     /**
      * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
      */
@@ -270,11 +263,11 @@ export interface VolumeArgs {
     /**
      * The security style of volume
      */
-    readonly securityStyle?: pulumi.Input<string>;
+    readonly securityStyle?: pulumi.Input<SecurityStyle>;
     /**
      * The service level of the file system
      */
-    readonly serviceLevel?: pulumi.Input<string>;
+    readonly serviceLevel?: pulumi.Input<ServiceLevel>;
     /**
      * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
      */

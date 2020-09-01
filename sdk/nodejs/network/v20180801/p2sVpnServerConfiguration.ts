@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const VpnGatewayTunnelingProtocol = {
-    IkeV2: "IkeV2",
-    OpenVPN: "OpenVPN",
-}
+export type VpnGatewayTunnelingProtocol = "IkeV2" | "OpenVPN" | string;
 
 /**
  * P2SVpnServerConfiguration Resource.
@@ -85,7 +82,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     /**
      * vpnProtocols for the P2SVpnServerConfiguration.
      */
-    public readonly vpnProtocols!: pulumi.Output<string[] | undefined>;
+    public readonly vpnProtocols!: pulumi.Output<VpnGatewayTunnelingProtocol[] | undefined>;
 
     /**
      * Create a P2sVpnServerConfiguration resource with the given unique name, arguments, and options.
@@ -198,5 +195,5 @@ export interface P2sVpnServerConfigurationArgs {
     /**
      * vpnProtocols for the P2SVpnServerConfiguration.
      */
-    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpnProtocols?: pulumi.Input<pulumi.Input<VpnGatewayTunnelingProtocol>[]>;
 }

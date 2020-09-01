@@ -6,17 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProtocolType = {
-    DoNotUse: "DoNotUse",
-    Icmp: "Icmp",
-    Tcp: "Tcp",
-    Udp: "Udp",
-    Gre: "Gre",
-    Esp: "Esp",
-    Ah: "Ah",
-    Vxlan: "Vxlan",
-    All: "All",
-}
+export type ProtocolType = "DoNotUse" | "Icmp" | "Tcp" | "Udp" | "Gre" | "Esp" | "Ah" | "Vxlan" | "All" | string;
 
 /**
  * DSCP Configuration in a resource group.
@@ -79,7 +69,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
     /**
      * RNM supported protocol types.
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    public readonly protocol!: pulumi.Output<ProtocolType | undefined>;
     /**
      * The provisioning state of the DSCP Configuration resource.
      */
@@ -189,7 +179,7 @@ export interface DscpConfigurationArgs {
     /**
      * RNM supported protocol types.
      */
-    readonly protocol?: pulumi.Input<string>;
+    readonly protocol?: pulumi.Input<ProtocolType>;
     /**
      * The name of the resource group.
      */

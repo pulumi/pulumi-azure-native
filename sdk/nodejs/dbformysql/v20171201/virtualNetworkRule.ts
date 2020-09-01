@@ -4,13 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const VirtualNetworkRuleState = {
-    Initializing: "Initializing",
-    InProgress: "InProgress",
-    Ready: "Ready",
-    Deleting: "Deleting",
-    Unknown: "Unknown",
-}
+export type VirtualNetworkRuleState = "Initializing" | "InProgress" | "Ready" | "Deleting" | "Unknown" | string;
 
 /**
  * A virtual network rule.
@@ -53,7 +47,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
      * Virtual Network Rule State
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<VirtualNetworkRuleState>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

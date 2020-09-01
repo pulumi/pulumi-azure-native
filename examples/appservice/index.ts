@@ -18,7 +18,7 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
         name: "Standard_LRS",
         tier: "Standard",
     },
-    kind: azurerm.storage.v20190601.Kind.StorageV2, // enum modeled as string
+    kind: "BlobStorage"
 });
 
 const appServicePlan  = new azurerm.web.v20190801.AppServicePlan("asp", {

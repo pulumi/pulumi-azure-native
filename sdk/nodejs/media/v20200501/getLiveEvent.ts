@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type LiveEventResourceState = "Stopped" | "Starting" | "Running" | "Stopping" | "Deleting" | string;
+
+export type StreamOptionsFlag = "Default" | "LowLatency" | string;
+
 export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventResult> {
     if (!opts) {
         opts = {}
@@ -83,11 +87,11 @@ export interface GetLiveEventResult {
     /**
      * The resource state of the Live Event.
      */
-    readonly resourceState: string;
+    readonly resourceState: LiveEventResourceState;
     /**
      * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
      */
-    readonly streamOptions?: string[];
+    readonly streamOptions?: StreamOptionsFlag[];
     /**
      * Resource tags.
      */

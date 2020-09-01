@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type PrivateEndpointConnectionProvisioningState = "Succeeded" | "Creating" | "Deleting" | "Failed" | string;
+
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     if (!opts) {
         opts = {}
@@ -55,7 +57,7 @@ export interface GetPrivateEndpointConnectionResult {
     /**
      * The current provisioning state.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: PrivateEndpointConnectionProvisioningState;
     /**
      * The resource type.
      */

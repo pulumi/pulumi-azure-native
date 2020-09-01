@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ServiceLevel = {
-    Standard: "Standard",
-    Premium: "Premium",
-    Ultra: "Ultra",
-}
+export type ServiceLevel = "Standard" | "Premium" | "Ultra" | string;
 
 /**
  * Volume resource
@@ -89,7 +85,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The service level of the file system
      */
-    public readonly serviceLevel!: pulumi.Output<string | undefined>;
+    public readonly serviceLevel!: pulumi.Output<ServiceLevel | undefined>;
     /**
      * UUID v4 or resource identifier used to identify the Snapshot.
      */
@@ -235,7 +231,7 @@ export interface VolumeArgs {
     /**
      * The service level of the file system
      */
-    readonly serviceLevel?: pulumi.Input<string>;
+    readonly serviceLevel?: pulumi.Input<ServiceLevel>;
     /**
      * UUID v4 or resource identifier used to identify the Snapshot.
      */

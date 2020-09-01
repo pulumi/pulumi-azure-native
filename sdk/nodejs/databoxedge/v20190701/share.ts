@@ -6,28 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const DataPolicy = {
-    Cloud: "Cloud",
-    Local: "Local",
-}
+export type DataPolicy = "Cloud" | "Local" | string;
 
-export const MonitoringStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type MonitoringStatus = "Enabled" | "Disabled" | string;
 
-export const ShareAccessProtocol = {
-    SMB: "SMB",
-    NFS: "NFS",
-}
+export type ShareAccessProtocol = "SMB" | "NFS" | string;
 
-export const ShareStatus = {
-    Offline: "Offline",
-    Unknown: "Unknown",
-    OK: "OK",
-    Updating: "Updating",
-    NeedsAttention: "NeedsAttention",
-}
+export type ShareStatus = "Offline" | "Unknown" | "OK" | "Updating" | "NeedsAttention" | string;
 
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
@@ -62,7 +47,7 @@ export class Share extends pulumi.CustomResource {
     /**
      * Access protocol to be used by the share.
      */
-    public readonly accessProtocol!: pulumi.Output<string>;
+    public readonly accessProtocol!: pulumi.Output<ShareAccessProtocol>;
     /**
      * Azure container mapping for the share.
      */
@@ -74,7 +59,7 @@ export class Share extends pulumi.CustomResource {
     /**
      * Data policy of the share.
      */
-    public readonly dataPolicy!: pulumi.Output<string | undefined>;
+    public readonly dataPolicy!: pulumi.Output<DataPolicy | undefined>;
     /**
      * Description for the share.
      */
@@ -82,7 +67,7 @@ export class Share extends pulumi.CustomResource {
     /**
      * Current monitoring status of the share.
      */
-    public readonly monitoringStatus!: pulumi.Output<string>;
+    public readonly monitoringStatus!: pulumi.Output<MonitoringStatus>;
     /**
      * The object name.
      */
@@ -98,7 +83,7 @@ export class Share extends pulumi.CustomResource {
     /**
      * Current status of the share.
      */
-    public readonly shareStatus!: pulumi.Output<string>;
+    public readonly shareStatus!: pulumi.Output<ShareStatus>;
     /**
      * The hierarchical type of the object.
      */
@@ -174,7 +159,7 @@ export interface ShareArgs {
     /**
      * Access protocol to be used by the share.
      */
-    readonly accessProtocol: pulumi.Input<string>;
+    readonly accessProtocol: pulumi.Input<ShareAccessProtocol>;
     /**
      * Azure container mapping for the share.
      */
@@ -186,7 +171,7 @@ export interface ShareArgs {
     /**
      * Data policy of the share.
      */
-    readonly dataPolicy?: pulumi.Input<string>;
+    readonly dataPolicy?: pulumi.Input<DataPolicy>;
     /**
      * Description for the share.
      */
@@ -198,7 +183,7 @@ export interface ShareArgs {
     /**
      * Current monitoring status of the share.
      */
-    readonly monitoringStatus: pulumi.Input<string>;
+    readonly monitoringStatus: pulumi.Input<MonitoringStatus>;
     /**
      * The share name.
      */
@@ -214,7 +199,7 @@ export interface ShareArgs {
     /**
      * Current status of the share.
      */
-    readonly shareStatus: pulumi.Input<string>;
+    readonly shareStatus: pulumi.Input<ShareStatus>;
     /**
      * Mapping of users and corresponding access rights on the share (required for SMB protocol).
      */

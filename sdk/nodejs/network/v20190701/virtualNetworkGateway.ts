@@ -6,21 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const VirtualNetworkGatewayType = {
-    Vpn: "Vpn",
-    ExpressRoute: "ExpressRoute",
-}
+export type VirtualNetworkGatewayType = "Vpn" | "ExpressRoute" | string;
 
-export const VpnGatewayGeneration = {
-    None: "None",
-    Generation1: "Generation1",
-    Generation2: "Generation2",
-}
+export type VpnGatewayGeneration = "None" | "Generation1" | "Generation2" | string;
 
-export const VpnType = {
-    PolicyBased: "PolicyBased",
-    RouteBased: "RouteBased",
-}
+export type VpnType = "PolicyBased" | "RouteBased" | string;
 
 /**
  * A common class for general resource information.
@@ -79,7 +69,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
      * The type of this virtual network gateway.
      */
-    public readonly gatewayType!: pulumi.Output<string | undefined>;
+    public readonly gatewayType!: pulumi.Output<VirtualNetworkGatewayType | undefined>;
     /**
      * IP configurations for virtual network gateway.
      */
@@ -119,11 +109,11 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
      * The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
      */
-    public readonly vpnGatewayGeneration!: pulumi.Output<string | undefined>;
+    public readonly vpnGatewayGeneration!: pulumi.Output<VpnGatewayGeneration | undefined>;
     /**
      * The type of this virtual network gateway.
      */
-    public readonly vpnType!: pulumi.Output<string | undefined>;
+    public readonly vpnType!: pulumi.Output<VpnType | undefined>;
 
     /**
      * Create a VirtualNetworkGateway resource with the given unique name, arguments, and options.
@@ -210,7 +200,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The type of this virtual network gateway.
      */
-    readonly gatewayType?: pulumi.Input<string>;
+    readonly gatewayType?: pulumi.Input<VirtualNetworkGatewayType>;
     /**
      * Resource ID.
      */
@@ -250,9 +240,9 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
      */
-    readonly vpnGatewayGeneration?: pulumi.Input<string>;
+    readonly vpnGatewayGeneration?: pulumi.Input<VpnGatewayGeneration>;
     /**
      * The type of this virtual network gateway.
      */
-    readonly vpnType?: pulumi.Input<string>;
+    readonly vpnType?: pulumi.Input<VpnType>;
 }

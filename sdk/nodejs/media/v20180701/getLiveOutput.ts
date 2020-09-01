@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type LiveOutputResourceState = "Creating" | "Running" | "Deleting" | string;
+
 export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveOutputResult> {
     if (!opts) {
         opts = {}
@@ -88,7 +90,7 @@ export interface GetLiveOutputResult {
     /**
      * The resource state of the Live Output.
      */
-    readonly resourceState: string;
+    readonly resourceState: LiveOutputResourceState;
     /**
      * The type of the resource.
      */

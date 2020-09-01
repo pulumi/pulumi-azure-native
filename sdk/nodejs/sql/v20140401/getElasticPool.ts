@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ElasticPoolEdition = "Basic" | "Standard" | "Premium" | "GeneralPurpose" | "BusinessCritical" | string;
+
+export type ElasticPoolState = "Creating" | "Ready" | "Disabled" | string;
+
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
     if (!opts) {
         opts = {}
@@ -59,7 +63,7 @@ export interface GetElasticPoolResult {
     /**
      * The edition of the elastic pool.
      */
-    readonly edition?: string;
+    readonly edition?: ElasticPoolEdition;
     /**
      * Kind of elastic pool.  This is metadata used for the Azure portal experience.
      */
@@ -75,7 +79,7 @@ export interface GetElasticPoolResult {
     /**
      * The state of the elastic pool.
      */
-    readonly state: string;
+    readonly state: ElasticPoolState;
     /**
      * Gets storage limit for the database elastic pool in MB.
      */

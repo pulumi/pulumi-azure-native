@@ -6,6 +6,38 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum DomainStatus {
+    Active = "Active",
+    Awaiting = "Awaiting",
+    Cancelled = "Cancelled",
+    Confiscated = "Confiscated",
+    Disabled = "Disabled",
+    Excluded = "Excluded",
+    Expired = "Expired",
+    Failed = "Failed",
+    Held = "Held",
+    Locked = "Locked",
+    Parked = "Parked",
+    Pending = "Pending",
+    Reserved = "Reserved",
+    Reverted = "Reverted",
+    Suspended = "Suspended",
+    Transferred = "Transferred",
+    Unknown = "Unknown",
+    Unlocked = "Unlocked",
+    Unparked = "Unparked",
+    Updated = "Updated",
+    JsonConverterFailed = "JsonConverterFailed",
+}
+
+export enum ProvisioningState {
+    Succeeded = "Succeeded",
+    Failed = "Failed",
+    Canceled = "Canceled",
+    InProgress = "InProgress",
+    Deleting = "Deleting",
+}
+
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {
         opts = {}

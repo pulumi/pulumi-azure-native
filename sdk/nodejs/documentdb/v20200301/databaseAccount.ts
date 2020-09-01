@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const DatabaseAccountKind = {
-    GlobalDocumentDB: "GlobalDocumentDB",
-    MongoDB: "MongoDB",
-    Parse: "Parse",
-}
+export type DatabaseAccountKind = "GlobalDocumentDB" | "MongoDB" | "Parse" | string;
 
 /**
  * An Azure Cosmos DB database account.
@@ -97,7 +93,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<DatabaseAccountKind | undefined>;
     /**
      * The location of the resource group to which the resource belongs.
      */
@@ -264,7 +260,7 @@ export interface DatabaseAccountArgs {
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<DatabaseAccountKind>;
     /**
      * The location of the resource group to which the resource belongs.
      */

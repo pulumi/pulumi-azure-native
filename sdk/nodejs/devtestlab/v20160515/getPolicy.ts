@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type PolicyEvaluatorType = "AllowedValuesPolicy" | "MaxValuePolicy" | string;
+
+export type PolicyFactName = "UserOwnedLabVmCount" | "UserOwnedLabPremiumVmCount" | "LabVmCount" | "LabPremiumVmCount" | "LabVmSize" | "GalleryImage" | "UserOwnedLabVmCountInSubnet" | "LabTargetCost" | string;
+
+export type PolicyStatus = "Enabled" | "Disabled" | string;
+
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     if (!opts) {
         opts = {}
@@ -61,7 +67,7 @@ export interface GetPolicyResult {
     /**
      * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
      */
-    readonly evaluatorType?: string;
+    readonly evaluatorType?: PolicyEvaluatorType;
     /**
      * The fact data of the policy.
      */
@@ -69,7 +75,7 @@ export interface GetPolicyResult {
     /**
      * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
      */
-    readonly factName?: string;
+    readonly factName?: PolicyFactName;
     /**
      * The location of the resource.
      */
@@ -85,7 +91,7 @@ export interface GetPolicyResult {
     /**
      * The status of the policy.
      */
-    readonly status?: string;
+    readonly status?: PolicyStatus;
     /**
      * The tags of the resource.
      */

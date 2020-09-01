@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "creating" | "deleting" | "succeeded" | "failed" | string;
+
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
         opts = {}
@@ -50,7 +52,7 @@ export interface GetWorkspaceResult {
     /**
      * The provisioned state of the Workspace
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The time at which the workspace entered its current provisioning state.
      */

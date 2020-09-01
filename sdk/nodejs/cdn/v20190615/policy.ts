@@ -6,20 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const PolicyResourceState = {
-    Creating: "Creating",
-    Enabling: "Enabling",
-    Enabled: "Enabled",
-    Disabling: "Disabling",
-    Disabled: "Disabled",
-    Deleting: "Deleting",
-}
+export type PolicyResourceState = "Creating" | "Enabling" | "Enabled" | "Disabling" | "Disabled" | "Deleting" | string;
 
-export const ProvisioningState = {
-    Creating: "Creating",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-}
+export type ProvisioningState = "Creating" | "Succeeded" | "Failed" | string;
 
 /**
  * Defines web application firewall policy for Azure CDN.
@@ -82,12 +71,12 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Provisioning state of the WebApplicationFirewallPolicy.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Describes rate limit rules inside the policy.
      */
     public readonly rateLimitRules!: pulumi.Output<outputs.cdn.v20190615.RateLimitRuleListResponse | undefined>;
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<PolicyResourceState>;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
      */

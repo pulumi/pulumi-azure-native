@@ -4,9 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const ServerKeyType = {
-    AzureKeyVault: "AzureKeyVault",
-}
+export type ServerKeyType = "AzureKeyVault" | string;
 
 /**
  * A MySQL Server key.
@@ -53,7 +51,7 @@ export class ServerKey extends pulumi.CustomResource {
     /**
      * The key type like 'AzureKeyVault'.
      */
-    public readonly serverKeyType!: pulumi.Output<string>;
+    public readonly serverKeyType!: pulumi.Output<ServerKeyType>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -124,7 +122,7 @@ export interface ServerKeyArgs {
     /**
      * The key type like 'AzureKeyVault'.
      */
-    readonly serverKeyType: pulumi.Input<string>;
+    readonly serverKeyType: pulumi.Input<ServerKeyType>;
     /**
      * The name of the server.
      */

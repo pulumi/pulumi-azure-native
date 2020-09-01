@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type invitationStatus = "Pending" | "Accepted" | "Rejected" | "Withdrawn" | string;
+
 export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvitationResult> {
     if (!opts) {
         opts = {}
@@ -52,7 +54,7 @@ export interface GetInvitationResult {
     /**
      * The status of the invitation.
      */
-    readonly invitationStatus: string;
+    readonly invitationStatus: invitationStatus;
     /**
      * Name of the azure resource
      */

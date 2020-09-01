@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const PolicyResourceState = {
-    Creating: "Creating",
-    Enabling: "Enabling",
-    Enabled: "Enabled",
-    Disabling: "Disabling",
-    Disabled: "Disabled",
-    Deleting: "Deleting",
-}
+export type PolicyResourceState = "Creating" | "Enabling" | "Enabled" | "Disabling" | "Disabled" | "Deleting" | string;
 
 /**
  * Defines web application firewall policy.
@@ -77,7 +70,7 @@ export class Policy extends pulumi.CustomResource {
      * Provisioning state of the policy.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<PolicyResourceState>;
     /**
      * Describes Routing Rules associated with this Web Application Firewall policy.
      */

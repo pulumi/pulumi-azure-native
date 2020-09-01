@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const VirtualNetworkPeeringState = {
-    Initiated: "Initiated",
-    Connected: "Connected",
-    Disconnected: "Disconnected",
-}
+export type VirtualNetworkPeeringState = "Initiated" | "Connected" | "Disconnected" | string;
 
 /**
  * Peerings in a VirtualNetwork resource
@@ -65,7 +61,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * Gets the status of the virtual network peering
      */
-    public readonly peeringState!: pulumi.Output<string | undefined>;
+    public readonly peeringState!: pulumi.Output<VirtualNetworkPeeringState | undefined>;
     /**
      * Gets provisioning state of the resource
      */
@@ -159,7 +155,7 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * Gets the status of the virtual network peering
      */
-    readonly peeringState?: pulumi.Input<string>;
+    readonly peeringState?: pulumi.Input<VirtualNetworkPeeringState>;
     /**
      * Gets provisioning state of the resource
      */

@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const RoleTypes = {
-    IOT: "IOT",
-    ASA: "ASA",
-    Functions: "Functions",
-    Cognitive: "Cognitive",
-}
+export type RoleTypes = "IOT" | "ASA" | "Functions" | "Cognitive" | string;
 
 /**
  * Compute role.
@@ -44,7 +39,7 @@ export class Role extends pulumi.CustomResource {
     /**
      * Role type.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<RoleTypes>;
     /**
      * The object name.
      */
@@ -109,7 +104,7 @@ export interface RoleArgs {
     /**
      * Role type.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<RoleTypes>;
     /**
      * The role name.
      */

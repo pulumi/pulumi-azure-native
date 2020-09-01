@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProvisioningState = {
-    Updating: "Updating",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-}
+export type ProvisioningState = "Updating" | "Succeeded" | "Failed" | "Canceled" | string;
 
 /**
  * The cluster resource
@@ -106,7 +101,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The provisioning state of the cluster resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<ProvisioningState>;
     /**
      * Cluster reliability level indicates replica set size of system service
      */

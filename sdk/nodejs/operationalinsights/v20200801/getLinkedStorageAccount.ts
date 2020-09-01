@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum DataSourceType {
+    CustomLogs = "CustomLogs",
+    AzureWatson = "AzureWatson",
+    Query = "Query",
+    Alerts = "Alerts",
+}
+
 export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedStorageAccountResult> {
     if (!opts) {
         opts = {}

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type FormatType = "Csv" | string;
+
 export function getReportConfigByResourceGroupName(args: GetReportConfigByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetReportConfigByResourceGroupNameResult> {
     if (!opts) {
         opts = {}
@@ -46,7 +48,7 @@ export interface GetReportConfigByResourceGroupNameResult {
     /**
      * The format of the report being delivered.
      */
-    readonly format?: string;
+    readonly format?: FormatType;
     /**
      * Resource name.
      */

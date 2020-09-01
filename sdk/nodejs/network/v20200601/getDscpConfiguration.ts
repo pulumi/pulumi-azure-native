@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProtocolType = "DoNotUse" | "Icmp" | "Tcp" | "Udp" | "Gre" | "Esp" | "Ah" | "Vxlan" | "All" | string;
+
 export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscpConfigurationResult> {
     if (!opts) {
         opts = {}
@@ -66,7 +68,7 @@ export interface GetDscpConfigurationResult {
     /**
      * RNM supported protocol types.
      */
-    readonly protocol?: string;
+    readonly protocol?: ProtocolType;
     /**
      * The provisioning state of the DSCP Configuration resource.
      */

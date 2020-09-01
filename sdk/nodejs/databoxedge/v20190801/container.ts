@@ -6,19 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const AzureContainerDataFormat = {
-    BlockBlob: "BlockBlob",
-    PageBlob: "PageBlob",
-    AzureFile: "AzureFile",
-}
+export type AzureContainerDataFormat = "BlockBlob" | "PageBlob" | "AzureFile" | string;
 
-export const ContainerStatus = {
-    OK: "OK",
-    Offline: "Offline",
-    Unknown: "Unknown",
-    Updating: "Updating",
-    NeedsAttention: "NeedsAttention",
-}
+export type ContainerStatus = "OK" | "Offline" | "Unknown" | "Updating" | "NeedsAttention" | string;
 
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
@@ -53,7 +43,7 @@ export class Container extends pulumi.CustomResource {
     /**
      * Current status of the container.
      */
-    public /*out*/ readonly containerStatus!: pulumi.Output<string>;
+    public /*out*/ readonly containerStatus!: pulumi.Output<ContainerStatus>;
     /**
      * The UTC time when container got created.
      */
@@ -61,7 +51,7 @@ export class Container extends pulumi.CustomResource {
     /**
      * DataFormat for Container
      */
-    public readonly dataFormat!: pulumi.Output<string>;
+    public readonly dataFormat!: pulumi.Output<AzureContainerDataFormat>;
     /**
      * The object name.
      */
@@ -136,7 +126,7 @@ export interface ContainerArgs {
     /**
      * DataFormat for Container
      */
-    readonly dataFormat: pulumi.Input<string>;
+    readonly dataFormat: pulumi.Input<AzureContainerDataFormat>;
     /**
      * The device name.
      */

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AutomationAccountState = "Ok" | "Unavailable" | "Suspended" | string;
+
 export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationAccountResult> {
     if (!opts) {
         opts = {}
@@ -70,7 +72,7 @@ export interface GetAutomationAccountResult {
     /**
      * Gets status of account.
      */
-    readonly state: string;
+    readonly state: AutomationAccountState;
     /**
      * Resource tags.
      */

@@ -4,18 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const provisioningState = {
-    Succeeded: "Succeeded",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Moving: "Moving",
-    Failed: "Failed",
-}
+export type provisioningState = "Succeeded" | "Creating" | "Deleting" | "Moving" | "Failed" | string;
 
-export const shareKind = {
-    CopyBased: "CopyBased",
-    InPlace: "InPlace",
-}
+export type shareKind = "CopyBased" | "InPlace" | string;
 
 /**
  * A share data transfer object.
@@ -62,11 +53,11 @@ export class Share extends pulumi.CustomResource {
     /**
      * Gets or sets the provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<provisioningState>;
     /**
      * Share kind.
      */
-    public readonly shareKind!: pulumi.Output<string | undefined>;
+    public readonly shareKind!: pulumi.Output<shareKind | undefined>;
     /**
      * Share terms.
      */
@@ -149,7 +140,7 @@ export interface ShareArgs {
     /**
      * Share kind.
      */
-    readonly shareKind?: pulumi.Input<string>;
+    readonly shareKind?: pulumi.Input<shareKind>;
     /**
      * The name of the share.
      */

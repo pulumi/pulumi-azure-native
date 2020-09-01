@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type PolicyResourceState = "Creating" | "Enabling" | "Enabled" | "Disabling" | "Disabled" | "Deleting" | string;
+
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     if (!opts) {
         opts = {}
@@ -67,7 +69,7 @@ export interface GetPolicyResult {
      * Provisioning state of the policy.
      */
     readonly provisioningState: string;
-    readonly resourceState: string;
+    readonly resourceState: PolicyResourceState;
     /**
      * Describes Routing Rules associated with this Web Application Firewall policy.
      */

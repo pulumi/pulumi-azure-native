@@ -4,26 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const PolicyEvaluatorType = {
-    AllowedValuesPolicy: "AllowedValuesPolicy",
-    MaxValuePolicy: "MaxValuePolicy",
-}
+export type PolicyEvaluatorType = "AllowedValuesPolicy" | "MaxValuePolicy" | string;
 
-export const PolicyFactName = {
-    UserOwnedLabVmCount: "UserOwnedLabVmCount",
-    UserOwnedLabPremiumVmCount: "UserOwnedLabPremiumVmCount",
-    LabVmCount: "LabVmCount",
-    LabPremiumVmCount: "LabPremiumVmCount",
-    LabVmSize: "LabVmSize",
-    GalleryImage: "GalleryImage",
-    UserOwnedLabVmCountInSubnet: "UserOwnedLabVmCountInSubnet",
-    LabTargetCost: "LabTargetCost",
-}
+export type PolicyFactName = "UserOwnedLabVmCount" | "UserOwnedLabPremiumVmCount" | "LabVmCount" | "LabPremiumVmCount" | "LabVmSize" | "GalleryImage" | "UserOwnedLabVmCountInSubnet" | "LabTargetCost" | string;
 
-export const PolicyStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type PolicyStatus = "Enabled" | "Disabled" | string;
 
 /**
  * A Policy.
@@ -66,7 +51,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
      */
-    public readonly evaluatorType!: pulumi.Output<string | undefined>;
+    public readonly evaluatorType!: pulumi.Output<PolicyEvaluatorType | undefined>;
     /**
      * The fact data of the policy.
      */
@@ -74,7 +59,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
      */
-    public readonly factName!: pulumi.Output<string | undefined>;
+    public readonly factName!: pulumi.Output<PolicyFactName | undefined>;
     /**
      * The location of the resource.
      */
@@ -90,7 +75,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The status of the policy.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<PolicyStatus | undefined>;
     /**
      * The tags of the resource.
      */
@@ -174,7 +159,7 @@ export interface PolicyArgs {
     /**
      * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
      */
-    readonly evaluatorType?: pulumi.Input<string>;
+    readonly evaluatorType?: pulumi.Input<PolicyEvaluatorType>;
     /**
      * The fact data of the policy.
      */
@@ -182,7 +167,7 @@ export interface PolicyArgs {
     /**
      * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
      */
-    readonly factName?: pulumi.Input<string>;
+    readonly factName?: pulumi.Input<PolicyFactName>;
     /**
      * The name of the lab.
      */
@@ -210,7 +195,7 @@ export interface PolicyArgs {
     /**
      * The status of the policy.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<PolicyStatus>;
     /**
      * The tags of the resource.
      */

@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type VirtualNetworkGatewayType = "Vpn" | "ExpressRoute" | string;
+
+export type VpnType = "PolicyBased" | "RouteBased" | string;
+
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
     if (!opts) {
         opts = {}
@@ -54,7 +58,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
      */
-    readonly gatewayType?: string;
+    readonly gatewayType?: VirtualNetworkGatewayType;
     /**
      * IP configurations for virtual network gateway.
      */
@@ -94,5 +98,5 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
      */
-    readonly vpnType?: string;
+    readonly vpnType?: VpnType;
 }

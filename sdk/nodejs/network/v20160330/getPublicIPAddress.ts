@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type IPAllocationMethod = "Static" | "Dynamic" | string;
+
+export type IPVersion = "IPv4" | "IPv6" | string;
+
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
     if (!opts) {
         opts = {}
@@ -72,11 +76,11 @@ export interface GetPublicIPAddressResult {
     /**
      * Gets or sets PublicIP address version (IPv4/IPv6)
      */
-    readonly publicIPAddressVersion?: string;
+    readonly publicIPAddressVersion?: IPVersion;
     /**
      * Gets or sets PublicIP allocation method (Static/Dynamic)
      */
-    readonly publicIPAllocationMethod?: string;
+    readonly publicIPAllocationMethod?: IPAllocationMethod;
     /**
      * Gets or sets resource GUID property of the PublicIP resource
      */

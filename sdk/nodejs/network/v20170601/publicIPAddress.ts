@@ -6,15 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const IPAllocationMethod = {
-    Static: "Static",
-    Dynamic: "Dynamic",
-}
+export type IPAllocationMethod = "Static" | "Dynamic" | string;
 
-export const IPVersion = {
-    IPv4: "IPv4",
-    IPv6: "IPv6",
-}
+export type IPVersion = "IPv4" | "IPv6" | string;
 
 /**
  * Public IP address resource.
@@ -81,11 +75,11 @@ export class PublicIPAddress extends pulumi.CustomResource {
     /**
      * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
      */
-    public readonly publicIPAddressVersion!: pulumi.Output<string | undefined>;
+    public readonly publicIPAddressVersion!: pulumi.Output<IPVersion | undefined>;
     /**
      * The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
      */
-    public readonly publicIPAllocationMethod!: pulumi.Output<string | undefined>;
+    public readonly publicIPAllocationMethod!: pulumi.Output<IPAllocationMethod | undefined>;
     /**
      * The resource GUID property of the public IP resource.
      */
@@ -188,11 +182,11 @@ export interface PublicIPAddressArgs {
     /**
      * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
      */
-    readonly publicIPAddressVersion?: pulumi.Input<string>;
+    readonly publicIPAddressVersion?: pulumi.Input<IPVersion>;
     /**
      * The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
      */
-    readonly publicIPAllocationMethod?: pulumi.Input<string>;
+    readonly publicIPAllocationMethod?: pulumi.Input<IPAllocationMethod>;
     /**
      * The name of the public IP address.
      */

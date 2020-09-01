@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const TransportProtocol = {
-    Udp: "Udp",
-    Tcp: "Tcp",
-}
+export type TransportProtocol = "Udp" | "Tcp" | string;
 
 /**
  * Inbound NAT rule of the load balancer.
@@ -76,7 +73,7 @@ export class InboundNatRule extends pulumi.CustomResource {
     /**
      * The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    public readonly protocol!: pulumi.Output<TransportProtocol | undefined>;
     /**
      * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
@@ -179,7 +176,7 @@ export interface InboundNatRuleArgs {
     /**
      * The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'
      */
-    readonly protocol?: pulumi.Input<string>;
+    readonly protocol?: pulumi.Input<TransportProtocol>;
     /**
      * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */

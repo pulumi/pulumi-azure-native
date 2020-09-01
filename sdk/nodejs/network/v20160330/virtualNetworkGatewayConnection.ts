@@ -6,19 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const VirtualNetworkGatewayConnectionStatus = {
-    Unknown: "Unknown",
-    Connecting: "Connecting",
-    Connected: "Connected",
-    NotConnected: "NotConnected",
-}
+export type VirtualNetworkGatewayConnectionStatus = "Unknown" | "Connecting" | "Connected" | "NotConnected" | string;
 
-export const VirtualNetworkGatewayConnectionType = {
-    IPsec: "IPsec",
-    Vnet2Vnet: "Vnet2Vnet",
-    ExpressRoute: "ExpressRoute",
-    VPNClient: "VPNClient",
-}
+export type VirtualNetworkGatewayConnectionType = "IPsec" | "Vnet2Vnet" | "ExpressRoute" | "VPNClient" | string;
 
 /**
  * A common class for general resource information
@@ -57,11 +47,11 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * Virtual network Gateway connection status
      */
-    public readonly connectionStatus!: pulumi.Output<string | undefined>;
+    public readonly connectionStatus!: pulumi.Output<VirtualNetworkGatewayConnectionStatus | undefined>;
     /**
      * Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
      */
-    public readonly connectionType!: pulumi.Output<string | undefined>;
+    public readonly connectionType!: pulumi.Output<VirtualNetworkGatewayConnectionType | undefined>;
     /**
      * The Egress Bytes Transferred in this connection
      */
@@ -193,11 +183,11 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * Virtual network Gateway connection status
      */
-    readonly connectionStatus?: pulumi.Input<string>;
+    readonly connectionStatus?: pulumi.Input<VirtualNetworkGatewayConnectionStatus>;
     /**
      * Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
      */
-    readonly connectionType?: pulumi.Input<string>;
+    readonly connectionType?: pulumi.Input<VirtualNetworkGatewayConnectionType>;
     /**
      * The Egress Bytes Transferred in this connection
      */

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type IPVersion = "IPv4" | "IPv6" | string;
+
 export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPPrefixResult> {
     if (!opts) {
         opts = {}
@@ -75,7 +77,7 @@ export interface GetPublicIPPrefixResult {
     /**
      * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
      */
-    readonly publicIPAddressVersion?: string;
+    readonly publicIPAddressVersion?: IPVersion;
     /**
      * The list of all referenced PublicIPAddresses
      */

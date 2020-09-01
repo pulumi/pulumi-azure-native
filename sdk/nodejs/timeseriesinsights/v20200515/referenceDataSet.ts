@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const DataStringComparisonBehavior = {
-    Ordinal: "Ordinal",
-    OrdinalIgnoreCase: "OrdinalIgnoreCase",
-}
+export type DataStringComparisonBehavior = "Ordinal" | "OrdinalIgnoreCase" | string;
 
 /**
  * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
@@ -48,7 +45,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
     /**
      * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
      */
-    public readonly dataStringComparisonBehavior!: pulumi.Output<string | undefined>;
+    public readonly dataStringComparisonBehavior!: pulumi.Output<DataStringComparisonBehavior | undefined>;
     /**
      * The list of key properties for the reference data set.
      */
@@ -134,7 +131,7 @@ export interface ReferenceDataSetArgs {
     /**
      * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
      */
-    readonly dataStringComparisonBehavior?: pulumi.Input<string>;
+    readonly dataStringComparisonBehavior?: pulumi.Input<DataStringComparisonBehavior>;
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */

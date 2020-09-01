@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ProfileResourceState = {
-    Creating: "Creating",
-    Active: "Active",
-    Deleting: "Deleting",
-    Disabled: "Disabled",
-}
+export type ProfileResourceState = "Creating" | "Active" | "Deleting" | "Disabled" | string;
 
 /**
  * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
@@ -58,7 +53,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Resource status of the profile.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<ProfileResourceState>;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
      */

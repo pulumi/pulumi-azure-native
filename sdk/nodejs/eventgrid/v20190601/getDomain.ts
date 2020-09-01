@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DomainProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Canceled" | "Failed" | string;
+
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {
         opts = {}
@@ -50,7 +52,7 @@ export interface GetDomainResult {
     /**
      * Provisioning state of the domain.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: DomainProvisioningState;
     /**
      * Tags of the resource.
      */

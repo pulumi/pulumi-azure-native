@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type state = "Enabled" | "Disabled" | string;
+
 export function getNetworkExperimentProfile(args: GetNetworkExperimentProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkExperimentProfileResult> {
     if (!opts) {
         opts = {}
@@ -38,7 +40,7 @@ export interface GetNetworkExperimentProfileResult {
     /**
      * The state of the Experiment
      */
-    readonly enabledState?: string;
+    readonly enabledState?: state;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */

@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type AccountType = "GeneralPurposeStorage" | "BlobStorage" | string;
+
+export type SSLStatus = "Enabled" | "Disabled" | string;
+
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
     if (!opts) {
         opts = {}
@@ -47,7 +51,7 @@ export interface GetStorageAccountCredentialResult {
     /**
      * Type of storage accessed on the storage account.
      */
-    readonly accountType: string;
+    readonly accountType: AccountType;
     /**
      * Alias for the storage account.
      */
@@ -67,7 +71,7 @@ export interface GetStorageAccountCredentialResult {
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    readonly sslStatus: string;
+    readonly sslStatus: SSLStatus;
     /**
      * Id of the storage account.
      */

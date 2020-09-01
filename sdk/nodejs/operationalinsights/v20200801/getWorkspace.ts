@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type WorkspaceEntityStatus = "Creating" | "Succeeded" | "Failed" | "Canceled" | "Deleting" | "ProvisioningAccount" | "Updating" | string;
+
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
         opts = {}
@@ -58,7 +60,7 @@ export interface GetWorkspaceResult {
     /**
      * The provisioning state of the workspace.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: WorkspaceEntityStatus;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */

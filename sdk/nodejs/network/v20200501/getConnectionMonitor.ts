@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ConnectionMonitorType = "MultiEndpoint" | "SingleSourceDestination" | string;
+
 export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorResult> {
     if (!opts) {
         opts = {}
@@ -47,7 +49,7 @@ export interface GetConnectionMonitorResult {
     /**
      * Type of connection monitor.
      */
-    readonly connectionMonitorType: string;
+    readonly connectionMonitorType: ConnectionMonitorType;
     /**
      * Describes the destination of connection monitor.
      */

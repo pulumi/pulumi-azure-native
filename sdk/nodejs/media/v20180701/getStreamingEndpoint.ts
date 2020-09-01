@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type StreamingEndpointResourceState = "Stopped" | "Starting" | "Running" | "Stopping" | "Deleting" | "Scaling" | string;
+
 export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingEndpointResult> {
     if (!opts) {
         opts = {}
@@ -107,7 +109,7 @@ export interface GetStreamingEndpointResult {
     /**
      * The resource state of the StreamingEndpoint.
      */
-    readonly resourceState: string;
+    readonly resourceState: StreamingEndpointResourceState;
     /**
      * The number of scale units.  Use the Scale operation to adjust this value.
      */

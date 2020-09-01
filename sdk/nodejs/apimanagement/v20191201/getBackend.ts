@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type BackendProtocol = "http" | "soap" | string;
+
 export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendResult> {
     if (!opts) {
         opts = {}
@@ -59,7 +61,7 @@ export interface GetBackendResult {
     /**
      * Backend communication protocol.
      */
-    readonly protocol: string;
+    readonly protocol: BackendProtocol;
     /**
      * Backend Proxy Contract Properties
      */

@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DiscoveryStatus = "Unknown" | "NotStarted" | "InProgress" | "Completed" | string;
+
+export type ProvisioningState = "Accepted" | "Creating" | "Deleting" | "Failed" | "Moving" | "Succeeded" | string;
+
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     if (!opts) {
         opts = {}
@@ -50,7 +54,7 @@ export interface GetProjectResult {
     /**
      * Reports whether project is under discovery.
      */
-    readonly discoveryStatus: string;
+    readonly discoveryStatus: DiscoveryStatus;
     /**
      * For optimistic concurrency control.
      */
@@ -90,7 +94,7 @@ export interface GetProjectResult {
     /**
      * Provisioning state of the project.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState?: ProvisioningState;
     /**
      * Tags provided by Azure Tagging service.
      */

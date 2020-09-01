@@ -6,20 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const InternetEnum = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type InternetEnum = "Enabled" | "Disabled" | string;
 
-export const PrivateCloudProvisioningState = {
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Cancelled: "Cancelled",
-    Pending: "Pending",
-    Building: "Building",
-    Deleting: "Deleting",
-    Updating: "Updating",
-}
+export type PrivateCloudProvisioningState = "Succeeded" | "Failed" | "Cancelled" | "Pending" | "Building" | "Deleting" | "Updating" | string;
 
 /**
  * A private cloud resource
@@ -66,7 +55,7 @@ export class PrivateCloud extends pulumi.CustomResource {
     /**
      * Connectivity to internet is enabled or disabled
      */
-    public readonly internet!: pulumi.Output<string | undefined>;
+    public readonly internet!: pulumi.Output<InternetEnum | undefined>;
     /**
      * Resource location
      */
@@ -102,7 +91,7 @@ export class PrivateCloud extends pulumi.CustomResource {
     /**
      * The provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<PrivateCloudProvisioningState>;
     /**
      * The private cloud SKU
      */
@@ -203,7 +192,7 @@ export interface PrivateCloudArgs {
     /**
      * Connectivity to internet is enabled or disabled
      */
-    readonly internet?: pulumi.Input<string>;
+    readonly internet?: pulumi.Input<InternetEnum>;
     /**
      * Resource location
      */

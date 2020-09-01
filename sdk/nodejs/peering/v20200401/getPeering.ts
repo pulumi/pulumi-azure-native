@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type kind = "Direct" | "Exchange" | string;
+
+export type provisioningState = "Succeeded" | "Updating" | "Deleting" | "Failed" | string;
+
 export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringResult> {
     if (!opts) {
         opts = {}
@@ -46,7 +50,7 @@ export interface GetPeeringResult {
     /**
      * The kind of the peering.
      */
-    readonly kind: string;
+    readonly kind: kind;
     /**
      * The location of the resource.
      */
@@ -62,7 +66,7 @@ export interface GetPeeringResult {
     /**
      * The provisioning state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: provisioningState;
     /**
      * The SKU that defines the tier and kind of the peering.
      */

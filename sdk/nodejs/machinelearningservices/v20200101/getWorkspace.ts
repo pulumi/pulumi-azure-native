@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Unknown" | "Updating" | "Creating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
+
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
         opts = {}
@@ -86,7 +88,7 @@ export interface GetWorkspaceResult {
     /**
      * The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
      */

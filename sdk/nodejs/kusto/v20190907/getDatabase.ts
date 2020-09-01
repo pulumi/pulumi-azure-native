@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type Kind = "ReadWrite" | "ReadOnlyFollowing" | string;
+
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +45,7 @@ export interface GetDatabaseResult {
     /**
      * Kind of the database
      */
-    readonly kind?: string;
+    readonly kind?: Kind;
     /**
      * Resource location.
      */

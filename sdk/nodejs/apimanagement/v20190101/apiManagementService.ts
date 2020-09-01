@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const VirtualNetworkType = {
-    None: "None",
-    External: "External",
-    Internal: "Internal",
-}
+export type VirtualNetworkType = "None" | "External" | "Internal" | string;
 
 /**
  * A single API Management service resource in List or Get response.
@@ -153,7 +149,7 @@ export class ApiManagementService extends pulumi.CustomResource {
     /**
      * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
      */
-    public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
+    public readonly virtualNetworkType!: pulumi.Output<VirtualNetworkType | undefined>;
 
     /**
      * Create a ApiManagementService resource with the given unique name, arguments, and options.
@@ -297,5 +293,5 @@ export interface ApiManagementServiceArgs {
     /**
      * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
      */
-    readonly virtualNetworkType?: pulumi.Input<string>;
+    readonly virtualNetworkType?: pulumi.Input<VirtualNetworkType>;
 }

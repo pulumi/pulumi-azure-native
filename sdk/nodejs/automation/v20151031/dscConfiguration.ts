@@ -10,11 +10,7 @@ export enum DscConfigurationProvisioningState {
     Succeeded = "Succeeded",
 }
 
-export const DscConfigurationState = {
-    New: "New",
-    Edit: "Edit",
-    Published: "Published",
-}
+export type DscConfigurationState = "New" | "Edit" | "Published" | string;
 
 /**
  * Definition of the configuration type.
@@ -97,7 +93,7 @@ export class DscConfiguration extends pulumi.CustomResource {
     /**
      * Gets or sets the state of the configuration.
      */
-    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly state!: pulumi.Output<DscConfigurationState | undefined>;
     /**
      * Resource tags.
      */

@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type EnableStatus = "Enabled" | "Disabled" | string;
+
 export function getGlobalSchedule(args: GetGlobalScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalScheduleResult> {
     if (!opts) {
         opts = {}
@@ -71,7 +73,7 @@ export interface GetGlobalScheduleResult {
     /**
      * The status of the schedule (i.e. Enabled, Disabled)
      */
-    readonly status?: string;
+    readonly status?: EnableStatus;
     /**
      * The tags of the resource.
      */

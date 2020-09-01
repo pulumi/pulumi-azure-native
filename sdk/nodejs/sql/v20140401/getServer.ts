@@ -6,6 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum ServerState {
+    Ready = "Ready",
+    Disabled = "Disabled",
+}
+
+export type ServerVersion = "2.0" | "12.0" | string;
+
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
         opts = {}
@@ -82,5 +89,5 @@ export interface GetServerResult {
     /**
      * The version of the server.
      */
-    readonly version?: string;
+    readonly version?: ServerVersion;
 }

@@ -4,19 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const EndpointMonitorStatus = {
-    CheckingEndpoint: "CheckingEndpoint",
-    Online: "Online",
-    Degraded: "Degraded",
-    Disabled: "Disabled",
-    Inactive: "Inactive",
-    Stopped: "Stopped",
-}
+export type EndpointMonitorStatus = "CheckingEndpoint" | "Online" | "Degraded" | "Disabled" | "Inactive" | "Stopped" | string;
 
-export const EndpointStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-}
+export type EndpointStatus = "Enabled" | "Disabled" | string;
 
 /**
  * Class representing a Traffic Manager endpoint.
@@ -55,11 +45,11 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The monitoring status of the endpoint.
      */
-    public readonly endpointMonitorStatus!: pulumi.Output<string | undefined>;
+    public readonly endpointMonitorStatus!: pulumi.Output<EndpointMonitorStatus | undefined>;
     /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */
-    public readonly endpointStatus!: pulumi.Output<string | undefined>;
+    public readonly endpointStatus!: pulumi.Output<EndpointStatus | undefined>;
     /**
      * The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
      */
@@ -158,7 +148,7 @@ export interface EndpointArgs {
     /**
      * The monitoring status of the endpoint.
      */
-    readonly endpointMonitorStatus?: pulumi.Input<string>;
+    readonly endpointMonitorStatus?: pulumi.Input<EndpointMonitorStatus>;
     /**
      * The name of the Traffic Manager endpoint to be created or updated.
      */
@@ -166,7 +156,7 @@ export interface EndpointArgs {
     /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */
-    readonly endpointStatus?: pulumi.Input<string>;
+    readonly endpointStatus?: pulumi.Input<EndpointStatus>;
     /**
      * The type of the Traffic Manager endpoint to be created or updated.
      */

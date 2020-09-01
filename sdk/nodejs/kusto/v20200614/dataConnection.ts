@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const Kind = {
-    EventHub: "EventHub",
-    EventGrid: "EventGrid",
-    IotHub: "IotHub",
-}
+export type Kind = "EventHub" | "EventGrid" | "IotHub" | string;
 
 /**
  * Class representing an data connection.
@@ -43,7 +39,7 @@ export class DataConnection extends pulumi.CustomResource {
     /**
      * Kind of the endpoint for the data connection
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<Kind>;
     /**
      * Resource location.
      */
@@ -126,7 +122,7 @@ export interface DataConnectionArgs {
     /**
      * Kind of the endpoint for the data connection
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<Kind>;
     /**
      * Resource location.
      */

@@ -4,16 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const ServiceLevel = {
-    Standard: "Standard",
-    Premium: "Premium",
-    Ultra: "Ultra",
-}
+export type ServiceLevel = "Standard" | "Premium" | "Ultra" | string;
 
-export const qosType = {
-    Auto: "Auto",
-    Manual: "Manual",
-}
+export type qosType = "Auto" | "Manual" | string;
 
 /**
  * Capacity pool resource
@@ -64,11 +57,11 @@ export class Pool extends pulumi.CustomResource {
     /**
      * The qos type of the pool
      */
-    public readonly qosType!: pulumi.Output<string | undefined>;
+    public readonly qosType!: pulumi.Output<qosType | undefined>;
     /**
      * The service level of the file system
      */
-    public readonly serviceLevel!: pulumi.Output<string>;
+    public readonly serviceLevel!: pulumi.Output<ServiceLevel>;
     /**
      * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
      */
@@ -168,7 +161,7 @@ export interface PoolArgs {
     /**
      * The qos type of the pool
      */
-    readonly qosType?: pulumi.Input<string>;
+    readonly qosType?: pulumi.Input<qosType>;
     /**
      * The name of the resource group.
      */
@@ -176,7 +169,7 @@ export interface PoolArgs {
     /**
      * The service level of the file system
      */
-    readonly serviceLevel: pulumi.Input<string>;
+    readonly serviceLevel: pulumi.Input<ServiceLevel>;
     /**
      * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
      */

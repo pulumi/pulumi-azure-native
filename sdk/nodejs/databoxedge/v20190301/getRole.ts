@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type RoleTypes = "IOT" | "ASA" | "Functions" | "Cognitive" | string;
+
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +45,7 @@ export interface GetRoleResult {
     /**
      * Role type.
      */
-    readonly kind: string;
+    readonly kind: RoleTypes;
     /**
      * The object name.
      */

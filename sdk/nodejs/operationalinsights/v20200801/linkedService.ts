@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const LinkedServiceEntityStatus = {
-    Succeeded: "Succeeded",
-    Deleting: "Deleting",
-    ProvisioningAccount: "ProvisioningAccount",
-    Updating: "Updating",
-}
+export type LinkedServiceEntityStatus = "Succeeded" | "Deleting" | "ProvisioningAccount" | "Updating" | string;
 
 /**
  * The top level Linked service resource container.
@@ -48,7 +43,7 @@ export class LinkedService extends pulumi.CustomResource {
     /**
      * The provisioning state of the linked service.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public readonly provisioningState!: pulumi.Output<LinkedServiceEntityStatus | undefined>;
     /**
      * The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
      */
@@ -120,7 +115,7 @@ export interface LinkedServiceArgs {
     /**
      * The provisioning state of the linked service.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<LinkedServiceEntityStatus>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -4,9 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const kind = {
-    ScheduleBased: "ScheduleBased",
-}
+export type kind = "ScheduleBased" | string;
 
 /**
  * A Trigger data transfer object.
@@ -41,7 +39,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * Kind of synchronization
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<kind>;
     /**
      * Name of the azure resource
      */
@@ -109,7 +107,7 @@ export interface TriggerArgs {
     /**
      * Kind of synchronization
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<kind>;
     /**
      * The resource group name.
      */

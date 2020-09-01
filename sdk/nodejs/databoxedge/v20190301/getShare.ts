@@ -6,6 +6,14 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DataPolicy = "Cloud" | "Local" | string;
+
+export type MonitoringStatus = "Enabled" | "Disabled" | string;
+
+export type ShareAccessProtocol = "SMB" | "NFS" | string;
+
+export type ShareStatus = "Online" | "Offline" | string;
+
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +51,7 @@ export interface GetShareResult {
     /**
      * Access protocol to be used by the share.
      */
-    readonly accessProtocol: string;
+    readonly accessProtocol: ShareAccessProtocol;
     /**
      * Azure container mapping for the share.
      */
@@ -55,7 +63,7 @@ export interface GetShareResult {
     /**
      * Data policy of the share.
      */
-    readonly dataPolicy?: string;
+    readonly dataPolicy?: DataPolicy;
     /**
      * Description for the share.
      */
@@ -63,7 +71,7 @@ export interface GetShareResult {
     /**
      * Current monitoring status of the share.
      */
-    readonly monitoringStatus: string;
+    readonly monitoringStatus: MonitoringStatus;
     /**
      * The object name.
      */
@@ -79,7 +87,7 @@ export interface GetShareResult {
     /**
      * Current status of the share.
      */
-    readonly shareStatus: string;
+    readonly shareStatus: ShareStatus;
     /**
      * The hierarchical type of the object.
      */

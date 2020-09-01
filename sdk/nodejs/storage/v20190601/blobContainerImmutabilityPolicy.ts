@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const ImmutabilityPolicyState = {
-    Locked: "Locked",
-    Unlocked: "Unlocked",
-}
+export type ImmutabilityPolicyState = "Locked" | "Unlocked" | string;
 
 /**
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
@@ -58,7 +55,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
      * The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<ImmutabilityPolicyState>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

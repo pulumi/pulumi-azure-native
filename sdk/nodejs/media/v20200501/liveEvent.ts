@@ -6,18 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const LiveEventResourceState = {
-    Stopped: "Stopped",
-    Starting: "Starting",
-    Running: "Running",
-    Stopping: "Stopping",
-    Deleting: "Deleting",
-}
+export type LiveEventResourceState = "Stopped" | "Starting" | "Running" | "Stopping" | "Deleting" | string;
 
-export const StreamOptionsFlag = {
-    Default: "Default",
-    LowLatency: "LowLatency",
-}
+export type StreamOptionsFlag = "Default" | "LowLatency" | string;
 
 /**
  * The Live Event.
@@ -92,11 +83,11 @@ export class LiveEvent extends pulumi.CustomResource {
     /**
      * The resource state of the Live Event.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    public /*out*/ readonly resourceState!: pulumi.Output<LiveEventResourceState>;
     /**
      * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
      */
-    public readonly streamOptions!: pulumi.Output<string[] | undefined>;
+    public readonly streamOptions!: pulumi.Output<StreamOptionsFlag[] | undefined>;
     /**
      * Resource tags.
      */
@@ -218,7 +209,7 @@ export interface LiveEventArgs {
     /**
      * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
      */
-    readonly streamOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly streamOptions?: pulumi.Input<pulumi.Input<StreamOptionsFlag>[]>;
     /**
      * Resource tags.
      */

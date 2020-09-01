@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type Access = "Allow" | "Deny" | string;
+
+export type RouteFilterRuleType = "Community" | string;
+
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
     if (!opts) {
         opts = {}
@@ -43,7 +47,7 @@ export interface GetRouteFilterRuleResult {
     /**
      * The access type of the rule. Valid values are: 'Allow', 'Deny'
      */
-    readonly access: string;
+    readonly access: Access;
     /**
      * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
      */
@@ -67,5 +71,5 @@ export interface GetRouteFilterRuleResult {
     /**
      * The rule type of the rule. Valid value is: 'Community'
      */
-    readonly routeFilterRuleType: string;
+    readonly routeFilterRuleType: RouteFilterRuleType;
 }

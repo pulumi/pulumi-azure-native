@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ClusterPrincipalRole = "AllDatabasesAdmin" | "AllDatabasesViewer" | string;
+
+export type PrincipalType = "App" | "Group" | "User" | string;
+
+export type ProvisioningState = "Running" | "Creating" | "Deleting" | "Succeeded" | "Failed" | "Moving" | string;
+
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
     if (!opts) {
         opts = {}
@@ -55,15 +61,15 @@ export interface GetClusterPrincipalAssignmentResult {
     /**
      * Principal type.
      */
-    readonly principalType: string;
+    readonly principalType: PrincipalType;
     /**
      * The provisioned state of the resource.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * Cluster principal role.
      */
-    readonly role: string;
+    readonly role: ClusterPrincipalRole;
     /**
      * The tenant id of the principal
      */

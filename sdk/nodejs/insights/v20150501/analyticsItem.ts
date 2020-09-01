@@ -6,17 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const ItemScope = {
-    shared: "shared",
-    user: "user",
-}
+export type ItemScope = "shared" | "user" | string;
 
-export const ItemType = {
-    query: "query",
-    function: "function",
-    folder: "folder",
-    recent: "recent",
-}
+export type ItemType = "query" | "function" | "folder" | "recent" | string;
 
 /**
  * Properties that define an Analytics item that is associated to an Application Insights component.
@@ -63,7 +55,7 @@ export class AnalyticsItem extends pulumi.CustomResource {
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    public readonly scope!: pulumi.Output<ItemScope | undefined>;
     /**
      * Date and time in UTC when this item was created.
      */
@@ -75,7 +67,7 @@ export class AnalyticsItem extends pulumi.CustomResource {
     /**
      * Enum indicating the type of the Analytics item.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<ItemType | undefined>;
     /**
      * This instance's version of the data model. This can change as new features are added.
      */
@@ -163,7 +155,7 @@ export interface AnalyticsItemArgs {
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly scope?: pulumi.Input<string>;
+    readonly scope?: pulumi.Input<ItemScope>;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
@@ -171,5 +163,5 @@ export interface AnalyticsItemArgs {
     /**
      * Enum indicating the type of the Analytics item.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<ItemType>;
 }

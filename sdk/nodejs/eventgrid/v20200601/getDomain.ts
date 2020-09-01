@@ -6,6 +6,12 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DomainProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Canceled" | "Failed" | string;
+
+export type InputSchema = "EventGridSchema" | "CustomEventSchema" | "CloudEventSchemaV1_0" | string;
+
+export type PublicNetworkAccess = "Enabled" | "Disabled" | string;
+
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {
         opts = {}
@@ -46,7 +52,7 @@ export interface GetDomainResult {
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
-    readonly inputSchema?: string;
+    readonly inputSchema?: InputSchema;
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
@@ -70,12 +76,12 @@ export interface GetDomainResult {
     /**
      * Provisioning state of the domain.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: DomainProvisioningState;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
      */
-    readonly publicNetworkAccess?: string;
+    readonly publicNetworkAccess?: PublicNetworkAccess;
     /**
      * Tags of the resource.
      */

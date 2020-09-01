@@ -6,6 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum StatusOptions {
+    Ready = "Ready",
+    Pending = "Pending",
+}
+
 export function getServerFarm(args: GetServerFarmArgs, opts?: pulumi.InvokeOptions): Promise<GetServerFarmResult> {
     if (!opts) {
         opts = {}

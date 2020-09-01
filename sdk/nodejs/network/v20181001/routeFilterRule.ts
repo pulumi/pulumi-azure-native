@@ -4,14 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const Access = {
-    Allow: "Allow",
-    Deny: "Deny",
-}
+export type Access = "Allow" | "Deny" | string;
 
-export const RouteFilterRuleType = {
-    Community: "Community",
-}
+export type RouteFilterRuleType = "Community" | string;
 
 /**
  * Route Filter Rule Resource
@@ -46,7 +41,7 @@ export class RouteFilterRule extends pulumi.CustomResource {
     /**
      * The access type of the rule. Valid values are: 'Allow', 'Deny'
      */
-    public readonly access!: pulumi.Output<string>;
+    public readonly access!: pulumi.Output<Access>;
     /**
      * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
      */
@@ -70,7 +65,7 @@ export class RouteFilterRule extends pulumi.CustomResource {
     /**
      * The rule type of the rule. Valid value is: 'Community'
      */
-    public readonly routeFilterRuleType!: pulumi.Output<string>;
+    public readonly routeFilterRuleType!: pulumi.Output<RouteFilterRuleType>;
 
     /**
      * Create a RouteFilterRule resource with the given unique name, arguments, and options.
@@ -135,7 +130,7 @@ export interface RouteFilterRuleArgs {
     /**
      * The access type of the rule. Valid values are: 'Allow', 'Deny'
      */
-    readonly access: pulumi.Input<string>;
+    readonly access: pulumi.Input<Access>;
     /**
      * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
      */
@@ -163,7 +158,7 @@ export interface RouteFilterRuleArgs {
     /**
      * The rule type of the rule. Valid value is: 'Community'
      */
-    readonly routeFilterRuleType: pulumi.Input<string>;
+    readonly routeFilterRuleType: pulumi.Input<RouteFilterRuleType>;
     /**
      * The name of the route filter rule.
      */

@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type ProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Failed" | "Canceled" | string;
+
+export type PublicNetworkAccess = "Enabled" | "Disabled" | string;
+
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
     if (!opts) {
         opts = {}
@@ -66,11 +70,11 @@ export interface GetConfigurationStoreResult {
     /**
      * The provisioning state of the configuration store.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: ProvisioningState;
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    readonly publicNetworkAccess?: string;
+    readonly publicNetworkAccess?: PublicNetworkAccess;
     /**
      * The sku of the configuration store.
      */

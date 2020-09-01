@@ -6,21 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const AlwaysLog = {
-    allErrors: "allErrors",
-}
+export type AlwaysLog = "allErrors" | string;
 
-export const HttpCorrelationProtocol = {
-    None: "None",
-    Legacy: "Legacy",
-    W3C: "W3C",
-}
+export type HttpCorrelationProtocol = "None" | "Legacy" | "W3C" | string;
 
-export const Verbosity = {
-    verbose: "verbose",
-    information: "information",
-    error: "error",
-}
+export type Verbosity = "verbose" | "information" | "error" | string;
 
 /**
  * Diagnostic details.
@@ -55,7 +45,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     /**
      * Specifies for what type of messages sampling settings should not apply.
      */
-    public readonly alwaysLog!: pulumi.Output<string | undefined>;
+    public readonly alwaysLog!: pulumi.Output<AlwaysLog | undefined>;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */
@@ -67,7 +57,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     /**
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
-    public readonly httpCorrelationProtocol!: pulumi.Output<string | undefined>;
+    public readonly httpCorrelationProtocol!: pulumi.Output<HttpCorrelationProtocol | undefined>;
     /**
      * Log the ClientIP. Default is false.
      */
@@ -91,7 +81,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     /**
      * The verbosity level applied to traces emitted by trace policies.
      */
-    public readonly verbosity!: pulumi.Output<string | undefined>;
+    public readonly verbosity!: pulumi.Output<Verbosity | undefined>;
 
     /**
      * Create a ApiDiagnostic resource with the given unique name, arguments, and options.
@@ -156,7 +146,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Specifies for what type of messages sampling settings should not apply.
      */
-    readonly alwaysLog?: pulumi.Input<string>;
+    readonly alwaysLog?: pulumi.Input<AlwaysLog>;
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
@@ -176,7 +166,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
-    readonly httpCorrelationProtocol?: pulumi.Input<string>;
+    readonly httpCorrelationProtocol?: pulumi.Input<HttpCorrelationProtocol>;
     /**
      * Log the ClientIP. Default is false.
      */
@@ -200,5 +190,5 @@ export interface ApiDiagnosticArgs {
     /**
      * The verbosity level applied to traces emitted by trace policies.
      */
-    readonly verbosity?: pulumi.Input<string>;
+    readonly verbosity?: pulumi.Input<Verbosity>;
 }

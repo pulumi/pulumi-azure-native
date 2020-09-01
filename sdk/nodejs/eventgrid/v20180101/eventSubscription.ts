@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export const EventSubscriptionProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Canceled: "Canceled",
-    Failed: "Failed",
-}
+export type EventSubscriptionProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Canceled" | "Failed" | string;
 
 /**
  * Event Subscription
@@ -64,7 +57,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * Provisioning state of the event subscription.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<EventSubscriptionProvisioningState>;
     /**
      * Name of the topic of the event subscription.
      */

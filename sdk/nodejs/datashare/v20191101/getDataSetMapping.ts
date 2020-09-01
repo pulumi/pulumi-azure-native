@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type kind = "Blob" | "Container" | "BlobFolder" | "AdlsGen2FileSystem" | "AdlsGen2Folder" | "AdlsGen2File" | "KustoCluster" | "KustoDatabase" | "SqlDBTable" | "SqlDWTable" | string;
+
 export function getDataSetMapping(args: GetDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetMappingResult> {
     if (!opts) {
         opts = {}
@@ -48,7 +50,7 @@ export interface GetDataSetMappingResult {
     /**
      * Kind of data set mapping.
      */
-    readonly kind: string;
+    readonly kind: kind;
     /**
      * Name of the azure resource
      */

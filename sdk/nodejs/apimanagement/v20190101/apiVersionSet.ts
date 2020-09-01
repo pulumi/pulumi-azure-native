@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export const versioningScheme = {
-    Segment: "Segment",
-    Query: "Query",
-    Header: "Header",
-}
+export type versioningScheme = "Segment" | "Query" | "Header" | string;
 
 /**
  * Api Version Set Contract details.
@@ -67,7 +63,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
     /**
      * An value that determines where the API Version identifer will be located in a HTTP request.
      */
-    public readonly versioningScheme!: pulumi.Output<string>;
+    public readonly versioningScheme!: pulumi.Output<versioningScheme>;
 
     /**
      * Create a ApiVersionSet resource with the given unique name, arguments, and options.
@@ -156,5 +152,5 @@ export interface ApiVersionSetArgs {
     /**
      * An value that determines where the API Version identifer will be located in a HTTP request.
      */
-    readonly versioningScheme: pulumi.Input<string>;
+    readonly versioningScheme: pulumi.Input<versioningScheme>;
 }

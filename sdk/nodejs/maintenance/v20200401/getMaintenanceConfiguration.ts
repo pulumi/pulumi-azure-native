@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type MaintenanceScope = "All" | "Host" | "Resource" | "InResource" | string;
+
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
     if (!opts) {
         opts = {}
@@ -46,7 +48,7 @@ export interface GetMaintenanceConfigurationResult {
     /**
      * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
      */
-    readonly maintenanceScope?: string;
+    readonly maintenanceScope?: MaintenanceScope;
     /**
      * Name of the resource
      */

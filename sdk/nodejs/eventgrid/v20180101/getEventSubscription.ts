@@ -6,6 +6,8 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type EventSubscriptionProvisioningState = "Creating" | "Updating" | "Deleting" | "Succeeded" | "Canceled" | "Failed" | string;
+
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
     if (!opts) {
         opts = {}
@@ -54,7 +56,7 @@ export interface GetEventSubscriptionResult {
     /**
      * Provisioning state of the event subscription.
      */
-    readonly provisioningState: string;
+    readonly provisioningState: EventSubscriptionProvisioningState;
     /**
      * Name of the topic of the event subscription.
      */

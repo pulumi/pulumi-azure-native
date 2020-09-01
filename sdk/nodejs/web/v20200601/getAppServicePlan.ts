@@ -6,6 +6,20 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export enum ProvisioningState {
+    Succeeded = "Succeeded",
+    Failed = "Failed",
+    Canceled = "Canceled",
+    InProgress = "InProgress",
+    Deleting = "Deleting",
+}
+
+export enum StatusOptions {
+    Ready = "Ready",
+    Pending = "Pending",
+    Creating = "Creating",
+}
+
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
     if (!opts) {
         opts = {}

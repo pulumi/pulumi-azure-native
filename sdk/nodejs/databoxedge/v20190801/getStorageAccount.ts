@@ -6,6 +6,10 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+export type DataPolicy = "Cloud" | "Local" | string;
+
+export type StorageAccountStatus = "OK" | "Offline" | "Unknown" | "Updating" | "NeedsAttention" | string;
+
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
     if (!opts) {
         opts = {}
@@ -51,7 +55,7 @@ export interface GetStorageAccountResult {
     /**
      * Data policy of the storage Account.
      */
-    readonly dataPolicy?: string;
+    readonly dataPolicy?: DataPolicy;
     /**
      * Description for the storage Account.
      */
@@ -67,7 +71,7 @@ export interface GetStorageAccountResult {
     /**
      * Current status of the storage account
      */
-    readonly storageAccountStatus?: string;
+    readonly storageAccountStatus?: StorageAccountStatus;
     /**
      * The hierarchical type of the object.
      */
