@@ -105,7 +105,8 @@ func swaggerLocations() ([]string, error) {
 		return nil, err
 	}
 
-	files, err := filepath.Glob(dir + "/azure-rest-api-specs/specification/**/resource-manager/Microsoft.*/stable/*/*.json")
+	pattern := filepath.Join(dir, "/azure-rest-api-specs/specification/**/resource-manager/Microsoft.*/stable/*/*.json")
+	files, err := filepath.Glob(pattern)
 	if err != nil {
 		return nil, err
 	}
