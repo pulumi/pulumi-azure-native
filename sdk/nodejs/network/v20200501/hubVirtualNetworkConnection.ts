@@ -111,7 +111,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20180401:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20180601:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20180701:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20180801:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20181001:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20181101:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20181201:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20190201:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20190401:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20190601:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20190701:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20190801:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20190901:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20191101:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20191201:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20200301:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20200401:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20200601:HubVirtualNetworkConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:HubVirtualNetworkConnection" }, { type: "azurerm:network/v20200601:HubVirtualNetworkConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HubVirtualNetworkConnection.__pulumiType, name, inputs, opts);
     }

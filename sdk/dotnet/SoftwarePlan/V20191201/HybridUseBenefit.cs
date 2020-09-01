@@ -79,6 +79,10 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20191201
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azurerm:softwareplan/latest:HybridUseBenefit"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

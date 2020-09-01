@@ -63,6 +63,12 @@ func NewBookmark(ctx *pulumi.Context,
 	if args == nil {
 		args = &BookmarkArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationalinsights/latest:Bookmark"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Bookmark
 	err := ctx.RegisterResource("azurerm:operationalinsights/v20200101:Bookmark", name, args, &resource, opts...)
 	if err != nil {

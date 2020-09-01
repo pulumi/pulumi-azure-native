@@ -130,6 +130,8 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:ScheduledQueryRule" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScheduledQueryRule.__pulumiType, name, inputs, opts);
     }
 }

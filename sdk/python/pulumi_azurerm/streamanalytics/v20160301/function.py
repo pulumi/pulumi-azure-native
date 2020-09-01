@@ -65,6 +65,8 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:streamanalytics/latest:Function")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Function, __self__).__init__(
             'azurerm:streamanalytics/v20160301:Function',
             resource_name,

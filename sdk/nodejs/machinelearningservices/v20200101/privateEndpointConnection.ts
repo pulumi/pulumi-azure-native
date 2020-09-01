@@ -118,7 +118,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/v20200301:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200401:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200601:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/latest:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200301:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200401:PrivateEndpointConnection" }, { type: "azurerm:machinelearningservices/v20200601:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

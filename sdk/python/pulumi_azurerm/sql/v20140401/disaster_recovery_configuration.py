@@ -66,6 +66,8 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
             __props__['role'] = None
             __props__['status'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:sql/latest:DisasterRecoveryConfiguration")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DisasterRecoveryConfiguration, __self__).__init__(
             'azurerm:sql/v20140401:DisasterRecoveryConfiguration',
             resource_name,

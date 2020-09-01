@@ -142,7 +142,7 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azurerm:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azurerm:documentdb/v20160319:DatabaseAccountSqlContainer" }, { type: "azurerm:documentdb/v20160331:DatabaseAccountSqlContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:DatabaseAccountSqlContainer" }, { type: "azurerm:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azurerm:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azurerm:documentdb/v20160319:DatabaseAccountSqlContainer" }, { type: "azurerm:documentdb/v20160331:DatabaseAccountSqlContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountSqlContainer.__pulumiType, name, inputs, opts);
     }

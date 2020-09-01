@@ -114,6 +114,7 @@ namespace Pulumi.AzureRM.Network.V20160330
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160901:PublicIPAddress"},

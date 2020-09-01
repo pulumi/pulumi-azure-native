@@ -15,9 +15,6 @@
 package provider
 
 import (
-	"os"
-	"path/filepath"
-	"sort"
 	"strings"
 
 	"github.com/gedex/inflector"
@@ -88,35 +85,6 @@ type AzureApiMetadata struct {
 	Types     map[string]AzureApiType     `json:"types"`
 	Resources map[string]AzureApiResource `json:"resources"`
 	Invokes   map[string]AzureApiInvoke   `json:"invokes"`
-}
-
-// blessedVersions contains the preferred versions per resource provider. If a resource provider is not specified,
-// the latest stable version is used.
-var blessedVersions map[string]string
-
-func init() {
-	blessedVersions = map[string]string{
-		"Microsoft.Cdn": "2020-03-31", // the later version throws runtime errors
-		"Microsoft.Web": "2019-08-01", // an earlier version contains extra files that spoil generation
-	}
-}
-
-// SwaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
-func SwaggerLocations() ([]string, error) {
-	dir, err := os.Getwd()
-	if err != nil {
-		return nil, err
-	}
-
-	files, err := filepath.Glob(dir + "/azure-rest-api-specs/specification/**/resource-manager/Microsoft.*/stable/*/*.json")
-	if err != nil {
-		return nil, err
-	}
-
-	// Sorting alphabetically means the schemas with the latest API version are the last.
-	sort.Strings(files)
-
-	return files, nil
 }
 
 // ResourceProvider returns a provider name given resource's PUT path.

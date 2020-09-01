@@ -76,7 +76,7 @@ class Profile(pulumi.CustomResource):
             __props__['traffic_routing_method'] = traffic_routing_method
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20170301:Profile"), pulumi.Alias(type_="azurerm:network/v20170501:Profile"), pulumi.Alias(type_="azurerm:network/v20180201:Profile"), pulumi.Alias(type_="azurerm:network/v20180301:Profile"), pulumi.Alias(type_="azurerm:network/v20180401:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:Profile"), pulumi.Alias(type_="azurerm:network/v20170301:Profile"), pulumi.Alias(type_="azurerm:network/v20170501:Profile"), pulumi.Alias(type_="azurerm:network/v20180201:Profile"), pulumi.Alias(type_="azurerm:network/v20180301:Profile"), pulumi.Alias(type_="azurerm:network/v20180401:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azurerm:network/v20151101:Profile',

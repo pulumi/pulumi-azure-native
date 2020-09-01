@@ -44,6 +44,12 @@ func NewWebService(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebServiceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:machinelearning/latest:WebService"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebService
 	err := ctx.RegisterResource("azurerm:machinelearning/v20170101:WebService", name, args, &resource, opts...)
 	if err != nil {

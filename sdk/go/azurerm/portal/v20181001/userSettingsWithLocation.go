@@ -33,6 +33,12 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 	if args == nil {
 		args = &UserSettingsWithLocationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:portal/latest:UserSettingsWithLocation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource UserSettingsWithLocation
 	err := ctx.RegisterResource("azurerm:portal/v20181001:UserSettingsWithLocation", name, args, &resource, opts...)
 	if err != nil {

@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.Network.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190901:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191101:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200301:VirtualHubRouteTableV2"},

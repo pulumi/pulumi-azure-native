@@ -87,6 +87,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:compute/latest:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180401:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20181001:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190301:ProximityPlacementGroup"},

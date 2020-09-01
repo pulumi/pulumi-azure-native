@@ -41,6 +41,12 @@ func NewContentType(ctx *pulumi.Context,
 	if args == nil {
 		args = &ContentTypeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/latest:ContentType"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ContentType
 	err := ctx.RegisterResource("azurerm:apimanagement/v20191201:ContentType", name, args, &resource, opts...)
 	if err != nil {

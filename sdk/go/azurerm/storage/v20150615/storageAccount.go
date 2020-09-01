@@ -66,6 +66,9 @@ func NewStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storage/latest:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azurerm:storage/v20160101:StorageAccount"),
 		},
 		{

@@ -45,6 +45,15 @@ func NewHybridConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &HybridConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:relay/latest:HybridConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:relay/v20170401:HybridConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HybridConnection
 	err := ctx.RegisterResource("azurerm:relay/v20160701:HybridConnection", name, args, &resource, opts...)
 	if err != nil {

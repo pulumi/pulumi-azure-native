@@ -79,7 +79,7 @@ class DataStore(pulumi.CustomResource):
             __props__['state'] = state
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybriddata/v20190601:DataStore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybriddata/latest:DataStore"), pulumi.Alias(type_="azurerm:hybriddata/v20190601:DataStore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataStore, __self__).__init__(
             'azurerm:hybriddata/v20160601:DataStore',

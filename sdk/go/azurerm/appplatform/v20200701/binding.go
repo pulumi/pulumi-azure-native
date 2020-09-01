@@ -40,6 +40,12 @@ func NewBinding(ctx *pulumi.Context,
 	if args == nil {
 		args = &BindingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:appplatform/latest:Binding"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Binding
 	err := ctx.RegisterResource("azurerm:appplatform/v20200701:Binding", name, args, &resource, opts...)
 	if err != nil {

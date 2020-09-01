@@ -58,6 +58,9 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:kusto/latest:AttachedDatabaseConfiguration"),
+		},
+		{
 			Type: pulumi.String("azurerm:kusto/v20191109:AttachedDatabaseConfiguration"),
 		},
 		{

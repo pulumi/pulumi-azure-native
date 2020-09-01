@@ -41,6 +41,12 @@ func NewAuthorization(ctx *pulumi.Context,
 	if args == nil {
 		args = &AuthorizationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:avs/latest:Authorization"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Authorization
 	err := ctx.RegisterResource("azurerm:avs/v20200320:Authorization", name, args, &resource, opts...)
 	if err != nil {

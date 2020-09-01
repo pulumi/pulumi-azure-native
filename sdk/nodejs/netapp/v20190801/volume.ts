@@ -171,7 +171,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:netapp/v20190501:Volume" }, { type: "azurerm:netapp/v20190601:Volume" }, { type: "azurerm:netapp/v20190701:Volume" }, { type: "azurerm:netapp/v20191001:Volume" }, { type: "azurerm:netapp/v20191101:Volume" }, { type: "azurerm:netapp/v20200201:Volume" }, { type: "azurerm:netapp/v20200601:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:netapp/latest:Volume" }, { type: "azurerm:netapp/v20190501:Volume" }, { type: "azurerm:netapp/v20190601:Volume" }, { type: "azurerm:netapp/v20190701:Volume" }, { type: "azurerm:netapp/v20191001:Volume" }, { type: "azurerm:netapp/v20191101:Volume" }, { type: "azurerm:netapp/v20200201:Volume" }, { type: "azurerm:netapp/v20200601:Volume" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Volume.__pulumiType, name, inputs, opts);
     }

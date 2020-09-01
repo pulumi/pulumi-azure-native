@@ -90,7 +90,7 @@ class FrontDoor(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20190401:FrontDoor"), pulumi.Alias(type_="azurerm:network/v20200101:FrontDoor"), pulumi.Alias(type_="azurerm:network/v20200401:FrontDoor"), pulumi.Alias(type_="azurerm:network/v20200501:FrontDoor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:FrontDoor"), pulumi.Alias(type_="azurerm:network/v20190401:FrontDoor"), pulumi.Alias(type_="azurerm:network/v20200101:FrontDoor"), pulumi.Alias(type_="azurerm:network/v20200401:FrontDoor"), pulumi.Alias(type_="azurerm:network/v20200501:FrontDoor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FrontDoor, __self__).__init__(
             'azurerm:network/v20190501:FrontDoor',

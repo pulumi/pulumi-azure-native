@@ -40,6 +40,9 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devices/latest:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20170119:IotHubResourceEventHubConsumerGroup"),
 		},
 		{

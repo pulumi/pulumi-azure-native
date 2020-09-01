@@ -67,6 +67,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
             __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformariadb/latest:VirtualNetworkRule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkRule, __self__).__init__(
             'azurerm:dbformariadb/v20180601:VirtualNetworkRule',
             resource_name,

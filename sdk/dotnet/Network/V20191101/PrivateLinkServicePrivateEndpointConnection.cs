@@ -81,10 +81,7 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/v20190401:PrivateLinkServicePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190601:PrivateLinkServicePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190701:PrivateLinkServicePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/v20190801:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/latest:PrivateLinkServicePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190901:PrivateLinkServicePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191201:PrivateLinkServicePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200301:PrivateLinkServicePrivateEndpointConnection"},

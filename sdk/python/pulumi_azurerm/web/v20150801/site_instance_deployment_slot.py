@@ -107,6 +107,8 @@ class SiteInstanceDeploymentSlot(pulumi.CustomResource):
             __props__['status'] = status
             __props__['tags'] = tags
             __props__['type'] = type
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:SiteInstanceDeploymentSlot")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteInstanceDeploymentSlot, __self__).__init__(
             'azurerm:web/v20150801:SiteInstanceDeploymentSlot',
             resource_name,

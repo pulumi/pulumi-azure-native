@@ -90,6 +90,8 @@ class OpenShiftCluster(pulumi.CustomResource):
             __props__['worker_profiles'] = worker_profiles
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:redhatopenshift/latest:OpenShiftCluster")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenShiftCluster, __self__).__init__(
             'azurerm:redhatopenshift/v20200430:OpenShiftCluster',
             resource_name,

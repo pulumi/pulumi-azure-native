@@ -45,6 +45,12 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 	if args == nil {
 		args = &DisasterRecoveryConfigArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:servicebus/latest:DisasterRecoveryConfig"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DisasterRecoveryConfig
 	err := ctx.RegisterResource("azurerm:servicebus/v20170401:DisasterRecoveryConfig", name, args, &resource, opts...)
 	if err != nil {

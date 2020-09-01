@@ -177,6 +177,7 @@ namespace Pulumi.AzureRM.Network.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:ExpressRouteCircuitPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:ExpressRouteCircuitPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:ExpressRouteCircuitPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:ExpressRouteCircuitPeering"},

@@ -83,6 +83,12 @@ func NewComponent(ctx *pulumi.Context,
 	if args == nil {
 		args = &ComponentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:Component"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Component
 	err := ctx.RegisterResource("azurerm:insights/v20150501:Component", name, args, &resource, opts...)
 	if err != nil {

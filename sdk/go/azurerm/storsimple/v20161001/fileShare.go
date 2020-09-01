@@ -72,6 +72,12 @@ func NewFileShare(ctx *pulumi.Context,
 	if args == nil {
 		args = &FileShareArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/latest:FileShare"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource FileShare
 	err := ctx.RegisterResource("azurerm:storsimple/v20161001:FileShare", name, args, &resource, opts...)
 	if err != nil {

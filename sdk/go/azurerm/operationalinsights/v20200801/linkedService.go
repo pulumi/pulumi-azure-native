@@ -43,6 +43,12 @@ func NewLinkedService(ctx *pulumi.Context,
 	if args == nil {
 		args = &LinkedServiceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationalinsights/latest:LinkedService"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LinkedService
 	err := ctx.RegisterResource("azurerm:operationalinsights/v20200801:LinkedService", name, args, &resource, opts...)
 	if err != nil {

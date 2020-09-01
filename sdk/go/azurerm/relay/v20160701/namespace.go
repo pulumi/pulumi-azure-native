@@ -53,6 +53,9 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:relay/latest:Namespace"),
+		},
+		{
 			Type: pulumi.String("azurerm:relay/v20170401:Namespace"),
 		},
 	})

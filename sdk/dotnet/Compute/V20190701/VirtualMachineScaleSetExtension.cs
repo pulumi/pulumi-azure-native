@@ -99,6 +99,7 @@ namespace Pulumi.AzureRM.Compute.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachineScaleSetExtension"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20170330:VirtualMachineScaleSetExtension"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20171201:VirtualMachineScaleSetExtension"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180401:VirtualMachineScaleSetExtension"},

@@ -70,6 +70,8 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             __props__['resource_state'] = resource_state
             __props__['tags'] = tags
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:NetworkExperimentProfile")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkExperimentProfile, __self__).__init__(
             'azurerm:network/v20191101:NetworkExperimentProfile',
             resource_name,

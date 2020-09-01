@@ -40,6 +40,12 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &TrustedIdProviderArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datalakestore/latest:TrustedIdProvider"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TrustedIdProvider
 	err := ctx.RegisterResource("azurerm:datalakestore/v20161101:TrustedIdProvider", name, args, &resource, opts...)
 	if err != nil {

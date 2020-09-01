@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.DomainRegistration.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:domainregistration/latest:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azurerm:domainregistration/v20150401:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azurerm:domainregistration/v20190801:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azurerm:domainregistration/v20200601:DomainOwnershipIdentifier"},

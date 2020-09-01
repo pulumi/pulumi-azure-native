@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.Network.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:network/v20151101:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170301:Endpoint"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170501:Endpoint"},

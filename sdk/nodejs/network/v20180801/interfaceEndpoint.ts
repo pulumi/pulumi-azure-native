@@ -122,7 +122,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20181001:InterfaceEndpoint" }, { type: "azurerm:network/v20181101:InterfaceEndpoint" }, { type: "azurerm:network/v20181201:InterfaceEndpoint" }, { type: "azurerm:network/v20190201:InterfaceEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:InterfaceEndpoint" }, { type: "azurerm:network/v20181001:InterfaceEndpoint" }, { type: "azurerm:network/v20181101:InterfaceEndpoint" }, { type: "azurerm:network/v20181201:InterfaceEndpoint" }, { type: "azurerm:network/v20190201:InterfaceEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(InterfaceEndpoint.__pulumiType, name, inputs, opts);
     }

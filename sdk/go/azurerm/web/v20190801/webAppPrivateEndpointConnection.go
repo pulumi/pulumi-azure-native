@@ -44,6 +44,9 @@ func NewWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:WebAppPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20200601:WebAppPrivateEndpointConnection"),
 		},
 	})

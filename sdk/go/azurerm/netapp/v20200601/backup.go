@@ -56,6 +56,12 @@ func NewBackup(ctx *pulumi.Context,
 	if args == nil {
 		args = &BackupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:netapp/latest:Backup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Backup
 	err := ctx.RegisterResource("azurerm:netapp/v20200601:Backup", name, args, &resource, opts...)
 	if err != nil {

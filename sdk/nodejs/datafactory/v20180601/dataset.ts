@@ -93,6 +93,8 @@ export class Dataset extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/latest:Dataset" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Dataset.__pulumiType, name, inputs, opts);
     }
 }

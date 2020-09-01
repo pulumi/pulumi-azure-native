@@ -50,6 +50,9 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:LocalNetworkGateway"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20160330:LocalNetworkGateway"),
 		},
 		{

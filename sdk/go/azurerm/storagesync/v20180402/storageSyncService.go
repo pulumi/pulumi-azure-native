@@ -42,6 +42,9 @@ func NewStorageSyncService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storagesync/latest:StorageSyncService"),
+		},
+		{
 			Type: pulumi.String("azurerm:storagesync/v20180701:StorageSyncService"),
 		},
 		{

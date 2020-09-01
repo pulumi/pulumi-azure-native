@@ -54,6 +54,9 @@ func NewRedisLinkedServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:cache/latest:RedisLinkedServer"),
+		},
+		{
 			Type: pulumi.String("azurerm:cache/v20171001:RedisLinkedServer"),
 		},
 		{

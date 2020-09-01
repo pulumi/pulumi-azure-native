@@ -81,6 +81,12 @@ func NewMetricAlert(ctx *pulumi.Context,
 	if args == nil {
 		args = &MetricAlertArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:MetricAlert"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MetricAlert
 	err := ctx.RegisterResource("azurerm:insights/v20180301:MetricAlert", name, args, &resource, opts...)
 	if err != nil {

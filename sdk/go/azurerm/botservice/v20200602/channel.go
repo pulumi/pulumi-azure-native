@@ -47,6 +47,12 @@ func NewChannel(ctx *pulumi.Context,
 	if args == nil {
 		args = &ChannelArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:botservice/latest:Channel"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Channel
 	err := ctx.RegisterResource("azurerm:botservice/v20200602:Channel", name, args, &resource, opts...)
 	if err != nil {

@@ -57,6 +57,12 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &BackupPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/latest:BackupPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BackupPolicy
 	err := ctx.RegisterResource("azurerm:storsimple/v20170601:BackupPolicy", name, args, &resource, opts...)
 	if err != nil {

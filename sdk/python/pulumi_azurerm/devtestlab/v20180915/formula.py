@@ -83,7 +83,7 @@ class Formula(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/v20160515:Formula")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:Formula"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:Formula")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Formula, __self__).__init__(
             'azurerm:devtestlab/v20180915:Formula',

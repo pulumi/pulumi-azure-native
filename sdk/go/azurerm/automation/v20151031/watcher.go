@@ -59,6 +59,12 @@ func NewWatcher(ctx *pulumi.Context,
 	if args == nil {
 		args = &WatcherArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:Watcher"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Watcher
 	err := ctx.RegisterResource("azurerm:automation/v20151031:Watcher", name, args, &resource, opts...)
 	if err != nil {

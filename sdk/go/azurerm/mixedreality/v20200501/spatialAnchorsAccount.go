@@ -43,6 +43,12 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &SpatialAnchorsAccountArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:mixedreality/latest:SpatialAnchorsAccount"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SpatialAnchorsAccount
 	err := ctx.RegisterResource("azurerm:mixedreality/v20200501:SpatialAnchorsAccount", name, args, &resource, opts...)
 	if err != nil {

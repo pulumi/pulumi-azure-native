@@ -105,6 +105,8 @@ class Component(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:Component")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Component, __self__).__init__(
             'azurerm:insights/v20150501:Component',
             resource_name,

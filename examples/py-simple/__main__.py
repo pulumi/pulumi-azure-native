@@ -4,10 +4,10 @@ from pulumi_azurerm import resources, storage
 
 random_string = random.RandomString("random_string", length=12, special=False, upper=False)
 
-resource_group = resources.v20200601.ResourceGroup('resource_group', resource_group_name=random_string.result, location='westus')
+resource_group = resources.latest.ResourceGroup('resource_group', resource_group_name='azurerm-py', location='westus')
 
-storage_account = storage.v20190601.StorageAccount('sa',
-    account_name=random_string.result,
+storage_account = storage.latest.StorageAccount('sa',
+    account_name='pulumi143pysa',
     resource_group_name=resource_group.name,
     location='westus2',
     sku={

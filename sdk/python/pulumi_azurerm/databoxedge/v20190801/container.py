@@ -72,6 +72,8 @@ class Container(pulumi.CustomResource):
             __props__['name'] = None
             __props__['refresh_details'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databoxedge/latest:Container")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Container, __self__).__init__(
             'azurerm:databoxedge/v20190801:Container',
             resource_name,

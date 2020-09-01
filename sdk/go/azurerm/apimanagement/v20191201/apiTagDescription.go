@@ -48,6 +48,21 @@ func NewApiTagDescription(ctx *pulumi.Context,
 	if args == nil {
 		args = &ApiTagDescriptionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/latest:ApiTagDescription"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiTagDescription"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiTagDescription"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiTagDescription"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ApiTagDescription
 	err := ctx.RegisterResource("azurerm:apimanagement/v20191201:ApiTagDescription", name, args, &resource, opts...)
 	if err != nil {

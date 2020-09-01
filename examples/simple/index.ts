@@ -8,7 +8,7 @@ const randomString = new random.RandomString("random", {
     upper: false,
 })
 
-const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
+const resourceGroup = new azurerm.resources.latest.ResourceGroup("rg", {
     resourceGroupName: randomString.result,
     location: "westus2",
     tags: {
@@ -17,7 +17,7 @@ const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
     },
 });
 
-const staticSite = new azurerm.web.v20190801.StaticSite("staticsite", {
+const staticSite = new azurerm.web.latest.StaticSite("staticsite", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     repositoryUrl: "",
@@ -35,7 +35,7 @@ const staticSite = new azurerm.web.v20190801.StaticSite("staticsite", {
     name: randomString.result,
 });
 
-const containerinstance = new azurerm.containerinstance.v20191201.ContainerGroup("containergroup", {
+const containerinstance = new azurerm.containerinstance.latest.ContainerGroup("containergroup", {
     resourceGroupName: resourceGroup.name,
     // should be autonamed?
     containerGroupName: randomString.result,
@@ -53,7 +53,7 @@ const containerinstance = new azurerm.containerinstance.v20191201.ContainerGroup
     }],
 });
 
-const vnet = new azurerm.network.v20200501.VirtualNetwork("vnet", {
+const vnet = new azurerm.network.latest.VirtualNetwork("vnet", {
     resourceGroupName: resourceGroup.name,
     virtualNetworkName: randomString.result,
     location: "westus2",
@@ -66,14 +66,14 @@ const vnet = new azurerm.network.v20200501.VirtualNetwork("vnet", {
     }],
 });
 
-const subnet = new azurerm.network.v20200501.Subnet("subnet2", {
+const subnet = new azurerm.network.latest.Subnet("subnet2", {
     resourceGroupName: resourceGroup.name,
     subnetName: randomString.result,
     virtualNetworkName: vnet.name,
     addressPrefix: "10.1.1.0/24",
 });
 
-const networkInterface = new azurerm.network.v20200501.NetworkInterface("nic", {
+const networkInterface = new azurerm.network.latest.NetworkInterface("nic", {
     resourceGroupName: resourceGroup.name,
     networkInterfaceName: randomString.result,
     location: "westus2",
@@ -86,7 +86,7 @@ const networkInterface = new azurerm.network.v20200501.NetworkInterface("nic", {
     }],
 });
 
-const virtualmachine  = new azurerm.compute.v20200601.VirtualMachine("vm", {
+const virtualmachine  = new azurerm.compute.latest.VirtualMachine("vm", {
     resourceGroupName: resourceGroup.name,
     vmName: randomString.result,
     location: "westus2",
@@ -113,7 +113,7 @@ const virtualmachine  = new azurerm.compute.v20200601.VirtualMachine("vm", {
     },
 });
 
-const appServicePlan  = new azurerm.web.v20190801.AppServicePlan("app-plan", {
+const appServicePlan  = new azurerm.web.latest.AppServicePlan("app-plan", {
     resourceGroupName: resourceGroup.name,
     name: randomString.result,
     location: "westus2",
@@ -124,14 +124,14 @@ const appServicePlan  = new azurerm.web.v20190801.AppServicePlan("app-plan", {
     },
 });
 
-const appService = new azurerm.web.v20190801.WebApp("app", {
+const appService = new azurerm.web.latest.WebApp("app", {
     resourceGroupName: resourceGroup.name,
     name: randomString.result,
     location: "westus2",
     serverFarmId: appServicePlan.id,
 });
 
-const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
+const storageAccount = new azurerm.storage.latest.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
     accountName: randomString.result,
     location: "westus2",
@@ -145,9 +145,9 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
 
 export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;
 
-export const existingRg = azurerm.resources.v20200601.getResourceGroup({ resourceGroupName: "Azure-Account-Cleanup" });
+export const existingRg = azurerm.resources.latest.getResourceGroup({ resourceGroupName: "Azure-Account-Cleanup" });
 
 const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, storageAccount.id]).apply(([resourceGroupName, accountName]) =>
-    azurerm.storage.v20190601.listStorageAccountKeys({ resourceGroupName, accountName }));
+    azurerm.storage.latest.listStorageAccountKeys({ resourceGroupName, accountName }));
 
 export const primaryStorageKey = storageAccountKeys.keys[0].value;

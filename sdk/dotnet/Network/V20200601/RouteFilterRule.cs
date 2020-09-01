@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20161201:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170301:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170601:RouteFilterRule"},

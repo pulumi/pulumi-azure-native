@@ -56,7 +56,7 @@ class ManagementLock(pulumi.CustomResource):
             __props__['name'] = name
             __props__['notes'] = notes
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20160901:ManagementLock")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/latest:ManagementLock"), pulumi.Alias(type_="azurerm:authorization/v20160901:ManagementLock")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLock, __self__).__init__(
             'azurerm:authorization/v20150101:ManagementLock',

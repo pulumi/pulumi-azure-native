@@ -58,6 +58,12 @@ func NewInvitation(ctx *pulumi.Context,
 	if args == nil {
 		args = &InvitationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datashare/latest:Invitation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Invitation
 	err := ctx.RegisterResource("azurerm:datashare/v20191101:Invitation", name, args, &resource, opts...)
 	if err != nil {

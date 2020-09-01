@@ -57,6 +57,9 @@ func NewWebAppFunction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:WebAppFunction"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160801:WebAppFunction"),
 		},
 		{

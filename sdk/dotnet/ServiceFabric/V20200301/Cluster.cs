@@ -233,6 +233,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:servicefabric/latest:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20160901:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20180201:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301:Cluster"},

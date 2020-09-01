@@ -57,6 +57,7 @@ namespace Pulumi.AzureRM.Search.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:search/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:search/v20200313:PrivateEndpointConnection"},
                 },
             };

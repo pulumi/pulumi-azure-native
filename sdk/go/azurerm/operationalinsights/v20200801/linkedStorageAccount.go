@@ -39,6 +39,12 @@ func NewLinkedStorageAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &LinkedStorageAccountArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationalinsights/latest:LinkedStorageAccount"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LinkedStorageAccount
 	err := ctx.RegisterResource("azurerm:operationalinsights/v20200801:LinkedStorageAccount", name, args, &resource, opts...)
 	if err != nil {

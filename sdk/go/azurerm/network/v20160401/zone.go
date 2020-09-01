@@ -49,6 +49,9 @@ func NewZone(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:Zone"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20170901:Zone"),
 		},
 		{

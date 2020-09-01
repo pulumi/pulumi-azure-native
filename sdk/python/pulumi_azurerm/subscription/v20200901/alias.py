@@ -55,6 +55,8 @@ class Alias(pulumi.CustomResource):
             __props__['properties'] = properties
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:subscription/latest:Alias")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Alias, __self__).__init__(
             'azurerm:subscription/v20200901:Alias',
             resource_name,

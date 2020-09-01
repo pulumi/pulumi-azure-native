@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountCassandraKeyspace"},

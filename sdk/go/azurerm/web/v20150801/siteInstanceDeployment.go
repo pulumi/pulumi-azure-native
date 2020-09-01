@@ -65,6 +65,12 @@ func NewSiteInstanceDeployment(ctx *pulumi.Context,
 	if args == nil {
 		args = &SiteInstanceDeploymentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:web/latest:SiteInstanceDeployment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SiteInstanceDeployment
 	err := ctx.RegisterResource("azurerm:web/v20150801:SiteInstanceDeployment", name, args, &resource, opts...)
 	if err != nil {

@@ -50,6 +50,9 @@ func NewIotHubResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devices/latest:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20160203:IotHubResource"),
 		},
 		{

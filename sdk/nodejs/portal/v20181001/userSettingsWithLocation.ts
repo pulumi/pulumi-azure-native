@@ -74,6 +74,8 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:portal/latest:UserSettingsWithLocation" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(UserSettingsWithLocation.__pulumiType, name, inputs, opts);
     }
 }

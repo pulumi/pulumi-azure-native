@@ -39,6 +39,12 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 	if args == nil {
 		args = &HcxEnterpriseSiteArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:avs/latest:HcxEnterpriseSite"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HcxEnterpriseSite
 	err := ctx.RegisterResource("azurerm:avs/v20200320:HcxEnterpriseSite", name, args, &resource, opts...)
 	if err != nil {

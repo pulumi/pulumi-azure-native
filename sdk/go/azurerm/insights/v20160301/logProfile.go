@@ -55,6 +55,12 @@ func NewLogProfile(ctx *pulumi.Context,
 	if args == nil {
 		args = &LogProfileArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:LogProfile"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LogProfile
 	err := ctx.RegisterResource("azurerm:insights/v20160301:LogProfile", name, args, &resource, opts...)
 	if err != nil {

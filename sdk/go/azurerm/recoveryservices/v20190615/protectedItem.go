@@ -51,6 +51,9 @@ func NewProtectedItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:recoveryservices/latest:ProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160601:ProtectedItem"),
 		},
 		{

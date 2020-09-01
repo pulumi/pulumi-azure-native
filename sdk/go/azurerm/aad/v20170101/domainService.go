@@ -68,6 +68,9 @@ func NewDomainService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:aad/latest:DomainService"),
+		},
+		{
 			Type: pulumi.String("azurerm:aad/v20170601:DomainService"),
 		},
 		{

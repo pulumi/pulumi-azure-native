@@ -52,6 +52,12 @@ func NewPrivateZone(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateZoneArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:network/latest:PrivateZone"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateZone
 	err := ctx.RegisterResource("azurerm:network/v20180901:PrivateZone", name, args, &resource, opts...)
 	if err != nil {

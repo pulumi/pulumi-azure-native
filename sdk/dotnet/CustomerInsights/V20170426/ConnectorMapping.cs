@@ -141,6 +141,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:customerinsights/latest:ConnectorMapping"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:ConnectorMapping"},
                 },
             };

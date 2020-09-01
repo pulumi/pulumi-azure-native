@@ -62,6 +62,9 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/latest:User"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:User"),
 		},
 		{
@@ -69,6 +72,12 @@ func NewUser(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:User"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:User"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:User"),
 		},
 	})
 	opts = append(opts, aliases)

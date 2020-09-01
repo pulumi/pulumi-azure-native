@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppHostNameBinding"},

@@ -165,6 +165,7 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:domainregistration/latest:Domain"},
                     new Pulumi.Alias { Type = "azurerm:domainregistration/v20150401:Domain"},
                     new Pulumi.Alias { Type = "azurerm:domainregistration/v20180201:Domain"},
                     new Pulumi.Alias { Type = "azurerm:domainregistration/v20190801:Domain"},

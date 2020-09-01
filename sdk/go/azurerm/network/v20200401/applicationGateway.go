@@ -96,6 +96,9 @@ func NewApplicationGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:ApplicationGateway"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20150615:ApplicationGateway"),
 		},
 		{

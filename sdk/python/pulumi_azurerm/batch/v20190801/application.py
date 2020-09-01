@@ -68,7 +68,7 @@ class Application(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:batch/v20181201:Application"), pulumi.Alias(type_="azurerm:batch/v20190401:Application"), pulumi.Alias(type_="azurerm:batch/v20200301:Application"), pulumi.Alias(type_="azurerm:batch/v20200501:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:batch/latest:Application"), pulumi.Alias(type_="azurerm:batch/v20151201:Application"), pulumi.Alias(type_="azurerm:batch/v20170101:Application"), pulumi.Alias(type_="azurerm:batch/v20170501:Application"), pulumi.Alias(type_="azurerm:batch/v20170901:Application"), pulumi.Alias(type_="azurerm:batch/v20181201:Application"), pulumi.Alias(type_="azurerm:batch/v20190401:Application"), pulumi.Alias(type_="azurerm:batch/v20200301:Application"), pulumi.Alias(type_="azurerm:batch/v20200501:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azurerm:batch/v20190801:Application',

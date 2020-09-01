@@ -117,6 +117,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:analysisservices/latest:ServerDetails"},
                     new Pulumi.Alias { Type = "azurerm:analysisservices/v20160516:ServerDetails"},
                     new Pulumi.Alias { Type = "azurerm:analysisservices/v20170714:ServerDetails"},
                 },

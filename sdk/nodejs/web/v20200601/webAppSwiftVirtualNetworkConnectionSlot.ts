@@ -92,7 +92,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azurerm:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azurerm:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azurerm:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azurerm:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSwiftVirtualNetworkConnectionSlot.__pulumiType, name, inputs, opts);
     }

@@ -141,6 +141,8 @@ export class Bookmark extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:Bookmark" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Bookmark.__pulumiType, name, inputs, opts);
     }
 }

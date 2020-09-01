@@ -115,6 +115,8 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['type'] = None
             __props__['vm_id'] = None
             __props__['vmwaretools'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:vmwarecloudsimple/latest:VirtualMachine")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachine, __self__).__init__(
             'azurerm:vmwarecloudsimple/v20190401:VirtualMachine',
             resource_name,

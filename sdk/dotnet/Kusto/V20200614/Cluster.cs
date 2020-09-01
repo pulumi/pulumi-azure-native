@@ -165,6 +165,7 @@ namespace Pulumi.AzureRM.Kusto.V20200614
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:kusto/latest:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190121:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190515:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190907:Cluster"},

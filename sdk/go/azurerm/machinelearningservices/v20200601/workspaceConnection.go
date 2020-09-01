@@ -43,6 +43,12 @@ func NewWorkspaceConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkspaceConnectionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/latest:WorkspaceConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkspaceConnection
 	err := ctx.RegisterResource("azurerm:machinelearningservices/v20200601:WorkspaceConnection", name, args, &resource, opts...)
 	if err != nil {

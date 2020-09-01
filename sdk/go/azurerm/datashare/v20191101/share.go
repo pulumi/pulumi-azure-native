@@ -49,6 +49,12 @@ func NewShare(ctx *pulumi.Context,
 	if args == nil {
 		args = &ShareArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datashare/latest:Share"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Share
 	err := ctx.RegisterResource("azurerm:datashare/v20191101:Share", name, args, &resource, opts...)
 	if err != nil {

@@ -66,6 +66,9 @@ func NewLiveOutput(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:media/latest:LiveOutput"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180701:LiveOutput"),
 		},
 	})

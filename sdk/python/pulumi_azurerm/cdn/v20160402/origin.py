@@ -76,7 +76,7 @@ class Origin(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cdn/v20150601:Origin"), pulumi.Alias(type_="azurerm:cdn/v20161002:Origin"), pulumi.Alias(type_="azurerm:cdn/v20170402:Origin"), pulumi.Alias(type_="azurerm:cdn/v20171012:Origin"), pulumi.Alias(type_="azurerm:cdn/v20190415:Origin"), pulumi.Alias(type_="azurerm:cdn/v20190615:Origin"), pulumi.Alias(type_="azurerm:cdn/v20191231:Origin"), pulumi.Alias(type_="azurerm:cdn/v20200331:Origin"), pulumi.Alias(type_="azurerm:cdn/v20200415:Origin")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cdn/latest:Origin"), pulumi.Alias(type_="azurerm:cdn/v20150601:Origin"), pulumi.Alias(type_="azurerm:cdn/v20191231:Origin"), pulumi.Alias(type_="azurerm:cdn/v20200331:Origin"), pulumi.Alias(type_="azurerm:cdn/v20200415:Origin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Origin, __self__).__init__(
             'azurerm:cdn/v20160402:Origin',

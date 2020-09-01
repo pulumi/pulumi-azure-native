@@ -52,6 +52,9 @@ func NewStorageInsight(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:operationalinsights/latest:StorageInsight"),
+		},
+		{
 			Type: pulumi.String("azurerm:operationalinsights/v20200801:StorageInsight"),
 		},
 	})

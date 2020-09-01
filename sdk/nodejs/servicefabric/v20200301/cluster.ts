@@ -240,7 +240,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/v20160901:Cluster" }, { type: "azurerm:servicefabric/v20180201:Cluster" }, { type: "azurerm:servicefabric/v20190301:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/latest:Cluster" }, { type: "azurerm:servicefabric/v20160901:Cluster" }, { type: "azurerm:servicefabric/v20180201:Cluster" }, { type: "azurerm:servicefabric/v20190301:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

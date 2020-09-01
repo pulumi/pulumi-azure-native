@@ -50,6 +50,12 @@ func NewFactory(ctx *pulumi.Context,
 	if args == nil {
 		args = &FactoryArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datafactory/latest:Factory"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Factory
 	err := ctx.RegisterResource("azurerm:datafactory/v20180601:Factory", name, args, &resource, opts...)
 	if err != nil {

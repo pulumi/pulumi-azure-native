@@ -64,6 +64,8 @@ class Database(pulumi.CustomResource):
             __props__['server_name'] = server_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformariadb/latest:Database")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azurerm:dbformariadb/v20180601:Database',
             resource_name,

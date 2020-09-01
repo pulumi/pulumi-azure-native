@@ -58,6 +58,9 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:servicebus/latest:NamespaceAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicebus/v20150801:NamespaceAuthorizationRule"),
 		},
 		{

@@ -48,6 +48,9 @@ func NewApiRelease(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/latest:ApiRelease"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiRelease"),
 		},
 		{

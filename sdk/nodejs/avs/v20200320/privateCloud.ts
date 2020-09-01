@@ -173,6 +173,8 @@ export class PrivateCloud extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:avs/latest:PrivateCloud" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateCloud.__pulumiType, name, inputs, opts);
     }
 }

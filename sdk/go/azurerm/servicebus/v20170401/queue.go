@@ -79,6 +79,9 @@ func NewQueue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:servicebus/latest:Queue"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicebus/v20140901:Queue"),
 		},
 		{

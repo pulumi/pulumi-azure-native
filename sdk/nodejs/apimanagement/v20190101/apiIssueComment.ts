@@ -107,7 +107,7 @@ export class ApiIssueComment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:ApiIssueComment" }, { type: "azurerm:apimanagement/v20180101:ApiIssueComment" }, { type: "azurerm:apimanagement/v20191201:ApiIssueComment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiIssueComment" }, { type: "azurerm:apimanagement/v20170301:ApiIssueComment" }, { type: "azurerm:apimanagement/v20180101:ApiIssueComment" }, { type: "azurerm:apimanagement/v20191201:ApiIssueComment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiIssueComment.__pulumiType, name, inputs, opts);
     }

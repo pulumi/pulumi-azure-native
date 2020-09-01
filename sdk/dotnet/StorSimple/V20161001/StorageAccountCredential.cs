@@ -85,6 +85,11 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azurerm:storsimple/latest:StorageAccountCredential"},
+                    new Pulumi.Alias { Type = "azurerm:storsimple/v20170601:StorageAccountCredential"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

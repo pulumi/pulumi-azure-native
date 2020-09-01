@@ -34,6 +34,12 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:authorization/latest:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20160401:PolicyAssignment"),
+		},
+		{
 			Type: pulumi.String("azurerm:authorization/v20161201:PolicyAssignment"),
 		},
 		{

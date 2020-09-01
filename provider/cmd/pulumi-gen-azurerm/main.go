@@ -46,22 +46,9 @@ func main() {
 		version = os.Args[2]
 	}
 
-	swaggerSpecLocations, err := provider.SwaggerLocations()
-	if err != nil {
-		panic(err)
-	}
+	azureProviders := openapi.Providers()
 
-	var specs []*openapi.Spec
-	for _, location := range swaggerSpecLocations {
-		spec, err := openapi.NewSpec(location)
-		if err != nil {
-			panic(err)
-		}
-
-		specs = append(specs, spec)
-	}
-
-	pkgSpec, meta, err := gen.PulumiSchema(specs)
+	pkgSpec, meta, err := gen.PulumiSchema(azureProviders)
 	if err != nil {
 		panic(err)
 	}

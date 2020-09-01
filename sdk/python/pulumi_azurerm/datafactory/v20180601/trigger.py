@@ -66,6 +66,8 @@ class Trigger(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datafactory/latest:Trigger")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Trigger, __self__).__init__(
             'azurerm:datafactory/v20180601:Trigger',
             resource_name,

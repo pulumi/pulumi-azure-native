@@ -39,6 +39,12 @@ func NewGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &GatewayArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/latest:Gateway"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Gateway
 	err := ctx.RegisterResource("azurerm:apimanagement/v20191201:Gateway", name, args, &resource, opts...)
 	if err != nil {

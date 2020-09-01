@@ -44,6 +44,12 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 	if args == nil {
 		args = &BandwidthSettingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:storsimple/latest:BandwidthSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BandwidthSetting
 	err := ctx.RegisterResource("azurerm:storsimple/v20170601:BandwidthSetting", name, args, &resource, opts...)
 	if err != nil {

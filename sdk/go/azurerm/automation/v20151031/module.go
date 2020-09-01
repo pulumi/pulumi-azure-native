@@ -66,6 +66,12 @@ func NewModule(ctx *pulumi.Context,
 	if args == nil {
 		args = &ModuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:Module"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Module
 	err := ctx.RegisterResource("azurerm:automation/v20151031:Module", name, args, &resource, opts...)
 	if err != nil {

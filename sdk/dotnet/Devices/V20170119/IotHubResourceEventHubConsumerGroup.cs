@@ -51,6 +51,7 @@ namespace Pulumi.AzureRM.Devices.V20170119
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:devices/latest:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20160203:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20170701:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20180122:IotHubResourceEventHubConsumerGroup"},

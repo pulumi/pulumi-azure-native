@@ -37,6 +37,12 @@ func NewFunction(ctx *pulumi.Context,
 	if args == nil {
 		args = &FunctionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:streamanalytics/latest:Function"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Function
 	err := ctx.RegisterResource("azurerm:streamanalytics/v20160301:Function", name, args, &resource, opts...)
 	if err != nil {

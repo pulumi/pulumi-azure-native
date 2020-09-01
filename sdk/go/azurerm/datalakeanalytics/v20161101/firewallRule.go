@@ -45,6 +45,12 @@ func NewFirewallRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &FirewallRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datalakeanalytics/latest:FirewallRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource FirewallRule
 	err := ctx.RegisterResource("azurerm:datalakeanalytics/v20161101:FirewallRule", name, args, &resource, opts...)
 	if err != nil {

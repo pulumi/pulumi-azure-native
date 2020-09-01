@@ -38,6 +38,12 @@ func NewMasterSiteSite(ctx *pulumi.Context,
 	if args == nil {
 		args = &MasterSiteSiteArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:offazure/latest:MasterSiteSite"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MasterSiteSite
 	err := ctx.RegisterResource("azurerm:offazure/v20200707:MasterSiteSite", name, args, &resource, opts...)
 	if err != nil {

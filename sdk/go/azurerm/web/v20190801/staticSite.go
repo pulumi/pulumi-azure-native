@@ -57,6 +57,9 @@ func NewStaticSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:StaticSite"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20200601:StaticSite"),
 		},
 	})

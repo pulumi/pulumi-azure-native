@@ -98,7 +98,7 @@ export class IntegrationAccountAssembly extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20160601:IntegrationAccountAssembly" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:IntegrationAccountAssembly" }, { type: "azurerm:logic/v20160601:IntegrationAccountAssembly" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountAssembly.__pulumiType, name, inputs, opts);
     }

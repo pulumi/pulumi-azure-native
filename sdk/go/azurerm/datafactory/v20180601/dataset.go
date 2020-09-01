@@ -42,6 +42,12 @@ func NewDataset(ctx *pulumi.Context,
 	if args == nil {
 		args = &DatasetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datafactory/latest:Dataset"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Dataset
 	err := ctx.RegisterResource("azurerm:datafactory/v20180601:Dataset", name, args, &resource, opts...)
 	if err != nil {

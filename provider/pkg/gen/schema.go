@@ -31,8 +31,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 )
 
-// PulumiSchema will generate a Pulumi schema for the given swagger specs.
-func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.AzureApiMetadata, error) {
+// PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
+func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureApiMetadata, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azurerm",
 		Version:     "0.1.0", // TODO
@@ -60,44 +60,53 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	}
 	pythonModuleNames := map[string]string{}
 
-	// Collect all versions for each path in the API across all Swagger files.
-	pathVersions := map[string]codegen.StringSet{}
-	for _, swagger := range swaggers {
-		gen := packageGenerator{swagger: swagger}
-		for key := range swagger.Paths.Paths {
-			versions, ok := pathVersions[key]
-			if !ok {
-				versions = codegen.StringSet{}
-				pathVersions[key] = versions
-			}
-			versions.Add(gen.apiVersion())
-		}
+	var providers []string
+	for prov := range providerMap {
+		providers = append(providers, prov)
 	}
+	sort.Strings(providers)
 
-	// Generate resources and invokes.
-	for _, swagger := range swaggers {
-		gen := packageGenerator{pkg: &pkg, metadata: &metadata, swagger: swagger, pathVersions: pathVersions}
-
-		// Sort paths to make codegen deterministic.
-		var paths []string
-		for key := range swagger.Paths.Paths {
-			paths = append(paths, key)
+	for _, providerName := range providers {
+		versionMap := providerMap[providerName]
+		var versions []string
+		for version := range versionMap {
+			versions = append(versions, version)
 		}
-		sort.Strings(paths)
+		sort.Strings(versions)
 
-		for _, key := range paths {
-			path := swagger.Paths.Paths[key]
+		for _, version := range versions {
+			gen := packageGenerator{pkg: &pkg, metadata: &metadata, apiVersion: version}
 
-			prov := provider.ResourceProvider(key)
-			if prov != "" {
-				module := gen.providerToModule(prov)
-				version := strings.Replace(gen.apiVersion(), "preview", "Preview", 1)
-				csharpNamespaces[module] = fmt.Sprintf("%s.V%s", prov, version)
-				pythonModuleNames[module] = module
+			// Populate C# and Python module mapping.
+			module := gen.providerToModule(providerName)
+			csVersion := strings.Title(strings.Replace(version, "preview", "Preview", 1))
+			csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
+			pythonModuleNames[module] = module
+
+			// Populate resources and get invokes.
+			items := versionMap[version]
+			var resources []string
+			for resource := range items.Resources {
+				resources = append(resources, resource)
+			}
+			sort.Strings(resources)
+
+			for _, typeName := range resources {
+				resource := items.Resources[typeName]
+				gen.genResources(providerName, typeName, resource.Path, resource.PathItem, resource.Swagger, resource.CompatibleVersions)
 			}
 
-			gen.genResources(key, &path)
-			gen.genListFunctions(key, &path)
+			// Populate list invokes.
+			var invokes []string
+			for invoke := range items.Invokes {
+				invokes = append(invokes, invoke)
+			}
+			sort.Strings(invokes)
+
+			for _, typeName := range invokes {
+				invoke := items.Invokes[typeName]
+				gen.genListFunctions(providerName, typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
+			}
 		}
 	}
 
@@ -138,24 +147,12 @@ const (
 )
 
 type packageGenerator struct {
-	pkg      *pschema.PackageSpec
-	swagger  *openapi.Spec
-	metadata *provider.AzureApiMetadata
-	// pathVersions contains all API versions for every path in API specs.
-	pathVersions map[string]codegen.StringSet
+	pkg        *pschema.PackageSpec
+	metadata   *provider.AzureApiMetadata
+	apiVersion string
 }
 
-func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
-	if path.Put == nil || path.Get == nil || path.Delete == nil {
-		return
-	}
-
-	prov := provider.ResourceProvider(key)
-	typeName := provider.ResourceName(path.Get.ID)
-	if prov == "" || typeName == "" {
-		return
-	}
-
+func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.PathItem, swagger *openapi.Spec, otherVersions []string) {
 	module := g.providerToModule(prov)
 	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
 
@@ -168,14 +165,14 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		visitedTypes:  make(map[string]bool),
 	}
 
-	parameters := g.swagger.MergeParameters(path.Put.Parameters, path.Parameters)
-	resourceRequest, err := gen.genMethodParameters(parameters, g.swagger.ReferenceContext)
+	parameters := swagger.MergeParameters(path.Put.Parameters, path.Parameters)
+	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", resourceTok, err.Error())
 		return
 	}
 
-	resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, g.swagger.ReferenceContext)
+	resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", resourceTok, err.Error())
 		return
@@ -190,13 +187,9 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 
 	// Add an alias for each API version that has the same path in it.
 	var aliases []pschema.AliasSpec
-	if versions, ok := g.pathVersions[key]; ok {
-		for _, version := range versions.SortedValues() {
-			alias := fmt.Sprintf("%s:%s/v%s:%s", g.pkg.Name, strings.ToLower(prov), version, typeName)
-			if alias != resourceTok {
-				aliases = append(aliases, pschema.AliasSpec{Type: &alias})
-			}
-		}
+	for _, version := range otherVersions {
+		alias := fmt.Sprintf("%s:%s/%s:%s", g.pkg.Name, strings.ToLower(prov), version, typeName)
+		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
 	}
 
 	resourceSpec := pschema.ResourceSpec{
@@ -215,13 +208,13 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, typeName)
 
-	parameters = g.swagger.MergeParameters(path.Get.Parameters, path.Parameters)
-	requestFunction, err := gen.genMethodParameters(parameters, g.swagger.ReferenceContext)
+	parameters = swagger.MergeParameters(path.Get.Parameters, path.Parameters)
+	requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
 	}
-	responseFunction, err := gen.genResponse(path.Get.Responses.StatusCodeResponses, g.swagger.ReferenceContext)
+	responseFunction, err := gen.genResponse(path.Get.Responses.StatusCodeResponses, swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
 		return
@@ -244,7 +237,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	g.pkg.Functions[functionTok] = functionSpec
 
 	r := provider.AzureApiResource{
-		ApiVersion:    g.swagger.Info.Version,
+		ApiVersion:    swagger.Info.Version,
 		Path:          key,
 		GetParameters: requestFunction.parameters,
 		PutParameters: resourceRequest.parameters,
@@ -253,7 +246,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	g.metadata.Resources[resourceTok] = r
 
 	f := provider.AzureApiInvoke{
-		ApiVersion:    g.swagger.Info.Version,
+		ApiVersion:    swagger.Info.Version,
 		Path:          key,
 		GetParameters: requestFunction.parameters,
 		Response:      responseFunction.properties,
@@ -262,24 +255,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 }
 
 // genListFunctions defines functions for list* (listKeys, listSecrets, etc.) POST endpoints.
-func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
-	if path.Post == nil || !strings.Contains(key, "/list") {
-		return
-	}
-
-	parts := strings.Split(key, "/")
-	listOperation := parts[len(parts)-1]
-	if !strings.HasPrefix(listOperation, "list") {
-		return
-	}
-
-	baseUrl := strings.TrimSuffix(key, "/"+listOperation)
-	prov := provider.ResourceProvider(baseUrl)
-	typeName := provider.ResourceName(path.Post.ID)
-	if prov == "" || typeName == "" {
-		return
-	}
-
+func (g *packageGenerator) genListFunctions(prov, typeName, path string, pathItem *spec.PathItem, swagger *openapi.Spec) {
 	module := g.providerToModule(prov)
 	gen := moduleGenerator{
 		pkg:           g.pkg,
@@ -292,13 +268,13 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:list%s`, g.pkg.Name, module, typeName)
 
-	parameters := g.swagger.MergeParameters(path.Post.Parameters, path.Parameters)
-	request, err := gen.genMethodParameters(parameters, g.swagger.ReferenceContext)
+	parameters := swagger.MergeParameters(pathItem.Post.Parameters, pathItem.Parameters)
+	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
 	}
-	response, err := gen.genResponse(path.Post.Responses.StatusCodeResponses, g.swagger.ReferenceContext)
+	response, err := gen.genResponse(pathItem.Post.Responses.StatusCodeResponses, swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
 		return
@@ -326,22 +302,17 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 	g.pkg.Functions[functionTok] = functionSpec
 
 	f := provider.AzureApiInvoke{
-		ApiVersion:     g.swagger.Info.Version,
-		Path:           key,
+		ApiVersion:     swagger.Info.Version,
+		Path:           path,
 		PostParameters: request.parameters,
 		Response:       response.properties,
 	}
 	g.metadata.Invokes[functionTok] = f
 }
 
-// apiVersion returns the module version from the Azure API spec version (e.g. `2020-07-01` => `v20200701`).
-func (g *packageGenerator) apiVersion() string {
-	return strings.ReplaceAll(g.swagger.Info.Version, "-", "")
-}
-
 // providerToModule produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
 func (g *packageGenerator) providerToModule(prov string) string {
-	return fmt.Sprintf("%s/v%s", strings.ToLower(prov), g.apiVersion())
+	return fmt.Sprintf("%s/%s", strings.ToLower(prov), g.apiVersion)
 }
 
 type moduleGenerator struct {
@@ -353,15 +324,15 @@ type moduleGenerator struct {
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {
-	for name, spec := range resourceResponse.specs {
+	for name, swagger := range resourceResponse.specs {
 		// C# doesn't allow properties to have the same name as its containing type.
 		if strings.Title(name) == typeName {
-			spec.Language = map[string]json.RawMessage{
+			swagger.Language = map[string]json.RawMessage{
 				"csharp": rawMessage(map[string]interface{}{
 					"name": fmt.Sprintf("%sValue", typeName),
 				}),
 			}
-			resourceResponse.specs[name] = spec
+			resourceResponse.specs[name] = swagger
 		}
 	}
 }

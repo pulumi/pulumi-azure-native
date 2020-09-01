@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.Network.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190701:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190801:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190901:VirtualRouterPeering"},

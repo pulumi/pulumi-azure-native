@@ -79,7 +79,7 @@ class VirtualRouter(pulumi.CustomResource):
             __props__['peerings'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20190701:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20190801:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20190901:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20191201:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20200301:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20200401:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20200501:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20200601:VirtualRouter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20190701:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20190801:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20190901:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20191201:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20200301:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20200401:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20200501:VirtualRouter"), pulumi.Alias(type_="azurerm:network/v20200601:VirtualRouter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualRouter, __self__).__init__(
             'azurerm:network/v20191101:VirtualRouter',

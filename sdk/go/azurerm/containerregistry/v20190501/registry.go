@@ -62,6 +62,9 @@ func NewRegistry(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:containerregistry/latest:Registry"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerregistry/v20170301:Registry"),
 		},
 		{

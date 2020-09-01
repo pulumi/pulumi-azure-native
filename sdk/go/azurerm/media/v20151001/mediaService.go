@@ -40,6 +40,18 @@ func NewMediaService(ctx *pulumi.Context,
 	if args == nil {
 		args = &MediaServiceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:media/latest:MediaService"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180701:MediaService"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20200501:MediaService"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MediaService
 	err := ctx.RegisterResource("azurerm:media/v20151001:MediaService", name, args, &resource, opts...)
 	if err != nil {

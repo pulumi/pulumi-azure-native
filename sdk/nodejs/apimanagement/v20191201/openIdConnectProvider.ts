@@ -112,7 +112,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20180101:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20190101:OpenIdConnectProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20180101:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20190101:OpenIdConnectProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OpenIdConnectProvider.__pulumiType, name, inputs, opts);
     }

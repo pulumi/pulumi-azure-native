@@ -49,6 +49,12 @@ func NewNamedValue(ctx *pulumi.Context,
 	if args == nil {
 		args = &NamedValueArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:apimanagement/latest:NamedValue"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NamedValue
 	err := ctx.RegisterResource("azurerm:apimanagement/v20191201:NamedValue", name, args, &resource, opts...)
 	if err != nil {

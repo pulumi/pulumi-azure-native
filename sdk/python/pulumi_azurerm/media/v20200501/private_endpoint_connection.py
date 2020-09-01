@@ -67,6 +67,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['private_endpoint'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/latest:PrivateEndpointConnection")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:media/v20200501:PrivateEndpointConnection',
             resource_name,

@@ -43,6 +43,15 @@ func NewHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &HybridConnectionAuthorizationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:relay/latest:HybridConnectionAuthorizationRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:relay/v20170401:HybridConnectionAuthorizationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HybridConnectionAuthorizationRule
 	err := ctx.RegisterResource("azurerm:relay/v20160701:HybridConnectionAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

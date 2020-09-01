@@ -49,7 +49,7 @@ class CertificatePropertiesResponse(dict):
                  updated: str):
         """
         The description of an X509 CA Certificate.
-        :param str created: The certificate's create date and time.
+        :param str created: The certificate's creation date and time.
         :param str expiry: The certificate's expiration date and time.
         :param bool is_verified: Determines whether certificate has been verified.
         :param str subject: The certificate's subject name.
@@ -67,7 +67,7 @@ class CertificatePropertiesResponse(dict):
     @pulumi.getter
     def created(self) -> str:
         """
-        The certificate's create date and time.
+        The certificate's creation date and time.
         """
         return pulumi.get(self, "created")
 

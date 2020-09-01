@@ -67,6 +67,8 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['role'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventhub/latest:DisasterRecoveryConfig")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DisasterRecoveryConfig, __self__).__init__(
             'azurerm:eventhub/v20170401:DisasterRecoveryConfig',
             resource_name,

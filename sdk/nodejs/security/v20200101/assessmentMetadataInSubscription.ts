@@ -135,6 +135,8 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:security/latest:AssessmentMetadataInSubscription" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AssessmentMetadataInSubscription.__pulumiType, name, inputs, opts);
     }
 }

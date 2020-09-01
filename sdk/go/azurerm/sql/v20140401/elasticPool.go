@@ -60,6 +60,12 @@ func NewElasticPool(ctx *pulumi.Context,
 	if args == nil {
 		args = &ElasticPoolArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/latest:ElasticPool"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ElasticPool
 	err := ctx.RegisterResource("azurerm:sql/v20140401:ElasticPool", name, args, &resource, opts...)
 	if err != nil {

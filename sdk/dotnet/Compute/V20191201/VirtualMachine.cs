@@ -189,6 +189,7 @@ namespace Pulumi.AzureRM.Compute.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20150615:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20160330:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20170330:VirtualMachine"},

@@ -51,6 +51,12 @@ func NewMigrationConfig(ctx *pulumi.Context,
 	if args == nil {
 		args = &MigrationConfigArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:servicebus/latest:MigrationConfig"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MigrationConfig
 	err := ctx.RegisterResource("azurerm:servicebus/v20170401:MigrationConfig", name, args, &resource, opts...)
 	if err != nil {

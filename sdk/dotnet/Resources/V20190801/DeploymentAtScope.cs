@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.Resources.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:resources/latest:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azurerm:resources/v20190701:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azurerm:resources/v20191001:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azurerm:resources/v20200601:DeploymentAtScope"},

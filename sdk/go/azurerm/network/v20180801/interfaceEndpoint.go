@@ -52,6 +52,9 @@ func NewInterfaceEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:InterfaceEndpoint"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20181001:InterfaceEndpoint"),
 		},
 		{

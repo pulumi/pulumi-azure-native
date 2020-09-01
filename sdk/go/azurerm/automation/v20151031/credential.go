@@ -52,6 +52,12 @@ func NewCredential(ctx *pulumi.Context,
 	if args == nil {
 		args = &CredentialArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:Credential"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Credential
 	err := ctx.RegisterResource("azurerm:automation/v20151031:Credential", name, args, &resource, opts...)
 	if err != nil {

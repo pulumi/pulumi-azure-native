@@ -59,6 +59,9 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:WebAppHybridConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20180201:WebAppHybridConnection"),
 		},
 		{

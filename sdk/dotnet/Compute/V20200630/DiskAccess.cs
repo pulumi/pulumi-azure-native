@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.Compute.V20200630
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:compute/latest:DiskAccess"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20200501:DiskAccess"},
                 },
             };

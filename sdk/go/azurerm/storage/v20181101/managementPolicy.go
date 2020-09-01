@@ -44,6 +44,9 @@ func NewManagementPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storage/latest:ManagementPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:storage/v20190401:ManagementPolicy"),
 		},
 		{

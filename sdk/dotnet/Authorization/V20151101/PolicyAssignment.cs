@@ -51,6 +51,8 @@ namespace Pulumi.AzureRM.Authorization.V20151101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:authorization/latest:PolicyAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/v20160401:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20161201:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20180301:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20180501:PolicyAssignment"},

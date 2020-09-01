@@ -87,6 +87,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:cdn/latest:OriginGroup"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20191231:OriginGroup"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200331:OriginGroup"},
                 },

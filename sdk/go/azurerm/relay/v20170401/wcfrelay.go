@@ -51,6 +51,15 @@ func NewWCFRelay(ctx *pulumi.Context,
 	if args == nil {
 		args = &WCFRelayArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:relay/latest:WCFRelay"),
+		},
+		{
+			Type: pulumi.String("azurerm:relay/v20160701:WCFRelay"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WCFRelay
 	err := ctx.RegisterResource("azurerm:relay/v20170401:WCFRelay", name, args, &resource, opts...)
 	if err != nil {

@@ -48,6 +48,9 @@ func NewTransform(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:media/latest:Transform"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180701:Transform"),
 		},
 	})

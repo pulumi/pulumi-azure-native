@@ -41,6 +41,12 @@ func NewRegisteredAsn(ctx *pulumi.Context,
 	if args == nil {
 		args = &RegisteredAsnArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:peering/latest:RegisteredAsn"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RegisteredAsn
 	err := ctx.RegisterResource("azurerm:peering/v20200401:RegisteredAsn", name, args, &resource, opts...)
 	if err != nil {

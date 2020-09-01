@@ -83,7 +83,7 @@ class SiteSourceControl(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20160801:SiteSourceControl"), pulumi.Alias(type_="azurerm:web/v20180201:SiteSourceControl"), pulumi.Alias(type_="azurerm:web/v20181101:SiteSourceControl"), pulumi.Alias(type_="azurerm:web/v20190801:SiteSourceControl"), pulumi.Alias(type_="azurerm:web/v20200601:SiteSourceControl")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:SiteSourceControl"), pulumi.Alias(type_="azurerm:web/v20160801:SiteSourceControl"), pulumi.Alias(type_="azurerm:web/v20180201:SiteSourceControl"), pulumi.Alias(type_="azurerm:web/v20181101:SiteSourceControl"), pulumi.Alias(type_="azurerm:web/v20190801:SiteSourceControl"), pulumi.Alias(type_="azurerm:web/v20200601:SiteSourceControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteSourceControl, __self__).__init__(
             'azurerm:web/v20150801:SiteSourceControl',

@@ -47,6 +47,12 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 	if args == nil {
 		args = &AnalyticsItemArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:AnalyticsItem"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AnalyticsItem
 	err := ctx.RegisterResource("azurerm:insights/v20150501:AnalyticsItem", name, args, &resource, opts...)
 	if err != nil {

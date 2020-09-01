@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:storagesync/latest:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20180701:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20181001:ServerEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20190201:ServerEndpoint"},

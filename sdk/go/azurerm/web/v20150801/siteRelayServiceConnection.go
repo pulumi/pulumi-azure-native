@@ -53,6 +53,9 @@ func NewSiteRelayServiceConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:SiteRelayServiceConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160801:SiteRelayServiceConnection"),
 		},
 		{

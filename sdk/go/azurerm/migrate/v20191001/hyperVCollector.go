@@ -34,6 +34,12 @@ func NewHyperVCollector(ctx *pulumi.Context,
 	if args == nil {
 		args = &HyperVCollectorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:migrate/latest:HyperVCollector"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HyperVCollector
 	err := ctx.RegisterResource("azurerm:migrate/v20191001:HyperVCollector", name, args, &resource, opts...)
 	if err != nil {

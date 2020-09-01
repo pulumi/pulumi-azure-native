@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.Network.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180801:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181001:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181201:NetworkInterfaceTapConfiguration"},

@@ -85,6 +85,8 @@ export class Input extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:streamanalytics/latest:Input" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Input.__pulumiType, name, inputs, opts);
     }
 }

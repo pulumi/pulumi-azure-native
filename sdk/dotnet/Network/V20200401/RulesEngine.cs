@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:RulesEngine"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200101:RulesEngine"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:RulesEngine"},
                 },

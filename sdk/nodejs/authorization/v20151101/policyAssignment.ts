@@ -76,7 +76,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/v20161201:PolicyAssignment" }, { type: "azurerm:authorization/v20180301:PolicyAssignment" }, { type: "azurerm:authorization/v20180501:PolicyAssignment" }, { type: "azurerm:authorization/v20190101:PolicyAssignment" }, { type: "azurerm:authorization/v20190601:PolicyAssignment" }, { type: "azurerm:authorization/v20190901:PolicyAssignment" }, { type: "azurerm:authorization/v20200301:PolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:PolicyAssignment" }, { type: "azurerm:authorization/v20160401:PolicyAssignment" }, { type: "azurerm:authorization/v20161201:PolicyAssignment" }, { type: "azurerm:authorization/v20180301:PolicyAssignment" }, { type: "azurerm:authorization/v20180501:PolicyAssignment" }, { type: "azurerm:authorization/v20190101:PolicyAssignment" }, { type: "azurerm:authorization/v20190601:PolicyAssignment" }, { type: "azurerm:authorization/v20190901:PolicyAssignment" }, { type: "azurerm:authorization/v20200301:PolicyAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyAssignment.__pulumiType, name, inputs, opts);
     }

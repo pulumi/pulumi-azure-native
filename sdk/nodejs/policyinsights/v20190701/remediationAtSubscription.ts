@@ -112,6 +112,8 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:policyinsights/latest:RemediationAtSubscription" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemediationAtSubscription.__pulumiType, name, inputs, opts);
     }
 }

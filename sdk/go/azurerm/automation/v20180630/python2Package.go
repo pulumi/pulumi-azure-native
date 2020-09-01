@@ -66,6 +66,12 @@ func NewPython2Package(ctx *pulumi.Context,
 	if args == nil {
 		args = &Python2PackageArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:Python2Package"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Python2Package
 	err := ctx.RegisterResource("azurerm:automation/v20180630:Python2Package", name, args, &resource, opts...)
 	if err != nil {

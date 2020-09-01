@@ -53,6 +53,9 @@ func NewAppServicePlanRouteForVnet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:AppServicePlanRouteForVnet"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:AppServicePlanRouteForVnet"),
 		},
 		{

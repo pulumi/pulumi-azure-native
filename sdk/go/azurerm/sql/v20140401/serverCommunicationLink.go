@@ -46,6 +46,12 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerCommunicationLinkArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/latest:ServerCommunicationLink"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerCommunicationLink
 	err := ctx.RegisterResource("azurerm:sql/v20140401:ServerCommunicationLink", name, args, &resource, opts...)
 	if err != nil {

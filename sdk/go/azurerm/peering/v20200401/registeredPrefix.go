@@ -45,6 +45,12 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 	if args == nil {
 		args = &RegisteredPrefixArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:peering/latest:RegisteredPrefix"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource RegisteredPrefix
 	err := ctx.RegisterResource("azurerm:peering/v20200401:RegisteredPrefix", name, args, &resource, opts...)
 	if err != nil {

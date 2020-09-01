@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20160401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:machinelearning/latest:Workspace"},
                     new Pulumi.Alias { Type = "azurerm:machinelearning/v20191001:Workspace"},
                 },
             };

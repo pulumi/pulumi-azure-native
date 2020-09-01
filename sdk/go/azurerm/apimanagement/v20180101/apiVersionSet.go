@@ -53,7 +53,16 @@ func NewApiVersionSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/latest:ApiVersionSet"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiVersionSet"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiVersionSet"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiVersionSet"),
 		},
 	})
 	opts = append(opts, aliases)

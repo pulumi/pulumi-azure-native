@@ -58,6 +58,9 @@ func NewNetworkInterface(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:NetworkInterface"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20160330:NetworkInterface"),
 		},
 		{

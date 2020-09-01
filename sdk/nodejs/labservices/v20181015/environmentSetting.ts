@@ -147,6 +147,8 @@ export class EnvironmentSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:labservices/latest:EnvironmentSetting" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EnvironmentSetting.__pulumiType, name, inputs, opts);
     }
 }

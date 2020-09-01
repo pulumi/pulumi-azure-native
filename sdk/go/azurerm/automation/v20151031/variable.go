@@ -48,6 +48,12 @@ func NewVariable(ctx *pulumi.Context,
 	if args == nil {
 		args = &VariableArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:Variable"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Variable
 	err := ctx.RegisterResource("azurerm:automation/v20151031:Variable", name, args, &resource, opts...)
 	if err != nil {

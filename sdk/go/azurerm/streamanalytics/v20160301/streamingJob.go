@@ -74,6 +74,12 @@ func NewStreamingJob(ctx *pulumi.Context,
 	if args == nil {
 		args = &StreamingJobArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:streamanalytics/latest:StreamingJob"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource StreamingJob
 	err := ctx.RegisterResource("azurerm:streamanalytics/v20160301:StreamingJob", name, args, &resource, opts...)
 	if err != nil {

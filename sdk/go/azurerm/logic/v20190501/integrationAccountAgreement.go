@@ -77,6 +77,9 @@ func NewIntegrationAccountAgreement(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:logic/latest:IntegrationAccountAgreement"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountAgreement"),
 		},
 	})

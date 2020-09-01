@@ -76,6 +76,12 @@ func NewServer(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:dbforpostgresql/latest:Server"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Server
 	err := ctx.RegisterResource("azurerm:dbforpostgresql/v20171201:Server", name, args, &resource, opts...)
 	if err != nil {

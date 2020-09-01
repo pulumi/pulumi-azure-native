@@ -41,6 +41,12 @@ func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 	if args == nil {
 		args = &IntegrationServiceEnvironmentManagedApiArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:logic/latest:IntegrationServiceEnvironmentManagedApi"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationServiceEnvironmentManagedApi
 	err := ctx.RegisterResource("azurerm:logic/v20190501:IntegrationServiceEnvironmentManagedApi", name, args, &resource, opts...)
 	if err != nil {

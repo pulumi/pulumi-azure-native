@@ -72,6 +72,12 @@ func NewWebTest(ctx *pulumi.Context,
 	if args == nil {
 		args = &WebTestArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:WebTest"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WebTest
 	err := ctx.RegisterResource("azurerm:insights/v20150501:WebTest", name, args, &resource, opts...)
 	if err != nil {

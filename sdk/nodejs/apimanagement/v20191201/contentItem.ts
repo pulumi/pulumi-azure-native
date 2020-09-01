@@ -82,6 +82,8 @@ export class ContentItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ContentItem" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContentItem.__pulumiType, name, inputs, opts);
     }
 }

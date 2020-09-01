@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/latest:MachineExtension"},
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200802:MachineExtension"},
                 },
             };

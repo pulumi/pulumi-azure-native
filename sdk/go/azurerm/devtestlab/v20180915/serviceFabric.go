@@ -52,6 +52,12 @@ func NewServiceFabric(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServiceFabricArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:devtestlab/latest:ServiceFabric"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServiceFabric
 	err := ctx.RegisterResource("azurerm:devtestlab/v20180915:ServiceFabric", name, args, &resource, opts...)
 	if err != nil {

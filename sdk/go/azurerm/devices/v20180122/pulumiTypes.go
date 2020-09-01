@@ -12,7 +12,7 @@ import (
 
 // The description of an X509 CA Certificate.
 type CertificatePropertiesResponse struct {
-	// The certificate's create date and time.
+	// The certificate's creation date and time.
 	Created string `pulumi:"created"`
 	// The certificate's expiration date and time.
 	Expiry string `pulumi:"expiry"`
@@ -39,7 +39,7 @@ type CertificatePropertiesResponseInput interface {
 
 // The description of an X509 CA Certificate.
 type CertificatePropertiesResponseArgs struct {
-	// The certificate's create date and time.
+	// The certificate's creation date and time.
 	Created pulumi.StringInput `pulumi:"created"`
 	// The certificate's expiration date and time.
 	Expiry pulumi.StringInput `pulumi:"expiry"`
@@ -131,7 +131,7 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrO
 	}).(CertificatePropertiesResponsePtrOutput)
 }
 
-// The certificate's create date and time.
+// The certificate's creation date and time.
 func (o CertificatePropertiesResponseOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Created }).(pulumi.StringOutput)
 }
@@ -179,7 +179,7 @@ func (o CertificatePropertiesResponsePtrOutput) Elem() CertificatePropertiesResp
 	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse { return *v }).(CertificatePropertiesResponseOutput)
 }
 
-// The certificate's create date and time.
+// The certificate's creation date and time.
 func (o CertificatePropertiesResponsePtrOutput) Created() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {

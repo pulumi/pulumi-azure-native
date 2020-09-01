@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.Network.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:VpnSite"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180401:VpnSite"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180601:VpnSite"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180801:VpnSite"},

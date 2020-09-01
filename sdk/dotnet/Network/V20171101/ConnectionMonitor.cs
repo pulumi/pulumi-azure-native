@@ -108,6 +108,7 @@ namespace Pulumi.AzureRM.Network.V20171101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azurerm:network/v20171001:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180101:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180201:ConnectionMonitor"},

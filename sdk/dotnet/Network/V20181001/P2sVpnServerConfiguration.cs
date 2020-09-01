@@ -108,6 +108,7 @@ namespace Pulumi.AzureRM.Network.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180801:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181101:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181201:P2sVpnServerConfiguration"},

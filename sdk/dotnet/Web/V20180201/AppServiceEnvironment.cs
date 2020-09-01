@@ -293,6 +293,7 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/latest:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160901:AppServiceEnvironment"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:AppServiceEnvironment"},

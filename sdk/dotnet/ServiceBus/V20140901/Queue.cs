@@ -189,6 +189,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:servicebus/latest:Queue"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:Queue"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:Queue"},
                 },

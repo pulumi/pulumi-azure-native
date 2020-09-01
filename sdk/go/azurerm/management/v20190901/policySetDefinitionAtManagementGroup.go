@@ -51,6 +51,9 @@ func NewPolicySetDefinitionAtManagementGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:management/latest:PolicySetDefinitionAtManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:management/v20180301:PolicySetDefinitionAtManagementGroup"),
 		},
 		{
@@ -61,6 +64,9 @@ func NewPolicySetDefinitionAtManagementGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:management/v20190601:PolicySetDefinitionAtManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20200301:PolicySetDefinitionAtManagementGroup"),
 		},
 	})
 	opts = append(opts, aliases)

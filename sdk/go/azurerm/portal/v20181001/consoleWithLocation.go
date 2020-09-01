@@ -30,6 +30,12 @@ func NewConsoleWithLocation(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConsoleWithLocationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:portal/latest:ConsoleWithLocation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConsoleWithLocation
 	err := ctx.RegisterResource("azurerm:portal/v20181001:ConsoleWithLocation", name, args, &resource, opts...)
 	if err != nil {

@@ -68,6 +68,8 @@ class Binding(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:appplatform/latest:Binding")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Binding, __self__).__init__(
             'azurerm:appplatform/v20200701:Binding',
             resource_name,

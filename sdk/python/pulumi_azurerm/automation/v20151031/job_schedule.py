@@ -76,6 +76,8 @@ class JobSchedule(pulumi.CustomResource):
             __props__['schedule'] = schedule
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/latest:JobSchedule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobSchedule, __self__).__init__(
             'azurerm:automation/v20151031:JobSchedule',
             resource_name,

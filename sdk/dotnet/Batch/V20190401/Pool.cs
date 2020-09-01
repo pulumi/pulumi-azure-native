@@ -177,6 +177,7 @@ namespace Pulumi.AzureRM.Batch.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:batch/latest:Pool"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20170901:Pool"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20181201:Pool"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20190801:Pool"},

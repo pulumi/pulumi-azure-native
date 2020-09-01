@@ -65,6 +65,8 @@ class RegisteredPrefix(pulumi.CustomResource):
             __props__['prefix_validation_state'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:peering/latest:RegisteredPrefix")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegisteredPrefix, __self__).__init__(
             'azurerm:peering/v20200401:RegisteredPrefix',
             resource_name,

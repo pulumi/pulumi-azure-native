@@ -36,6 +36,9 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:managedservices/latest:RegistrationAssignment"),
+		},
+		{
 			Type: pulumi.String("azurerm:managedservices/v20190901:RegistrationAssignment"),
 		},
 	})

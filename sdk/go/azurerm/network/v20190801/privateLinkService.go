@@ -58,6 +58,9 @@ func NewPrivateLinkService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:PrivateLinkService"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20190401:PrivateLinkService"),
 		},
 		{

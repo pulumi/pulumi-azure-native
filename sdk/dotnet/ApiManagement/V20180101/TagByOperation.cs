@@ -57,6 +57,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/latest:TagByOperation"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:TagByOperation"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:TagByOperation"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:TagByOperation"},

@@ -147,7 +147,7 @@ export class RelationshipLink extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/v20170101:RelationshipLink" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/latest:RelationshipLink" }, { type: "azurerm:customerinsights/v20170101:RelationshipLink" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RelationshipLink.__pulumiType, name, inputs, opts);
     }

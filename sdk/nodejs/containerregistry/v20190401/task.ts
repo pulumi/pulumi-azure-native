@@ -150,7 +150,7 @@ export class Task extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/v20180901:Task" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/latest:Task" }, { type: "azurerm:containerregistry/v20180901:Task" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Task.__pulumiType, name, inputs, opts);
     }

@@ -82,7 +82,7 @@ class CertificateOrderCertificate(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:certificateregistration/v20180201:CertificateOrderCertificate"), pulumi.Alias(type_="azurerm:certificateregistration/v20190801:CertificateOrderCertificate"), pulumi.Alias(type_="azurerm:certificateregistration/v20200601:CertificateOrderCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:certificateregistration/latest:CertificateOrderCertificate"), pulumi.Alias(type_="azurerm:certificateregistration/v20180201:CertificateOrderCertificate"), pulumi.Alias(type_="azurerm:certificateregistration/v20190801:CertificateOrderCertificate"), pulumi.Alias(type_="azurerm:certificateregistration/v20200601:CertificateOrderCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CertificateOrderCertificate, __self__).__init__(
             'azurerm:certificateregistration/v20150801:CertificateOrderCertificate',

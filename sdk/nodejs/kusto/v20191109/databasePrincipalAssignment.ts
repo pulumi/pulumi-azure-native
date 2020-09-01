@@ -126,7 +126,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:kusto/v20200215:DatabasePrincipalAssignment" }, { type: "azurerm:kusto/v20200614:DatabasePrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:kusto/latest:DatabasePrincipalAssignment" }, { type: "azurerm:kusto/v20200215:DatabasePrincipalAssignment" }, { type: "azurerm:kusto/v20200614:DatabasePrincipalAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabasePrincipalAssignment.__pulumiType, name, inputs, opts);
     }

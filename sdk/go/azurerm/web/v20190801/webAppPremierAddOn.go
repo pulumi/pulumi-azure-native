@@ -56,6 +56,9 @@ func NewWebAppPremierAddOn(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:WebAppPremierAddOn"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppPremierAddOn"),
 		},
 		{

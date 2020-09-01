@@ -87,6 +87,8 @@ namespace Pulumi.AzureRM.Network.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/latest:Subnet"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20150615:Subnet"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:Subnet"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:Subnet"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160901:Subnet"},

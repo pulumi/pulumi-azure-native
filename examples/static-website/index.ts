@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 import { URL } from "url";
 
-const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
+const resourceGroup = new azurerm.resources.latest.ResourceGroup("rg", {
     resourceGroupName: "azurerm-static-website",
     location: "westus2",
     tags: {
@@ -12,7 +12,7 @@ const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
 });
 
 // Create a Storage Account for our static website
-const storageAccount = new azurerm.storage.v20190601.StorageAccount("websitesa", {
+const storageAccount = new azurerm.storage.latest.StorageAccount("websitesa", {
     resourceGroupName: resourceGroup.name,
     accountName: "pulumiswsa",
     location: "westus2",
@@ -46,7 +46,7 @@ export const staticEndpoint = storageAccount.primaryEndpoints.web;
 const staticHostname = staticEndpoint.apply(url => url ? new URL(url).hostname : "<preview>");
 
 // We can add a CDN in front of the website
-const cdn =  new azurerm.cdn.v20200331.Profile("website-cdn", {
+const cdn =  new azurerm.cdn.latest.Profile("website-cdn", {
     resourceGroupName: resourceGroup.name,
     profileName: "pulumi-static-website",
     location: "global",
@@ -55,7 +55,7 @@ const cdn =  new azurerm.cdn.v20200331.Profile("website-cdn", {
     },
 });
 
-const endpoint = new azurerm.cdn.v20200331.Endpoint("website-cdn-ep", {
+const endpoint = new azurerm.cdn.latest.Endpoint("website-cdn-ep", {
     resourceGroupName: resourceGroup.name,
     profileName: cdn.name,
     endpointName: "pulumi-static-website-ep",

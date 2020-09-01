@@ -41,6 +41,9 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:documentdb/latest:NotebookWorkspace"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20191212:NotebookWorkspace"),
 		},
 		{

@@ -46,6 +46,9 @@ func NewDdosProtectionPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:DdosProtectionPlan"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180201:DdosProtectionPlan"),
 		},
 		{

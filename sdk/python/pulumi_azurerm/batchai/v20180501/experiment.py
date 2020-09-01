@@ -61,6 +61,8 @@ class Experiment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:batchai/latest:Experiment")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Experiment, __self__).__init__(
             'azurerm:batchai/v20180501:Experiment',
             resource_name,

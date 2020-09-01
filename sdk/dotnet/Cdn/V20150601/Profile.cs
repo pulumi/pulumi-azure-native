@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.Cdn.V20150601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:cdn/latest:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20160402:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20161002:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20170402:Profile"},

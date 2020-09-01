@@ -46,6 +46,9 @@ func NewConsumerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:eventhub/latest:ConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventhub/v20140901:ConsumerGroup"),
 		},
 		{

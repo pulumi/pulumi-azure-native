@@ -52,6 +52,9 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:PrivateEndpoint"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20190401:PrivateEndpoint"),
 		},
 		{

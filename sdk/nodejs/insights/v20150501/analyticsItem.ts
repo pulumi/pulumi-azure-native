@@ -112,6 +112,8 @@ export class AnalyticsItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:AnalyticsItem" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AnalyticsItem.__pulumiType, name, inputs, opts);
     }
 }

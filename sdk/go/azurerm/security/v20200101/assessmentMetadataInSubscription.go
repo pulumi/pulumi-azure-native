@@ -60,6 +60,12 @@ func NewAssessmentMetadataInSubscription(ctx *pulumi.Context,
 	if args == nil {
 		args = &AssessmentMetadataInSubscriptionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:security/latest:AssessmentMetadataInSubscription"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AssessmentMetadataInSubscription
 	err := ctx.RegisterResource("azurerm:security/v20200101:AssessmentMetadataInSubscription", name, args, &resource, opts...)
 	if err != nil {

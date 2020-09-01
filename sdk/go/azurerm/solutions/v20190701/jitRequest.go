@@ -61,6 +61,12 @@ func NewJitRequest(ctx *pulumi.Context,
 	if args == nil {
 		args = &JitRequestArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:solutions/latest:JitRequest"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource JitRequest
 	err := ctx.RegisterResource("azurerm:solutions/v20190701:JitRequest", name, args, &resource, opts...)
 	if err != nil {

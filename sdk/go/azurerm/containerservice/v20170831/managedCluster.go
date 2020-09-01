@@ -55,6 +55,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:containerservice/latest:ManagedCluster"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerservice/v20180331:ManagedCluster"),
 		},
 		{

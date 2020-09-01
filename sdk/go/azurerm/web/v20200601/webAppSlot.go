@@ -131,6 +131,9 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/latest:WebAppSlot"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppSlot"),
 		},
 		{

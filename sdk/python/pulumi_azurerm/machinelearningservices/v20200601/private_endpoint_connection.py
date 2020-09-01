@@ -81,7 +81,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['name'] = None
             __props__['private_endpoint'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningservices/v20200101:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200301:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200401:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningservices/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200101:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200301:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200401:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:machinelearningservices/v20200601:PrivateEndpointConnection',

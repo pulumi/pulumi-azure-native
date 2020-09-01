@@ -174,7 +174,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/v20180402:ServerEndpoint" }, { type: "azurerm:storagesync/v20180701:ServerEndpoint" }, { type: "azurerm:storagesync/v20181001:ServerEndpoint" }, { type: "azurerm:storagesync/v20190201:ServerEndpoint" }, { type: "azurerm:storagesync/v20190301:ServerEndpoint" }, { type: "azurerm:storagesync/v20190601:ServerEndpoint" }, { type: "azurerm:storagesync/v20191001:ServerEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:ServerEndpoint" }, { type: "azurerm:storagesync/v20180402:ServerEndpoint" }, { type: "azurerm:storagesync/v20180701:ServerEndpoint" }, { type: "azurerm:storagesync/v20181001:ServerEndpoint" }, { type: "azurerm:storagesync/v20190201:ServerEndpoint" }, { type: "azurerm:storagesync/v20190301:ServerEndpoint" }, { type: "azurerm:storagesync/v20190601:ServerEndpoint" }, { type: "azurerm:storagesync/v20191001:ServerEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerEndpoint.__pulumiType, name, inputs, opts);
     }

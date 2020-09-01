@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:documentdb/latest:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountSqlContainer"},

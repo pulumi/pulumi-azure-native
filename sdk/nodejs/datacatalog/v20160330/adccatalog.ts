@@ -121,6 +121,8 @@ export class ADCCatalog extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:datacatalog/latest:ADCCatalog" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ADCCatalog.__pulumiType, name, inputs, opts);
     }
 }

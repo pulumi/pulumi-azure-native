@@ -68,7 +68,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__['start_ip'] = start_ip
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azurerm:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azurerm:cache/v20171001:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/latest:FirewallRule"), pulumi.Alias(type_="azurerm:cache/v20160401:FirewallRule"), pulumi.Alias(type_="azurerm:cache/v20170201:FirewallRule"), pulumi.Alias(type_="azurerm:cache/v20171001:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azurerm:cache/v20180301:FirewallRule',

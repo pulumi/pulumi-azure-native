@@ -41,6 +41,9 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:batch/latest:Application"),
+		},
+		{
 			Type: pulumi.String("azurerm:batch/v20151201:Application"),
 		},
 		{
@@ -48,6 +51,21 @@ func NewApplication(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:batch/v20170501:Application"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20181201:Application"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20190401:Application"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20190801:Application"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20200301:Application"),
+		},
+		{
+			Type: pulumi.String("azurerm:batch/v20200501:Application"),
 		},
 	})
 	opts = append(opts, aliases)

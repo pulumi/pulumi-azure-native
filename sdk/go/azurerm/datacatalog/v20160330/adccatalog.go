@@ -50,6 +50,12 @@ func NewADCCatalog(ctx *pulumi.Context,
 	if args == nil {
 		args = &ADCCatalogArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datacatalog/latest:ADCCatalog"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ADCCatalog
 	err := ctx.RegisterResource("azurerm:datacatalog/v20160330:ADCCatalog", name, args, &resource, opts...)
 	if err != nil {

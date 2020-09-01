@@ -86,6 +86,9 @@ func NewApiManagementService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/latest:ApiManagementService"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20161010:ApiManagementService"),
 		},
 		{

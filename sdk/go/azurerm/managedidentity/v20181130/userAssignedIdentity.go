@@ -45,6 +45,12 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 	if args == nil {
 		args = &UserAssignedIdentityArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:managedidentity/latest:UserAssignedIdentity"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource UserAssignedIdentity
 	err := ctx.RegisterResource("azurerm:managedidentity/v20181130:UserAssignedIdentity", name, args, &resource, opts...)
 	if err != nil {

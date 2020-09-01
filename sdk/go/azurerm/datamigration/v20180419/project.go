@@ -62,6 +62,12 @@ func NewProject(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProjectArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datamigration/latest:Project"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Project
 	err := ctx.RegisterResource("azurerm:datamigration/v20180419:Project", name, args, &resource, opts...)
 	if err != nil {

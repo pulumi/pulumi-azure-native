@@ -50,6 +50,9 @@ func NewVirtualWAN(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/latest:VirtualWAN"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180601:VirtualWAN"),
 		},
 		{

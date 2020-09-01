@@ -48,6 +48,12 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateStoreOfferArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:marketplace/latest:PrivateStoreOffer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateStoreOffer
 	err := ctx.RegisterResource("azurerm:marketplace/v20200101:PrivateStoreOffer", name, args, &resource, opts...)
 	if err != nil {

@@ -69,6 +69,12 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args == nil {
 		args = &EnvironmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:labservices/latest:Environment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Environment
 	err := ctx.RegisterResource("azurerm:labservices/v20181015:Environment", name, args, &resource, opts...)
 	if err != nil {

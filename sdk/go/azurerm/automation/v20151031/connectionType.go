@@ -51,6 +51,12 @@ func NewConnectionType(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConnectionTypeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:ConnectionType"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConnectionType
 	err := ctx.RegisterResource("azurerm:automation/v20151031:ConnectionType", name, args, &resource, opts...)
 	if err != nil {

@@ -53,6 +53,9 @@ func NewDataStore(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:hybriddata/latest:DataStore"),
+		},
+		{
 			Type: pulumi.String("azurerm:hybriddata/v20190601:DataStore"),
 		},
 	})

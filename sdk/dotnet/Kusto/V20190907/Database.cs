@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.Kusto.V20190907
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:kusto/latest:Database"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190121:Database"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190515:Database"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20191109:Database"},

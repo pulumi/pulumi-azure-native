@@ -73,6 +73,12 @@ namespace Pulumi.AzureRM.Media.V20151001
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azurerm:media/latest:MediaService"},
+                    new Pulumi.Alias { Type = "azurerm:media/v20180701:MediaService"},
+                    new Pulumi.Alias { Type = "azurerm:media/v20200501:MediaService"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

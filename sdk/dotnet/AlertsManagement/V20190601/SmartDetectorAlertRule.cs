@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:alertsmanagement/latest:SmartDetectorAlertRule"},
                     new Pulumi.Alias { Type = "azurerm:alertsmanagement/v20190301:SmartDetectorAlertRule"},
                 },
             };

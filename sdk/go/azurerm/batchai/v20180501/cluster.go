@@ -71,6 +71,12 @@ func NewCluster(ctx *pulumi.Context,
 	if args == nil {
 		args = &ClusterArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:batchai/latest:Cluster"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Cluster
 	err := ctx.RegisterResource("azurerm:batchai/v20180501:Cluster", name, args, &resource, opts...)
 	if err != nil {

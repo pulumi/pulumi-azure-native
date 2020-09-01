@@ -64,6 +64,9 @@ func NewPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:netapp/latest:Pool"),
+		},
+		{
 			Type: pulumi.String("azurerm:netapp/v20190501:Pool"),
 		},
 		{

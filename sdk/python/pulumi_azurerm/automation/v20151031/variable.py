@@ -73,6 +73,8 @@ class Variable(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/latest:Variable")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Variable, __self__).__init__(
             'azurerm:automation/v20151031:Variable',
             resource_name,

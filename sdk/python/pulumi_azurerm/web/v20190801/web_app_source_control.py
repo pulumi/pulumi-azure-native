@@ -70,7 +70,7 @@ class WebAppSourceControl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppSourceControl"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppSourceControl"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppSourceControl"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppSourceControl"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppSourceControl")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:WebAppSourceControl"), pulumi.Alias(type_="azurerm:web/v20150801:WebAppSourceControl"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppSourceControl"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppSourceControl"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppSourceControl"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppSourceControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSourceControl, __self__).__init__(
             'azurerm:web/v20190801:WebAppSourceControl',

@@ -50,6 +50,12 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 	if args == nil {
 		args = &AutoscaleSettingArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/latest:AutoscaleSetting"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AutoscaleSetting
 	err := ctx.RegisterResource("azurerm:insights/v20150401:AutoscaleSetting", name, args, &resource, opts...)
 	if err != nil {

@@ -50,6 +50,12 @@ func NewMediaService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:media/latest:MediaService"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20151001:MediaService"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180701:MediaService"),
 		},
 	})

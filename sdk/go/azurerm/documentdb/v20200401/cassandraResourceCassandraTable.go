@@ -52,6 +52,9 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:documentdb/latest:CassandraResourceCassandraTable"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:CassandraResourceCassandraTable"),
 		},
 		{

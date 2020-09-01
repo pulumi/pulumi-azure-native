@@ -163,6 +163,13 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azurerm:certificateregistration/latest:CertificateOrder"},
+                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20180201:CertificateOrder"},
+                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20190801:CertificateOrder"},
+                    new Pulumi.Alias { Type = "azurerm:certificateregistration/v20200601:CertificateOrder"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

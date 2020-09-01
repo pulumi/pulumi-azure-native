@@ -43,6 +43,12 @@ func NewTrigger(ctx *pulumi.Context,
 	if args == nil {
 		args = &TriggerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:datashare/latest:Trigger"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Trigger
 	err := ctx.RegisterResource("azurerm:datashare/v20191101:Trigger", name, args, &resource, opts...)
 	if err != nil {

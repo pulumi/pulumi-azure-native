@@ -78,6 +78,8 @@ class ServiceFabric(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:ServiceFabric")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceFabric, __self__).__init__(
             'azurerm:devtestlab/v20180915:ServiceFabric',
             resource_name,

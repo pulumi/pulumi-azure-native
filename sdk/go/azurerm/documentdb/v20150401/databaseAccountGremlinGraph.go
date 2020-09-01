@@ -66,6 +66,9 @@ func NewDatabaseAccountGremlinGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:documentdb/latest:DatabaseAccountGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20150408:DatabaseAccountGremlinGraph"),
 		},
 		{

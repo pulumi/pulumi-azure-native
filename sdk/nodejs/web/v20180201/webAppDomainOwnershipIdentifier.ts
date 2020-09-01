@@ -83,7 +83,7 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20200601:WebAppDomainOwnershipIdentifier" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azurerm:web/v20200601:WebAppDomainOwnershipIdentifier" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppDomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
     }

@@ -64,6 +64,12 @@ func NewDscConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &DscConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automation/latest:DscConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DscConfiguration
 	err := ctx.RegisterResource("azurerm:automation/v20151031:DscConfiguration", name, args, &resource, opts...)
 	if err != nil {

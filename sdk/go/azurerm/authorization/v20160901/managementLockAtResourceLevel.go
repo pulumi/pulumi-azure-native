@@ -55,7 +55,7 @@ func NewManagementLockAtResourceLevel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:authorization/v20150101:ManagementLockAtResourceLevel"),
+			Type: pulumi.String("azurerm:authorization/latest:ManagementLockAtResourceLevel"),
 		},
 	})
 	opts = append(opts, aliases)

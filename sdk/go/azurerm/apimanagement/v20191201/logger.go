@@ -54,6 +54,21 @@ func NewLogger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/latest:Logger"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20160707:Logger"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20161010:Logger"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20170301:Logger"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180101:Logger"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:Logger"),
 		},
 	})

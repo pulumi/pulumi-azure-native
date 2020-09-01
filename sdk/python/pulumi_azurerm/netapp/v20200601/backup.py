@@ -80,6 +80,8 @@ class Backup(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['size'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:netapp/latest:Backup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azurerm:netapp/v20200601:Backup',
             resource_name,

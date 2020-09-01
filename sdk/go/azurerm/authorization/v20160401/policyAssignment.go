@@ -38,6 +38,36 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &PolicyAssignmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:authorization/latest:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20151101:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20161201:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20180301:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20180501:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20190101:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20190601:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20190901:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20200301:PolicyAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PolicyAssignment
 	err := ctx.RegisterResource("azurerm:authorization/v20160401:PolicyAssignment", name, args, &resource, opts...)
 	if err != nil {

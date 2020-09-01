@@ -112,7 +112,7 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azurerm:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azurerm:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azurerm:documentdb/v20160331:DatabaseAccountCassandraTable" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:DatabaseAccountCassandraTable" }, { type: "azurerm:documentdb/v20150401:DatabaseAccountCassandraTable" }, { type: "azurerm:documentdb/v20150408:DatabaseAccountCassandraTable" }, { type: "azurerm:documentdb/v20160319:DatabaseAccountCassandraTable" }, { type: "azurerm:documentdb/v20160331:DatabaseAccountCassandraTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccountCassandraTable.__pulumiType, name, inputs, opts);
     }

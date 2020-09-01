@@ -99,6 +99,7 @@ namespace Pulumi.AzureRM.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/latest:WebAppPremierAddOnSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppPremierAddOnSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppPremierAddOnSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppPremierAddOnSlot"},

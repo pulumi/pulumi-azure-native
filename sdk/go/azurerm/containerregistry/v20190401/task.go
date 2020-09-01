@@ -71,6 +71,9 @@ func NewTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:containerregistry/latest:Task"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerregistry/v20180901:Task"),
 		},
 	})

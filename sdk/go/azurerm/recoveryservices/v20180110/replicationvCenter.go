@@ -44,6 +44,9 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationvCenter"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationvCenter"),
 		},
 		{

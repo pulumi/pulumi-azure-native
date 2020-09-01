@@ -58,6 +58,9 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/latest:ApiIssueAttachment"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiIssueAttachment"),
 		},
 		{

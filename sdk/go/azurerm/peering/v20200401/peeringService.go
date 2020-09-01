@@ -47,6 +47,12 @@ func NewPeeringService(ctx *pulumi.Context,
 	if args == nil {
 		args = &PeeringServiceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:peering/latest:PeeringService"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PeeringService
 	err := ctx.RegisterResource("azurerm:peering/v20200401:PeeringService", name, args, &resource, opts...)
 	if err != nil {

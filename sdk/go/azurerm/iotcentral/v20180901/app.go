@@ -52,6 +52,12 @@ func NewApp(ctx *pulumi.Context,
 	if args == nil {
 		args = &AppArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:iotcentral/latest:App"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource App
 	err := ctx.RegisterResource("azurerm:iotcentral/v20180901:App", name, args, &resource, opts...)
 	if err != nil {
