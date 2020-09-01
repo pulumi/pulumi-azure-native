@@ -44,6 +44,12 @@ func NewCustomDomain(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:appplatform/latest:CustomDomain"),
 		},
+		{
+			Type: pulumi.String("azurerm:appplatform/preview:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azurerm:appplatform/v20190501preview:CustomDomain"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomDomain

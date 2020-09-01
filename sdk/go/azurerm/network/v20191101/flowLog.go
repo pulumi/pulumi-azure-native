@@ -68,6 +68,9 @@ func NewFlowLog(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:FlowLog"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:FlowLog"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20191201:FlowLog"),
 		},
 		{

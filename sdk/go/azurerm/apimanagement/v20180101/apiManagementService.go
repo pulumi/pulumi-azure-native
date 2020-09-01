@@ -97,6 +97,9 @@ func NewApiManagementService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:ApiManagementService"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ApiManagementService"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:ApiManagementService"),
 		},
 		{
@@ -106,10 +109,16 @@ func NewApiManagementService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiManagementService"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:ApiManagementService"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiManagementService"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:ApiManagementService"),
 		},
 	})
 	opts = append(opts, aliases)

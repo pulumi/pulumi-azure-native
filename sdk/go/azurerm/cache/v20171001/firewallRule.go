@@ -50,6 +50,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cache/latest:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azurerm:cache/preview:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:cache/v20160401:FirewallRule"),
 		},
 		{
@@ -57,6 +60,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:cache/v20180301:FirewallRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:cache/v20190701:FirewallRule"),
 		},
 	})
 	opts = append(opts, aliases)

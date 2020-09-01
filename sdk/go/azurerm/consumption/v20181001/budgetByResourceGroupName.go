@@ -65,6 +65,9 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:consumption/latest:BudgetByResourceGroupName"),
 		},
 		{
+			Type: pulumi.String("azurerm:consumption/preview:BudgetByResourceGroupName"),
+		},
+		{
 			Type: pulumi.String("azurerm:consumption/v20180131:BudgetByResourceGroupName"),
 		},
 		{

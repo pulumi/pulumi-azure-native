@@ -67,7 +67,16 @@ func NewIntegrationAccountSchema(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:IntegrationAccountSchema"),
 		},
 		{
+			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountSchema"),
+		},
+		{
+			Type: pulumi.String("azurerm:logic/v20150801preview:IntegrationAccountSchema"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountSchema"),
+		},
+		{
+			Type: pulumi.String("azurerm:logic/v20180701preview:IntegrationAccountSchema"),
 		},
 	})
 	opts = append(opts, aliases)

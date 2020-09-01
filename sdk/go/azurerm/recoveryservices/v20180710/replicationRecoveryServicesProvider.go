@@ -50,6 +50,9 @@ func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationRecoveryServicesProvider"),
 		},
 		{
+			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationRecoveryServicesProvider"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"),
 		},
 	})

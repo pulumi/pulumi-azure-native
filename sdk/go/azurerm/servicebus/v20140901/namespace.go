@@ -60,10 +60,16 @@ func NewNamespace(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicebus/latest:Namespace"),
 		},
 		{
+			Type: pulumi.String("azurerm:servicebus/preview:Namespace"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicebus/v20150801:Namespace"),
 		},
 		{
 			Type: pulumi.String("azurerm:servicebus/v20170401:Namespace"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicebus/v20180101preview:Namespace"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -44,6 +44,9 @@ func NewPrivateDnsZoneGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:PrivateDnsZoneGroup"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:PrivateDnsZoneGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20200401:PrivateDnsZoneGroup"),
 		},
 		{

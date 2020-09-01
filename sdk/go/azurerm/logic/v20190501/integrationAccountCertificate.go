@@ -54,7 +54,16 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:IntegrationAccountCertificate"),
 		},
 		{
+			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountCertificate"),
+		},
+		{
+			Type: pulumi.String("azurerm:logic/v20150801preview:IntegrationAccountCertificate"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountCertificate"),
+		},
+		{
+			Type: pulumi.String("azurerm:logic/v20180701preview:IntegrationAccountCertificate"),
 		},
 	})
 	opts = append(opts, aliases)

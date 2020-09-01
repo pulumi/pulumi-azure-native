@@ -109,6 +109,9 @@ func NewSiteSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:SiteSlot"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:SiteSlot"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160801:SiteSlot"),
 		},
 		{

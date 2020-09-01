@@ -47,16 +47,25 @@ func NewProductPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ProductPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:ProductPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:ProductPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:ProductPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:ProductPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -82,7 +82,19 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/latest:StreamingEndpoint"),
 		},
 		{
+			Type: pulumi.String("azurerm:media/preview:StreamingEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180330preview:StreamingEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180601preview:StreamingEndpoint"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180701:StreamingEndpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20190501preview:StreamingEndpoint"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -55,6 +55,12 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:NetworkSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20150501preview:NetworkSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20150615:NetworkSecurityGroup"),
 		},
 		{

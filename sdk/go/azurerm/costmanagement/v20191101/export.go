@@ -53,6 +53,9 @@ func NewExport(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:costmanagement/latest:Export"),
 		},
 		{
+			Type: pulumi.String("azurerm:costmanagement/preview:Export"),
+		},
+		{
 			Type: pulumi.String("azurerm:costmanagement/v20190101:Export"),
 		},
 		{

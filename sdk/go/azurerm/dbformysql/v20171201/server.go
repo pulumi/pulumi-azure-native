@@ -80,6 +80,12 @@ func NewServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:dbformysql/latest:Server"),
 		},
+		{
+			Type: pulumi.String("azurerm:dbformysql/preview:Server"),
+		},
+		{
+			Type: pulumi.String("azurerm:dbformysql/v20171201preview:Server"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Server

@@ -60,6 +60,9 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:netapp/preview:backupPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:netapp/v20200601:backupPolicy"),
 		},
 	})

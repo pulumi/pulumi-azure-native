@@ -72,6 +72,9 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storsimple/preview:BackupSchedule"),
+		},
+		{
 			Type: pulumi.String("azurerm:storsimple/v20170601:BackupSchedule"),
 		},
 	})

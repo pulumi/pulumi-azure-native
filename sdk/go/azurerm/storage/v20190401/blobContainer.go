@@ -62,7 +62,13 @@ func NewBlobContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storage/latest:BlobContainer"),
 		},
 		{
+			Type: pulumi.String("azurerm:storage/preview:BlobContainer"),
+		},
+		{
 			Type: pulumi.String("azurerm:storage/v20180201:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storage/v20180301preview:BlobContainer"),
 		},
 		{
 			Type: pulumi.String("azurerm:storage/v20180701:BlobContainer"),

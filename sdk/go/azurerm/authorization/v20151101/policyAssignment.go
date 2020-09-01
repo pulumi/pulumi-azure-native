@@ -37,10 +37,19 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:authorization/latest:PolicyAssignment"),
 		},
 		{
+			Type: pulumi.String("azurerm:authorization/preview:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20151001preview:PolicyAssignment"),
+		},
+		{
 			Type: pulumi.String("azurerm:authorization/v20160401:PolicyAssignment"),
 		},
 		{
 			Type: pulumi.String("azurerm:authorization/v20161201:PolicyAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20170601preview:PolicyAssignment"),
 		},
 		{
 			Type: pulumi.String("azurerm:authorization/v20180301:PolicyAssignment"),

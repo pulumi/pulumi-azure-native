@@ -81,6 +81,9 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:logic/latest:RosettaNetProcessConfiguration"),
 		},
+		{
+			Type: pulumi.String("azurerm:logic/preview:RosettaNetProcessConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RosettaNetProcessConfiguration

@@ -46,6 +46,12 @@ func NewRoleDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:authorization/latest:RoleDefinition"),
 		},
+		{
+			Type: pulumi.String("azurerm:authorization/preview:RoleDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20180101preview:RoleDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RoleDefinition

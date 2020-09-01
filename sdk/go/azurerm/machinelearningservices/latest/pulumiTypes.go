@@ -1885,6 +1885,312 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultArmId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// LinkedWorkspace specific properties.
+type LinkedWorkspaceProps struct {
+	// ResourceId of the link target of the linked workspace.
+	LinkedWorkspaceResourceId *string `pulumi:"linkedWorkspaceResourceId"`
+	// ResourceId of the user assigned identity for the linked workspace.
+	UserAssignedIdentityResourceId *string `pulumi:"userAssignedIdentityResourceId"`
+}
+
+// LinkedWorkspacePropsInput is an input type that accepts LinkedWorkspacePropsArgs and LinkedWorkspacePropsOutput values.
+// You can construct a concrete instance of `LinkedWorkspacePropsInput` via:
+//
+//          LinkedWorkspacePropsArgs{...}
+type LinkedWorkspacePropsInput interface {
+	pulumi.Input
+
+	ToLinkedWorkspacePropsOutput() LinkedWorkspacePropsOutput
+	ToLinkedWorkspacePropsOutputWithContext(context.Context) LinkedWorkspacePropsOutput
+}
+
+// LinkedWorkspace specific properties.
+type LinkedWorkspacePropsArgs struct {
+	// ResourceId of the link target of the linked workspace.
+	LinkedWorkspaceResourceId pulumi.StringPtrInput `pulumi:"linkedWorkspaceResourceId"`
+	// ResourceId of the user assigned identity for the linked workspace.
+	UserAssignedIdentityResourceId pulumi.StringPtrInput `pulumi:"userAssignedIdentityResourceId"`
+}
+
+func (LinkedWorkspacePropsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedWorkspaceProps)(nil)).Elem()
+}
+
+func (i LinkedWorkspacePropsArgs) ToLinkedWorkspacePropsOutput() LinkedWorkspacePropsOutput {
+	return i.ToLinkedWorkspacePropsOutputWithContext(context.Background())
+}
+
+func (i LinkedWorkspacePropsArgs) ToLinkedWorkspacePropsOutputWithContext(ctx context.Context) LinkedWorkspacePropsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspacePropsOutput)
+}
+
+func (i LinkedWorkspacePropsArgs) ToLinkedWorkspacePropsPtrOutput() LinkedWorkspacePropsPtrOutput {
+	return i.ToLinkedWorkspacePropsPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedWorkspacePropsArgs) ToLinkedWorkspacePropsPtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspacePropsOutput).ToLinkedWorkspacePropsPtrOutputWithContext(ctx)
+}
+
+// LinkedWorkspacePropsPtrInput is an input type that accepts LinkedWorkspacePropsArgs, LinkedWorkspacePropsPtr and LinkedWorkspacePropsPtrOutput values.
+// You can construct a concrete instance of `LinkedWorkspacePropsPtrInput` via:
+//
+//          LinkedWorkspacePropsArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedWorkspacePropsPtrInput interface {
+	pulumi.Input
+
+	ToLinkedWorkspacePropsPtrOutput() LinkedWorkspacePropsPtrOutput
+	ToLinkedWorkspacePropsPtrOutputWithContext(context.Context) LinkedWorkspacePropsPtrOutput
+}
+
+type linkedWorkspacePropsPtrType LinkedWorkspacePropsArgs
+
+func LinkedWorkspacePropsPtr(v *LinkedWorkspacePropsArgs) LinkedWorkspacePropsPtrInput {
+	return (*linkedWorkspacePropsPtrType)(v)
+}
+
+func (*linkedWorkspacePropsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedWorkspaceProps)(nil)).Elem()
+}
+
+func (i *linkedWorkspacePropsPtrType) ToLinkedWorkspacePropsPtrOutput() LinkedWorkspacePropsPtrOutput {
+	return i.ToLinkedWorkspacePropsPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedWorkspacePropsPtrType) ToLinkedWorkspacePropsPtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspacePropsPtrOutput)
+}
+
+// LinkedWorkspace specific properties.
+type LinkedWorkspacePropsOutput struct{ *pulumi.OutputState }
+
+func (LinkedWorkspacePropsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedWorkspaceProps)(nil)).Elem()
+}
+
+func (o LinkedWorkspacePropsOutput) ToLinkedWorkspacePropsOutput() LinkedWorkspacePropsOutput {
+	return o
+}
+
+func (o LinkedWorkspacePropsOutput) ToLinkedWorkspacePropsOutputWithContext(ctx context.Context) LinkedWorkspacePropsOutput {
+	return o
+}
+
+func (o LinkedWorkspacePropsOutput) ToLinkedWorkspacePropsPtrOutput() LinkedWorkspacePropsPtrOutput {
+	return o.ToLinkedWorkspacePropsPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedWorkspacePropsOutput) ToLinkedWorkspacePropsPtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsPtrOutput {
+	return o.ApplyT(func(v LinkedWorkspaceProps) *LinkedWorkspaceProps {
+		return &v
+	}).(LinkedWorkspacePropsPtrOutput)
+}
+
+// ResourceId of the link target of the linked workspace.
+func (o LinkedWorkspacePropsOutput) LinkedWorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedWorkspaceProps) *string { return v.LinkedWorkspaceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// ResourceId of the user assigned identity for the linked workspace.
+func (o LinkedWorkspacePropsOutput) UserAssignedIdentityResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedWorkspaceProps) *string { return v.UserAssignedIdentityResourceId }).(pulumi.StringPtrOutput)
+}
+
+type LinkedWorkspacePropsPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedWorkspacePropsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedWorkspaceProps)(nil)).Elem()
+}
+
+func (o LinkedWorkspacePropsPtrOutput) ToLinkedWorkspacePropsPtrOutput() LinkedWorkspacePropsPtrOutput {
+	return o
+}
+
+func (o LinkedWorkspacePropsPtrOutput) ToLinkedWorkspacePropsPtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsPtrOutput {
+	return o
+}
+
+func (o LinkedWorkspacePropsPtrOutput) Elem() LinkedWorkspacePropsOutput {
+	return o.ApplyT(func(v *LinkedWorkspaceProps) LinkedWorkspaceProps { return *v }).(LinkedWorkspacePropsOutput)
+}
+
+// ResourceId of the link target of the linked workspace.
+func (o LinkedWorkspacePropsPtrOutput) LinkedWorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedWorkspaceProps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedWorkspaceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceId of the user assigned identity for the linked workspace.
+func (o LinkedWorkspacePropsPtrOutput) UserAssignedIdentityResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedWorkspaceProps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// LinkedWorkspace specific properties.
+type LinkedWorkspacePropsResponse struct {
+	// ResourceId of the link target of the linked workspace.
+	LinkedWorkspaceResourceId *string `pulumi:"linkedWorkspaceResourceId"`
+	// ResourceId of the user assigned identity for the linked workspace.
+	UserAssignedIdentityResourceId *string `pulumi:"userAssignedIdentityResourceId"`
+}
+
+// LinkedWorkspacePropsResponseInput is an input type that accepts LinkedWorkspacePropsResponseArgs and LinkedWorkspacePropsResponseOutput values.
+// You can construct a concrete instance of `LinkedWorkspacePropsResponseInput` via:
+//
+//          LinkedWorkspacePropsResponseArgs{...}
+type LinkedWorkspacePropsResponseInput interface {
+	pulumi.Input
+
+	ToLinkedWorkspacePropsResponseOutput() LinkedWorkspacePropsResponseOutput
+	ToLinkedWorkspacePropsResponseOutputWithContext(context.Context) LinkedWorkspacePropsResponseOutput
+}
+
+// LinkedWorkspace specific properties.
+type LinkedWorkspacePropsResponseArgs struct {
+	// ResourceId of the link target of the linked workspace.
+	LinkedWorkspaceResourceId pulumi.StringPtrInput `pulumi:"linkedWorkspaceResourceId"`
+	// ResourceId of the user assigned identity for the linked workspace.
+	UserAssignedIdentityResourceId pulumi.StringPtrInput `pulumi:"userAssignedIdentityResourceId"`
+}
+
+func (LinkedWorkspacePropsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedWorkspacePropsResponse)(nil)).Elem()
+}
+
+func (i LinkedWorkspacePropsResponseArgs) ToLinkedWorkspacePropsResponseOutput() LinkedWorkspacePropsResponseOutput {
+	return i.ToLinkedWorkspacePropsResponseOutputWithContext(context.Background())
+}
+
+func (i LinkedWorkspacePropsResponseArgs) ToLinkedWorkspacePropsResponseOutputWithContext(ctx context.Context) LinkedWorkspacePropsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspacePropsResponseOutput)
+}
+
+func (i LinkedWorkspacePropsResponseArgs) ToLinkedWorkspacePropsResponsePtrOutput() LinkedWorkspacePropsResponsePtrOutput {
+	return i.ToLinkedWorkspacePropsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LinkedWorkspacePropsResponseArgs) ToLinkedWorkspacePropsResponsePtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspacePropsResponseOutput).ToLinkedWorkspacePropsResponsePtrOutputWithContext(ctx)
+}
+
+// LinkedWorkspacePropsResponsePtrInput is an input type that accepts LinkedWorkspacePropsResponseArgs, LinkedWorkspacePropsResponsePtr and LinkedWorkspacePropsResponsePtrOutput values.
+// You can construct a concrete instance of `LinkedWorkspacePropsResponsePtrInput` via:
+//
+//          LinkedWorkspacePropsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedWorkspacePropsResponsePtrInput interface {
+	pulumi.Input
+
+	ToLinkedWorkspacePropsResponsePtrOutput() LinkedWorkspacePropsResponsePtrOutput
+	ToLinkedWorkspacePropsResponsePtrOutputWithContext(context.Context) LinkedWorkspacePropsResponsePtrOutput
+}
+
+type linkedWorkspacePropsResponsePtrType LinkedWorkspacePropsResponseArgs
+
+func LinkedWorkspacePropsResponsePtr(v *LinkedWorkspacePropsResponseArgs) LinkedWorkspacePropsResponsePtrInput {
+	return (*linkedWorkspacePropsResponsePtrType)(v)
+}
+
+func (*linkedWorkspacePropsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedWorkspacePropsResponse)(nil)).Elem()
+}
+
+func (i *linkedWorkspacePropsResponsePtrType) ToLinkedWorkspacePropsResponsePtrOutput() LinkedWorkspacePropsResponsePtrOutput {
+	return i.ToLinkedWorkspacePropsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *linkedWorkspacePropsResponsePtrType) ToLinkedWorkspacePropsResponsePtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspacePropsResponsePtrOutput)
+}
+
+// LinkedWorkspace specific properties.
+type LinkedWorkspacePropsResponseOutput struct{ *pulumi.OutputState }
+
+func (LinkedWorkspacePropsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedWorkspacePropsResponse)(nil)).Elem()
+}
+
+func (o LinkedWorkspacePropsResponseOutput) ToLinkedWorkspacePropsResponseOutput() LinkedWorkspacePropsResponseOutput {
+	return o
+}
+
+func (o LinkedWorkspacePropsResponseOutput) ToLinkedWorkspacePropsResponseOutputWithContext(ctx context.Context) LinkedWorkspacePropsResponseOutput {
+	return o
+}
+
+func (o LinkedWorkspacePropsResponseOutput) ToLinkedWorkspacePropsResponsePtrOutput() LinkedWorkspacePropsResponsePtrOutput {
+	return o.ToLinkedWorkspacePropsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LinkedWorkspacePropsResponseOutput) ToLinkedWorkspacePropsResponsePtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsResponsePtrOutput {
+	return o.ApplyT(func(v LinkedWorkspacePropsResponse) *LinkedWorkspacePropsResponse {
+		return &v
+	}).(LinkedWorkspacePropsResponsePtrOutput)
+}
+
+// ResourceId of the link target of the linked workspace.
+func (o LinkedWorkspacePropsResponseOutput) LinkedWorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedWorkspacePropsResponse) *string { return v.LinkedWorkspaceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// ResourceId of the user assigned identity for the linked workspace.
+func (o LinkedWorkspacePropsResponseOutput) UserAssignedIdentityResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedWorkspacePropsResponse) *string { return v.UserAssignedIdentityResourceId }).(pulumi.StringPtrOutput)
+}
+
+type LinkedWorkspacePropsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedWorkspacePropsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedWorkspacePropsResponse)(nil)).Elem()
+}
+
+func (o LinkedWorkspacePropsResponsePtrOutput) ToLinkedWorkspacePropsResponsePtrOutput() LinkedWorkspacePropsResponsePtrOutput {
+	return o
+}
+
+func (o LinkedWorkspacePropsResponsePtrOutput) ToLinkedWorkspacePropsResponsePtrOutputWithContext(ctx context.Context) LinkedWorkspacePropsResponsePtrOutput {
+	return o
+}
+
+func (o LinkedWorkspacePropsResponsePtrOutput) Elem() LinkedWorkspacePropsResponseOutput {
+	return o.ApplyT(func(v *LinkedWorkspacePropsResponse) LinkedWorkspacePropsResponse { return *v }).(LinkedWorkspacePropsResponseOutput)
+}
+
+// ResourceId of the link target of the linked workspace.
+func (o LinkedWorkspacePropsResponsePtrOutput) LinkedWorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedWorkspacePropsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedWorkspaceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceId of the user assigned identity for the linked workspace.
+func (o LinkedWorkspacePropsResponsePtrOutput) UserAssignedIdentityResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedWorkspacePropsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Wrapper for error response to follow ARM guidelines.
 type MachineLearningServiceErrorResponse struct {
 	// The error response.
@@ -3767,6 +4073,10 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LinkedWorkspacePropsOutput{})
+	pulumi.RegisterOutputType(LinkedWorkspacePropsPtrOutput{})
+	pulumi.RegisterOutputType(LinkedWorkspacePropsResponseOutput{})
+	pulumi.RegisterOutputType(LinkedWorkspacePropsResponsePtrOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorResponseOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(NotebookListCredentialsResultResponseOutput{})

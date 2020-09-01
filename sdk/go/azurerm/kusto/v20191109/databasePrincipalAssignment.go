@@ -66,6 +66,9 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:kusto/latest:DatabasePrincipalAssignment"),
 		},
 		{
+			Type: pulumi.String("azurerm:kusto/preview:DatabasePrincipalAssignment"),
+		},
+		{
 			Type: pulumi.String("azurerm:kusto/v20200215:DatabasePrincipalAssignment"),
 		},
 		{

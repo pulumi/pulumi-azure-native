@@ -61,6 +61,12 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualNetwork"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20150501preview:VirtualNetwork"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20150615:VirtualNetwork"),
 		},
 		{

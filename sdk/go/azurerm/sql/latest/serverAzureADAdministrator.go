@@ -57,7 +57,16 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:sql/preview:ServerAzureADAdministrator"),
+		},
+		{
 			Type: pulumi.String("azurerm:sql/v20140401:ServerAzureADAdministrator"),
+		},
+		{
+			Type: pulumi.String("azurerm:sql/v20180601preview:ServerAzureADAdministrator"),
+		},
+		{
+			Type: pulumi.String("azurerm:sql/v20190601preview:ServerAzureADAdministrator"),
 		},
 	})
 	opts = append(opts, aliases)

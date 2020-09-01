@@ -41,7 +41,13 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:dbforpostgresql/preview:Database"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbforpostgresql/v20171201:Database"),
+		},
+		{
+			Type: pulumi.String("azurerm:dbforpostgresql/v20171201preview:Database"),
 		},
 	})
 	opts = append(opts, aliases)

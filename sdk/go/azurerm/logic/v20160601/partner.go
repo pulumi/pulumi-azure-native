@@ -60,6 +60,15 @@ func NewPartner(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:Partner"),
 		},
 		{
+			Type: pulumi.String("azurerm:logic/preview:Partner"),
+		},
+		{
+			Type: pulumi.String("azurerm:logic/v20150801preview:Partner"),
+		},
+		{
+			Type: pulumi.String("azurerm:logic/v20180701preview:Partner"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20190501:Partner"),
 		},
 	})

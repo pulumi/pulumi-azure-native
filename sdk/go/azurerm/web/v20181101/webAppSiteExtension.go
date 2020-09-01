@@ -81,6 +81,9 @@ func NewWebAppSiteExtension(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppSiteExtension"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppSiteExtension"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160801:WebAppSiteExtension"),
 		},
 		{

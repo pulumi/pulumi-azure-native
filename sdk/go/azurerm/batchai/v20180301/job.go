@@ -100,6 +100,12 @@ func NewJob(ctx *pulumi.Context,
 	if args == nil {
 		args = &JobArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:batchai/v20170901preview:Job"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Job
 	err := ctx.RegisterResource("azurerm:batchai/v20180301:Job", name, args, &resource, opts...)
 	if err != nil {

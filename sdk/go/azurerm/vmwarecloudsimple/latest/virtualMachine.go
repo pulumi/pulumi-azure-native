@@ -94,6 +94,9 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:vmwarecloudsimple/preview:VirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azurerm:vmwarecloudsimple/v20190401:VirtualMachine"),
 		},
 	})

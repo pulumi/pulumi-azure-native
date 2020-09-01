@@ -70,7 +70,13 @@ func NewVirtualMachine(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:VirtualMachine"),
 		},
 		{
+			Type: pulumi.String("azurerm:compute/preview:VirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20150615:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20160430preview:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azurerm:compute/v20170330:VirtualMachine"),

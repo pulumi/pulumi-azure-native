@@ -56,6 +56,9 @@ func NewOrigin(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cdn/latest:Origin"),
 		},
 		{
+			Type: pulumi.String("azurerm:cdn/preview:Origin"),
+		},
+		{
 			Type: pulumi.String("azurerm:cdn/v20160402:Origin"),
 		},
 		{

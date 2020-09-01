@@ -78,7 +78,13 @@ func NewServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:dbformysql/preview:Server"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformysql/v20171201:Server"),
+		},
+		{
+			Type: pulumi.String("azurerm:dbformysql/v20171201preview:Server"),
 		},
 	})
 	opts = append(opts, aliases)

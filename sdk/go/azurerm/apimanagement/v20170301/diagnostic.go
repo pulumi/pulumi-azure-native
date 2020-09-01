@@ -45,13 +45,22 @@ func NewDiagnostic(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:Diagnostic"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:Diagnostic"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:Diagnostic"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:Diagnostic"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:Diagnostic"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:Diagnostic"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:Diagnostic"),
 		},
 	})
 	opts = append(opts, aliases)

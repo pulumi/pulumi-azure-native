@@ -44,6 +44,12 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:security/latest:DeviceSecurityGroup"),
 		},
+		{
+			Type: pulumi.String("azurerm:security/preview:DeviceSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:security/v20170801preview:DeviceSecurityGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DeviceSecurityGroup

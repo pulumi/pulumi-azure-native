@@ -48,6 +48,12 @@ func NewGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &GroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:migrate/v20171111preview:Group"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Group
 	err := ctx.RegisterResource("azurerm:migrate/v20180202:Group", name, args, &resource, opts...)
 	if err != nil {

@@ -56,6 +56,9 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:eventhub/preview:Namespace"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventhub/v20140901:Namespace"),
 		},
 		{
@@ -63,6 +66,9 @@ func NewNamespace(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:eventhub/v20170401:Namespace"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventhub/v20180101preview:Namespace"),
 		},
 	})
 	opts = append(opts, aliases)

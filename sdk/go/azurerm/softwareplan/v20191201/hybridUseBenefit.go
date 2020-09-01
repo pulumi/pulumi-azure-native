@@ -49,6 +49,12 @@ func NewHybridUseBenefit(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:softwareplan/latest:HybridUseBenefit"),
 		},
+		{
+			Type: pulumi.String("azurerm:softwareplan/preview:HybridUseBenefit"),
+		},
+		{
+			Type: pulumi.String("azurerm:softwareplan/v20190601preview:HybridUseBenefit"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource HybridUseBenefit

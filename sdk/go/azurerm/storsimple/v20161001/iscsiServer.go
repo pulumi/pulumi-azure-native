@@ -58,6 +58,9 @@ func NewIscsiServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storsimple/latest:IscsiServer"),
 		},
+		{
+			Type: pulumi.String("azurerm:storsimple/preview:IscsiServer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IscsiServer

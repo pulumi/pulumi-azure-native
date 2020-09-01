@@ -60,13 +60,37 @@ func NewTopic(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:eventgrid/latest:Topic"),
 		},
 		{
+			Type: pulumi.String("azurerm:eventgrid/preview:Topic"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20170615preview:Topic"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20170915preview:Topic"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20180101:Topic"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20180501preview:Topic"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20180915preview:Topic"),
 		},
 		{
 			Type: pulumi.String("azurerm:eventgrid/v20190101:Topic"),
 		},
 		{
+			Type: pulumi.String("azurerm:eventgrid/v20190201preview:Topic"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20190601:Topic"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20200101preview:Topic"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20200401preview:Topic"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -71,6 +71,12 @@ func NewShareSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:datashare/preview:ShareSubscription"),
+		},
+		{
+			Type: pulumi.String("azurerm:datashare/v20181101preview:ShareSubscription"),
+		},
+		{
 			Type: pulumi.String("azurerm:datashare/v20191101:ShareSubscription"),
 		},
 	})

@@ -85,7 +85,16 @@ func NewComponent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:insights/preview:Component"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20150501:Component"),
+		},
+		{
+			Type: pulumi.String("azurerm:insights/v20180501preview:Component"),
+		},
+		{
+			Type: pulumi.String("azurerm:insights/v20200202preview:Component"),
 		},
 	})
 	opts = append(opts, aliases)

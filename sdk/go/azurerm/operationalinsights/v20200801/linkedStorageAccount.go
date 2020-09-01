@@ -43,6 +43,15 @@ func NewLinkedStorageAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:operationalinsights/latest:LinkedStorageAccount"),
 		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:LinkedStorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20190801preview:LinkedStorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20200301preview:LinkedStorageAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LinkedStorageAccount

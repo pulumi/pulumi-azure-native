@@ -42,6 +42,9 @@ func NewMasterSiteSite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:offazure/latest:MasterSiteSite"),
 		},
+		{
+			Type: pulumi.String("azurerm:offazure/preview:MasterSiteSite"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MasterSiteSite

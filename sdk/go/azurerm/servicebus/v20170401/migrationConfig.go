@@ -55,6 +55,9 @@ func NewMigrationConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:servicebus/latest:MigrationConfig"),
 		},
+		{
+			Type: pulumi.String("azurerm:servicebus/preview:MigrationConfig"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MigrationConfig

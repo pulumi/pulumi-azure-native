@@ -44,6 +44,9 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationRecoveryPlan"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationRecoveryPlan"),
 		},
 		{

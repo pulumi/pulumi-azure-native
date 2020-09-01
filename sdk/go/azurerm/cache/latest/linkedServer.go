@@ -54,6 +54,9 @@ func NewLinkedServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:cache/preview:LinkedServer"),
+		},
+		{
 			Type: pulumi.String("azurerm:cache/v20170201:LinkedServer"),
 		},
 		{
@@ -61,6 +64,9 @@ func NewLinkedServer(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:cache/v20180301:LinkedServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:cache/v20190701:LinkedServer"),
 		},
 	})
 	opts = append(opts, aliases)

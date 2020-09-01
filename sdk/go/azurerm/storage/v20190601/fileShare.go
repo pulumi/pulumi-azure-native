@@ -68,6 +68,9 @@ func NewFileShare(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storage/latest:FileShare"),
 		},
 		{
+			Type: pulumi.String("azurerm:storage/preview:FileShare"),
+		},
+		{
 			Type: pulumi.String("azurerm:storage/v20190401:FileShare"),
 		},
 	})

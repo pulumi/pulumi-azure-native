@@ -53,6 +53,9 @@ func NewSecret(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:Secret"),
 		},
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:Secret"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20180915:Secret"),
 		},
 	})

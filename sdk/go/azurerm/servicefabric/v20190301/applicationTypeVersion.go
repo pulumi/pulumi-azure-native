@@ -58,6 +58,21 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicefabric/latest:ApplicationTypeVersion"),
 		},
 		{
+			Type: pulumi.String("azurerm:servicefabric/preview:ApplicationTypeVersion"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20170701preview:ApplicationTypeVersion"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20190301preview:ApplicationTypeVersion"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20190601preview:ApplicationTypeVersion"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20191101preview:ApplicationTypeVersion"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicefabric/v20200301:ApplicationTypeVersion"),
 		},
 	})

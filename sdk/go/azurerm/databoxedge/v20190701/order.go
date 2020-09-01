@@ -57,10 +57,16 @@ func NewOrder(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databoxedge/latest:Order"),
 		},
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:Order"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190301:Order"),
 		},
 		{
 			Type: pulumi.String("azurerm:databoxedge/v20190801:Order"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:Order"),
 		},
 	})
 	opts = append(opts, aliases)

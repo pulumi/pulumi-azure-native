@@ -52,13 +52,22 @@ func NewEmailTemplate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:EmailTemplate"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:EmailTemplate"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:EmailTemplate"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:EmailTemplate"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:EmailTemplate"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -55,7 +55,16 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:timeseriesinsights/preview:ReferenceDataSet"),
+		},
+		{
+			Type: pulumi.String("azurerm:timeseriesinsights/v20170228preview:ReferenceDataSet"),
+		},
+		{
 			Type: pulumi.String("azurerm:timeseriesinsights/v20171115:ReferenceDataSet"),
+		},
+		{
+			Type: pulumi.String("azurerm:timeseriesinsights/v20180815preview:ReferenceDataSet"),
 		},
 		{
 			Type: pulumi.String("azurerm:timeseriesinsights/v20200515:ReferenceDataSet"),

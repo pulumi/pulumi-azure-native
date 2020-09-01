@@ -80,6 +80,12 @@ func NewLab(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:Lab"),
+		},
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20150521preview:Lab"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:Lab"),
 		},
 		{

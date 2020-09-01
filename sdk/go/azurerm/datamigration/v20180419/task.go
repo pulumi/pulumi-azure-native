@@ -46,6 +46,21 @@ func NewTask(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datamigration/latest:Task"),
 		},
+		{
+			Type: pulumi.String("azurerm:datamigration/preview:Task"),
+		},
+		{
+			Type: pulumi.String("azurerm:datamigration/v20171115preview:Task"),
+		},
+		{
+			Type: pulumi.String("azurerm:datamigration/v20180315preview:Task"),
+		},
+		{
+			Type: pulumi.String("azurerm:datamigration/v20180331preview:Task"),
+		},
+		{
+			Type: pulumi.String("azurerm:datamigration/v20180715preview:Task"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Task

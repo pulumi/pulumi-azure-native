@@ -50,6 +50,12 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:security/latest:JitNetworkAccessPolicy"),
 		},
+		{
+			Type: pulumi.String("azurerm:security/preview:JitNetworkAccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:security/v20150601preview:JitNetworkAccessPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource JitNetworkAccessPolicy

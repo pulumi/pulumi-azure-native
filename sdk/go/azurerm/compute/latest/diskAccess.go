@@ -47,6 +47,9 @@ func NewDiskAccess(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:compute/preview:DiskAccess"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20200501:DiskAccess"),
 		},
 		{

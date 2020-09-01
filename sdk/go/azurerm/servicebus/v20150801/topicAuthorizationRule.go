@@ -50,6 +50,9 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicebus/latest:TopicAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azurerm:servicebus/preview:TopicAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicebus/v20140901:TopicAuthorizationRule"),
 		},
 		{

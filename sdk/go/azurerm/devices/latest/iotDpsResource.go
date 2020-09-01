@@ -53,6 +53,12 @@ func NewIotDpsResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devices/preview:IotDpsResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20170821preview:IotDpsResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20171115:IotDpsResource"),
 		},
 		{

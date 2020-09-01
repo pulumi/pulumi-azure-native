@@ -59,6 +59,15 @@ func NewServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:sql/latest:Server"),
 		},
+		{
+			Type: pulumi.String("azurerm:sql/preview:Server"),
+		},
+		{
+			Type: pulumi.String("azurerm:sql/v20150501preview:Server"),
+		},
+		{
+			Type: pulumi.String("azurerm:sql/v20190601preview:Server"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Server

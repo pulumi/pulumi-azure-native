@@ -47,10 +47,16 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:keyvault/preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:keyvault/v20180214:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azurerm:keyvault/v20190901:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:keyvault/v20200401preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

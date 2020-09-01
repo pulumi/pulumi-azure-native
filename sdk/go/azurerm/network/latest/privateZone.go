@@ -54,6 +54,9 @@ func NewPrivateZone(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:PrivateZone"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180901:PrivateZone"),
 		},
 	})

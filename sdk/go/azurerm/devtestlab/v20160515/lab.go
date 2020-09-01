@@ -63,6 +63,12 @@ func NewLab(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:Lab"),
 		},
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:Lab"),
+		},
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20150521preview:Lab"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20180915:Lab"),
 		},
 	})

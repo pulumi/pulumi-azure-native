@@ -74,6 +74,9 @@ func NewWebTest(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:insights/preview:WebTest"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20150501:WebTest"),
 		},
 	})

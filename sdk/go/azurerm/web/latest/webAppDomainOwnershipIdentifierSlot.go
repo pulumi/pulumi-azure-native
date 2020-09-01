@@ -44,6 +44,9 @@ func NewWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppDomainOwnershipIdentifierSlot"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160801:WebAppDomainOwnershipIdentifierSlot"),
 		},
 		{

@@ -54,6 +54,9 @@ func NewProtectedItem(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ProtectedItem"),
 		},
 		{
+			Type: pulumi.String("azurerm:recoveryservices/preview:ProtectedItem"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160601:ProtectedItem"),
 		},
 		{

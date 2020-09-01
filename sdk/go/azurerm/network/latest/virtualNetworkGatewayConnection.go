@@ -90,6 +90,9 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:VirtualNetworkGatewayConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20150615:VirtualNetworkGatewayConnection"),
 		},
 		{

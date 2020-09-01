@@ -118,6 +118,12 @@ func NewAssessment(ctx *pulumi.Context,
 	if args == nil {
 		args = &AssessmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:migrate/v20171111preview:Assessment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Assessment
 	err := ctx.RegisterResource("azurerm:migrate/v20180202:Assessment", name, args, &resource, opts...)
 	if err != nil {

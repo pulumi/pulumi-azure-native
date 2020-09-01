@@ -50,6 +50,9 @@ func NewProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:cdn/preview:Profile"),
+		},
+		{
 			Type: pulumi.String("azurerm:cdn/v20150601:Profile"),
 		},
 		{
@@ -69,6 +72,9 @@ func NewProfile(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:cdn/v20190615:Profile"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20190615preview:Profile"),
 		},
 		{
 			Type: pulumi.String("azurerm:cdn/v20191231:Profile"),

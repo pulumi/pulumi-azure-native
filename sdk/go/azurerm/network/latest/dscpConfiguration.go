@@ -60,6 +60,9 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:DscpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20200601:DscpConfiguration"),
 		},
 	})

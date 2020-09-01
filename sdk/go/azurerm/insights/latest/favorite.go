@@ -55,6 +55,9 @@ func NewFavorite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:insights/preview:Favorite"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20150501:Favorite"),
 		},
 	})

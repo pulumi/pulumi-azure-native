@@ -47,6 +47,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:datalakestore/preview:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:datalakestore/v20161101:FirewallRule"),
 		},
 	})

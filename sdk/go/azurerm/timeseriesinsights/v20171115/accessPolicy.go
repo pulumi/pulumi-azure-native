@@ -46,6 +46,15 @@ func NewAccessPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:timeseriesinsights/latest:AccessPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:timeseriesinsights/preview:AccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:timeseriesinsights/v20170228preview:AccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:timeseriesinsights/v20180815preview:AccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:timeseriesinsights/v20200515:AccessPolicy"),
 		},
 	})

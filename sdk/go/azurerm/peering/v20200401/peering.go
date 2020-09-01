@@ -61,6 +61,18 @@ func NewPeering(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:peering/latest:Peering"),
 		},
+		{
+			Type: pulumi.String("azurerm:peering/preview:Peering"),
+		},
+		{
+			Type: pulumi.String("azurerm:peering/v20190801preview:Peering"),
+		},
+		{
+			Type: pulumi.String("azurerm:peering/v20190901preview:Peering"),
+		},
+		{
+			Type: pulumi.String("azurerm:peering/v20200101preview:Peering"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Peering

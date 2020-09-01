@@ -45,6 +45,9 @@ func NewResourceGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:resources/latest:ResourceGroup"),
 		},
 		{
+			Type: pulumi.String("azurerm:resources/preview:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:resources/v20151101:ResourceGroup"),
 		},
 		{

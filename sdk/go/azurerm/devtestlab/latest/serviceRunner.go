@@ -43,6 +43,9 @@ func NewServiceRunner(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:ServiceRunner"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:ServiceRunner"),
 		},
 		{

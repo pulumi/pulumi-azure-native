@@ -50,6 +50,12 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:cognitiveservices/latest:Account"),
 		},
+		{
+			Type: pulumi.String("azurerm:cognitiveservices/preview:Account"),
+		},
+		{
+			Type: pulumi.String("azurerm:cognitiveservices/v20160201preview:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account

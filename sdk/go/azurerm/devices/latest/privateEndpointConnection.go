@@ -42,6 +42,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devices/preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20200301:PrivateEndpointConnection"),
 		},
 		{
@@ -49,6 +52,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:devices/v20200615:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200710preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

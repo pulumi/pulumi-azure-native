@@ -70,6 +70,9 @@ func NewSiteInstanceDeploymentSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/preview:SiteInstanceDeploymentSlot"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:SiteInstanceDeploymentSlot"),
 		},
 	})

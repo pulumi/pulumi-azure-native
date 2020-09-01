@@ -57,6 +57,9 @@ func NewFileServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storsimple/preview:FileServer"),
+		},
+		{
 			Type: pulumi.String("azurerm:storsimple/v20161001:FileServer"),
 		},
 	})

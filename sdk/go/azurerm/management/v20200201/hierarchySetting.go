@@ -40,6 +40,9 @@ func NewHierarchySetting(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:management/latest:HierarchySetting"),
 		},
 		{
+			Type: pulumi.String("azurerm:management/preview:HierarchySetting"),
+		},
+		{
 			Type: pulumi.String("azurerm:management/v20200501:HierarchySetting"),
 		},
 	})

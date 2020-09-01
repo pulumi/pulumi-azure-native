@@ -52,6 +52,9 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:insights/preview:AutoscaleSetting"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20150401:AutoscaleSetting"),
 		},
 	})

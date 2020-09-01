@@ -64,6 +64,21 @@ func NewApplication(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicefabric/latest:Application"),
 		},
 		{
+			Type: pulumi.String("azurerm:servicefabric/preview:Application"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20170701preview:Application"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20190301preview:Application"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20190601preview:Application"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20191101preview:Application"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicefabric/v20200301:Application"),
 		},
 	})

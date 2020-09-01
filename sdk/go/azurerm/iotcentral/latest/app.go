@@ -54,6 +54,12 @@ func NewApp(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:iotcentral/preview:App"),
+		},
+		{
+			Type: pulumi.String("azurerm:iotcentral/v20170701privatepreview:App"),
+		},
+		{
 			Type: pulumi.String("azurerm:iotcentral/v20180901:App"),
 		},
 	})

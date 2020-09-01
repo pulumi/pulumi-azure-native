@@ -45,13 +45,22 @@ func NewTagByProduct(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:TagByProduct"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:TagByProduct"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:TagByProduct"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:TagByProduct"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:TagByProduct"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:TagByProduct"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:TagByProduct"),
 		},
 	})
 	opts = append(opts, aliases)

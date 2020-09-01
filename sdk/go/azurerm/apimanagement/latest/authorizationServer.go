@@ -84,6 +84,9 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:AuthorizationServer"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:AuthorizationServer"),
 		},
 		{
@@ -96,10 +99,16 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20180101:AuthorizationServer"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:AuthorizationServer"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:AuthorizationServer"),
 		},
 	})
 	opts = append(opts, aliases)

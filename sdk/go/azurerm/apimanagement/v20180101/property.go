@@ -54,6 +54,9 @@ func NewProperty(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:Property"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:Property"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Property"),
 		},
 		{
@@ -61,6 +64,9 @@ func NewProperty(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:Property"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:Property"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:Property"),

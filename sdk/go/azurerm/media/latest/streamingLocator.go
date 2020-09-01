@@ -63,6 +63,15 @@ func NewStreamingLocator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:media/preview:StreamingLocator"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180330preview:StreamingLocator"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180601preview:StreamingLocator"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180701:StreamingLocator"),
 		},
 		{

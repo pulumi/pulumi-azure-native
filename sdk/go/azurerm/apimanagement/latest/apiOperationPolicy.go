@@ -50,16 +50,25 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ApiOperationPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiOperationPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:ApiOperationPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiOperationPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:ApiOperationPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

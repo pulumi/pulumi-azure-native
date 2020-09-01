@@ -107,6 +107,9 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/preview:ManagedHostingEnvironment"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:ManagedHostingEnvironment"),
 		},
 	})

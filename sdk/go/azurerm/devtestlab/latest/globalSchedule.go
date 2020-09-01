@@ -60,6 +60,9 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:GlobalSchedule"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:GlobalSchedule"),
 		},
 		{

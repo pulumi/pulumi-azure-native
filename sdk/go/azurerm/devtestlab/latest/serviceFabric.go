@@ -54,6 +54,9 @@ func NewServiceFabric(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:ServiceFabric"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20180915:ServiceFabric"),
 		},
 	})

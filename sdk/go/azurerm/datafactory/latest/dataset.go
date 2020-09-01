@@ -44,6 +44,12 @@ func NewDataset(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:datafactory/preview:Dataset"),
+		},
+		{
+			Type: pulumi.String("azurerm:datafactory/v20170901preview:Dataset"),
+		},
+		{
 			Type: pulumi.String("azurerm:datafactory/v20180601:Dataset"),
 		},
 	})

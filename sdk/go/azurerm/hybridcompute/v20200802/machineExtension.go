@@ -63,7 +63,19 @@ func NewMachineExtension(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:hybridcompute/latest:MachineExtension"),
 		},
 		{
+			Type: pulumi.String("azurerm:hybridcompute/preview:MachineExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20190802preview:MachineExtension"),
+		},
+		{
 			Type: pulumi.String("azurerm:hybridcompute/v20191212:MachineExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20200730preview:MachineExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20200815preview:MachineExtension"),
 		},
 	})
 	opts = append(opts, aliases)

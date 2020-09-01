@@ -76,6 +76,12 @@ func NewRegisteredServer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storagesync/latest:RegisteredServer"),
 		},
 		{
+			Type: pulumi.String("azurerm:storagesync/preview:RegisteredServer"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagesync/v20170605preview:RegisteredServer"),
+		},
+		{
 			Type: pulumi.String("azurerm:storagesync/v20180701:RegisteredServer"),
 		},
 		{

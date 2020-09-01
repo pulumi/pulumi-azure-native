@@ -58,6 +58,9 @@ func NewBackup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:netapp/preview:Backup"),
+		},
+		{
 			Type: pulumi.String("azurerm:netapp/v20200601:Backup"),
 		},
 	})

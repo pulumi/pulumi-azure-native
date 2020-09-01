@@ -75,6 +75,12 @@ func NewApplicationGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:ApplicationGateway"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:ApplicationGateway"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20150501preview:ApplicationGateway"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20150615:ApplicationGateway"),
 		},
 		{

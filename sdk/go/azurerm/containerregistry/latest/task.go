@@ -71,10 +71,16 @@ func NewTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:containerregistry/preview:Task"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerregistry/v20180901:Task"),
 		},
 		{
 			Type: pulumi.String("azurerm:containerregistry/v20190401:Task"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerregistry/v20190601preview:Task"),
 		},
 	})
 	opts = append(opts, aliases)

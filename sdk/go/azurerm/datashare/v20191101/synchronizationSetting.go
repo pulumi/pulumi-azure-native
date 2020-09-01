@@ -47,6 +47,12 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datashare/latest:SynchronizationSetting"),
 		},
+		{
+			Type: pulumi.String("azurerm:datashare/preview:SynchronizationSetting"),
+		},
+		{
+			Type: pulumi.String("azurerm:datashare/v20181101preview:SynchronizationSetting"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SynchronizationSetting

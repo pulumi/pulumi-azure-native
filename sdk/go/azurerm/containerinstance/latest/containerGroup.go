@@ -77,6 +77,21 @@ func NewContainerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:containerinstance/preview:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerinstance/v20170801preview:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerinstance/v20171001preview:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerinstance/v20171201preview:ContainerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerinstance/v20180201preview:ContainerGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerinstance/v20180401:ContainerGroup"),
 		},
 		{

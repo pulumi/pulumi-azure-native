@@ -51,6 +51,9 @@ func NewRouteFilter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:RouteFilter"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20161201:RouteFilter"),
 		},
 		{

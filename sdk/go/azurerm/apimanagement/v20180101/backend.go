@@ -64,6 +64,9 @@ func NewBackend(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:Backend"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:Backend"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Backend"),
 		},
 		{
@@ -73,10 +76,16 @@ func NewBackend(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20170301:Backend"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:Backend"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:Backend"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:Backend"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:Backend"),
 		},
 	})
 	opts = append(opts, aliases)

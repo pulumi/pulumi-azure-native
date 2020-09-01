@@ -45,6 +45,12 @@ func NewApp(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:appplatform/latest:App"),
 		},
+		{
+			Type: pulumi.String("azurerm:appplatform/preview:App"),
+		},
+		{
+			Type: pulumi.String("azurerm:appplatform/v20190501preview:App"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource App

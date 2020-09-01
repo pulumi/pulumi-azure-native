@@ -47,6 +47,12 @@ func NewRemediationAtSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:policyinsights/preview:RemediationAtSubscription"),
+		},
+		{
+			Type: pulumi.String("azurerm:policyinsights/v20180701preview:RemediationAtSubscription"),
+		},
+		{
 			Type: pulumi.String("azurerm:policyinsights/v20190701:RemediationAtSubscription"),
 		},
 	})

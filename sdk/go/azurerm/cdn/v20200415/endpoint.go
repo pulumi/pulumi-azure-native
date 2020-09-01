@@ -88,6 +88,9 @@ func NewEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cdn/latest:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azurerm:cdn/preview:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azurerm:cdn/v20150601:Endpoint"),
 		},
 		{
@@ -107,6 +110,9 @@ func NewEndpoint(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:cdn/v20190615:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20190615preview:Endpoint"),
 		},
 		{
 			Type: pulumi.String("azurerm:cdn/v20191231:Endpoint"),

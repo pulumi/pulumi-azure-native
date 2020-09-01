@@ -53,6 +53,15 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/latest:ContentKeyPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:media/preview:ContentKeyPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180330preview:ContentKeyPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180601preview:ContentKeyPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20200501:ContentKeyPolicy"),
 		},
 	})

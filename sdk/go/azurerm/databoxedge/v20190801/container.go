@@ -53,6 +53,12 @@ func NewContainer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:databoxedge/latest:Container"),
 		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/preview:Container"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:Container"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Container

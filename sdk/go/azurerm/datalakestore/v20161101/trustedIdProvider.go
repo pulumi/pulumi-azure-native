@@ -44,6 +44,9 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datalakestore/latest:TrustedIdProvider"),
 		},
+		{
+			Type: pulumi.String("azurerm:datalakestore/preview:TrustedIdProvider"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TrustedIdProvider

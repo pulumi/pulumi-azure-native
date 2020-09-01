@@ -111,6 +111,12 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:VirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20150521preview:VirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:VirtualMachine"),
 		},
 		{

@@ -55,6 +55,9 @@ func NewVirtualRouter(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualRouter"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:VirtualRouter"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20190701:VirtualRouter"),
 		},
 		{

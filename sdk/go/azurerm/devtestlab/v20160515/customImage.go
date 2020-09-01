@@ -60,6 +60,12 @@ func NewCustomImage(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:CustomImage"),
 		},
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:CustomImage"),
+		},
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20150521preview:CustomImage"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20180915:CustomImage"),
 		},
 	})

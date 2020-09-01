@@ -31,6 +31,9 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/latest:TrafficManagerUserMetricsKey"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/preview:TrafficManagerUserMetricsKey"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TrafficManagerUserMetricsKey

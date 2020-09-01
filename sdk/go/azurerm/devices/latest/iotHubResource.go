@@ -50,6 +50,9 @@ func NewIotHubResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devices/preview:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20160203:IotHubResource"),
 		},
 		{
@@ -65,7 +68,16 @@ func NewIotHubResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devices/v20180401:IotHubResource"),
 		},
 		{
+			Type: pulumi.String("azurerm:devices/v20181201preview:IotHubResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20190322:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20190322preview:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20190701preview:IotHubResource"),
 		},
 		{
 			Type: pulumi.String("azurerm:devices/v20191104:IotHubResource"),
@@ -78,6 +90,9 @@ func NewIotHubResource(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:devices/v20200615:IotHubResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200710preview:IotHubResource"),
 		},
 	})
 	opts = append(opts, aliases)

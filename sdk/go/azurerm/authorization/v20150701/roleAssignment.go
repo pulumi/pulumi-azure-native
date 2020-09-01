@@ -41,6 +41,21 @@ func NewRoleAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:authorization/latest:RoleAssignment"),
 		},
+		{
+			Type: pulumi.String("azurerm:authorization/preview:RoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20171001preview:RoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20180101preview:RoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20180901preview:RoleAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:authorization/v20200401preview:RoleAssignment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RoleAssignment

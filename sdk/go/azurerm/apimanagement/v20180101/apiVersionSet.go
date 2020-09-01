@@ -56,13 +56,22 @@ func NewApiVersionSet(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:ApiVersionSet"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ApiVersionSet"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiVersionSet"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:ApiVersionSet"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiVersionSet"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiVersionSet"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:ApiVersionSet"),
 		},
 	})
 	opts = append(opts, aliases)

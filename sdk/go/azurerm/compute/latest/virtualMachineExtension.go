@@ -62,10 +62,16 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:compute/preview:VirtualMachineExtension"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20150615:VirtualMachineExtension"),
 		},
 		{
 			Type: pulumi.String("azurerm:compute/v20160330:VirtualMachineExtension"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20160430preview:VirtualMachineExtension"),
 		},
 		{
 			Type: pulumi.String("azurerm:compute/v20170330:VirtualMachineExtension"),

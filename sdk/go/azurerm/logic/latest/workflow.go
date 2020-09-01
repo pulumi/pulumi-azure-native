@@ -64,7 +64,16 @@ func NewWorkflow(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:logic/preview:Workflow"),
+		},
+		{
+			Type: pulumi.String("azurerm:logic/v20150201preview:Workflow"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20160601:Workflow"),
+		},
+		{
+			Type: pulumi.String("azurerm:logic/v20180701preview:Workflow"),
 		},
 		{
 			Type: pulumi.String("azurerm:logic/v20190501:Workflow"),

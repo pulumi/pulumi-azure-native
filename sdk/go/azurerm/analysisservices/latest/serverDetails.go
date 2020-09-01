@@ -62,6 +62,9 @@ func NewServerDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:analysisservices/preview:ServerDetails"),
+		},
+		{
 			Type: pulumi.String("azurerm:analysisservices/v20160516:ServerDetails"),
 		},
 		{
@@ -69,6 +72,9 @@ func NewServerDetails(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:analysisservices/v20170801:ServerDetails"),
+		},
+		{
+			Type: pulumi.String("azurerm:analysisservices/v20170801beta:ServerDetails"),
 		},
 	})
 	opts = append(opts, aliases)

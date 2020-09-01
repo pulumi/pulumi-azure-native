@@ -52,6 +52,9 @@ func NewVariable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:Variable"),
 		},
+		{
+			Type: pulumi.String("azurerm:automation/preview:Variable"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Variable

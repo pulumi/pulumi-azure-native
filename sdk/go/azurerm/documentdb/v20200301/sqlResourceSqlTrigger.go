@@ -57,6 +57,9 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:SqlResourceSqlTrigger"),
 		},
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:SqlResourceSqlTrigger"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:SqlResourceSqlTrigger"),
 		},
 		{
@@ -64,6 +67,9 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200401:SqlResourceSqlTrigger"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:SqlResourceSqlTrigger"),
 		},
 	})
 	opts = append(opts, aliases)

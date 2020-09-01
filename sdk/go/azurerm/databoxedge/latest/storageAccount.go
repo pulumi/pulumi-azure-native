@@ -49,7 +49,13 @@ func NewStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190801:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:StorageAccount"),
 		},
 	})
 	opts = append(opts, aliases)

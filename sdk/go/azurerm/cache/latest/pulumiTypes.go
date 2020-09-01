@@ -163,6 +163,142 @@ func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Details of single instance of redis.
+type RedisInstanceDetailsResponse struct {
+	// Specifies whether the instance is a master node.
+	IsMaster bool `pulumi:"isMaster"`
+	// If enableNonSslPort is true, provides Redis instance Non-SSL port.
+	NonSslPort int `pulumi:"nonSslPort"`
+	// If clustering is enabled, the Shard ID of Redis Instance
+	ShardId int `pulumi:"shardId"`
+	// Redis instance SSL port.
+	SslPort int `pulumi:"sslPort"`
+	// If the Cache uses availability zones, specifies availability zone where this instance is located.
+	Zone string `pulumi:"zone"`
+}
+
+// RedisInstanceDetailsResponseInput is an input type that accepts RedisInstanceDetailsResponseArgs and RedisInstanceDetailsResponseOutput values.
+// You can construct a concrete instance of `RedisInstanceDetailsResponseInput` via:
+//
+//          RedisInstanceDetailsResponseArgs{...}
+type RedisInstanceDetailsResponseInput interface {
+	pulumi.Input
+
+	ToRedisInstanceDetailsResponseOutput() RedisInstanceDetailsResponseOutput
+	ToRedisInstanceDetailsResponseOutputWithContext(context.Context) RedisInstanceDetailsResponseOutput
+}
+
+// Details of single instance of redis.
+type RedisInstanceDetailsResponseArgs struct {
+	// Specifies whether the instance is a master node.
+	IsMaster pulumi.BoolInput `pulumi:"isMaster"`
+	// If enableNonSslPort is true, provides Redis instance Non-SSL port.
+	NonSslPort pulumi.IntInput `pulumi:"nonSslPort"`
+	// If clustering is enabled, the Shard ID of Redis Instance
+	ShardId pulumi.IntInput `pulumi:"shardId"`
+	// Redis instance SSL port.
+	SslPort pulumi.IntInput `pulumi:"sslPort"`
+	// If the Cache uses availability zones, specifies availability zone where this instance is located.
+	Zone pulumi.StringInput `pulumi:"zone"`
+}
+
+func (RedisInstanceDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisInstanceDetailsResponse)(nil)).Elem()
+}
+
+func (i RedisInstanceDetailsResponseArgs) ToRedisInstanceDetailsResponseOutput() RedisInstanceDetailsResponseOutput {
+	return i.ToRedisInstanceDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i RedisInstanceDetailsResponseArgs) ToRedisInstanceDetailsResponseOutputWithContext(ctx context.Context) RedisInstanceDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisInstanceDetailsResponseOutput)
+}
+
+// RedisInstanceDetailsResponseArrayInput is an input type that accepts RedisInstanceDetailsResponseArray and RedisInstanceDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `RedisInstanceDetailsResponseArrayInput` via:
+//
+//          RedisInstanceDetailsResponseArray{ RedisInstanceDetailsResponseArgs{...} }
+type RedisInstanceDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToRedisInstanceDetailsResponseArrayOutput() RedisInstanceDetailsResponseArrayOutput
+	ToRedisInstanceDetailsResponseArrayOutputWithContext(context.Context) RedisInstanceDetailsResponseArrayOutput
+}
+
+type RedisInstanceDetailsResponseArray []RedisInstanceDetailsResponseInput
+
+func (RedisInstanceDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RedisInstanceDetailsResponse)(nil)).Elem()
+}
+
+func (i RedisInstanceDetailsResponseArray) ToRedisInstanceDetailsResponseArrayOutput() RedisInstanceDetailsResponseArrayOutput {
+	return i.ToRedisInstanceDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RedisInstanceDetailsResponseArray) ToRedisInstanceDetailsResponseArrayOutputWithContext(ctx context.Context) RedisInstanceDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RedisInstanceDetailsResponseArrayOutput)
+}
+
+// Details of single instance of redis.
+type RedisInstanceDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (RedisInstanceDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RedisInstanceDetailsResponse)(nil)).Elem()
+}
+
+func (o RedisInstanceDetailsResponseOutput) ToRedisInstanceDetailsResponseOutput() RedisInstanceDetailsResponseOutput {
+	return o
+}
+
+func (o RedisInstanceDetailsResponseOutput) ToRedisInstanceDetailsResponseOutputWithContext(ctx context.Context) RedisInstanceDetailsResponseOutput {
+	return o
+}
+
+// Specifies whether the instance is a master node.
+func (o RedisInstanceDetailsResponseOutput) IsMaster() pulumi.BoolOutput {
+	return o.ApplyT(func(v RedisInstanceDetailsResponse) bool { return v.IsMaster }).(pulumi.BoolOutput)
+}
+
+// If enableNonSslPort is true, provides Redis instance Non-SSL port.
+func (o RedisInstanceDetailsResponseOutput) NonSslPort() pulumi.IntOutput {
+	return o.ApplyT(func(v RedisInstanceDetailsResponse) int { return v.NonSslPort }).(pulumi.IntOutput)
+}
+
+// If clustering is enabled, the Shard ID of Redis Instance
+func (o RedisInstanceDetailsResponseOutput) ShardId() pulumi.IntOutput {
+	return o.ApplyT(func(v RedisInstanceDetailsResponse) int { return v.ShardId }).(pulumi.IntOutput)
+}
+
+// Redis instance SSL port.
+func (o RedisInstanceDetailsResponseOutput) SslPort() pulumi.IntOutput {
+	return o.ApplyT(func(v RedisInstanceDetailsResponse) int { return v.SslPort }).(pulumi.IntOutput)
+}
+
+// If the Cache uses availability zones, specifies availability zone where this instance is located.
+func (o RedisInstanceDetailsResponseOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v RedisInstanceDetailsResponse) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type RedisInstanceDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RedisInstanceDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RedisInstanceDetailsResponse)(nil)).Elem()
+}
+
+func (o RedisInstanceDetailsResponseArrayOutput) ToRedisInstanceDetailsResponseArrayOutput() RedisInstanceDetailsResponseArrayOutput {
+	return o
+}
+
+func (o RedisInstanceDetailsResponseArrayOutput) ToRedisInstanceDetailsResponseArrayOutputWithContext(ctx context.Context) RedisInstanceDetailsResponseArrayOutput {
+	return o
+}
+
+func (o RedisInstanceDetailsResponseArrayOutput) Index(i pulumi.IntInput) RedisInstanceDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RedisInstanceDetailsResponse {
+		return vs[0].([]RedisInstanceDetailsResponse)[vs[1].(int)]
+	}).(RedisInstanceDetailsResponseOutput)
+}
+
 // Linked server Id
 type RedisLinkedServerResponse struct {
 	// Linked server Id.
@@ -263,7 +399,7 @@ func (o RedisLinkedServerResponseArrayOutput) Index(i pulumi.IntInput) RedisLink
 	}).(RedisLinkedServerResponseOutput)
 }
 
-// Patch schedule entry for a Redis Cache.
+// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntry struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek string `pulumi:"dayOfWeek"`
@@ -284,7 +420,7 @@ type ScheduleEntryInput interface {
 	ToScheduleEntryOutputWithContext(context.Context) ScheduleEntryOutput
 }
 
-// Patch schedule entry for a Redis Cache.
+// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryArgs struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
@@ -331,7 +467,7 @@ func (i ScheduleEntryArray) ToScheduleEntryArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEntryArrayOutput)
 }
 
-// Patch schedule entry for a Redis Cache.
+// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryOutput struct{ *pulumi.OutputState }
 
 func (ScheduleEntryOutput) ElementType() reflect.Type {
@@ -381,7 +517,7 @@ func (o ScheduleEntryArrayOutput) Index(i pulumi.IntInput) ScheduleEntryOutput {
 	}).(ScheduleEntryOutput)
 }
 
-// Patch schedule entry for a Redis Cache.
+// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryResponse struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek string `pulumi:"dayOfWeek"`
@@ -402,7 +538,7 @@ type ScheduleEntryResponseInput interface {
 	ToScheduleEntryResponseOutputWithContext(context.Context) ScheduleEntryResponseOutput
 }
 
-// Patch schedule entry for a Redis Cache.
+// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryResponseArgs struct {
 	// Day of the week when a cache can be patched.
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
@@ -449,7 +585,7 @@ func (i ScheduleEntryResponseArray) ToScheduleEntryResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEntryResponseArrayOutput)
 }
 
-// Patch schedule entry for a Redis Cache.
+// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleEntryResponseOutput) ElementType() reflect.Type {
@@ -846,6 +982,8 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(RedisAccessKeysResponseOutput{})
 	pulumi.RegisterOutputType(RedisAccessKeysResponsePtrOutput{})
+	pulumi.RegisterOutputType(RedisInstanceDetailsResponseOutput{})
+	pulumi.RegisterOutputType(RedisInstanceDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerResponseOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleEntryOutput{})

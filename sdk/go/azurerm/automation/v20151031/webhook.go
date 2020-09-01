@@ -64,6 +64,9 @@ func NewWebhook(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:Webhook"),
 		},
+		{
+			Type: pulumi.String("azurerm:automation/preview:Webhook"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Webhook

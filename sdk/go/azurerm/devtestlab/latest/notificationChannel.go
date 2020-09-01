@@ -57,6 +57,9 @@ func NewNotificationChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:NotificationChannel"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:NotificationChannel"),
 		},
 		{

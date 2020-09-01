@@ -69,10 +69,16 @@ func NewShare(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databoxedge/latest:Share"),
 		},
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:Share"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190301:Share"),
 		},
 		{
 			Type: pulumi.String("azurerm:databoxedge/v20190701:Share"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:Share"),
 		},
 	})
 	opts = append(opts, aliases)

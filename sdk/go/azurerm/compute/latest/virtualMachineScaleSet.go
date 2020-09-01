@@ -77,10 +77,16 @@ func NewVirtualMachineScaleSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:compute/preview:VirtualMachineScaleSet"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20150615:VirtualMachineScaleSet"),
 		},
 		{
 			Type: pulumi.String("azurerm:compute/v20160330:VirtualMachineScaleSet"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20160430preview:VirtualMachineScaleSet"),
 		},
 		{
 			Type: pulumi.String("azurerm:compute/v20170330:VirtualMachineScaleSet"),

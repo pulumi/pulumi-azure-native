@@ -63,6 +63,9 @@ func NewMyWorkbook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:insights/preview:MyWorkbook"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20150501:MyWorkbook"),
 		},
 	})

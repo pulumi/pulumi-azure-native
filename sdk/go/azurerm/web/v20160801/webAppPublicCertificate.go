@@ -48,6 +48,9 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppPublicCertificate"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppPublicCertificate"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20180201:WebAppPublicCertificate"),
 		},
 		{

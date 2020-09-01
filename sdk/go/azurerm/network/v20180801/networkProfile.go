@@ -51,6 +51,9 @@ func NewNetworkProfile(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:NetworkProfile"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:NetworkProfile"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20181001:NetworkProfile"),
 		},
 		{

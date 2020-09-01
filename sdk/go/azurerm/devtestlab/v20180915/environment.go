@@ -59,6 +59,9 @@ func NewEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:Environment"),
 		},
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:Environment"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:Environment"),
 		},
 	})

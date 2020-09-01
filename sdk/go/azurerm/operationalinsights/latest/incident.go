@@ -82,6 +82,9 @@ func NewIncident(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:Incident"),
+		},
+		{
 			Type: pulumi.String("azurerm:operationalinsights/v20200101:Incident"),
 		},
 	})

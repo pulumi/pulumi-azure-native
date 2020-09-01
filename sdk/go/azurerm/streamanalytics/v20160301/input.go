@@ -41,6 +41,9 @@ func NewInput(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:streamanalytics/latest:Input"),
 		},
+		{
+			Type: pulumi.String("azurerm:streamanalytics/preview:Input"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Input

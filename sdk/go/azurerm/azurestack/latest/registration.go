@@ -52,6 +52,9 @@ func NewRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:azurestack/preview:Registration"),
+		},
+		{
 			Type: pulumi.String("azurerm:azurestack/v20170601:Registration"),
 		},
 	})

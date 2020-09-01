@@ -39,7 +39,13 @@ func NewSharedPrivateLinkResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:search/preview:SharedPrivateLinkResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:search/v20200801:SharedPrivateLinkResource"),
+		},
+		{
+			Type: pulumi.String("azurerm:search/v20200801preview:SharedPrivateLinkResource"),
 		},
 	})
 	opts = append(opts, aliases)

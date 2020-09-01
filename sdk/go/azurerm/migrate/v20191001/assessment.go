@@ -49,6 +49,9 @@ func NewAssessment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:migrate/latest:Assessment"),
 		},
+		{
+			Type: pulumi.String("azurerm:migrate/preview:Assessment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Assessment

@@ -44,6 +44,15 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:kusto/preview:Database"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20170907privatepreview:Database"),
+		},
+		{
+			Type: pulumi.String("azurerm:kusto/v20180907preview:Database"),
+		},
+		{
 			Type: pulumi.String("azurerm:kusto/v20190121:Database"),
 		},
 		{

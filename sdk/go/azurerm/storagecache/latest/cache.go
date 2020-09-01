@@ -60,6 +60,12 @@ func NewCache(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storagecache/preview:Cache"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagecache/v20190801preview:Cache"),
+		},
+		{
 			Type: pulumi.String("azurerm:storagecache/v20191101:Cache"),
 		},
 		{

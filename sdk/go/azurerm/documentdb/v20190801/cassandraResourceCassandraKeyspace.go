@@ -51,6 +51,9 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:CassandraResourceCassandraKeyspace"),
 		},
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:CassandraResourceCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20191212:CassandraResourceCassandraKeyspace"),
 		},
 		{
@@ -58,6 +61,9 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200401:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"),
 		},
 	})
 	opts = append(opts, aliases)

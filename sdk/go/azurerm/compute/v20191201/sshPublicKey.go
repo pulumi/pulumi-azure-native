@@ -46,6 +46,9 @@ func NewSshPublicKey(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:SshPublicKey"),
 		},
 		{
+			Type: pulumi.String("azurerm:compute/preview:SshPublicKey"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20200601:SshPublicKey"),
 		},
 	})

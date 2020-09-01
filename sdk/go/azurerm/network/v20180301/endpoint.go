@@ -63,6 +63,9 @@ func NewEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:Endpoint"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20151101:Endpoint"),
 		},
 		{

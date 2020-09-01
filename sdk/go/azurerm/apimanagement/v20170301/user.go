@@ -65,6 +65,9 @@ func NewUser(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:User"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:User"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:User"),
 		},
 		{
@@ -74,10 +77,16 @@ func NewUser(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20180101:User"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:User"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:User"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:User"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:User"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -44,6 +44,9 @@ func NewRulesEngine(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:RulesEngine"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:RulesEngine"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20200401:RulesEngine"),
 		},
 		{

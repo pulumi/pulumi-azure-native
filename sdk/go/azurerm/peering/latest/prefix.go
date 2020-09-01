@@ -51,6 +51,18 @@ func NewPrefix(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:peering/preview:Prefix"),
+		},
+		{
+			Type: pulumi.String("azurerm:peering/v20190801preview:Prefix"),
+		},
+		{
+			Type: pulumi.String("azurerm:peering/v20190901preview:Prefix"),
+		},
+		{
+			Type: pulumi.String("azurerm:peering/v20200101preview:Prefix"),
+		},
+		{
 			Type: pulumi.String("azurerm:peering/v20200401:Prefix"),
 		},
 	})

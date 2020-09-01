@@ -71,6 +71,9 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualNetworkGatewayConnection"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:VirtualNetworkGatewayConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20160330:VirtualNetworkGatewayConnection"),
 		},
 		{

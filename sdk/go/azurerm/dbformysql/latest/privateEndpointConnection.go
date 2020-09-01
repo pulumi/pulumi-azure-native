@@ -43,7 +43,13 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:dbformysql/preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformysql/v20180601:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:dbformysql/v20180601privatepreview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

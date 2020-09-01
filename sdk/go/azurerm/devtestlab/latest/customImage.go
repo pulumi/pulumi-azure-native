@@ -65,6 +65,12 @@ func NewCustomImage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:CustomImage"),
+		},
+		{
+			Type: pulumi.String("azurerm:devtestlab/v20150521preview:CustomImage"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:CustomImage"),
 		},
 		{

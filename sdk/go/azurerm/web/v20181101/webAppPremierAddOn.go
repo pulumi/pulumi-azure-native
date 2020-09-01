@@ -59,6 +59,9 @@ func NewWebAppPremierAddOn(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppPremierAddOn"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppPremierAddOn"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppPremierAddOn"),
 		},
 		{

@@ -44,6 +44,9 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:hybridcompute/latest:GuestConfigurationHCRPAssignment"),
 		},
 		{
+			Type: pulumi.String("azurerm:hybridcompute/preview:GuestConfigurationHCRPAssignment"),
+		},
+		{
 			Type: pulumi.String("azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment"),
 		},
 	})

@@ -47,6 +47,9 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devices/latest:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azurerm:devices/preview:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20160203:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
@@ -62,7 +65,16 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devices/v20180401:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
+			Type: pulumi.String("azurerm:devices/v20181201preview:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20190322:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20190322preview:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20190701preview:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azurerm:devices/v20200301:IotHubResourceEventHubConsumerGroup"),
@@ -72,6 +84,9 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:devices/v20200615:IotHubResourceEventHubConsumerGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200710preview:IotHubResourceEventHubConsumerGroup"),
 		},
 	})
 	opts = append(opts, aliases)

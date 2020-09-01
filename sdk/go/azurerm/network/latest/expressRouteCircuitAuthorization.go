@@ -45,6 +45,12 @@ func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:ExpressRouteCircuitAuthorization"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20150501preview:ExpressRouteCircuitAuthorization"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20150615:ExpressRouteCircuitAuthorization"),
 		},
 		{

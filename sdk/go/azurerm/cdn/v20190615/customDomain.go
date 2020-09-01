@@ -60,6 +60,9 @@ func NewCustomDomain(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cdn/latest:CustomDomain"),
 		},
 		{
+			Type: pulumi.String("azurerm:cdn/preview:CustomDomain"),
+		},
+		{
 			Type: pulumi.String("azurerm:cdn/v20150601:CustomDomain"),
 		},
 		{
@@ -76,6 +79,9 @@ func NewCustomDomain(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:cdn/v20190415:CustomDomain"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20190615preview:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azurerm:cdn/v20191231:CustomDomain"),

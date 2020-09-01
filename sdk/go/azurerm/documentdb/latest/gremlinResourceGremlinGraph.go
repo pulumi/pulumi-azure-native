@@ -52,6 +52,9 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:GremlinResourceGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:GremlinResourceGremlinGraph"),
 		},
 		{
@@ -62,6 +65,9 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200401:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:GremlinResourceGremlinGraph"),
 		},
 	})
 	opts = append(opts, aliases)

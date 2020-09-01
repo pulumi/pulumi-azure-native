@@ -60,6 +60,12 @@ func NewLoadBalancer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:LoadBalancer"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20150501preview:LoadBalancer"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20150615:LoadBalancer"),
 		},
 		{

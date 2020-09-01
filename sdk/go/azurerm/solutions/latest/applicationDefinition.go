@@ -73,6 +73,9 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:solutions/preview:ApplicationDefinition"),
+		},
+		{
 			Type: pulumi.String("azurerm:solutions/v20170901:ApplicationDefinition"),
 		},
 		{
@@ -80,6 +83,9 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:solutions/v20190701:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azurerm:solutions/v20200821preview:ApplicationDefinition"),
 		},
 	})
 	opts = append(opts, aliases)

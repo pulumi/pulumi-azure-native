@@ -57,6 +57,12 @@ func NewPipeline(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datafactory/latest:Pipeline"),
 		},
+		{
+			Type: pulumi.String("azurerm:datafactory/preview:Pipeline"),
+		},
+		{
+			Type: pulumi.String("azurerm:datafactory/v20170901preview:Pipeline"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Pipeline

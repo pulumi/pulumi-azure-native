@@ -52,13 +52,22 @@ func NewApiSchema(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:ApiSchema"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ApiSchema"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiSchema"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiSchema"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:ApiSchema"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiSchema"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:ApiSchema"),
 		},
 	})
 	opts = append(opts, aliases)

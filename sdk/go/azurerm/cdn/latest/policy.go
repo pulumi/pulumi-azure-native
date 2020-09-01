@@ -61,7 +61,13 @@ func NewPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:cdn/preview:Policy"),
+		},
+		{
 			Type: pulumi.String("azurerm:cdn/v20190615:Policy"),
+		},
+		{
+			Type: pulumi.String("azurerm:cdn/v20190615preview:Policy"),
 		},
 		{
 			Type: pulumi.String("azurerm:cdn/v20200331:Policy"),

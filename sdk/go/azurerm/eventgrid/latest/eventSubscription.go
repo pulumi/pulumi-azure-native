@@ -52,13 +52,37 @@ func NewEventSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:eventgrid/preview:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20170615preview:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20170915preview:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20180101:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20180501preview:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20180915preview:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azurerm:eventgrid/v20190101:EventSubscription"),
 		},
 		{
+			Type: pulumi.String("azurerm:eventgrid/v20190201preview:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20190601:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20200101preview:EventSubscription"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20200401preview:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azurerm:eventgrid/v20200601:EventSubscription"),

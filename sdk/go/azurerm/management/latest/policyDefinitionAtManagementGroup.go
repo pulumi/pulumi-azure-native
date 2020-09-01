@@ -48,6 +48,9 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:management/preview:PolicyDefinitionAtManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:management/v20161201:PolicyDefinitionAtManagementGroup"),
 		},
 		{

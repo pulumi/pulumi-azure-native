@@ -52,6 +52,9 @@ func NewMongoDBResourceMongoDBCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:MongoDBResourceMongoDBCollection"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:MongoDBResourceMongoDBCollection"),
 		},
 		{
@@ -62,6 +65,9 @@ func NewMongoDBResourceMongoDBCollection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200401:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:MongoDBResourceMongoDBCollection"),
 		},
 	})
 	opts = append(opts, aliases)

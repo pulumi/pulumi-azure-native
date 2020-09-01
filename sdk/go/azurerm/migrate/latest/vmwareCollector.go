@@ -36,6 +36,9 @@ func NewVMwareCollector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:migrate/preview:VMwareCollector"),
+		},
+		{
 			Type: pulumi.String("azurerm:migrate/v20191001:VMwareCollector"),
 		},
 	})

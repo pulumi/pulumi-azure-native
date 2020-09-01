@@ -68,6 +68,9 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:machinelearning/latest:Workspace"),
 		},
 		{
+			Type: pulumi.String("azurerm:machinelearning/preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azurerm:machinelearning/v20160401:Workspace"),
 		},
 	})

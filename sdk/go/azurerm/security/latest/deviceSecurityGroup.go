@@ -42,6 +42,12 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:security/preview:DeviceSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:security/v20170801preview:DeviceSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:security/v20190801:DeviceSecurityGroup"),
 		},
 	})

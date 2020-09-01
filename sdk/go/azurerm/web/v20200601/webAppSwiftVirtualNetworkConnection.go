@@ -43,6 +43,9 @@ func NewWebAppSwiftVirtualNetworkConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppSwiftVirtualNetworkConnection"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppSwiftVirtualNetworkConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnection"),
 		},
 		{

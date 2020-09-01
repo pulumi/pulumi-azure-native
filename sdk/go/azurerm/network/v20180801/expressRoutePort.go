@@ -65,6 +65,9 @@ func NewExpressRoutePort(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:ExpressRoutePort"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:ExpressRoutePort"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20181001:ExpressRoutePort"),
 		},
 		{

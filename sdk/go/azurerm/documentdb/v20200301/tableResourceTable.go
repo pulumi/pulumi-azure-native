@@ -52,6 +52,9 @@ func NewTableResourceTable(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:TableResourceTable"),
 		},
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:TableResourceTable"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:TableResourceTable"),
 		},
 		{
@@ -59,6 +62,9 @@ func NewTableResourceTable(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200401:TableResourceTable"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:TableResourceTable"),
 		},
 	})
 	opts = append(opts, aliases)

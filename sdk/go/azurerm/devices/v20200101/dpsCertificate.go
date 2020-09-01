@@ -44,6 +44,12 @@ func NewDpsCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devices/latest:DpsCertificate"),
 		},
 		{
+			Type: pulumi.String("azurerm:devices/preview:DpsCertificate"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20170821preview:DpsCertificate"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20171115:DpsCertificate"),
 		},
 		{

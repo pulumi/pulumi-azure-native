@@ -97,6 +97,9 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:DatabaseAccount"),
 		},
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:DatabaseAccount"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20150401:DatabaseAccount"),
 		},
 		{
@@ -119,6 +122,9 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200301:DatabaseAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:DatabaseAccount"),
 		},
 	})
 	opts = append(opts, aliases)

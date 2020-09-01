@@ -68,6 +68,9 @@ func NewRecordSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/latest:RecordSet"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/preview:RecordSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RecordSet

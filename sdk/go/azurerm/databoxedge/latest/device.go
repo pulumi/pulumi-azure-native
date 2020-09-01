@@ -73,6 +73,9 @@ func NewDevice(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:Device"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190301:Device"),
 		},
 		{
@@ -80,6 +83,9 @@ func NewDevice(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:databoxedge/v20190801:Device"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:Device"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -54,6 +54,9 @@ func NewAutomationAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:AutomationAccount"),
 		},
+		{
+			Type: pulumi.String("azurerm:automation/preview:AutomationAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AutomationAccount

@@ -56,6 +56,15 @@ func NewDataExport(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:DataExport"),
+		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20190801preview:DataExport"),
+		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20200301preview:DataExport"),
+		},
+		{
 			Type: pulumi.String("azurerm:operationalinsights/v20200801:DataExport"),
 		},
 	})

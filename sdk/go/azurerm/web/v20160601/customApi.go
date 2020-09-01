@@ -44,6 +44,9 @@ func NewCustomApi(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/latest:CustomApi"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/preview:CustomApi"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomApi

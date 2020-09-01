@@ -74,7 +74,22 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicefabric/latest:Service"),
 		},
 		{
+			Type: pulumi.String("azurerm:servicefabric/preview:Service"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20170701preview:Service"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicefabric/v20190301:Service"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20190301preview:Service"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20190601preview:Service"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20191101preview:Service"),
 		},
 	})
 	opts = append(opts, aliases)

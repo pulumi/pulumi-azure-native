@@ -47,6 +47,9 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storsimple/latest:BackupScheduleGroup"),
 		},
+		{
+			Type: pulumi.String("azurerm:storsimple/preview:BackupScheduleGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BackupScheduleGroup

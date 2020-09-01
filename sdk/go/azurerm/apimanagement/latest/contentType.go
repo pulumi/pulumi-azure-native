@@ -43,6 +43,9 @@ func NewContentType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ContentType"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:ContentType"),
 		},
 	})

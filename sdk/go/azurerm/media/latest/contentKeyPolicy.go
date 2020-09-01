@@ -50,6 +50,15 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:media/preview:ContentKeyPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180330preview:ContentKeyPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180601preview:ContentKeyPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180701:ContentKeyPolicy"),
 		},
 		{

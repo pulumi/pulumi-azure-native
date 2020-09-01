@@ -48,6 +48,9 @@ func NewHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:relay/latest:HybridConnectionAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azurerm:relay/preview:HybridConnectionAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:relay/v20160701:HybridConnectionAuthorizationRule"),
 		},
 	})

@@ -48,6 +48,9 @@ func NewLabAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:labservices/preview:LabAccount"),
+		},
+		{
 			Type: pulumi.String("azurerm:labservices/v20181015:LabAccount"),
 		},
 	})

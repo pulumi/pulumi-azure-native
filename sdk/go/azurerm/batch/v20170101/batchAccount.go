@@ -57,6 +57,9 @@ func NewBatchAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:batch/latest:BatchAccount"),
 		},
 		{
+			Type: pulumi.String("azurerm:batch/preview:BatchAccount"),
+		},
+		{
 			Type: pulumi.String("azurerm:batch/v20151201:BatchAccount"),
 		},
 		{

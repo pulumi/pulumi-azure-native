@@ -76,6 +76,9 @@ func NewIscsiDisk(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storsimple/latest:IscsiDisk"),
 		},
+		{
+			Type: pulumi.String("azurerm:storsimple/preview:IscsiDisk"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IscsiDisk

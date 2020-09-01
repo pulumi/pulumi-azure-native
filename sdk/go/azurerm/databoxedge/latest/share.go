@@ -66,6 +66,9 @@ func NewShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:Share"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190301:Share"),
 		},
 		{
@@ -73,6 +76,9 @@ func NewShare(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:databoxedge/v20190801:Share"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:Share"),
 		},
 	})
 	opts = append(opts, aliases)

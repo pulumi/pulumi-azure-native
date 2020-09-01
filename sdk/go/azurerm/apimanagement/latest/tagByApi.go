@@ -42,16 +42,25 @@ func NewTagByApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:TagByApi"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:TagByApi"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:TagByApi"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:TagByApi"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:TagByApi"),
 		},
 	})
 	opts = append(opts, aliases)

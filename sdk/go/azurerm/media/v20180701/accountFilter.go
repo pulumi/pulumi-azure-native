@@ -46,6 +46,9 @@ func NewAccountFilter(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/latest:AccountFilter"),
 		},
 		{
+			Type: pulumi.String("azurerm:media/preview:AccountFilter"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20200501:AccountFilter"),
 		},
 	})

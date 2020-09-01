@@ -53,6 +53,15 @@ func NewDataSource(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:operationalinsights/latest:DataSource"),
 		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:DataSource"),
+		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20151101preview:DataSource"),
+		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20200301preview:DataSource"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DataSource

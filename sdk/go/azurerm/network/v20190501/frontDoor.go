@@ -63,6 +63,12 @@ func NewFrontDoor(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:FrontDoor"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:FrontDoor"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180801:FrontDoor"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20190401:FrontDoor"),
 		},
 		{

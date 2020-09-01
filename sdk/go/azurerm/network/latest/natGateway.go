@@ -56,6 +56,9 @@ func NewNatGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20190201:NatGateway"),
 		},
 		{

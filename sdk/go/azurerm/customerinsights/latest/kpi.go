@@ -90,6 +90,9 @@ func NewKpi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:customerinsights/preview:Kpi"),
+		},
+		{
 			Type: pulumi.String("azurerm:customerinsights/v20170101:Kpi"),
 		},
 		{

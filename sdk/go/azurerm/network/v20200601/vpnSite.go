@@ -66,6 +66,9 @@ func NewVpnSite(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VpnSite"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180401:VpnSite"),
 		},
 		{

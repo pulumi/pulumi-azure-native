@@ -56,6 +56,9 @@ func NewAppServicePlanRouteForVnet(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:AppServicePlanRouteForVnet"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:AppServicePlanRouteForVnet"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:AppServicePlanRouteForVnet"),
 		},
 		{

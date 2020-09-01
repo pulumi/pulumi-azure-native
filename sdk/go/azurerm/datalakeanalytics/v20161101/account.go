@@ -93,6 +93,9 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datalakeanalytics/latest:Account"),
 		},
+		{
+			Type: pulumi.String("azurerm:datalakeanalytics/preview:Account"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Account

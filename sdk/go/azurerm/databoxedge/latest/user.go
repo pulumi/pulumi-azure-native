@@ -46,6 +46,9 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:User"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190301:User"),
 		},
 		{
@@ -53,6 +56,9 @@ func NewUser(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:databoxedge/v20190801:User"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:User"),
 		},
 	})
 	opts = append(opts, aliases)

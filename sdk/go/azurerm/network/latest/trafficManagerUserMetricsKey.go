@@ -29,6 +29,9 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:TrafficManagerUserMetricsKey"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180401:TrafficManagerUserMetricsKey"),
 		},
 	})

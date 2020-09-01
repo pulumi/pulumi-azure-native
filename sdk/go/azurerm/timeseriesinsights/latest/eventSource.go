@@ -49,7 +49,16 @@ func NewEventSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:timeseriesinsights/preview:EventSource"),
+		},
+		{
+			Type: pulumi.String("azurerm:timeseriesinsights/v20170228preview:EventSource"),
+		},
+		{
 			Type: pulumi.String("azurerm:timeseriesinsights/v20171115:EventSource"),
+		},
+		{
+			Type: pulumi.String("azurerm:timeseriesinsights/v20180815preview:EventSource"),
 		},
 		{
 			Type: pulumi.String("azurerm:timeseriesinsights/v20200515:EventSource"),

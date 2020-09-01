@@ -48,6 +48,12 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:security/preview:AdaptiveApplicationControl"),
+		},
+		{
+			Type: pulumi.String("azurerm:security/v20150601preview:AdaptiveApplicationControl"),
+		},
+		{
 			Type: pulumi.String("azurerm:security/v20200101:AdaptiveApplicationControl"),
 		},
 	})

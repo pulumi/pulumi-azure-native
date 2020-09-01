@@ -35,6 +35,9 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:portal/preview:UserSettingsWithLocation"),
+		},
+		{
 			Type: pulumi.String("azurerm:portal/v20181001:UserSettingsWithLocation"),
 		},
 	})

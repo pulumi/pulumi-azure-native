@@ -49,6 +49,9 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:Certificate"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Certificate"),
 		},
 		{
@@ -61,10 +64,16 @@ func NewCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20180101:Certificate"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:Certificate"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:Certificate"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:Certificate"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:Certificate"),
 		},
 	})
 	opts = append(opts, aliases)

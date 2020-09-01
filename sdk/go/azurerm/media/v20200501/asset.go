@@ -56,6 +56,15 @@ func NewAsset(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/latest:Asset"),
 		},
 		{
+			Type: pulumi.String("azurerm:media/preview:Asset"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180330preview:Asset"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180601preview:Asset"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180701:Asset"),
 		},
 	})

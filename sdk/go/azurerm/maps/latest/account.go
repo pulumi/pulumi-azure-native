@@ -48,10 +48,16 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:maps/preview:Account"),
+		},
+		{
 			Type: pulumi.String("azurerm:maps/v20170101preview:Account"),
 		},
 		{
 			Type: pulumi.String("azurerm:maps/v20180501:Account"),
+		},
+		{
+			Type: pulumi.String("azurerm:maps/v20200201preview:Account"),
 		},
 	})
 	opts = append(opts, aliases)

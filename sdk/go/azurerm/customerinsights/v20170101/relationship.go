@@ -70,6 +70,9 @@ func NewRelationship(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:customerinsights/latest:Relationship"),
 		},
 		{
+			Type: pulumi.String("azurerm:customerinsights/preview:Relationship"),
+		},
+		{
 			Type: pulumi.String("azurerm:customerinsights/v20170426:Relationship"),
 		},
 	})

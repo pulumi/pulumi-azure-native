@@ -55,6 +55,12 @@ func NewRemediationAtManagementGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:policyinsights/latest:RemediationAtManagementGroup"),
 		},
+		{
+			Type: pulumi.String("azurerm:policyinsights/preview:RemediationAtManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:policyinsights/v20180701preview:RemediationAtManagementGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RemediationAtManagementGroup

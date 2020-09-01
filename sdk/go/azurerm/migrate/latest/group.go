@@ -41,6 +41,9 @@ func NewGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:migrate/preview:Group"),
+		},
+		{
 			Type: pulumi.String("azurerm:migrate/v20191001:Group"),
 		},
 	})

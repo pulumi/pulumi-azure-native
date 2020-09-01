@@ -51,6 +51,9 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:insights/latest:AnalyticsItem"),
 		},
+		{
+			Type: pulumi.String("azurerm:insights/preview:AnalyticsItem"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AnalyticsItem

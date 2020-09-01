@@ -49,6 +49,9 @@ func NewWorkspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:batchai/latest:Workspace"),
 		},
+		{
+			Type: pulumi.String("azurerm:batchai/preview:Workspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Workspace

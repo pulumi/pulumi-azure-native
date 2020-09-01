@@ -75,6 +75,9 @@ func NewRedis(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cache/latest:Redis"),
 		},
 		{
+			Type: pulumi.String("azurerm:cache/preview:Redis"),
+		},
+		{
 			Type: pulumi.String("azurerm:cache/v20160401:Redis"),
 		},
 		{
@@ -85,6 +88,9 @@ func NewRedis(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:cache/v20180301:Redis"),
+		},
+		{
+			Type: pulumi.String("azurerm:cache/v20190701:Redis"),
 		},
 	})
 	opts = append(opts, aliases)

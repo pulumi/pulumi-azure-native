@@ -48,6 +48,12 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:dbforpostgresql/latest:VirtualNetworkRule"),
 		},
+		{
+			Type: pulumi.String("azurerm:dbforpostgresql/preview:VirtualNetworkRule"),
+		},
+		{
+			Type: pulumi.String("azurerm:dbforpostgresql/v20171201preview:VirtualNetworkRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkRule

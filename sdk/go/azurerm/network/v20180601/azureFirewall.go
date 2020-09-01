@@ -51,6 +51,9 @@ func NewAzureFirewall(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:AzureFirewall"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:AzureFirewall"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180401:AzureFirewall"),
 		},
 		{

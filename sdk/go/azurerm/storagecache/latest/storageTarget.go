@@ -52,6 +52,12 @@ func NewStorageTarget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storagecache/preview:StorageTarget"),
+		},
+		{
+			Type: pulumi.String("azurerm:storagecache/v20190801preview:StorageTarget"),
+		},
+		{
 			Type: pulumi.String("azurerm:storagecache/v20191101:StorageTarget"),
 		},
 		{

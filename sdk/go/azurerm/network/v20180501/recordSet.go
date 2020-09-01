@@ -72,6 +72,9 @@ func NewRecordSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/v20150504preview:RecordSet"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20160401:RecordSet"),
 		},
 		{
@@ -79,6 +82,9 @@ func NewRecordSet(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:network/v20171001:RecordSet"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180301preview:RecordSet"),
 		},
 	})
 	opts = append(opts, aliases)

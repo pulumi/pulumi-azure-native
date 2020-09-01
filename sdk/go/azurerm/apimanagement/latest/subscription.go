@@ -69,6 +69,9 @@ func NewSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:Subscription"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Subscription"),
 		},
 		{
@@ -81,10 +84,16 @@ func NewSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20180101:Subscription"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:Subscription"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:Subscription"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:Subscription"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:Subscription"),
 		},
 	})
 	opts = append(opts, aliases)

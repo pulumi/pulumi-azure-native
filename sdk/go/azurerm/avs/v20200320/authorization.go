@@ -45,6 +45,9 @@ func NewAuthorization(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:avs/latest:Authorization"),
 		},
+		{
+			Type: pulumi.String("azurerm:avs/preview:Authorization"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Authorization

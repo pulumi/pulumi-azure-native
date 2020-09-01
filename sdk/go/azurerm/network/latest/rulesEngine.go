@@ -41,6 +41,9 @@ func NewRulesEngine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:RulesEngine"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20200101:RulesEngine"),
 		},
 		{

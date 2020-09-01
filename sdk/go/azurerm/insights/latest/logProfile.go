@@ -57,6 +57,9 @@ func NewLogProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:insights/preview:LogProfile"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20160301:LogProfile"),
 		},
 	})

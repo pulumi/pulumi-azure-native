@@ -66,6 +66,9 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:ConnectionMonitor"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:ConnectionMonitor"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20171001:ConnectionMonitor"),
 		},
 		{

@@ -63,6 +63,9 @@ func NewPublicIPPrefix(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:PublicIPPrefix"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:PublicIPPrefix"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180801:PublicIPPrefix"),
 		},
 		{

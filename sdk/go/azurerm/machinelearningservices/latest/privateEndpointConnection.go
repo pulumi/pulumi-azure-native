@@ -54,7 +54,13 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:machinelearningservices/preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20200101:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200218preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20200301:PrivateEndpointConnection"),
@@ -63,7 +69,16 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:machinelearningservices/v20200401:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200501preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200515preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20200601:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200901preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

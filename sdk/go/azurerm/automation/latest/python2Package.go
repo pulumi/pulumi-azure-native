@@ -68,6 +68,9 @@ func NewPython2Package(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:automation/preview:Python2Package"),
+		},
+		{
 			Type: pulumi.String("azurerm:automation/v20180630:Python2Package"),
 		},
 	})

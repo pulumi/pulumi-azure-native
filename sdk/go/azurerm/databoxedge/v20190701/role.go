@@ -45,10 +45,16 @@ func NewRole(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databoxedge/latest:Role"),
 		},
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:Role"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190301:Role"),
 		},
 		{
 			Type: pulumi.String("azurerm:databoxedge/v20190801:Role"),
+		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:Role"),
 		},
 	})
 	opts = append(opts, aliases)

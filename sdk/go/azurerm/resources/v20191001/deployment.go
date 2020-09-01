@@ -46,6 +46,9 @@ func NewDeployment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:resources/latest:Deployment"),
 		},
 		{
+			Type: pulumi.String("azurerm:resources/preview:Deployment"),
+		},
+		{
 			Type: pulumi.String("azurerm:resources/v20151101:Deployment"),
 		},
 		{

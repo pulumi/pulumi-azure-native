@@ -54,6 +54,9 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:netapp/preview:snapshotPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:netapp/v20200601:snapshotPolicy"),
 		},
 	})

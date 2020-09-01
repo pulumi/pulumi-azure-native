@@ -54,6 +54,9 @@ func NewVirtualHub(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualHub"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180601:VirtualHub"),
 		},
 		{

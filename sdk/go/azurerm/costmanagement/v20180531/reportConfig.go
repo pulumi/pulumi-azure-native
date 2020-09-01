@@ -49,6 +49,9 @@ func NewReportConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:costmanagement/latest:ReportConfig"),
 		},
+		{
+			Type: pulumi.String("azurerm:costmanagement/preview:ReportConfig"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ReportConfig

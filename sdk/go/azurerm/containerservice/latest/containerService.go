@@ -68,6 +68,12 @@ func NewContainerService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:containerservice/preview:ContainerService"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20151101preview:ContainerService"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerservice/v20160330:ContainerService"),
 		},
 		{

@@ -120,7 +120,19 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:sql/preview:Database"),
+		},
+		{
 			Type: pulumi.String("azurerm:sql/v20140401:Database"),
+		},
+		{
+			Type: pulumi.String("azurerm:sql/v20170301preview:Database"),
+		},
+		{
+			Type: pulumi.String("azurerm:sql/v20171001preview:Database"),
+		},
+		{
+			Type: pulumi.String("azurerm:sql/v20190601preview:Database"),
 		},
 	})
 	opts = append(opts, aliases)
