@@ -107,7 +107,7 @@ export class Container extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Container" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Container" }, { type: "azurerm:databoxedge/v20200501preview:Container" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Container.__pulumiType, name, inputs, opts);
     }

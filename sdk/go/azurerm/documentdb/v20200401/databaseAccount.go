@@ -120,6 +120,9 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200301:DatabaseAccount"),
 		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:DatabaseAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccount

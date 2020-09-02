@@ -88,7 +88,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
             __props__['name'] = None
             __props__['policy_definition_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:security/latest:AssessmentMetadataInSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:security/latest:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azurerm:security/v20190101preview:AssessmentMetadataInSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentMetadataInSubscription, __self__).__init__(
             'azurerm:security/v20200101:AssessmentMetadataInSubscription',

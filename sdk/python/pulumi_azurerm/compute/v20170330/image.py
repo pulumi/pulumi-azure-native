@@ -70,7 +70,7 @@ class Image(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/latest:Image"), pulumi.Alias(type_="azurerm:compute/v20171201:Image"), pulumi.Alias(type_="azurerm:compute/v20180401:Image"), pulumi.Alias(type_="azurerm:compute/v20180601:Image"), pulumi.Alias(type_="azurerm:compute/v20181001:Image"), pulumi.Alias(type_="azurerm:compute/v20190301:Image"), pulumi.Alias(type_="azurerm:compute/v20190701:Image"), pulumi.Alias(type_="azurerm:compute/v20191201:Image"), pulumi.Alias(type_="azurerm:compute/v20200601:Image")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/latest:Image"), pulumi.Alias(type_="azurerm:compute/v20160430preview:Image"), pulumi.Alias(type_="azurerm:compute/v20171201:Image"), pulumi.Alias(type_="azurerm:compute/v20180401:Image"), pulumi.Alias(type_="azurerm:compute/v20180601:Image"), pulumi.Alias(type_="azurerm:compute/v20181001:Image"), pulumi.Alias(type_="azurerm:compute/v20190301:Image"), pulumi.Alias(type_="azurerm:compute/v20190701:Image"), pulumi.Alias(type_="azurerm:compute/v20191201:Image"), pulumi.Alias(type_="azurerm:compute/v20200601:Image")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Image, __self__).__init__(
             'azurerm:compute/v20170330:Image',

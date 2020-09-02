@@ -43,6 +43,9 @@ func NewDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:dbformariadb/v20180601:Database"),
 		},
+		{
+			Type: pulumi.String("azurerm:dbformariadb/v20180601preview:Database"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Database

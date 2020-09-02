@@ -58,6 +58,10 @@ namespace Pulumi.AzureRM.Authorization.V20150701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:authorization/latest:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/v20171001preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/v20180101preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/v20180901preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/v20200401preview:RoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

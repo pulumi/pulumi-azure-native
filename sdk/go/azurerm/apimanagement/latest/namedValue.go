@@ -53,6 +53,9 @@ func NewNamedValue(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:NamedValue"),
 		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:NamedValue"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NamedValue

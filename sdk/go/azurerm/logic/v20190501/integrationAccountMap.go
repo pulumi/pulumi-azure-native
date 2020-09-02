@@ -63,7 +63,13 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:IntegrationAccountMap"),
 		},
 		{
+			Type: pulumi.String("azurerm:logic/v20150801preview:IntegrationAccountMap"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountMap"),
+		},
+		{
+			Type: pulumi.String("azurerm:logic/v20180701preview:IntegrationAccountMap"),
 		},
 	})
 	opts = append(opts, aliases)

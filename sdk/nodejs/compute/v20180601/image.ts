@@ -104,7 +104,7 @@ export class Image extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:Image" }, { type: "azurerm:compute/v20170330:Image" }, { type: "azurerm:compute/v20171201:Image" }, { type: "azurerm:compute/v20180401:Image" }, { type: "azurerm:compute/v20181001:Image" }, { type: "azurerm:compute/v20190301:Image" }, { type: "azurerm:compute/v20190701:Image" }, { type: "azurerm:compute/v20191201:Image" }, { type: "azurerm:compute/v20200601:Image" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:Image" }, { type: "azurerm:compute/v20160430preview:Image" }, { type: "azurerm:compute/v20170330:Image" }, { type: "azurerm:compute/v20171201:Image" }, { type: "azurerm:compute/v20180401:Image" }, { type: "azurerm:compute/v20181001:Image" }, { type: "azurerm:compute/v20190301:Image" }, { type: "azurerm:compute/v20190701:Image" }, { type: "azurerm:compute/v20191201:Image" }, { type: "azurerm:compute/v20200601:Image" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Image.__pulumiType, name, inputs, opts);
     }

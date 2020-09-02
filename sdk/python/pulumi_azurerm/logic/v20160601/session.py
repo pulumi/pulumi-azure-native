@@ -69,7 +69,7 @@ class Session(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/latest:Session"), pulumi.Alias(type_="azurerm:logic/v20190501:Session")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/latest:Session"), pulumi.Alias(type_="azurerm:logic/v20180701preview:Session"), pulumi.Alias(type_="azurerm:logic/v20190501:Session")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Session, __self__).__init__(
             'azurerm:logic/v20160601:Session',

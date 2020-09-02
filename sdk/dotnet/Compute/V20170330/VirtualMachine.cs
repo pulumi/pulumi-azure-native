@@ -150,6 +150,7 @@ namespace Pulumi.AzureRM.Compute.V20170330
                     new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20150615:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20160330:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20171201:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180401:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180601:VirtualMachine"},

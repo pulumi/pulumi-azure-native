@@ -61,6 +61,9 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storagesync/latest:CloudEndpoint"),
 		},
 		{
+			Type: pulumi.String("azurerm:storagesync/v20170605preview:CloudEndpoint"),
+		},
+		{
 			Type: pulumi.String("azurerm:storagesync/v20180402:CloudEndpoint"),
 		},
 		{

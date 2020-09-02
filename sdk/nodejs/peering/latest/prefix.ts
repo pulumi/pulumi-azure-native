@@ -115,7 +115,7 @@ export class Prefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:peering/v20200401:Prefix" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:peering/v20190801preview:Prefix" }, { type: "azurerm:peering/v20190901preview:Prefix" }, { type: "azurerm:peering/v20200101preview:Prefix" }, { type: "azurerm:peering/v20200401:Prefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Prefix.__pulumiType, name, inputs, opts);
     }

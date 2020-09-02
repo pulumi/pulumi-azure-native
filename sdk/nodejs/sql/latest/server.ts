@@ -127,7 +127,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/v20140401:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:sql/v20140401:Server" }, { type: "azurerm:sql/v20150501preview:Server" }, { type: "azurerm:sql/v20190601preview:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }

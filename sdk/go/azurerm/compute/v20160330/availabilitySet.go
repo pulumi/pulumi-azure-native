@@ -55,6 +55,9 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/v20150615:AvailabilitySet"),
 		},
 		{
+			Type: pulumi.String("azurerm:compute/v20160430preview:AvailabilitySet"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20170330:AvailabilitySet"),
 		},
 		{

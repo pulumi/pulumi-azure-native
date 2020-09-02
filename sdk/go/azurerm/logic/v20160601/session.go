@@ -50,6 +50,9 @@ func NewSession(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:Session"),
 		},
 		{
+			Type: pulumi.String("azurerm:logic/v20180701preview:Session"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20190501:Session"),
 		},
 	})

@@ -89,7 +89,7 @@ class User(pulumi.CustomResource):
             __props__['name'] = None
             __props__['registration_date'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:User"), pulumi.Alias(type_="azurerm:apimanagement/v20160707:User"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:User"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:User"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:User"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:User"), pulumi.Alias(type_="azurerm:apimanagement/v20160707:User"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:User"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:User"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:User"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:User"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:User"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azurerm:apimanagement/v20170301:User',

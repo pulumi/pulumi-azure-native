@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20200101:ServerKey"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20200101privatepreview:ServerKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

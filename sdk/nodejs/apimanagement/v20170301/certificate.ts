@@ -101,7 +101,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Certificate" }, { type: "azurerm:apimanagement/v20160707:Certificate" }, { type: "azurerm:apimanagement/v20161010:Certificate" }, { type: "azurerm:apimanagement/v20180101:Certificate" }, { type: "azurerm:apimanagement/v20190101:Certificate" }, { type: "azurerm:apimanagement/v20191201:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Certificate" }, { type: "azurerm:apimanagement/v20160707:Certificate" }, { type: "azurerm:apimanagement/v20161010:Certificate" }, { type: "azurerm:apimanagement/v20180101:Certificate" }, { type: "azurerm:apimanagement/v20180601preview:Certificate" }, { type: "azurerm:apimanagement/v20190101:Certificate" }, { type: "azurerm:apimanagement/v20191201:Certificate" }, { type: "azurerm:apimanagement/v20191201preview:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

@@ -94,7 +94,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/latest:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/latest:FirewallRule" }, { type: "azurerm:dbformysql/v20171201preview:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

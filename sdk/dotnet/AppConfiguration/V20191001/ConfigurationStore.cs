@@ -94,6 +94,8 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:appconfiguration/latest:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azurerm:appconfiguration/v20190201preview:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azurerm:appconfiguration/v20191101preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azurerm:appconfiguration/v20200601:ConfigurationStore"},
                 },
             };

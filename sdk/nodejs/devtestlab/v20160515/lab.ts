@@ -135,7 +135,7 @@ export class Lab extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:Lab" }, { type: "azurerm:devtestlab/v20180915:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:Lab" }, { type: "azurerm:devtestlab/v20150521preview:Lab" }, { type: "azurerm:devtestlab/v20180915:Lab" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Lab.__pulumiType, name, inputs, opts);
     }

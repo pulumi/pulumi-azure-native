@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20180601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20180601privatepreview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

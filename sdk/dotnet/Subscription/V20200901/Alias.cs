@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.Subscription.V20200901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:subscription/latest:Alias"},
+                    new Pulumi.Alias { Type = "azurerm:subscription/v20191001preview:Alias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

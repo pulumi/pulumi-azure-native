@@ -62,6 +62,9 @@ func NewLinkedServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:cache/v20180301:LinkedServer"),
 		},
+		{
+			Type: pulumi.String("azurerm:cache/v20190701:LinkedServer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LinkedServer

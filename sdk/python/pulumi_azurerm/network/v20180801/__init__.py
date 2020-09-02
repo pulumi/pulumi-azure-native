@@ -16,6 +16,7 @@ from .express_route_connection import *
 from .express_route_cross_connection_peering import *
 from .express_route_gateway import *
 from .express_route_port import *
+from .front_door import *
 from .get_application_gateway import *
 from .get_application_security_group import *
 from .get_azure_firewall import *
@@ -29,6 +30,7 @@ from .get_express_route_connection import *
 from .get_express_route_cross_connection_peering import *
 from .get_express_route_gateway import *
 from .get_express_route_port import *
+from .get_front_door import *
 from .get_inbound_nat_rule import *
 from .get_interface_endpoint import *
 from .get_load_balancer import *
@@ -41,6 +43,7 @@ from .get_network_watcher import *
 from .get_p2s_vpn_gateway import *
 from .get_p2s_vpn_server_configuration import *
 from .get_packet_capture import *
+from .get_policy import *
 from .get_public_ip_address import *
 from .get_public_ip_prefix import *
 from .get_route import *
@@ -73,6 +76,7 @@ from .network_watcher import *
 from .p2s_vpn_gateway import *
 from .p2s_vpn_server_configuration import *
 from .packet_capture import *
+from .policy import *
 from .public_ip_address import *
 from .public_ip_prefix import *
 from .route import *

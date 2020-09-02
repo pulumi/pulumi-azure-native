@@ -87,10 +87,14 @@ namespace Pulumi.AzureRM.Devices.V20200615
                     new Pulumi.Alias { Type = "azurerm:devices/v20170701:IotHubResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20180122:IotHubResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20180401:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20181201preview:IotHubResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20190322:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20190322preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20190701preview:IotHubResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20191104:IotHubResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200301:IotHubResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200401:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200710preview:IotHubResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

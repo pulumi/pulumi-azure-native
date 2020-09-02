@@ -39,7 +39,16 @@ func NewDomainTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:eventgrid/v20190201preview:DomainTopic"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20190601:DomainTopic"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20200101preview:DomainTopic"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20200401preview:DomainTopic"),
 		},
 		{
 			Type: pulumi.String("azurerm:eventgrid/v20200601:DomainTopic"),

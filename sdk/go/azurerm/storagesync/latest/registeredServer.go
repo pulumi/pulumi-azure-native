@@ -77,6 +77,9 @@ func NewRegisteredServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:storagesync/v20170605preview:RegisteredServer"),
+		},
+		{
 			Type: pulumi.String("azurerm:storagesync/v20180402:RegisteredServer"),
 		},
 		{

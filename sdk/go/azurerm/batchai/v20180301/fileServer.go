@@ -62,6 +62,12 @@ func NewFileServer(ctx *pulumi.Context,
 	if args == nil {
 		args = &FileServerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:batchai/v20170901preview:FileServer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource FileServer
 	err := ctx.RegisterResource("azurerm:batchai/v20180301:FileServer", name, args, &resource, opts...)
 	if err != nil {

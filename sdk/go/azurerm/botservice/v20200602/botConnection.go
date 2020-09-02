@@ -51,6 +51,12 @@ func NewBotConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:botservice/latest:BotConnection"),
 		},
+		{
+			Type: pulumi.String("azurerm:botservice/v20171201:BotConnection"),
+		},
+		{
+			Type: pulumi.String("azurerm:botservice/v20180712:BotConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BotConnection

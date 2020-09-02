@@ -92,6 +92,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:containerservice/v20180331:ManagedCluster"),
 		},
 		{
+			Type: pulumi.String("azurerm:containerservice/v20180801preview:ManagedCluster"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerservice/v20190201:ManagedCluster"),
 		},
 		{

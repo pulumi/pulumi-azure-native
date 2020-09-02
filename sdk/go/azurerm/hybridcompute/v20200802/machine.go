@@ -83,7 +83,19 @@ func NewMachine(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:hybridcompute/latest:Machine"),
 		},
 		{
+			Type: pulumi.String("azurerm:hybridcompute/v20190318preview:Machine"),
+		},
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20190802preview:Machine"),
+		},
+		{
 			Type: pulumi.String("azurerm:hybridcompute/v20191212:Machine"),
+		},
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20200730preview:Machine"),
+		},
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20200815preview:Machine"),
 		},
 	})
 	opts = append(opts, aliases)

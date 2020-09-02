@@ -65,6 +65,9 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"),
 		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlUserDefinedFunction

@@ -94,7 +94,7 @@ class Application(pulumi.CustomResource):
             __props__['outputs'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:solutions/latest:Application"), pulumi.Alias(type_="azurerm:solutions/v20180601:Application"), pulumi.Alias(type_="azurerm:solutions/v20190701:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:solutions/latest:Application"), pulumi.Alias(type_="azurerm:solutions/v20180601:Application"), pulumi.Alias(type_="azurerm:solutions/v20190701:Application"), pulumi.Alias(type_="azurerm:solutions/v20200821preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azurerm:solutions/v20170901:Application',

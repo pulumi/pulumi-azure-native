@@ -65,6 +65,9 @@ func NewProperty(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:Property"),
 		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:Property"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Property

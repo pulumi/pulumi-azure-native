@@ -57,6 +57,7 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:appplatform/v20190501preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:appplatform/v20200701:Certificate"},
                 },
             };

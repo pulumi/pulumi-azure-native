@@ -61,7 +61,19 @@ func NewDomain(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:eventgrid/latest:Domain"),
 		},
 		{
+			Type: pulumi.String("azurerm:eventgrid/v20180915preview:Domain"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20190201preview:Domain"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20190601:Domain"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20200101preview:Domain"),
+		},
+		{
+			Type: pulumi.String("azurerm:eventgrid/v20200401preview:Domain"),
 		},
 	})
 	opts = append(opts, aliases)

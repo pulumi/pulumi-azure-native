@@ -59,6 +59,7 @@ namespace Pulumi.AzureRM.Cache.V20180301
                 {
                     new Pulumi.Alias { Type = "azurerm:cache/latest:PatchSchedule"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20171001:PatchSchedule"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20190701:PatchSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

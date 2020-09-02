@@ -80,7 +80,7 @@ export class Alias extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:subscription/latest:Alias" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:subscription/latest:Alias" }, { type: "azurerm:subscription/v20191001preview:Alias" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Alias.__pulumiType, name, inputs, opts);
     }

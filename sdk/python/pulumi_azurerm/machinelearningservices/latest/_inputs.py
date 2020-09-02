@@ -13,6 +13,7 @@ __all__ = [
     'EncryptionPropertyArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
+    'LinkedWorkspacePropsArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SharedPrivateLinkResourceArgs',
     'SkuArgs',
@@ -200,6 +201,46 @@ class KeyVaultPropertiesArgs:
     @identity_client_id.setter
     def identity_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_client_id", value)
+
+
+@pulumi.input_type
+class LinkedWorkspacePropsArgs:
+    def __init__(__self__, *,
+                 linked_workspace_resource_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        LinkedWorkspace specific properties.
+        :param pulumi.Input[str] linked_workspace_resource_id: ResourceId of the link target of the linked workspace.
+        :param pulumi.Input[str] user_assigned_identity_resource_id: ResourceId of the user assigned identity for the linked workspace.
+        """
+        if linked_workspace_resource_id is not None:
+            pulumi.set(__self__, "linked_workspace_resource_id", linked_workspace_resource_id)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="linkedWorkspaceResourceId")
+    def linked_workspace_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ResourceId of the link target of the linked workspace.
+        """
+        return pulumi.get(self, "linked_workspace_resource_id")
+
+    @linked_workspace_resource_id.setter
+    def linked_workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linked_workspace_resource_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ResourceId of the user assigned identity for the linked workspace.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+    @user_assigned_identity_resource_id.setter
+    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_resource_id", value)
 
 
 @pulumi.input_type

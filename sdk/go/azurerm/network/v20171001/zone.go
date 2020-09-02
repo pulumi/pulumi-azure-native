@@ -52,10 +52,16 @@ func NewZone(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:Zone"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/v20150504preview:Zone"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20160401:Zone"),
 		},
 		{
 			Type: pulumi.String("azurerm:network/v20170901:Zone"),
+		},
+		{
+			Type: pulumi.String("azurerm:network/v20180301preview:Zone"),
 		},
 		{
 			Type: pulumi.String("azurerm:network/v20180501:Zone"),

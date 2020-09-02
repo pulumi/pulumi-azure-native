@@ -68,7 +68,7 @@ class RedisFirewallRule(pulumi.CustomResource):
             __props__['start_ip'] = start_ip
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/latest:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20170201:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20171001:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20180301:RedisFirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/latest:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20170201:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20171001:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20180301:RedisFirewallRule"), pulumi.Alias(type_="azurerm:cache/v20190701:RedisFirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RedisFirewallRule, __self__).__init__(
             'azurerm:cache/v20160401:RedisFirewallRule',

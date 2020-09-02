@@ -200,7 +200,7 @@ export class StorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:StorageAccount" }, { type: "azurerm:storage/v20150615:StorageAccount" }, { type: "azurerm:storage/v20160101:StorageAccount" }, { type: "azurerm:storage/v20160501:StorageAccount" }, { type: "azurerm:storage/v20161201:StorageAccount" }, { type: "azurerm:storage/v20170601:StorageAccount" }, { type: "azurerm:storage/v20171001:StorageAccount" }, { type: "azurerm:storage/v20180201:StorageAccount" }, { type: "azurerm:storage/v20180701:StorageAccount" }, { type: "azurerm:storage/v20190401:StorageAccount" }, { type: "azurerm:storage/v20190601:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:StorageAccount" }, { type: "azurerm:storage/v20150501preview:StorageAccount" }, { type: "azurerm:storage/v20150615:StorageAccount" }, { type: "azurerm:storage/v20160101:StorageAccount" }, { type: "azurerm:storage/v20160501:StorageAccount" }, { type: "azurerm:storage/v20161201:StorageAccount" }, { type: "azurerm:storage/v20170601:StorageAccount" }, { type: "azurerm:storage/v20171001:StorageAccount" }, { type: "azurerm:storage/v20180201:StorageAccount" }, { type: "azurerm:storage/v20180301preview:StorageAccount" }, { type: "azurerm:storage/v20180701:StorageAccount" }, { type: "azurerm:storage/v20190401:StorageAccount" }, { type: "azurerm:storage/v20190601:StorageAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccount.__pulumiType, name, inputs, opts);
     }

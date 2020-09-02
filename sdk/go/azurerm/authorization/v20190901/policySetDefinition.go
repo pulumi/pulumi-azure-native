@@ -51,6 +51,9 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:authorization/latest:PolicySetDefinition"),
 		},
 		{
+			Type: pulumi.String("azurerm:authorization/v20170601preview:PolicySetDefinition"),
+		},
+		{
 			Type: pulumi.String("azurerm:authorization/v20180301:PolicySetDefinition"),
 		},
 		{

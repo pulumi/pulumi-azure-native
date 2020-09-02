@@ -51,6 +51,12 @@ func NewChannel(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:botservice/latest:Channel"),
 		},
+		{
+			Type: pulumi.String("azurerm:botservice/v20171201:Channel"),
+		},
+		{
+			Type: pulumi.String("azurerm:botservice/v20180712:Channel"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Channel

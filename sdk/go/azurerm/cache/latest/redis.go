@@ -20,6 +20,8 @@ type Redis struct {
 	EnableNonSslPort pulumi.BoolPtrOutput `pulumi:"enableNonSslPort"`
 	// Redis host name.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
+	// List of the Redis instances associated with the cache
+	Instances RedisInstanceDetailsResponseArrayOutput `pulumi:"instances"`
 	// List of the linked servers associated with the cache
 	LinkedServers RedisLinkedServerResponseArrayOutput `pulumi:"linkedServers"`
 	// The geo-location where the resource lives
@@ -36,6 +38,8 @@ type Redis struct {
 	RedisConfiguration pulumi.StringMapOutput `pulumi:"redisConfiguration"`
 	// Redis version.
 	RedisVersion pulumi.StringOutput `pulumi:"redisVersion"`
+	// The number of replicas to be created per master.
+	ReplicasPerMaster pulumi.IntPtrOutput `pulumi:"replicasPerMaster"`
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
 	// The SKU of the Redis cache to deploy.
@@ -90,6 +94,9 @@ func NewRedis(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:cache/v20180301:Redis"),
 		},
+		{
+			Type: pulumi.String("azurerm:cache/v20190701:Redis"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Redis
@@ -120,6 +127,8 @@ type redisState struct {
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// Redis host name.
 	HostName *string `pulumi:"hostName"`
+	// List of the Redis instances associated with the cache
+	Instances []RedisInstanceDetailsResponse `pulumi:"instances"`
 	// List of the linked servers associated with the cache
 	LinkedServers []RedisLinkedServerResponse `pulumi:"linkedServers"`
 	// The geo-location where the resource lives
@@ -136,6 +145,8 @@ type redisState struct {
 	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
 	// Redis version.
 	RedisVersion *string `pulumi:"redisVersion"`
+	// The number of replicas to be created per master.
+	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of the Redis cache to deploy.
@@ -163,6 +174,8 @@ type RedisState struct {
 	EnableNonSslPort pulumi.BoolPtrInput
 	// Redis host name.
 	HostName pulumi.StringPtrInput
+	// List of the Redis instances associated with the cache
+	Instances RedisInstanceDetailsResponseArrayInput
 	// List of the linked servers associated with the cache
 	LinkedServers RedisLinkedServerResponseArrayInput
 	// The geo-location where the resource lives
@@ -179,6 +192,8 @@ type RedisState struct {
 	RedisConfiguration pulumi.StringMapInput
 	// Redis version.
 	RedisVersion pulumi.StringPtrInput
+	// The number of replicas to be created per master.
+	ReplicasPerMaster pulumi.IntPtrInput
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount pulumi.IntPtrInput
 	// The SKU of the Redis cache to deploy.
@@ -214,6 +229,8 @@ type redisArgs struct {
 	Name string `pulumi:"name"`
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
+	// The number of replicas to be created per master.
+	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of shards to be created on a Premium Cluster Cache.
@@ -244,6 +261,8 @@ type RedisArgs struct {
 	Name pulumi.StringInput
 	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 	RedisConfiguration pulumi.StringMapInput
+	// The number of replicas to be created per master.
+	ReplicasPerMaster pulumi.IntPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The number of shards to be created on a Premium Cluster Cache.

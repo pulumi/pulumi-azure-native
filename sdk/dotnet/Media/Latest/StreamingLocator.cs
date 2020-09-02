@@ -111,6 +111,8 @@ namespace Pulumi.AzureRM.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:media/v20180330preview:StreamingLocator"},
+                    new Pulumi.Alias { Type = "azurerm:media/v20180601preview:StreamingLocator"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:StreamingLocator"},
                     new Pulumi.Alias { Type = "azurerm:media/v20200501:StreamingLocator"},
                 },

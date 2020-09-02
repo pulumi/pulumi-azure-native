@@ -76,7 +76,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerregistry/latest:Replication"},
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20170601preview:Replication"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20171001:Replication"},
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20191201preview:Replication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

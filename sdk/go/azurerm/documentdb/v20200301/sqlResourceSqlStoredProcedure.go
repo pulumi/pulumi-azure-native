@@ -65,6 +65,9 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200401:SqlResourceSqlStoredProcedure"),
 		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlStoredProcedure

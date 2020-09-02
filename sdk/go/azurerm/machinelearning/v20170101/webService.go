@@ -48,6 +48,9 @@ func NewWebService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:machinelearning/latest:WebService"),
 		},
+		{
+			Type: pulumi.String("azurerm:machinelearning/v20160501preview:WebService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebService

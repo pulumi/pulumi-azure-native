@@ -118,7 +118,7 @@ class AuthorizationServer(pulumi.CustomResource):
             __props__['token_endpoint'] = token_endpoint
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20160707:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:AuthorizationServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20160707:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:AuthorizationServer"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:AuthorizationServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AuthorizationServer, __self__).__init__(
             'azurerm:apimanagement/v20180101:AuthorizationServer',

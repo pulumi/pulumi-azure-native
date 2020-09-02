@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Gateway"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:Gateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

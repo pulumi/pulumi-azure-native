@@ -55,6 +55,7 @@ namespace Pulumi.AzureRM.Scheduler.V20160101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:scheduler/latest:Job"},
+                    new Pulumi.Alias { Type = "azurerm:scheduler/v20140801preview:Job"},
                     new Pulumi.Alias { Type = "azurerm:scheduler/v20160301:Job"},
                 },
             };

@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.Security.V20200101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:security/latest:AdaptiveApplicationControl"},
+                    new Pulumi.Alias { Type = "azurerm:security/v20150601preview:AdaptiveApplicationControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

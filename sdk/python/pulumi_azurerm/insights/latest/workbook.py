@@ -98,7 +98,7 @@ class Workbook(pulumi.CustomResource):
             __props__['workbook_id'] = workbook_id
             __props__['time_modified'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/v20150501:Workbook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/v20150501:Workbook"), pulumi.Alias(type_="azurerm:insights/v20180617preview:Workbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workbook, __self__).__init__(
             'azurerm:insights/latest:Workbook',

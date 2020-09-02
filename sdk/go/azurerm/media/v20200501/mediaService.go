@@ -56,6 +56,12 @@ func NewMediaService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/v20151001:MediaService"),
 		},
 		{
+			Type: pulumi.String("azurerm:media/v20180330preview:MediaService"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180601preview:MediaService"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180701:MediaService"),
 		},
 	})

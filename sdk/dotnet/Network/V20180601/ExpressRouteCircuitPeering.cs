@@ -160,6 +160,7 @@ namespace Pulumi.AzureRM.Network.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:ExpressRouteCircuitPeering"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20150501preview:ExpressRouteCircuitPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:ExpressRouteCircuitPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:ExpressRouteCircuitPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:ExpressRouteCircuitPeering"},

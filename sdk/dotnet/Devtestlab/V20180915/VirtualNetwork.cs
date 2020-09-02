@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:VirtualNetwork"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/v20150521preview:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:VirtualNetwork"},
                 },
             };

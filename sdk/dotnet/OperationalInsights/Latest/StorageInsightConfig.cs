@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20150320:StorageInsightConfig"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:StorageInsightConfig"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:StorageInsightConfig"},
                 },
             };

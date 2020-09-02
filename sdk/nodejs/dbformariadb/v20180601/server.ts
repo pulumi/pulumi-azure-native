@@ -158,7 +158,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformariadb/latest:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbformariadb/latest:Server" }, { type: "azurerm:dbformariadb/v20180601preview:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }

@@ -38,6 +38,9 @@ func NewAlias(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:subscription/latest:Alias"),
 		},
+		{
+			Type: pulumi.String("azurerm:subscription/v20191001preview:Alias"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Alias

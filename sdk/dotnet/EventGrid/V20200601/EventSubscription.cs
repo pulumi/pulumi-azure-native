@@ -106,9 +106,16 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:eventgrid/latest:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20170615preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20170915preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20180101:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180501preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180915preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20190101:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190201preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20190601:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200101preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200401preview:EventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

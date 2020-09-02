@@ -60,7 +60,9 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:TagByProduct"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:TagByProduct"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:TagByProduct"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:TagByProduct"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:TagByProduct"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:TagByProduct"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

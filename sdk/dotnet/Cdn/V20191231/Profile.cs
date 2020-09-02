@@ -89,6 +89,7 @@ namespace Pulumi.AzureRM.Cdn.V20191231
                     new Pulumi.Alias { Type = "azurerm:cdn/v20171012:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190415:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Profile"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/v20190615preview:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Profile"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200415:Profile"},
                 },

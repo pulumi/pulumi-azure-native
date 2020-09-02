@@ -71,6 +71,7 @@ namespace Pulumi.AzureRM.Storage.V20180701
                 {
                     new Pulumi.Alias { Type = "azurerm:storage/latest:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20180201:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:storage/v20180301preview:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20181101:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190401:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190601:BlobContainerImmutabilityPolicy"},

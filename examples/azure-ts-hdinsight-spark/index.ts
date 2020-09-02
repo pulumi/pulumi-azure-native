@@ -1,6 +1,6 @@
 // Copyright 2020, Pulumi Corporation.  All rights reserved.
 
-import * as azurerm from "../../sdk/nodejs";
+import * as azurerm from "@pulumi/azurerm";
 import * as pulumi from "@pulumi/pulumi";
 
 const config = new pulumi.Config();
@@ -42,7 +42,7 @@ const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, 
 const primaryStorageKey = storageAccountKeys.keys[0].value;
 
 // Create a Spark cluster in HDInsight
-const sparkCluster = new azurerm.hdinsight.latest.Cluster("myspark", {
+const sparkCluster = new azurerm.hdinsight.preview.Cluster("myspark", {
     clusterName: "spark-cluster12345",
     resourceGroupName: resourceGroup.name,
     location: location,

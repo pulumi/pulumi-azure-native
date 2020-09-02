@@ -99,7 +99,7 @@ export class TableResourceTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:TableResourceTable" }, { type: "azurerm:documentdb/v20191212:TableResourceTable" }, { type: "azurerm:documentdb/v20200301:TableResourceTable" }, { type: "azurerm:documentdb/v20200401:TableResourceTable" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:TableResourceTable" }, { type: "azurerm:documentdb/v20191212:TableResourceTable" }, { type: "azurerm:documentdb/v20200301:TableResourceTable" }, { type: "azurerm:documentdb/v20200401:TableResourceTable" }, { type: "azurerm:documentdb/v20200601preview:TableResourceTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TableResourceTable.__pulumiType, name, inputs, opts);
     }

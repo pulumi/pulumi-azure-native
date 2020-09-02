@@ -94,7 +94,9 @@ namespace Pulumi.AzureRM.Logic.V20190501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20150801preview:IntegrationAccountCertificate"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20160601:IntegrationAccountCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:IntegrationAccountCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:policyinsights/latest:RemediationAtSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:policyinsights/v20180701preview:RemediationAtSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

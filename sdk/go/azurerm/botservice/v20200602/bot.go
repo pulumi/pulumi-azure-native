@@ -48,6 +48,12 @@ func NewBot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:botservice/latest:Bot"),
 		},
+		{
+			Type: pulumi.String("azurerm:botservice/v20171201:Bot"),
+		},
+		{
+			Type: pulumi.String("azurerm:botservice/v20180712:Bot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Bot

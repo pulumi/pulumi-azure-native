@@ -49,6 +49,15 @@ func NewPeeringService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:peering/v20190801preview:PeeringService"),
+		},
+		{
+			Type: pulumi.String("azurerm:peering/v20190901preview:PeeringService"),
+		},
+		{
+			Type: pulumi.String("azurerm:peering/v20200101preview:PeeringService"),
+		},
+		{
 			Type: pulumi.String("azurerm:peering/v20200401:PeeringService"),
 		},
 	})

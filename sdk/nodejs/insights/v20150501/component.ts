@@ -190,7 +190,7 @@ export class Component extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:Component" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:Component" }, { type: "azurerm:insights/v20180501preview:Component" }, { type: "azurerm:insights/v20200202preview:Component" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Component.__pulumiType, name, inputs, opts);
     }

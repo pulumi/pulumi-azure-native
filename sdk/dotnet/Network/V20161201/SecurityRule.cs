@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.Network.V20161201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:SecurityRule"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20150501preview:SecurityRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:SecurityRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:SecurityRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:SecurityRule"},

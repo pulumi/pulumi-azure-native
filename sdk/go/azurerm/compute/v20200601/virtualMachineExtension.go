@@ -71,6 +71,9 @@ func NewVirtualMachineExtension(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/v20160330:VirtualMachineExtension"),
 		},
 		{
+			Type: pulumi.String("azurerm:compute/v20160430preview:VirtualMachineExtension"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20170330:VirtualMachineExtension"),
 		},
 		{

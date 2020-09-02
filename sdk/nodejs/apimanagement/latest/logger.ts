@@ -110,7 +110,7 @@ export class Logger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:Logger" }, { type: "azurerm:apimanagement/v20161010:Logger" }, { type: "azurerm:apimanagement/v20170301:Logger" }, { type: "azurerm:apimanagement/v20180101:Logger" }, { type: "azurerm:apimanagement/v20190101:Logger" }, { type: "azurerm:apimanagement/v20191201:Logger" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:Logger" }, { type: "azurerm:apimanagement/v20161010:Logger" }, { type: "azurerm:apimanagement/v20170301:Logger" }, { type: "azurerm:apimanagement/v20180101:Logger" }, { type: "azurerm:apimanagement/v20180601preview:Logger" }, { type: "azurerm:apimanagement/v20190101:Logger" }, { type: "azurerm:apimanagement/v20191201:Logger" }, { type: "azurerm:apimanagement/v20191201preview:Logger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Logger.__pulumiType, name, inputs, opts);
     }

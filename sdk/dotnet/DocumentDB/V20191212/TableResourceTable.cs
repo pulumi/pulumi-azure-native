@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:TableResourceTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:TableResourceTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:TableResourceTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

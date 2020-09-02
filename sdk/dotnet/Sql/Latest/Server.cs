@@ -112,6 +112,8 @@ namespace Pulumi.AzureRM.Sql.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:sql/v20140401:Server"},
+                    new Pulumi.Alias { Type = "azurerm:sql/v20150501preview:Server"},
+                    new Pulumi.Alias { Type = "azurerm:sql/v20190601preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

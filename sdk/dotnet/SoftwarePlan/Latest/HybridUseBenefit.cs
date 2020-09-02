@@ -81,6 +81,7 @@ namespace Pulumi.AzureRM.SoftwarePlan.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:softwareplan/v20190601preview:HybridUseBenefit"},
                     new Pulumi.Alias { Type = "azurerm:softwareplan/v20191201:HybridUseBenefit"},
                 },
             };

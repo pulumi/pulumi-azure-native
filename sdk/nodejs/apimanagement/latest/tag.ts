@@ -86,7 +86,7 @@ export class Tag extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:Tag" }, { type: "azurerm:apimanagement/v20180101:Tag" }, { type: "azurerm:apimanagement/v20190101:Tag" }, { type: "azurerm:apimanagement/v20191201:Tag" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:Tag" }, { type: "azurerm:apimanagement/v20180101:Tag" }, { type: "azurerm:apimanagement/v20180601preview:Tag" }, { type: "azurerm:apimanagement/v20190101:Tag" }, { type: "azurerm:apimanagement/v20191201:Tag" }, { type: "azurerm:apimanagement/v20191201preview:Tag" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Tag.__pulumiType, name, inputs, opts);
     }

@@ -75,7 +75,7 @@ class Server(pulumi.CustomResource):
             __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:sql/latest:Server")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:sql/latest:Server"), pulumi.Alias(type_="azurerm:sql/v20150501preview:Server"), pulumi.Alias(type_="azurerm:sql/v20190601preview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azurerm:sql/v20140401:Server',

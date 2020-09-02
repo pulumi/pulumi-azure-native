@@ -154,6 +154,7 @@ namespace Pulumi.AzureRM.AVS.V20200320
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:avs/latest:PrivateCloud"},
+                    new Pulumi.Alias { Type = "azurerm:avs/v20190809preview:PrivateCloud"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

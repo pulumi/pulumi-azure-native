@@ -20,7 +20,7 @@ class GetRedisResult:
     """
     A single Redis item in List or Get Operation.
     """
-    def __init__(__self__, access_keys=None, enable_non_ssl_port=None, host_name=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, provisioning_state=None, redis_configuration=None, redis_version=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, zones=None):
+    def __init__(__self__, access_keys=None, enable_non_ssl_port=None, host_name=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, provisioning_state=None, redis_configuration=None, redis_version=None, replicas_per_master=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, zones=None):
         if access_keys and not isinstance(access_keys, dict):
             raise TypeError("Expected argument 'access_keys' to be a dict")
         pulumi.set(__self__, "access_keys", access_keys)
@@ -30,6 +30,9 @@ class GetRedisResult:
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if instances and not isinstance(instances, list):
+            raise TypeError("Expected argument 'instances' to be a list")
+        pulumi.set(__self__, "instances", instances)
         if linked_servers and not isinstance(linked_servers, list):
             raise TypeError("Expected argument 'linked_servers' to be a list")
         pulumi.set(__self__, "linked_servers", linked_servers)
@@ -54,6 +57,9 @@ class GetRedisResult:
         if redis_version and not isinstance(redis_version, str):
             raise TypeError("Expected argument 'redis_version' to be a str")
         pulumi.set(__self__, "redis_version", redis_version)
+        if replicas_per_master and not isinstance(replicas_per_master, float):
+            raise TypeError("Expected argument 'replicas_per_master' to be a float")
+        pulumi.set(__self__, "replicas_per_master", replicas_per_master)
         if shard_count and not isinstance(shard_count, float):
             raise TypeError("Expected argument 'shard_count' to be a float")
         pulumi.set(__self__, "shard_count", shard_count)
@@ -105,6 +111,14 @@ class GetRedisResult:
         Redis host name.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def instances(self) -> List['outputs.RedisInstanceDetailsResponse']:
+        """
+        List of the Redis instances associated with the cache
+        """
+        return pulumi.get(self, "instances")
 
     @property
     @pulumi.getter(name="linkedServers")
@@ -169,6 +183,14 @@ class GetRedisResult:
         Redis version.
         """
         return pulumi.get(self, "redis_version")
+
+    @property
+    @pulumi.getter(name="replicasPerMaster")
+    def replicas_per_master(self) -> Optional[float]:
+        """
+        The number of replicas to be created per master.
+        """
+        return pulumi.get(self, "replicas_per_master")
 
     @property
     @pulumi.getter(name="shardCount")
@@ -252,6 +274,7 @@ class AwaitableGetRedisResult(GetRedisResult):
             access_keys=self.access_keys,
             enable_non_ssl_port=self.enable_non_ssl_port,
             host_name=self.host_name,
+            instances=self.instances,
             linked_servers=self.linked_servers,
             location=self.location,
             minimum_tls_version=self.minimum_tls_version,
@@ -260,6 +283,7 @@ class AwaitableGetRedisResult(GetRedisResult):
             provisioning_state=self.provisioning_state,
             redis_configuration=self.redis_configuration,
             redis_version=self.redis_version,
+            replicas_per_master=self.replicas_per_master,
             shard_count=self.shard_count,
             sku=self.sku,
             ssl_port=self.ssl_port,
@@ -293,6 +317,7 @@ def get_redis(name: Optional[str] = None,
         access_keys=__ret__.access_keys,
         enable_non_ssl_port=__ret__.enable_non_ssl_port,
         host_name=__ret__.host_name,
+        instances=__ret__.instances,
         linked_servers=__ret__.linked_servers,
         location=__ret__.location,
         minimum_tls_version=__ret__.minimum_tls_version,
@@ -301,6 +326,7 @@ def get_redis(name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         redis_configuration=__ret__.redis_configuration,
         redis_version=__ret__.redis_version,
+        replicas_per_master=__ret__.replicas_per_master,
         shard_count=__ret__.shard_count,
         sku=__ret__.sku,
         ssl_port=__ret__.ssl_port,

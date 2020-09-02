@@ -99,6 +99,7 @@ namespace Pulumi.AzureRM.WindowsIoT.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:windowsiot/v20180216preview:Service"},
                     new Pulumi.Alias { Type = "azurerm:windowsiot/v20190601:Service"},
                 },
             };

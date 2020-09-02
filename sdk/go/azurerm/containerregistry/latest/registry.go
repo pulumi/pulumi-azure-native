@@ -62,13 +62,22 @@ func NewRegistry(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:containerregistry/v20160627preview:Registry"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerregistry/v20170301:Registry"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerregistry/v20170601preview:Registry"),
 		},
 		{
 			Type: pulumi.String("azurerm:containerregistry/v20171001:Registry"),
 		},
 		{
 			Type: pulumi.String("azurerm:containerregistry/v20190501:Registry"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerregistry/v20191201preview:Registry"),
 		},
 	})
 	opts = append(opts, aliases)

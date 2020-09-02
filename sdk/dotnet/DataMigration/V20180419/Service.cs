@@ -100,6 +100,10 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datamigration/latest:Service"},
+                    new Pulumi.Alias { Type = "azurerm:datamigration/v20171115preview:Service"},
+                    new Pulumi.Alias { Type = "azurerm:datamigration/v20180315preview:Service"},
+                    new Pulumi.Alias { Type = "azurerm:datamigration/v20180331preview:Service"},
+                    new Pulumi.Alias { Type = "azurerm:datamigration/v20180715preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

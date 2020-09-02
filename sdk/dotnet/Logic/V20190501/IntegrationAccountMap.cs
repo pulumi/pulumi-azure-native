@@ -112,7 +112,9 @@ namespace Pulumi.AzureRM.Logic.V20190501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20150801preview:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20160601:IntegrationAccountMap"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:IntegrationAccountMap"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

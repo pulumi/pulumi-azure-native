@@ -68,7 +68,13 @@ func NewBudget(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:consumption/v20190101:Budget"),
 		},
 		{
+			Type: pulumi.String("azurerm:consumption/v20190401preview:Budget"),
+		},
+		{
 			Type: pulumi.String("azurerm:consumption/v20190501:Budget"),
+		},
+		{
+			Type: pulumi.String("azurerm:consumption/v20190501preview:Budget"),
 		},
 		{
 			Type: pulumi.String("azurerm:consumption/v20190601:Budget"),

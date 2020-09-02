@@ -94,7 +94,7 @@ export class StorageSyncService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:StorageSyncService" }, { type: "azurerm:storagesync/v20180701:StorageSyncService" }, { type: "azurerm:storagesync/v20181001:StorageSyncService" }, { type: "azurerm:storagesync/v20190201:StorageSyncService" }, { type: "azurerm:storagesync/v20190301:StorageSyncService" }, { type: "azurerm:storagesync/v20190601:StorageSyncService" }, { type: "azurerm:storagesync/v20191001:StorageSyncService" }, { type: "azurerm:storagesync/v20200301:StorageSyncService" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:StorageSyncService" }, { type: "azurerm:storagesync/v20170605preview:StorageSyncService" }, { type: "azurerm:storagesync/v20180701:StorageSyncService" }, { type: "azurerm:storagesync/v20181001:StorageSyncService" }, { type: "azurerm:storagesync/v20190201:StorageSyncService" }, { type: "azurerm:storagesync/v20190301:StorageSyncService" }, { type: "azurerm:storagesync/v20190601:StorageSyncService" }, { type: "azurerm:storagesync/v20191001:StorageSyncService" }, { type: "azurerm:storagesync/v20200301:StorageSyncService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageSyncService.__pulumiType, name, inputs, opts);
     }

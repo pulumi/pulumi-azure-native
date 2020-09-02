@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:compute/v20180630preview:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20181120:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20200625:GuestConfigurationAssignment"},
                 },

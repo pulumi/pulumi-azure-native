@@ -97,7 +97,7 @@ export class PeerAsn extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:peering/v20200401:PeerAsn" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:peering/v20190801preview:PeerAsn" }, { type: "azurerm:peering/v20190901preview:PeerAsn" }, { type: "azurerm:peering/v20200101preview:PeerAsn" }, { type: "azurerm:peering/v20200401:PeerAsn" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PeerAsn.__pulumiType, name, inputs, opts);
     }

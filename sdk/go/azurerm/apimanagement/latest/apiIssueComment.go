@@ -61,10 +61,16 @@ func NewApiIssueComment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiIssueComment"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:ApiIssueComment"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:ApiIssueComment"),
 		},
 		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiIssueComment"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:ApiIssueComment"),
 		},
 	})
 	opts = append(opts, aliases)

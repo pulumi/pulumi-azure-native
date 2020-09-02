@@ -43,6 +43,15 @@ func NewPeerAsn(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:peering/latest:PeerAsn"),
 		},
+		{
+			Type: pulumi.String("azurerm:peering/v20190801preview:PeerAsn"),
+		},
+		{
+			Type: pulumi.String("azurerm:peering/v20190901preview:PeerAsn"),
+		},
+		{
+			Type: pulumi.String("azurerm:peering/v20200101preview:PeerAsn"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PeerAsn

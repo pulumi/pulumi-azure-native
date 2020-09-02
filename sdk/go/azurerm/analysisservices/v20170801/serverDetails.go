@@ -70,6 +70,9 @@ func NewServerDetails(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:analysisservices/v20170714:ServerDetails"),
 		},
+		{
+			Type: pulumi.String("azurerm:analysisservices/v20170801beta:ServerDetails"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServerDetails

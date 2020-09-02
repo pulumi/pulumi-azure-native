@@ -109,7 +109,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiVersionSet" }, { type: "azurerm:apimanagement/v20170301:ApiVersionSet" }, { type: "azurerm:apimanagement/v20180101:ApiVersionSet" }, { type: "azurerm:apimanagement/v20190101:ApiVersionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiVersionSet" }, { type: "azurerm:apimanagement/v20170301:ApiVersionSet" }, { type: "azurerm:apimanagement/v20180101:ApiVersionSet" }, { type: "azurerm:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azurerm:apimanagement/v20190101:ApiVersionSet" }, { type: "azurerm:apimanagement/v20191201preview:ApiVersionSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiVersionSet.__pulumiType, name, inputs, opts);
     }

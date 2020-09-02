@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:compute/latest:Snapshot"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:Snapshot"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20170330:Snapshot"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180401:Snapshot"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180930:Snapshot"},

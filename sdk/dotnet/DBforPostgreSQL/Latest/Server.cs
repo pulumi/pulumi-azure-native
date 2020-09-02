@@ -166,6 +166,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201:Server"},
+                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,10 @@
 from . import (
     latest,
     v20180531,
+    v20180801preview,
     v20190101,
+    v20190301preview,
+    v20190401preview,
     v20190901,
     v20191001,
     v20191101,

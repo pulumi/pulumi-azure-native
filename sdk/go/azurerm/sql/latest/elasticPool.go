@@ -64,6 +64,9 @@ func NewElasticPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:sql/v20140401:ElasticPool"),
 		},
+		{
+			Type: pulumi.String("azurerm:sql/v20171001preview:ElasticPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ElasticPool

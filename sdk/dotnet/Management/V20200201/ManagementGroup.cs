@@ -88,6 +88,9 @@ namespace Pulumi.AzureRM.Management.V20200201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:management/latest:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20171101preview:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20180101preview:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azurerm:management/v20180301preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azurerm:management/v20191101:ManagementGroup"},
                     new Pulumi.Alias { Type = "azurerm:management/v20200501:ManagementGroup"},
                 },

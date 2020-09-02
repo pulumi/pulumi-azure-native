@@ -69,7 +69,13 @@ func NewProduct(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20180101:Product"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:Product"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:Product"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:Product"),
 		},
 	})
 	opts = append(opts, aliases)

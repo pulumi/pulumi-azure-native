@@ -89,7 +89,7 @@ class StorageAccountCredential(pulumi.CustomResource):
             __props__['storage_account_id'] = storage_account_id
             __props__['user_name'] = user_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databoxedge/latest:StorageAccountCredential"), pulumi.Alias(type_="azurerm:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azurerm:databoxedge/v20190801:StorageAccountCredential")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databoxedge/latest:StorageAccountCredential"), pulumi.Alias(type_="azurerm:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azurerm:databoxedge/v20190801:StorageAccountCredential"), pulumi.Alias(type_="azurerm:databoxedge/v20200501preview:StorageAccountCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccountCredential, __self__).__init__(
             'azurerm:databoxedge/v20190701:StorageAccountCredential',

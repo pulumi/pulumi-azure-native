@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlStoredProcedure"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

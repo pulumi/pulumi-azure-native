@@ -178,7 +178,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbforpostgresql/latest:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbforpostgresql/latest:Server" }, { type: "azurerm:dbforpostgresql/v20171201preview:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }

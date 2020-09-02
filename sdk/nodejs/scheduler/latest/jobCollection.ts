@@ -88,7 +88,7 @@ export class JobCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:scheduler/v20160101:JobCollection" }, { type: "azurerm:scheduler/v20160301:JobCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:scheduler/v20140801preview:JobCollection" }, { type: "azurerm:scheduler/v20160101:JobCollection" }, { type: "azurerm:scheduler/v20160301:JobCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobCollection.__pulumiType, name, inputs, opts);
     }

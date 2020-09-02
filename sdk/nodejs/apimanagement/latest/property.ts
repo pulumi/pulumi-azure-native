@@ -104,7 +104,7 @@ export class Property extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:Property" }, { type: "azurerm:apimanagement/v20161010:Property" }, { type: "azurerm:apimanagement/v20170301:Property" }, { type: "azurerm:apimanagement/v20180101:Property" }, { type: "azurerm:apimanagement/v20190101:Property" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:Property" }, { type: "azurerm:apimanagement/v20161010:Property" }, { type: "azurerm:apimanagement/v20170301:Property" }, { type: "azurerm:apimanagement/v20180101:Property" }, { type: "azurerm:apimanagement/v20180601preview:Property" }, { type: "azurerm:apimanagement/v20190101:Property" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Property.__pulumiType, name, inputs, opts);
     }

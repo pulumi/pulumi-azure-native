@@ -65,6 +65,9 @@ func NewJitRequest(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:solutions/v20190701:JitRequest"),
 		},
+		{
+			Type: pulumi.String("azurerm:solutions/v20200821preview:JitRequest"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource JitRequest

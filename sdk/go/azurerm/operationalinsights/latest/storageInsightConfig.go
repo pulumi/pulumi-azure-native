@@ -55,6 +55,9 @@ func NewStorageInsightConfig(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:operationalinsights/v20150320:StorageInsightConfig"),
 		},
 		{
+			Type: pulumi.String("azurerm:operationalinsights/v20200301preview:StorageInsightConfig"),
+		},
+		{
 			Type: pulumi.String("azurerm:operationalinsights/v20200801:StorageInsightConfig"),
 		},
 	})

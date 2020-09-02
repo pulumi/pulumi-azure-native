@@ -55,6 +55,9 @@ func NewStorageTarget(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storagecache/latest:StorageTarget"),
 		},
 		{
+			Type: pulumi.String("azurerm:storagecache/v20190801preview:StorageTarget"),
+		},
+		{
 			Type: pulumi.String("azurerm:storagecache/v20191101:StorageTarget"),
 		},
 	})

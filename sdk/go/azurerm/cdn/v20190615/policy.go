@@ -64,6 +64,9 @@ func NewPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cdn/latest:Policy"),
 		},
 		{
+			Type: pulumi.String("azurerm:cdn/v20190615preview:Policy"),
+		},
+		{
 			Type: pulumi.String("azurerm:cdn/v20200331:Policy"),
 		},
 		{

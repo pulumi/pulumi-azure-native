@@ -56,7 +56,13 @@ func NewApiPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:ApiPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:ApiPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

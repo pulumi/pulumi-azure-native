@@ -82,6 +82,8 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:maintenance/latest:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:maintenance/v20180601preview:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:maintenance/v20200701preview:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

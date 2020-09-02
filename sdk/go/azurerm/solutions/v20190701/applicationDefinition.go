@@ -81,6 +81,9 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:solutions/v20180601:ApplicationDefinition"),
 		},
+		{
+			Type: pulumi.String("azurerm:solutions/v20200821preview:ApplicationDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationDefinition

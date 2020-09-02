@@ -83,6 +83,7 @@ namespace Pulumi.AzureRM.KeyVault.V20180214
                 {
                     new Pulumi.Alias { Type = "azurerm:keyvault/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:keyvault/v20190901:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:keyvault/v20200401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

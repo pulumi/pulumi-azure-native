@@ -18,6 +18,7 @@ __all__ = [
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
     'KeyVaultPropertiesResponse',
+    'LinkedWorkspacePropsResponse',
     'MachineLearningServiceErrorResponse',
     'NotebookListCredentialsResultResponseResult',
     'NotebookPreparationErrorResponse',
@@ -469,6 +470,44 @@ class KeyVaultPropertiesResponse(dict):
         For future use - The client id of the identity which will be used to access key vault.
         """
         return pulumi.get(self, "identity_client_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LinkedWorkspacePropsResponse(dict):
+    """
+    LinkedWorkspace specific properties.
+    """
+    def __init__(__self__, *,
+                 linked_workspace_resource_id: Optional[str] = None,
+                 user_assigned_identity_resource_id: Optional[str] = None):
+        """
+        LinkedWorkspace specific properties.
+        :param str linked_workspace_resource_id: ResourceId of the link target of the linked workspace.
+        :param str user_assigned_identity_resource_id: ResourceId of the user assigned identity for the linked workspace.
+        """
+        if linked_workspace_resource_id is not None:
+            pulumi.set(__self__, "linked_workspace_resource_id", linked_workspace_resource_id)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="linkedWorkspaceResourceId")
+    def linked_workspace_resource_id(self) -> Optional[str]:
+        """
+        ResourceId of the link target of the linked workspace.
+        """
+        return pulumi.get(self, "linked_workspace_resource_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[str]:
+        """
+        ResourceId of the user assigned identity for the linked workspace.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

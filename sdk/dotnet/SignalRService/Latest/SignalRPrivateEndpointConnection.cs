@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.SignalRService.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:signalrservice/v20200501:SignalRPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

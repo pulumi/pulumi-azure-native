@@ -142,7 +142,9 @@ namespace Pulumi.AzureRM.Logic.V20190501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:Workflow"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20150201preview:Workflow"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20160601:Workflow"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:Workflow"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

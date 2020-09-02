@@ -69,6 +69,15 @@ func NewLiveOutput(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/latest:LiveOutput"),
 		},
 		{
+			Type: pulumi.String("azurerm:media/v20180330preview:LiveOutput"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180601preview:LiveOutput"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20190501preview:LiveOutput"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20200501:LiveOutput"),
 		},
 	})

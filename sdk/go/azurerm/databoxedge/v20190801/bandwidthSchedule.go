@@ -65,6 +65,9 @@ func NewBandwidthSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:databoxedge/v20190701:BandwidthSchedule"),
 		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:BandwidthSchedule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BandwidthSchedule

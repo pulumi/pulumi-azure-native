@@ -164,7 +164,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:VirtualMachine" }, { type: "azurerm:compute/v20150615:VirtualMachine" }, { type: "azurerm:compute/v20160330:VirtualMachine" }, { type: "azurerm:compute/v20170330:VirtualMachine" }, { type: "azurerm:compute/v20171201:VirtualMachine" }, { type: "azurerm:compute/v20180601:VirtualMachine" }, { type: "azurerm:compute/v20181001:VirtualMachine" }, { type: "azurerm:compute/v20190301:VirtualMachine" }, { type: "azurerm:compute/v20190701:VirtualMachine" }, { type: "azurerm:compute/v20191201:VirtualMachine" }, { type: "azurerm:compute/v20200601:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:VirtualMachine" }, { type: "azurerm:compute/v20150615:VirtualMachine" }, { type: "azurerm:compute/v20160330:VirtualMachine" }, { type: "azurerm:compute/v20160430preview:VirtualMachine" }, { type: "azurerm:compute/v20170330:VirtualMachine" }, { type: "azurerm:compute/v20171201:VirtualMachine" }, { type: "azurerm:compute/v20180601:VirtualMachine" }, { type: "azurerm:compute/v20181001:VirtualMachine" }, { type: "azurerm:compute/v20190301:VirtualMachine" }, { type: "azurerm:compute/v20190701:VirtualMachine" }, { type: "azurerm:compute/v20191201:VirtualMachine" }, { type: "azurerm:compute/v20200601:VirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

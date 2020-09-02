@@ -151,8 +151,10 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:AuthorizationServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

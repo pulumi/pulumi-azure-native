@@ -114,6 +114,7 @@ namespace Pulumi.AzureRM.Compute.V20170330
                     new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20150615:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20160330:VirtualMachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20171201:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180401:VirtualMachineExtension"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180601:VirtualMachineExtension"},

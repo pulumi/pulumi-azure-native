@@ -49,6 +49,9 @@ func NewRemediationAtSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:policyinsights/latest:RemediationAtSubscription"),
 		},
+		{
+			Type: pulumi.String("azurerm:policyinsights/v20180701preview:RemediationAtSubscription"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RemediationAtSubscription

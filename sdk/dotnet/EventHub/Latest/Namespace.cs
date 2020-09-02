@@ -120,6 +120,7 @@ namespace Pulumi.AzureRM.EventHub.Latest
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20150801:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:Namespace"},
+                    new Pulumi.Alias { Type = "azurerm:eventhub/v20180101preview:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

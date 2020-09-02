@@ -98,7 +98,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azurerm:logic/v20190501:IntegrationAccountBatchConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azurerm:logic/v20180701preview:IntegrationAccountBatchConfiguration" }, { type: "azurerm:logic/v20190501:IntegrationAccountBatchConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountBatchConfiguration.__pulumiType, name, inputs, opts);
     }

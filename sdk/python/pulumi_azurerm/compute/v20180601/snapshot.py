@@ -83,7 +83,7 @@ class Snapshot(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['time_created'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/latest:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20170330:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20180401:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20180930:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20190301:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20190701:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20191101:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20200501:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20200630:Snapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/latest:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20170330:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20180401:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20180930:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20190301:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20190701:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20191101:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20200501:Snapshot"), pulumi.Alias(type_="azurerm:compute/v20200630:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
             'azurerm:compute/v20180601:Snapshot',

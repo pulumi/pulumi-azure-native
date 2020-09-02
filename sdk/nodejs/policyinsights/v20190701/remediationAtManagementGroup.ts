@@ -120,7 +120,7 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:policyinsights/latest:RemediationAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:policyinsights/latest:RemediationAtManagementGroup" }, { type: "azurerm:policyinsights/v20180701preview:RemediationAtManagementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemediationAtManagementGroup.__pulumiType, name, inputs, opts);
     }

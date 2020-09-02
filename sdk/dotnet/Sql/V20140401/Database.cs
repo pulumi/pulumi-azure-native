@@ -264,6 +264,9 @@ namespace Pulumi.AzureRM.Sql.V20140401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:sql/latest:Database"},
+                    new Pulumi.Alias { Type = "azurerm:sql/v20170301preview:Database"},
+                    new Pulumi.Alias { Type = "azurerm:sql/v20171001preview:Database"},
+                    new Pulumi.Alias { Type = "azurerm:sql/v20190601preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

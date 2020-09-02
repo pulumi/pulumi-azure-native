@@ -59,6 +59,9 @@ func NewBudget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:consumption/v20171230preview:Budget"),
+		},
+		{
 			Type: pulumi.String("azurerm:consumption/v20180131:Budget"),
 		},
 		{

@@ -22,6 +22,7 @@ class Redis(pulumi.CustomResource):
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 replicas_per_master: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shard_count: Optional[pulumi.Input[float]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -43,6 +44,7 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[str] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input[float] replicas_per_master: The number of replicas to be created per master.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[float] shard_count: The number of shards to be created on a Premium Cluster Cache.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the Redis cache to deploy.
@@ -78,6 +80,7 @@ class Redis(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['redis_configuration'] = redis_configuration
+            __props__['replicas_per_master'] = replicas_per_master
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -92,13 +95,14 @@ class Redis(pulumi.CustomResource):
             __props__['zones'] = zones
             __props__['access_keys'] = None
             __props__['host_name'] = None
+            __props__['instances'] = None
             __props__['linked_servers'] = None
             __props__['port'] = None
             __props__['provisioning_state'] = None
             __props__['redis_version'] = None
             __props__['ssl_port'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/v20150801:Redis"), pulumi.Alias(type_="azurerm:cache/v20160401:Redis"), pulumi.Alias(type_="azurerm:cache/v20170201:Redis"), pulumi.Alias(type_="azurerm:cache/v20171001:Redis"), pulumi.Alias(type_="azurerm:cache/v20180301:Redis")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/v20150801:Redis"), pulumi.Alias(type_="azurerm:cache/v20160401:Redis"), pulumi.Alias(type_="azurerm:cache/v20170201:Redis"), pulumi.Alias(type_="azurerm:cache/v20171001:Redis"), pulumi.Alias(type_="azurerm:cache/v20180301:Redis"), pulumi.Alias(type_="azurerm:cache/v20190701:Redis")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Redis, __self__).__init__(
             'azurerm:cache/latest:Redis',
@@ -147,6 +151,14 @@ class Redis(pulumi.CustomResource):
         Redis host name.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def instances(self) -> pulumi.Output[List['outputs.RedisInstanceDetailsResponse']]:
+        """
+        List of the Redis instances associated with the cache
+        """
+        return pulumi.get(self, "instances")
 
     @property
     @pulumi.getter(name="linkedServers")
@@ -211,6 +223,14 @@ class Redis(pulumi.CustomResource):
         Redis version.
         """
         return pulumi.get(self, "redis_version")
+
+    @property
+    @pulumi.getter(name="replicasPerMaster")
+    def replicas_per_master(self) -> pulumi.Output[Optional[float]]:
+        """
+        The number of replicas to be created per master.
+        """
+        return pulumi.get(self, "replicas_per_master")
 
     @property
     @pulumi.getter(name="shardCount")

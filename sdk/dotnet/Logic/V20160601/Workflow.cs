@@ -124,6 +124,8 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:Workflow"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20150201preview:Workflow"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:Workflow"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20190501:Workflow"},
                 },
             };
