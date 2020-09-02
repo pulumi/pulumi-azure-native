@@ -8,6 +8,26 @@ import * as utilities from "../../utilities";
 
 /**
  * VirtualRouter Resource.
+ *
+ * ## Create VirtualRouter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualRouter = new azurerm.network.latest.VirtualRouter("virtualRouter", {
+ *     hostedGateway: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vnetGateway",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualRouterName: "virtualRouter",
+ * });
+ *
+ * ```
  */
 export class VirtualRouter extends pulumi.CustomResource {
     /**

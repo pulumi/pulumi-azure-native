@@ -8,6 +8,40 @@ import * as utilities from "../../utilities";
 
 /**
  * A virtual machine.
+ *
+ * ## VirtualMachines_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualMachine = new azurerm.devtestlab.latest.VirtualMachine("virtualMachine", {
+ *     allowClaim: true,
+ *     disallowPublicIpAddress: true,
+ *     galleryImageReference: {
+ *         offer: "UbuntuServer",
+ *         osType: "Linux",
+ *         publisher: "Canonical",
+ *         sku: "16.04-LTS",
+ *         version: "Latest",
+ *     },
+ *     labName: "{devtestlab-name}",
+ *     labSubnetName: "{virtualnetwork-name}Subnet",
+ *     labVirtualNetworkId: "/subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}",
+ *     location: "{azure-location}",
+ *     name: "{virtualmachine-name}",
+ *     osType: "Linux",
+ *     password: "{user-password}",
+ *     resourceGroupName: "myResourceGroup",
+ *     size: "Standard_A2_v2",
+ *     storageType: "Standard",
+ *     tags: {
+ *         MyTag: "MyValue",
+ *     },
+ *     userName: "{user-name}",
+ * });
+ *
+ * ```
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**

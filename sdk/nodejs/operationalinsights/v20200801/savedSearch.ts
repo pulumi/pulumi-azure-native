@@ -8,6 +8,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Value object for saved search results.
+ *
+ * ## SavedSearchCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const savedSearch = new azurerm.operationalinsights.v20200801.SavedSearch("savedSearch", {
+ *     category: "Saved Search Test Category",
+ *     displayName: "Create or Update Saved Search Test",
+ *     functionAlias: "heartbeat_func",
+ *     functionParameters: "a:int=1",
+ *     query: "Heartbeat | summarize Count() by Computer | take a",
+ *     resourceGroupName: "TestRG",
+ *     savedSearchId: "00000000-0000-0000-0000-00000000000",
+ *     tags: [{
+ *         name: "Group",
+ *         value: "Computer",
+ *     }],
+ *     version: 2,
+ *     workspaceName: "TestWS",
+ * });
+ *
+ * ```
  */
 export class SavedSearch extends pulumi.CustomResource {
     /**

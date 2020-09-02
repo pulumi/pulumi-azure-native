@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the Dedicated host.
+ *
+ * ## Create or update a dedicated host .
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dedicatedHost = new azurerm.compute.v20190301.DedicatedHost("dedicatedHost", {
+ *     hostGroupName: "myDedicatedHostGroup",
+ *     hostName: "myDedicatedHost",
+ *     location: "westus",
+ *     platformFaultDomain: 1,
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "DSv3-Type1",
+ *     },
+ *     tags: {
+ *         department: "HR",
+ *     },
+ * });
+ *
+ * ```
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**

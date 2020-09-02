@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * A virtual network.
+ *
+ * ## VirtualNetworks_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualNetwork = new azurerm.devtestlab.latest.VirtualNetwork("virtualNetwork", {
+ *     labName: "{devtestlab-name}",
+ *     location: "{azure-location}",
+ *     name: "{virtualnetwork-name}",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         MyTag: "MyValue",
+ *     },
+ * });
+ *
+ * ```
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**

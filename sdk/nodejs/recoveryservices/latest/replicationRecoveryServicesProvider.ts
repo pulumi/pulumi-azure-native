@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Provider details.
+ *
+ * ## Adds a recovery services provider.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const replicationRecoveryServicesProvider = new azurerm.recoveryservices.latest.ReplicationRecoveryServicesProvider("replicationRecoveryServicesProvider", {
+ *     fabricName: "vmwarefabric1",
+ *     providerName: "vmwareprovider1",
+ *     resourceGroupName: "resourcegroup1",
+ *     resourceName: "migrationvault",
+ * });
+ *
+ * ```
  */
 export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
     /**

@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * A project resource
+ *
+ * ## Projects_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const project = new azurerm.datamigration.latest.Project("project", {
+ *     groupName: "DmsSdkRg",
+ *     location: "southcentralus",
+ *     projectName: "DmsSdkProject",
+ *     serviceName: "DmsSdkService",
+ *     sourcePlatform: "SQL",
+ *     targetPlatform: "SQLDB",
+ * });
+ *
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

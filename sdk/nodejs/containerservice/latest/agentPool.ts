@@ -8,6 +8,104 @@ import * as utilities from "../../utilities";
 
 /**
  * Agent Pool.
+ *
+ * ## Create Agent Pool with PPG
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const agentPool = new azurerm.containerservice.latest.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     proximityPlacementGroupID: "/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     vmSize: "Standard_DS2_v2",
+ * });
+ *
+ * ```
+ *
+ * ## Create Spot Agent Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const agentPool = new azurerm.containerservice.latest.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     nodeLabels: {
+ *         key1: "val1",
+ *     },
+ *     nodeTaints: ["Key1=Value1:NoSchedule"],
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     scaleSetEvictionPolicy: "Delete",
+ *     scaleSetPriority: "Spot",
+ *     tags: {
+ *         name1: "val1",
+ *     },
+ *     vmSize: "Standard_DS1_v2",
+ * });
+ *
+ * ```
+ *
+ * ## Create/Update Agent Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const agentPool = new azurerm.containerservice.latest.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     mode: "User",
+ *     nodeLabels: {
+ *         key1: "val1",
+ *     },
+ *     nodeTaints: ["Key1=Value1:NoSchedule"],
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     scaleSetEvictionPolicy: "Delete",
+ *     scaleSetPriority: "Spot",
+ *     tags: {
+ *         name1: "val1",
+ *     },
+ *     vmSize: "Standard_DS1_v2",
+ * });
+ *
+ * ```
+ *
+ * ## Update Agent Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const agentPool = new azurerm.containerservice.latest.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     enableAutoScaling: true,
+ *     maxCount: 2,
+ *     minCount: 2,
+ *     nodeTaints: ["Key1=Value1:NoSchedule"],
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     scaleSetEvictionPolicy: "Delete",
+ *     scaleSetPriority: "Spot",
+ *     vmSize: "Standard_DS1_v2",
+ * });
+ *
+ * ```
  */
 export class AgentPool extends pulumi.CustomResource {
     /**

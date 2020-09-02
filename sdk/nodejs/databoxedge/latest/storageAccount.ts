@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
+ *
+ * ## StorageAccountPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const storageAccount = new azurerm.databoxedge.latest.StorageAccount("storageAccount", {
+ *     dataPolicy: "Cloud",
+ *     description: "It's an awesome storage account",
+ *     deviceName: "testedgedevice",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     storageAccountCredentialId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/cisbvt",
+ *     storageAccountName: "blobstorageaccount1",
+ *     storageAccountStatus: "OK",
+ * });
+ *
+ * ```
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**

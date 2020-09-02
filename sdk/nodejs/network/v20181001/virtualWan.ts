@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * VirtualWAN Resource.
+ *
+ * ## VirtualWANCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualWan = new azurerm.network.v20181001.VirtualWan("virtualWan", {
+ *     disableVpnEncryption: false,
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualWANName: "wan1",
+ * });
+ *
+ * ```
  */
 export class VirtualWan extends pulumi.CustomResource {
     /**

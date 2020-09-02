@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Factory resource type.
+ *
+ * ## Factories_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const factory = new azurerm.datafactory.latest.Factory("factory", {
+ *     factoryName: "exampleFactoryName",
+ *     location: "East US",
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
  */
 export class Factory extends pulumi.CustomResource {
     /**

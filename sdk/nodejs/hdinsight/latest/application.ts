@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * The HDInsight cluster application
+ *
+ * ## Create Application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const application = new azurerm.hdinsight.latest.Application("application", {
+ *     applicationName: "hue",
+ *     clusterName: "cluster1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

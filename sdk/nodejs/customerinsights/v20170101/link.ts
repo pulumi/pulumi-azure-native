@@ -8,6 +8,38 @@ import * as utilities from "../../utilities";
 
 /**
  * The link resource format.
+ *
+ * ## Links_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const link = new azurerm.customerinsights.v20170101.Link("link", {
+ *     description: {
+ *         "en-us": "Link Description",
+ *     },
+ *     displayName: {
+ *         "en-us": "Link DisplayName",
+ *     },
+ *     hubName: "sdkTestHub",
+ *     linkName: "linkTest4806",
+ *     mappings: [{
+ *         interactionTypePropertyName: "testInteraction1949",
+ *         isProfileTypeId: true,
+ *         linkType: "UpdateAlways",
+ *         profileTypePropertyName: "testProfile1446",
+ *     }],
+ *     participantPropertyReferences: [{
+ *         interactionPropertyName: "testInteraction1949",
+ *         profilePropertyName: "ProfileId",
+ *     }],
+ *     resourceGroupName: "TestHubRG",
+ *     sourceInteractionType: "testInteraction1949",
+ *     targetProfileType: "testProfile1446",
+ * });
+ *
+ * ```
  */
 export class Link extends pulumi.CustomResource {
     /**

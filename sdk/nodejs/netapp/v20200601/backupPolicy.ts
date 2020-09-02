@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Backup policy information
+ *
+ * ## BackupPolicies_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const backupPolicy = new azurerm.netapp.v20200601.BackupPolicy("backupPolicy", {
+ *     accountName: "account1",
+ *     backupPolicyName: "backupPolicyName",
+ *     dailyBackupsToKeep: 10,
+ *     enabled: true,
+ *     location: "westus",
+ *     monthlyBackupsToKeep: 10,
+ *     resourceGroupName: "myRG",
+ *     weeklyBackupsToKeep: 10,
+ * });
+ *
+ * ```
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**

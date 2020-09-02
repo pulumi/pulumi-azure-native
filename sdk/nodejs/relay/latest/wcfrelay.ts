@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of the WCF relay resource.
+ *
+ * ## RelayCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const wcfRelay = new azurerm.relay.latest.WCFRelay("wcfRelay", {
+ *     namespaceName: "sdk-RelayNamespace-9953",
+ *     relayName: "sdk-Relay-Wcf-1194",
+ *     relayType: "NetTcp",
+ *     requiresClientAuthorization: true,
+ *     requiresTransportSecurity: true,
+ *     resourceGroupName: "RG-eg",
+ * });
+ *
+ * ```
  */
 export class WCFRelay extends pulumi.CustomResource {
     /**

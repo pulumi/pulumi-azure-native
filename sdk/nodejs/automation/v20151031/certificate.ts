@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the certificate.
+ *
+ * ## Create or update a certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const certificate = new azurerm.automation.v20151031.Certificate("certificate", {
+ *     automationAccountName: "myAutomationAccount18",
+ *     base64Value: "base 64 value of cert",
+ *     certificateName: "testCert",
+ *     description: "Sample Cert",
+ *     isExportable: false,
+ *     name: "testCert",
+ *     resourceGroupName: "rg",
+ *     thumbprint: "thumbprint of cert",
+ * });
+ *
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

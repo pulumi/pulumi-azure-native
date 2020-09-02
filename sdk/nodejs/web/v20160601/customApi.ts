@@ -8,6 +8,19 @@ import * as utilities from "../../utilities";
 
 /**
  * A custom API
+ *
+ * ## Replace a custom API
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const customApi = new azurerm.web.v20160601.CustomApi("customApi", {
+ *     apiName: "testCustomApi",
+ *     resourceGroupName: "testResourceGroup",
+ * });
+ *
+ * ```
  */
 export class CustomApi extends pulumi.CustomResource {
     /**

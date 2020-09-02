@@ -8,6 +8,37 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnSite Resource.
+ *
+ * ## VpnSiteCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const vpnSite = new azurerm.network.v20180701.VpnSite("vpnSite", {
+ *     addressSpace: {
+ *         addressPrefixes: ["10.0.0.0/16"],
+ *     },
+ *     bgpProperties: {
+ *         asn: 1234,
+ *         bgpPeeringAddress: "192.168.0.0",
+ *     },
+ *     deviceProperties: {
+ *         deviceModel: "model01",
+ *         deviceVendor: "vendor1",
+ *         linkSpeedInMbps: 200,
+ *     },
+ *     ipAddress: "10.0.0.0",
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualWAN: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/VirtualWans/virtualWan1",
+ *     vpnSiteName: "vpnSite1",
+ * });
+ *
+ * ```
  */
 export class VpnSite extends pulumi.CustomResource {
     /**

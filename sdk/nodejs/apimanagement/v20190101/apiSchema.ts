@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Schema Contract details.
+ *
+ * ## ApiManagementCreateApiSchema
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiSchema = new azurerm.apimanagement.v20190101.ApiSchema("apiSchema", {
+ *     apiId: "59d6bb8f1f7fab13dc67ec9b",
+ *     contentType: "application/vnd.ms-azure-apim.xsd+xml",
+ *     resourceGroupName: "rg1",
+ *     schemaId: "ec12520d-9d48-4e7b-8f39-698ca2ac63f1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class ApiSchema extends pulumi.CustomResource {
     /**

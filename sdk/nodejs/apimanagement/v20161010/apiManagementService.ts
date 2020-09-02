@@ -8,6 +8,26 @@ import * as utilities from "../../utilities";
 
 /**
  * A single API Management service resource in List or Get response.
+ *
+ * ## ApiManagementCreateService
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiManagementService = new azurerm.apimanagement.v20161010.ApiManagementService("apiManagementService", {
+ *     location: "West US",
+ *     publisherEmail: "admin@live.com",
+ *     publisherName: "contoso",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Premium",
+ *     },
+ * });
+ *
+ * ```
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**

@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Kusto database.
+ *
+ * ## KustoDatabasesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.kusto.v20190907.Database("database", {
+ *     clusterName: "KustoClusterRPTest4",
+ *     databaseName: "KustoDatabase8",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

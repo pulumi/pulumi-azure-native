@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account.
+ *
+ * ## StorageAccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const storageAccount = new azurerm.storage.v20170601.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     kind: "Storage",
+ *     location: "eastus2euap",
+ *     resourceGroupName: "res9101",
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**

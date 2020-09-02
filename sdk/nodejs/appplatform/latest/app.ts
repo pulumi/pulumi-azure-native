@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * App resource payload
+ *
+ * ## Apps_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const app = new azurerm.appplatform.latest.App("app", {
+ *     appName: "myapp",
+ *     location: "eastus",
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
  */
 export class App extends pulumi.CustomResource {
     /**

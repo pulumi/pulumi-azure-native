@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Storage mapping object.
+ *
+ * ## Create storage classification mapping.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const replicationStorageClassificationMapping = new azurerm.recoveryservices.v20160810.ReplicationStorageClassificationMapping("replicationStorageClassificationMapping", {
+ *     fabricName: "2a48e3770ac08aa2be8bfbd94fcfb1cbf2dcc487b78fb9d3bd778304441b06a0",
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ *     storageClassificationMappingName: "testStorageMapping",
+ *     storageClassificationName: "8891569e-aaef-4a46-a4a0-78c14f2d7b09",
+ * });
+ *
+ * ```
  */
 export class ReplicationStorageClassificationMapping extends pulumi.CustomResource {
     /**

@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * A cluster resource
+ *
+ * ## Clusters_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cluster = new azurerm.avs.latest.Cluster("cluster", {
+ *     clusterName: "cluster1",
+ *     clusterSize: 3,
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     sku: {
+ *         name: "AV20",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

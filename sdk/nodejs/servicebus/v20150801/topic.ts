@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of topic resource.
+ *
+ * ## TopicCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const topic = new azurerm.servicebus.v20150801.Topic("topic", {
+ *     location: "West US",
+ *     namespaceName: "sdk-Namespace4191",
+ *     resourceGroupName: "Default-ServiceBus-WestUS",
+ *     topicName: "sdk-Topics1377",
+ * });
+ *
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

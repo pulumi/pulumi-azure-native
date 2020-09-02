@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Action for alert rule.
+ *
+ * ## Creates or updates an action of alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const alertRuleAction = new azurerm.operationalinsights.latest.AlertRuleAction("alertRuleAction", {
+ *     actionId: "912bec42-cb66-4c03-ac63-1761b6898c3e",
+ *     etag: "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+ *     logicAppResourceId: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/MyAlerts",
+ *     resourceGroupName: "myRg",
+ *     ruleId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     triggerUri: `https://prod-31.northcentralus.logic.azure.com:443/workflows/cd3765391efd48549fd7681ded1d48d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=signature`,
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
  */
 export class AlertRuleAction extends pulumi.CustomResource {
     /**

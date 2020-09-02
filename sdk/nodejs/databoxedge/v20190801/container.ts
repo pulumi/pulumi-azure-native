@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
+ *
+ * ## ContainerPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const container = new azurerm.databoxedge.v20190801.Container("container", {
+ *     containerName: "blobcontainer1",
+ *     dataFormat: "BlockBlob",
+ *     deviceName: "testedgedevice",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     storageAccountName: "storageaccount1",
+ * });
+ *
+ * ```
  */
 export class Container extends pulumi.CustomResource {
     /**

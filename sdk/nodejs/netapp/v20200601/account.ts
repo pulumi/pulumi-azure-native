@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * NetApp account resource
+ *
+ * ## Accounts_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const account = new azurerm.netapp.v20200601.Account("account", {
+ *     accountName: "account1",
+ *     activeDirectories: [{
+ *         dns: "10.10.10.3, 10.10.10.4",
+ *         domain: "10.10.10.3",
+ *         organizationalUnit: "Engineering",
+ *         password: "ad_password",
+ *         site: "SiteName",
+ *         smbServerName: "SMBServer",
+ *         username: "ad_user_name",
+ *     }],
+ *     location: "eastus",
+ *     resourceGroupName: "myRG",
+ * });
+ *
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

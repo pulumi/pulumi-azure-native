@@ -6,6 +6,41 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a database elastic pool.
+ *
+ * ## Create elastic pool max
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const elasticPool = new azurerm.sql.v20140401.ElasticPool("elasticPool", {
+ *     databaseDtuMax: 5,
+ *     databaseDtuMin: 0,
+ *     dtu: 50,
+ *     edition: "Basic",
+ *     elasticPoolName: "sqlcrudtest-8102",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-2369",
+ *     serverName: "sqlcrudtest-8069",
+ *     storageMB: 5000,
+ * });
+ *
+ * ```
+ *
+ * ## Create elastic pool min
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const elasticPool = new azurerm.sql.v20140401.ElasticPool("elasticPool", {
+ *     elasticPoolName: "sqlcrudtest-8102",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-2369",
+ *     serverName: "sqlcrudtest-8069",
+ * });
+ *
+ * ```
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**

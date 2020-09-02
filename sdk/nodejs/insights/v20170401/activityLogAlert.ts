@@ -8,6 +8,44 @@ import * as utilities from "../../utilities";
 
 /**
  * An activity log alert resource.
+ *
+ * ## Create or update an activity log alert
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const activityLogAlert = new azurerm.insights.v20170401.ActivityLogAlert("activityLogAlert", {
+ *     actions: {
+ *         actionGroups: [{
+ *             actionGroupId: "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActionGroups/providers/microsoft.insights/actionGroups/SampleActionGroup",
+ *             webhookProperties: {
+ *                 sampleWebhookProperty: "samplePropertyValue",
+ *             },
+ *         }],
+ *     },
+ *     activityLogAlertName: "SampleActivityLogAlert",
+ *     condition: {
+ *         allOf: [
+ *             {
+ *                 equals: "Administrative",
+ *                 field: "Category",
+ *             },
+ *             {
+ *                 equals: "Error",
+ *                 field: "Level",
+ *             },
+ *         ],
+ *     },
+ *     description: "Sample activity log alert description",
+ *     enabled: true,
+ *     location: "Global",
+ *     resourceGroupName: "Default-ActivityLogAlerts",
+ *     scopes: ["subscriptions/187f412d-1758-44d9-b052-169e2564721d"],
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class ActivityLogAlert extends pulumi.CustomResource {
     /**

@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * Peerings in a VirtualNetwork resource
+ *
+ * ## Create vNet Peering for Workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const vNetPeering = new azurerm.databricks.v20180401.VNetPeering("vNetPeering", {
+ *     allowForwardedTraffic: false,
+ *     allowGatewayTransit: false,
+ *     allowVirtualNetworkAccess: true,
+ *     peeringName: "vNetPeeringTest",
+ *     remoteVirtualNetwork: {
+ *         id: "/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
+ *     },
+ *     resourceGroupName: "rg",
+ *     useRemoteGateways: false,
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
  */
 export class VNetPeering extends pulumi.CustomResource {
     /**

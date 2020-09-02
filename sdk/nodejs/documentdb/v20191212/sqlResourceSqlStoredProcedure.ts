@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB storedProcedure.
+ *
+ * ## CosmosDBSqlStoredProcedureCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sqlResourceSqlStoredProcedure = new azurerm.documentdb.v20191212.SqlResourceSqlStoredProcedure("sqlResourceSqlStoredProcedure", {
+ *     accountName: "ddb1",
+ *     containerName: "containerName",
+ *     databaseName: "databaseName",
+ *     options: {},
+ *     resource: {
+ *         body: "body",
+ *         id: "storedProcedureName",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     storedProcedureName: "storedProcedureName",
+ * });
+ *
+ * ```
  */
 export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {
     /**

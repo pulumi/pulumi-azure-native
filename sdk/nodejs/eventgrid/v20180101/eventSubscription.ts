@@ -8,6 +8,88 @@ import * as utilities from "../../utilities";
 
 /**
  * Event Subscription
+ *
+ * ## EventSubscriptions_CreateOrUpdateForCustomTopic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const eventSubscription = new azurerm.eventgrid.v20180101.EventSubscription("eventSubscription", {
+ *     destination: {
+ *         endpointType: "EventHub",
+ *     },
+ *     eventSubscriptionName: "examplesubscription1",
+ *     filter: {
+ *         isSubjectCaseSensitive: false,
+ *         subjectBeginsWith: "ExamplePrefix",
+ *         subjectEndsWith: "ExampleSuffix",
+ *     },
+ *     scope: "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1",
+ * });
+ *
+ * ```
+ *
+ * ## EventSubscriptions_CreateOrUpdateForResource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const eventSubscription = new azurerm.eventgrid.v20180101.EventSubscription("eventSubscription", {
+ *     destination: {
+ *         endpointType: "WebHook",
+ *     },
+ *     eventSubscriptionName: "examplesubscription10",
+ *     filter: {
+ *         isSubjectCaseSensitive: false,
+ *         subjectBeginsWith: "ExamplePrefix",
+ *         subjectEndsWith: "ExampleSuffix",
+ *     },
+ *     scope: "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1",
+ * });
+ *
+ * ```
+ *
+ * ## EventSubscriptions_CreateOrUpdateForResourceGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const eventSubscription = new azurerm.eventgrid.v20180101.EventSubscription("eventSubscription", {
+ *     destination: {
+ *         endpointType: "WebHook",
+ *     },
+ *     eventSubscriptionName: "examplesubscription2",
+ *     filter: {
+ *         isSubjectCaseSensitive: false,
+ *         subjectBeginsWith: "ExamplePrefix",
+ *         subjectEndsWith: "ExampleSuffix",
+ *     },
+ *     scope: "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## EventSubscriptions_CreateOrUpdateForSubscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const eventSubscription = new azurerm.eventgrid.v20180101.EventSubscription("eventSubscription", {
+ *     destination: {
+ *         endpointType: "WebHook",
+ *     },
+ *     eventSubscriptionName: "examplesubscription3",
+ *     filter: {
+ *         isSubjectCaseSensitive: false,
+ *     },
+ *     scope: "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+ * });
+ *
+ * ```
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

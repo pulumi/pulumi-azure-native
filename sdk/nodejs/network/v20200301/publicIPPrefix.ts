@@ -8,6 +8,43 @@ import * as utilities from "../../utilities";
 
 /**
  * Public IP prefix resource.
+ *
+ * ## Create public IP prefix allocation method
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const publicIPPrefix = new azurerm.network.v20200301.PublicIPPrefix("publicIPPrefix", {
+ *     location: "westus",
+ *     prefixLength: 30,
+ *     publicIPAddressVersion: "IPv4",
+ *     publicIpPrefixName: "test-ipprefix",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Create public IP prefix defaults
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const publicIPPrefix = new azurerm.network.v20200301.PublicIPPrefix("publicIPPrefix", {
+ *     location: "westus",
+ *     prefixLength: 30,
+ *     publicIpPrefixName: "test-ipprefix",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
  */
 export class PublicIPPrefix extends pulumi.CustomResource {
     /**

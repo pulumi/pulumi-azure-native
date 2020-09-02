@@ -8,6 +8,64 @@ import * as utilities from "../../utilities";
 
 /**
  * OpenShift Managed cluster.
+ *
+ * ## Create/Update OpenShift Managed Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const openShiftManagedCluster = new azurerm.containerservice.v20190430.OpenShiftManagedCluster("openShiftManagedCluster", {
+ *     agentPoolProfiles: [
+ *         {
+ *             count: 2,
+ *             name: "infra",
+ *             osType: "Linux",
+ *             role: "infra",
+ *             subnetCidr: "10.0.0.0/24",
+ *             vmSize: "Standard_D4s_v3",
+ *         },
+ *         {
+ *             count: 4,
+ *             name: "compute",
+ *             osType: "Linux",
+ *             role: "compute",
+ *             subnetCidr: "10.0.0.0/24",
+ *             vmSize: "Standard_D4s_v3",
+ *         },
+ *     ],
+ *     authProfile: {
+ *         identityProviders: [{
+ *             name: "Azure AD",
+ *             provider: {
+ *                 kind: "AADIdentityProvider",
+ *             },
+ *         }],
+ *     },
+ *     location: "location1",
+ *     masterPoolProfile: {
+ *         count: 3,
+ *         name: "master",
+ *         osType: "Linux",
+ *         subnetCidr: "10.0.0.0/24",
+ *         vmSize: "Standard_D4s_v3",
+ *     },
+ *     networkProfile: {
+ *         vnetCidr: "10.0.0.0/8",
+ *     },
+ *     openShiftVersion: "v3.11",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     routerProfiles: [{
+ *         name: "default",
+ *     }],
+ *     tags: {
+ *         archv2: "",
+ *         tier: "production",
+ *     },
+ * });
+ *
+ * ```
  */
 export class OpenShiftManagedCluster extends pulumi.CustomResource {
     /**

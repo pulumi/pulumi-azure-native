@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB SQL database.
+ *
+ * ## CosmosDBSqlDatabaseCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const databaseAccountSqlDatabase = new azurerm.documentdb.latest.DatabaseAccountSqlDatabase("databaseAccountSqlDatabase", {
+ *     accountName: "ddb1",
+ *     databaseName: "databaseName",
+ *     options: {},
+ *     resource: {
+ *         id: "databaseName",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
     /**

@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Store trusted identity provider information.
+ *
+ * ## Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const trustedIdProvider = new azurerm.datalakestore.latest.TrustedIdProvider("trustedIdProvider", {
+ *     accountName: "contosoadla",
+ *     idProvider: "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+ *     resourceGroupName: "contosorg",
+ *     trustedIdProviderName: "test_trusted_id_provider_name",
+ * });
+ *
+ * ```
  */
 export class TrustedIdProvider extends pulumi.CustomResource {
     /**

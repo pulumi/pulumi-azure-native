@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Migration item.
+ *
+ * ## Enables migration.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const replicationMigrationItem = new azurerm.recoveryservices.v20180710.ReplicationMigrationItem("replicationMigrationItem", {
+ *     fabricName: "vmwarefabric1",
+ *     migrationItemName: "virtualmachine1",
+ *     protectionContainerName: "vmwareContainer1",
+ *     resourceGroupName: "resourcegroup1",
+ *     resourceName: "migrationvault",
+ * });
+ *
+ * ```
  */
 export class ReplicationMigrationItem extends pulumi.CustomResource {
     /**

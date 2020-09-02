@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Nat Gateway resource.
+ *
+ * ## Create nat gateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const natGateway = new azurerm.network.v20200301.NatGateway("natGateway", {
+ *     location: "westus",
+ *     natGatewayName: "test-natgateway",
+ *     publicIpAddresses: [{
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIpAddress1",
+ *     }],
+ *     publicIpPrefixes: [{
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/PublicIpPrefix1",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
  */
 export class NatGateway extends pulumi.CustomResource {
     /**

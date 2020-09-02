@@ -8,6 +8,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Trigger resource type.
+ *
+ * ## Triggers_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const trigger = new azurerm.datafactory.v20180601.Trigger("trigger", {
+ *     factoryName: "exampleFactoryName",
+ *     resourceGroupName: "exampleResourceGroup",
+ *     triggerName: "exampleTrigger",
+ * });
+ *
+ * ```
+ *
+ * ## Triggers_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const trigger = new azurerm.datafactory.v20180601.Trigger("trigger", {
+ *     factoryName: "exampleFactoryName",
+ *     resourceGroupName: "exampleResourceGroup",
+ *     triggerName: "exampleTrigger",
+ * });
+ *
+ * ```
  */
 export class Trigger extends pulumi.CustomResource {
     /**

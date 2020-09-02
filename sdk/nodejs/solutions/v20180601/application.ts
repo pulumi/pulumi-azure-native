@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about managed application.
+ *
+ * ## Create or update managed application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const application = new azurerm.solutions.v20180601.Application("application", {
+ *     kind: "ServiceCatalog",
+ *     location: "East US 2",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

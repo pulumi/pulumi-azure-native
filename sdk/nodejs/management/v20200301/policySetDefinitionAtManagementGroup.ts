@@ -8,6 +8,108 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy set definition.
+ *
+ * ## Create or update a policy set definition at management group level
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const policySetDefinitionAtManagementGroup = new azurerm.management.v20200301.PolicySetDefinitionAtManagementGroup("policySetDefinitionAtManagementGroup", {
+ *     description: "Policies to enforce low cost storage SKUs",
+ *     displayName: "Cost Management",
+ *     managementGroupId: "MyManagementGroup",
+ *     metadata: {
+ *         category: "Cost Management",
+ *     },
+ *     policyDefinitions: [
+ *         {
+ *             parameters: {
+ *                 listOfAllowedSKUs: {
+ *                     value: [
+ *                         "Standard_GRS",
+ *                         "Standard_LRS",
+ *                     ],
+ *                 },
+ *             },
+ *             policyDefinitionId: "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+ *             policyDefinitionReferenceId: "Limit_Skus",
+ *         },
+ *         {
+ *             parameters: {
+ *                 prefix: {
+ *                     value: "DeptA",
+ *                 },
+ *                 suffix: {
+ *                     value: "-LC",
+ *                 },
+ *             },
+ *             policyDefinitionId: "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+ *             policyDefinitionReferenceId: "Resource_Naming",
+ *         },
+ *     ],
+ *     policySetDefinitionName: "CostManagement",
+ * });
+ *
+ * ```
+ *
+ * ## Create or update a policy set definition with groups at management group level
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const policySetDefinitionAtManagementGroup = new azurerm.management.v20200301.PolicySetDefinitionAtManagementGroup("policySetDefinitionAtManagementGroup", {
+ *     description: "Policies to enforce low cost storage SKUs",
+ *     displayName: "Cost Management",
+ *     managementGroupId: "MyManagementGroup",
+ *     metadata: {
+ *         category: "Cost Management",
+ *     },
+ *     policyDefinitionGroups: [
+ *         {
+ *             description: "Policies designed to control spend within a subscription.",
+ *             displayName: "Cost Management Policies",
+ *             name: "CostSaving",
+ *         },
+ *         {
+ *             description: "Policies that help enforce resource organization standards within a subscription.",
+ *             displayName: "Organizational Policies",
+ *             name: "Organizational",
+ *         },
+ *     ],
+ *     policyDefinitions: [
+ *         {
+ *             groupNames: ["CostSaving"],
+ *             parameters: {
+ *                 listOfAllowedSKUs: {
+ *                     value: [
+ *                         "Standard_GRS",
+ *                         "Standard_LRS",
+ *                     ],
+ *                 },
+ *             },
+ *             policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+ *             policyDefinitionReferenceId: "Limit_Skus",
+ *         },
+ *         {
+ *             groupNames: ["Organizational"],
+ *             parameters: {
+ *                 prefix: {
+ *                     value: "DeptA",
+ *                 },
+ *                 suffix: {
+ *                     value: "-LC",
+ *                 },
+ *             },
+ *             policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+ *             policyDefinitionReferenceId: "Resource_Naming",
+ *         },
+ *     ],
+ *     policySetDefinitionName: "CostManagement",
+ * });
+ *
+ * ```
  */
 export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**

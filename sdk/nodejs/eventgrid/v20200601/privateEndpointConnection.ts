@@ -6,6 +6,27 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+/**
+ * ## PrivateEndpointConnections_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.eventgrid.v20200601.PrivateEndpointConnection("privateEndpointConnection", {
+ *     parentName: "exampletopic1",
+ *     parentType: "topics",
+ *     privateEndpointConnectionName: "BMTPE5.8A30D251-4C61-489D-A1AA-B37C4A329B8B",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "None",
+ *         description: "approving connection",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Get an existing PrivateEndpointConnection resource's state with the given name, ID, and optional extra

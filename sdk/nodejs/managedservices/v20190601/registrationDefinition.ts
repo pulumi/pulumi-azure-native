@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Registration definition.
+ *
+ * ## Put Registration Definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const registrationDefinition = new azurerm.managedservices.v20190601.RegistrationDefinition("registrationDefinition", {
+ *     plan: {
+ *         name: "addesai-plan",
+ *         product: "test",
+ *         publisher: "marketplace-test",
+ *         version: "1.0.0",
+ *     },
+ *     registrationDefinitionId: "26c128c2-fefa-4340-9bb1-6e081c90ada2",
+ *     scope: "subscription/0afefe50-734e-4610-8a82-a144ahf49dea",
+ * });
+ *
+ * ```
  */
 export class RegistrationDefinition extends pulumi.CustomResource {
     /**

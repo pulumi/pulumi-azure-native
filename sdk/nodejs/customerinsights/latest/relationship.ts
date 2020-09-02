@@ -8,6 +8,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The relationship resource format.
+ *
+ * ## Relationships_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const relationship = new azurerm.customerinsights.latest.Relationship("relationship", {
+ *     cardinality: "OneToOne",
+ *     description: {
+ *         "en-us": "Relationship Description",
+ *     },
+ *     displayName: {
+ *         "en-us": "Relationship DisplayName",
+ *     },
+ *     fields: [],
+ *     hubName: "sdkTestHub",
+ *     profileType: "testProfile2326994",
+ *     relatedProfileType: "testProfile2326994",
+ *     relationshipName: "SomeRelationship",
+ *     resourceGroupName: "TestHubRG",
+ * });
+ *
+ * ```
  */
 export class Relationship extends pulumi.CustomResource {
     /**

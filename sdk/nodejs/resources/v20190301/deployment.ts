@@ -8,6 +8,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment information.
+ *
+ * ## Create a deployment that will redeploy another deployment on failure
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const deployment = new azurerm.resources.v20190301.Deployment("deployment", {
+ *     deploymentName: "exampleDeploymentName",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create a deployment that will redeploy the last successful deployment on failure
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const deployment = new azurerm.resources.v20190301.Deployment("deployment", {
+ *     deploymentName: "exampleDeploymentName",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class Deployment extends pulumi.CustomResource {
     /**

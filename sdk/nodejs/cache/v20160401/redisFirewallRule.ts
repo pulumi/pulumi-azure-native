@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+ *
+ * ## RedisCacheFirewallRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const redisFirewallRule = new azurerm.cache.v20160401.RedisFirewallRule("redisFirewallRule", {
+ *     cacheName: "cache1",
+ *     endIP: "192.168.1.4",
+ *     resourceGroupName: "rg1",
+ *     ruleName: "rule1",
+ *     startIP: "192.168.1.1",
+ * });
+ *
+ * ```
  */
 export class RedisFirewallRule extends pulumi.CustomResource {
     /**

@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a NotificationHub Resource.
+ *
+ * ## NotificationHubCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const notificationHub = new azurerm.notificationhubs.latest.NotificationHub("notificationHub", {
+ *     location: "eastus",
+ *     namespaceName: "nh-sdk-ns",
+ *     notificationHubName: "nh-sdk-hub",
+ *     resourceGroupName: "5ktrial",
+ * });
+ *
+ * ```
  */
 export class NotificationHub extends pulumi.CustomResource {
     /**

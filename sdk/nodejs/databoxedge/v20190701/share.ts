@@ -8,6 +8,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
+ *
+ * ## SharePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const share = new azurerm.databoxedge.v20190701.Share("share", {
+ *     accessProtocol: "SMB",
+ *     azureContainerInfo: {
+ *         containerName: "testContainerSMB",
+ *         dataFormat: "BlockBlob",
+ *         storageAccountCredentialId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
+ *     },
+ *     dataPolicy: "Cloud",
+ *     description: "",
+ *     deviceName: "testedgedevice",
+ *     monitoringStatus: "Enabled",
+ *     name: "smbshare",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     shareStatus: "Online",
+ *     userAccessRights: [{
+ *         accessType: "Change",
+ *         userId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
+ *     }],
+ * });
+ *
+ * ```
  */
 export class Share extends pulumi.CustomResource {
     /**

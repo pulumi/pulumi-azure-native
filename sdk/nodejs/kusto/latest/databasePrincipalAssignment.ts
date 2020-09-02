@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a database principal assignment.
+ *
+ * ## KustoDatabasePrincipalAssignmentsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const databasePrincipalAssignment = new azurerm.kusto.latest.DatabasePrincipalAssignment("databasePrincipalAssignment", {
+ *     clusterName: "kustoclusterrptest4",
+ *     databaseName: "Kustodatabase8",
+ *     principalAssignmentName: "kustoprincipal1",
+ *     principalId: "87654321-1234-1234-1234-123456789123",
+ *     principalType: "App",
+ *     resourceGroupName: "kustorptest",
+ *     role: "Admin",
+ *     tenantId: "12345678-1234-1234-1234-123456789123",
+ * });
+ *
+ * ```
  */
 export class DatabasePrincipalAssignment extends pulumi.CustomResource {
     /**

@@ -6,6 +6,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Logger details.
+ *
+ * ## ApiManagementCreateAILogger
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const logger = new azurerm.apimanagement.v20190101.Logger("logger", {
+ *     credentials: {
+ *         instrumentationKey: "11................a1",
+ *     },
+ *     description: "adding a new logger",
+ *     loggerId: "loggerId",
+ *     loggerType: "applicationInsights",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## ApiManagementCreateEHLogger
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const logger = new azurerm.apimanagement.v20190101.Logger("logger", {
+ *     credentials: {
+ *         connectionString: "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=",
+ *         name: "hydraeventhub",
+ *     },
+ *     description: "adding a new logger",
+ *     loggerId: "loggerId",
+ *     loggerType: "azureEventHub",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class Logger extends pulumi.CustomResource {
     /**

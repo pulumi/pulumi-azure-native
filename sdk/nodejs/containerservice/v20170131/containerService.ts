@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Container service.
+ *
+ * ## Create/Update Container Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const containerService = new azurerm.containerservice.v20170131.ContainerService("containerService", {
+ *     containerServiceName: "acs1",
+ *     location: "location1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class ContainerService extends pulumi.CustomResource {
     /**

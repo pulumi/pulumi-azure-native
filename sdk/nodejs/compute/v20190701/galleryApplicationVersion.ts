@@ -8,6 +8,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the gallery Application Version that you want to create or update.
+ *
+ * ## Create or update a simple gallery Application Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const galleryApplicationVersion = new azurerm.compute.v20190701.GalleryApplicationVersion("galleryApplicationVersion", {
+ *     galleryApplicationName: "myGalleryApplicationName",
+ *     galleryApplicationVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         endOfLifeDate: "2019-07-01T07:00:00Z",
+ *         replicaCount: 1,
+ *         source: {
+ *             fileName: "package.zip",
+ *             mediaLink: "https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}",
+ *         },
+ *         storageAccountType: "Standard_LRS",
+ *         targetRegions: [{
+ *             name: "West US",
+ *             regionalReplicaCount: 1,
+ *             storageAccountType: "Standard_LRS",
+ *         }],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**

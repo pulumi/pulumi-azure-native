@@ -8,6 +8,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Static Site ARM resource.
+ *
+ * ## Create or update a static site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const staticSite = new azurerm.web.v20190801.StaticSite("staticSite", {
+ *     branch: "master",
+ *     buildProperties: {
+ *         apiLocation: "api",
+ *         appArtifactLocation: "build",
+ *         appLocation: "app",
+ *     },
+ *     location: "West US 2",
+ *     name: "testStaticSite0",
+ *     repositoryToken: "repoToken123",
+ *     repositoryUrl: "https://github.com/username/RepoName",
+ *     resourceGroupName: "rg",
+ *     sku: {
+ *         name: "Basic",
+ *         tier: "Basic",
+ *     },
+ * });
+ *
+ * ```
  */
 export class StaticSite extends pulumi.CustomResource {
     /**

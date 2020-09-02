@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a webhook for a container registry.
+ *
+ * ## WebhookCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const webhook = new azurerm.containerregistry.latest.Webhook("webhook", {
+ *     actions: ["push"],
+ *     customHeaders: {
+ *         Authorization: "Basic 000000000000000000000000000000000000000000000000000",
+ *     },
+ *     location: "westus",
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     scope: "myRepository",
+ *     serviceUri: "http://myservice.com",
+ *     status: "enabled",
+ *     tags: {
+ *         key: "value",
+ *     },
+ *     webhookName: "myWebhook",
+ * });
+ *
+ * ```
  */
 export class Webhook extends pulumi.CustomResource {
     /**

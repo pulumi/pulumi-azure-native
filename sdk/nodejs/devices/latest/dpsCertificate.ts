@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * The X509 Certificate.
+ *
+ * ## DPSCreateOrUpdateCertificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dpsCertificate = new azurerm.devices.latest.DpsCertificate("dpsCertificate", {
+ *     certificate: "############################################",
+ *     certificateName: "cert",
+ *     provisioningServiceName: "myFirstProvisioningService",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class DpsCertificate extends pulumi.CustomResource {
     /**

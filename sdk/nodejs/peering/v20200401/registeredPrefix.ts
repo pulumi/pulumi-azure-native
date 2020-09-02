@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * The customer's prefix that is registered by the peering service provider.
+ *
+ * ## Create or update a registered prefix for the peering
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const registeredPrefix = new azurerm.peering.v20200401.RegisteredPrefix("registeredPrefix", {
+ *     peeringName: "peeringName",
+ *     prefix: "10.22.20.0/24",
+ *     registeredPrefixName: "registeredPrefixName",
+ *     resourceGroupName: "rgName",
+ * });
+ *
+ * ```
  */
 export class RegisteredPrefix extends pulumi.CustomResource {
     /**

@@ -8,6 +8,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an instance of an Analysis Services resource.
+ *
+ * ## Create a server.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const serverDetails = new azurerm.analysisservices.latest.ServerDetails("serverDetails", {
+ *     asAdministrators: {
+ *         members: [
+ *             "azsdktest@microsoft.com",
+ *             "azsdktest2@microsoft.com",
+ *         ],
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "TestRG",
+ *     serverName: "azsdktest",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S1",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         testKey: "testValue",
+ *     },
+ * });
+ *
+ * ```
  */
 export class ServerDetails extends pulumi.CustomResource {
     /**

@@ -8,6 +8,110 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy definition.
+ *
+ * ## Create or update a policy definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const policyDefinition = new azurerm.authorization.v20200301.PolicyDefinition("policyDefinition", {
+ *     description: "Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+ *     displayName: "Enforce resource naming convention",
+ *     metadata: {
+ *         category: "Naming",
+ *     },
+ *     mode: "All",
+ *     parameters: {
+ *         prefix: {
+ *             metadata: {
+ *                 description: "Resource name prefix",
+ *                 displayName: "Prefix",
+ *             },
+ *             type: "String",
+ *         },
+ *         suffix: {
+ *             metadata: {
+ *                 description: "Resource name suffix",
+ *                 displayName: "Suffix",
+ *             },
+ *             type: "String",
+ *         },
+ *     },
+ *     policyDefinitionName: "ResourceNaming",
+ *     policyRule: {
+ *         "if": {
+ *             not: {
+ *                 field: "name",
+ *                 like: "[concat(parameters('prefix'), '*', parameters('suffix'))]",
+ *             },
+ *         },
+ *         then: {
+ *             effect: "deny",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Create or update a policy definition with advanced parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const policyDefinition = new azurerm.authorization.v20200301.PolicyDefinition("policyDefinition", {
+ *     description: "Audit enabling of logs and retain them up to a year. This enables recreation of activity trails for investigation purposes when a security incident occurs or your network is compromised",
+ *     displayName: "Event Hubs should have diagnostic logging enabled",
+ *     metadata: {
+ *         category: "Event Hub",
+ *     },
+ *     mode: "Indexed",
+ *     parameters: {
+ *         requiredRetentionDays: {
+ *             allowedValues: [
+ *                 0,
+ *                 30,
+ *                 90,
+ *                 180,
+ *                 365,
+ *             ],
+ *             defaultValue: 365,
+ *             metadata: {
+ *                 description: "The required diagnostic logs retention in days",
+ *                 displayName: "Required retention (days)",
+ *             },
+ *             type: "Integer",
+ *         },
+ *     },
+ *     policyDefinitionName: "EventHubDiagnosticLogs",
+ *     policyRule: {
+ *         "if": {
+ *             equals: "Microsoft.EventHub/namespaces",
+ *             field: "type",
+ *         },
+ *         then: {
+ *             details: {
+ *                 existenceCondition: {
+ *                     allOf: [
+ *                         {
+ *                             equals: "true",
+ *                             field: "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled",
+ *                         },
+ *                         {
+ *                             equals: "[parameters('requiredRetentionDays')]",
+ *                             field: "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days",
+ *                         },
+ *                     ],
+ *                 },
+ *                 type: "Microsoft.Insights/diagnosticSettings",
+ *             },
+ *             effect: "AuditIfNotExists",
+ *         },
+ *     },
+ * });
+ *
+ * ```
  */
 export class PolicyDefinition extends pulumi.CustomResource {
     /**

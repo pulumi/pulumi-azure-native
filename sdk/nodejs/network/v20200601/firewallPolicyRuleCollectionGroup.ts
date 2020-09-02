@@ -8,6 +8,44 @@ import * as utilities from "../../utilities";
 
 /**
  * Rule Collection Group resource.
+ *
+ * ## Create FirewallPolicyRuleCollectionGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const firewallPolicyRuleCollectionGroup = new azurerm.network.v20200601.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     priority: 110,
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionGroupName: "ruleCollectionGroup1",
+ *     ruleCollections: [{
+ *         name: "Example-Filter-Rule-Collection",
+ *         ruleCollectionType: "FirewallPolicyFilterRuleCollection",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Create FirewallPolicyRuleCollectionGroup With IpGroups
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const firewallPolicyRuleCollectionGroup = new azurerm.network.v20200601.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     priority: 110,
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionGroupName: "ruleCollectionGroup1",
+ *     ruleCollections: [{
+ *         name: "Example-Filter-Rule-Collection",
+ *         ruleCollectionType: "FirewallPolicyFilterRuleCollection",
+ *     }],
+ * });
+ *
+ * ```
  */
 export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
     /**

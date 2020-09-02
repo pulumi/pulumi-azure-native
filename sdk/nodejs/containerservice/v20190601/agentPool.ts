@@ -6,6 +6,50 @@ import * as utilities from "../../utilities";
 
 /**
  * Agent Pool.
+ *
+ * ## Create/Update Agent Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const agentPool = new azurerm.containerservice.v20190601.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     nodeTaints: ["Key1=Value1:NoSchedule"],
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     scaleSetEvictionPolicy: "Delete",
+ *     scaleSetPriority: "Low",
+ *     vmSize: "Standard_DS1_v2",
+ * });
+ *
+ * ```
+ *
+ * ## Update Agent Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const agentPool = new azurerm.containerservice.v20190601.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     enableAutoScaling: true,
+ *     maxCount: 2,
+ *     minCount: 2,
+ *     nodeTaints: ["Key1=Value1:NoSchedule"],
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     scaleSetEvictionPolicy: "Delete",
+ *     scaleSetPriority: "Low",
+ *     vmSize: "Standard_DS1_v2",
+ * });
+ *
+ * ```
  */
 export class AgentPool extends pulumi.CustomResource {
     /**

@@ -6,6 +6,16 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing Traffic Manager User Metrics.
+ *
+ * ## TrafficManagerUserMetricsKeys-PUT
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const trafficManagerUserMetricsKey = new azurerm.network.latest.TrafficManagerUserMetricsKey("trafficManagerUserMetricsKey", {});
+ *
+ * ```
  */
 export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
     /**

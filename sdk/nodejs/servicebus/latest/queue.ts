@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of queue Resource.
+ *
+ * ## QueueCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const queue = new azurerm.servicebus.latest.Queue("queue", {
+ *     enablePartitioning: true,
+ *     namespaceName: "sdk-Namespace-3174",
+ *     queueName: "sdk-Queues-5647",
+ *     resourceGroupName: "ArunMonocle",
+ * });
+ *
+ * ```
  */
 export class Queue extends pulumi.CustomResource {
     /**

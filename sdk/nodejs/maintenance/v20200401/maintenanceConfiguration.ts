@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Maintenance configuration record type
+ *
+ * ## MaintenanceConfigurations_CreateOrUpdateForResource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const maintenanceConfiguration = new azurerm.maintenance.v20200401.MaintenanceConfiguration("maintenanceConfiguration", {
+ *     location: "westus2",
+ *     namespace: "Microsoft.Maintenance",
+ *     resourceGroupName: "examplerg",
+ *     resourceName: "configuration1",
+ * });
+ *
+ * ```
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**

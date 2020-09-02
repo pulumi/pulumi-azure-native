@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a Namespace AuthorizationRules.
+ *
+ * ## RelayHybridConnectionAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const hybridConnectionAuthorizationRule = new azurerm.relay.v20160701.HybridConnectionAuthorizationRule("hybridConnectionAuthorizationRule", {
+ *     authorizationRuleName: "sdk-RelayAuthRules-01",
+ *     hybridConnectionName: "sdk-Relay-Hybrid-01",
+ *     namespaceName: "sdk-RelayNamespace-01",
+ *     resourceGroupName: "RG-eg",
+ *     rights: [
+ *         "Listen",
+ *         "Send",
+ *     ],
+ * });
+ *
+ * ```
  */
 export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     /**

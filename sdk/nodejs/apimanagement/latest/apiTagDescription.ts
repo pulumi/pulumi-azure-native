@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Contract details.
+ *
+ * ## ApiManagementCreateApiTagDescription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiTagDescription = new azurerm.apimanagement.latest.ApiTagDescription("apiTagDescription", {
+ *     apiId: "5931a75ae4bbd512a88c680b",
+ *     description: "Some description that will be displayed for operation's tag if the tag is assigned to operation of the API",
+ *     externalDocsDescription: "Description of the external docs resource",
+ *     externalDocsUrl: "http://some.url/additionaldoc",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     tagDescriptionId: "tagId1",
+ * });
+ *
+ * ```
  */
 export class ApiTagDescription extends pulumi.CustomResource {
     /**

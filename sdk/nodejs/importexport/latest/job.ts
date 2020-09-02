@@ -8,6 +8,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Contains the job information.
+ *
+ * ## Create export job
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const job = new azurerm.importexport.latest.Job("job", {
+ *     jobName: "myExportJob",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create import job
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const job = new azurerm.importexport.latest.Job("job", {
+ *     jobName: "myJob",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

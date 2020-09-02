@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
+ *
+ * ## Endpoints_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const endpoint = new azurerm.cdn.v20171012.Endpoint("endpoint", {
+ *     endpointName: "endpoint1",
+ *     location: "WestCentralUs",
+ *     origins: [{
+ *         name: "www-bing-com",
+ *     }],
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ * });
+ *
+ * ```
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

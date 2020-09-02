@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the SSH public key.
+ *
+ * ## Create a new SSH public key resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sshPublicKey = new azurerm.compute.latest.SshPublicKey("sshPublicKey", {
+ *     location: "westus",
+ *     publicKey: "{ssh-rsa public key}",
+ *     resourceGroupName: "myResourceGroup",
+ *     sshPublicKeyName: "mySshPublicKeyName",
+ * });
+ *
+ * ```
  */
 export class SshPublicKey extends pulumi.CustomResource {
     /**

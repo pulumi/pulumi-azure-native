@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about managed application definition.
+ *
+ * ## Create or update managed application definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const applicationDefinition = new azurerm.solutions.v20170901.ApplicationDefinition("applicationDefinition", {
+ *     authorizations: [{
+ *         principalId: "validprincipalguid",
+ *         roleDefinitionId: "validroleguid",
+ *     }],
+ *     description: "myManagedApplicationDef description",
+ *     displayName: "myManagedApplicationDef",
+ *     location: "East US 2",
+ *     lockLevel: "None",
+ *     packageFileUri: "https://path/to/packagezipfile",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
  */
 export class ApplicationDefinition extends pulumi.CustomResource {
     /**

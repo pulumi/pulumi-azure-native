@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * A share subscription data transfer object.
+ *
+ * ## ShareSubscriptions_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const shareSubscription = new azurerm.datashare.latest.ShareSubscription("shareSubscription", {
+ *     accountName: "Account1",
+ *     invitationId: "12345678-1234-1234-12345678abd",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ *     sourceShareLocation: "eastus2",
+ * });
+ *
+ * ```
  */
 export class ShareSubscription extends pulumi.CustomResource {
     /**

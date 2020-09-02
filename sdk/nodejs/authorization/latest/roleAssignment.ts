@@ -8,6 +8,19 @@ import * as utilities from "../../utilities";
 
 /**
  * Role Assignments
+ *
+ * ## GetConfigurations
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const roleAssignment = new azurerm.authorization.latest.RoleAssignment("roleAssignment", {
+ *     roleAssignmentName: "roleAssignmentName",
+ *     scope: "scope",
+ * });
+ *
+ * ```
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**

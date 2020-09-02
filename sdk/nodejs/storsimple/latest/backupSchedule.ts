@@ -8,6 +8,36 @@ import * as utilities from "../../utilities";
 
 /**
  * The backup schedule.
+ *
+ * ## BackupSchedulesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const backupSchedule = new azurerm.storsimple.latest.BackupSchedule("backupSchedule", {
+ *     backupPolicyName: "BkUpPolicy01ForSDKTest",
+ *     backupScheduleName: "schedule2",
+ *     backupType: "CloudSnapshot",
+ *     deviceName: "Device05ForSDKTest",
+ *     kind: "Series8000",
+ *     managerName: "ManagerForSDKTest1",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     retentionCount: 1,
+ *     scheduleRecurrence: {
+ *         recurrenceType: "Weekly",
+ *         recurrenceValue: 1,
+ *         weeklyDaysList: [
+ *             "Friday",
+ *             "Thursday",
+ *             "Monday",
+ *         ],
+ *     },
+ *     scheduleStatus: "Enabled",
+ *     startTime: "2017-06-24T01:00:00Z",
+ * });
+ *
+ * ```
  */
 export class BackupSchedule extends pulumi.CustomResource {
     /**

@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the credential.
+ *
+ * ## Create a credential
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const credential = new azurerm.automation.v20151031.Credential("credential", {
+ *     automationAccountName: "myAutomationAccount18",
+ *     credentialName: "myCredential",
+ *     description: "my description goes here",
+ *     name: "myCredential",
+ *     password: "myPassw0rd",
+ *     resourceGroupName: "rg",
+ *     userName: "mylingaiah",
+ * });
+ *
+ * ```
  */
 export class Credential extends pulumi.CustomResource {
     /**

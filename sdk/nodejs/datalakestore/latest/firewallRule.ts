@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Store firewall rule information.
+ *
+ * ## Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const firewallRule = new azurerm.datalakestore.latest.FirewallRule("firewallRule", {
+ *     accountName: "contosoadla",
+ *     endIpAddress: "2.2.2.2",
+ *     firewallRuleName: "test_rule",
+ *     resourceGroupName: "contosorg",
+ *     startIpAddress: "1.1.1.1",
+ * });
+ *
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

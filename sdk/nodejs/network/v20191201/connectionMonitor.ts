@@ -8,6 +8,90 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about the connection monitor.
+ *
+ * ## Create connection monitor V1
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const connectionMonitor = new azurerm.network.v20191201.ConnectionMonitor("connectionMonitor", {
+ *     connectionMonitorName: "cm1",
+ *     destination: {
+ *         address: "bing.com",
+ *         port: 80,
+ *     },
+ *     monitoringIntervalInSeconds: 60,
+ *     networkWatcherName: "nw1",
+ *     resourceGroupName: "rg1",
+ *     source: {
+ *         resourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Create connection monitor V2
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const connectionMonitor = new azurerm.network.v20191201.ConnectionMonitor("connectionMonitor", {
+ *     connectionMonitorName: "cm1",
+ *     endpoints: [
+ *         {
+ *             name: "vm1",
+ *             resourceId: "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/NwRgIrinaCentralUSEUAP/providers/Microsoft.Compute/virtualMachines/vm1",
+ *         },
+ *         {
+ *             filter: {
+ *                 items: [{
+ *                     address: "npmuser",
+ *                     type: "AgentAddress",
+ *                 }],
+ *                 type: "Include",
+ *             },
+ *             name: "CanaryWorkspaceVamshi",
+ *             resourceId: "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/vasamudrRG/providers/Microsoft.OperationalInsights/workspaces/vasamudrWorkspace",
+ *         },
+ *         {
+ *             address: "bing.com",
+ *             name: "bing",
+ *         },
+ *         {
+ *             address: "google.com",
+ *             name: "google",
+ *         },
+ *     ],
+ *     networkWatcherName: "nw1",
+ *     outputs: [],
+ *     resourceGroupName: "rg1",
+ *     testConfigurations: [{
+ *         name: "testConfig1",
+ *         protocol: "Tcp",
+ *         tcpConfiguration: {
+ *             disableTraceRoute: false,
+ *             port: 80,
+ *         },
+ *         testFrequencySec: 60,
+ *     }],
+ *     testGroups: [{
+ *         destinations: [
+ *             "bing",
+ *             "google",
+ *         ],
+ *         disable: false,
+ *         name: "test1",
+ *         sources: [
+ *             "vm1",
+ *             "CanaryWorkspaceVamshi",
+ *         ],
+ *         testConfigurations: ["testConfig1"],
+ *     }],
+ * });
+ *
+ * ```
  */
 export class ConnectionMonitor extends pulumi.CustomResource {
     /**

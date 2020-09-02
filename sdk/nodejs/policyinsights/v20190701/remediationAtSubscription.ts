@@ -8,6 +8,40 @@ import * as utilities from "../../utilities";
 
 /**
  * The remediation definition.
+ *
+ * ## Create remediation at subscription scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const remediationAtSubscription = new azurerm.policyinsights.v20190701.RemediationAtSubscription("remediationAtSubscription", {
+ *     policyAssignmentId: "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     remediationName: "storageRemediation",
+ * });
+ *
+ * ```
+ *
+ * ## Create remediation at subscription scope with all properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const remediationAtSubscription = new azurerm.policyinsights.v20190701.RemediationAtSubscription("remediationAtSubscription", {
+ *     filters: {
+ *         locations: [
+ *             "eastus",
+ *             "westus",
+ *         ],
+ *     },
+ *     policyAssignmentId: "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     policyDefinitionReferenceId: "8c8fa9e4",
+ *     remediationName: "storageRemediation",
+ *     resourceDiscoveryMode: "ReEvaluateCompliance",
+ * });
+ *
+ * ```
  */
 export class RemediationAtSubscription extends pulumi.CustomResource {
     /**

@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Protection profile details.
+ *
+ * ## Creates the policy.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const replicationPolicy = new azurerm.recoveryservices.v20160810.ReplicationPolicy("replicationPolicy", {
+ *     policyName: "protectionprofile1",
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ * });
+ *
+ * ```
  */
 export class ReplicationPolicy extends pulumi.CustomResource {
     /**

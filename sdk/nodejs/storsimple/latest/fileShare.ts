@@ -6,6 +6,28 @@ import * as utilities from "../../utilities";
 
 /**
  * The File Share.
+ *
+ * ## FileSharesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const fileShare = new azurerm.storsimple.latest.FileShare("fileShare", {
+ *     adminUser: "fareast\\idcdlslb",
+ *     dataPolicy: "Tiered",
+ *     description: "Demo FileShare for SDK Test Tiered",
+ *     deviceName: "HSDK-4XY4FI2IVG",
+ *     fileServerName: "HSDK-4XY4FI2IVG",
+ *     managerName: "hAzureSDKOperations",
+ *     monitoringStatus: "Enabled",
+ *     provisionedCapacityInBytes: 536870912000,
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     shareName: "Auto-TestFileShare1",
+ *     shareStatus: "Online",
+ * });
+ *
+ * ```
  */
 export class FileShare extends pulumi.CustomResource {
     /**

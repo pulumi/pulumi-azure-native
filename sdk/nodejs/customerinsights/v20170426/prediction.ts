@@ -8,6 +8,41 @@ import * as utilities from "../../utilities";
 
 /**
  * The prediction resource format.
+ *
+ * ## Predictions_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const prediction = new azurerm.customerinsights.v20170426.Prediction("prediction", {
+ *     autoAnalyze: true,
+ *     description: {
+ *         "en-us": "sdktest",
+ *     },
+ *     displayName: {
+ *         "en-us": "sdktest",
+ *     },
+ *     grades: [],
+ *     hubName: "sdkTestHub",
+ *     involvedInteractionTypes: [],
+ *     involvedKpiTypes: [],
+ *     involvedRelationships: [],
+ *     mappings: {
+ *         grade: "sdktest_Grade",
+ *         reason: "sdktest_Reason",
+ *         score: "sdktest_Score",
+ *     },
+ *     negativeOutcomeExpression: "Customers.FirstName = 'Mike'",
+ *     positiveOutcomeExpression: "Customers.FirstName = 'David'",
+ *     predictionName: "sdktest",
+ *     primaryProfileType: "Customers",
+ *     resourceGroupName: "TestHubRG",
+ *     scopeExpression: "*",
+ *     scoreLabel: "score label",
+ * });
+ *
+ * ```
  */
 export class Prediction extends pulumi.CustomResource {
     /**

@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Database.
+ *
+ * ## DatabaseCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.dbforpostgresql.v20171201.Database("database", {
+ *     charset: "UTF8",
+ *     collation: "English_United States.1252",
+ *     databaseName: "db1",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "testserver",
+ * });
+ *
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

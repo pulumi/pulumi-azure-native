@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * Security Partner Provider resource.
+ *
+ * ## Create Security Partner Provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const securityPartnerProvider = new azurerm.network.latest.SecurityPartnerProvider("securityPartnerProvider", {
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     securityPartnerProviderName: "securityPartnerProvider",
+ *     securityProviderName: "ZScaler",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualHub: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class SecurityPartnerProvider extends pulumi.CustomResource {
     /**

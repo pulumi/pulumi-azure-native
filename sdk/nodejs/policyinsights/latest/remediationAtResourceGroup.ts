@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * The remediation definition.
+ *
+ * ## Create remediation at resource group scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const remediationAtResourceGroup = new azurerm.policyinsights.latest.RemediationAtResourceGroup("remediationAtResourceGroup", {
+ *     policyAssignmentId: "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/myResourceGroup/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     remediationName: "storageRemediation",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class RemediationAtResourceGroup extends pulumi.CustomResource {
     /**

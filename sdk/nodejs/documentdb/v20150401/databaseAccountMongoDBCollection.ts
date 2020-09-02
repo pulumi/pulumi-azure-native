@@ -8,6 +8,37 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB MongoDB collection.
+ *
+ * ## CosmosDBMongoDBCollectionCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const databaseAccountMongoDBCollection = new azurerm.documentdb.v20150401.DatabaseAccountMongoDBCollection("databaseAccountMongoDBCollection", {
+ *     accountName: "ddb1",
+ *     collectionName: "collectionName",
+ *     databaseName: "databaseName",
+ *     options: {},
+ *     resource: {
+ *         id: "testcoll",
+ *         indexes: [{
+ *             key: {
+ *                 keys: ["testKey"],
+ *             },
+ *             options: {
+ *                 expireAfterSeconds: 100,
+ *                 unique: true,
+ *             },
+ *         }],
+ *         shardKey: {
+ *             testKey: "Hash",
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
     /**

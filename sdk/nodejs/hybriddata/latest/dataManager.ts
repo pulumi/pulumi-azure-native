@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * The DataManager resource.
+ *
+ * ## DataManagers_CreatePUT41
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataManager = new azurerm.hybriddata.latest.DataManager("dataManager", {
+ *     dataManagerName: "TestAzureSDKOperations",
+ *     location: "westus",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ * });
+ *
+ * ```
  */
 export class DataManager extends pulumi.CustomResource {
     /**

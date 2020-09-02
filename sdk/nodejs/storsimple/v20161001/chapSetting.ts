@@ -8,6 +8,26 @@ import * as utilities from "../../utilities";
 
 /**
  * Challenge-Handshake Authentication Protocol (CHAP) setting
+ *
+ * ## ChapSettingsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const chapSetting = new azurerm.storsimple.v20161001.ChapSetting("chapSetting", {
+ *     chapUserName: "ChapSettingForSDK",
+ *     deviceName: "HSDK-WSJQERQW3F",
+ *     managerName: "hAzureSDKOperations",
+ *     password: {
+ *         encryptionAlgorithm: "RSAES_PKCS1_v_1_5",
+ *         encryptionCertificateThumbprint: "D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
+ *         value: "W4xL3maActbzoehB9Ny1nr16uyjZZfvuJ70f8yBQgtS3vU4SLrOpoggmutOsbcgOgmgNHZnKe73WRZxzJFxzUQqcFNrAV+dReDkO5I/L1GxDjT5rsWn+74dRl8ditTew4z6OcwrT6RXtjG0njkUNsxXuawuylXsdHdvgQtSWbXBSao6KVhSbGQ57/V++CXqBbG2zoGLlHMdZF9OQccvCgh7qwD4ua7FLwqvQ8vYYVXryKm+XDmmT+GYWDqxPly0M2mJl/GLB/c6rNem4oRHBsf/vKfEKm8WGLWNsRZGcbxZKGiGsKC8QsxDHou6Ci3rfphVJE2R/9TxL+/1lUu2poQ==",
+ *     },
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ * });
+ *
+ * ```
  */
 export class ChapSetting extends pulumi.CustomResource {
     /**

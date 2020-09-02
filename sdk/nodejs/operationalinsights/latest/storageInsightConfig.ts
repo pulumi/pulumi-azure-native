@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level storage insight resource container.
+ *
+ * ## StorageInsightsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const storageInsightConfig = new azurerm.operationalinsights.latest.StorageInsightConfig("storageInsightConfig", {
+ *     containers: ["wad-iis-logfiles"],
+ *     resourceGroupName: "OIAutoRest5123",
+ *     storageAccount: {
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
+ *         key: "1234",
+ *     },
+ *     storageInsightName: "AzTestSI1110",
+ *     tables: [
+ *         "WADWindowsEventLogsTable",
+ *         "LinuxSyslogVer2v0",
+ *     ],
+ *     workspaceName: "aztest5048",
+ * });
+ *
+ * ```
  */
 export class StorageInsightConfig extends pulumi.CustomResource {
     /**

@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
+ *
+ * ## RegisterAzure Storage ProtectionContainers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const protectionContainer = new azurerm.recoveryservices.v20161201.ProtectionContainer("protectionContainer", {
+ *     containerName: "VMAppContainer;Compute;testRG;testSQL",
+ *     fabricName: "Azure",
+ *     resourceGroupName: "test-rg",
+ *     vaultName: "testvault",
+ * });
+ *
+ * ```
  */
 export class ProtectionContainer extends pulumi.CustomResource {
     /**

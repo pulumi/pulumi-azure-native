@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Datasources under OMS Workspace.
+ *
+ * ## DataSourcesCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataSource = new azurerm.operationalinsights.latest.DataSource("dataSource", {
+ *     dataSourceName: "AzTestDS774",
+ *     kind: "AzureActivityLog",
+ *     resourceGroupName: "OIAutoRest5123",
+ *     workspaceName: "AzTest9724",
+ * });
+ *
+ * ```
  */
 export class DataSource extends pulumi.CustomResource {
     /**

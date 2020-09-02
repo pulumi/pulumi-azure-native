@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot of a Volume
+ *
+ * ## Snapshots_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const snapshot = new azurerm.netapp.v20190601.Snapshot("snapshot", {
+ *     accountName: "accountName",
+ *     location: "eastus",
+ *     poolName: "poolName",
+ *     resourceGroupName: "resourceGroup",
+ *     snapshotName: "snapshotName",
+ *     volumeName: "volumeName",
+ * });
+ *
+ * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

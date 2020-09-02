@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines an Network Experiment Profile and lists of Experiments
+ *
+ * ## Creates an NetworkExperiment Profile in a Resource Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const networkExperimentProfile = new azurerm.network.v20191101.NetworkExperimentProfile("networkExperimentProfile", {
+ *     enabledState: "Enabled",
+ *     location: "WestUs",
+ *     profileName: "MyProfile",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
  */
 export class NetworkExperimentProfile extends pulumi.CustomResource {
     /**

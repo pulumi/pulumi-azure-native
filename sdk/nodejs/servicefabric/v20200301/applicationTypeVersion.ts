@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * An application type version resource for the specified application type name resource.
+ *
+ * ## Put an application type version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const applicationTypeVersion = new azurerm.servicefabric.v20200301.ApplicationTypeVersion("applicationTypeVersion", {
+ *     appPackageUrl: "http://fakelink.test.com/MyAppType",
+ *     applicationTypeName: "myAppType",
+ *     clusterName: "myCluster",
+ *     resourceGroupName: "resRg",
+ *     version: "1.0",
+ * });
+ *
+ * ```
  */
 export class ApplicationTypeVersion extends pulumi.CustomResource {
     /**

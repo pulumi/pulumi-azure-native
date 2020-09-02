@@ -8,6 +8,66 @@ import * as utilities from "../../utilities";
 
 /**
  * An Account Filter.
+ *
+ * ## Create an Account Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const accountFilter = new azurerm.media.v20200501.AccountFilter("accountFilter", {
+ *     accountName: "contosomedia",
+ *     filterName: "newAccountFilter",
+ *     firstQuality: {
+ *         bitrate: 128000,
+ *     },
+ *     presentationTimeRange: {
+ *         endTimestamp: 170000000,
+ *         forceEndTimestamp: false,
+ *         liveBackoffDuration: 0,
+ *         presentationWindowDuration: 9.223372036854776e+18,
+ *         startTimestamp: 0,
+ *         timescale: 10000000,
+ *     },
+ *     resourceGroupName: "contoso",
+ *     tracks: [
+ *         {
+ *             trackSelections: [
+ *                 {
+ *                     operation: "Equal",
+ *                     property: "Type",
+ *                     value: "Audio",
+ *                 },
+ *                 {
+ *                     operation: "NotEqual",
+ *                     property: "Language",
+ *                     value: "en",
+ *                 },
+ *                 {
+ *                     operation: "NotEqual",
+ *                     property: "FourCC",
+ *                     value: "EC-3",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             trackSelections: [
+ *                 {
+ *                     operation: "Equal",
+ *                     property: "Type",
+ *                     value: "Video",
+ *                 },
+ *                 {
+ *                     operation: "Equal",
+ *                     property: "Bitrate",
+ *                     value: "3000000-5000000",
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ * });
+ *
+ * ```
  */
 export class AccountFilter extends pulumi.CustomResource {
     /**

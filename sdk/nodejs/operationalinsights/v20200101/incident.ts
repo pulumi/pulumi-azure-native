@@ -8,6 +8,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an incident in Azure Security Insights.
+ *
+ * ## Creates or updates an incident.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const incident = new azurerm.operationalinsights.v20200101.Incident("incident", {
+ *     classification: "FalsePositive",
+ *     classificationComment: "Not a malicious activity",
+ *     classificationReason: "IncorrectAlertLogic",
+ *     description: "This is a demo incident",
+ *     etag: "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+ *     firstActivityTimeUtc: "2019-01-01T13:00:30Z",
+ *     incidentId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     lastActivityTimeUtc: "2019-01-01T13:05:30Z",
+ *     owner: {
+ *         objectId: "2046feea-040d-4a46-9e2b-91c2941bfa70",
+ *     },
+ *     resourceGroupName: "myRg",
+ *     severity: "High",
+ *     status: "Closed",
+ *     title: "My incident",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
  */
 export class Incident extends pulumi.CustomResource {
     /**

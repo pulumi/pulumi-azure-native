@@ -8,6 +8,43 @@ import * as utilities from "../../utilities";
 
 /**
  * An Application Insights component definition.
+ *
+ * ## ComponentCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const component = new azurerm.insights.latest.Component("component", {
+ *     applicationType: "web",
+ *     flowType: "Bluefield",
+ *     kind: "web",
+ *     location: "South Central US",
+ *     requestSource: "rest",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "my-component",
+ * });
+ *
+ * ```
+ *
+ * ## ComponentUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const component = new azurerm.insights.latest.Component("component", {
+ *     kind: "web",
+ *     location: "South Central US",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "my-component",
+ *     tags: {
+ *         ApplicationGatewayType: "Internal-Only",
+ *         BillingEntity: "Self",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Component extends pulumi.CustomResource {
     /**

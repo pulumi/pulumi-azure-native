@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Site REST Resource.
+ *
+ * ## Create Master site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const masterSiteSite = new azurerm.offazure.latest.MasterSiteSite("masterSiteSite", {
+ *     location: "eastus",
+ *     resourceGroupName: "poshukla",
+ *     siteName: "masterSite1",
+ * });
+ *
+ * ```
  */
 export class MasterSiteSite extends pulumi.CustomResource {
     /**

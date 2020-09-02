@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * NetApp account resource
+ *
+ * ## Accounts_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const account = new azurerm.netapp.v20190801.Account("account", {
+ *     accountName: "account1",
+ *     location: "eastus",
+ *     resourceGroupName: "myRG",
+ * });
+ *
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

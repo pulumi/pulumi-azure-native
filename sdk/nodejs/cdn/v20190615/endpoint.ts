@@ -8,6 +8,61 @@ import * as utilities from "../../utilities";
 
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
+ *
+ * ## Endpoints_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const endpoint = new azurerm.cdn.v20190615.Endpoint("endpoint", {
+ *     contentTypesToCompress: [
+ *         "text/html",
+ *         "application/octet-stream",
+ *     ],
+ *     deliveryPolicy: {
+ *         description: "Test description for a policy.",
+ *         rules: [{
+ *             actions: [
+ *                 {
+ *                     name: "CacheExpiration",
+ *                 },
+ *                 {
+ *                     name: "ModifyResponseHeader",
+ *                 },
+ *                 {
+ *                     name: "ModifyRequestHeader",
+ *                 },
+ *             ],
+ *             conditions: [{
+ *                 name: "RemoteAddress",
+ *             }],
+ *             name: "rule1",
+ *             order: 1,
+ *         }],
+ *     },
+ *     endpointName: "endpoint1",
+ *     isCompressionEnabled: true,
+ *     isHttpAllowed: true,
+ *     isHttpsAllowed: true,
+ *     location: "WestUs",
+ *     originHostHeader: "www.bing.com",
+ *     originPath: "/photos",
+ *     origins: [{
+ *         name: "origin1",
+ *     }],
+ *     profileName: "profile1",
+ *     queryStringCachingBehavior: "BypassCaching",
+ *     resourceGroupName: "RG",
+ *     tags: {
+ *         kay1: "value1",
+ *     },
+ *     webApplicationFirewallPolicyLink: {
+ *         id: "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/CdnWebApplicationFirewallPolicies/cdnWafPolicy1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

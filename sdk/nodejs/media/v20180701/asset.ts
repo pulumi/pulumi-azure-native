@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * An Asset.
+ *
+ * ## Create an Asset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const asset = new azurerm.media.v20180701.Asset("asset", {
+ *     accountName: "contosomedia",
+ *     assetName: "ClimbingMountLogan",
+ *     description: "A documentary showing the ascent of Mount Logan",
+ *     resourceGroupName: "contoso",
+ *     storageAccountName: "storage0",
+ * });
+ *
+ * ```
  */
 export class Asset extends pulumi.CustomResource {
     /**

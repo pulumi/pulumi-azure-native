@@ -8,6 +8,116 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Traffic Manager profile.
+ *
+ * ## Profile-PUT-NoEndpoints
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const profile = new azurerm.network.v20180301.Profile("profile", {
+ *     dnsConfig: {
+ *         relativeName: "azsmnet6386",
+ *         ttl: 35,
+ *     },
+ *     location: "global",
+ *     monitorConfig: {
+ *         path: "/testpath.aspx",
+ *         port: 80,
+ *         protocol: "HTTP",
+ *     },
+ *     profileName: "azsmnet6386",
+ *     profileStatus: "Enabled",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager1421",
+ *     trafficRoutingMethod: "Performance",
+ * });
+ *
+ * ```
+ *
+ * ## Profile-PUT-WithCustomHeaders
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const profile = new azurerm.network.v20180301.Profile("profile", {
+ *     dnsConfig: {
+ *         relativeName: "azuresdkfornetautoresttrafficmanager6192",
+ *         ttl: 35,
+ *     },
+ *     endpoints: [{
+ *         name: "My external endpoint",
+ *         type: "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+ *     }],
+ *     location: "global",
+ *     monitorConfig: {
+ *         customHeaders: [
+ *             {
+ *                 name: "header-1",
+ *                 value: "value-1",
+ *             },
+ *             {
+ *                 name: "header-2",
+ *                 value: "value-2",
+ *             },
+ *         ],
+ *         expectedStatusCodeRanges: [
+ *             {
+ *                 max: 205,
+ *                 min: 200,
+ *             },
+ *             {
+ *                 max: 410,
+ *                 min: 400,
+ *             },
+ *         ],
+ *         intervalInSeconds: 10,
+ *         path: "/testpath.aspx",
+ *         port: 80,
+ *         protocol: "HTTP",
+ *         timeoutInSeconds: 5,
+ *         toleratedNumberOfFailures: 2,
+ *     },
+ *     profileName: "azuresdkfornetautoresttrafficmanager6192",
+ *     profileStatus: "Enabled",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager2583",
+ *     trafficRoutingMethod: "Performance",
+ *     trafficViewEnrollmentStatus: "Disabled",
+ * });
+ *
+ * ```
+ *
+ * ## Profile-PUT-WithEndpoints
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const profile = new azurerm.network.v20180301.Profile("profile", {
+ *     dnsConfig: {
+ *         relativeName: "azuresdkfornetautoresttrafficmanager6192",
+ *         ttl: 35,
+ *     },
+ *     endpoints: [{
+ *         name: "My external endpoint",
+ *         type: "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+ *     }],
+ *     location: "global",
+ *     monitorConfig: {
+ *         intervalInSeconds: 10,
+ *         path: "/testpath.aspx",
+ *         port: 80,
+ *         protocol: "HTTP",
+ *         timeoutInSeconds: 5,
+ *         toleratedNumberOfFailures: 2,
+ *     },
+ *     profileName: "azuresdkfornetautoresttrafficmanager6192",
+ *     profileStatus: "Enabled",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager2583",
+ *     trafficRoutingMethod: "Performance",
+ * });
+ *
+ * ```
  */
 export class Profile extends pulumi.CustomResource {
     /**

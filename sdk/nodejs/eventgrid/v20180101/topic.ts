@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * EventGrid Topic
+ *
+ * ## Topics_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const topic = new azurerm.eventgrid.v20180101.Topic("topic", {
+ *     location: "westus2",
+ *     resourceGroupName: "examplerg",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     topicName: "exampletopic1",
+ * });
+ *
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

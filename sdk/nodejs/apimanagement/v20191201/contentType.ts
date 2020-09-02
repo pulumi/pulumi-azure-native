@@ -6,6 +6,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Content type contract details.
+ *
+ * ## ApiManagementCreateContentType
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const contentType = new azurerm.apimanagement.v20191201.ContentType("contentType", {
+ *     contentTypeId: "page",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class ContentType extends pulumi.CustomResource {
     /**

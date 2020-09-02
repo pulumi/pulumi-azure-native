@@ -8,6 +8,31 @@ import * as utilities from "../../utilities";
 
 /**
  * The Role Assignment resource format.
+ *
+ * ## RoleAssignments_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const roleAssignment = new azurerm.customerinsights.latest.RoleAssignment("roleAssignment", {
+ *     assignmentName: "assignmentName8976",
+ *     hubName: "sdkTestHub",
+ *     principals: [
+ *         {
+ *             principalId: "4c54c38ffa9b416ba5a6d6c8a20cbe7e",
+ *             principalType: "User",
+ *         },
+ *         {
+ *             principalId: "93061d15a5054f2b9948ae25724cf9d5",
+ *             principalType: "User",
+ *         },
+ *     ],
+ *     resourceGroupName: "TestHubRG",
+ *     role: "Admin",
+ * });
+ *
+ * ```
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**

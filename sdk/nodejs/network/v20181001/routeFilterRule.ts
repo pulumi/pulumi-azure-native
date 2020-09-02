@@ -6,6 +6,26 @@ import * as utilities from "../../utilities";
 
 /**
  * Route Filter Rule Resource
+ *
+ * ## RouteFilterRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const routeFilterRule = new azurerm.network.v20181001.RouteFilterRule("routeFilterRule", {
+ *     access: "Allow",
+ *     communities: [
+ *         "12076:5030",
+ *         "12076:5040",
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     routeFilterName: "filterName",
+ *     routeFilterRuleType: "Community",
+ *     ruleName: "ruleName",
+ * });
+ *
+ * ```
  */
 export class RouteFilterRule extends pulumi.CustomResource {
     /**

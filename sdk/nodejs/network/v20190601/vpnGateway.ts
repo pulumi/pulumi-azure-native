@@ -8,6 +8,33 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnGateway Resource.
+ *
+ * ## VpnGatewayPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const vpnGateway = new azurerm.network.v20190601.VpnGateway("vpnGateway", {
+ *     bgpSettings: {
+ *         asn: 65515,
+ *         peerWeight: 0,
+ *     },
+ *     connections: [{
+ *         name: "vpnConnection1",
+ *     }],
+ *     gatewayName: "gateway1",
+ *     location: "westcentralus",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualHub: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class VpnGateway extends pulumi.CustomResource {
     /**

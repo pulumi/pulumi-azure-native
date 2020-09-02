@@ -8,6 +8,89 @@ import * as utilities from "../../utilities";
 
 /**
  * The Get Storage Account ManagementPolicies operation response.
+ *
+ * ## StorageAccountSetManagementPolicies
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managementPolicy = new azurerm.storage.latest.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [
+ *             {
+ *                 definition: {
+ *                     actions: {
+ *                         baseBlob: {
+ *                             "delete": {
+ *                                 daysAfterModificationGreaterThan: 1000,
+ *                             },
+ *                             tierToArchive: {
+ *                                 daysAfterModificationGreaterThan: 90,
+ *                             },
+ *                             tierToCool: {
+ *                                 daysAfterModificationGreaterThan: 30,
+ *                             },
+ *                         },
+ *                         snapshot: {
+ *                             "delete": {
+ *                                 daysAfterCreationGreaterThan: 30,
+ *                             },
+ *                         },
+ *                     },
+ *                     filters: {
+ *                         blobTypes: ["blockBlob"],
+ *                         prefixMatch: ["olcmtestcontainer1"],
+ *                     },
+ *                 },
+ *                 enabled: true,
+ *                 name: "olcmtest1",
+ *                 type: "Lifecycle",
+ *             },
+ *             {
+ *                 definition: {
+ *                     actions: {
+ *                         baseBlob: {
+ *                             "delete": {
+ *                                 daysAfterModificationGreaterThan: 1000,
+ *                             },
+ *                             tierToArchive: {
+ *                                 daysAfterModificationGreaterThan: 90,
+ *                             },
+ *                             tierToCool: {
+ *                                 daysAfterModificationGreaterThan: 30,
+ *                             },
+ *                         },
+ *                     },
+ *                     filters: {
+ *                         blobIndexMatch: [
+ *                             {
+ *                                 name: "tag1",
+ *                                 op: "==",
+ *                                 value: "val1",
+ *                             },
+ *                             {
+ *                                 name: "tag2",
+ *                                 op: "==",
+ *                                 value: "val2",
+ *                             },
+ *                         ],
+ *                         blobTypes: ["blockBlob"],
+ *                         prefixMatch: ["olcmtestcontainer2"],
+ *                     },
+ *                 },
+ *                 enabled: true,
+ *                 name: "olcmtest2",
+ *                 type: "Lifecycle",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
  */
 export class ManagementPolicy extends pulumi.CustomResource {
     /**

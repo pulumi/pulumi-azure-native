@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Policy Contract details.
+ *
+ * ## ApiManagementCreateApiPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiPolicy = new azurerm.apimanagement.v20170301.ApiPolicy("apiPolicy", {
+ *     apiId: "5600b57e7e8880006a040001",
+ *     policyContent: "<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+ *     policyId: "policy",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class ApiPolicy extends pulumi.CustomResource {
     /**

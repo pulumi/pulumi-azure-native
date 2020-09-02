@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
+ *
+ * ## PutContainers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const blobContainer = new azurerm.storage.v20180201.BlobContainer("blobContainer", {
+ *     accountName: "sto328",
+ *     containerName: "container6185",
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**

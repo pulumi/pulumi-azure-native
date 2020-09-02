@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the automation account type.
+ *
+ * ## Create or update automation account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const automationAccount = new azurerm.automation.latest.AutomationAccount("automationAccount", {
+ *     automationAccountName: "myAutomationAccount9",
+ *     location: "East US 2",
+ *     name: "myAutomationAccount9",
+ *     resourceGroupName: "rg",
+ *     sku: {
+ *         name: "Free",
+ *     },
+ * });
+ *
+ * ```
  */
 export class AutomationAccount extends pulumi.CustomResource {
     /**

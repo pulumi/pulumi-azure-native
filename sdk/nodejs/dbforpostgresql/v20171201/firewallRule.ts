@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server firewall rule.
+ *
+ * ## FirewallRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const firewallRule = new azurerm.dbforpostgresql.v20171201.FirewallRule("firewallRule", {
+ *     endIpAddress: "255.255.255.255",
+ *     firewallRuleName: "rule1",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "testserver",
+ *     startIpAddress: "0.0.0.0",
+ * });
+ *
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

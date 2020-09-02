@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * A share data transfer object.
+ *
+ * ## Shares_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const share = new azurerm.datashare.latest.Share("share", {
+ *     accountName: "Account1",
+ *     description: "share description",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareKind: "CopyBased",
+ *     shareName: "Share1",
+ *     terms: "Confidential",
+ * });
+ *
+ * ```
  */
 export class Share extends pulumi.CustomResource {
     /**

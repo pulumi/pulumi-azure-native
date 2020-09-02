@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+ *
+ * ## Caches_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cache = new azurerm.storagecache.v20191101.Cache("cache", {
+ *     cacheName: "sc1",
+ *     cacheSizeGB: 3072,
+ *     location: "westus",
+ *     resourceGroupName: "scgroup",
+ *     sku: {
+ *         name: "Standard_2G",
+ *     },
+ *     subnet: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+ *     tags: {
+ *         Dept: "Initech",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Cache extends pulumi.CustomResource {
     /**

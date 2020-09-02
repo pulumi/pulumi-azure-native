@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * The view resource format.
+ *
+ * ## Views_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const view = new azurerm.customerinsights.v20170426.View("view", {
+ *     definition: "{\\\"isProfileType\\\":false,\\\"profileTypes\\\":[],\\\"widgets\\\":[],\\\"style\\\":[]}",
+ *     displayName: {
+ *         en: "some name",
+ *     },
+ *     hubName: "sdkTestHub",
+ *     resourceGroupName: "TestHubRG",
+ *     userId: "testUser",
+ *     viewName: "testView",
+ * });
+ *
+ * ```
  */
 export class View extends pulumi.CustomResource {
     /**

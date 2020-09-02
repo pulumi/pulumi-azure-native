@@ -8,6 +8,16 @@ import * as utilities from "../../utilities";
 
 /**
  * The details of subscription under management group.
+ *
+ * ## AddSubscriptionToManagementGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managementGroupSubscriptionSubscription = new azurerm.management.v20200501.ManagementGroupSubscriptionSubscription("managementGroupSubscriptionSubscription", {groupId: "Group"});
+ *
+ * ```
  */
 export class ManagementGroupSubscriptionSubscription extends pulumi.CustomResource {
     /**

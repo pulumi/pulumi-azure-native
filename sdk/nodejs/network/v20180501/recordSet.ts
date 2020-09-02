@@ -8,6 +8,263 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS record set (a collection of DNS records with the same name and type).
+ *
+ * ## Create A recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     aRecords: [{
+ *         ipv4Address: "127.0.0.1",
+ *     }],
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "A",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ *
+ * ## Create A recordset with alias target resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "A",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     targetResource: {
+ *         id: "/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2",
+ *     },
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ *
+ * ## Create AAAA recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     aaaaRecords: [{
+ *         ipv6Address: "::1",
+ *     }],
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "AAAA",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ *
+ * ## Create CAA recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     caaRecords: [{
+ *         flags: 0,
+ *         tag: "issue",
+ *         value: "ca.contoso.com",
+ *     }],
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "CAA",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ *
+ * ## Create CNAME recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     cnameRecord: {
+ *         cname: "contoso.com",
+ *     },
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "CNAME",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ *
+ * ## Create MX recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     mxRecords: [{
+ *         exchange: "mail.contoso.com",
+ *         preference: 0,
+ *     }],
+ *     recordType: "MX",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ *
+ * ## Create NS recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     nsRecords: [{
+ *         nsdname: "ns1.contoso.com",
+ *     }],
+ *     recordType: "NS",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ *
+ * ## Create PTR recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     ptrRecords: [{
+ *         ptrdname: "localhost",
+ *     }],
+ *     recordType: "PTR",
+ *     relativeRecordSetName: "1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     zoneName: "0.0.127.in-addr.arpa",
+ * });
+ *
+ * ```
+ *
+ * ## Create SOA recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "SOA",
+ *     relativeRecordSetName: "@",
+ *     resourceGroupName: "rg1",
+ *     soaRecord: {
+ *         email: "hostmaster.contoso.com",
+ *         expireTime: 2419200,
+ *         host: "ns1.contoso.com",
+ *         minimumTtl: 300,
+ *         refreshTime: 3600,
+ *         retryTime: 300,
+ *         serialNumber: 1,
+ *     },
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ *
+ * ## Create SRV recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "SRV",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     srvRecords: [{
+ *         port: 80,
+ *         priority: 0,
+ *         target: "contoso.com",
+ *         weight: 10,
+ *     }],
+ *     ttl: 3600,
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
+ *
+ * ## Create TXT recordset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const recordSet = new azurerm.network.v20180501.RecordSet("recordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     recordType: "TXT",
+ *     relativeRecordSetName: "record1",
+ *     resourceGroupName: "rg1",
+ *     ttl: 3600,
+ *     txtRecords: [{
+ *         value: [
+ *             "string1",
+ *             "string2",
+ *         ],
+ *     }],
+ *     zoneName: "zone1",
+ * });
+ *
+ * ```
  */
 export class RecordSet extends pulumi.CustomResource {
     /**

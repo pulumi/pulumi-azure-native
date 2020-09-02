@@ -9,6 +9,55 @@ import * as utilities from "../../utilities";
 /**
  * The task that has the ARM resource and task properties.
  * The task will have all information to schedule a run against it.
+ *
+ * ## Tasks_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const task = new azurerm.containerregistry.v20180901.Task("task", {
+ *     agentConfiguration: {
+ *         cpu: 2,
+ *     },
+ *     location: "eastus",
+ *     platform: {
+ *         architecture: "amd64",
+ *         os: "Linux",
+ *     },
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     status: "Enabled",
+ *     step: {
+ *         contextPath: "dockerfiles",
+ *     },
+ *     tags: {
+ *         testkey: "value",
+ *     },
+ *     taskName: "mytTask",
+ *     trigger: {
+ *         baseImageTrigger: {
+ *             baseImageTriggerType: "Runtime",
+ *             name: "myBaseImageTrigger",
+ *         },
+ *         sourceTriggers: [{
+ *             name: "mySourceTrigger",
+ *             sourceRepository: {
+ *                 branch: "master",
+ *                 repositoryUrl: "https://github.com/Azure/azure-rest-api-specs",
+ *                 sourceControlAuthProperties: {
+ *                     token: "xxxxx",
+ *                     tokenType: "PAT",
+ *                 },
+ *                 sourceControlType: "Github",
+ *             },
+ *             sourceTriggerEvents: ["commit"],
+ *             status: "Enabled",
+ *         }],
+ *     },
+ * });
+ *
+ * ```
  */
 export class Task extends pulumi.CustomResource {
     /**

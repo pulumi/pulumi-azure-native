@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+ *
+ * ## Profiles_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const profile = new azurerm.cdn.v20191231.Profile("profile", {
+ *     location: "WestCentralUs",
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     sku: {
+ *         name: "Standard_Verizon",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Profile extends pulumi.CustomResource {
     /**

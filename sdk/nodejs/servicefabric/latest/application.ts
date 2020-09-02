@@ -8,6 +8,73 @@ import * as utilities from "../../utilities";
 
 /**
  * The application resource.
+ *
+ * ## Put an application with maximum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const application = new azurerm.servicefabric.latest.Application("application", {
+ *     applicationName: "myApp",
+ *     clusterName: "myCluster",
+ *     maximumNodes: 3,
+ *     metrics: [{
+ *         maximumCapacity: 3,
+ *         name: "metric1",
+ *         reservationCapacity: 1,
+ *         totalApplicationCapacity: 5,
+ *     }],
+ *     minimumNodes: 1,
+ *     parameters: {
+ *         param1: "value1",
+ *     },
+ *     removeApplicationCapacity: false,
+ *     resourceGroupName: "resRg",
+ *     typeName: "myAppType",
+ *     typeVersion: "1.0",
+ *     upgradePolicy: {
+ *         applicationHealthPolicy: {
+ *             considerWarningAsError: true,
+ *             defaultServiceTypeHealthPolicy: {
+ *                 maxPercentUnhealthyPartitionsPerService: 0,
+ *                 maxPercentUnhealthyReplicasPerPartition: 0,
+ *                 maxPercentUnhealthyServices: 0,
+ *             },
+ *             maxPercentUnhealthyDeployedApplications: 0,
+ *         },
+ *         forceRestart: false,
+ *         rollingUpgradeMonitoringPolicy: {
+ *             failureAction: "Rollback",
+ *             healthCheckRetryTimeout: "00:10:00",
+ *             healthCheckStableDuration: "00:05:00",
+ *             healthCheckWaitDuration: "00:02:00",
+ *             upgradeDomainTimeout: "1.06:00:00",
+ *             upgradeTimeout: "01:00:00",
+ *         },
+ *         upgradeMode: "Monitored",
+ *         upgradeReplicaSetCheckTimeout: "01:00:00",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Put an application with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const application = new azurerm.servicefabric.latest.Application("application", {
+ *     applicationName: "myApp",
+ *     clusterName: "myCluster",
+ *     removeApplicationCapacity: false,
+ *     resourceGroupName: "resRg",
+ *     typeName: "myAppType",
+ *     typeVersion: "1.0",
+ * });
+ *
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

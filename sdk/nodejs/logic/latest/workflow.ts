@@ -8,6 +8,70 @@ import * as utilities from "../../utilities";
 
 /**
  * The workflow type.
+ *
+ * ## Create or update a workflow
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const workflow = new azurerm.logic.latest.Workflow("workflow", {
+ *     definition: {
+ *         `$schema`: "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+ *         actions: {
+ *             Find_pet_by_ID: {
+ *                 inputs: {
+ *                     host: {
+ *                         connection: {
+ *                             name: `@parameters('$connections')['test-custom-connector']['connectionId']`,
+ *                         },
+ *                     },
+ *                     method: "get",
+ *                     path: "/pet/@{encodeURIComponent('1')}",
+ *                 },
+ *                 runAfter: {},
+ *                 type: "ApiConnection",
+ *             },
+ *         },
+ *         contentVersion: "1.0.0.0",
+ *         outputs: {},
+ *         parameters: {
+ *             `$connections`: {
+ *                 defaultValue: {},
+ *                 type: "Object",
+ *             },
+ *         },
+ *         triggers: {
+ *             manual: {
+ *                 inputs: {
+ *                     schema: {},
+ *                 },
+ *                 kind: "Http",
+ *                 type: "Request",
+ *             },
+ *         },
+ *     },
+ *     integrationAccount: {
+ *         id: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/integrationAccounts/test-integration-account",
+ *     },
+ *     location: "brazilsouth",
+ *     parameters: {
+ *         `$connections`: {
+ *             value: {
+ *                 "test-custom-connector": {
+ *                     connectionId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Web/connections/test-custom-connector",
+ *                     connectionName: "test-custom-connector",
+ *                     id: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/brazilsouth/managedApis/test-custom-connector",
+ *                 },
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "test-resource-group",
+ *     tags: {},
+ *     workflowName: "test-workflow",
+ * });
+ *
+ * ```
  */
 export class Workflow extends pulumi.CustomResource {
     /**

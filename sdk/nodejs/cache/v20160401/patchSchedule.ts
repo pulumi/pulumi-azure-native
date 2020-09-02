@@ -8,6 +8,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Response to put/get patch schedules for Redis cache.
+ *
+ * ## RedisCachePatchSchedulesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const patchSchedule = new azurerm.cache.v20160401.PatchSchedule("patchSchedule", {
+ *     name: "cache1",
+ *     resourceGroupName: "rg1",
+ *     scheduleEntries: [
+ *         {
+ *             dayOfWeek: "Monday",
+ *             maintenanceWindow: "PT3H",
+ *             startHourUtc: 12,
+ *         },
+ *         {
+ *             dayOfWeek: "Tuesday",
+ *             startHourUtc: 12,
+ *         },
+ *     ],
+ * });
+ *
+ * ```
  */
 export class PatchSchedule extends pulumi.CustomResource {
     /**

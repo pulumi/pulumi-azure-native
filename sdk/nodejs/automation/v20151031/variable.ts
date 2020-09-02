@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the variable.
+ *
+ * ## Create or update a variable
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const variable = new azurerm.automation.v20151031.Variable("variable", {
+ *     automationAccountName: "sampleAccount9",
+ *     description: "my description",
+ *     isEncrypted: false,
+ *     name: "sampleVariable",
+ *     resourceGroupName: "rg",
+ *     value: "\"ComputerName.domain.com\"",
+ *     variableName: "sampleVariable",
+ * });
+ *
+ * ```
  */
 export class Variable extends pulumi.CustomResource {
     /**

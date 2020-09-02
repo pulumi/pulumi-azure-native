@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Linked storage accounts top level resource container.
+ *
+ * ## LinkedStorageAccountsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const linkedStorageAccount = new azurerm.operationalinsights.v20200801.LinkedStorageAccount("linkedStorageAccount", {
+ *     dataSourceType: "CustomLogs",
+ *     resourceGroupName: "mms-eus",
+ *     storageAccountIds: [
+ *         "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageA",
+ *         "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageB",
+ *     ],
+ *     workspaceName: "testLinkStorageAccountsWS",
+ * });
+ *
+ * ```
  */
 export class LinkedStorageAccount extends pulumi.CustomResource {
     /**

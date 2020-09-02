@@ -8,6 +8,26 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Cassandra keyspace.
+ *
+ * ## CosmosDBCassandraKeyspaceCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cassandraResourceCassandraKeyspace = new azurerm.documentdb.v20190801.CassandraResourceCassandraKeyspace("cassandraResourceCassandraKeyspace", {
+ *     accountName: "ddb1",
+ *     keyspaceName: "keyspaceName",
+ *     location: "West US",
+ *     options: {},
+ *     resource: {
+ *         id: "keyspaceName",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
     /**

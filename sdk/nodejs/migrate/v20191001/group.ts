@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * A group created in a Migration project.
+ *
+ * ## Groups_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const group = new azurerm.migrate.v20191001.Group("group", {
+ *     eTag: "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+ *     groupName: "Group2",
+ *     projectName: "abgoyalWEselfhostb72bproject",
+ *     resourceGroupName: "abgoyal-westEurope",
+ * });
+ *
+ * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

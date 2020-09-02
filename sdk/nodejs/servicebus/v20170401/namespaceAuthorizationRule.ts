@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
+ *
+ * ## NameSpaceAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const namespaceAuthorizationRule = new azurerm.servicebus.v20170401.NamespaceAuthorizationRule("namespaceAuthorizationRule", {
+ *     authorizationRuleName: "sdk-AuthRules-1788",
+ *     namespaceName: "sdk-Namespace-6914",
+ *     resourceGroupName: "ArunMonocle",
+ *     rights: [
+ *         "Listen",
+ *         "Send",
+ *     ],
+ * });
+ *
+ * ```
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**

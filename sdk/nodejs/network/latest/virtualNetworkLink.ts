@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a link to virtual network for a Private DNS zone.
+ *
+ * ## PUT Private DNS Zone Virtual Network Link
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualNetworkLink = new azurerm.network.latest.VirtualNetworkLink("virtualNetworkLink", {
+ *     location: "Global",
+ *     privateZoneName: "privatezone1.com",
+ *     registrationEnabled: false,
+ *     resourceGroupName: "resourceGroup1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualNetwork: {
+ *         id: "/subscriptions/virtualNetworkSubscriptionId/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/virtualNetworkName",
+ *     },
+ *     virtualNetworkLinkName: "virtualNetworkLink1",
+ * });
+ *
+ * ```
  */
 export class VirtualNetworkLink extends pulumi.CustomResource {
     /**

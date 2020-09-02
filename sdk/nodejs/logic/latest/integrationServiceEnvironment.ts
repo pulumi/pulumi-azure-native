@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration service environment.
+ *
+ * ## Create or update an integration service environment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const integrationServiceEnvironment = new azurerm.logic.latest.IntegrationServiceEnvironment("integrationServiceEnvironment", {
+ *     integrationServiceEnvironmentName: "testIntegrationServiceEnvironment",
+ *     location: "brazilsouth",
+ *     resourceGroup: "testResourceGroup",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "Premium",
+ *     },
+ * });
+ *
+ * ```
  */
 export class IntegrationServiceEnvironment extends pulumi.CustomResource {
     /**

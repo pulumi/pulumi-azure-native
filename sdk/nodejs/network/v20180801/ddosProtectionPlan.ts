@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * A DDoS protection plan in a resource group.
+ *
+ * ## Create DDoS protection plan
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const ddosProtectionPlan = new azurerm.network.v20180801.DdosProtectionPlan("ddosProtectionPlan", {
+ *     ddosProtectionPlanName: "test-plan",
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class DdosProtectionPlan extends pulumi.CustomResource {
     /**

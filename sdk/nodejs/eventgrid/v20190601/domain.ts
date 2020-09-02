@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * EventGrid Domain.
+ *
+ * ## Domains_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const domain = new azurerm.eventgrid.v20190601.Domain("domain", {
+ *     domainName: "exampledomain1",
+ *     location: "westus2",
+ *     resourceGroupName: "examplerg",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

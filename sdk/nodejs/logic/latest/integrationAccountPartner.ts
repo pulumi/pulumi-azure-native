@@ -8,6 +8,32 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account partner.
+ *
+ * ## Create or update a partner
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const integrationAccountPartner = new azurerm.logic.latest.IntegrationAccountPartner("integrationAccountPartner", {
+ *     content: {
+ *         b2b: {
+ *             businessIdentities: [{
+ *                 qualifier: "AA",
+ *                 value: "ZZ",
+ *             }],
+ *         },
+ *     },
+ *     integrationAccountName: "testIntegrationAccount",
+ *     location: "westus",
+ *     metadata: {},
+ *     partnerName: "testPartner",
+ *     partnerType: "B2B",
+ *     resourceGroupName: "testResourceGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class IntegrationAccountPartner extends pulumi.CustomResource {
     /**

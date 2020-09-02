@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment information.
+ *
+ * ## Create deployment at management group scope.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const deploymentAtManagementGroupScope = new azurerm.management.v20190510.DeploymentAtManagementGroupScope("deploymentAtManagementGroupScope", {
+ *     deploymentName: "mg-dep01",
+ *     groupId: "tiano-group1",
+ *     location: "eastus",
+ * });
+ *
+ * ```
  */
 export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
     /**

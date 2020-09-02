@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Customer subscription.
+ *
+ * ## Creates a new customer subscription under a registration.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const customerSubscription = new azurerm.azurestack.v20170601.CustomerSubscription("customerSubscription", {
+ *     customerSubscriptionName: "E09A4E93-29A7-4EBA-A6D4-76202383F07F",
+ *     registrationName: "testregistration",
+ *     resourceGroup: "azurestack",
+ *     tenantId: "dbab3982-796f-4d03-9908-044c08aef8a2",
+ * });
+ *
+ * ```
  */
 export class CustomerSubscription extends pulumi.CustomResource {
     /**

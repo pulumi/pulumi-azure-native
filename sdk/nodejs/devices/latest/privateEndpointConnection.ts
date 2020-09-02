@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * The private endpoint connection of an IotHub
+ *
+ * ## PrivateEndpointConnection_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.devices.latest.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "myPrivateEndpointConnection",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "testHub",
+ * });
+ *
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

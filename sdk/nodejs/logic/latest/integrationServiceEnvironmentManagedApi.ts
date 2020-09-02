@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * The managed api definition.
+ *
+ * ## Gets the integration service environment managed Apis
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const integrationServiceEnvironmentManagedApi = new azurerm.logic.latest.IntegrationServiceEnvironmentManagedApi("integrationServiceEnvironmentManagedApi", {
+ *     apiName: "servicebus",
+ *     integrationServiceEnvironmentName: "testIntegrationServiceEnvironment",
+ *     resourceGroup: "testResourceGroup",
+ * });
+ *
+ * ```
  */
 export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResource {
     /**

@@ -6,6 +6,27 @@ import * as utilities from "../../utilities";
 
 /**
  * Property details.
+ *
+ * ## ApiManagementCreateProperty
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const property = new azurerm.apimanagement.latest.Property("property", {
+ *     displayName: "prop3name",
+ *     propId: "testprop2",
+ *     resourceGroupName: "rg1",
+ *     secret: true,
+ *     serviceName: "apimService1",
+ *     tags: [
+ *         "foo",
+ *         "bar",
+ *     ],
+ *     value: "propValue",
+ * });
+ *
+ * ```
  */
 export class Property extends pulumi.CustomResource {
     /**

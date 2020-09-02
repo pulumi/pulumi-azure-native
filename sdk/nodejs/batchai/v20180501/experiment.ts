@@ -6,6 +6,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Experiment information.
+ *
+ * ## Create an experiment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const experiment = new azurerm.batchai.v20180501.Experiment("experiment", {
+ *     experimentName: "demo_experiment",
+ *     resourceGroupName: "demo_resource_group",
+ *     workspaceName: "demo_workspace",
+ * });
+ *
+ * ```
  */
 export class Experiment extends pulumi.CustomResource {
     /**

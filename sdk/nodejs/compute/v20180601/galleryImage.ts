@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the gallery Image Definition that you want to create or update.
+ *
+ * ## Create or update a simple gallery image.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const galleryImage = new azurerm.compute.v20180601.GalleryImage("galleryImage", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryName: "myGalleryName",
+ *     identifier: {
+ *         offer: "myOfferName",
+ *         publisher: "myPublisherName",
+ *         sku: "mySkuName",
+ *     },
+ *     location: "West US",
+ *     osState: "Generalized",
+ *     osType: "Windows",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**

@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of queue Resource.
+ *
+ * ## QueueCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const queue = new azurerm.servicebus.v20150801.Queue("queue", {
+ *     enableExpress: false,
+ *     enablePartitioning: false,
+ *     location: "West US",
+ *     namespaceName: "sdk-Namespace3082",
+ *     queueName: "sdk-Queues8544",
+ *     resourceGroupName: "Default-ServiceBus-WestUS",
+ * });
+ *
+ * ```
  */
 export class Queue extends pulumi.CustomResource {
     /**

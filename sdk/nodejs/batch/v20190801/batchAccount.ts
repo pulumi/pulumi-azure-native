@@ -8,6 +8,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Contains information about an Azure Batch account.
+ *
+ * ## BatchAccountCreate_BYOS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const batchAccount = new azurerm.batch.v20190801.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     keyVaultReference: {
+ *         id: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+ *         url: "http://sample.vault.azure.net/",
+ *     },
+ *     location: "japaneast",
+ *     poolAllocationMode: "UserSubscription",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ *
+ * ## BatchAccountCreate_Default
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const batchAccount = new azurerm.batch.v20190801.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     location: "japaneast",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
  */
 export class BatchAccount extends pulumi.CustomResource {
     /**

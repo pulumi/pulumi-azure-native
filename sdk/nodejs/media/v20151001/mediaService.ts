@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of a Media Service resource.
+ *
+ * ## MediaServiceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const mediaService = new azurerm.media.v20151001.MediaService("mediaService", {
+ *     location: "West US",
+ *     mediaServiceName: "contosmedia",
+ *     resourceGroupName: "contosoresources",
+ *     storageAccounts: [{
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Storage/storageAccounts/contosostore",
+ *         isPrimary: true,
+ *     }],
+ * });
+ *
+ * ```
  */
 export class MediaService extends pulumi.CustomResource {
     /**

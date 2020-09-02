@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Private dns zone group resource.
+ *
+ * ## Create private dns zone group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateDnsZoneGroup = new azurerm.network.latest.PrivateDnsZoneGroup("privateDnsZoneGroup", {
+ *     privateDnsZoneConfigs: [{}],
+ *     privateDnsZoneGroupName: "testPdnsgroup",
+ *     privateEndpointName: "testPe",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class PrivateDnsZoneGroup extends pulumi.CustomResource {
     /**

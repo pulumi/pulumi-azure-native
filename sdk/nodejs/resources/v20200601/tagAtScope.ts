@@ -8,6 +8,26 @@ import * as utilities from "../../utilities";
 
 /**
  * Wrapper resource for tags API requests and responses.
+ *
+ * ## Update tags on a resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const tagAtScope = new azurerm.resources.v20200601.TagAtScope("tagAtScope", {scope: "subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/myPRNameSpace/VM/myVm"});
+ *
+ * ```
+ *
+ * ## Update tags on a subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const tagAtScope = new azurerm.resources.v20200601.TagAtScope("tagAtScope", {scope: "subscriptions/00000000-0000-0000-0000-000000000000"});
+ *
+ * ```
  */
 export class TagAtScope extends pulumi.CustomResource {
     /**

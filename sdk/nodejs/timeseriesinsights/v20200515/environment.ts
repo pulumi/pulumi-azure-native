@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+ *
+ * ## EnvironmentsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const environment = new azurerm.timeseriesinsights.v20200515.Environment("environment", {
+ *     environmentName: "env1",
+ *     kind: "Gen1",
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Environment extends pulumi.CustomResource {
     /**

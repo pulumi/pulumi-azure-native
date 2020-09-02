@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * A common class for general resource information.
+ *
+ * ## CreateLocalNetworkGateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const localNetworkGateway = new azurerm.network.latest.LocalNetworkGateway("localNetworkGateway", {
+ *     fqdn: "site1.contoso.com",
+ *     gatewayIpAddress: "11.12.13.14",
+ *     localNetworkAddressSpace: {
+ *         addressPrefixes: ["10.1.0.0/16"],
+ *     },
+ *     localNetworkGatewayName: "localgw",
+ *     location: "Central US",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class LocalNetworkGateway extends pulumi.CustomResource {
     /**

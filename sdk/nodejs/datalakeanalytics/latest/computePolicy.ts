@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Analytics compute policy information.
+ *
+ * ## Creates or updates the specified compute policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const computePolicy = new azurerm.datalakeanalytics.latest.ComputePolicy("computePolicy", {
+ *     accountName: "contosoadla",
+ *     computePolicyName: "test_policy",
+ *     maxDegreeOfParallelismPerJob: 10,
+ *     minPriorityPerJob: 30,
+ *     objectId: "776b9091-8916-4638-87f7-9c989a38da98",
+ *     objectType: "User",
+ *     resourceGroupName: "contosorg",
+ * });
+ *
+ * ```
  */
 export class ComputePolicy extends pulumi.CustomResource {
     /**

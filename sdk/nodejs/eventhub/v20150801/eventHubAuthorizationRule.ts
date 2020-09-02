@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in a List or Get AuthorizationRule operation
+ *
+ * ## EventHubAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const eventHubAuthorizationRule = new azurerm.eventhub.v20150801.EventHubAuthorizationRule("eventHubAuthorizationRule", {
+ *     authorizationRuleName: "sdk-Authrules9261",
+ *     eventHubName: "sdk-EventHub8887",
+ *     namespaceName: "sdk-Namespace2290",
+ *     resourceGroupName: "Default-ServiceBus-WestUS",
+ *     rights: [
+ *         "Listen",
+ *         "Send",
+ *     ],
+ * });
+ *
+ * ```
  */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**

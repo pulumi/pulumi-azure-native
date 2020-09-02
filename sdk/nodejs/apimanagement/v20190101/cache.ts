@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Cache details.
+ *
+ * ## ApiManagementCreateCache
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cache = new azurerm.apimanagement.v20190101.Cache("cache", {
+ *     cacheId: "westindia",
+ *     connectionString: "contoso5.redis.cache.windows.net,ssl=true,password=...",
+ *     description: "Redis cache instances in West India",
+ *     resourceGroupName: "rg1",
+ *     resourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/contoso5",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class Cache extends pulumi.CustomResource {
     /**

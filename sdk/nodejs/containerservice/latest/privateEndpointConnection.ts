@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection
+ *
+ * ## Update Private Endpoint Connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.containerservice.latest.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "privateendpointconnection1",
+ *     privateLinkServiceConnectionState: {
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ * });
+ *
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

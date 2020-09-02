@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a Namespace AuthorizationRules.
+ *
+ * ## NameSpaceAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const namespaceAuthorizationRule = new azurerm.notificationhubs.latest.NamespaceAuthorizationRule("namespaceAuthorizationRule", {
+ *     authorizationRuleName: "sdk-AuthRules-1788",
+ *     namespaceName: "nh-sdk-ns",
+ *     resourceGroupName: "5ktrial",
+ * });
+ *
+ * ```
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**

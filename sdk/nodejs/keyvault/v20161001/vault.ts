@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information with extended details.
+ *
+ * ## Create a new vault or update an existing vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const vault = new azurerm.keyvault.v20161001.Vault("vault", {
+ *     location: "westus",
+ *     resourceGroupName: "sample-resource-group",
+ *     vaultName: "sample-vault",
+ * });
+ *
+ * ```
  */
 export class Vault extends pulumi.CustomResource {
     /**

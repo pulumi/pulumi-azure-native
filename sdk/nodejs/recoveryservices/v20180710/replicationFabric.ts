@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Fabric definition.
+ *
+ * ## Creates an Azure Site Recovery fabric.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const replicationFabric = new azurerm.recoveryservices.v20180710.ReplicationFabric("replicationFabric", {
+ *     fabricName: "cloud1",
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ * });
+ *
+ * ```
  */
 export class ReplicationFabric extends pulumi.CustomResource {
     /**

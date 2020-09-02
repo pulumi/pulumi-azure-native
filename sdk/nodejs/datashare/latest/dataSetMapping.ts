@@ -6,6 +6,70 @@ import * as utilities from "../../utilities";
 
 /**
  * A data set mapping data transfer object.
+ *
+ * ## DataSetMappings_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataSetMapping = new azurerm.datashare.latest.DataSetMapping("dataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     kind: "Blob",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ *
+ * ## DataSetMappings_SqlDB_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataSetMapping = new azurerm.datashare.latest.DataSetMapping("dataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     kind: "SqlDBTable",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ *
+ * ## DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataSetMapping = new azurerm.datashare.latest.DataSetMapping("dataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     kind: "AdlsGen2File",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ *
+ * ## DataSetMappings_SqlDW_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataSetMapping = new azurerm.datashare.latest.DataSetMapping("dataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     kind: "SqlDWTable",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
  */
 export class DataSetMapping extends pulumi.CustomResource {
     /**

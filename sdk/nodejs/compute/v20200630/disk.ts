@@ -8,6 +8,199 @@ import * as utilities from "../../utilities";
 
 /**
  * Disk resource.
+ *
+ * ## Create a managed disk and associate with disk access resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disk = new azurerm.compute.v20200630.Disk("disk", {
+ *     creationData: {
+ *         createOption: "Empty",
+ *     },
+ *     diskAccessId: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/{existing-diskAccess-name}",
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     location: "West US",
+ *     networkAccessPolicy: "AllowPrivate",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create a managed disk and associate with disk encryption set.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disk = new azurerm.compute.v20200630.Disk("disk", {
+ *     creationData: {
+ *         createOption: "Empty",
+ *     },
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     encryption: {
+ *         diskEncryptionSetId: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create a managed disk by copying a snapshot.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disk = new azurerm.compute.v20200630.Disk("disk", {
+ *     creationData: {
+ *         createOption: "Copy",
+ *         sourceResourceId: "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create a managed disk by importing an unmanaged blob from a different subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disk = new azurerm.compute.v20200630.Disk("disk", {
+ *     creationData: {
+ *         createOption: "Import",
+ *         sourceUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+ *         storageAccountId: "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create a managed disk by importing an unmanaged blob from the same subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disk = new azurerm.compute.v20200630.Disk("disk", {
+ *     creationData: {
+ *         createOption: "Import",
+ *         sourceUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create a managed disk from a platform image.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disk = new azurerm.compute.v20200630.Disk("disk", {
+ *     creationData: {
+ *         createOption: "FromImage",
+ *         imageReference: {
+ *             id: "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/uswest/Publishers/Microsoft/ArtifactTypes/VMImage/Offers/{offer}",
+ *         },
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     osType: "Windows",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create a managed disk from an existing managed disk in the same or different subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disk = new azurerm.compute.v20200630.Disk("disk", {
+ *     creationData: {
+ *         createOption: "Copy",
+ *         sourceResourceId: "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myDisk1",
+ *     },
+ *     diskName: "myDisk2",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create a managed upload disk.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disk = new azurerm.compute.v20200630.Disk("disk", {
+ *     creationData: {
+ *         createOption: "Upload",
+ *         uploadSizeBytes: 10737418752,
+ *     },
+ *     diskName: "myDisk",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create an empty managed disk.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disk = new azurerm.compute.v20200630.Disk("disk", {
+ *     creationData: {
+ *         createOption: "Empty",
+ *     },
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Create an ultra managed disk with logicalSectorSize 512E
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disk = new azurerm.compute.v20200630.Disk("disk", {
+ *     creationData: {
+ *         createOption: "Empty",
+ *         logicalSectorSize: 512,
+ *     },
+ *     diskName: "myDisk",
+ *     diskSizeGB: 200,
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "UltraSSD_LRS",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Disk extends pulumi.CustomResource {
     /**

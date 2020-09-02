@@ -8,6 +8,66 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines web application firewall policy.
+ *
+ * ## Creates specific policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const policy = new azurerm.network.v20200401.Policy("policy", {
+ *     customRules: {
+ *         rules: [
+ *             {
+ *                 action: "Block",
+ *                 matchConditions: [{
+ *                     operator: "IPMatch",
+ *                 }],
+ *                 name: "Rule1",
+ *                 priority: 1,
+ *                 rateLimitThreshold: 1000,
+ *                 ruleType: "RateLimitRule",
+ *             },
+ *             {
+ *                 action: "Block",
+ *                 matchConditions: [
+ *                     {
+ *                         operator: "GeoMatch",
+ *                     },
+ *                     {
+ *                         operator: "Contains",
+ *                         transforms: ["Lowercase"],
+ *                     },
+ *                 ],
+ *                 name: "Rule2",
+ *                 priority: 2,
+ *                 ruleType: "MatchRule",
+ *             },
+ *         ],
+ *     },
+ *     managedRules: {
+ *         managedRuleSets: [{
+ *             ruleGroupOverrides: [{
+ *                 ruleGroupName: "SQLI",
+ *                 rules: [
+ *                     {
+ *                         ruleId: "942100",
+ *                     },
+ *                     {
+ *                         ruleId: "942110",
+ *                     },
+ *                 ],
+ *             }],
+ *             ruleSetType: "DefaultRuleSet",
+ *             ruleSetVersion: "1.0",
+ *         }],
+ *     },
+ *     policyName: "Policy1",
+ *     policySettings: {},
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

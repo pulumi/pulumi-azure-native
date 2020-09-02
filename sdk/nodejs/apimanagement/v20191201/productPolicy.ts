@@ -6,6 +6,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Policy Contract details.
+ *
+ * ## ApiManagementCreateProductPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const productPolicy = new azurerm.apimanagement.v20191201.ProductPolicy("productPolicy", {
+ *     format: "xml",
+ *     policyId: "policy",
+ *     productId: "5702e97e5157a50f48dce801",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     value: `<policies>
+ *   <inbound>
+ *     <rate-limit calls="{{call-count}}" renewal-period="15"></rate-limit>
+ *     <log-to-eventhub logger-id="16">
+ *                       @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) 
+ *                   </log-to-eventhub>
+ *     <quota-by-key calls="40" counter-key="cc" renewal-period="3600" increment-count="@(context.Request.Method == &quot;POST&quot; ? 1:2)" />
+ *     <base />
+ *   </inbound>
+ *   <backend>
+ *     <base />
+ *   </backend>
+ *   <outbound>
+ *     <base />
+ *   </outbound>
+ * </policies>`,
+ * });
+ *
+ * ```
  */
 export class ProductPolicy extends pulumi.CustomResource {
     /**

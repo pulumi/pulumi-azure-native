@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Email Template details.
+ *
+ * ## ApiManagementCreateEmailTemplate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const emailTemplate = new azurerm.apimanagement.v20190101.EmailTemplate("emailTemplate", {
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     subject: `Your request for $IssueName was successfully received.`,
+ *     templateName: "newIssueNotificationMessage",
+ * });
+ *
+ * ```
  */
 export class EmailTemplate extends pulumi.CustomResource {
     /**

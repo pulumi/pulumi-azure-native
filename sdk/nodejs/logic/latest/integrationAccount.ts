@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account.
+ *
+ * ## Create or update an integration account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const integrationAccount = new azurerm.logic.latest.IntegrationAccount("integrationAccount", {
+ *     integrationAccountName: "testIntegrationAccount",
+ *     location: "westus",
+ *     resourceGroupName: "testResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
  */
 export class IntegrationAccount extends pulumi.CustomResource {
     /**

@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * ## PrivateEndpointConnections_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.storagesync.latest.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "{privateEndpointConnectionName}",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Auto-Approved",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "res7687",
+ *     storageSyncServiceName: "sss2527",
+ * });
+ *
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

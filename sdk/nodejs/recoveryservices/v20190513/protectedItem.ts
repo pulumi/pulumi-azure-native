@@ -8,6 +8,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Base class for backup items.
+ *
+ * ## Enable Protection on Azure IaasVm
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const protectedItem = new azurerm.recoveryservices.v20190513.ProtectedItem("protectedItem", {
+ *     containerName: "IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+ *     fabricName: "Azure",
+ *     protectedItemName: "VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "NetSDKTestRsVault",
+ * });
+ *
+ * ```
+ *
+ * ## Stop Protection with retain data on Azure IaasVm
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const protectedItem = new azurerm.recoveryservices.v20190513.ProtectedItem("protectedItem", {
+ *     containerName: "IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+ *     fabricName: "Azure",
+ *     protectedItemName: "VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "NetSDKTestRsVault",
+ * });
+ *
+ * ```
  */
 export class ProtectedItem extends pulumi.CustomResource {
     /**

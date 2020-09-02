@@ -8,6 +8,43 @@ import * as utilities from "../../utilities";
 
 /**
  * ExpressRoutePort resource definition.
+ *
+ * ## ExpressRoutePortCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const expressRoutePort = new azurerm.network.v20200501.ExpressRoutePort("expressRoutePort", {
+ *     bandwidthInGbps: 100,
+ *     encapsulation: "QinQ",
+ *     expressRoutePortName: "portName",
+ *     location: "westus",
+ *     peeringLocation: "peeringLocationName",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## ExpressRoutePortUpdateLink
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const expressRoutePort = new azurerm.network.v20200501.ExpressRoutePort("expressRoutePort", {
+ *     bandwidthInGbps: 100,
+ *     encapsulation: "QinQ",
+ *     expressRoutePortName: "portName",
+ *     links: [{
+ *         name: "link1",
+ *     }],
+ *     location: "westus",
+ *     peeringLocation: "peeringLocationName",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class ExpressRoutePort extends pulumi.CustomResource {
     /**

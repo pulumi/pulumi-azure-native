@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Bot resource definition
+ *
+ * ## Create Bot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const bot = new azurerm.botservice.latest.Bot("bot", {
+ *     etag: "etag1",
+ *     kind: "sdk",
+ *     location: "West US",
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ *     sku: {
+ *         name: "S1",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Bot extends pulumi.CustomResource {
     /**

@@ -6,6 +6,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Settings defined at the Management Group scope.
+ *
+ * ## GetGroupSettings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const hierarchySetting = new azurerm.management.v20200501.HierarchySetting("hierarchySetting", {
+ *     defaultManagementGroup: "/providers/Microsoft.Management/managementGroups/DefaultGroup",
+ *     groupId: "root",
+ *     requireAuthorizationForGroupCreation: true,
+ * });
+ *
+ * ```
  */
 export class HierarchySetting extends pulumi.CustomResource {
     /**

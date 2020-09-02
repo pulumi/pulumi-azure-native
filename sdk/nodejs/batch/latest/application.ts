@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Contains information about an application in a Batch account.
+ *
+ * ## ApplicationCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const application = new azurerm.batch.latest.Application("application", {
+ *     accountName: "sampleacct",
+ *     allowUpdates: false,
+ *     applicationName: "app1",
+ *     displayName: "myAppName",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

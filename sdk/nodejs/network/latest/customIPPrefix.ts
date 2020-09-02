@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Custom IP prefix resource.
+ *
+ * ## Create custom IP prefix allocation method
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const customIPPrefix = new azurerm.network.latest.CustomIPPrefix("customIPPrefix", {
+ *     cidr: "0.0.0.0/24",
+ *     customIpPrefixName: "test-customipprefix",
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class CustomIPPrefix extends pulumi.CustomResource {
     /**

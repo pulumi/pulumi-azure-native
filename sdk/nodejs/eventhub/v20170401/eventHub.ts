@@ -8,6 +8,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in List or Get Event Hub operation
+ *
+ * ## EventHubCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const eventHub = new azurerm.eventhub.v20170401.EventHub("eventHub", {
+ *     captureDescription: {
+ *         destination: {
+ *             name: "EventHubArchive.AzureBlockBlob",
+ *         },
+ *         enabled: true,
+ *         encoding: "Avro",
+ *         intervalInSeconds: 120,
+ *         sizeLimitInBytes: 10485763,
+ *     },
+ *     eventHubName: "sdk-EventHub-6547",
+ *     messageRetentionInDays: 4,
+ *     namespaceName: "sdk-Namespace-5357",
+ *     partitionCount: 4,
+ *     resourceGroupName: "Default-NotificationHubs-AustraliaEast",
+ *     status: "Active",
+ * });
+ *
+ * ```
  */
 export class EventHub extends pulumi.CustomResource {
     /**

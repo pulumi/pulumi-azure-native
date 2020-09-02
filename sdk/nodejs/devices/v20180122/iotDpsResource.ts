@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the provisioning service.
+ *
+ * ## DPSCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const iotDpsResource = new azurerm.devices.v20180122.IotDpsResource("iotDpsResource", {
+ *     location: "East US",
+ *     provisioningServiceName: "myFirstProvisioningService",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S1",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class IotDpsResource extends pulumi.CustomResource {
     /**

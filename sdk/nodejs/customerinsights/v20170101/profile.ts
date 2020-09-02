@@ -8,6 +8,73 @@ import * as utilities from "../../utilities";
 
 /**
  * The profile resource format.
+ *
+ * ## Profiles_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const profile = new azurerm.customerinsights.v20170101.Profile("profile", {
+ *     apiEntitySetName: "TestProfileType396",
+ *     fields: [
+ *         {
+ *             fieldName: "Id",
+ *             fieldType: "Edm.String",
+ *             isArray: false,
+ *             isRequired: true,
+ *         },
+ *         {
+ *             fieldName: "ProfileId",
+ *             fieldType: "Edm.String",
+ *             isArray: false,
+ *             isRequired: true,
+ *         },
+ *         {
+ *             fieldName: "LastName",
+ *             fieldType: "Edm.String",
+ *             isArray: false,
+ *             isRequired: true,
+ *         },
+ *         {
+ *             fieldName: "TestProfileType396",
+ *             fieldType: "Edm.String",
+ *             isArray: false,
+ *             isRequired: true,
+ *         },
+ *         {
+ *             fieldName: "SavingAccountBalance",
+ *             fieldType: "Edm.Int32",
+ *             isArray: false,
+ *             isRequired: true,
+ *         },
+ *     ],
+ *     hubName: "sdkTestHub",
+ *     largeImage: "\\\\Images\\\\LargeImage",
+ *     mediumImage: "\\\\Images\\\\MediumImage",
+ *     profileName: "TestProfileType396",
+ *     resourceGroupName: "TestHubRG",
+ *     schemaItemTypeLink: "SchemaItemTypeLink",
+ *     smallImage: "\\\\Images\\\\smallImage",
+ *     strongIds: [
+ *         {
+ *             keyPropertyNames: [
+ *                 "Id",
+ *                 "SavingAccountBalance",
+ *             ],
+ *             strongIdName: "Id",
+ *         },
+ *         {
+ *             keyPropertyNames: [
+ *                 "ProfileId",
+ *                 "LastName",
+ *             ],
+ *             strongIdName: "ProfileId",
+ *         },
+ *     ],
+ * });
+ *
+ * ```
  */
 export class Profile extends pulumi.CustomResource {
     /**

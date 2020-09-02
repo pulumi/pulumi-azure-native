@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Protection container mapping object.
+ *
+ * ## Create protection container mapping.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const replicationProtectionContainerMapping = new azurerm.recoveryservices.v20180710.ReplicationProtectionContainerMapping("replicationProtectionContainerMapping", {
+ *     fabricName: "cloud1",
+ *     mappingName: "cloud1protectionprofile1",
+ *     protectionContainerName: "cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ * });
+ *
+ * ```
  */
 export class ReplicationProtectionContainerMapping extends pulumi.CustomResource {
     /**

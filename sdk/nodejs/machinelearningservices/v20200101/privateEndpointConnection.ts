@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * ## WorkspacePutPrivateEndpointConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.machinelearningservices.v20200101.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "{privateEndpointConnectionName}",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Auto-Approved",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rg-1234",
+ *     workspaceName: "testworkspace",
+ * });
+ *
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

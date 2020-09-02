@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * VirtualHub Resource.
+ *
+ * ## VirtualHubPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualHub = new azurerm.network.v20200601.VirtualHub("virtualHub", {
+ *     addressPrefix: "10.168.0.0/24",
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     sku: "Basic",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualHubName: "virtualHub2",
+ *     virtualWan: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class VirtualHub extends pulumi.CustomResource {
     /**

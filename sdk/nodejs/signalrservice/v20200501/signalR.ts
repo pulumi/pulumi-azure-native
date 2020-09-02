@@ -8,6 +8,70 @@ import * as utilities from "../../utilities";
 
 /**
  * A class represent a SignalR service resource.
+ *
+ * ## SignalR_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const signalR = new azurerm.signalrservice.v20200501.SignalR("signalR", {
+ *     cors: {
+ *         allowedOrigins: [
+ *             "https://foo.com",
+ *             "https://bar.com",
+ *         ],
+ *     },
+ *     features: [
+ *         {
+ *             flag: "ServiceMode",
+ *             properties: {},
+ *             value: "Serverless",
+ *         },
+ *         {
+ *             flag: "EnableConnectivityLogs",
+ *             properties: {},
+ *             value: "True",
+ *         },
+ *         {
+ *             flag: "EnableMessagingLogs",
+ *             properties: {},
+ *             value: "False",
+ *         },
+ *     ],
+ *     kind: "SignalR",
+ *     location: "eastus",
+ *     networkACLs: {
+ *         defaultAction: "Deny",
+ *         privateEndpoints: [{
+ *             allow: ["ServerConnection"],
+ *             name: "mySignalRService.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+ *         }],
+ *         publicNetwork: {
+ *             allow: ["ClientConnection"],
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "mySignalRService",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Standard_S1",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     upstream: {
+ *         templates: [{
+ *             categoryPattern: "*",
+ *             eventPattern: "connect,disconnect",
+ *             hubPattern: "*",
+ *             urlTemplate: "https://example.com/chat/api/connect",
+ *         }],
+ *     },
+ * });
+ *
+ * ```
  */
 export class SignalR extends pulumi.CustomResource {
     /**

@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * The iSCSI server.
+ *
+ * ## IscsiServersCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const iscsiServer = new azurerm.storsimple.v20161001.IscsiServer("iscsiServer", {
+ *     backupScheduleGroupId: "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-WSJQERQW3F/backupScheduleGroups/Default-HSDK-WSJQERQW3F-BackupScheduleGroup",
+ *     chapId: "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-WSJQERQW3F/chapSettings/ChapSettingForSDK",
+ *     deviceName: "HSDK-WSJQERQW3F",
+ *     iscsiServerName: "HSDK-WSJQERQW3F",
+ *     managerName: "hAzureSDKOperations",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     reverseChapId: "",
+ *     storageDomainId: "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/Default-HSDK-WSJQERQW3F-StorageDomain",
+ * });
+ *
+ * ```
  */
 export class IscsiServer extends pulumi.CustomResource {
     /**

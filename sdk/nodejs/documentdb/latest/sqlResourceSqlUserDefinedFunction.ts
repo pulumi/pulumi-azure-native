@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB userDefinedFunction.
+ *
+ * ## CosmosDBSqlUserDefinedFunctionCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sqlResourceSqlUserDefinedFunction = new azurerm.documentdb.latest.SqlResourceSqlUserDefinedFunction("sqlResourceSqlUserDefinedFunction", {
+ *     accountName: "ddb1",
+ *     containerName: "containerName",
+ *     databaseName: "databaseName",
+ *     options: {},
+ *     resource: {
+ *         body: "body",
+ *         id: "userDefinedFunctionName",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     userDefinedFunctionName: "userDefinedFunctionName",
+ * });
+ *
+ * ```
  */
 export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
     /**

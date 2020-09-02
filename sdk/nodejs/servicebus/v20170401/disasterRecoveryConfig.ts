@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
+ *
+ * ## SBAliasCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const disasterRecoveryConfig = new azurerm.servicebus.v20170401.DisasterRecoveryConfig("disasterRecoveryConfig", {
+ *     alias: "sdk-Namespace-8860",
+ *     alternateName: "alternameforAlias-Namespace-8860",
+ *     namespaceName: "sdk-Namespace-8860",
+ *     partnerNamespace: "sdk-Namespace-37",
+ *     resourceGroupName: "ardsouzatestRG",
+ * });
+ *
+ * ```
  */
 export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**

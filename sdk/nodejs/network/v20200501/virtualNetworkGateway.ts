@@ -8,6 +8,50 @@ import * as utilities from "../../utilities";
 
 /**
  * A common class for general resource information.
+ *
+ * ## UpdateVirtualNetworkGateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualNetworkGateway = new azurerm.network.v20200501.VirtualNetworkGateway("virtualNetworkGateway", {
+ *     activeActive: false,
+ *     bgpSettings: {
+ *         asn: 65515,
+ *         bgpPeeringAddress: "10.0.1.30",
+ *         peerWeight: 0,
+ *     },
+ *     customRoutes: {
+ *         addressPrefixes: ["101.168.0.6/32"],
+ *     },
+ *     enableBgp: false,
+ *     enableDnsForwarding: true,
+ *     gatewayType: "Vpn",
+ *     ipConfigurations: [{
+ *         name: "gwipconfig1",
+ *     }],
+ *     location: "centralus",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "VpnGw1",
+ *         tier: "VpnGw1",
+ *     },
+ *     virtualNetworkGatewayName: "vpngw",
+ *     vpnClientConfiguration: {
+ *         radiusServers: [{
+ *             radiusServerAddress: "10.2.0.0",
+ *             radiusServerScore: 20,
+ *             radiusServerSecret: "radiusServerSecret",
+ *         }],
+ *         vpnClientProtocols: ["OpenVPN"],
+ *         vpnClientRevokedCertificates: [],
+ *         vpnClientRootCertificates: [],
+ *     },
+ *     vpnType: "RouteBased",
+ * });
+ *
+ * ```
  */
 export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**

@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
+ *
+ * ## DataBoxEdgeDevicePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const device = new azurerm.databoxedge.latest.Device("device", {
+ *     deviceName: "testedgedevice",
+ *     location: "eastus",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     sku: {
+ *         name: "Edge",
+ *         tier: "Standard",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class Device extends pulumi.CustomResource {
     /**

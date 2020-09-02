@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Hub resource.
+ *
+ * ## Hubs_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const hub = new azurerm.customerinsights.v20170101.Hub("hub", {
+ *     hubBillingInfo: {
+ *         maxUnits: 5,
+ *         minUnits: 1,
+ *         skuName: "B0",
+ *     },
+ *     hubName: "sdkTestHub",
+ *     location: "West US",
+ *     resourceGroupName: "TestHubRG",
+ * });
+ *
+ * ```
  */
 export class Hub extends pulumi.CustomResource {
     /**

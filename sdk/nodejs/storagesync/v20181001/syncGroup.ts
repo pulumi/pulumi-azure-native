@@ -6,6 +6,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Sync Group object.
+ *
+ * ## SyncGroups_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const syncGroup = new azurerm.storagesync.v20181001.SyncGroup("syncGroup", {
+ *     resourceGroupName: "SampleResourceGroup_1",
+ *     storageSyncServiceName: "SampleStorageSyncService_1",
+ *     syncGroupName: "SampleSyncGroup_1",
+ * });
+ *
+ * ```
  */
 export class SyncGroup extends pulumi.CustomResource {
     /**

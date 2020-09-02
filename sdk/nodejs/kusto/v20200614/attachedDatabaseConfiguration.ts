@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing an attached database configuration.
+ *
+ * ## AttachedDatabaseConfigurationsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const attachedDatabaseConfiguration = new azurerm.kusto.v20200614.AttachedDatabaseConfiguration("attachedDatabaseConfiguration", {
+ *     attachedDatabaseConfigurationName: "attachedDatabaseConfigurations1",
+ *     clusterName: "kustoclusterrptest4",
+ *     clusterResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterLeader",
+ *     databaseName: "kustodatabase",
+ *     defaultPrincipalsModificationKind: "Union",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
  */
 export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**

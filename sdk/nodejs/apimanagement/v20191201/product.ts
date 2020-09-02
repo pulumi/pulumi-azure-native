@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Product details.
+ *
+ * ## ApiManagementCreateProduct
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const product = new azurerm.apimanagement.v20191201.Product("product", {
+ *     displayName: "Test Template ProductName 4",
+ *     productId: "testproduct",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class Product extends pulumi.CustomResource {
     /**

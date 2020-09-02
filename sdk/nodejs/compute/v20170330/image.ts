@@ -8,6 +8,173 @@ import * as utilities from "../../utilities";
 
 /**
  * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+ *
+ * ## Create a virtual machine image from a blob.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const image = new azurerm.compute.v20170330.Image("image", {
+ *     imageName: "myImage",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     storageProfile: {
+ *         osDisk: {
+ *             blobUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+ *             osState: "Generalized",
+ *             osType: "Linux",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Create a virtual machine image from a managed disk.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const image = new azurerm.compute.v20170330.Image("image", {
+ *     imageName: "myImage",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     storageProfile: {
+ *         osDisk: {
+ *             managedDisk: {
+ *                 id: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+ *             },
+ *             osState: "Generalized",
+ *             osType: "Linux",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Create a virtual machine image from a snapshot.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const image = new azurerm.compute.v20170330.Image("image", {
+ *     imageName: "myImage",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     storageProfile: {
+ *         osDisk: {
+ *             osState: "Generalized",
+ *             osType: "Linux",
+ *             snapshot: {
+ *                 id: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+ *             },
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Create a virtual machine image from an existing virtual machine.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const image = new azurerm.compute.v20170330.Image("image", {
+ *     imageName: "myImage",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     sourceVirtualMachine: {
+ *         id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Create a virtual machine image that includes a data disk from a blob.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const image = new azurerm.compute.v20170330.Image("image", {
+ *     imageName: "myImage",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     storageProfile: {
+ *         dataDisks: [{
+ *             blobUri: "https://mystorageaccount.blob.core.windows.net/dataimages/dataimage.vhd",
+ *             lun: 1,
+ *         }],
+ *         osDisk: {
+ *             blobUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+ *             osState: "Generalized",
+ *             osType: "Linux",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Create a virtual machine image that includes a data disk from a managed disk.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const image = new azurerm.compute.v20170330.Image("image", {
+ *     imageName: "myImage",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     storageProfile: {
+ *         dataDisks: [{
+ *             lun: 1,
+ *             managedDisk: {
+ *                 id: "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk2",
+ *             },
+ *         }],
+ *         osDisk: {
+ *             managedDisk: {
+ *                 id: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+ *             },
+ *             osState: "Generalized",
+ *             osType: "Linux",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Create a virtual machine image that includes a data disk from a snapshot.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const image = new azurerm.compute.v20170330.Image("image", {
+ *     imageName: "myImage",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     storageProfile: {
+ *         dataDisks: [{
+ *             lun: 1,
+ *             snapshot: {
+ *                 id: "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot2",
+ *             },
+ *         }],
+ *         osDisk: {
+ *             osState: "Generalized",
+ *             osType: "Linux",
+ *             snapshot: {
+ *                 id: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+ *             },
+ *         },
+ *     },
+ * });
+ *
+ * ```
  */
 export class Image extends pulumi.CustomResource {
     /**

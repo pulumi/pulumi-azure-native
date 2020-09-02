@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Managed private endpoint resource type.
+ *
+ * ## ManagedVirtualNetworks_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedPrivateEndpoint = new azurerm.datafactory.latest.ManagedPrivateEndpoint("managedPrivateEndpoint", {
+ *     factoryName: "exampleFactoryName",
+ *     managedPrivateEndpointName: "exampleManagedPrivateEndpointName",
+ *     managedVirtualNetworkName: "exampleManagedVirtualNetworkName",
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**

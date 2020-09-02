@@ -8,6 +8,50 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account.
+ *
+ * ## StorageAccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const storageAccount = new azurerm.storage.latest.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     allowBlobPublicAccess: false,
+ *     encryption: {
+ *         keySource: "Microsoft.Storage",
+ *         requireInfrastructureEncryption: false,
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     isHnsEnabled: true,
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     minimumTlsVersion: "TLS1_2",
+ *     resourceGroupName: "res9101",
+ *     routingPreference: {
+ *         publishInternetEndpoints: true,
+ *         publishMicrosoftEndpoints: true,
+ *         routingChoice: "MicrosoftRouting",
+ *     },
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**

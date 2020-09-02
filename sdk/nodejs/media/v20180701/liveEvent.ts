@@ -8,6 +8,41 @@ import * as utilities from "../../utilities";
 
 /**
  * The Live Event.
+ *
+ * ## Create a LiveEvent
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const liveEvent = new azurerm.media.v20180701.LiveEvent("liveEvent", {
+ *     accountName: "slitestmedia10",
+ *     description: "test event 1",
+ *     input: {
+ *         keyFrameIntervalDuration: "PT6S",
+ *         streamingProtocol: "RTMP",
+ *     },
+ *     liveEventName: "myLiveEvent1",
+ *     location: "West US",
+ *     preview: {
+ *         accessControl: {
+ *             ip: {
+ *                 allow: [{
+ *                     address: "0.0.0.0",
+ *                     name: "AllowAll",
+ *                     subnetPrefixLength: 0,
+ *                 }],
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "mediaresources",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class LiveEvent extends pulumi.CustomResource {
     /**

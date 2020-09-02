@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+ *
+ * ## Creates network mapping.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const replicationNetworkMapping = new azurerm.recoveryservices.v20160810.ReplicationNetworkMapping("replicationNetworkMapping", {
+ *     fabricName: "b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac",
+ *     networkMappingName: "corpe2amap",
+ *     networkName: "e2267b5c-2650-49bd-ab3f-d66aae694c06",
+ *     resourceGroupName: "srcBvte2a14C27",
+ *     resourceName: "srce2avaultbvtaC27",
+ * });
+ *
+ * ```
  */
 export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**

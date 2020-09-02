@@ -8,6 +8,67 @@ import * as utilities from "../../utilities";
 
 /**
  * A container group.
+ *
+ * ## ContainerGroupsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const containerGroup = new azurerm.containerinstance.v20180901.ContainerGroup("containerGroup", {
+ *     containerGroupName: "demo1",
+ *     containers: [{
+ *         name: "demo1",
+ *     }],
+ *     diagnostics: {
+ *         logAnalytics: {
+ *             logType: "ContainerInsights",
+ *             metadata: {
+ *                 "test-key": "test-metadata-value",
+ *             },
+ *             workspaceId: "workspaceid",
+ *             workspaceKey: "workspaceKey",
+ *         },
+ *     },
+ *     imageRegistryCredentials: [],
+ *     ipAddress: {
+ *         dnsNameLabel: "dnsnamelabel1",
+ *         ports: [{
+ *             port: 80,
+ *             protocol: "TCP",
+ *         }],
+ *         type: "Public",
+ *     },
+ *     location: "west us",
+ *     networkProfile: {
+ *         id: "test-network-profile-id",
+ *     },
+ *     osType: "Linux",
+ *     resourceGroupName: "demo",
+ *     volumes: [
+ *         {
+ *             azureFile: {
+ *                 shareName: "shareName",
+ *                 storageAccountKey: "accountKey",
+ *                 storageAccountName: "accountName",
+ *             },
+ *             name: "volume1",
+ *         },
+ *         {
+ *             emptyDir: {},
+ *             name: "volume2",
+ *         },
+ *         {
+ *             name: "volume3",
+ *             secret: {
+ *                 secretKey1: "SecretValue1InBase64",
+ *                 secretKey2: "SecretValue2InBase64",
+ *             },
+ *         },
+ *     ],
+ * });
+ *
+ * ```
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**
