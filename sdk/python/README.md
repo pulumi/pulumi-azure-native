@@ -47,5 +47,6 @@ Navigate to one of the `examples` and run Pulumi:
 
 ```
 $ cd ./exampes/simple
+$ yarn link @pulumi/azurerm
 $ pulumi up
 ``` 
