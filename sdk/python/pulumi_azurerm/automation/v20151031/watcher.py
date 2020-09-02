@@ -32,6 +32,24 @@ class Watcher(pulumi.CustomResource):
         """
         Definition of the watcher type.
 
+        ## Create or update watcher
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        watcher = azurerm.automation.v20151031.Watcher("watcher",
+            automation_account_name="MyTestAutomationAccount",
+            description="This is a test watcher.",
+            execution_frequency_in_seconds=60,
+            resource_group_name="rg",
+            script_name="MyTestWatcherRunbook",
+            script_run_on="MyTestHybridWorkerGroup",
+            tags={},
+            watcher_name="MyTestWatcher")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

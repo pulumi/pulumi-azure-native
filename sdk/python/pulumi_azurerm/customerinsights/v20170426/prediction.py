@@ -39,6 +39,40 @@ class Prediction(pulumi.CustomResource):
         """
         The prediction resource format.
 
+        ## Predictions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        prediction = azurerm.customerinsights.v20170426.Prediction("prediction",
+            auto_analyze=True,
+            description={
+                "en-us": "sdktest",
+            },
+            display_name={
+                "en-us": "sdktest",
+            },
+            grades=[],
+            hub_name="sdkTestHub",
+            involved_interaction_types=[],
+            involved_kpi_types=[],
+            involved_relationships=[],
+            mappings={
+                "grade": "sdktest_Grade",
+                "reason": "sdktest_Reason",
+                "score": "sdktest_Score",
+            },
+            negative_outcome_expression="Customers.FirstName = 'Mike'",
+            positive_outcome_expression="Customers.FirstName = 'David'",
+            prediction_name="sdktest",
+            primary_profile_type="Customers",
+            resource_group_name="TestHubRG",
+            scope_expression="*",
+            score_label="score label")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_analyze: Whether do auto analyze.

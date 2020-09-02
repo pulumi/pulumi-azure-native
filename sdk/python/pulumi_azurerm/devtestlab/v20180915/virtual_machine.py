@@ -59,6 +59,39 @@ class VirtualMachine(pulumi.CustomResource):
         """
         A virtual machine.
 
+        ## VirtualMachines_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.devtestlab.v20180915.VirtualMachine("virtualMachine",
+            allow_claim=True,
+            disallow_public_ip_address=True,
+            gallery_image_reference={
+                "offer": "UbuntuServer",
+                "osType": "Linux",
+                "publisher": "Canonical",
+                "sku": "16.04-LTS",
+                "version": "Latest",
+            },
+            lab_name="{devtestlab-name}",
+            lab_subnet_name="{virtualnetwork-name}Subnet",
+            lab_virtual_network_id="/subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}",
+            location="{azure-location}",
+            name="{virtualmachine-name}",
+            os_type="Linux",
+            password="{user-password}",
+            resource_group_name="myResourceGroup",
+            size="Standard_A2_v2",
+            storage_type="Standard",
+            tags={
+                "MyTag": "MyValue",
+            },
+            user_name="{user-name}")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Indicates whether another user can take ownership of the virtual machine

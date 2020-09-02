@@ -26,6 +26,21 @@ class Database(pulumi.CustomResource):
         """
         Class representing a Kusto database.
 
+        ## KustoDatabasesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.kusto.v20200614.Database("database",
+            cluster_name="kustoclusterrptest4",
+            database_name="KustoDatabase8",
+            kind="ReadWrite",
+            location="westus",
+            resource_group_name="kustorptest")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.

@@ -29,6 +29,38 @@ class ConnectionType(pulumi.CustomResource):
         """
         Definition of the connection type.
 
+        ## Create or update connection type
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        connection_type = azurerm.automation.v20151031.ConnectionType("connectionType",
+            automation_account_name="myAutomationAccount22",
+            connection_type_name="myCT",
+            field_definitions={
+                "myBoolField": {
+                    "isEncrypted": False,
+                    "isOptional": False,
+                    "type": "bool",
+                },
+                "myStringField": {
+                    "isEncrypted": False,
+                    "isOptional": False,
+                    "type": "string",
+                },
+                "myStringFieldEncrypted": {
+                    "isEncrypted": True,
+                    "isOptional": False,
+                    "type": "string",
+                },
+            },
+            is_global=False,
+            name="myCT",
+            resource_group_name="rg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

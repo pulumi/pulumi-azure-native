@@ -41,6 +41,27 @@ class Namespace(pulumi.CustomResource):
         """
         Description of a Namespace resource.
 
+        ## NameSpaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        namespace = azurerm.notificationhubs.latest.Namespace("namespace",
+            location="South Central US",
+            namespace_name="nh-sdk-ns",
+            resource_group_name="5ktrial",
+            sku={
+                "name": "Standard",
+                "tier": "Standard",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The time the namespace was created.

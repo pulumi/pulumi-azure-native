@@ -28,6 +28,23 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
+        ## PrivateEndpointConnection_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.appconfiguration.latest.PrivateEndpointConnection("privateEndpointConnection",
+            config_store_name="contoso",
+            private_endpoint_connection_name="myConnection",
+            private_link_service_connection_state={
+                "description": "Auto-Approved",
+                "status": "Approved",
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.

@@ -30,6 +30,35 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         """
         Specifies information about the gallery Application Version that you want to create or update.
 
+        ## Create or update a simple gallery Application Version.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        gallery_application_version = azurerm.compute.latest.GalleryApplicationVersion("galleryApplicationVersion",
+            gallery_application_name="myGalleryApplicationName",
+            gallery_application_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile={
+                "endOfLifeDate": "2019-07-01T07:00:00Z",
+                "replicaCount": 1,
+                "source": {
+                    "fileName": "package.zip",
+                    "mediaLink": "https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}",
+                },
+                "storageAccountType": "Standard_LRS",
+                "targetRegions": [{
+                    "name": "West US",
+                    "regionalReplicaCount": 1,
+                    "storageAccountType": "Standard_LRS",
+                }],
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gallery_application_name: The name of the gallery Application Definition in which the Application Version is to be created.

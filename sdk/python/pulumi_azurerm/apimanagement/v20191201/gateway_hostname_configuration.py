@@ -28,6 +28,23 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         """
         Gateway hostname configuration details.
 
+        ## ApiManagementCreateGatewayHostnameConfiguration
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        gateway_hostname_configuration = azurerm.apimanagement.v20191201.GatewayHostnameConfiguration("gatewayHostnameConfiguration",
+            certificate_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+            gateway_id="gw1",
+            hc_id="default",
+            hostname="*",
+            negotiate_client_certificate=False,
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: Identifier of Certificate entity that will be used for TLS connection establishment

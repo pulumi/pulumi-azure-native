@@ -28,6 +28,34 @@ class Function(pulumi.CustomResource):
         """
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 
+        ## Create a JavaScript function
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        function = azurerm.streamanalytics.v20160301.Function("function",
+            function_name="function8197",
+            job_name="sj8653",
+            properties={},
+            resource_group_name="sjrg1637")
+
+        ```
+
+        ## Create an Azure ML function
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        function = azurerm.streamanalytics.v20160301.Function("function",
+            function_name="function588",
+            job_name="sj9093",
+            properties={},
+            resource_group_name="sjrg7")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: The name of the function.

@@ -29,6 +29,22 @@ class ApiVersionSet(pulumi.CustomResource):
         """
         Api Version Set Contract details.
 
+        ## ApiManagementCreateApiVersionSet
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_version_set = azurerm.apimanagement.v20190101.ApiVersionSet("apiVersionSet",
+            description="Version configuration",
+            display_name="api set 1",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            version_set_id="api1",
+            versioning_scheme="Segment")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of API Version Set.

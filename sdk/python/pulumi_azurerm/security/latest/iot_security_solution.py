@@ -36,6 +36,41 @@ class IotSecuritySolution(pulumi.CustomResource):
         """
         IoT Security solution configuration and resource information.
 
+        ## Create or update a IoT security solution
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        iot_security_solution = azurerm.security.latest.IotSecuritySolution("iotSecuritySolution",
+            disabled_data_sources=[],
+            display_name="Solution Default",
+            export=[],
+            iot_hubs=["/subscriptions/075423e9-7d33-4166-8bdf-3920b04e3735/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/FirstIotHub"],
+            location="East Us",
+            recommendations_configuration=[
+                {
+                    "recommendationType": "IoT_OpenPorts",
+                    "status": "Disabled",
+                },
+                {
+                    "recommendationType": "IoT_SharedCredentials",
+                    "status": "Disabled",
+                },
+            ],
+            resource_group_name="MyGroup",
+            solution_name="default",
+            status="Enabled",
+            tags={},
+            unmasked_ip_logging_status="Enabled",
+            user_defined_resources={
+                "query": "where type != \"microsoft.devices/iothubs\" | where name contains \"iot\"",
+                "querySubscriptions": ["075423e9-7d33-4166-8bdf-3920b04e3735"],
+            },
+            workspace="/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.

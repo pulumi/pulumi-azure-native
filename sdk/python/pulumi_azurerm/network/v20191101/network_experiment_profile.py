@@ -29,6 +29,20 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         """
         Defines an Network Experiment Profile and lists of Experiments
 
+        ## Creates an NetworkExperiment Profile in a Resource Group
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        network_experiment_profile = azurerm.network.v20191101.NetworkExperimentProfile("networkExperimentProfile",
+            enabled_state="Enabled",
+            location="WestUs",
+            profile_name="MyProfile",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] enabled_state: The state of the Experiment

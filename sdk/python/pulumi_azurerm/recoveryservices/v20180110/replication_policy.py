@@ -27,6 +27,19 @@ class ReplicationPolicy(pulumi.CustomResource):
         """
         Protection profile details.
 
+        ## Creates the policy.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        replication_policy = azurerm.recoveryservices.v20180110.ReplicationPolicy("replicationPolicy",
+            policy_name="protectionprofile1",
+            resource_group_name="resourceGroupPS1",
+            resource_name="vault1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_name: Replication policy name

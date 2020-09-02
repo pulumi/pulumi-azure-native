@@ -33,6 +33,31 @@ class StaticSite(pulumi.CustomResource):
         """
         Static Site ARM resource.
 
+        ## Create or update a static site
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        static_site = azurerm.web.v20190801.StaticSite("staticSite",
+            branch="master",
+            build_properties={
+                "apiLocation": "api",
+                "appArtifactLocation": "build",
+                "appLocation": "app",
+            },
+            location="West US 2",
+            name="testStaticSite0",
+            repository_token="repoToken123",
+            repository_url="https://github.com/username/RepoName",
+            resource_group_name="rg",
+            sku={
+                "name": "Basic",
+                "tier": "Basic",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The target branch in the repository.

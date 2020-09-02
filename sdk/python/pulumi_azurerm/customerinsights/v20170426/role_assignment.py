@@ -43,6 +43,30 @@ class RoleAssignment(pulumi.CustomResource):
         """
         The Role Assignment resource format.
 
+        ## RoleAssignments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        role_assignment = azurerm.customerinsights.v20170426.RoleAssignment("roleAssignment",
+            assignment_name="assignmentName8976",
+            hub_name="sdkTestHub",
+            principals=[
+                {
+                    "principalId": "4c54c38ffa9b416ba5a6d6c8a20cbe7e",
+                    "principalType": "User",
+                },
+                {
+                    "principalId": "93061d15a5054f2b9948ae25724cf9d5",
+                    "principalType": "User",
+                },
+            ],
+            resource_group_name="TestHubRG",
+            role="Admin")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assignment_name: The assignment name

@@ -39,6 +39,87 @@ class ActionGroup(pulumi.CustomResource):
         """
         An action group resource.
 
+        ## Create or update an action group
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        action_group = azurerm.insights.v20180901.ActionGroup("actionGroup",
+            action_group_name="SampleActionGroup",
+            arm_role_receivers=[{
+                "name": "Sample armRole",
+                "roleId": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+            }],
+            automation_runbook_receivers=[{
+                "automationAccountId": "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/runbookTest/providers/Microsoft.Automation/automationAccounts/runbooktest",
+                "isGlobalRunbook": False,
+                "name": "testRunbook",
+                "runbookName": "Sample runbook",
+                "serviceUri": "https://s13events.azure-automation.net/webhooks?token=iimE%2fD19Eg%2bvDy22yUMecIZY6Uiz%2bHfuQ67r8r1wY%2fI%3d",
+                "webhookResourceId": "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/runbookTest/providers/Microsoft.Automation/automationAccounts/runbooktest/webhooks/Alert1510184037084",
+            }],
+            azure_app_push_receivers=[{
+                "emailAddress": "johndoe@email.com",
+                "name": "Sample azureAppPush",
+            }],
+            azure_function_receivers=[{
+                "functionAppResourceId": "/subscriptions/5def922a-3ed4-49c1-b9fd-05ec533819a3/resourceGroups/aznsTest/providers/Microsoft.Web/sites/testFunctionApp",
+                "functionName": "HttpTriggerCSharp1",
+                "httpTriggerUrl": "https://testfunctionapp.azurewebsites.net/api/HttpTriggerCSharp1?code=4CopFfiXqUQC8dvIM7F53J7tIU3Gy9QQIG/vKAXMe2avhHqK3/jVYw==",
+                "name": "Sample azureFunction",
+            }],
+            email_receivers=[
+                {
+                    "emailAddress": "johndoe@email.com",
+                    "name": "John Doe's email",
+                },
+                {
+                    "emailAddress": "janesmith@email.com",
+                    "name": "Jane Smith's email",
+                },
+            ],
+            enabled=True,
+            group_short_name="sample",
+            itsm_receivers=[{
+                "connectionId": "a3b9076c-ce8e-434e-85b4-aff10cb3c8f1",
+                "name": "Sample itsm",
+                "region": "westcentralus",
+                "ticketConfiguration": "{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{}\",\"CreateOneWIPerCI\":false}",
+                "workspaceId": "5def922a-3ed4-49c1-b9fd-05ec533819a3|55dfd1f8-7e59-4f89-bf56-4c82f5ace23c",
+            }],
+            location="Global",
+            logic_app_receivers=[{
+                "callbackUrl": "https://prod-27.northcentralus.logic.azure.com/workflows/68e572e818e5457ba898763b7db90877/triggers/manual/paths/invoke/azns/test?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Abpsb72UYJxPPvmDo937uzofupO5r_vIeWEx7KVHo7w",
+                "name": "Sample logicApp",
+                "resourceId": "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/LogicApp/providers/Microsoft.Logic/workflows/testLogicApp",
+            }],
+            resource_group_name="Default-NotificationRules",
+            sms_receivers=[
+                {
+                    "countryCode": "1",
+                    "name": "John Doe's mobile",
+                    "phoneNumber": "1234567890",
+                },
+                {
+                    "countryCode": "1",
+                    "name": "Jane Smith's mobile",
+                    "phoneNumber": "0987654321",
+                },
+            ],
+            tags={},
+            voice_receivers=[{
+                "countryCode": "1",
+                "name": "Sample voice",
+                "phoneNumber": "1234567890",
+            }],
+            webhook_receivers=[{
+                "name": "Sample webhook",
+                "serviceUri": "http://www.example.com/webhook",
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_group_name: The name of the action group.

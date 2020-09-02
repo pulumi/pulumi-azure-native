@@ -28,6 +28,23 @@ class Cluster(pulumi.CustomResource):
         """
         A cluster resource
 
+        ## Clusters_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.avs.latest.Cluster("cluster",
+            cluster_name="cluster1",
+            cluster_size=3,
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            sku={
+                "name": "AV20",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud

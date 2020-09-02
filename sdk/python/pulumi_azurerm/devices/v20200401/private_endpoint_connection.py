@@ -27,6 +27,19 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The private endpoint connection of an IotHub
 
+        ## PrivateEndpointConnection_Update
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.devices.v20200401.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="myPrivateEndpointConnection",
+            resource_group_name="myResourceGroup",
+            resource_name="testHub")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection

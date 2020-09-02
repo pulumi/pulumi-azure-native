@@ -40,6 +40,41 @@ class Kpi(pulumi.CustomResource):
         """
         The KPI resource format.
 
+        ## Kpi_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        kpi = azurerm.customerinsights.v20170101.Kpi("kpi",
+            aliases=[{
+                "aliasName": "alias",
+                "expression": "Id+4",
+            }],
+            calculation_window="Day",
+            description={
+                "en-us": "Kpi Description",
+            },
+            display_name={
+                "en-us": "Kpi DisplayName",
+            },
+            entity_type="Profile",
+            entity_type_name="testProfile2327128",
+            expression="SavingAccountBalance",
+            function="Sum",
+            group_by=["SavingAccountBalance"],
+            hub_name="sdkTestHub",
+            kpi_name="kpiTest45453647",
+            resource_group_name="TestHubRG",
+            thres_holds={
+                "increasingKpi": True,
+                "lowerLimit": 5,
+                "upperLimit": 50,
+            },
+            unit="unit")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]] aliases: The aliases.

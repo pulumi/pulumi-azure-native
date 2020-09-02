@@ -34,6 +34,69 @@ class SignalR(pulumi.CustomResource):
         """
         A class represent a SignalR service resource.
 
+        ## SignalR_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        signal_r = azurerm.signalrservice.latest.SignalR("signalR",
+            cors={
+                "allowedOrigins": [
+                    "https://foo.com",
+                    "https://bar.com",
+                ],
+            },
+            features=[
+                {
+                    "flag": "ServiceMode",
+                    "properties": {},
+                    "value": "Serverless",
+                },
+                {
+                    "flag": "EnableConnectivityLogs",
+                    "properties": {},
+                    "value": "True",
+                },
+                {
+                    "flag": "EnableMessagingLogs",
+                    "properties": {},
+                    "value": "False",
+                },
+            ],
+            kind="SignalR",
+            location="eastus",
+            network_acls={
+                "defaultAction": "Deny",
+                "privateEndpoints": [{
+                    "allow": ["ServerConnection"],
+                    "name": "mySignalRService.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+                }],
+                "publicNetwork": {
+                    "allow": ["ClientConnection"],
+                },
+            },
+            resource_group_name="myResourceGroup",
+            resource_name="mySignalRService",
+            sku={
+                "capacity": 1,
+                "name": "Standard_S1",
+                "tier": "Standard",
+            },
+            tags={
+                "key1": "value1",
+            },
+            upstream={
+                "templates": [{
+                    "categoryPattern": "*",
+                    "eventPattern": "connect,disconnect",
+                    "hubPattern": "*",
+                    "urlTemplate": "https://example.com/chat/api/connect",
+                }],
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']] cors: Cross-Origin Resource Sharing (CORS) settings.

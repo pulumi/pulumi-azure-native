@@ -27,6 +27,19 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         """
         Recovery plan details.
 
+        ## Creates a recovery plan with the given details.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        replication_recovery_plan = azurerm.recoveryservices.v20180710.ReplicationRecoveryPlan("replicationRecoveryPlan",
+            recovery_plan_name="RPtest1",
+            resource_group_name="resourceGroupPS1",
+            resource_name="vault1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreateRecoveryPlanInputPropertiesArgs']] properties: Recovery plan creation properties.

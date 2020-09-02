@@ -23,6 +23,16 @@ class ManagementGroupSubscriptionSubscription(pulumi.CustomResource):
         """
         The details of subscription under management group.
 
+        ## AddSubscriptionToManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        management_group_subscription_subscription = azurerm.management.v20200501.ManagementGroupSubscriptionSubscription("managementGroupSubscriptionSubscription", group_id="Group")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: Management Group ID.

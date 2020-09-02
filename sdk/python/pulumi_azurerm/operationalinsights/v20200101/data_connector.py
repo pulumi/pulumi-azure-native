@@ -26,6 +26,21 @@ class DataConnector(pulumi.CustomResource):
         """
         Data connector.
 
+        ## Creates or updates an Office365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        data_connector = azurerm.operationalinsights.v20200101.DataConnector("dataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            etag="\"0300bf09-0000-0000-0000-5c37296e0000\"",
+            kind="Office365",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID

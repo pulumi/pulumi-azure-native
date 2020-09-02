@@ -27,6 +27,45 @@ class ApiPolicy(pulumi.CustomResource):
         """
         Policy Contract details.
 
+        ## ApiManagementCreateApiPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_policy = azurerm.apimanagement.v20191201.ApiPolicy("apiPolicy",
+            api_id="5600b57e7e8880006a040001",
+            format="xml",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>")
+
+        ```
+
+        ## ApiManagementCreateApiPolicyNonXmlEncoded
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_policy = azurerm.apimanagement.v20191201.ApiPolicy("apiPolicy",
+            api_id="5600b57e7e8880006a040001",
+            format="rawxml",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value=\"\"\"<policies>
+             <inbound>
+             <base />
+          <set-header name="newvalue" exists-action="override">
+           <value>"@(context.Request.Headers.FirstOrDefault(h => h.Ke=="Via"))" </value>
+            </set-header>
+          </inbound>
+              </policies>\"\"\")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

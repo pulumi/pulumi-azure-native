@@ -27,6 +27,19 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Description of a Namespace AuthorizationRules.
 
+        ## NameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        namespace_authorization_rule = azurerm.notificationhubs.v20170401.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="sdk-AuthRules-1788",
+            namespace_name="nh-sdk-ns",
+            resource_group_name="5ktrial")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: Authorization Rule Name.

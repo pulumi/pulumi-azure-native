@@ -34,6 +34,62 @@ class PolicyAssignment(pulumi.CustomResource):
         """
         The policy assignment.
 
+        ## Create or update a policy assignment
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        policy_assignment = azurerm.authorization.v20190101.PolicyAssignment("policyAssignment",
+            description="Force resource names to begin with given DeptA and end with -LC",
+            display_name="Enforce resource naming rules",
+            metadata={
+                "assignedBy": "Special Someone",
+            },
+            parameters={
+                "prefix": {
+                    "value": "DeptA",
+                },
+                "suffix": {
+                    "value": "-LC",
+                },
+            },
+            policy_assignment_name="EnforceNaming",
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
+
+        ```
+
+        ## Create or update a policy assignment with a managed identity
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        policy_assignment = azurerm.authorization.v20190101.PolicyAssignment("policyAssignment",
+            description="Force resource names to begin with given DeptA and end with -LC",
+            display_name="Enforce resource naming rules",
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="eastus",
+            metadata={
+                "assignedBy": "Foo Bar",
+            },
+            parameters={
+                "prefix": {
+                    "value": "DeptA",
+                },
+                "suffix": {
+                    "value": "-LC",
+                },
+            },
+            policy_assignment_name="EnforceNaming",
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: This message will be part of response in case of policy violation.

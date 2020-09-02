@@ -42,6 +42,37 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         """
         A common class for general resource information.
 
+        ## CreateVirtualNetworkGatewayConnection_S2S
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_network_gateway_connection = azurerm.network.v20191101.VirtualNetworkGatewayConnection("virtualNetworkGatewayConnection",
+            connection_protocol="IKEv2",
+            connection_type="IPsec",
+            enable_bgp=False,
+            ipsec_policies=[],
+            local_network_gateway2={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw",
+                "location": "centralus",
+                "tags": {},
+            },
+            location="centralus",
+            resource_group_name="rg1",
+            routing_weight=0,
+            shared_key="Abc123",
+            traffic_selector_policies=[],
+            use_policy_based_traffic_selectors=False,
+            virtual_network_gateway1={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw",
+                "location": "centralus",
+                "tags": {},
+            },
+            virtual_network_gateway_connection_name="connS2S")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorizationKey.

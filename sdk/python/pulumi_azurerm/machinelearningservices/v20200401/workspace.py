@@ -41,6 +41,41 @@ class Workspace(pulumi.CustomResource):
         """
         An object that represents a machine learning workspace.
 
+        ## Create Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        workspace = azurerm.machinelearningservices.v20200401.Workspace("workspace",
+            application_insights="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+            container_registry="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+            description="test description",
+            encryption={
+                "keyVaultProperties": {
+                    "identityClientId": "",
+                    "keyIdentifier": "https://testkv.vault.azure.net/keys/testkey/aabbccddee112233445566778899aabb",
+                    "keyVaultArmId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+                },
+                "status": "Enabled",
+            },
+            friendly_name="HelloName",
+            hbi_workspace=False,
+            key_vault="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+            location="eastus2euap",
+            resource_group_name="workspace-1234",
+            shared_private_link_resources=[{
+                "name": "testdbresource",
+            }],
+            sku={
+                "name": "Basic",
+                "tier": "Basic",
+            },
+            storage_account="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            workspace_name="testworkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_public_access_when_behind_vnet: The flag to indicate whether to allow public access when behind VNet.

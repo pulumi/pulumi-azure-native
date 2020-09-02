@@ -26,6 +26,18 @@ class ResourceGroup(pulumi.CustomResource):
         """
         Resource group information.
 
+        ## Create or update a resource group
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        resource_group = azurerm.resources.v20191001.ResourceGroup("resourceGroup",
+            location="eastus",
+            resource_group_name="myResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.

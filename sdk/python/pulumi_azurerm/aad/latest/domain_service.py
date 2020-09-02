@@ -34,6 +34,44 @@ class DomainService(pulumi.CustomResource):
         """
         Domain service.
 
+        ## Create Domain Service
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        domain_service = azurerm.aad.latest.DomainService("domainService",
+            domain_name="TestDomainService.com",
+            domain_security_settings={
+                "ntlmV1": "Enabled",
+                "syncNtlmPasswords": "Enabled",
+                "tlsV1": "Disabled",
+            },
+            domain_service_name="TestDomainService.com",
+            filtered_sync="Enabled",
+            ldaps_settings={
+                "externalAccess": "Enabled",
+                "ldaps": "Enabled",
+                "pfxCertificate": "MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+                "pfxCertificatePassword": "Password01",
+            },
+            location="West US",
+            notification_settings={
+                "additionalRecipients": [
+                    "jicha@microsoft.com",
+                    "caalmont@microsoft.com",
+                ],
+                "notifyDcAdmins": "Enabled",
+                "notifyGlobalAdmins": "Enabled",
+            },
+            replica_sets=[{
+                "location": "West US",
+                "subnetId": "/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/TestVnetWUS/subnets/TestSubnetWUS",
+            }],
+            resource_group_name="TestResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.

@@ -26,6 +26,18 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
         """
         Deployment information.
 
+        ## Create deployment at tenant scope.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        deployment_at_tenant_scope = azurerm.resources.v20190801.DeploymentAtTenantScope("deploymentAtTenantScope",
+            deployment_name="tenant-dep01",
+            location="eastus")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_name: The name of the deployment.

@@ -32,6 +32,21 @@ class IdentityProvider(pulumi.CustomResource):
         """
         Identity Provider details.
 
+        ## ApiManagementCreateIdentityProvider
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        identity_provider = azurerm.apimanagement.v20170301.IdentityProvider("identityProvider",
+            client_id="facebookid",
+            client_secret="facebookapplicationsecret",
+            identity_provider_name="facebook",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] allowed_tenants: List of Allowed Tenants when configuring Azure Active Directory login.

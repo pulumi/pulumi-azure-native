@@ -27,6 +27,19 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 
+        ## PrivateEndpointConnectionUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.search.v20200801.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
+            resource_group_name="rg1",
+            search_service_name="mysearchservice")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.

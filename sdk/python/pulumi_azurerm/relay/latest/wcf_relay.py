@@ -28,6 +28,22 @@ class WCFRelay(pulumi.CustomResource):
         """
         Description of the WCF relay resource.
 
+        ## RelayCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        wcf_relay = azurerm.relay.latest.WCFRelay("wcfRelay",
+            namespace_name="sdk-RelayNamespace-9953",
+            relay_name="sdk-Relay-Wcf-1194",
+            relay_type="NetTcp",
+            requires_client_authorization=True,
+            requires_transport_security=True,
+            resource_group_name="RG-eg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] namespace_name: The namespace name

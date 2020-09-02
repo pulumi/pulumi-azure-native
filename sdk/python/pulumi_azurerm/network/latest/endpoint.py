@@ -41,6 +41,104 @@ class Endpoint(pulumi.CustomResource):
         """
         Class representing a Traffic Manager endpoint.
 
+        ## Endpoint-PUT-External-WithCustomHeaders
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        endpoint = azurerm.network.latest.Endpoint("endpoint",
+            custom_headers=[
+                {
+                    "name": "header-1",
+                    "value": "value-1",
+                },
+                {
+                    "name": "header-2",
+                    "value": "value-2",
+                },
+            ],
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="azsmnet7187",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+
+        ## Endpoint-PUT-External-WithGeoMapping
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        endpoint = azurerm.network.latest.Endpoint("endpoint",
+            endpoint_name="My%20external%20endpoint",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            geo_mapping=[
+                "GEO-AS",
+                "GEO-AF",
+            ],
+            name="My external endpoint",
+            profile_name="azuresdkfornetautoresttrafficmanager8224",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2191",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+
+        ## Endpoint-PUT-External-WithLocation
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        endpoint = azurerm.network.latest.Endpoint("endpoint",
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="azsmnet7187",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+
+        ## Endpoint-PUT-External-WithSubnetMapping
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        endpoint = azurerm.network.latest.Endpoint("endpoint",
+            endpoint_name="My%20external%20endpoint",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="My external endpoint",
+            profile_name="azuresdkfornetautoresttrafficmanager8224",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2191",
+            subnets=[
+                {
+                    "first": "1.2.3.0",
+                    "scope": 24,
+                },
+                {
+                    "first": "25.26.27.28",
+                    "last": "29.30.31.32",
+                },
+            ],
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointPropertiesCustomHeadersArgs']]]] custom_headers: List of custom headers.

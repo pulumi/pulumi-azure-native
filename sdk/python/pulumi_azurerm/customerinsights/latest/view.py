@@ -27,6 +27,24 @@ class View(pulumi.CustomResource):
         """
         The view resource format.
 
+        ## Views_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        view = azurerm.customerinsights.latest.View("view",
+            definition="{\\\"isProfileType\\\":false,\\\"profileTypes\\\":[],\\\"widgets\\\":[],\\\"style\\\":[]}",
+            display_name={
+                "en": "some name",
+            },
+            hub_name="sdkTestHub",
+            resource_group_name="TestHubRG",
+            user_id="testUser",
+            view_name="testView")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] definition: View definition.

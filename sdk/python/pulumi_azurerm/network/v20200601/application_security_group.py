@@ -26,6 +26,19 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         """
         An application security group in a resource group.
 
+        ## Create application security group
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        application_security_group = azurerm.network.v20200601.ApplicationSecurityGroup("applicationSecurityGroup",
+            application_security_group_name="test-asg",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_security_group_name: The name of the application security group.

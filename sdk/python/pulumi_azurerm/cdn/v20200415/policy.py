@@ -33,6 +33,106 @@ class Policy(pulumi.CustomResource):
         """
         Defines web application firewall policy for Azure CDN.
 
+        ## Creates specific policy
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        policy = azurerm.cdn.v20200415.Policy("policy",
+            custom_rules={
+                "rules": [{
+                    "action": "Block",
+                    "enabledState": "Enabled",
+                    "matchConditions": [
+                        {
+                            "matchValue": ["CH"],
+                            "matchVariable": "RemoteAddr",
+                            "negateCondition": False,
+                            "operator": "GeoMatch",
+                            "transforms": [],
+                        },
+                        {
+                            "matchValue": ["windows"],
+                            "matchVariable": "RequestHeader",
+                            "negateCondition": False,
+                            "operator": "Contains",
+                            "selector": "UserAgent",
+                            "transforms": [],
+                        },
+                        {
+                            "matchValue": [
+                                "<?php",
+                                "?>",
+                            ],
+                            "matchVariable": "QueryString",
+                            "negateCondition": False,
+                            "operator": "Contains",
+                            "selector": "search",
+                            "transforms": [
+                                "UrlDecode",
+                                "Lowercase",
+                            ],
+                        },
+                    ],
+                    "name": "CustomRule1",
+                    "priority": 2,
+                }],
+            },
+            location="WestUs",
+            managed_rules={
+                "managedRuleSets": [{
+                    "ruleGroupOverrides": [{
+                        "ruleGroupName": "Group1",
+                        "rules": [
+                            {
+                                "action": "Redirect",
+                                "enabledState": "Enabled",
+                                "ruleId": "GROUP1-0001",
+                            },
+                            {
+                                "enabledState": "Disabled",
+                                "ruleId": "GROUP1-0002",
+                            },
+                        ],
+                    }],
+                    "ruleSetType": "DefaultRuleSet",
+                    "ruleSetVersion": "preview-1.0",
+                }],
+            },
+            policy_name="MicrosoftCdnWafPolicy",
+            policy_settings={
+                "defaultCustomBlockResponseBody": "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+                "defaultCustomBlockResponseStatusCode": 200,
+                "defaultRedirectUrl": "http://www.bing.com",
+            },
+            rate_limit_rules={
+                "rules": [{
+                    "action": "Block",
+                    "enabledState": "Enabled",
+                    "matchConditions": [{
+                        "matchValue": [
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                        "matchVariable": "RemoteAddr",
+                        "negateCondition": False,
+                        "operator": "IPMatch",
+                        "transforms": [],
+                    }],
+                    "name": "RateLimitRule1",
+                    "priority": 1,
+                    "rateLimitDurationInMinutes": 0,
+                    "rateLimitThreshold": 1000,
+                }],
+            },
+            resource_group_name="rg1",
+            sku={
+                "name": "Standard_Microsoft",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CustomRuleListArgs']] custom_rules: Describes custom rules inside the policy.

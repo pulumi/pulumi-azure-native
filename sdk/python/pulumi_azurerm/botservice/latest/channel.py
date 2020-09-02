@@ -32,6 +32,66 @@ class Channel(pulumi.CustomResource):
         """
         Bot channel resource definition
 
+        ## Create Alexa Bot
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        channel = azurerm.botservice.latest.Channel("channel",
+            channel_name="AlexaChannel",
+            location="global",
+            properties={},
+            resource_group_name="OneResourceGroupName",
+            resource_name="samplebotname")
+
+        ```
+
+        ## Create Bot
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        channel = azurerm.botservice.latest.Channel("channel",
+            channel_name="EmailChannel",
+            location="global",
+            properties={},
+            resource_group_name="OneResourceGroupName",
+            resource_name="samplebotname")
+
+        ```
+
+        ## Create DirectLine Speech Bot
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        channel = azurerm.botservice.latest.Channel("channel",
+            channel_name="DirectLineSpeechChannel",
+            location="global",
+            properties={},
+            resource_group_name="OneResourceGroupName",
+            resource_name="samplebotname")
+
+        ```
+
+        ## Create Line Bot
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        channel = azurerm.botservice.latest.Channel("channel",
+            channel_name="LineChannel",
+            location="global",
+            properties={},
+            resource_group_name="OneResourceGroupName",
+            resource_name="samplebotname")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] channel_name: The name of the Channel resource.

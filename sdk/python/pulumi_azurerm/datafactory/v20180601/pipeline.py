@@ -34,6 +34,65 @@ class Pipeline(pulumi.CustomResource):
         """
         Pipeline resource type.
 
+        ## Pipelines_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        pipeline = azurerm.datafactory.v20180601.Pipeline("pipeline",
+            activities=[{
+                "name": "ExampleForeachActivity",
+                "type": "ForEach",
+            }],
+            factory_name="exampleFactoryName",
+            parameters={
+                "JobId": {
+                    "type": "String",
+                },
+                "OutputBlobNameList": {
+                    "type": "Array",
+                },
+            },
+            pipeline_name="examplePipeline",
+            resource_group_name="exampleResourceGroup",
+            run_dimensions={
+                "JobId": {
+                    "type": "Expression",
+                    "value": "@pipeline().parameters.JobId",
+                },
+            },
+            variables={
+                "TestVariableArray": {
+                    "type": "Array",
+                },
+            })
+
+        ```
+
+        ## Pipelines_Update
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        pipeline = azurerm.datafactory.v20180601.Pipeline("pipeline",
+            activities=[{
+                "name": "ExampleForeachActivity",
+                "type": "ForEach",
+            }],
+            description="Example description",
+            factory_name="exampleFactoryName",
+            parameters={
+                "OutputBlobNameList": {
+                    "type": "Array",
+                },
+            },
+            pipeline_name="examplePipeline",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityArgs']]]] activities: List of activities in pipeline.

@@ -31,6 +31,27 @@ class Namespace(pulumi.CustomResource):
         """
         Single Namespace item in List or Get Operation
 
+        ## NamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        namespace = azurerm.eventhub.v20170401.Namespace("namespace",
+            location="South Central US",
+            namespace_name="sdk-Namespace-5849",
+            resource_group_name="ArunMonocle",
+            sku={
+                "name": "Standard",
+                "tier": "Standard",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_auto_inflate_enabled: Value that indicates whether AutoInflate is enabled for eventhub namespace.

@@ -26,6 +26,19 @@ class DdosProtectionPlan(pulumi.CustomResource):
         """
         A DDoS protection plan in a resource group.
 
+        ## Create DDoS protection plan
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        ddos_protection_plan = azurerm.network.v20190201.DdosProtectionPlan("ddosProtectionPlan",
+            ddos_protection_plan_name="test-plan",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ddos_protection_plan_name: The name of the DDoS protection plan.

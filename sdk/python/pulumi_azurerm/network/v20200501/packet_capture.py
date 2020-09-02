@@ -32,6 +32,33 @@ class PacketCapture(pulumi.CustomResource):
         """
         Information about packet capture session.
 
+        ## Create packet capture
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        packet_capture = azurerm.network.v20200501.PacketCapture("packetCapture",
+            bytes_to_capture_per_packet=10000,
+            filters=[{
+                "localIPAddress": "10.0.0.4",
+                "localPort": "80",
+                "protocol": "TCP",
+            }],
+            network_watcher_name="nw1",
+            packet_capture_name="pc1",
+            resource_group_name="rg1",
+            storage_location={
+                "filePath": "D:\\capture\\pc1.cap",
+                "storageId": "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/pcstore",
+                "storagePath": "https://mytestaccountname.blob.core.windows.net/capture/pc1.cap",
+            },
+            target="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1",
+            time_limit_in_seconds=100,
+            total_bytes_per_session=100000)
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.

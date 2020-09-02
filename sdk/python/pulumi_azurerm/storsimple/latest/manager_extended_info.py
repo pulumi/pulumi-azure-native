@@ -31,6 +31,20 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         """
         The extended info of the manager.
 
+        ## ManagersCreateExtendedInfo
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        manager_extended_info = azurerm.storsimple.latest.ManagerExtendedInfo("managerExtendedInfo",
+            algorithm="None",
+            integrity_key="BIl+RHqO8PZ6DRvuXTTK7g==",
+            manager_name="ManagerForSDKTest2",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] algorithm: Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted

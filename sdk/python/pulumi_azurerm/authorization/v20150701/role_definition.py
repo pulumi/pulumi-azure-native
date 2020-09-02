@@ -30,6 +30,18 @@ class RoleDefinition(pulumi.CustomResource):
         """
         Role definition.
 
+        ## GetConfigurations
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        role_definition = azurerm.authorization.v20150701.RoleDefinition("roleDefinition",
+            role_definition_id="roleDefinitionId",
+            scope="scope")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] assignable_scopes: Role definition assignable scopes.

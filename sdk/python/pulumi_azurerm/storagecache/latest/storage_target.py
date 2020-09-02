@@ -32,6 +32,36 @@ class StorageTarget(pulumi.CustomResource):
         """
         Type of the Storage Target.
 
+        ## StorageTargets_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        storage_target = azurerm.storagecache.latest.StorageTarget("storageTarget",
+            cache_name="sc1",
+            junctions=[
+                {
+                    "namespacePath": "/path/on/cache",
+                    "nfsExport": "exp1",
+                    "targetPath": "/path/on/exp1",
+                },
+                {
+                    "namespacePath": "/path2/on/cache",
+                    "nfsExport": "exp2",
+                    "targetPath": "/path2/on/exp2",
+                },
+            ],
+            nfs3={
+                "target": "10.0.44.44",
+                "usageModel": "READ_HEAVY_INFREQ",
+            },
+            resource_group_name="scgroup",
+            storage_target_name="st1",
+            target_type="nfs3")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.

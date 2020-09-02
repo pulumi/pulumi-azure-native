@@ -36,6 +36,54 @@ class OpenShiftCluster(pulumi.CustomResource):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
 
+        ## Creates or updates a OpenShift cluster with the specified subscription, resource group and resource name.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        open_shift_cluster = azurerm.redhatopenshift.v20200430.OpenShiftCluster("openShiftCluster",
+            apiserver_profile={
+                "visibility": "Public",
+            },
+            cluster_profile={
+                "domain": "cluster.location.aroapp.io",
+                "pullSecret": "{\"auths\":{\"registry.connect.redhat.com\":{\"auth\":\"\"},\"registry.redhat.io\":{\"auth\":\"\"}}}",
+                "resourceGroupId": "/subscriptions/subscriptionId/resourceGroups/clusterResourceGroup",
+            },
+            console_profile={},
+            ingress_profiles=[{
+                "name": "default",
+                "visibility": "Public",
+            }],
+            location="location",
+            master_profile={
+                "subnetId": "/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/master",
+                "vmSize": "Standard_D8s_v3",
+            },
+            network_profile={
+                "podCidr": "10.128.0.0/14",
+                "serviceCidr": "172.30.0.0/16",
+            },
+            resource_group_name="resourceGroup",
+            resource_name="resourceName",
+            service_principal_profile={
+                "clientId": "clientId",
+                "clientSecret": "clientSecret",
+            },
+            tags={
+                "key": "value",
+            },
+            worker_profiles=[{
+                "count": 3,
+                "diskSizeGB": 128,
+                "name": "worker",
+                "subnetId": "/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/worker",
+                "vmSize": "Standard_D2s_v3",
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['APIServerProfileArgs']] apiserver_profile: The cluster API server profile.

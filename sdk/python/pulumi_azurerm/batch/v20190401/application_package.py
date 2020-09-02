@@ -25,6 +25,20 @@ class ApplicationPackage(pulumi.CustomResource):
         """
         An application package which represents a particular version of an application.
 
+        ## ApplicationPackageCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        application_package = azurerm.batch.v20190401.ApplicationPackage("applicationPackage",
+            account_name="sampleacct",
+            application_name="app1",
+            resource_group_name="default-azurebatch-japaneast",
+            version_name="1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.

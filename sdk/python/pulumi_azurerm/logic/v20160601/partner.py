@@ -31,6 +31,31 @@ class Partner(pulumi.CustomResource):
         """
         The integration account partner.
 
+        ## Create or update a partner
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        partner = azurerm.logic.v20160601.Partner("partner",
+            content={
+                "b2b": {
+                    "businessIdentities": [{
+                        "qualifier": "AA",
+                        "value": "ZZ",
+                    }],
+                },
+            },
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            metadata={},
+            partner_name="testPartner",
+            partner_type="B2B",
+            resource_group_name="testResourceGroup",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PartnerContentArgs']] content: The partner content.

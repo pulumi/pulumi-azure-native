@@ -31,6 +31,27 @@ class Namespace(pulumi.CustomResource):
         """
         Description of a namespace resource.
 
+        ## NameSpaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        namespace = azurerm.servicebus.v20150801.Namespace("namespace",
+            location="West US",
+            namespace_name="sdk-Namespace7816",
+            resource_group_name="Default-ServiceBus-WestUS",
+            sku={
+                "name": "Standard",
+                "tier": "Standard",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] create_acs_namespace: Indicates whether to create an ACS namespace.

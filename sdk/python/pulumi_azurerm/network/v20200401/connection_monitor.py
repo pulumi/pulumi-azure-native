@@ -37,6 +37,88 @@ class ConnectionMonitor(pulumi.CustomResource):
         """
         Information about the connection monitor.
 
+        ## Create connection monitor V1
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        connection_monitor = azurerm.network.v20200401.ConnectionMonitor("connectionMonitor",
+            connection_monitor_name="cm1",
+            destination={
+                "address": "bing.com",
+                "port": 80,
+            },
+            monitoring_interval_in_seconds=60,
+            network_watcher_name="nw1",
+            resource_group_name="rg1",
+            source={
+                "resourceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+            })
+
+        ```
+
+        ## Create connection monitor V2
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        connection_monitor = azurerm.network.v20200401.ConnectionMonitor("connectionMonitor",
+            connection_monitor_name="cm1",
+            endpoints=[
+                {
+                    "name": "vm1",
+                    "resourceId": "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/NwRgIrinaCentralUSEUAP/providers/Microsoft.Compute/virtualMachines/vm1",
+                },
+                {
+                    "filter": {
+                        "items": [{
+                            "address": "npmuser",
+                            "type": "AgentAddress",
+                        }],
+                        "type": "Include",
+                    },
+                    "name": "CanaryWorkspaceVamshi",
+                    "resourceId": "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/vasamudrRG/providers/Microsoft.OperationalInsights/workspaces/vasamudrWorkspace",
+                },
+                {
+                    "address": "bing.com",
+                    "name": "bing",
+                },
+                {
+                    "address": "google.com",
+                    "name": "google",
+                },
+            ],
+            network_watcher_name="nw1",
+            outputs=[],
+            resource_group_name="rg1",
+            test_configurations=[{
+                "name": "testConfig1",
+                "protocol": "Tcp",
+                "tcpConfiguration": {
+                    "disableTraceRoute": False,
+                    "port": 80,
+                },
+                "testFrequencySec": 60,
+            }],
+            test_groups=[{
+                "destinations": [
+                    "bing",
+                    "google",
+                ],
+                "disable": False,
+                "name": "test1",
+                "sources": [
+                    "vm1",
+                    "CanaryWorkspaceVamshi",
+                ],
+                "testConfigurations": ["testConfig1"],
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.

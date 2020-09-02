@@ -40,6 +40,79 @@ class StreamingJob(pulumi.CustomResource):
         """
         A streaming job object, containing all information associated with the named streaming job.
 
+        ## Create a complete streaming job (a streaming job with a transformation, at least 1 input and at least 1 output)
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_job = azurerm.streamanalytics.latest.StreamingJob("streamingJob",
+            compatibility_level="1.0",
+            data_locale="en-US",
+            events_late_arrival_max_delay_in_seconds=5,
+            events_out_of_order_max_delay_in_seconds=0,
+            events_out_of_order_policy="Drop",
+            functions=[],
+            inputs=[{
+                "name": "inputtest",
+                "properties": {
+                    "serialization": {
+                        "type": "Json",
+                    },
+                    "type": "Stream",
+                },
+            }],
+            job_name="sj7804",
+            location="West US",
+            output_error_policy="Drop",
+            outputs=[{
+                "name": "outputtest",
+            }],
+            resource_group_name="sjrg3276",
+            sku={
+                "name": "Standard",
+            },
+            tags={
+                "key1": "value1",
+                "key3": "value3",
+                "randomKey": "randomValue",
+            },
+            transformation={
+                "name": "transformationtest",
+            })
+
+        ```
+
+        ## Create a streaming job shell (a streaming job with no inputs, outputs, transformation, or functions)
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_job = azurerm.streamanalytics.latest.StreamingJob("streamingJob",
+            compatibility_level="1.0",
+            data_locale="en-US",
+            events_late_arrival_max_delay_in_seconds=16,
+            events_out_of_order_max_delay_in_seconds=5,
+            events_out_of_order_policy="Drop",
+            functions=[],
+            inputs=[],
+            job_name="sj59",
+            location="West US",
+            output_error_policy="Drop",
+            outputs=[],
+            resource_group_name="sjrg6936",
+            sku={
+                "name": "Standard",
+            },
+            tags={
+                "key1": "value1",
+                "key3": "value3",
+                "randomKey": "randomValue",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compatibility_level: Controls certain runtime behaviors of the streaming job.

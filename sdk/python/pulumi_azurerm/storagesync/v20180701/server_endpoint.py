@@ -31,6 +31,25 @@ class ServerEndpoint(pulumi.CustomResource):
         """
         Server Endpoint object.
 
+        ## ServerEndpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        server_endpoint = azurerm.storagesync.v20180701.ServerEndpoint("serverEndpoint",
+            cloud_tiering="off",
+            resource_group_name="SampleResourceGroup_1",
+            server_endpoint_name="SampleServerEndpoint_1",
+            server_local_path="D:\\SampleServerEndpoint_1",
+            server_resource_id="/subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncServer_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
+            storage_sync_service_name="SampleStorageSyncService_1",
+            sync_group_name="SampleSyncGroup_1",
+            tier_files_older_than_days=0,
+            volume_free_space_percent=100)
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_tiering: Cloud Tiering.

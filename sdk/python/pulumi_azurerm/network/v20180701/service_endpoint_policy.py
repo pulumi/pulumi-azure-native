@@ -32,6 +32,33 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         """
         Service End point policy resource.
 
+        ## Create service endpoint policy
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        service_endpoint_policy = azurerm.network.v20180701.ServiceEndpointPolicy("serviceEndpointPolicy",
+            resource_group_name="rg1",
+            service_endpoint_policy_name="testPolicy")
+
+        ```
+
+        ## Create service endpoint policy with definition
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        service_endpoint_policy = azurerm.network.v20180701.ServiceEndpointPolicy("serviceEndpointPolicy",
+            resource_group_name="rg1",
+            service_endpoint_policy_definitions=[{
+                "name": "StorageServiceEndpointPolicyDefinition",
+            }],
+            service_endpoint_policy_name="testPolicy")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.

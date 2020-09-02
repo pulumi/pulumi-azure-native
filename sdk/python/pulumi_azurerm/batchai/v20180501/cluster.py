@@ -33,6 +33,53 @@ class Cluster(pulumi.CustomResource):
         """
         Information about a Cluster.
 
+        ## Create a cluster
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.batchai.v20180501.Cluster("cluster",
+            cluster_name="demo_cluster",
+            node_setup={
+                "mountVolumes": {
+                    "azureFileShares": [{
+                        "accountName": "storage_account_name",
+                        "azureFileUrl": "https://storage_account_name.file.core.windows.net/azure_file_share_name",
+                        "credentials": {
+                            "accountKey": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000==",
+                        },
+                        "directoryMode": "0777",
+                        "fileMode": "0777",
+                        "relativeMountPath": "azfiles",
+                    }],
+                    "fileServers": [{
+                        "fileServer": {
+                            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo_resource_group/providers/Microsoft.BatchAI/workspaces/demo_workspaces/fileservers/fileservercedd134b",
+                        },
+                        "mountOptions": "rw",
+                        "relativeMountPath": "nfs",
+                    }],
+                },
+            },
+            resource_group_name="demo_resource_group",
+            scale_settings={
+                "manual": {
+                    "nodeDeallocationOption": "requeue",
+                    "targetNodeCount": 1,
+                },
+            },
+            user_account_settings={
+                "adminUserName": "admin_user_name",
+                "adminUserPassword": "admin_user_password",
+                "adminUserSshPublicKey": "ssh-rsa AAAAB3NzaC1yc...",
+            },
+            vm_priority="dedicated",
+            vm_size="STANDARD_NC6",
+            workspace_name="demo_workspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.

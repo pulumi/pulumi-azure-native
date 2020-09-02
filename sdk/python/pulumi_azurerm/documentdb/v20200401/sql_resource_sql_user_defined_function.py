@@ -32,6 +32,26 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
         """
         An Azure Cosmos DB userDefinedFunction.
 
+        ## CosmosDBSqlUserDefinedFunctionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        sql_resource_sql_user_defined_function = azurerm.documentdb.v20200401.SqlResourceSqlUserDefinedFunction("sqlResourceSqlUserDefinedFunction",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            options={},
+            resource={
+                "body": "body",
+                "id": "userDefinedFunctionName",
+            },
+            resource_group_name="rg1",
+            user_defined_function_name="userDefinedFunctionName")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

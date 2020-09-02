@@ -27,6 +27,19 @@ class IntegrationRuntime(pulumi.CustomResource):
         """
         Integration runtime resource type.
 
+        ## IntegrationRuntimes_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        integration_runtime = azurerm.datafactory.latest.IntegrationRuntime("integrationRuntime",
+            factory_name="exampleFactoryName",
+            integration_runtime_name="exampleIntegrationRuntime",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.

@@ -26,7 +26,20 @@ class VMwareCollector(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a VMwareCollector resource with the given unique name, props, and options.
+        ## VMwareCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        v_mware_collector = azurerm.migrate.v20191001.VMwareCollector("vMwareCollector",
+            e_tag="\"01003d32-0000-0d00-0000-5d74d2e50000\"",
+            project_name="abgoyalWEselfhostb72bproject",
+            resource_group_name="abgoyal-westEurope",
+            vm_ware_collector_name="PortalvCenterbc2fcollector")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.

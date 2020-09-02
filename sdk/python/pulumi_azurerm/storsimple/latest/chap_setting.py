@@ -28,6 +28,24 @@ class ChapSetting(pulumi.CustomResource):
         """
         Challenge-Handshake Authentication Protocol (CHAP) setting
 
+        ## ChapSettingsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        chap_setting = azurerm.storsimple.latest.ChapSetting("chapSetting",
+            chap_user_name="ChapSettingForSDK",
+            device_name="HSDK-WSJQERQW3F",
+            manager_name="hAzureSDKOperations",
+            password={
+                "encryptionAlgorithm": "RSAES_PKCS1_v_1_5",
+                "value": "W4xL3maActbzoehB9Ny1nr16uyjZZfvuJ70f8yBQgtS3vU4SLrOpoggmutOsbcgOgmgNHZnKe73WRZxzJFxzUQqcFNrAV+dReDkO5I/L1GxDjT5rsWn+74dRl8ditTew4z6OcwrT6RXtjG0njkUNsxXuawuylXsdHdvgQtSWbXBSao6KVhSbGQ57/V++CXqBbG2zoGLlHMdZF9OQccvCgh7qwD4ua7FLwqvQ8vYYVXryKm+XDmmT+GYWDqxPly0M2mJl/GLB/c6rNem4oRHBsf/vKfEKm8WGLWNsRZGcbxZKGiGsKC8QsxDHou6Ci3rfphVJE2R/9TxL+/1lUu2poQ==",
+            },
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] chap_user_name: The chap user name.

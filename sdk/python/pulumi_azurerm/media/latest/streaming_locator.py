@@ -35,6 +35,71 @@ class StreamingLocator(pulumi.CustomResource):
         """
         A Streaming Locator resource
 
+        ## Creates a Streaming Locator with clear streaming
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_locator = azurerm.media.latest.StreamingLocator("streamingLocator",
+            account_name="contosomedia",
+            asset_name="ClimbingMountRainier",
+            resource_group_name="contoso",
+            streaming_locator_name="UserCreatedClearStreamingLocator",
+            streaming_policy_name="clearStreamingPolicy")
+
+        ```
+
+        ## Creates a Streaming Locator with secure streaming
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_locator = azurerm.media.latest.StreamingLocator("streamingLocator",
+            account_name="contosomedia",
+            asset_name="ClimbingMountRainier",
+            end_time="2028-12-31T23:59:59.9999999Z",
+            resource_group_name="contoso",
+            start_time="2018-03-01T00:00:00Z",
+            streaming_locator_name="UserCreatedSecureStreamingLocator",
+            streaming_policy_name="secureStreamingPolicy")
+
+        ```
+
+        ## Creates a Streaming Locator with user defined content keys
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_locator = azurerm.media.latest.StreamingLocator("streamingLocator",
+            account_name="contosomedia",
+            asset_name="ClimbingMountRainier",
+            content_keys=[
+                {
+                    "id": "60000000-0000-0000-0000-000000000001",
+                    "labelReferenceInStreamingPolicy": "aesDefaultKey",
+                    "value": "1UqLohAfWsEGkULYxHjYZg==",
+                },
+                {
+                    "id": "60000000-0000-0000-0000-000000000004",
+                    "labelReferenceInStreamingPolicy": "cencDefaultKey",
+                    "value": "4UqLohAfWsEGkULYxHjYZg==",
+                },
+                {
+                    "id": "60000000-0000-0000-0000-000000000007",
+                    "labelReferenceInStreamingPolicy": "cbcsDefaultKey",
+                    "value": "7UqLohAfWsEGkULYxHjYZg==",
+                },
+            ],
+            resource_group_name="contoso",
+            streaming_locator_id="90000000-0000-0000-0000-00000000000A",
+            streaming_locator_name="UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys",
+            streaming_policy_name="secureStreamingPolicy")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

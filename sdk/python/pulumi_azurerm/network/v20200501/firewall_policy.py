@@ -32,6 +32,32 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         FirewallPolicy Resource.
 
+        ## Create FirewallPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        firewall_policy = azurerm.network.v20200501.FirewallPolicy("firewallPolicy",
+            dns_settings={
+                "enableProxy": True,
+                "requireProxyForNetworkRules": False,
+                "servers": ["30.3.4.5"],
+            },
+            firewall_policy_name="firewallPolicy",
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode="Alert",
+            threat_intel_whitelist={
+                "fqdns": ["*.microsoft.com"],
+                "ipAddresses": ["20.3.4.5"],
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] base_policy: The parent firewall policy from which rules are inherited.

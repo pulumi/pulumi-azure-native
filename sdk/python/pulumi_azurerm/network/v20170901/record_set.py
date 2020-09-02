@@ -40,6 +40,29 @@ class RecordSet(pulumi.CustomResource):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type).
 
+        ## Create CAA recordset
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        record_set = azurerm.network.v20170901.RecordSet("recordSet",
+            caa_records=[{
+                "flags": 0,
+                "tag": "issue",
+                "value": "ca.contoso.com",
+            }],
+            metadata={
+                "key1": "value1",
+            },
+            record_type="CAA",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ARecordArgs']]]] a_records: The list of A records in the record set.

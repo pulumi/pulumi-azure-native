@@ -29,6 +29,20 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         """
         The assembly definition.
 
+        ## Create or update an account assembly
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        integration_account_assembly = azurerm.logic.latest.IntegrationAccountAssembly("integrationAccountAssembly",
+            assembly_artifact_name="testAssembly",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            resource_group_name="testResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assembly_artifact_name: The assembly artifact name.

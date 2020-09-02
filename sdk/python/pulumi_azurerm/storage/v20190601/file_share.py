@@ -29,6 +29,47 @@ class FileShare(pulumi.CustomResource):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
 
+        ## Create NFS Shares
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        file_share = azurerm.storage.v20190601.FileShare("fileShare",
+            account_name="sto666",
+            enabled_protocols="NFS",
+            resource_group_name="res346",
+            share_name="share1235")
+
+        ```
+
+        ## PutShares
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        file_share = azurerm.storage.v20190601.FileShare("fileShare",
+            account_name="sto328",
+            resource_group_name="res3376",
+            share_name="share6185")
+
+        ```
+
+        ## PutShares with Access Tier
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        file_share = azurerm.storage.v20190601.FileShare("fileShare",
+            access_tier="Hot",
+            account_name="sto666",
+            resource_group_name="res346",
+            share_name="share1235")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.

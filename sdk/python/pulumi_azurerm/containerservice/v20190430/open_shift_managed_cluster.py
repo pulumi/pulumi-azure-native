@@ -34,6 +34,63 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         """
         OpenShift Managed cluster.
 
+        ## Create/Update OpenShift Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        open_shift_managed_cluster = azurerm.containerservice.v20190430.OpenShiftManagedCluster("openShiftManagedCluster",
+            agent_pool_profiles=[
+                {
+                    "count": 2,
+                    "name": "infra",
+                    "osType": "Linux",
+                    "role": "infra",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+                {
+                    "count": 4,
+                    "name": "compute",
+                    "osType": "Linux",
+                    "role": "compute",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+            ],
+            auth_profile={
+                "identityProviders": [{
+                    "name": "Azure AD",
+                    "provider": {
+                        "kind": "AADIdentityProvider",
+                    },
+                }],
+            },
+            location="location1",
+            master_pool_profile={
+                "count": 3,
+                "name": "master",
+                "osType": "Linux",
+                "subnetCidr": "10.0.0.0/24",
+                "vmSize": "Standard_D4s_v3",
+            },
+            network_profile={
+                "vnetCidr": "10.0.0.0/8",
+            },
+            open_shift_version="v3.11",
+            resource_group_name="rg1",
+            resource_name="clustername1",
+            router_profiles=[{
+                "name": "default",
+            }],
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Configuration of OpenShift cluster VMs.

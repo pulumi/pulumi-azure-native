@@ -29,6 +29,20 @@ class Deployment(pulumi.CustomResource):
         """
         Deployment resource payload
 
+        ## Deployments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        deployment = azurerm.appplatform.v20200701.Deployment("deployment",
+            app_name="myapp",
+            deployment_name="mydeployment",
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.

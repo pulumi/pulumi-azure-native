@@ -29,6 +29,21 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
         """
         Protection container mapping object.
 
+        ## Create protection container mapping.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        replication_protection_container_mapping = azurerm.recoveryservices.v20180710.ReplicationProtectionContainerMapping("replicationProtectionContainerMapping",
+            fabric_name="cloud1",
+            mapping_name="cloud1protectionprofile1",
+            protection_container_name="cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+            resource_group_name="resourceGroupPS1",
+            resource_name="vault1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.

@@ -26,6 +26,21 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
 
+        ## SBAliasCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        disaster_recovery_config = azurerm.servicebus.latest.DisasterRecoveryConfig("disasterRecoveryConfig",
+            alias="sdk-Namespace-8860",
+            alternate_name="alternameforAlias-Namespace-8860",
+            namespace_name="sdk-Namespace-8860",
+            partner_namespace="sdk-Namespace-37",
+            resource_group_name="ardsouzatestRG")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The Disaster Recovery configuration name

@@ -28,6 +28,26 @@ class Property(pulumi.CustomResource):
         """
         Property details.
 
+        ## ApiManagementCreateProperty
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        property = azurerm.apimanagement.v20190101.Property("property",
+            display_name="prop3name",
+            prop_id="testprop2",
+            resource_group_name="rg1",
+            secret=True,
+            service_name="apimService1",
+            tags=[
+                "foo",
+                "bar",
+            ],
+            value="propValue")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.

@@ -28,6 +28,22 @@ class Profile(pulumi.CustomResource):
         """
         CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
 
+        ## Profiles_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        profile = azurerm.cdn.latest.Profile("profile",
+            location="WestCentralUs",
+            profile_name="profile1",
+            resource_group_name="RG",
+            sku={
+                "name": "Standard_Verizon",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location.

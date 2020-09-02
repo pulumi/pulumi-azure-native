@@ -32,6 +32,53 @@ class Service(pulumi.CustomResource):
         """
         Describes an Azure Cognitive Search service and its current state.
 
+        ## SearchCreateOrUpdateService
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        service = azurerm.search.v20150819.Service("service",
+            hosting_mode="default",
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku={
+                "name": "standard",
+            },
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+
+        ## SearchCreateOrUpdateServiceWithIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        service = azurerm.search.v20150819.Service("service",
+            hosting_mode="default",
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku={
+                "name": "standard",
+            },
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.

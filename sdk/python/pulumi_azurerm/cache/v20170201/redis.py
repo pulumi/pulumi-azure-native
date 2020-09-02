@@ -34,6 +34,31 @@ class Redis(pulumi.CustomResource):
         """
         A single Redis item in List or Get Operation.
 
+        ## RedisCacheCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        redis = azurerm.cache.v20170201.Redis("redis",
+            enable_non_ssl_port=True,
+            location="West US",
+            name="cache1",
+            redis_configuration={
+                "maxmemory-policy": "allkeys-lru",
+            },
+            resource_group_name="rg1",
+            shard_count=2,
+            sku={
+                "capacity": 1,
+                "family": "P",
+                "name": "Premium",
+            },
+            static_ip="192.168.0.5",
+            subnet_id="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.

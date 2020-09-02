@@ -29,6 +29,25 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         """
         The device security group resource
 
+        ## Create or update a device security group for the specified IoT hub resource
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        device_security_group = azurerm.security.v20190801.DeviceSecurityGroup("deviceSecurityGroup",
+            device_security_group_name="samplesecuritygroup",
+            resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub",
+            time_window_rules=[{
+                "isEnabled": True,
+                "maxThreshold": 30,
+                "minThreshold": 0,
+                "ruleType": "ActiveConnectionsNotInAllowedRange",
+                "timeWindowSize": "PT05M",
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]] allowlist_rules: The allow-list custom alert rules.

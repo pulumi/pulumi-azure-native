@@ -27,6 +27,30 @@ class PatchSchedule(pulumi.CustomResource):
         """
         Response to put/get patch schedules for Redis cache.
 
+        ## RedisCachePatchSchedulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        patch_schedule = azurerm.cache.v20180301.PatchSchedule("patchSchedule",
+            default="default",
+            name="cache1",
+            resource_group_name="rg1",
+            schedule_entries=[
+                {
+                    "dayOfWeek": "Monday",
+                    "maintenanceWindow": "PT5H",
+                    "startHourUtc": 12,
+                },
+                {
+                    "dayOfWeek": "Tuesday",
+                    "startHourUtc": 12,
+                },
+            ])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default: Default string modeled as parameter for auto generation to work correctly.

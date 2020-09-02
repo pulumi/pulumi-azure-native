@@ -28,6 +28,28 @@ class Account(pulumi.CustomResource):
         """
         NetApp account resource
 
+        ## Accounts_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        account = azurerm.netapp.v20200601.Account("account",
+            account_name="account1",
+            active_directories=[{
+                "dns": "10.10.10.3, 10.10.10.4",
+                "domain": "10.10.10.3",
+                "organizationalUnit": "Engineering",
+                "password": "ad_password",
+                "site": "SiteName",
+                "smbServerName": "SMBServer",
+                "username": "ad_user_name",
+            }],
+            location="eastus",
+            resource_group_name="myRG")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account

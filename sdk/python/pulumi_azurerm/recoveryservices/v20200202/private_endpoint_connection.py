@@ -30,6 +30,19 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         Private Endpoint Connection Response Properties
 
+        ## Update PrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.recoveryservices.v20200202.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b",
+            resource_group_name="gaallaRG",
+            vault_name="gaallavaultbvtd2msi")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.

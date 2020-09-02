@@ -30,6 +30,37 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         """
         VirtualHubRouteTableV2 Resource.
 
+        ## VirtualHubRouteTableV2Put
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_hub_route_table_v2 = azurerm.network.v20200501.VirtualHubRouteTableV2("virtualHubRouteTableV2",
+            attached_connections=["All_Vnets"],
+            resource_group_name="rg1",
+            route_table_name="virtualHubRouteTable1a",
+            routes=[
+                {
+                    "destinationType": "CIDR",
+                    "destinations": [
+                        "20.10.0.0/16",
+                        "20.20.0.0/16",
+                    ],
+                    "nextHopType": "IPAddress",
+                    "nextHops": ["10.0.0.68"],
+                },
+                {
+                    "destinationType": "CIDR",
+                    "destinations": ["0.0.0.0/0"],
+                    "nextHopType": "IPAddress",
+                    "nextHops": ["10.0.0.68"],
+                },
+            ],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] attached_connections: List of all connections attached to this route table v2.

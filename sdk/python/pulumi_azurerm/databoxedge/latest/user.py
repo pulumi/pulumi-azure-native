@@ -29,6 +29,26 @@ class User(pulumi.CustomResource):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 
+        ## UserPut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        user = azurerm.databoxedge.latest.User("user",
+            device_name="testedgedevice",
+            encrypted_password={
+                "encryptionAlgorithm": "None",
+                "encryptionCertThumbprint": "blah",
+                "value": "Password@1",
+            },
+            name="user1",
+            resource_group_name="GroupForEdgeAutomation",
+            share_access_rights=[],
+            user_type="Share")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.

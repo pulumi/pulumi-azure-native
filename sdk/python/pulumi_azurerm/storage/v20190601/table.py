@@ -24,6 +24,19 @@ class Table(pulumi.CustomResource):
         """
         Properties of the table, including Id, resource name, resource type.
 
+        ## TableOperationPut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        table = azurerm.storage.v20190601.Table("table",
+            account_name="sto328",
+            resource_group_name="res3376",
+            table_name="table6185")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

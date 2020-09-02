@@ -31,6 +31,46 @@ class Account(pulumi.CustomResource):
         """
         Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
 
+        ## Create Account
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        account = azurerm.cognitiveservices.latest.Account("account",
+            account_name="testCreate1",
+            identity={
+                "type": "SystemAssigned",
+            },
+            kind="Emotion",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            sku={
+                "name": "S0",
+            })
+
+        ```
+
+        ## Create Account Min
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        account = azurerm.cognitiveservices.latest.Account("account",
+            account_name="testCreate1",
+            identity={
+                "type": "SystemAssigned",
+            },
+            kind="CognitiveServices",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            sku={
+                "name": "S0",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.

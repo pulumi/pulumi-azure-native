@@ -29,6 +29,23 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         """
         OpenId Connect Provider details.
 
+        ## ApiManagementCreateOpenIdConnectProvider
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        open_id_connect_provider = azurerm.apimanagement.v20191201.OpenIdConnectProvider("openIdConnectProvider",
+            client_id="oidprovidertemplate3",
+            client_secret="x",
+            display_name="templateoidprovider3",
+            metadata_endpoint="https://oidprovider-template3.net",
+            opid="templateOpenIdConnect3",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_id: Client ID of developer console which is the client application.

@@ -28,6 +28,23 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## PrivateEndpointConnections_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.storagesync.latest.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            private_link_service_connection_state={
+                "description": "Auto-Approved",
+                "status": "Approved",
+            },
+            resource_group_name="res7687",
+            storage_sync_service_name="sss2527")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

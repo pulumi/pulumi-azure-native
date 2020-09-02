@@ -28,6 +28,24 @@ class BackupScheduleGroup(pulumi.CustomResource):
         """
         The Backup Schedule Group
 
+        ## BackupScheduleGroupsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        backup_schedule_group = azurerm.storsimple.v20161001.BackupScheduleGroup("backupScheduleGroup",
+            device_name="HSDK-4XY4FI2IVG",
+            manager_name="hAzureSDKOperations",
+            resource_group_name="ResourceGroupForSDKTest",
+            schedule_group_name="BackupSchGroupForSDKTest",
+            start_time={
+                "hour": 17,
+                "minute": 38,
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The name of the device.

@@ -28,6 +28,23 @@ class Gateway(pulumi.CustomResource):
         """
         Gateway details.
 
+        ## ApiManagementCreateGateway
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        gateway = azurerm.apimanagement.latest.Gateway("gateway",
+            description="my gateway 1",
+            gateway_id="gw1",
+            location_data={
+                "name": "my location",
+            },
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Gateway description

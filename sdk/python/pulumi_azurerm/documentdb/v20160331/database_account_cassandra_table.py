@@ -29,6 +29,38 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
         """
         An Azure Cosmos DB Cassandra table.
 
+        ## CosmosDBCassandraTableCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database_account_cassandra_table = azurerm.documentdb.v20160331.DatabaseAccountCassandraTable("databaseAccountCassandraTable",
+            account_name="ddb1",
+            keyspace_name="tableName",
+            options={},
+            resource={
+                "defaultTtl": 100,
+                "id": "tableName",
+                "schema": {
+                    "clusterKeys": [{
+                        "name": "columnA",
+                        "orderBy": "Asc",
+                    }],
+                    "columns": [{
+                        "name": "columnA",
+                        "type": "Ascii",
+                    }],
+                    "partitionKeys": [{
+                        "name": "columnA",
+                    }],
+                },
+            },
+            resource_group_name="rg1",
+            table_name="tableName")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

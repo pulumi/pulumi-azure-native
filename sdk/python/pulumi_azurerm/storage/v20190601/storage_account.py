@@ -41,6 +41,49 @@ class StorageAccount(pulumi.CustomResource):
         """
         The storage account.
 
+        ## StorageAccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        storage_account = azurerm.storage.v20190601.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            encryption={
+                "keySource": "Microsoft.Storage",
+                "requireInfrastructureEncryption": False,
+                "services": {
+                    "blob": {
+                        "enabled": True,
+                        "keyType": "Account",
+                    },
+                    "file": {
+                        "enabled": True,
+                        "keyType": "Account",
+                    },
+                },
+            },
+            is_hns_enabled=True,
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference={
+                "publishInternetEndpoints": True,
+                "publishMicrosoftEndpoints": True,
+                "routingChoice": "MicrosoftRouting",
+            },
+            sku={
+                "name": "Standard_GRS",
+            },
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.

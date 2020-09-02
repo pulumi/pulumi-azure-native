@@ -39,6 +39,35 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         """
         A common class for general resource information
 
+        ## UpdateVirtualNetworkGateway
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_network_gateway = azurerm.network.v20180201.VirtualNetworkGateway("virtualNetworkGateway",
+            active_active=False,
+            bgp_settings={
+                "asn": 65515,
+                "bgpPeeringAddress": "10.0.1.30",
+                "peerWeight": 0,
+            },
+            enable_bgp=False,
+            gateway_type="Vpn",
+            ip_configurations=[{
+                "name": "gwipconfig1",
+            }],
+            location="centralus",
+            resource_group_name="rg1",
+            sku={
+                "name": "VpnGw1",
+                "tier": "VpnGw1",
+            },
+            virtual_network_gateway_name="vpngw",
+            vpn_type="RouteBased")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active_active: ActiveActive flag

@@ -31,6 +31,106 @@ class GalleryImageVersion(pulumi.CustomResource):
         """
         Specifies information about the gallery Image Version that you want to create or update.
 
+        ## Create or update a simple Gallery Image Version (Managed Image as source).
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        gallery_image_version = azurerm.compute.v20191201.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile={
+                "targetRegions": [
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                {
+                                    "diskEncryptionSetId": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet",
+                                    "lun": 0,
+                                },
+                                {
+                                    "diskEncryptionSetId": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet",
+                                    "lun": 1,
+                                },
+                            ],
+                            "osDiskImage": {
+                                "diskEncryptionSetId": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet",
+                            },
+                        },
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "source": {
+                    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+                },
+            })
+
+        ```
+
+        ## Create or update a simple Gallery Image Version using snapshots as a source.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        gallery_image_version = azurerm.compute.v20191201.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile={
+                "targetRegions": [
+                    {
+                        "encryption": {
+                            "dataDiskImages": [{
+                                "diskEncryptionSetId": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet",
+                                "lun": 1,
+                            }],
+                            "osDiskImage": {
+                                "diskEncryptionSetId": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet",
+                            },
+                        },
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "dataDiskImages": [{
+                    "hostCaching": "None",
+                    "lun": 1,
+                    "source": {
+                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/snapshots/{diskSnapshotName}",
+                    },
+                }],
+                "osDiskImage": {
+                    "hostCaching": "ReadOnly",
+                    "source": {
+                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/snapshots/{snapshotName}",
+                    },
+                },
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gallery_image_name: The name of the gallery Image Definition in which the Image Version is to be created.

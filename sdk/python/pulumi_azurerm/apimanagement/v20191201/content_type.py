@@ -24,6 +24,19 @@ class ContentType(pulumi.CustomResource):
         """
         Content type contract details.
 
+        ## ApiManagementCreateContentType
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        content_type = azurerm.apimanagement.v20191201.ContentType("contentType",
+            content_type_id="page",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type_id: Content type identifier.

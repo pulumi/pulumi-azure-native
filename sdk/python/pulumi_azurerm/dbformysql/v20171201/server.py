@@ -30,6 +30,85 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
+        ## Create a database as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        server = azurerm.dbformysql.v20171201.Server("server",
+            location="brazilsouth",
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "GP_Gen5_2",
+                "tier": "GeneralPurpose",
+            },
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+
+        ## Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        server = azurerm.dbformysql.v20171201.Server("server",
+            location="westus",
+            resource_group_name="testrg",
+            server_name="mysqltestsvc4",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "GP_Gen5_2",
+                "tier": "GeneralPurpose",
+            },
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+
+        ## Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        server = azurerm.dbformysql.v20171201.Server("server",
+            location="westus",
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver")
+
+        ```
+
+        ## Create a server as a geo restore
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        server = azurerm.dbformysql.v20171201.Server("server",
+            location="westus",
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            sku={
+                "capacity": 2,
+                "family": "Gen5",
+                "name": "GP_Gen5_2",
+                "tier": "GeneralPurpose",
+            },
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the server.

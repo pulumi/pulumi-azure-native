@@ -30,6 +30,31 @@ class FileServer(pulumi.CustomResource):
         """
         File Server information.
 
+        ## Create a file server
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        file_server = azurerm.batchai.v20180501.FileServer("fileServer",
+            data_disks={
+                "diskCount": 2,
+                "diskSizeInGB": 10,
+                "storageAccountType": "Standard_LRS",
+            },
+            file_server_name="demo_nfs",
+            resource_group_name="demo_resource_group",
+            ssh_configuration={
+                "userAccountSettings": {
+                    "adminUserName": "admin_user_name",
+                    "adminUserPassword": "admin_user_password",
+                },
+            },
+            vm_size="STANDARD_NC6",
+            workspace_name="demo_workspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DataDisksArgs']] data_disks: Settings for the data disks which will be created for the File Server.

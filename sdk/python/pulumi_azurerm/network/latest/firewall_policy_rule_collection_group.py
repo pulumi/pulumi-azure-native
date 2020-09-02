@@ -30,6 +30,42 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         """
         Rule Collection Group resource.
 
+        ## Create FirewallPolicyRuleCollectionGroup
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        firewall_policy_rule_collection_group = azurerm.network.latest.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup",
+            firewall_policy_name="firewallPolicy",
+            priority=110,
+            resource_group_name="rg1",
+            rule_collection_group_name="ruleCollectionGroup1",
+            rule_collections=[{
+                "name": "Example-Filter-Rule-Collection",
+                "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
+            }])
+
+        ```
+
+        ## Create FirewallPolicyRuleCollectionGroup With IpGroups
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        firewall_policy_rule_collection_group = azurerm.network.latest.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup",
+            firewall_policy_name="firewallPolicy",
+            priority=110,
+            resource_group_name="rg1",
+            rule_collection_group_name="ruleCollectionGroup1",
+            rule_collections=[{
+                "name": "Example-Filter-Rule-Collection",
+                "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.

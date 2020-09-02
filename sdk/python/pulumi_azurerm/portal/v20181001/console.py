@@ -25,6 +25,16 @@ class Console(pulumi.CustomResource):
         """
         Cloud shell console
 
+        ## PutConsole
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        console = azurerm.portal.v20181001.Console("console", console_name="default")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] console_name: The name of the console

@@ -31,6 +31,33 @@ class OriginGroup(pulumi.CustomResource):
         """
         Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 
+        ## OriginGroups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        origin_group = azurerm.cdn.v20200331.OriginGroup("originGroup",
+            endpoint_name="endpoint1",
+            health_probe_settings={
+                "probeIntervalInSeconds": 120,
+                "probePath": "/health.aspx",
+                "probeProtocol": "Http",
+                "probeRequestType": "GET",
+            },
+            origin_group_name="origingroup1",
+            origins=[{
+                "id": "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+            }],
+            profile_name="profile1",
+            resource_group_name="RG",
+            response_based_origin_error_detection_settings={
+                "responseBasedDetectedErrorTypes": "TcpErrorsOnly",
+                "responseBasedFailoverThresholdPercentage": 10,
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.

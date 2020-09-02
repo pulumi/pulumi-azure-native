@@ -38,6 +38,21 @@ class Subscription(pulumi.CustomResource):
         """
         Description of subscription resource.
 
+        ## SubscriptionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        subscription = azurerm.servicebus.latest.Subscription("subscription",
+            enable_batched_operations=True,
+            namespace_name="sdk-Namespace-1349",
+            resource_group_name="ResourceGroup",
+            subscription_name="sdk-Subscriptions-2178",
+            topic_name="sdk-Topics-8740")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.

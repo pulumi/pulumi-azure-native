@@ -32,6 +32,21 @@ class BotConnection(pulumi.CustomResource):
         """
         Bot channel resource definition
 
+        ## Create Connection Setting
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        bot_connection = azurerm.botservice.latest.BotConnection("botConnection",
+            connection_name="sampleConnection",
+            etag="etag1",
+            location="West US",
+            resource_group_name="OneResourceGroupName",
+            resource_name="samplebotname")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name of the Bot Service Connection Setting resource.

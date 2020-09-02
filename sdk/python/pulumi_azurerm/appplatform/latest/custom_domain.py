@@ -28,6 +28,20 @@ class CustomDomain(pulumi.CustomResource):
         """
         Custom domain resource payload.
 
+        ## CustomDomains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        custom_domain = azurerm.appplatform.latest.CustomDomain("customDomain",
+            app_name="myapp",
+            domain_name="mydomain.com",
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.

@@ -29,6 +29,20 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         """
         Specifies information about the proximity placement group.
 
+        ## Create or Update a proximity placement group.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        proximity_placement_group = azurerm.compute.v20191201.ProximityPlacementGroup("proximityPlacementGroup",
+            location="westus",
+            proximity_placement_group_name="myProximityPlacementGroup",
+            proximity_placement_group_type="Standard",
+            resource_group_name="myResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['InstanceViewStatusArgs']] colocation_status: Describes colocation status of the Proximity Placement Group.

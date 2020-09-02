@@ -28,6 +28,20 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         """
         Managed private endpoint resource type.
 
+        ## ManagedVirtualNetworks_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_private_endpoint = azurerm.datafactory.latest.ManagedPrivateEndpoint("managedPrivateEndpoint",
+            factory_name="exampleFactoryName",
+            managed_private_endpoint_name="exampleManagedPrivateEndpointName",
+            managed_virtual_network_name="exampleManagedVirtualNetworkName",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.

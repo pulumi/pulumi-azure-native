@@ -25,6 +25,23 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """
         Describes an identity resource.
 
+        ## IdentityCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        user_assigned_identity = azurerm.managedidentity.latest.UserAssignedIdentity("userAssignedIdentity",
+            location="eastus",
+            resource_group_name="rgName",
+            resource_name="resourceName",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives

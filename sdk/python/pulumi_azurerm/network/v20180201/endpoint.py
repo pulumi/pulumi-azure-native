@@ -34,6 +34,43 @@ class Endpoint(pulumi.CustomResource):
         """
         Class representing a Traffic Manager endpoint.
 
+        ## Endpoint-PUT-External-WithGeoMapping
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        endpoint = azurerm.network.v20180201.Endpoint("endpoint",
+            endpoint_name="My%20external%20endpoint",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            geo_mapping=[
+                "GEO-AS",
+                "GEO-AF",
+            ],
+            profile_name="azuresdkfornetautoresttrafficmanager8224",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2191",
+            target="foobar.contoso.com")
+
+        ```
+
+        ## Endpoint-PUT-External-WithLocation
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        endpoint = azurerm.network.v20180201.Endpoint("endpoint",
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.

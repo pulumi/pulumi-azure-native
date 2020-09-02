@@ -28,6 +28,20 @@ class Binding(pulumi.CustomResource):
         """
         Binding resource payload
 
+        ## Bindings_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        binding = azurerm.appplatform.latest.Binding("binding",
+            app_name="myapp",
+            binding_name="mybinding",
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.

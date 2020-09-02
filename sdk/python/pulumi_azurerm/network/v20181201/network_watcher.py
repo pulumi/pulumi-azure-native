@@ -27,6 +27,19 @@ class NetworkWatcher(pulumi.CustomResource):
         """
         Network watcher in a resource group.
 
+        ## Create network watcher
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        network_watcher = azurerm.network.v20181201.NetworkWatcher("networkWatcher",
+            location="eastus",
+            network_watcher_name="nw1",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.

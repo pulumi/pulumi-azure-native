@@ -28,6 +28,22 @@ class OuContainer(pulumi.CustomResource):
         """
         Resource for OuContainer.
 
+        ## Create Domain Service
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        ou_container = azurerm.aad.v20170601.OuContainer("ouContainer",
+            account_name="AccountName1",
+            domain_service_name="OuContainer.com",
+            ou_container_name="OuContainer1",
+            password="Password1",
+            resource_group_name="OuContainerResourceGroup",
+            spn="Spn1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The account name

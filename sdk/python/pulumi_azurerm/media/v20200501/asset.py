@@ -28,6 +28,21 @@ class Asset(pulumi.CustomResource):
         """
         An Asset.
 
+        ## Create an Asset
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        asset = azurerm.media.v20200501.Asset("asset",
+            account_name="contosomedia",
+            asset_name="ClimbingMountLogan",
+            description="A documentary showing the ascent of Mount Logan",
+            resource_group_name="contoso",
+            storage_account_name="storage0")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

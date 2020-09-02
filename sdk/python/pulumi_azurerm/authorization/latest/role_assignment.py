@@ -26,6 +26,18 @@ class RoleAssignment(pulumi.CustomResource):
         """
         Role Assignments
 
+        ## GetConfigurations
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        role_assignment = azurerm.authorization.latest.RoleAssignment("roleAssignment",
+            role_assignment_name="roleAssignmentName",
+            scope="scope")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']] properties: Role assignment properties.

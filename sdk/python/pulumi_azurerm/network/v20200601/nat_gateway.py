@@ -33,6 +33,28 @@ class NatGateway(pulumi.CustomResource):
         """
         Nat Gateway resource.
 
+        ## Create nat gateway
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        nat_gateway = azurerm.network.v20200601.NatGateway("natGateway",
+            location="westus",
+            nat_gateway_name="test-natgateway",
+            public_ip_addresses=[{
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIpAddress1",
+            }],
+            public_ip_prefixes=[{
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/PublicIpPrefix1",
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": "Standard",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.

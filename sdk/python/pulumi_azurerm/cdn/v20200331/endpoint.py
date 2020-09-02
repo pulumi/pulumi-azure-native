@@ -44,6 +44,68 @@ class Endpoint(pulumi.CustomResource):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
 
+        ## Endpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        endpoint = azurerm.cdn.v20200331.Endpoint("endpoint",
+            content_types_to_compress=[
+                "text/html",
+                "application/octet-stream",
+            ],
+            default_origin_group={
+                "id": "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/originGroups/originGroup1",
+            },
+            delivery_policy={
+                "description": "Test description for a policy.",
+                "rules": [{
+                    "actions": [
+                        {
+                            "name": "CacheExpiration",
+                        },
+                        {
+                            "name": "ModifyResponseHeader",
+                        },
+                        {
+                            "name": "ModifyRequestHeader",
+                        },
+                    ],
+                    "conditions": [{
+                        "name": "RemoteAddress",
+                    }],
+                    "name": "rule1",
+                    "order": 1,
+                }],
+            },
+            endpoint_name="endpoint1",
+            is_compression_enabled=True,
+            is_http_allowed=True,
+            is_https_allowed=True,
+            location="WestUs",
+            origin_groups=[{
+                "name": "originGroup1",
+            }],
+            origin_host_header="www.bing.com",
+            origin_path="/photos",
+            origins=[
+                {
+                    "name": "origin1",
+                },
+                {
+                    "name": "origin2",
+                },
+            ],
+            profile_name="profile1",
+            query_string_caching_behavior="BypassCaching",
+            resource_group_name="RG",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.

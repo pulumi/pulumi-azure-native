@@ -35,6 +35,23 @@ class Lab(pulumi.CustomResource):
         """
         A lab.
 
+        ## Labs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        lab = azurerm.devtestlab.v20180915.Lab("lab",
+            lab_storage_type="{Standard|Premium}",
+            location="{azure-location}",
+            name="{devtestlab-name}",
+            resource_group_name="myResourceGroup",
+            tags={
+                "MyTag": "MyValue",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LabAnnouncementPropertiesArgs']] announcement: The properties of any lab announcement associated with this lab

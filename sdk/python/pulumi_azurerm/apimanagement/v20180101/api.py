@@ -44,6 +44,161 @@ class Api(pulumi.CustomResource):
         """
         API details.
 
+        ## ApiManagementCreateApi
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api = azurerm.apimanagement.v20180101.Api("api",
+            api_id="tempgroup",
+            authentication_settings={
+                "oAuth2": {
+                    "authorizationServerId": "authorizationServerId2283",
+                    "scope": "oauth2scope2580",
+                },
+            },
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                "https",
+                "http",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://newechoapi.cloudapp.net/api",
+            subscription_key_parameter_names={
+                "header": "header4520",
+                "query": "query3037",
+            })
+
+        ```
+
+        ## ApiManagementCreateApiRevision
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api = azurerm.apimanagement.v20180101.Api("api",
+            api_id="echo-api;rev=4",
+            api_revision_description="moved to swagger petstore backend",
+            description="This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+            display_name="Echo API",
+            path="petstore2",
+            protocols=["https"],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://petstore.swagger.io/v5",
+            subscription_key_parameter_names={
+                "header": "Ocp-Apim-Subscription-Key",
+                "query": "subscription-key",
+            })
+
+        ```
+
+        ## ApiManagementCreateApiUsingSwaggerImport
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api = azurerm.apimanagement.v20180101.Api("api",
+            api_id="petstore",
+            content_format="swagger-link-json",
+            content_value="http://petstore.swagger.io/v2/swagger.json",
+            path="petstore",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## ApiManagementCreateApiUsingWadlImport
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api = azurerm.apimanagement.v20180101.Api("api",
+            api_id="petstore",
+            content_format="wadl-link-json",
+            content_value="https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl",
+            path="collector",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## ApiManagementCreateApiWithOpenIdConnect
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api = azurerm.apimanagement.v20180101.Api("api",
+            api_id="tempgroup",
+            authentication_settings={
+                "openid": {
+                    "bearerTokenSendingMethods": ["authorizationHeader"],
+                    "openidProviderId": "testopenid",
+                },
+            },
+            description="This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+            display_name="Swagger Petstore",
+            path="petstore",
+            protocols=["https"],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://petstore.swagger.io/v2",
+            subscription_key_parameter_names={
+                "header": "Ocp-Apim-Subscription-Key",
+                "query": "subscription-key",
+            })
+
+        ```
+
+        ## ApiManagementCreateSoapPassThroughApiUsingWsdlImport
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api = azurerm.apimanagement.v20180101.Api("api",
+            api_id="soapApi",
+            content_format="wsdl-link",
+            content_value="http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+            path="currency",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            soap_api_type="soap",
+            wsdl_selector={
+                "wsdlEndpointName": "CurrencyConvertorSoap",
+                "wsdlServiceName": "CurrencyConvertor",
+            })
+
+        ```
+
+        ## ApiManagementCreateSoapToRestApiUsingWsdlImport
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api = azurerm.apimanagement.v20180101.Api("api",
+            api_id="soapApi",
+            content_format="wsdl-link",
+            content_value="http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+            path="currency",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            wsdl_selector={
+                "wsdlEndpointName": "CurrencyConvertorSoap",
+                "wsdlServiceName": "CurrencyConvertor",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

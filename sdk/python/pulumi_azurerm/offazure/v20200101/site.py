@@ -30,6 +30,19 @@ class Site(pulumi.CustomResource):
         """
         Site REST Resource.
 
+        ## Create VMware site
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        site = azurerm.offazure.v20200101.Site("site",
+            location="eastus",
+            resource_group_name="pajindTest",
+            site_name="appliance1e39site")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: eTag for concurrency control.

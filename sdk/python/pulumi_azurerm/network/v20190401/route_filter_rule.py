@@ -30,6 +30,25 @@ class RouteFilterRule(pulumi.CustomResource):
         """
         Route Filter Rule Resource.
 
+        ## RouteFilterRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        route_filter_rule = azurerm.network.v20190401.RouteFilterRule("routeFilterRule",
+            access="Allow",
+            communities=[
+                "12076:5030",
+                "12076:5040",
+            ],
+            resource_group_name="rg1",
+            route_filter_name="filterName",
+            route_filter_rule_type="Community",
+            rule_name="ruleName")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: The access type of the rule.

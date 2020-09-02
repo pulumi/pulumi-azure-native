@@ -26,6 +26,21 @@ class ApiDiagnostic(pulumi.CustomResource):
         """
         Diagnostic details.
 
+        ## ApiManagementCreateApiDiagnostic
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_diagnostic = azurerm.apimanagement.v20180101.ApiDiagnostic("apiDiagnostic",
+            api_id="57d1f7558aa04f15146d9d8a",
+            diagnostic_id="default",
+            enabled=True,
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.

@@ -29,6 +29,165 @@ class Output(pulumi.CustomResource):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 
+        ## Create a DocumentDB output
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        output = azurerm.streamanalytics.v20160301.Output("output",
+            datasource={
+                "type": "Microsoft.Storage/DocumentDB",
+            },
+            job_name="sj2331",
+            output_name="output3022",
+            resource_group_name="sjrg7983")
+
+        ```
+
+        ## Create a Power BI output
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        output = azurerm.streamanalytics.v20160301.Output("output",
+            datasource={
+                "type": "PowerBI",
+            },
+            job_name="sj2331",
+            output_name="output3022",
+            resource_group_name="sjrg7983")
+
+        ```
+
+        ## Create a Service Bus Queue output with Avro serialization
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        output = azurerm.streamanalytics.v20160301.Output("output",
+            datasource={
+                "type": "Microsoft.ServiceBus/Queue",
+            },
+            job_name="sj5095",
+            output_name="output3456",
+            resource_group_name="sjrg3410",
+            serialization={
+                "type": "Avro",
+            })
+
+        ```
+
+        ## Create a Service Bus Topic output with CSV serialization
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        output = azurerm.streamanalytics.v20160301.Output("output",
+            datasource={
+                "type": "Microsoft.ServiceBus/Topic",
+            },
+            job_name="sj7094",
+            output_name="output7886",
+            resource_group_name="sjrg6450",
+            serialization={
+                "type": "Csv",
+            })
+
+        ```
+
+        ## Create a blob output with CSV serialization
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        output = azurerm.streamanalytics.v20160301.Output("output",
+            datasource={
+                "type": "Microsoft.Storage/Blob",
+            },
+            job_name="sj900",
+            output_name="output1623",
+            resource_group_name="sjrg5023",
+            serialization={
+                "type": "Csv",
+            })
+
+        ```
+
+        ## Create an Azure Data Lake Store output with JSON serialization
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        output = azurerm.streamanalytics.v20160301.Output("output",
+            datasource={
+                "type": "Microsoft.DataLake/Accounts",
+            },
+            job_name="sj3310",
+            output_name="output5195",
+            resource_group_name="sjrg6912",
+            serialization={
+                "type": "Json",
+            })
+
+        ```
+
+        ## Create an Azure SQL database output
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        output = azurerm.streamanalytics.v20160301.Output("output",
+            datasource={
+                "type": "Microsoft.Sql/Server/Database",
+            },
+            job_name="sj6458",
+            output_name="output1755",
+            resource_group_name="sjrg2157")
+
+        ```
+
+        ## Create an Azure Table output
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        output = azurerm.streamanalytics.v20160301.Output("output",
+            datasource={
+                "type": "Microsoft.Storage/Table",
+            },
+            job_name="sj2790",
+            output_name="output958",
+            resource_group_name="sjrg5176")
+
+        ```
+
+        ## Create an Event Hub output with JSON serialization
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        output = azurerm.streamanalytics.v20160301.Output("output",
+            datasource={
+                "type": "Microsoft.ServiceBus/EventHub",
+            },
+            job_name="sj3310",
+            output_name="output5195",
+            resource_group_name="sjrg6912",
+            serialization={
+                "type": "Json",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['OutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.

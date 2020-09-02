@@ -27,6 +27,19 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## PutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.cognitiveservices.latest.PrivateEndpointConnection("privateEndpointConnection",
+            account_name="sto9699",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            resource_group_name="res7687")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.

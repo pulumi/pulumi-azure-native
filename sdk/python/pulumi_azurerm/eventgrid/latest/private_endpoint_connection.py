@@ -29,7 +29,25 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a PrivateEndpointConnection resource with the given unique name, props, and options.
+        ## PrivateEndpointConnections_Update
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.eventgrid.latest.PrivateEndpointConnection("privateEndpointConnection",
+            parent_name="exampletopic1",
+            parent_type="topics",
+            private_endpoint_connection_name="BMTPE5.8A30D251-4C61-489D-A1AA-B37C4A329B8B",
+            private_link_service_connection_state={
+                "actionsRequired": "None",
+                "description": "approving connection",
+                "status": "Approved",
+            },
+            resource_group_name="examplerg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.

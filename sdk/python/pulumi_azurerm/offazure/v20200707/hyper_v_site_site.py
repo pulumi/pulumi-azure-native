@@ -30,6 +30,19 @@ class HyperVSiteSite(pulumi.CustomResource):
         """
         Site REST Resource.
 
+        ## Create Hyper-V site
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        hyper_v_site_site = azurerm.offazure.v20200707.HyperVSiteSite("hyperVSiteSite",
+            location="eastus",
+            resource_group_name="pajindTest",
+            site_name="appliance1e39site")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: eTag for concurrency control.

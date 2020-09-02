@@ -34,6 +34,27 @@ class Namespace(pulumi.CustomResource):
         """
         Single Namespace item in List or Get Operation
 
+        ## NamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        namespace = azurerm.eventhub.v20150801.Namespace("namespace",
+            location="South Central US",
+            namespace_name="sdk-Namespace8107",
+            resource_group_name="Default-ServiceBus-WestUS",
+            sku={
+                "name": "Standard",
+                "tier": "Standard",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The time the Namespace was created.

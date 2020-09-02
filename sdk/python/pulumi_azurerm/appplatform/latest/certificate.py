@@ -27,6 +27,19 @@ class Certificate(pulumi.CustomResource):
         """
         Certificate resource payload.
 
+        ## Certificates_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        certificate = azurerm.appplatform.latest.Certificate("certificate",
+            certificate_name="mycertificate",
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: The name of the certificate resource.

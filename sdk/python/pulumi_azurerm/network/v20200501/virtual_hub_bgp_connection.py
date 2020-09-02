@@ -28,6 +28,21 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         """
         Virtual Appliance Site resource.
 
+        ## VirtualHubRouteTableV2Put
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_hub_bgp_connection = azurerm.network.v20200501.VirtualHubBgpConnection("virtualHubBgpConnection",
+            connection_name="conn1",
+            peer_asn=20000,
+            peer_ip="192.168.1.5",
+            resource_group_name="rg1",
+            virtual_hub_name="hub1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name of the connection.

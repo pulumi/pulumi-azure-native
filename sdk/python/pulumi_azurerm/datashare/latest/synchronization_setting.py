@@ -26,6 +26,21 @@ class SynchronizationSetting(pulumi.CustomResource):
         """
         A Synchronization Setting data transfer object.
 
+        ## SynchronizationSettings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        synchronization_setting = azurerm.datashare.latest.SynchronizationSetting("synchronizationSetting",
+            account_name="Account1",
+            kind="ScheduleBased",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            synchronization_setting_name="Dataset1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.

@@ -31,6 +31,21 @@ class Route(pulumi.CustomResource):
         """
         Route resource
 
+        ## Create route
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        route = azurerm.network.v20171001.Route("route",
+            address_prefix="10.0.3.0/24",
+            next_hop_type="VirtualNetworkGateway",
+            resource_group_name="rg1",
+            route_name="route1",
+            route_table_name="testrt")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies.

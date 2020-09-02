@@ -28,6 +28,21 @@ class VirtualRouterPeering(pulumi.CustomResource):
         """
         Virtual Router Peering resource.
 
+        ## Create Virtual Router Peering
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_router_peering = azurerm.network.v20200401.VirtualRouterPeering("virtualRouterPeering",
+            peer_asn=20000,
+            peer_ip="192.168.1.5",
+            peering_name="peering1",
+            resource_group_name="rg1",
+            virtual_router_name="virtualRouter")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.

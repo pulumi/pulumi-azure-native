@@ -34,6 +34,28 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         """
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
 
+        ## ExpressRouteCircuitConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        express_route_circuit_connection = azurerm.network.v20190901.ExpressRouteCircuitConnection("expressRouteCircuitConnection",
+            address_prefix="10.0.0.0/29",
+            authorization_key="946a1918-b7a2-4917-b43c-8c4cdaee006a",
+            circuit_name="ExpressRouteARMCircuitA",
+            connection_name="circuitConnectionUSAUS",
+            express_route_circuit_peering={
+                "id": "/subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/dedharcktlocal/peerings/AzurePrivatePeering",
+            },
+            peer_express_route_circuit_peering={
+                "id": "/subscriptions/subid2/resourceGroups/dedharcktpeer/providers/Microsoft.Network/expressRouteCircuits/dedharcktremote/peerings/AzurePrivatePeering",
+            },
+            peering_name="AzurePrivatePeering",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: /29 IP address space to carve out Customer addresses for tunnels.

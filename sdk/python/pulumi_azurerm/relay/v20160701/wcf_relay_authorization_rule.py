@@ -26,6 +26,24 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
         """
         Description of a Namespace AuthorizationRules.
 
+        ## RelayAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        wcf_relay_authorization_rule = azurerm.relay.v20160701.WCFRelayAuthorizationRule("wcfRelayAuthorizationRule",
+            authorization_rule_name="sdk-RelayAuthRules-01",
+            namespace_name="sdk-RelayNamespace-01",
+            relay_name="sdk-Relay-wcf-01",
+            resource_group_name="RG-eg",
+            rights=[
+                "Listen",
+                "Send",
+            ])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorizationRule name.

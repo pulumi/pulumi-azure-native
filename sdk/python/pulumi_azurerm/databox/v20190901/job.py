@@ -31,6 +31,44 @@ class Job(pulumi.CustomResource):
         """
         Job Resource.
 
+        ## JobsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        job = azurerm.databox.v20190901.Job("job",
+            details={
+                "contactDetails": {
+                    "contactName": "Public SDK Test",
+                    "emailList": ["testing@microsoft.com"],
+                    "phone": "1234567890",
+                    "phoneExtension": "1234",
+                },
+                "destinationAccountDetails": [{
+                    "dataDestinationType": "StorageAccount",
+                }],
+                "jobDetailsType": "DataBox",
+                "shippingAddress": {
+                    "addressType": "Commercial",
+                    "city": "San Francisco",
+                    "companyName": "Microsoft",
+                    "country": "US",
+                    "postalCode": "94107",
+                    "stateOrProvince": "CA",
+                    "streetAddress1": "16 TOWNSEND ST",
+                    "streetAddress2": "Unit 1",
+                },
+            },
+            job_name="SdkJob3971",
+            location="westus",
+            resource_group_name="SdkRg4981",
+            sku={
+                "name": "DataBox",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']] delivery_info: Delivery Info of Job.

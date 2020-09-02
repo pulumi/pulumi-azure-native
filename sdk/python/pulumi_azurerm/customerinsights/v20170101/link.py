@@ -34,6 +34,37 @@ class Link(pulumi.CustomResource):
         """
         The link resource format.
 
+        ## Links_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        link = azurerm.customerinsights.v20170101.Link("link",
+            description={
+                "en-us": "Link Description",
+            },
+            display_name={
+                "en-us": "Link DisplayName",
+            },
+            hub_name="sdkTestHub",
+            link_name="linkTest4806",
+            mappings=[{
+                "interactionTypePropertyName": "testInteraction1949",
+                "isProfileTypeId": True,
+                "linkType": "UpdateAlways",
+                "profileTypePropertyName": "testProfile1446",
+            }],
+            participant_property_references=[{
+                "interactionPropertyName": "testInteraction1949",
+                "profilePropertyName": "ProfileId",
+            }],
+            resource_group_name="TestHubRG",
+            source_interaction_type="testInteraction1949",
+            target_profile_type="testProfile1446")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the Link.

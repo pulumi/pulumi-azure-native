@@ -28,6 +28,109 @@ class ContentKeyPolicy(pulumi.CustomResource):
         """
         A Content Key Policy resource.
 
+        ## Creates a Content Key Policy with ClearKey option and Token Restriction
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        content_key_policy = azurerm.media.v20180701.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyWithClearKeyOptionAndSwtTokenRestriction",
+            description="ArmPolicyDescription",
+            options=[{
+                "configuration": {
+                    "odataType": "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+                },
+                "name": "ClearKeyOption",
+                "restriction": {
+                    "odataType": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                },
+            }],
+            resource_group_name="contoso")
+
+        ```
+
+        ## Creates a Content Key Policy with PlayReady option and Open Restriction
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        content_key_policy = azurerm.media.v20180701.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyWithPlayReadyOptionAndOpenRestriction",
+            description="ArmPolicyDescription",
+            options=[{
+                "configuration": {
+                    "odataType": "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+                },
+                "name": "ArmPolicyOptionName",
+                "restriction": {
+                    "odataType": "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+                },
+            }],
+            resource_group_name="contoso")
+
+        ```
+
+        ## Creates a Content Key Policy with Widevine option and Token Restriction
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        content_key_policy = azurerm.media.v20180701.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyWithWidevineOptionAndJwtTokenRestriction",
+            description="ArmPolicyDescription",
+            options=[{
+                "configuration": {
+                    "odataType": "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+                },
+                "name": "widevineoption",
+                "restriction": {
+                    "odataType": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                },
+            }],
+            resource_group_name="contoso")
+
+        ```
+
+        ## Creates a Content Key Policy with multiple options
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        content_key_policy = azurerm.media.v20180701.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyCreatedWithMultipleOptions",
+            description="ArmPolicyDescription",
+            options=[
+                {
+                    "configuration": {
+                        "odataType": "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+                    },
+                    "name": "ClearKeyOption",
+                    "restriction": {
+                        "odataType": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                    },
+                },
+                {
+                    "configuration": {
+                        "odataType": "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+                    },
+                    "name": "widevineoption",
+                    "restriction": {
+                        "odataType": "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+                    },
+                },
+            ],
+            resource_group_name="contoso")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

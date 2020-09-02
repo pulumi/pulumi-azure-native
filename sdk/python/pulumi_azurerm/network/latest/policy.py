@@ -31,6 +31,65 @@ class Policy(pulumi.CustomResource):
         """
         Defines web application firewall policy.
 
+        ## Creates specific policy
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        policy = azurerm.network.latest.Policy("policy",
+            custom_rules={
+                "rules": [
+                    {
+                        "action": "Block",
+                        "matchConditions": [{
+                            "operator": "IPMatch",
+                        }],
+                        "name": "Rule1",
+                        "priority": 1,
+                        "rateLimitThreshold": 1000,
+                        "ruleType": "RateLimitRule",
+                    },
+                    {
+                        "action": "Block",
+                        "matchConditions": [
+                            {
+                                "operator": "GeoMatch",
+                            },
+                            {
+                                "operator": "Contains",
+                                "transforms": ["Lowercase"],
+                            },
+                        ],
+                        "name": "Rule2",
+                        "priority": 2,
+                        "ruleType": "MatchRule",
+                    },
+                ],
+            },
+            managed_rules={
+                "managedRuleSets": [{
+                    "ruleGroupOverrides": [{
+                        "ruleGroupName": "SQLI",
+                        "rules": [
+                            {
+                                "ruleId": "942100",
+                            },
+                            {
+                                "ruleId": "942110",
+                            },
+                        ],
+                    }],
+                    "ruleSetType": "DefaultRuleSet",
+                    "ruleSetVersion": "1.0",
+                }],
+            },
+            policy_name="Policy1",
+            policy_settings={},
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CustomRuleListArgs']] custom_rules: Describes custom rules inside the policy.

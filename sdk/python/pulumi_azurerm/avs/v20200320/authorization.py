@@ -24,6 +24,19 @@ class Authorization(pulumi.CustomResource):
         """
         ExpressRoute Circuit Authorization
 
+        ## Authorizations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        authorization = azurerm.avs.v20200320.Authorization("authorization",
+            authorization_name="authorization1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud

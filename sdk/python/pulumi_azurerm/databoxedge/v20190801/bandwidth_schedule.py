@@ -28,6 +28,26 @@ class BandwidthSchedule(pulumi.CustomResource):
         """
         The bandwidth schedule details.
 
+        ## BandwidthSchedulePut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        bandwidth_schedule = azurerm.databoxedge.v20190801.BandwidthSchedule("bandwidthSchedule",
+            days=[
+                "Sunday",
+                "Monday",
+            ],
+            device_name="testedgedevice",
+            name="bandwidth-1",
+            rate_in_mbps=100,
+            resource_group_name="GroupForEdgeAutomation",
+            start="0:0:0",
+            stop="13:59:0")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] days: The days of the week when this schedule is applicable.

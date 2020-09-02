@@ -44,6 +44,523 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Describes a Virtual Machine.
 
+        ## Create a custom-image vm from an unmanaged generalized os image.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vmSize": "Standard_D1_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminPassword": "{your-password}",
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "osDisk": {
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage",
+                    "image": {
+                        "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/{existing-generalized-os-image-blob-name}.vhd",
+                    },
+                    "name": "myVMosdisk",
+                    "osType": "Windows",
+                    "vhd": {
+                        "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+                    },
+                },
+            },
+            vm_name="{vm-name}")
+
+        ```
+
+        ## Create a platform-image vm with unmanaged os and data disks.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vmSize": "Standard_D2_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminPassword": "{your-password}",
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "dataDisks": [
+                    {
+                        "createOption": "Empty",
+                        "diskSizeGB": 1023,
+                        "lun": 0,
+                        "vhd": {
+                            "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk0.vhd",
+                        },
+                    },
+                    {
+                        "createOption": "Empty",
+                        "diskSizeGB": 1023,
+                        "lun": 1,
+                        "vhd": {
+                            "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk1.vhd",
+                        },
+                    },
+                ],
+                "imageReference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "osDisk": {
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage",
+                    "name": "myVMosdisk",
+                    "vhd": {
+                        "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+                    },
+                },
+            },
+            vm_name="{vm-name}")
+
+        ```
+
+        ## Create a vm from a custom image.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vmSize": "Standard_D1_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminPassword": "{your-password}",
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "imageReference": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+                },
+                "osDisk": {
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                        "storageAccountType": "Standard_LRS",
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
+        ## Create a vm in an availability set.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            availability_set={
+                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/{existing-availability-set-name}",
+            },
+            hardware_profile={
+                "vmSize": "Standard_D1_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminPassword": "{your-password}",
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "imageReference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "osDisk": {
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                        "storageAccountType": "Standard_LRS",
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
+        ## Create a vm with a marketplace image plan.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vmSize": "Standard_D1_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminPassword": "{your-password}",
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "imageReference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "osDisk": {
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                        "storageAccountType": "Standard_LRS",
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
+        ## Create a vm with boot diagnostics.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "bootDiagnostics": {
+                    "enabled": True,
+                    "storageUri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vmSize": "Standard_D1_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminPassword": "{your-password}",
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "imageReference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "osDisk": {
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                        "storageAccountType": "Standard_LRS",
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
+        ## Create a vm with empty data disks.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vmSize": "Standard_D2_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminPassword": "{your-password}",
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "dataDisks": [
+                    {
+                        "createOption": "Empty",
+                        "diskSizeGB": 1023,
+                        "lun": 0,
+                    },
+                    {
+                        "createOption": "Empty",
+                        "diskSizeGB": 1023,
+                        "lun": 1,
+                    },
+                ],
+                "imageReference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "osDisk": {
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                        "storageAccountType": "Standard_LRS",
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
+        ## Create a vm with ephemeral os disk.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vmSize": "Standard_DS1_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminPassword": "{your-password}",
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "imageReference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "osDisk": {
+                    "caching": "ReadOnly",
+                    "createOption": "FromImage",
+                    "diffDiskSettings": {
+                        "option": "Local",
+                    },
+                    "managedDisk": {
+                        "storageAccountType": "Standard_LRS",
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
+        ## Create a vm with password authentication.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vmSize": "Standard_D1_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminPassword": "{your-password}",
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "imageReference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "osDisk": {
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                        "storageAccountType": "Standard_LRS",
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
+        ## Create a vm with premium storage.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vmSize": "Standard_D1_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminPassword": "{your-password}",
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "imageReference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "osDisk": {
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                        "storageAccountType": "Premium_LRS",
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
+        ## Create a vm with ssh authentication.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine = azurerm.compute.v20190301.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vmSize": "Standard_D1_v2",
+            },
+            location="westus",
+            network_profile={
+                "networkInterfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                }],
+            },
+            os_profile={
+                "adminUsername": "{your-username}",
+                "computerName": "myVM",
+                "linuxConfiguration": {
+                    "disablePasswordAuthentication": True,
+                    "ssh": {
+                        "publicKeys": [{
+                            "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeClRAk2ipUs/l5voIsDC5q9RI+YSRd1Bvd/O+axgY4WiBzG+4FwJWZm/mLLe5DoOdHQwmU2FrKXZSW4w2sYE70KeWnrFViCOX5MTVvJgPE8ClugNl8RWth/tU849DvM9sT7vFgfVSHcAS2yDRyDlueii+8nF2ym8XWAPltFVCyLHRsyBp5YPqK8JFYIa1eybKsY3hEAxRCA+/7bq8et+Gj3coOsuRmrehav7rE6N12Pb80I6ofa6SM5XNYq4Xk0iYNx7R3kdz0Jj9XgZYWjAHjJmT0gTRoOnt6upOuxK7xI/ykWrllgpXrCPu3Ymz+c+ujaqcxDopnAl2lmf69/J1",
+                            "path": "/home/{your-username}/.ssh/authorized_keys",
+                        }],
+                    },
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "imageReference": {
+                    "offer": "{image_offer}",
+                    "publisher": "{image_publisher}",
+                    "sku": "{image_sku}",
+                    "version": "latest",
+                },
+                "osDisk": {
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage",
+                    "managedDisk": {
+                        "storageAccountType": "Standard_LRS",
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine.

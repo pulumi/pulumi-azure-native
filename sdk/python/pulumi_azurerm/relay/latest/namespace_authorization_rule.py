@@ -25,6 +25,23 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Description of a namespace authorization rule.
 
+        ## RelayNameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        namespace_authorization_rule = azurerm.relay.latest.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="sdk-RelayAuthRules-01",
+            namespace_name="sdk-RelayNamespace-01",
+            resource_group_name="RG-eg",
+            rights=[
+                "Listen",
+                "Send",
+            ])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.

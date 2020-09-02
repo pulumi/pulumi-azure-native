@@ -31,6 +31,28 @@ class Bot(pulumi.CustomResource):
         """
         Bot resource definition
 
+        ## Create Bot
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        bot = azurerm.botservice.latest.Bot("bot",
+            etag="etag1",
+            kind="sdk",
+            location="West US",
+            resource_group_name="OneResourceGroupName",
+            resource_name="samplebotname",
+            sku={
+                "name": "S1",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Entity Tag

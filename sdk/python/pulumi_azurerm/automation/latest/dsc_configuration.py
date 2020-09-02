@@ -34,6 +34,37 @@ class DscConfiguration(pulumi.CustomResource):
         """
         Definition of the configuration type.
 
+        ## Create or Update Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        dsc_configuration = azurerm.automation.latest.DscConfiguration("dscConfiguration",
+            automation_account_name="myAutomationAccount18",
+            configuration_name="SetupServer",
+            description="sample configuration",
+            location="East US 2",
+            name="SetupServer",
+            resource_group_name="rg",
+            source={
+                "hash": {
+                    "algorithm": "sha256",
+                    "value": "A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F",
+                },
+                "type": "embeddedContent",
+                "value": \"\"\"Configuration SetupServer {
+            Node localhost {
+                                       WindowsFeature IIS {
+                                       Name = "Web-Server";
+                    Ensure = "Present"
+                }
+            }
+        }\"\"\",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

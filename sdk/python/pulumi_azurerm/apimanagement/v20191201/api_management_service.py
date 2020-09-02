@@ -41,6 +41,172 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
+        ## ApiManagementCreateMultiRegionServiceWithCustomHostname
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_management_service = azurerm.apimanagement.v20191201.ApiManagementService("apiManagementService",
+            additional_locations=[{
+                "disableGateway": True,
+                "location": "East US",
+                "sku": {
+                    "capacity": 1,
+                    "name": "Premium",
+                },
+            }],
+            api_version_constraint={
+                "minApiVersion": "2019-01-01",
+            },
+            hostname_configurations=[
+                {
+                    "certificatePassword": "Password",
+                    "defaultSslBinding": True,
+                    "encodedCertificate": "****** Base 64 Encoded Certificate ************",
+                    "hostName": "gateway1.msitesting.net",
+                    "type": "Proxy",
+                },
+                {
+                    "certificatePassword": "Password",
+                    "encodedCertificate": "****** Base 64 Encoded Certificate ************",
+                    "hostName": "mgmt.msitesting.net",
+                    "type": "Management",
+                },
+                {
+                    "certificatePassword": "Password",
+                    "encodedCertificate": "****** Base 64 Encoded Certificate ************",
+                    "hostName": "portal1.msitesting.net",
+                    "type": "Portal",
+                },
+            ],
+            location="West US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku={
+                "capacity": 1,
+                "name": "Premium",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            },
+            virtual_network_type="None")
+
+        ```
+
+        ## ApiManagementCreateService
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_management_service = azurerm.apimanagement.v20191201.ApiManagementService("apiManagementService",
+            location="South Central US",
+            publisher_email="foo@contoso.com",
+            publisher_name="foo",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku={
+                "capacity": 1,
+                "name": "Developer",
+            },
+            tags={
+                "Name": "Contoso",
+                "Test": "User",
+            })
+
+        ```
+
+        ## ApiManagementCreateServiceHavingMsi
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_management_service = azurerm.apimanagement.v20191201.ApiManagementService("apiManagementService",
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="West US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku={
+                "capacity": 0,
+                "name": "Consumption",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            })
+
+        ```
+
+        ## ApiManagementCreateServiceWithSystemCertificates
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_management_service = azurerm.apimanagement.v20191201.ApiManagementService("apiManagementService",
+            certificates=[{
+                "certificatePassword": "Password",
+                "encodedCertificate": "*******Base64 encoded Certificate******************",
+                "storeName": "CertificateAuthority",
+            }],
+            location="Central US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku={
+                "capacity": 1,
+                "name": "Basic",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            })
+
+        ```
+
+        ## ApiManagementCreateServiceWithUserAssignedIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_management_service = azurerm.apimanagement.v20191201.ApiManagementService("apiManagementService",
+            identity={
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/apimService1": {},
+                },
+            },
+            location="West US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku={
+                "capacity": 0,
+                "name": "Consumption",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.

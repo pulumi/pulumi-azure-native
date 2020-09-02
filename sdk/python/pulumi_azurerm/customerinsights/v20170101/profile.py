@@ -41,6 +41,72 @@ class Profile(pulumi.CustomResource):
         """
         The profile resource format.
 
+        ## Profiles_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        profile = azurerm.customerinsights.v20170101.Profile("profile",
+            api_entity_set_name="TestProfileType396",
+            fields=[
+                {
+                    "fieldName": "Id",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "ProfileId",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "LastName",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "TestProfileType396",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "SavingAccountBalance",
+                    "fieldType": "Edm.Int32",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+            ],
+            hub_name="sdkTestHub",
+            large_image="\\\\Images\\\\LargeImage",
+            medium_image="\\\\Images\\\\MediumImage",
+            profile_name="TestProfileType396",
+            resource_group_name="TestHubRG",
+            schema_item_type_link="SchemaItemTypeLink",
+            small_image="\\\\Images\\\\smallImage",
+            strong_ids=[
+                {
+                    "keyPropertyNames": [
+                        "Id",
+                        "SavingAccountBalance",
+                    ],
+                    "strongIdName": "Id",
+                },
+                {
+                    "keyPropertyNames": [
+                        "ProfileId",
+                        "LastName",
+                    ],
+                    "strongIdName": "ProfileId",
+                },
+            ])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_entity_set_name: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.

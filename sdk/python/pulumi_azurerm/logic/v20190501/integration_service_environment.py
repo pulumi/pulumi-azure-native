@@ -29,6 +29,23 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         """
         The integration service environment.
 
+        ## Create or update an integration service environment
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        integration_service_environment = azurerm.logic.v20190501.IntegrationServiceEnvironment("integrationServiceEnvironment",
+            integration_service_environment_name="testIntegrationServiceEnvironment",
+            location="brazilsouth",
+            resource_group="testResourceGroup",
+            sku={
+                "capacity": 2,
+                "name": "Premium",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] integration_service_environment_name: The integration service environment name.

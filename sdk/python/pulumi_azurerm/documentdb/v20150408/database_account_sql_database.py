@@ -27,6 +27,23 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
         """
         An Azure Cosmos DB SQL database.
 
+        ## CosmosDBSqlDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database_account_sql_database = azurerm.documentdb.v20150408.DatabaseAccountSqlDatabase("databaseAccountSqlDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            options={},
+            resource={
+                "id": "databaseName",
+            },
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

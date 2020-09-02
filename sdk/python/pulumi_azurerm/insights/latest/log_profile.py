@@ -31,6 +31,31 @@ class LogProfile(pulumi.CustomResource):
         """
         The log profile resource.
 
+        ## Create or update a log profile
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        log_profile = azurerm.insights.latest.LogProfile("logProfile",
+            categories=[
+                "Write",
+                "Delete",
+                "Action",
+            ],
+            location="",
+            locations=["global"],
+            log_profile_name="Rac46PostSwapRG",
+            retention_policy={
+                "days": 3,
+                "enabled": True,
+            },
+            service_bus_rule_id="",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] categories: the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'

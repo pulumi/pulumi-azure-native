@@ -29,6 +29,24 @@ class CloudEndpoint(pulumi.CustomResource):
         """
         Cloud Endpoint object.
 
+        ## CloudEndpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cloud_endpoint = azurerm.storagesync.latest.CloudEndpoint("cloudEndpoint",
+            azure_file_share_name="cvcloud-afscv-0719-058-a94a1354-a1fd-4e9a-9a50-919fad8c4ba4",
+            cloud_endpoint_name="SampleCloudEndpoint_1",
+            friendly_name="ankushbsubscriptionmgmtmab",
+            resource_group_name="SampleResourceGroup_1",
+            storage_account_resource_id="/subscriptions/744f4d70-6d17-4921-8970-a765d14f763f/resourceGroups/tminienv59svc/providers/Microsoft.Storage/storageAccounts/tminienv59storage",
+            storage_account_tenant_id="\"72f988bf-86f1-41af-91ab-2d7cd011db47\"",
+            storage_sync_service_name="SampleStorageSyncService_1",
+            sync_group_name="SampleSyncGroup_1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_file_share_name: Azure file share name

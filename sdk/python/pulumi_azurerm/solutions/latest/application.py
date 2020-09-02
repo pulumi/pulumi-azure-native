@@ -36,6 +36,22 @@ class Application(pulumi.CustomResource):
         """
         Information about managed application.
 
+        ## Create or update managed application
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        application = azurerm.solutions.latest.Application("application",
+            application_definition_id="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
+            application_name="myManagedApplication",
+            kind="ServiceCatalog",
+            location="East US 2",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.

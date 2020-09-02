@@ -26,6 +26,21 @@ class MigrationConfig(pulumi.CustomResource):
         """
         Single item in List or Get Migration Config operation
 
+        ## MigrationConfigurationsStartMigration
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        migration_config = azurerm.servicebus.latest.MigrationConfig("migrationConfig",
+            config_name="$default",
+            namespace_name="sdk-Namespace-41",
+            post_migration_name="sdk-PostMigration-5919",
+            resource_group_name="ResourceGroup",
+            target_namespace="/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_name: The configuration name. Should always be "$default".

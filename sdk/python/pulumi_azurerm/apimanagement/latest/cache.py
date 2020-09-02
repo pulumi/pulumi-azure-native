@@ -27,6 +27,22 @@ class Cache(pulumi.CustomResource):
         """
         Cache details.
 
+        ## ApiManagementCreateCache
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cache = azurerm.apimanagement.latest.Cache("cache",
+            cache_id="westindia",
+            connection_string="contoso5.redis.cache.windows.net,ssl=true,password=...",
+            description="Redis cache instances in West India",
+            resource_group_name="rg1",
+            resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/contoso5",
+            service_name="apimService1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).

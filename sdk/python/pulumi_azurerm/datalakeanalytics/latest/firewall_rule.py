@@ -26,6 +26,21 @@ class FirewallRule(pulumi.CustomResource):
         """
         Data Lake Analytics firewall rule information.
 
+        ## Creates or updates the specified firewall rule
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        firewall_rule = azurerm.datalakeanalytics.latest.FirewallRule("firewallRule",
+            account_name="contosoadla",
+            end_ip_address="2.2.2.2",
+            firewall_rule_name="test_rule",
+            resource_group_name="contosorg",
+            start_ip_address="1.1.1.1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Analytics account.

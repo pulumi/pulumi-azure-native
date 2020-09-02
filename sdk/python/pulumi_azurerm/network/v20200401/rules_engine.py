@@ -28,6 +28,70 @@ class RulesEngine(pulumi.CustomResource):
         """
         A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 
+        ## Create or update a specific Rules Engine Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        rules_engine = azurerm.network.v20200401.RulesEngine("rulesEngine",
+            front_door_name="frontDoor1",
+            resource_group_name="rg1",
+            rules=[
+                {
+                    "action": {
+                        "routeConfigurationOverride": {
+                            "odataType": "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration",
+                        },
+                    },
+                    "matchConditions": [{
+                        "rulesEngineMatchValue": ["CH"],
+                        "rulesEngineMatchVariable": "RemoteAddr",
+                        "rulesEngineOperator": "GeoMatch",
+                    }],
+                    "matchProcessingBehavior": "Stop",
+                    "name": "Rule1",
+                    "priority": 1,
+                },
+                {
+                    "action": {
+                        "responseHeaderActions": [{
+                            "headerActionType": "Overwrite",
+                            "headerName": "Cache-Control",
+                            "value": "public, max-age=31536000",
+                        }],
+                    },
+                    "matchConditions": [{
+                        "rulesEngineMatchValue": ["jpg"],
+                        "rulesEngineMatchVariable": "RequestFilenameExtension",
+                        "rulesEngineOperator": "Equal",
+                        "transforms": ["Lowercase"],
+                    }],
+                    "name": "Rule2",
+                    "priority": 2,
+                },
+                {
+                    "action": {
+                        "routeConfigurationOverride": {
+                            "odataType": "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
+                        },
+                    },
+                    "matchConditions": [{
+                        "negateCondition": False,
+                        "rulesEngineMatchValue": ["allowoverride"],
+                        "rulesEngineMatchVariable": "RequestHeader",
+                        "rulesEngineOperator": "Equal",
+                        "selector": "Rules-Engine-Route-Forward",
+                        "transforms": ["Lowercase"],
+                    }],
+                    "name": "Rule3",
+                    "priority": 3,
+                },
+            ],
+            rules_engine_name="rulesEngine1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] front_door_name: Name of the Front Door which is globally unique.

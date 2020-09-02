@@ -39,6 +39,23 @@ class Endpoint(pulumi.CustomResource):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
 
+        ## Endpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        endpoint = azurerm.cdn.v20170402.Endpoint("endpoint",
+            endpoint_name="endpoint1",
+            location="WestCentralUs",
+            origins=[{
+                "name": "www-bing-com",
+            }],
+            profile_name="profile1",
+            resource_group_name="RG")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.

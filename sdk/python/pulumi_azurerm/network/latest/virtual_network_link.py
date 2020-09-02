@@ -31,6 +31,27 @@ class VirtualNetworkLink(pulumi.CustomResource):
         """
         Describes a link to virtual network for a Private DNS zone.
 
+        ## PUT Private DNS Zone Virtual Network Link
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_network_link = azurerm.network.latest.VirtualNetworkLink("virtualNetworkLink",
+            location="Global",
+            private_zone_name="privatezone1.com",
+            registration_enabled=False,
+            resource_group_name="resourceGroup1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_network={
+                "id": "/subscriptions/virtualNetworkSubscriptionId/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/virtualNetworkName",
+            },
+            virtual_network_link_name="virtualNetworkLink1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The ETag of the virtual network link.

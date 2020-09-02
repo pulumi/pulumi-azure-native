@@ -37,6 +37,58 @@ class Snapshot(pulumi.CustomResource):
         """
         Snapshot resource.
 
+        ## Create a snapshot by importing an unmanaged blob from a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        snapshot = azurerm.compute.v20200501.Snapshot("snapshot",
+            creation_data={
+                "createOption": "Import",
+                "sourceUri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                "storageAccountId": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+            },
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot1")
+
+        ```
+
+        ## Create a snapshot by importing an unmanaged blob from the same subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        snapshot = azurerm.compute.v20200501.Snapshot("snapshot",
+            creation_data={
+                "createOption": "Import",
+                "sourceUri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+            },
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot1")
+
+        ```
+
+        ## Create a snapshot from an existing snapshot in the same or a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        snapshot = azurerm.compute.v20200501.Snapshot("snapshot",
+            creation_data={
+                "createOption": "Copy",
+                "sourceResourceId": "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+            },
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot2")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.

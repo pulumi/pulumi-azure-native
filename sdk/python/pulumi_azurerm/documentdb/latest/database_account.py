@@ -46,6 +46,80 @@ class DatabaseAccount(pulumi.CustomResource):
         """
         An Azure Cosmos DB database account.
 
+        ## CosmosDBDatabaseAccountCreateMax
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database_account = azurerm.documentdb.latest.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            api_properties={
+                "serverVersion": "3.2",
+            },
+            consistency_policy={
+                "defaultConsistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            cors=[{
+                "allowedOrigins": "https://test",
+            }],
+            database_account_offer_type="Standard",
+            enable_analytical_storage=True,
+            enable_free_tier=False,
+            ip_rules=[
+                {
+                    "ipAddressOrRange": "23.43.230.120",
+                },
+                {
+                    "ipAddressOrRange": "110.12.240.0/12",
+                },
+            ],
+            is_virtual_network_filter_enabled=True,
+            key_vault_key_uri="https://myKeyVault.vault.azure.net",
+            kind="MongoDB",
+            location="westus",
+            locations=[
+                {
+                    "failoverPriority": 0,
+                    "isZoneRedundant": False,
+                    "locationName": "southcentralus",
+                },
+                {
+                    "failoverPriority": 1,
+                    "isZoneRedundant": False,
+                    "locationName": "eastus",
+                },
+            ],
+            resource_group_name="rg1",
+            tags={},
+            virtual_network_rules=[{
+                "id": "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+                "ignoreMissingVNetServiceEndpoint": False,
+            }])
+
+        ```
+
+        ## CosmosDBDatabaseAccountCreateMin
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database_account = azurerm.documentdb.latest.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            database_account_offer_type="Standard",
+            location="westus",
+            locations=[{
+                "failoverPriority": 0,
+                "isZoneRedundant": False,
+                "locationName": "southcentralus",
+            }],
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

@@ -30,6 +30,26 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         """
         Security Partner Provider resource.
 
+        ## Create Security Partner Provider
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        security_partner_provider = azurerm.network.v20200301.SecurityPartnerProvider("securityPartnerProvider",
+            location="West US",
+            resource_group_name="rg1",
+            security_partner_provider_name="securityPartnerProvider",
+            security_provider_name="ZScaler",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.

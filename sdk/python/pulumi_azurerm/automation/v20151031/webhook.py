@@ -33,6 +33,26 @@ class Webhook(pulumi.CustomResource):
         """
         Definition of the webhook type.
 
+        ## Create or update webhook
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        webhook = azurerm.automation.v20151031.Webhook("webhook",
+            automation_account_name="myAutomationAccount33",
+            expiry_time="2018-03-29T22:18:13.7002872Z",
+            is_enabled=True,
+            name="TestWebhook",
+            resource_group_name="rg",
+            runbook={
+                "name": "TestRunbook",
+            },
+            uri="https://s1events.azure-automation.net/webhooks?token=7u3KfQvM1vUPWaDMFRv2%2fAA4Jqx8QwS8aBuyO6Xsdcw%3d",
+            webhook_name="TestWebhook")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

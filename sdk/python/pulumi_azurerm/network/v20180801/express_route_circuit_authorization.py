@@ -29,6 +29,21 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         """
         Authorization in an ExpressRouteCircuit resource.
 
+        ## Create ExpressRouteCircuit Authorization
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        express_route_circuit_authorization = azurerm.network.v20180801.ExpressRouteCircuitAuthorization("expressRouteCircuitAuthorization",
+            authorization_key="authKey",
+            authorization_name="authorizatinName",
+            authorization_use_status="Available",
+            circuit_name="circuitName",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorization key.

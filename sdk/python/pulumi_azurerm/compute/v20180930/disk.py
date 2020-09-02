@@ -36,6 +36,112 @@ class Disk(pulumi.CustomResource):
         """
         Disk resource.
 
+        ## Create a managed disk by copying a snapshot.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        disk = azurerm.compute.v20180930.Disk("disk",
+            creation_data={
+                "createOption": "Copy",
+                "sourceResourceId": "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+            },
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Create a managed disk by importing an unmanaged blob from a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        disk = azurerm.compute.v20180930.Disk("disk",
+            creation_data={
+                "createOption": "Import",
+                "sourceUri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                "storageAccountId": "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+            },
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Create a managed disk by importing an unmanaged blob from the same subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        disk = azurerm.compute.v20180930.Disk("disk",
+            creation_data={
+                "createOption": "Import",
+                "sourceUri": "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+            },
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Create a managed disk from a platform image.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        disk = azurerm.compute.v20180930.Disk("disk",
+            creation_data={
+                "createOption": "FromImage",
+                "imageReference": {
+                    "id": "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/uswest/Publishers/Microsoft/ArtifactTypes/VMImage/Offers/{offer}",
+                },
+            },
+            disk_name="myDisk",
+            location="West US",
+            os_type="Windows",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Create a managed disk from an existing managed disk in the same or different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        disk = azurerm.compute.v20180930.Disk("disk",
+            creation_data={
+                "createOption": "Copy",
+                "sourceResourceId": "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myDisk1",
+            },
+            disk_name="myDisk2",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Create an empty managed disk.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        disk = azurerm.compute.v20180930.Disk("disk",
+            creation_data={
+                "createOption": "Empty",
+            },
+            disk_name="myDisk",
+            disk_size_gb=200,
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.

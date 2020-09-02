@@ -25,6 +25,20 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         Data Lake Store virtual network rule information.
 
+        ## Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_network_rule = azurerm.datalakestore.v20161101.VirtualNetworkRule("virtualNetworkRule",
+            account_name="contosoadla",
+            resource_group_name="contosorg",
+            subnet_id="test_subnetId",
+            virtual_network_rule_name="test_virtual_network_rules_name")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.

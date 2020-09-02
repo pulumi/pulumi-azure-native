@@ -28,6 +28,28 @@ class Python2Package(pulumi.CustomResource):
         """
         Definition of the module type.
 
+        ## Create or update a python 2 package
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        python2_package = azurerm.automation.v20180630.Python2Package("python2Package",
+            automation_account_name="myAutomationAccount33",
+            content_link={
+                "contentHash": {
+                    "algorithm": "sha265",
+                    "value": "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+                },
+                "uri": "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+                "version": "1.0.0.0",
+            },
+            package_name="OmsCompositeResources",
+            resource_group_name="rg",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

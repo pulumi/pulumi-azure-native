@@ -36,6 +36,23 @@ class AgentPool(pulumi.CustomResource):
         """
         Agent Pool.
 
+        ## Create/Update Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        agent_pool = azurerm.containerservice.v20190201.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            managed_cluster_name="clustername1",
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            vm_size="Standard_DS1_v2")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.

@@ -25,6 +25,18 @@ class PrivateStoreOffer(pulumi.CustomResource):
         """
         The privateStore offer data structure.
 
+        ## UpdatePrivateStoreOffer
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_store_offer = azurerm.marketplace.latest.PrivateStoreOffer("privateStoreOffer",
+            offer_id="marketplacetestthirdparty.md-test-third-party-2",
+            private_store_id="a0e28e55-90c4-41d8-8e34-bb7ef7775406")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Identifier for purposes of race condition

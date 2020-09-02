@@ -25,6 +25,23 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
 
+        ## NameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        namespace_authorization_rule = azurerm.eventhub.latest.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="sdk-Authrules-1746",
+            namespace_name="sdk-Namespace-2702",
+            resource_group_name="ArunMonocle",
+            rights=[
+                "Listen",
+                "Send",
+            ])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.

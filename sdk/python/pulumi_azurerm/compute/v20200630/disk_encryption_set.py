@@ -30,6 +30,29 @@ class DiskEncryptionSet(pulumi.CustomResource):
         """
         disk encryption set resource.
 
+        ## Create a disk encryption set.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        disk_encryption_set = azurerm.compute.v20200630.DiskEncryptionSet("diskEncryptionSet",
+            active_key={
+                "keyUrl": "https://myvmvault.vault-int.azure-int.net/keys/{key}",
+                "sourceVault": {
+                    "id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault",
+                },
+            },
+            disk_encryption_set_name="myDiskEncryptionSet",
+            encryption_type="EncryptionAtRestWithCustomerKey",
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KeyVaultAndKeyReferenceArgs']] active_key: The key vault key which is currently used by this disk encryption set.

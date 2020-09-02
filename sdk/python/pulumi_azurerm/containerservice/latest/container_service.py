@@ -35,6 +35,19 @@ class ContainerService(pulumi.CustomResource):
         """
         Container service.
 
+        ## Create/Update Container Service
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        container_service = azurerm.containerservice.latest.ContainerService("containerService",
+            container_service_name="acs1",
+            location="location1",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.

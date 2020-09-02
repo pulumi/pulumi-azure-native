@@ -28,6 +28,20 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
         """
         Description of a Namespace AuthorizationRules.
 
+        ## NotificationHubAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        notification_hub_authorization_rule = azurerm.notificationhubs.latest.NotificationHubAuthorizationRule("notificationHubAuthorizationRule",
+            authorization_rule_name="DefaultListenSharedAccessSignature",
+            namespace_name="nh-sdk-ns",
+            notification_hub_name="nh-sdk-hub",
+            resource_group_name="5ktrial")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: Authorization Rule Name.

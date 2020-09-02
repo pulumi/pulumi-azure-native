@@ -26,6 +26,20 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
 
+        ## EHAliasCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        disaster_recovery_config = azurerm.eventhub.latest.DisasterRecoveryConfig("disasterRecoveryConfig",
+            alias="sdk-DisasterRecovery-3814",
+            namespace_name="sdk-Namespace-8859",
+            partner_namespace="sdk-Namespace-37",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The Disaster Recovery configuration name

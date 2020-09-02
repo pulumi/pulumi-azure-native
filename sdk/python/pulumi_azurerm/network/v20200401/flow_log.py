@@ -35,6 +35,27 @@ class FlowLog(pulumi.CustomResource):
         """
         A flow log resource.
 
+        ## Create or update flow log
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        flow_log = azurerm.network.v20200401.FlowLog("flowLog",
+            enabled=True,
+            flow_log_name="fl",
+            format={
+                "type": "JSON",
+                "version": 1,
+            },
+            location="centraluseuap",
+            network_watcher_name="nw1",
+            resource_group_name="rg1",
+            storage_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/nwtest1mgvbfmqsigdxe",
+            target_resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/desmondcentral-nsg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Flag to enable/disable flow logging.

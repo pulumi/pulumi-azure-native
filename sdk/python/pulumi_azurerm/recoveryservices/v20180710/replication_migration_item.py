@@ -29,6 +29,21 @@ class ReplicationMigrationItem(pulumi.CustomResource):
         """
         Migration item.
 
+        ## Enables migration.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        replication_migration_item = azurerm.recoveryservices.v20180710.ReplicationMigrationItem("replicationMigrationItem",
+            fabric_name="vmwarefabric1",
+            migration_item_name="virtualmachine1",
+            protection_container_name="vmwareContainer1",
+            resource_group_name="resourcegroup1",
+            resource_name="migrationvault")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.

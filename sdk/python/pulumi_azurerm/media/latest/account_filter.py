@@ -29,6 +29,65 @@ class AccountFilter(pulumi.CustomResource):
         """
         An Account Filter.
 
+        ## Create an Account Filter
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        account_filter = azurerm.media.latest.AccountFilter("accountFilter",
+            account_name="contosomedia",
+            filter_name="newAccountFilter",
+            first_quality={
+                "bitrate": 128000,
+            },
+            presentation_time_range={
+                "endTimestamp": 170000000,
+                "forceEndTimestamp": False,
+                "liveBackoffDuration": 0,
+                "presentationWindowDuration": 9.223372036854776e+18,
+                "startTimestamp": 0,
+                "timescale": 10000000,
+            },
+            resource_group_name="contoso",
+            tracks=[
+                {
+                    "trackSelections": [
+                        {
+                            "operation": "Equal",
+                            "property": "Type",
+                            "value": "Audio",
+                        },
+                        {
+                            "operation": "NotEqual",
+                            "property": "Language",
+                            "value": "en",
+                        },
+                        {
+                            "operation": "NotEqual",
+                            "property": "FourCC",
+                            "value": "EC-3",
+                        },
+                    ],
+                },
+                {
+                    "trackSelections": [
+                        {
+                            "operation": "Equal",
+                            "property": "Type",
+                            "value": "Video",
+                        },
+                        {
+                            "operation": "Equal",
+                            "property": "Bitrate",
+                            "value": "3000000-5000000",
+                        },
+                    ],
+                },
+            ])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

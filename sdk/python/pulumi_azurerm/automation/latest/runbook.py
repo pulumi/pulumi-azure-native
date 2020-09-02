@@ -36,6 +36,61 @@ class Runbook(pulumi.CustomResource):
         """
         Definition of the runbook type.
 
+        ## Create or update runbook and publish it
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        runbook = azurerm.automation.latest.Runbook("runbook",
+            automation_account_name="ContoseAutomationAccount",
+            description="Description of the Runbook",
+            location="East US 2",
+            log_activity_trace=1,
+            log_progress=True,
+            log_verbose=False,
+            name="Get-AzureVMTutorial",
+            publish_content_link={
+                "contentHash": {
+                    "algorithm": "SHA256",
+                    "value": "115775B8FF2BE672D8A946BD0B489918C724DDE15A440373CA54461D53010A80",
+                },
+                "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+            },
+            resource_group_name="rg",
+            runbook_name="Get-AzureVMTutorial",
+            runbook_type="PowerShellWorkflow",
+            tags={
+                "tag01": "value01",
+                "tag02": "value02",
+            })
+
+        ```
+
+        ## Create runbook as draft
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        runbook = azurerm.automation.latest.Runbook("runbook",
+            automation_account_name="ContoseAutomationAccount",
+            description="Description of the Runbook",
+            draft={},
+            location="East US 2",
+            log_progress=False,
+            log_verbose=False,
+            name="Get-AzureVMTutorial",
+            resource_group_name="rg",
+            runbook_name="Get-AzureVMTutorial",
+            runbook_type="PowerShellWorkflow",
+            tags={
+                "tag01": "value01",
+                "tag02": "value02",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

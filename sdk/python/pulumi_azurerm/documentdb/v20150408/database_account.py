@@ -39,6 +39,64 @@ class DatabaseAccount(pulumi.CustomResource):
         """
         An Azure Cosmos DB database account.
 
+        ## CosmosDBDatabaseAccountCreateMax
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database_account = azurerm.documentdb.v20150408.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            consistency_policy={
+                "defaultConsistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            database_account_offer_type="Standard",
+            ip_range_filter="10.10.10.10",
+            is_virtual_network_filter_enabled=True,
+            kind="GlobalDocumentDB",
+            location="westus",
+            locations=[
+                {
+                    "failoverPriority": 0,
+                    "isZoneRedundant": False,
+                    "locationName": "southcentralus",
+                },
+                {
+                    "failoverPriority": 1,
+                    "isZoneRedundant": False,
+                    "locationName": "eastus",
+                },
+            ],
+            resource_group_name="rg1",
+            tags={},
+            virtual_network_rules=[{
+                "id": "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+                "ignoreMissingVNetServiceEndpoint": False,
+            }])
+
+        ```
+
+        ## CosmosDBDatabaseAccountCreateMin
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database_account = azurerm.documentdb.v20150408.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            database_account_offer_type="Standard",
+            location="westus",
+            locations=[{
+                "failoverPriority": 0,
+                "isZoneRedundant": False,
+                "locationName": "southcentralus",
+            }],
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
