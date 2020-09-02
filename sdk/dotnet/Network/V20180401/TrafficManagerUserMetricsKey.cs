@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.Network.V20180401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:TrafficManagerUserMetricsKey"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:TrafficManagerUserMetricsKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

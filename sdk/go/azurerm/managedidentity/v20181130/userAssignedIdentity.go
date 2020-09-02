@@ -50,9 +50,6 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:managedidentity/latest:UserAssignedIdentity"),
 		},
 		{
-			Type: pulumi.String("azurerm:managedidentity/preview:UserAssignedIdentity"),
-		},
-		{
 			Type: pulumi.String("azurerm:managedidentity/v20150831preview:UserAssignedIdentity"),
 		},
 	})

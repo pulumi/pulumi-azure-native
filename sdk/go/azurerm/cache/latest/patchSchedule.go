@@ -42,9 +42,6 @@ func NewPatchSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:cache/preview:PatchSchedule"),
-		},
-		{
 			Type: pulumi.String("azurerm:cache/v20171001:PatchSchedule"),
 		},
 		{

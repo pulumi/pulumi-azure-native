@@ -80,9 +80,6 @@ func NewAgentPool(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:containerservice/latest:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azurerm:containerservice/preview:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azurerm:containerservice/v20190201:AgentPool"),
 		},
 		{

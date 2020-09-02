@@ -135,7 +135,6 @@ namespace Pulumi.AzureRM.Databricks.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databricks/preview:Workspace"},
                     new Pulumi.Alias { Type = "azurerm:databricks/v20180401:Workspace"},
                 },
             };

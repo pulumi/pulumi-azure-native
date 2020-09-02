@@ -65,9 +65,6 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:PublicIPAddress"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:PublicIPAddress"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20150501preview:PublicIPAddress"),
 		},
 		{

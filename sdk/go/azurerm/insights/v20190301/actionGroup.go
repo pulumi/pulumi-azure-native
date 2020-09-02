@@ -74,9 +74,6 @@ func NewActionGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:insights/latest:ActionGroup"),
 		},
 		{
-			Type: pulumi.String("azurerm:insights/preview:ActionGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:insights/v20170401:ActionGroup"),
 		},
 		{

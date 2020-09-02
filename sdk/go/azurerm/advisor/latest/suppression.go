@@ -41,9 +41,6 @@ func NewSuppression(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:advisor/preview:Suppression"),
-		},
-		{
 			Type: pulumi.String("azurerm:advisor/v20160712preview:Suppression"),
 		},
 		{

@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Network.V20170601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:RouteFilter"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:RouteFilter"},
                     new Pulumi.Alias { Type = "azurerm:network/v20161201:RouteFilter"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170301:RouteFilter"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170801:RouteFilter"},

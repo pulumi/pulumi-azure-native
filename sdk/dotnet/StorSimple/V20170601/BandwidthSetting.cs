@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:BandwidthSetting"},
-                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:BandwidthSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

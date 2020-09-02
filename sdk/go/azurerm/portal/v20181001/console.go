@@ -34,9 +34,6 @@ func NewConsole(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:portal/latest:Console"),
 		},
-		{
-			Type: pulumi.String("azurerm:portal/preview:Console"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Console

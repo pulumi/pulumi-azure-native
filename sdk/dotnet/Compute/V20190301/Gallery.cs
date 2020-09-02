@@ -82,7 +82,6 @@ namespace Pulumi.AzureRM.Compute.V20190301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:compute/latest:Gallery"},
-                    new Pulumi.Alias { Type = "azurerm:compute/preview:Gallery"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180601:Gallery"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190701:Gallery"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191201:Gallery"},

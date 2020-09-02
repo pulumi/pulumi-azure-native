@@ -103,7 +103,7 @@ export class Transform extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:Transform" }, { type: "azurerm:media/preview:Transform" }, { type: "azurerm:media/v20180330preview:Transform" }, { type: "azurerm:media/v20180601preview:Transform" }, { type: "azurerm:media/v20200501:Transform" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:Transform" }, { type: "azurerm:media/v20180330preview:Transform" }, { type: "azurerm:media/v20180601preview:Transform" }, { type: "azurerm:media/v20200501:Transform" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Transform.__pulumiType, name, inputs, opts);
     }

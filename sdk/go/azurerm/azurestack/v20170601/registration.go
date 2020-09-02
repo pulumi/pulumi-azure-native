@@ -54,9 +54,6 @@ func NewRegistration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:azurestack/latest:Registration"),
 		},
-		{
-			Type: pulumi.String("azurerm:azurestack/preview:Registration"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Registration

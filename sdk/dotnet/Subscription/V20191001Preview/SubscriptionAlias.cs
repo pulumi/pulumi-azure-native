@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.Subscription.V20191001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:subscription/latest:SubscriptionAlias"},
-                    new Pulumi.Alias { Type = "azurerm:subscription/preview:SubscriptionAlias"},
                     new Pulumi.Alias { Type = "azurerm:subscription/v20200901:SubscriptionAlias"},
                 },
             };

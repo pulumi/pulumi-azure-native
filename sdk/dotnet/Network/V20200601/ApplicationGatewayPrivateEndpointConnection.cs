@@ -82,7 +82,6 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:ApplicationGatewayPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
                 },
             };

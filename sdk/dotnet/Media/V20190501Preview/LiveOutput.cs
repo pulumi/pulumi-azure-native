@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:media/latest:LiveOutput"},
-                    new Pulumi.Alias { Type = "azurerm:media/preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180330preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180601preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:LiveOutput"},

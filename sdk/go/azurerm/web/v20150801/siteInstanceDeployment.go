@@ -69,9 +69,6 @@ func NewSiteInstanceDeployment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/latest:SiteInstanceDeployment"),
 		},
-		{
-			Type: pulumi.String("azurerm:web/preview:SiteInstanceDeployment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteInstanceDeployment

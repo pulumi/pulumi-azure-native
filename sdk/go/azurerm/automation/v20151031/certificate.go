@@ -57,9 +57,6 @@ func NewCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:Certificate"),
 		},
-		{
-			Type: pulumi.String("azurerm:automation/preview:Certificate"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Certificate

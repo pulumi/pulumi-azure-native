@@ -40,12 +40,6 @@ func NewWorkspaceAadAdmin(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkspaceAadAdminArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:synapse/preview:WorkspaceAadAdmin"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource WorkspaceAadAdmin
 	err := ctx.RegisterResource("azurerm:synapse/v20190601preview:WorkspaceAadAdmin", name, args, &resource, opts...)
 	if err != nil {

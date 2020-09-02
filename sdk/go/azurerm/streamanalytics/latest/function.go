@@ -39,9 +39,6 @@ func NewFunction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:streamanalytics/preview:Function"),
-		},
-		{
 			Type: pulumi.String("azurerm:streamanalytics/v20160301:Function"),
 		},
 	})

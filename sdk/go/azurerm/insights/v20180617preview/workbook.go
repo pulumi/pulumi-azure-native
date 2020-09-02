@@ -73,9 +73,6 @@ func NewWorkbook(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:insights/latest:Workbook"),
 		},
 		{
-			Type: pulumi.String("azurerm:insights/preview:Workbook"),
-		},
-		{
 			Type: pulumi.String("azurerm:insights/v20150501:Workbook"),
 		},
 	})

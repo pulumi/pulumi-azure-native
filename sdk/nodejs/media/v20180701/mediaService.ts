@@ -96,7 +96,7 @@ export class MediaService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:MediaService" }, { type: "azurerm:media/preview:MediaService" }, { type: "azurerm:media/v20151001:MediaService" }, { type: "azurerm:media/v20180330preview:MediaService" }, { type: "azurerm:media/v20180601preview:MediaService" }, { type: "azurerm:media/v20200501:MediaService" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:MediaService" }, { type: "azurerm:media/v20151001:MediaService" }, { type: "azurerm:media/v20180330preview:MediaService" }, { type: "azurerm:media/v20180601preview:MediaService" }, { type: "azurerm:media/v20200501:MediaService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MediaService.__pulumiType, name, inputs, opts);
     }

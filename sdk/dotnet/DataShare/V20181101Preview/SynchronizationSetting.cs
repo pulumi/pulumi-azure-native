@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.DataShare.V20181101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datashare/latest:SynchronizationSetting"},
-                    new Pulumi.Alias { Type = "azurerm:datashare/preview:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azurerm:datashare/v20191101:SynchronizationSetting"},
                 },
             };

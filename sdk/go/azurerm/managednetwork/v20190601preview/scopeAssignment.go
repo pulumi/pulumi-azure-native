@@ -40,12 +40,6 @@ func NewScopeAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &ScopeAssignmentArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:managednetwork/preview:ScopeAssignment"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ScopeAssignment
 	err := ctx.RegisterResource("azurerm:managednetwork/v20190601preview:ScopeAssignment", name, args, &resource, opts...)
 	if err != nil {

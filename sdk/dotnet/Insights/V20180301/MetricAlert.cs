@@ -136,7 +136,6 @@ namespace Pulumi.AzureRM.Insights.V20180301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:MetricAlert"},
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:MetricAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

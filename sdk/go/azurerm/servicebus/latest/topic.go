@@ -69,9 +69,6 @@ func NewTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:servicebus/preview:Topic"),
-		},
-		{
 			Type: pulumi.String("azurerm:servicebus/v20140901:Topic"),
 		},
 		{

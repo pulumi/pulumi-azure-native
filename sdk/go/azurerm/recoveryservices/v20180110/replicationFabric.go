@@ -44,9 +44,6 @@ func NewReplicationFabric(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationFabric"),
 		},
 		{
-			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationFabric"),
-		},
-		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationFabric"),
 		},
 		{

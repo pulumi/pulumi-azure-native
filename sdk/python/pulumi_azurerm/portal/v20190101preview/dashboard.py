@@ -69,7 +69,7 @@ class Dashboard(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:portal/preview:Dashboard"), pulumi.Alias(type_="azurerm:portal/v20150801preview:Dashboard"), pulumi.Alias(type_="azurerm:portal/v20181001preview:Dashboard")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:portal/v20150801preview:Dashboard"), pulumi.Alias(type_="azurerm:portal/v20181001preview:Dashboard")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Dashboard, __self__).__init__(
             'azurerm:portal/v20190101preview:Dashboard',

@@ -53,9 +53,6 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:compute/preview:AvailabilitySet"),
-		},
-		{
 			Type: pulumi.String("azurerm:compute/v20150615:AvailabilitySet"),
 		},
 		{

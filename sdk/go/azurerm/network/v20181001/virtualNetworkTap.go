@@ -55,9 +55,6 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualNetworkTap"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:VirtualNetworkTap"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20180801:VirtualNetworkTap"),
 		},
 		{

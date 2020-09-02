@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.BotService.V20180712
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:botservice/latest:EnterpriseChannel"},
-                    new Pulumi.Alias { Type = "azurerm:botservice/preview:EnterpriseChannel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -113,7 +113,7 @@ export class IscsiServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/preview:IscsiServer" }, { type: "azurerm:storsimple/v20161001:IscsiServer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20161001:IscsiServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IscsiServer.__pulumiType, name, inputs, opts);
     }

@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:Container"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/preview:Container"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Container"},
                 },
             };

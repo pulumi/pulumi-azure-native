@@ -108,7 +108,7 @@ export class Rule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/latest:Rule" }, { type: "azurerm:servicebus/preview:Rule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/latest:Rule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Rule.__pulumiType, name, inputs, opts);
     }

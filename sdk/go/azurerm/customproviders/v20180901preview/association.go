@@ -36,12 +36,6 @@ func NewAssociation(ctx *pulumi.Context,
 	if args == nil {
 		args = &AssociationArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:customproviders/preview:Association"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Association
 	err := ctx.RegisterResource("azurerm:customproviders/v20180901preview:Association", name, args, &resource, opts...)
 	if err != nil {

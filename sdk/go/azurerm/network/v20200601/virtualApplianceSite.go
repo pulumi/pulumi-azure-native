@@ -48,9 +48,6 @@ func NewVirtualApplianceSite(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualApplianceSite"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:VirtualApplianceSite"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20200501:VirtualApplianceSite"),
 		},
 	})

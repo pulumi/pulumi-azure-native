@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.Search.V20200801Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:search/latest:SharedPrivateLinkResource"},
-                    new Pulumi.Alias { Type = "azurerm:search/preview:SharedPrivateLinkResource"},
                     new Pulumi.Alias { Type = "azurerm:search/v20200801:SharedPrivateLinkResource"},
                 },
             };

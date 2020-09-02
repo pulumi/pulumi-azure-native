@@ -63,7 +63,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__['rights'] = rights
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:relay/latest:NamespaceAuthorizationRule"), pulumi.Alias(type_="azurerm:relay/preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azurerm:relay/v20170401:NamespaceAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:relay/latest:NamespaceAuthorizationRule"), pulumi.Alias(type_="azurerm:relay/v20170401:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azurerm:relay/v20160701:NamespaceAuthorizationRule',

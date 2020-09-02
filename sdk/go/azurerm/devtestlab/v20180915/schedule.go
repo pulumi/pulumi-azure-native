@@ -66,9 +66,6 @@ func NewSchedule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:Schedule"),
 		},
 		{
-			Type: pulumi.String("azurerm:devtestlab/preview:Schedule"),
-		},
-		{
 			Type: pulumi.String("azurerm:devtestlab/v20150521preview:Schedule"),
 		},
 		{

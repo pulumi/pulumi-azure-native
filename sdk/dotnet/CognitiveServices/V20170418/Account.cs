@@ -94,7 +94,6 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cognitiveservices/latest:Account"},
-                    new Pulumi.Alias { Type = "azurerm:cognitiveservices/preview:Account"},
                     new Pulumi.Alias { Type = "azurerm:cognitiveservices/v20160201preview:Account"},
                 },
             };

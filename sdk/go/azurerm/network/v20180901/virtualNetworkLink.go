@@ -53,9 +53,6 @@ func NewVirtualNetworkLink(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/latest:VirtualNetworkLink"),
 		},
-		{
-			Type: pulumi.String("azurerm:network/preview:VirtualNetworkLink"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkLink

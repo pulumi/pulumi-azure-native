@@ -48,9 +48,6 @@ func NewFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20200601:FirewallPolicyRuleCollectionGroup"),
 		},
 	})

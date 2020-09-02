@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:IpGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190901:IpGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191101:IpGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191201:IpGroup"},

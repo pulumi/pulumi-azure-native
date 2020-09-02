@@ -142,7 +142,7 @@ export class FlowLog extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:FlowLog" }, { type: "azurerm:network/preview:FlowLog" }, { type: "azurerm:network/v20191101:FlowLog" }, { type: "azurerm:network/v20191201:FlowLog" }, { type: "azurerm:network/v20200301:FlowLog" }, { type: "azurerm:network/v20200401:FlowLog" }, { type: "azurerm:network/v20200601:FlowLog" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:FlowLog" }, { type: "azurerm:network/v20191101:FlowLog" }, { type: "azurerm:network/v20191201:FlowLog" }, { type: "azurerm:network/v20200301:FlowLog" }, { type: "azurerm:network/v20200401:FlowLog" }, { type: "azurerm:network/v20200601:FlowLog" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FlowLog.__pulumiType, name, inputs, opts);
     }

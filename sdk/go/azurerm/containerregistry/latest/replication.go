@@ -48,9 +48,6 @@ func NewReplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:containerregistry/preview:Replication"),
-		},
-		{
 			Type: pulumi.String("azurerm:containerregistry/v20170601preview:Replication"),
 		},
 		{

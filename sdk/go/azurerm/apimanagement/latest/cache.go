@@ -46,9 +46,6 @@ func NewCache(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Cache"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20180601preview:Cache"),
 		},
 		{

@@ -64,9 +64,6 @@ func NewProject(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:datamigration/preview:Project"),
-		},
-		{
 			Type: pulumi.String("azurerm:datamigration/v20171115preview:Project"),
 		},
 		{

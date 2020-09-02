@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/latest:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/v20170401:NamespaceAuthorizationRule"},
                 },
             };

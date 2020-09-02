@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datalakestore/latest:TrustedIdProvider"},
-                    new Pulumi.Alias { Type = "azurerm:datalakestore/preview:TrustedIdProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

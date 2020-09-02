@@ -115,7 +115,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/preview:VirtualNetworkLink" }, { type: "azurerm:network/v20180901:VirtualNetworkLink" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20180901:VirtualNetworkLink" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkLink.__pulumiType, name, inputs, opts);
     }

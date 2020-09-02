@@ -50,9 +50,6 @@ func NewPeeringService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:peering/latest:PeeringService"),
 		},
 		{
-			Type: pulumi.String("azurerm:peering/preview:PeeringService"),
-		},
-		{
 			Type: pulumi.String("azurerm:peering/v20190901preview:PeeringService"),
 		},
 		{

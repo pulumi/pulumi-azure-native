@@ -121,7 +121,7 @@ export class Factory extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/latest:Factory" }, { type: "azurerm:datafactory/preview:Factory" }, { type: "azurerm:datafactory/v20170901preview:Factory" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/latest:Factory" }, { type: "azurerm:datafactory/v20170901preview:Factory" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Factory.__pulumiType, name, inputs, opts);
     }

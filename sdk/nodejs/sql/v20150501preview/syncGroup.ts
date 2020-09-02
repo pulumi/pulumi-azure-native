@@ -124,7 +124,7 @@ export class SyncGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/preview:SyncGroup" }, { type: "azurerm:sql/v20190601preview:SyncGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:sql/v20190601preview:SyncGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SyncGroup.__pulumiType, name, inputs, opts);
     }

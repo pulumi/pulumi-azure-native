@@ -144,7 +144,7 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/preview:SiteInstanceDeployment" }, { type: "azurerm:web/v20150801:SiteInstanceDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:SiteInstanceDeployment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteInstanceDeployment.__pulumiType, name, inputs, opts);
     }

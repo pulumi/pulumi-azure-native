@@ -101,12 +101,6 @@ func NewManagedCluster(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedClusterArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:servicefabric/preview:ManagedCluster"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ManagedCluster
 	err := ctx.RegisterResource("azurerm:servicefabric/v20200101preview:ManagedCluster", name, args, &resource, opts...)
 	if err != nil {

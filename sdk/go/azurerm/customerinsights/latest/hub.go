@@ -48,9 +48,6 @@ func NewHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:customerinsights/preview:Hub"),
-		},
-		{
 			Type: pulumi.String("azurerm:customerinsights/v20170101:Hub"),
 		},
 		{

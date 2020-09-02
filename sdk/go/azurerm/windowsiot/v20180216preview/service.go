@@ -53,9 +53,6 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:windowsiot/latest:Service"),
 		},
 		{
-			Type: pulumi.String("azurerm:windowsiot/preview:Service"),
-		},
-		{
 			Type: pulumi.String("azurerm:windowsiot/v20190601:Service"),
 		},
 	})

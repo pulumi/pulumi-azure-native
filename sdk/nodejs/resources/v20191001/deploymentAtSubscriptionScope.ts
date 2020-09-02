@@ -90,7 +90,7 @@ export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:resources/latest:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/preview:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20180501:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20190301:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20190501:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20190510:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20190701:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20190801:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20200601:DeploymentAtSubscriptionScope" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:resources/latest:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20180501:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20190301:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20190501:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20190510:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20190701:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20190801:DeploymentAtSubscriptionScope" }, { type: "azurerm:resources/v20200601:DeploymentAtSubscriptionScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentAtSubscriptionScope.__pulumiType, name, inputs, opts);
     }

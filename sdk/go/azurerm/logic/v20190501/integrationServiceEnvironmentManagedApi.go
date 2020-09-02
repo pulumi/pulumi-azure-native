@@ -45,9 +45,6 @@ func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:logic/latest:IntegrationServiceEnvironmentManagedApi"),
 		},
-		{
-			Type: pulumi.String("azurerm:logic/preview:IntegrationServiceEnvironmentManagedApi"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource IntegrationServiceEnvironmentManagedApi

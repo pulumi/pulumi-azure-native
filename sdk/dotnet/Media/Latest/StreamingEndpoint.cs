@@ -159,7 +159,6 @@ namespace Pulumi.AzureRM.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:media/preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180330preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180601preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:StreamingEndpoint"},

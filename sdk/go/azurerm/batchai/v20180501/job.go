@@ -109,9 +109,6 @@ func NewJob(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:batchai/latest:Job"),
 		},
-		{
-			Type: pulumi.String("azurerm:batchai/preview:Job"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Job

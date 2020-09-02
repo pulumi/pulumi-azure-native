@@ -64,7 +64,6 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datafactory/latest:DataFlow"},
-                    new Pulumi.Alias { Type = "azurerm:datafactory/preview:DataFlow"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

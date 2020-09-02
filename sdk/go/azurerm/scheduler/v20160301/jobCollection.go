@@ -42,9 +42,6 @@ func NewJobCollection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:scheduler/latest:JobCollection"),
 		},
 		{
-			Type: pulumi.String("azurerm:scheduler/preview:JobCollection"),
-		},
-		{
 			Type: pulumi.String("azurerm:scheduler/v20140801preview:JobCollection"),
 		},
 		{

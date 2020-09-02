@@ -153,7 +153,6 @@ namespace Pulumi.AzureRM.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:avs/preview:PrivateCloud"},
                     new Pulumi.Alias { Type = "azurerm:avs/v20190809preview:PrivateCloud"},
                     new Pulumi.Alias { Type = "azurerm:avs/v20200320:PrivateCloud"},
                 },

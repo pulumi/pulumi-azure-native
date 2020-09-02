@@ -68,7 +68,7 @@ class Registration(pulumi.CustomResource):
             __props__['object_id'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:azurestack/preview:Registration"), pulumi.Alias(type_="azurerm:azurestack/v20170601:Registration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:azurestack/v20170601:Registration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Registration, __self__).__init__(
             'azurerm:azurestack/latest:Registration',

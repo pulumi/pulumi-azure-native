@@ -70,9 +70,6 @@ func NewExpressRouteCrossConnectionPeering(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:ExpressRouteCrossConnectionPeering"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:ExpressRouteCrossConnectionPeering"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20180201:ExpressRouteCrossConnectionPeering"),
 		},
 		{

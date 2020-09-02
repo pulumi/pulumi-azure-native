@@ -52,9 +52,6 @@ func NewImage(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:Image"),
 		},
 		{
-			Type: pulumi.String("azurerm:compute/preview:Image"),
-		},
-		{
 			Type: pulumi.String("azurerm:compute/v20160430preview:Image"),
 		},
 		{

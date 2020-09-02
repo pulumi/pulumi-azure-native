@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Network.V20191201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:DdosProtectionPlan"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180201:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180401:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180601:DdosProtectionPlan"},

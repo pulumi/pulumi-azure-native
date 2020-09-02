@@ -93,7 +93,7 @@ export class HyperVSiteSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:offazure/latest:HyperVSiteSite" }, { type: "azurerm:offazure/preview:HyperVSiteSite" }, { type: "azurerm:offazure/v20200101:HyperVSiteSite" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:offazure/latest:HyperVSiteSite" }, { type: "azurerm:offazure/v20200101:HyperVSiteSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HyperVSiteSite.__pulumiType, name, inputs, opts);
     }

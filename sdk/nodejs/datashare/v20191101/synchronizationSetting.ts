@@ -90,7 +90,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datashare/latest:SynchronizationSetting" }, { type: "azurerm:datashare/preview:SynchronizationSetting" }, { type: "azurerm:datashare/v20181101preview:SynchronizationSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datashare/latest:SynchronizationSetting" }, { type: "azurerm:datashare/v20181101preview:SynchronizationSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SynchronizationSetting.__pulumiType, name, inputs, opts);
     }

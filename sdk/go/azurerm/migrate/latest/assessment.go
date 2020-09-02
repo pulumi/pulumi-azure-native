@@ -47,9 +47,6 @@ func NewAssessment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:migrate/preview:Assessment"),
-		},
-		{
 			Type: pulumi.String("azurerm:migrate/v20191001:Assessment"),
 		},
 	})

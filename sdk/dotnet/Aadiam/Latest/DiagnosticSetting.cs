@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.Aadiam.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:aadiam/preview:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azurerm:aadiam/v20170401:DiagnosticSetting"},
                 },
             };

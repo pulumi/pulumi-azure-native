@@ -65,7 +65,7 @@ class Job(pulumi.CustomResource):
             __props__['identity'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:importexport/latest:Job"), pulumi.Alias(type_="azurerm:importexport/preview:Job"), pulumi.Alias(type_="azurerm:importexport/v20161101:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:importexport/latest:Job"), pulumi.Alias(type_="azurerm:importexport/v20161101:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azurerm:importexport/v20200801:Job',

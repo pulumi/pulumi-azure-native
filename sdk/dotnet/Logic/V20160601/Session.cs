@@ -82,7 +82,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:Session"},
-                    new Pulumi.Alias { Type = "azurerm:logic/preview:Session"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:Session"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20190501:Session"},
                 },

@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Authorization.V20170601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:authorization/latest:PolicySetDefinition"},
-                    new Pulumi.Alias { Type = "azurerm:authorization/preview:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20180301:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20180501:PolicySetDefinition"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20190101:PolicySetDefinition"},

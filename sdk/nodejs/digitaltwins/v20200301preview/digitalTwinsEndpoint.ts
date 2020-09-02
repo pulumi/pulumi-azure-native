@@ -85,8 +85,6 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:digitaltwins/preview:DigitalTwinsEndpoint" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DigitalTwinsEndpoint.__pulumiType, name, inputs, opts);
     }
 }

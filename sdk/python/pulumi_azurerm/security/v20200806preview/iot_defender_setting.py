@@ -43,8 +43,6 @@ class IotDefenderSetting(pulumi.CustomResource):
 
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:security/preview:IotDefenderSetting")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotDefenderSetting, __self__).__init__(
             'azurerm:security/v20200806preview:IotDefenderSetting',
             resource_name,

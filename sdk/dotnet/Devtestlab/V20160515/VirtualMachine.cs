@@ -250,7 +250,6 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20150521preview:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:VirtualMachine"},
                 },

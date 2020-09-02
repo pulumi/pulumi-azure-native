@@ -123,7 +123,6 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:machinelearningcompute/preview:OperationalizationCluster"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningcompute/v20170801preview:OperationalizationCluster"},
                 },
             };

@@ -46,9 +46,6 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:dbforpostgresql/preview:VirtualNetworkRule"),
-		},
-		{
 			Type: pulumi.String("azurerm:dbforpostgresql/v20171201:VirtualNetworkRule"),
 		},
 		{

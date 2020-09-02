@@ -99,7 +99,6 @@ namespace Pulumi.AzureRM.Marketplace.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:marketplace/preview:PrivateStoreOffer"},
                     new Pulumi.Alias { Type = "azurerm:marketplace/v20200101:PrivateStoreOffer"},
                 },
             };

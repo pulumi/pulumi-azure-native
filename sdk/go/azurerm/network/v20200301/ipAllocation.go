@@ -57,9 +57,6 @@ func NewIpAllocation(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:IpAllocation"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:IpAllocation"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20200401:IpAllocation"),
 		},
 		{

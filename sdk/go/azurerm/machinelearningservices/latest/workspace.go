@@ -80,9 +80,6 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:machinelearningservices/preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20180301preview:Workspace"),
 		},
 		{

@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20151101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:DataSource"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:DataSource"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:DataSource"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:DataSource"},
                 },

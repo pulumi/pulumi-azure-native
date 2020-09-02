@@ -73,9 +73,6 @@ func NewMachine(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:hybridcompute/latest:Machine"),
 		},
 		{
-			Type: pulumi.String("azurerm:hybridcompute/preview:Machine"),
-		},
-		{
 			Type: pulumi.String("azurerm:hybridcompute/v20190318preview:Machine"),
 		},
 		{

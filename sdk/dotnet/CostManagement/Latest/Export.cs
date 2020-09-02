@@ -93,7 +93,6 @@ namespace Pulumi.AzureRM.CostManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/preview:Export"},
                     new Pulumi.Alias { Type = "azurerm:costmanagement/v20190101:Export"},
                     new Pulumi.Alias { Type = "azurerm:costmanagement/v20190901:Export"},
                     new Pulumi.Alias { Type = "azurerm:costmanagement/v20191001:Export"},

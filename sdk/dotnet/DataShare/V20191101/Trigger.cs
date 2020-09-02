@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.DataShare.V20191101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datashare/latest:Trigger"},
-                    new Pulumi.Alias { Type = "azurerm:datashare/preview:Trigger"},
                     new Pulumi.Alias { Type = "azurerm:datashare/v20181101preview:Trigger"},
                 },
             };

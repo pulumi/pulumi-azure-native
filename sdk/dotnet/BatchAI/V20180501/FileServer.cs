@@ -100,7 +100,6 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:batchai/latest:FileServer"},
-                    new Pulumi.Alias { Type = "azurerm:batchai/preview:FileServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

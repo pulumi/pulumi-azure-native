@@ -83,7 +83,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
             __props__['title'] = title
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/preview:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiIssueAttachment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiIssueAttachment"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiIssueAttachment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssueAttachment, __self__).__init__(
             'azurerm:apimanagement/v20170301:ApiIssueAttachment',

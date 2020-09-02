@@ -63,9 +63,6 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:GlobalSchedule"),
 		},
 		{
-			Type: pulumi.String("azurerm:devtestlab/preview:GlobalSchedule"),
-		},
-		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:GlobalSchedule"),
 		},
 	})

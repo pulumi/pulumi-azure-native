@@ -98,7 +98,7 @@ class FileShare(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['used_capacity_in_bytes'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/preview:FileShare"), pulumi.Alias(type_="azurerm:storsimple/v20161001:FileShare")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/v20161001:FileShare")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileShare, __self__).__init__(
             'azurerm:storsimple/latest:FileShare',

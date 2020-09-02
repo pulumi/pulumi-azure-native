@@ -45,9 +45,6 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:appplatform/latest:Service"),
 		},
 		{
-			Type: pulumi.String("azurerm:appplatform/preview:Service"),
-		},
-		{
 			Type: pulumi.String("azurerm:appplatform/v20200701:Service"),
 		},
 	})

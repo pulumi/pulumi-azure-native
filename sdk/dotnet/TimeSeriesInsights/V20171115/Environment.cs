@@ -118,7 +118,6 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/latest:Environment"},
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/preview:Environment"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20170228preview:Environment"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20180815preview:Environment"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20200515:Environment"},

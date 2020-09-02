@@ -43,9 +43,6 @@ func NewActionRuleByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:alertsmanagement/preview:ActionRuleByName"),
-		},
-		{
 			Type: pulumi.String("azurerm:alertsmanagement/v20190505preview:ActionRuleByName"),
 		},
 	})

@@ -99,7 +99,7 @@ export class SecurityContact extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:security/preview:SecurityContact" }, { type: "azurerm:security/v20200101preview:SecurityContact" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:security/v20200101preview:SecurityContact" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SecurityContact.__pulumiType, name, inputs, opts);
     }

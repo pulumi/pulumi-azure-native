@@ -52,9 +52,6 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:ProximityPlacementGroup"),
 		},
 		{
-			Type: pulumi.String("azurerm:compute/preview:ProximityPlacementGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:compute/v20180601:ProximityPlacementGroup"),
 		},
 		{

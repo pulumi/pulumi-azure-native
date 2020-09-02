@@ -81,7 +81,6 @@ namespace Pulumi.AzureRM.ManagedIdentity.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:managedidentity/preview:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azurerm:managedidentity/v20150831preview:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azurerm:managedidentity/v20181130:UserAssignedIdentity"},
                 },

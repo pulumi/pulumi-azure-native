@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.Insights.V20150501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:MyWorkbook"},
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:MyWorkbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

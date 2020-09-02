@@ -106,7 +106,6 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datacatalog/latest:ADCCatalog"},
-                    new Pulumi.Alias { Type = "azurerm:datacatalog/preview:ADCCatalog"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

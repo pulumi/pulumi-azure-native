@@ -82,7 +82,7 @@ class Rule(pulumi.CustomResource):
             __props__['topic_name'] = topic_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicebus/preview:Rule"), pulumi.Alias(type_="azurerm:servicebus/v20170401:Rule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicebus/v20170401:Rule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Rule, __self__).__init__(
             'azurerm:servicebus/latest:Rule',

@@ -82,7 +82,7 @@ export class Table extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:Table" }, { type: "azurerm:storage/preview:Table" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:Table" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Table.__pulumiType, name, inputs, opts);
     }

@@ -110,7 +110,7 @@ export class JobSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:JobSchedule" }, { type: "azurerm:automation/preview:JobSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:JobSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobSchedule.__pulumiType, name, inputs, opts);
     }

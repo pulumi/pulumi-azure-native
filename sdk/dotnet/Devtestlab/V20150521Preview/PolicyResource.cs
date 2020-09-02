@@ -106,7 +106,6 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:PolicyResource"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:PolicyResource"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:PolicyResource"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:PolicyResource"},
                 },

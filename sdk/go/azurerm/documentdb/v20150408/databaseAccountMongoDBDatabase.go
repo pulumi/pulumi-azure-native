@@ -50,9 +50,6 @@ func NewDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:DatabaseAccountMongoDBDatabase"),
 		},
 		{
-			Type: pulumi.String("azurerm:documentdb/preview:DatabaseAccountMongoDBDatabase"),
-		},
-		{
 			Type: pulumi.String("azurerm:documentdb/v20150401:DatabaseAccountMongoDBDatabase"),
 		},
 		{

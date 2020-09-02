@@ -89,8 +89,6 @@ export class GuestUsage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:azureactivedirectory/preview:GuestUsage" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GuestUsage.__pulumiType, name, inputs, opts);
     }
 }

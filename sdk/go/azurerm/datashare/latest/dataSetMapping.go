@@ -45,9 +45,6 @@ func NewDataSetMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:datashare/preview:DataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azurerm:datashare/v20181101preview:DataSetMapping"),
 		},
 		{

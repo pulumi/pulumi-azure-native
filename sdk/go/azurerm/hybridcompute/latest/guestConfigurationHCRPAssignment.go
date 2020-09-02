@@ -41,9 +41,6 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:hybridcompute/preview:GuestConfigurationHCRPAssignment"),
-		},
-		{
 			Type: pulumi.String("azurerm:hybridcompute/v20181120:GuestConfigurationHCRPAssignment"),
 		},
 		{

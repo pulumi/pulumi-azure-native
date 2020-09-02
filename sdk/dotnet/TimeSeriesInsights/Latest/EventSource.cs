@@ -69,7 +69,6 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/preview:EventSource"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20170228preview:EventSource"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20171115:EventSource"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20180815preview:EventSource"},

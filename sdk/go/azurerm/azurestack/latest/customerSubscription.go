@@ -41,9 +41,6 @@ func NewCustomerSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:azurestack/preview:CustomerSubscription"),
-		},
-		{
 			Type: pulumi.String("azurerm:azurestack/v20170601:CustomerSubscription"),
 		},
 	})

@@ -86,7 +86,7 @@ class Workspace(pulumi.CustomResource):
             __props__['name'] = None
             __props__['private_link_scoped_resources'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/latest:Workspace"), pulumi.Alias(type_="azurerm:operationalinsights/preview:Workspace"), pulumi.Alias(type_="azurerm:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azurerm:operationalinsights/v20200801:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/latest:Workspace"), pulumi.Alias(type_="azurerm:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azurerm:operationalinsights/v20200801:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azurerm:operationalinsights/v20200301preview:Workspace',

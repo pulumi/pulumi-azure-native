@@ -65,9 +65,6 @@ func NewController(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:devspaces/latest:Controller"),
 		},
-		{
-			Type: pulumi.String("azurerm:devspaces/preview:Controller"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Controller

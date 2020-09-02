@@ -168,7 +168,7 @@ export class HostPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:desktopvirtualization/preview:HostPool" }, { type: "azurerm:desktopvirtualization/v20190924preview:HostPool" }, { type: "azurerm:desktopvirtualization/v20191210preview:HostPool" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:desktopvirtualization/v20190924preview:HostPool" }, { type: "azurerm:desktopvirtualization/v20191210preview:HostPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HostPool.__pulumiType, name, inputs, opts);
     }

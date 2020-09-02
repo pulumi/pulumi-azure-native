@@ -99,7 +99,6 @@ namespace Pulumi.AzureRM.Relay.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:relay/preview:WCFRelay"},
                     new Pulumi.Alias { Type = "azurerm:relay/v20160701:WCFRelay"},
                     new Pulumi.Alias { Type = "azurerm:relay/v20170401:WCFRelay"},
                 },

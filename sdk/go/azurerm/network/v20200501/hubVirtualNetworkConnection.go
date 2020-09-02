@@ -52,9 +52,6 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:HubVirtualNetworkConnection"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:HubVirtualNetworkConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20200601:HubVirtualNetworkConnection"),
 		},
 	})

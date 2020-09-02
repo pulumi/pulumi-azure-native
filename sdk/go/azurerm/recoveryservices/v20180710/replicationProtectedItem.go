@@ -50,9 +50,6 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationProtectedItem"),
 		},
 		{
-			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationProtectedItem"),
-		},
-		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationProtectedItem"),
 		},
 		{

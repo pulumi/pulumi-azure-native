@@ -51,9 +51,6 @@ func NewGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:Group"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Group"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Group"),
 		},
 		{

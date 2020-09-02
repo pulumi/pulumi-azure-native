@@ -75,9 +75,6 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:alertsmanagement/latest:SmartDetectorAlertRule"),
 		},
 		{
-			Type: pulumi.String("azurerm:alertsmanagement/preview:SmartDetectorAlertRule"),
-		},
-		{
 			Type: pulumi.String("azurerm:alertsmanagement/v20190301:SmartDetectorAlertRule"),
 		},
 	})

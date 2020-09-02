@@ -81,7 +81,7 @@ class GalleryImageVersion(pulumi.CustomResource):
             __props__['replication_status'] = None
             __props__['storage_profile'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/latest:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/preview:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20190301:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryImageVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/latest:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20190301:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryImageVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImageVersion, __self__).__init__(
             'azurerm:compute/v20180601:GalleryImageVersion',

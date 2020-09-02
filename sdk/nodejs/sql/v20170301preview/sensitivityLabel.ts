@@ -121,8 +121,6 @@ export class SensitivityLabel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/preview:SensitivityLabel" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SensitivityLabel.__pulumiType, name, inputs, opts);
     }
 }

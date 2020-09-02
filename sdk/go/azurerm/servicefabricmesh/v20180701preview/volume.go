@@ -52,9 +52,6 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:servicefabricmesh/preview:Volume"),
-		},
-		{
 			Type: pulumi.String("azurerm:servicefabricmesh/v20180901preview:Volume"),
 		},
 	})

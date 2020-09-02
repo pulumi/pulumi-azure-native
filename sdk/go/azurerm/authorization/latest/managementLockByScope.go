@@ -43,9 +43,6 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:authorization/preview:ManagementLockByScope"),
-		},
-		{
 			Type: pulumi.String("azurerm:authorization/v20160901:ManagementLockByScope"),
 		},
 	})

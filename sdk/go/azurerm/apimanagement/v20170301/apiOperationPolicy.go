@@ -51,9 +51,6 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:ApiOperationPolicy"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:ApiOperationPolicy"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiOperationPolicy"),
 		},
 		{

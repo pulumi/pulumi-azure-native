@@ -32,12 +32,6 @@ func NewIotSensor(ctx *pulumi.Context,
 	if args == nil {
 		args = &IotSensorArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:security/preview:IotSensor"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource IotSensor
 	err := ctx.RegisterResource("azurerm:security/v20200806preview:IotSensor", name, args, &resource, opts...)
 	if err != nil {

@@ -45,12 +45,6 @@ func NewFirewallRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &FirewallRuleArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:dbforpostgresql/preview:FirewallRule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource FirewallRule
 	err := ctx.RegisterResource("azurerm:dbforpostgresql/v20200214privatepreview:FirewallRule", name, args, &resource, opts...)
 	if err != nil {

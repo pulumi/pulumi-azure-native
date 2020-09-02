@@ -64,7 +64,6 @@ namespace Pulumi.AzureRM.Storage.V20180301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storage/latest:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:storage/preview:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20181101:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190401:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190601:ManagementPolicy"},

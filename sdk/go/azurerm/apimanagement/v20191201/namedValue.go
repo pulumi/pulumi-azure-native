@@ -54,9 +54,6 @@ func NewNamedValue(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:NamedValue"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:NamedValue"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201preview:NamedValue"),
 		},
 	})

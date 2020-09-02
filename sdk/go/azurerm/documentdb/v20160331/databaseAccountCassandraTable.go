@@ -57,9 +57,6 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:DatabaseAccountCassandraTable"),
 		},
 		{
-			Type: pulumi.String("azurerm:documentdb/preview:DatabaseAccountCassandraTable"),
-		},
-		{
 			Type: pulumi.String("azurerm:documentdb/v20150401:DatabaseAccountCassandraTable"),
 		},
 		{

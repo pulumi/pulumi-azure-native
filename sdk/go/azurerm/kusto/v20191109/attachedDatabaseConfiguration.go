@@ -61,9 +61,6 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:kusto/latest:AttachedDatabaseConfiguration"),
 		},
 		{
-			Type: pulumi.String("azurerm:kusto/preview:AttachedDatabaseConfiguration"),
-		},
-		{
 			Type: pulumi.String("azurerm:kusto/v20190907:AttachedDatabaseConfiguration"),
 		},
 		{

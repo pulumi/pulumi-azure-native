@@ -90,7 +90,7 @@ class DomainService(pulumi.CustomResource):
             __props__['tenant_id'] = None
             __props__['type'] = None
             __props__['vnet_site_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:aad/latest:DomainService"), pulumi.Alias(type_="azurerm:aad/preview:DomainService"), pulumi.Alias(type_="azurerm:aad/v20170101:DomainService"), pulumi.Alias(type_="azurerm:aad/v20200101:DomainService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:aad/latest:DomainService"), pulumi.Alias(type_="azurerm:aad/v20170101:DomainService"), pulumi.Alias(type_="azurerm:aad/v20200101:DomainService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainService, __self__).__init__(
             'azurerm:aad/v20170601:DomainService',

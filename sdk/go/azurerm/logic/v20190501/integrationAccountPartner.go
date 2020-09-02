@@ -60,9 +60,6 @@ func NewIntegrationAccountPartner(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:IntegrationAccountPartner"),
 		},
 		{
-			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountPartner"),
-		},
-		{
 			Type: pulumi.String("azurerm:logic/v20150801preview:IntegrationAccountPartner"),
 		},
 		{

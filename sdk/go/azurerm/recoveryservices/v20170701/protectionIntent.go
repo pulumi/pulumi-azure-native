@@ -50,9 +50,6 @@ func NewProtectionIntent(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:recoveryservices/latest:ProtectionIntent"),
 		},
-		{
-			Type: pulumi.String("azurerm:recoveryservices/preview:ProtectionIntent"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ProtectionIntent

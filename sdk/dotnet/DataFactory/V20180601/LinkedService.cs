@@ -64,7 +64,6 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datafactory/latest:LinkedService"},
-                    new Pulumi.Alias { Type = "azurerm:datafactory/preview:LinkedService"},
                     new Pulumi.Alias { Type = "azurerm:datafactory/v20170901preview:LinkedService"},
                 },
             };

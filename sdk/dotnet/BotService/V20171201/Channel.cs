@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.BotService.V20171201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:botservice/latest:Channel"},
-                    new Pulumi.Alias { Type = "azurerm:botservice/preview:Channel"},
                     new Pulumi.Alias { Type = "azurerm:botservice/v20180712:Channel"},
                     new Pulumi.Alias { Type = "azurerm:botservice/v20200602:Channel"},
                 },

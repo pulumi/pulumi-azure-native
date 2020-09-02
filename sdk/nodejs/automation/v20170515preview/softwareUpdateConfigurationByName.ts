@@ -131,8 +131,6 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/preview:SoftwareUpdateConfigurationByName" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SoftwareUpdateConfigurationByName.__pulumiType, name, inputs, opts);
     }
 }

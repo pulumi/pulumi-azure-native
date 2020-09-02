@@ -93,7 +93,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/preview:IntegrationRuntime" }, { type: "azurerm:datafactory/v20170901preview:IntegrationRuntime" }, { type: "azurerm:datafactory/v20180601:IntegrationRuntime" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/v20170901preview:IntegrationRuntime" }, { type: "azurerm:datafactory/v20180601:IntegrationRuntime" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationRuntime.__pulumiType, name, inputs, opts);
     }

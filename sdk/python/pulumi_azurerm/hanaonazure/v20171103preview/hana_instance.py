@@ -77,8 +77,6 @@ class HanaInstance(pulumi.CustomResource):
             __props__['proximity_placement_group'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hanaonazure/preview:HanaInstance")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HanaInstance, __self__).__init__(
             'azurerm:hanaonazure/v20171103preview:HanaInstance',
             resource_name,

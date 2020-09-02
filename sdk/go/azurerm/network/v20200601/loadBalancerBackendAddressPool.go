@@ -54,9 +54,6 @@ func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:LoadBalancerBackendAddressPool"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:LoadBalancerBackendAddressPool"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20200401:LoadBalancerBackendAddressPool"),
 		},
 		{

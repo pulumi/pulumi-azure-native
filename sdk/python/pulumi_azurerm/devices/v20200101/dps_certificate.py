@@ -64,7 +64,7 @@ class DpsCertificate(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devices/latest:DpsCertificate"), pulumi.Alias(type_="azurerm:devices/preview:DpsCertificate"), pulumi.Alias(type_="azurerm:devices/v20170821preview:DpsCertificate"), pulumi.Alias(type_="azurerm:devices/v20171115:DpsCertificate"), pulumi.Alias(type_="azurerm:devices/v20180122:DpsCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devices/latest:DpsCertificate"), pulumi.Alias(type_="azurerm:devices/v20170821preview:DpsCertificate"), pulumi.Alias(type_="azurerm:devices/v20171115:DpsCertificate"), pulumi.Alias(type_="azurerm:devices/v20180122:DpsCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DpsCertificate, __self__).__init__(
             'azurerm:devices/v20200101:DpsCertificate',

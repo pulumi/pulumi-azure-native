@@ -80,9 +80,6 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:avs/preview:PrivateCloud"),
-		},
-		{
 			Type: pulumi.String("azurerm:avs/v20190809preview:PrivateCloud"),
 		},
 		{

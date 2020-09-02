@@ -59,9 +59,6 @@ func NewOpenIdConnectProvider(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:OpenIdConnectProvider"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:OpenIdConnectProvider"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:OpenIdConnectProvider"),
 		},
 		{

@@ -94,7 +94,7 @@ export class ManagementLockByScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/preview:ManagementLockByScope" }, { type: "azurerm:authorization/v20160901:ManagementLockByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/v20160901:ManagementLockByScope" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementLockByScope.__pulumiType, name, inputs, opts);
     }

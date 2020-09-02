@@ -52,12 +52,6 @@ func NewMaintenanceWindow(ctx *pulumi.Context,
 	if args == nil {
 		args = &MaintenanceWindowArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:dbformysql/preview:MaintenanceWindow"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource MaintenanceWindow
 	err := ctx.RegisterResource("azurerm:dbformysql/v20200701privatepreview:MaintenanceWindow", name, args, &resource, opts...)
 	if err != nil {

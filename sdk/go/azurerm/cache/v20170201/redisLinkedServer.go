@@ -57,9 +57,6 @@ func NewRedisLinkedServer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cache/latest:RedisLinkedServer"),
 		},
 		{
-			Type: pulumi.String("azurerm:cache/preview:RedisLinkedServer"),
-		},
-		{
 			Type: pulumi.String("azurerm:cache/v20171001:RedisLinkedServer"),
 		},
 		{

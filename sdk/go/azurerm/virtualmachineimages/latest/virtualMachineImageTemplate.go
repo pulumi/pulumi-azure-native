@@ -68,9 +68,6 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:virtualmachineimages/preview:VirtualMachineImageTemplate"),
-		},
-		{
 			Type: pulumi.String("azurerm:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"),
 		},
 		{

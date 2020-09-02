@@ -51,9 +51,6 @@ func NewAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:maps/latest:Account"),
 		},
 		{
-			Type: pulumi.String("azurerm:maps/preview:Account"),
-		},
-		{
 			Type: pulumi.String("azurerm:maps/v20180501:Account"),
 		},
 		{

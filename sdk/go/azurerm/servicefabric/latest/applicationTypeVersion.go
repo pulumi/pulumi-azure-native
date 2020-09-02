@@ -55,9 +55,6 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:servicefabric/preview:ApplicationTypeVersion"),
-		},
-		{
 			Type: pulumi.String("azurerm:servicefabric/v20170701preview:ApplicationTypeVersion"),
 		},
 		{

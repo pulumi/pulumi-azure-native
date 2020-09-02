@@ -56,8 +56,6 @@ class Connector(pulumi.CustomResource):
             __props__['hybrid_compute_settings'] = hybrid_compute_settings
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:security/preview:Connector")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connector, __self__).__init__(
             'azurerm:security/v20200101preview:Connector',
             resource_name,

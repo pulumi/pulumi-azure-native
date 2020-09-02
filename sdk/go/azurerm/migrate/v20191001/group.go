@@ -43,9 +43,6 @@ func NewGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:migrate/latest:Group"),
 		},
-		{
-			Type: pulumi.String("azurerm:migrate/preview:Group"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Group

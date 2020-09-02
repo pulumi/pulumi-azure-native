@@ -25,12 +25,6 @@ func NewIotDefenderSetting(ctx *pulumi.Context,
 	if args == nil {
 		args = &IotDefenderSettingArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:security/preview:IotDefenderSetting"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource IotDefenderSetting
 	err := ctx.RegisterResource("azurerm:security/v20200806preview:IotDefenderSetting", name, args, &resource, opts...)
 	if err != nil {

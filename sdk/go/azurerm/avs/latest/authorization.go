@@ -43,9 +43,6 @@ func NewAuthorization(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:avs/preview:Authorization"),
-		},
-		{
 			Type: pulumi.String("azurerm:avs/v20200320:Authorization"),
 		},
 	})

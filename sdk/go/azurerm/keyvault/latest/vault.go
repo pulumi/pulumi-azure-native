@@ -46,9 +46,6 @@ func NewVault(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:keyvault/preview:Vault"),
-		},
-		{
 			Type: pulumi.String("azurerm:keyvault/v20150601:Vault"),
 		},
 		{

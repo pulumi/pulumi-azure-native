@@ -52,9 +52,6 @@ func NewManager(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storsimple/latest:Manager"),
 		},
 		{
-			Type: pulumi.String("azurerm:storsimple/preview:Manager"),
-		},
-		{
 			Type: pulumi.String("azurerm:storsimple/v20161001:Manager"),
 		},
 	})

@@ -87,7 +87,7 @@ class DscpConfiguration(pulumi.CustomResource):
             __props__['qos_collection_id'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/preview:DscpConfiguration"), pulumi.Alias(type_="azurerm:network/v20200601:DscpConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/v20200601:DscpConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscpConfiguration, __self__).__init__(
             'azurerm:network/latest:DscpConfiguration',

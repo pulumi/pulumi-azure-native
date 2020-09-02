@@ -69,9 +69,6 @@ func NewShareSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:datashare/latest:ShareSubscription"),
 		},
 		{
-			Type: pulumi.String("azurerm:datashare/preview:ShareSubscription"),
-		},
-		{
 			Type: pulumi.String("azurerm:datashare/v20191101:ShareSubscription"),
 		},
 	})

@@ -59,9 +59,6 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:maintenance/latest:MaintenanceConfiguration"),
 		},
 		{
-			Type: pulumi.String("azurerm:maintenance/preview:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azurerm:maintenance/v20180601preview:MaintenanceConfiguration"),
 		},
 		{

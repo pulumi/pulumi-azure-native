@@ -85,9 +85,6 @@ func NewEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:cdn/preview:Endpoint"),
-		},
-		{
 			Type: pulumi.String("azurerm:cdn/v20150601:Endpoint"),
 		},
 		{

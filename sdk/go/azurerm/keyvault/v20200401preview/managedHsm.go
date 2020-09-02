@@ -40,12 +40,6 @@ func NewManagedHsm(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedHsmArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:keyvault/preview:ManagedHsm"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ManagedHsm
 	err := ctx.RegisterResource("azurerm:keyvault/v20200401preview:ManagedHsm", name, args, &resource, opts...)
 	if err != nil {

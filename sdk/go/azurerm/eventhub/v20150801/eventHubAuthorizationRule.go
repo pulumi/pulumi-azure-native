@@ -50,9 +50,6 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:eventhub/latest:EventHubAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azurerm:eventhub/preview:EventHubAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azurerm:eventhub/v20140901:EventHubAuthorizationRule"),
 		},
 		{

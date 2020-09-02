@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:BandwidthSchedule"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/preview:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:BandwidthSchedule"},

@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/preview:DedicatedCloudService"},
                     new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/v20190401:DedicatedCloudService"},
                 },
             };

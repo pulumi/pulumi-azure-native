@@ -51,9 +51,6 @@ func NewNamedValue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:NamedValue"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:NamedValue"),
 		},
 		{

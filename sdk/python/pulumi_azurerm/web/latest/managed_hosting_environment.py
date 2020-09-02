@@ -163,7 +163,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
             __props__['vnet_resource_group_name'] = vnet_resource_group_name
             __props__['vnet_subnet_name'] = vnet_subnet_name
             __props__['worker_pools'] = worker_pools
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/preview:ManagedHostingEnvironment"), pulumi.Alias(type_="azurerm:web/v20150801:ManagedHostingEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:ManagedHostingEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedHostingEnvironment, __self__).__init__(
             'azurerm:web/latest:ManagedHostingEnvironment',

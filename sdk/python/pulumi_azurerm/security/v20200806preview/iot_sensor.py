@@ -53,8 +53,6 @@ class IotSensor(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:security/preview:IotSensor")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotSensor, __self__).__init__(
             'azurerm:security/v20200806preview:IotSensor',
             resource_name,

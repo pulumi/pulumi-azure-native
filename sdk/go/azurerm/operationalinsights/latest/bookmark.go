@@ -65,9 +65,6 @@ func NewBookmark(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:operationalinsights/preview:Bookmark"),
-		},
-		{
 			Type: pulumi.String("azurerm:operationalinsights/v20200101:Bookmark"),
 		},
 	})

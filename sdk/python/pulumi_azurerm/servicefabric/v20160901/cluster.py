@@ -114,7 +114,7 @@ class Cluster(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabric/latest:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/preview:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20170701preview:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20200301:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabric/latest:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20170701preview:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azurerm:servicefabric/v20200301:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azurerm:servicefabric/v20160901:Cluster',

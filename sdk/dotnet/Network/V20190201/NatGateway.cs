@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.Network.V20190201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:NatGateway"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:NatGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190401:NatGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190601:NatGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190701:NatGateway"},

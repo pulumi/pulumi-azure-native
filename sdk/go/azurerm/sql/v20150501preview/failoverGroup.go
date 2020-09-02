@@ -57,12 +57,6 @@ func NewFailoverGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &FailoverGroupArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:sql/preview:FailoverGroup"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource FailoverGroup
 	err := ctx.RegisterResource("azurerm:sql/v20150501preview:FailoverGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -51,9 +51,6 @@ func NewEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:timeseriesinsights/preview:Environment"),
-		},
-		{
 			Type: pulumi.String("azurerm:timeseriesinsights/v20170228preview:Environment"),
 		},
 		{

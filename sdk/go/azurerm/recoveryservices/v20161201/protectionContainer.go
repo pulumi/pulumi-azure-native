@@ -50,9 +50,6 @@ func NewProtectionContainer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:recoveryservices/latest:ProtectionContainer"),
 		},
-		{
-			Type: pulumi.String("azurerm:recoveryservices/preview:ProtectionContainer"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ProtectionContainer

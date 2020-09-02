@@ -124,8 +124,6 @@ export class MultipleActivationKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:windowsesu/preview:MultipleActivationKey" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MultipleActivationKey.__pulumiType, name, inputs, opts);
     }
 }

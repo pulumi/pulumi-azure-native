@@ -52,9 +52,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databoxedge/latest:StorageAccount"),
 		},
 		{
-			Type: pulumi.String("azurerm:databoxedge/preview:StorageAccount"),
-		},
-		{
 			Type: pulumi.String("azurerm:databoxedge/v20200501preview:StorageAccount"),
 		},
 	})

@@ -84,9 +84,6 @@ func NewWebAppSiteExtensionSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppSiteExtensionSlot"),
 		},
 		{
-			Type: pulumi.String("azurerm:web/preview:WebAppSiteExtensionSlot"),
-		},
-		{
 			Type: pulumi.String("azurerm:web/v20160801:WebAppSiteExtensionSlot"),
 		},
 		{

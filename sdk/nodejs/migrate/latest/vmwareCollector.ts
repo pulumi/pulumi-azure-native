@@ -75,7 +75,7 @@ export class VMwareCollector extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:migrate/preview:VMwareCollector" }, { type: "azurerm:migrate/v20191001:VMwareCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:migrate/v20191001:VMwareCollector" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VMwareCollector.__pulumiType, name, inputs, opts);
     }

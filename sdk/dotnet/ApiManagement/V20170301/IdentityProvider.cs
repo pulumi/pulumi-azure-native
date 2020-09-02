@@ -94,7 +94,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:IdentityProvider"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:IdentityProvider"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:IdentityProvider"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:IdentityProvider"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:IdentityProvider"},

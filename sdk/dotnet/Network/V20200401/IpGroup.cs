@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Network.V20200401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:IpGroup"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:IpGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190901:IpGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191101:IpGroup"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191201:IpGroup"},

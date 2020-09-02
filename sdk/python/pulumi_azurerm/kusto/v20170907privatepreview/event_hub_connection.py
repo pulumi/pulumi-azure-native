@@ -85,7 +85,7 @@ class EventHubConnection(pulumi.CustomResource):
             __props__['table_name'] = table_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:kusto/preview:EventHubConnection"), pulumi.Alias(type_="azurerm:kusto/v20180907preview:EventHubConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:kusto/v20180907preview:EventHubConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubConnection, __self__).__init__(
             'azurerm:kusto/v20170907privatepreview:EventHubConnection',

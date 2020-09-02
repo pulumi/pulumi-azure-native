@@ -186,8 +186,6 @@ export class Case extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:securityinsights/preview:Case" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Case.__pulumiType, name, inputs, opts);
     }
 }

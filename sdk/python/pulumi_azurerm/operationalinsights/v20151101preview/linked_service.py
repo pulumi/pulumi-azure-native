@@ -63,7 +63,7 @@ class LinkedService(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/latest:LinkedService"), pulumi.Alias(type_="azurerm:operationalinsights/preview:LinkedService"), pulumi.Alias(type_="azurerm:operationalinsights/v20190801preview:LinkedService"), pulumi.Alias(type_="azurerm:operationalinsights/v20200301preview:LinkedService"), pulumi.Alias(type_="azurerm:operationalinsights/v20200801:LinkedService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/latest:LinkedService"), pulumi.Alias(type_="azurerm:operationalinsights/v20190801preview:LinkedService"), pulumi.Alias(type_="azurerm:operationalinsights/v20200301preview:LinkedService"), pulumi.Alias(type_="azurerm:operationalinsights/v20200801:LinkedService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedService, __self__).__init__(
             'azurerm:operationalinsights/v20151101preview:LinkedService',

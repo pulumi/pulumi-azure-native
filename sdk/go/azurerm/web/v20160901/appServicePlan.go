@@ -81,9 +81,6 @@ func NewAppServicePlan(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:AppServicePlan"),
 		},
 		{
-			Type: pulumi.String("azurerm:web/preview:AppServicePlan"),
-		},
-		{
 			Type: pulumi.String("azurerm:web/v20150801:AppServicePlan"),
 		},
 		{

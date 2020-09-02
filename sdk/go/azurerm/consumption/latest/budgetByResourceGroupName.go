@@ -62,9 +62,6 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:consumption/preview:BudgetByResourceGroupName"),
-		},
-		{
 			Type: pulumi.String("azurerm:consumption/v20180131:BudgetByResourceGroupName"),
 		},
 		{

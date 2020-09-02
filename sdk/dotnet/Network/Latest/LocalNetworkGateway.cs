@@ -105,7 +105,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:LocalNetworkGateway"},

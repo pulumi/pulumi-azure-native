@@ -97,8 +97,6 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/preview:DataCollectionRuleAssociation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataCollectionRuleAssociation.__pulumiType, name, inputs, opts);
     }
 }

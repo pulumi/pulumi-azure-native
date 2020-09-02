@@ -50,9 +50,6 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:sql/latest:ServerCommunicationLink"),
 		},
-		{
-			Type: pulumi.String("azurerm:sql/preview:ServerCommunicationLink"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ServerCommunicationLink

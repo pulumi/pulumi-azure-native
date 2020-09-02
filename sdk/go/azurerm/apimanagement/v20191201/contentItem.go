@@ -42,9 +42,6 @@ func NewContentItem(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:apimanagement/latest:ContentItem"),
 		},
-		{
-			Type: pulumi.String("azurerm:apimanagement/preview:ContentItem"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ContentItem

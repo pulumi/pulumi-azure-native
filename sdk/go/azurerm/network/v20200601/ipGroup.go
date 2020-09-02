@@ -49,9 +49,6 @@ func NewIpGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:IpGroup"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:IpGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20190901:IpGroup"),
 		},
 		{

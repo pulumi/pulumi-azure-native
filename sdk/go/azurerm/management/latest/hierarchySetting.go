@@ -37,9 +37,6 @@ func NewHierarchySetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:management/preview:HierarchySetting"),
-		},
-		{
 			Type: pulumi.String("azurerm:management/v20200201:HierarchySetting"),
 		},
 		{

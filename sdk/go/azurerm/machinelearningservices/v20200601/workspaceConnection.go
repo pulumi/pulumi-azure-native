@@ -47,9 +47,6 @@ func NewWorkspaceConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:machinelearningservices/latest:WorkspaceConnection"),
 		},
-		{
-			Type: pulumi.String("azurerm:machinelearningservices/preview:WorkspaceConnection"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource WorkspaceConnection

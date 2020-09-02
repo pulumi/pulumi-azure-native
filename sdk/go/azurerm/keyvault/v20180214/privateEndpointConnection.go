@@ -50,9 +50,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:keyvault/latest:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azurerm:keyvault/preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:keyvault/v20190901:PrivateEndpointConnection"),
 		},
 		{

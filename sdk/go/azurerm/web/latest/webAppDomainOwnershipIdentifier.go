@@ -41,9 +41,6 @@ func NewWebAppDomainOwnershipIdentifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:web/preview:WebAppDomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azurerm:web/v20160801:WebAppDomainOwnershipIdentifier"),
 		},
 		{

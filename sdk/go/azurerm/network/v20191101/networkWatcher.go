@@ -45,9 +45,6 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:NetworkWatcher"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:NetworkWatcher"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20160901:NetworkWatcher"),
 		},
 		{

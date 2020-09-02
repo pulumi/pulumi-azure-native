@@ -42,9 +42,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:search/latest:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azurerm:search/preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:search/v20200313:PrivateEndpointConnection"),
 		},
 		{

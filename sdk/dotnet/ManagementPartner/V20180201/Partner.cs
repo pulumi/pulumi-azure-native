@@ -100,7 +100,6 @@ namespace Pulumi.AzureRM.ManagementPartner.V20180201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:managementpartner/latest:Partner"},
-                    new Pulumi.Alias { Type = "azurerm:managementpartner/preview:Partner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

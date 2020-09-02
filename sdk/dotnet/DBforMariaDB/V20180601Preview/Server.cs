@@ -136,7 +136,6 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformariadb/latest:Server"},
-                    new Pulumi.Alias { Type = "azurerm:dbformariadb/preview:Server"},
                     new Pulumi.Alias { Type = "azurerm:dbformariadb/v20180601:Server"},
                 },
             };

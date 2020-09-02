@@ -78,7 +78,7 @@ class ConsumerGroup(pulumi.CustomResource):
             __props__['created_at'] = None
             __props__['event_hub_path'] = None
             __props__['updated_at'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventhub/latest:ConsumerGroup"), pulumi.Alias(type_="azurerm:eventhub/preview:ConsumerGroup"), pulumi.Alias(type_="azurerm:eventhub/v20140901:ConsumerGroup"), pulumi.Alias(type_="azurerm:eventhub/v20170401:ConsumerGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventhub/latest:ConsumerGroup"), pulumi.Alias(type_="azurerm:eventhub/v20140901:ConsumerGroup"), pulumi.Alias(type_="azurerm:eventhub/v20170401:ConsumerGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConsumerGroup, __self__).__init__(
             'azurerm:eventhub/v20150801:ConsumerGroup',

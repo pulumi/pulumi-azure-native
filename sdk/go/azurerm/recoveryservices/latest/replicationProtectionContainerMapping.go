@@ -47,9 +47,6 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationProtectionContainerMapping"),
-		},
-		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationProtectionContainerMapping"),
 		},
 		{

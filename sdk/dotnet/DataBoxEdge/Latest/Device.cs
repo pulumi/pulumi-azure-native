@@ -159,7 +159,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/preview:Device"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:Device"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Device"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:Device"},

@@ -90,7 +90,7 @@ export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:relay/preview:WCFRelayAuthorizationRule" }, { type: "azurerm:relay/v20160701:WCFRelayAuthorizationRule" }, { type: "azurerm:relay/v20170401:WCFRelayAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:relay/v20160701:WCFRelayAuthorizationRule" }, { type: "azurerm:relay/v20170401:WCFRelayAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WCFRelayAuthorizationRule.__pulumiType, name, inputs, opts);
     }

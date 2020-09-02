@@ -68,8 +68,6 @@ class PipelineRun(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['response'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/preview:PipelineRun")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PipelineRun, __self__).__init__(
             'azurerm:containerregistry/v20191201preview:PipelineRun',
             resource_name,

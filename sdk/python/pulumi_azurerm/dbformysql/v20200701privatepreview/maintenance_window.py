@@ -76,8 +76,6 @@ class MaintenanceWindow(pulumi.CustomResource):
             __props__['start_minute'] = start_minute
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformysql/preview:MaintenanceWindow")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MaintenanceWindow, __self__).__init__(
             'azurerm:dbformysql/v20200701privatepreview:MaintenanceWindow',
             resource_name,

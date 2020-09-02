@@ -60,9 +60,6 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:sql/latest:ServerAzureADAdministrator"),
 		},
 		{
-			Type: pulumi.String("azurerm:sql/preview:ServerAzureADAdministrator"),
-		},
-		{
 			Type: pulumi.String("azurerm:sql/v20180601preview:ServerAzureADAdministrator"),
 		},
 		{

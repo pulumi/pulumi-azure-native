@@ -77,7 +77,7 @@ class Service(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:healthcareapis/latest:Service"), pulumi.Alias(type_="azurerm:healthcareapis/preview:Service"), pulumi.Alias(type_="azurerm:healthcareapis/v20180820preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:healthcareapis/latest:Service"), pulumi.Alias(type_="azurerm:healthcareapis/v20180820preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azurerm:healthcareapis/v20190916:Service',

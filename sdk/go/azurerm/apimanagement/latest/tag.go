@@ -42,9 +42,6 @@ func NewTag(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Tag"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:Tag"),
 		},
 		{

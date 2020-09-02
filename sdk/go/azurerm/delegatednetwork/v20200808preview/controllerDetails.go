@@ -42,12 +42,6 @@ func NewControllerDetails(ctx *pulumi.Context,
 	if args == nil {
 		args = &ControllerDetailsArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:delegatednetwork/preview:ControllerDetails"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ControllerDetails
 	err := ctx.RegisterResource("azurerm:delegatednetwork/v20200808preview:ControllerDetails", name, args, &resource, opts...)
 	if err != nil {

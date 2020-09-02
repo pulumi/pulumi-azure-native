@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/preview:Vault"},
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/v20160601:Vault"},
                 },
             };

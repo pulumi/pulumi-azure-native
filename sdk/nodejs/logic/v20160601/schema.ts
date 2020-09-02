@@ -143,7 +143,7 @@ export class Schema extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:Schema" }, { type: "azurerm:logic/preview:Schema" }, { type: "azurerm:logic/v20150801preview:Schema" }, { type: "azurerm:logic/v20180701preview:Schema" }, { type: "azurerm:logic/v20190501:Schema" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:Schema" }, { type: "azurerm:logic/v20150801preview:Schema" }, { type: "azurerm:logic/v20180701preview:Schema" }, { type: "azurerm:logic/v20190501:Schema" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Schema.__pulumiType, name, inputs, opts);
     }

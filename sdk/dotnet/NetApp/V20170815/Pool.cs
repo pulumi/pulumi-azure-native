@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.NetApp.V20170815
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:netapp/latest:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/preview:Pool"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190501:Pool"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Pool"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190701:Pool"},

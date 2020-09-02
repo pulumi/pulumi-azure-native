@@ -107,8 +107,6 @@ export class QueryPack extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/preview:QueryPack" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(QueryPack.__pulumiType, name, inputs, opts);
     }
 }

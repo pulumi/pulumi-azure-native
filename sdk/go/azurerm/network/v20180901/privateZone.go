@@ -56,9 +56,6 @@ func NewPrivateZone(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/latest:PrivateZone"),
 		},
-		{
-			Type: pulumi.String("azurerm:network/preview:PrivateZone"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateZone

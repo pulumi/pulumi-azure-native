@@ -80,7 +80,6 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/preview:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160901:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:AppServicePlanRouteForVnet"},

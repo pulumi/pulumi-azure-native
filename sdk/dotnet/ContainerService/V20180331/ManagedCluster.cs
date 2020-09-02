@@ -136,7 +136,6 @@ namespace Pulumi.AzureRM.ContainerService.V20180331
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerservice/latest:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20170831:ManagedCluster"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20180801preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20190201:ManagedCluster"},

@@ -65,9 +65,6 @@ func NewLab(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:labservices/latest:Lab"),
 		},
-		{
-			Type: pulumi.String("azurerm:labservices/preview:Lab"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Lab

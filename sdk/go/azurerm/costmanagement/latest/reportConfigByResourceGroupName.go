@@ -50,9 +50,6 @@ func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:costmanagement/preview:ReportConfigByResourceGroupName"),
-		},
-		{
 			Type: pulumi.String("azurerm:costmanagement/v20180531:ReportConfigByResourceGroupName"),
 		},
 	})

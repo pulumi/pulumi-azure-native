@@ -123,7 +123,6 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:synapse/preview:SqlPool"},
                     new Pulumi.Alias { Type = "azurerm:synapse/v20200401preview:SqlPool"},
                 },
             };

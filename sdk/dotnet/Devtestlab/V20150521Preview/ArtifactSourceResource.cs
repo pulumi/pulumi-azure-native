@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:ArtifactSourceResource"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:ArtifactSourceResource"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:ArtifactSourceResource"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:ArtifactSourceResource"},
                 },

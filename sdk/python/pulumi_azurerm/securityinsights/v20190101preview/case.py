@@ -113,8 +113,6 @@ class Case(pulumi.CustomResource):
             __props__['tactics'] = None
             __props__['total_comments'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:securityinsights/preview:Case")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Case, __self__).__init__(
             'azurerm:securityinsights/v20190101preview:Case',
             resource_name,

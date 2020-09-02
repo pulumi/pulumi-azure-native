@@ -124,7 +124,6 @@ namespace Pulumi.AzureRM.LabServices.V20181015
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:labservices/latest:EnvironmentSetting"},
-                    new Pulumi.Alias { Type = "azurerm:labservices/preview:EnvironmentSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

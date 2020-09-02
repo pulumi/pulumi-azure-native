@@ -136,7 +136,6 @@ namespace Pulumi.AzureRM.Databricks.V20180401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databricks/latest:Workspace"},
-                    new Pulumi.Alias { Type = "azurerm:databricks/preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -105,7 +105,6 @@ namespace Pulumi.AzureRM.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/preview:AutomationAccount"},
                     new Pulumi.Alias { Type = "azurerm:automation/v20151031:AutomationAccount"},
                 },
             };

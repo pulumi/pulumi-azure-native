@@ -52,9 +52,6 @@ func NewDedicatedCloudService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:vmwarecloudsimple/preview:DedicatedCloudService"),
-		},
-		{
 			Type: pulumi.String("azurerm:vmwarecloudsimple/v20190401:DedicatedCloudService"),
 		},
 	})

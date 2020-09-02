@@ -43,12 +43,6 @@ func NewSubscriptionDiagnosticSetting(ctx *pulumi.Context,
 	if args == nil {
 		args = &SubscriptionDiagnosticSettingArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:insights/preview:SubscriptionDiagnosticSetting"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource SubscriptionDiagnosticSetting
 	err := ctx.RegisterResource("azurerm:insights/v20170501preview:SubscriptionDiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {

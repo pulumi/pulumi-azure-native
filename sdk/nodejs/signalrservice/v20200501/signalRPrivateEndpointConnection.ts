@@ -95,7 +95,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:signalrservice/latest:SignalRPrivateEndpointConnection" }, { type: "azurerm:signalrservice/preview:SignalRPrivateEndpointConnection" }, { type: "azurerm:signalrservice/v20200701preview:SignalRPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:signalrservice/latest:SignalRPrivateEndpointConnection" }, { type: "azurerm:signalrservice/v20200701preview:SignalRPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SignalRPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

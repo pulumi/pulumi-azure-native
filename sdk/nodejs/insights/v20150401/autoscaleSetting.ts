@@ -112,7 +112,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:AutoscaleSetting" }, { type: "azurerm:insights/preview:AutoscaleSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:AutoscaleSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AutoscaleSetting.__pulumiType, name, inputs, opts);
     }

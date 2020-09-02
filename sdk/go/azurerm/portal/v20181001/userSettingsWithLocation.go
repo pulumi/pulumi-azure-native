@@ -37,9 +37,6 @@ func NewUserSettingsWithLocation(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:portal/latest:UserSettingsWithLocation"),
 		},
-		{
-			Type: pulumi.String("azurerm:portal/preview:UserSettingsWithLocation"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource UserSettingsWithLocation

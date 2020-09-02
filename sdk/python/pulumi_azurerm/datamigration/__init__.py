@@ -6,7 +6,6 @@
 # Make subpackages available:
 from . import (
     latest,
-    preview,
     v20171115preview,
     v20180315preview,
     v20180331preview,

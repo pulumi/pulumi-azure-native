@@ -54,12 +54,6 @@ func NewBookmarkRelationRelation(ctx *pulumi.Context,
 	if args == nil {
 		args = &BookmarkRelationRelationArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:securityinsights/preview:BookmarkRelationRelation"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource BookmarkRelationRelation
 	err := ctx.RegisterResource("azurerm:securityinsights/v20190101preview:BookmarkRelationRelation", name, args, &resource, opts...)
 	if err != nil {

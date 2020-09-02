@@ -65,9 +65,6 @@ func NewUser(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:User"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:User"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:User"),
 		},
 		{

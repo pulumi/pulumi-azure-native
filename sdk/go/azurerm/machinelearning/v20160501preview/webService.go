@@ -49,9 +49,6 @@ func NewWebService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:machinelearning/latest:WebService"),
 		},
 		{
-			Type: pulumi.String("azurerm:machinelearning/preview:WebService"),
-		},
-		{
 			Type: pulumi.String("azurerm:machinelearning/v20170101:WebService"),
 		},
 	})

@@ -67,7 +67,7 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/preview:IntegrationServiceEnvironment"), pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationServiceEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationServiceEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationServiceEnvironment, __self__).__init__(
             'azurerm:logic/latest:IntegrationServiceEnvironment',

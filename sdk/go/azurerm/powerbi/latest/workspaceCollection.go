@@ -39,9 +39,6 @@ func NewWorkspaceCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:powerbi/preview:WorkspaceCollection"),
-		},
-		{
 			Type: pulumi.String("azurerm:powerbi/v20160129:WorkspaceCollection"),
 		},
 	})

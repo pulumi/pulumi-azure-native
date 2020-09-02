@@ -63,9 +63,6 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:kusto/latest:ClusterPrincipalAssignment"),
 		},
 		{
-			Type: pulumi.String("azurerm:kusto/preview:ClusterPrincipalAssignment"),
-		},
-		{
 			Type: pulumi.String("azurerm:kusto/v20191109:ClusterPrincipalAssignment"),
 		},
 		{

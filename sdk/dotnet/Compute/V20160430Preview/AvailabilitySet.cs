@@ -100,7 +100,6 @@ namespace Pulumi.AzureRM.Compute.V20160430Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:compute/latest:AvailabilitySet"},
-                    new Pulumi.Alias { Type = "azurerm:compute/preview:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20150615:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20160330:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20170330:AvailabilitySet"},

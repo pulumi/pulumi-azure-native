@@ -154,7 +154,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:customerinsights/latest:Prediction"},
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/preview:Prediction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

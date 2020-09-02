@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.ManagedServices.V20180601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:managedservices/latest:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azurerm:managedservices/preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azurerm:managedservices/v20190401preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azurerm:managedservices/v20190601:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azurerm:managedservices/v20190901:RegistrationAssignment"},

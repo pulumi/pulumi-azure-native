@@ -55,9 +55,6 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:automation/preview:Certificate"),
-		},
-		{
 			Type: pulumi.String("azurerm:automation/v20151031:Certificate"),
 		},
 	})

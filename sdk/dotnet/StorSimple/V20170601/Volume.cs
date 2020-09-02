@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:Volume"},
-                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

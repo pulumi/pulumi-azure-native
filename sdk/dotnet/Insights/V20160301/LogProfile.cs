@@ -94,7 +94,6 @@ namespace Pulumi.AzureRM.Insights.V20160301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:LogProfile"},
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:LogProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

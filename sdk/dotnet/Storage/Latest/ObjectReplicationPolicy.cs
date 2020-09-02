@@ -81,7 +81,6 @@ namespace Pulumi.AzureRM.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storage/preview:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20190601:ObjectReplicationPolicy"},
                 },
             };

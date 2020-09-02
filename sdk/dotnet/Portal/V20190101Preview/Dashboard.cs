@@ -75,7 +75,6 @@ namespace Pulumi.AzureRM.Portal.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:portal/preview:Dashboard"},
                     new Pulumi.Alias { Type = "azurerm:portal/v20150801preview:Dashboard"},
                     new Pulumi.Alias { Type = "azurerm:portal/v20181001preview:Dashboard"},
                 },

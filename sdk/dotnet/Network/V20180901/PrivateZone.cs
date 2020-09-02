@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.Network.V20180901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:PrivateZone"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:PrivateZone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

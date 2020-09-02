@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.Web.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppSwiftVirtualNetworkConnection"},

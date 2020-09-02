@@ -119,8 +119,6 @@ export class WorkloadClassifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/preview:WorkloadClassifier" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkloadClassifier.__pulumiType, name, inputs, opts);
     }
 }

@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:security/latest:JitNetworkAccessPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:security/preview:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azurerm:security/v20200101:JitNetworkAccessPolicy"},
                 },
             };

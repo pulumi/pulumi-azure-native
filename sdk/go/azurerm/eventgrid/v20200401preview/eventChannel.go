@@ -51,12 +51,6 @@ func NewEventChannel(ctx *pulumi.Context,
 	if args == nil {
 		args = &EventChannelArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:eventgrid/preview:EventChannel"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource EventChannel
 	err := ctx.RegisterResource("azurerm:eventgrid/v20200401preview:EventChannel", name, args, &resource, opts...)
 	if err != nil {

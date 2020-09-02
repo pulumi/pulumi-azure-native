@@ -108,8 +108,6 @@ export class SyncAgent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/preview:SyncAgent" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SyncAgent.__pulumiType, name, inputs, opts);
     }
 }

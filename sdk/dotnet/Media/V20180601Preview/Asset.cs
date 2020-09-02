@@ -100,7 +100,6 @@ namespace Pulumi.AzureRM.Media.V20180601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:media/latest:Asset"},
-                    new Pulumi.Alias { Type = "azurerm:media/preview:Asset"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180330preview:Asset"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:Asset"},
                     new Pulumi.Alias { Type = "azurerm:media/v20200501:Asset"},

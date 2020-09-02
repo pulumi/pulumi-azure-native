@@ -57,7 +57,6 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:servicebus/preview:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:TopicAuthorizationRule"},

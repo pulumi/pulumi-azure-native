@@ -41,12 +41,6 @@ func NewNamespaceIpFilterRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &NamespaceIpFilterRuleArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:eventhub/preview:NamespaceIpFilterRule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource NamespaceIpFilterRule
 	err := ctx.RegisterResource("azurerm:eventhub/v20180101preview:NamespaceIpFilterRule", name, args, &resource, opts...)
 	if err != nil {

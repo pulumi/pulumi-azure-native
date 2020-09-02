@@ -65,9 +65,6 @@ func NewFileShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:storage/preview:FileShare"),
-		},
-		{
 			Type: pulumi.String("azurerm:storage/v20190401:FileShare"),
 		},
 		{

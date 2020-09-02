@@ -54,9 +54,6 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:dbformysql/preview:ServerAdministrator"),
-		},
-		{
 			Type: pulumi.String("azurerm:dbformysql/v20171201:ServerAdministrator"),
 		},
 		{

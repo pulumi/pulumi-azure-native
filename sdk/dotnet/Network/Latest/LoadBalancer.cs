@@ -129,7 +129,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:LoadBalancer"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150501preview:LoadBalancer"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:LoadBalancer"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:LoadBalancer"},

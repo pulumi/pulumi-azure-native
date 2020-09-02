@@ -114,8 +114,6 @@ export class BookmarkRelationRelation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:securityinsights/preview:BookmarkRelationRelation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BookmarkRelationRelation.__pulumiType, name, inputs, opts);
     }
 }

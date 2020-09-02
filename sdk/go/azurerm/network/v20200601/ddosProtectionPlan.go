@@ -49,9 +49,6 @@ func NewDdosProtectionPlan(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20180201:DdosProtectionPlan"),
 		},
 		{

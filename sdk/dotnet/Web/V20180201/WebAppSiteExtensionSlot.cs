@@ -175,7 +175,6 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppSiteExtensionSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppSiteExtensionSlot"},

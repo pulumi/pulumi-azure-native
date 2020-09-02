@@ -109,9 +109,6 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/latest:ManagedHostingEnvironment"),
 		},
-		{
-			Type: pulumi.String("azurerm:web/preview:ManagedHostingEnvironment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedHostingEnvironment

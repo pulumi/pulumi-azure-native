@@ -47,9 +47,6 @@ func NewGallery(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:compute/preview:Gallery"),
-		},
-		{
 			Type: pulumi.String("azurerm:compute/v20180601:Gallery"),
 		},
 		{

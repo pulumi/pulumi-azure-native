@@ -98,8 +98,6 @@ export class ManagementAssociation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationsmanagement/preview:ManagementAssociation" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementAssociation.__pulumiType, name, inputs, opts);
     }
 }

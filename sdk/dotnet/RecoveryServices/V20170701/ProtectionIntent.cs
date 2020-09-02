@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20170701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/latest:ProtectionIntent"},
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/preview:ProtectionIntent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

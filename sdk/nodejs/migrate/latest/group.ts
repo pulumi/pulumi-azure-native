@@ -90,7 +90,7 @@ export class Group extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:migrate/preview:Group" }, { type: "azurerm:migrate/v20191001:Group" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:migrate/v20191001:Group" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Group.__pulumiType, name, inputs, opts);
     }

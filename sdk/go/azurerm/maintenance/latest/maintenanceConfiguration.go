@@ -44,9 +44,6 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:maintenance/preview:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azurerm:maintenance/v20180601preview:MaintenanceConfiguration"),
 		},
 		{

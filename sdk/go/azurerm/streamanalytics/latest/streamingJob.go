@@ -76,9 +76,6 @@ func NewStreamingJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:streamanalytics/preview:StreamingJob"),
-		},
-		{
 			Type: pulumi.String("azurerm:streamanalytics/v20160301:StreamingJob"),
 		},
 	})

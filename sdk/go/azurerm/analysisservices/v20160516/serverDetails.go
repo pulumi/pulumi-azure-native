@@ -59,9 +59,6 @@ func NewServerDetails(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:analysisservices/latest:ServerDetails"),
 		},
 		{
-			Type: pulumi.String("azurerm:analysisservices/preview:ServerDetails"),
-		},
-		{
 			Type: pulumi.String("azurerm:analysisservices/v20170714:ServerDetails"),
 		},
 		{

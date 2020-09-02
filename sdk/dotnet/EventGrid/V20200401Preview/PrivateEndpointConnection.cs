@@ -73,7 +73,6 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:eventgrid/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20200601:PrivateEndpointConnection"},
                 },
             };

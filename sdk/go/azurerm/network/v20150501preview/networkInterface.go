@@ -64,9 +64,6 @@ func NewNetworkInterface(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20150615:NetworkInterface"),
 		},
 		{

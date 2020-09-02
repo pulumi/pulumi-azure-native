@@ -99,7 +99,6 @@ namespace Pulumi.AzureRM.ResourceGraph.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:resourcegraph/preview:GraphQuery"},
                     new Pulumi.Alias { Type = "azurerm:resourcegraph/v20180901preview:GraphQuery"},
                 },
             };

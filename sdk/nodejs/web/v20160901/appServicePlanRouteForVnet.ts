@@ -111,7 +111,7 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:AppServicePlanRouteForVnet" }, { type: "azurerm:web/preview:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20200601:AppServicePlanRouteForVnet" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azurerm:web/v20200601:AppServicePlanRouteForVnet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServicePlanRouteForVnet.__pulumiType, name, inputs, opts);
     }

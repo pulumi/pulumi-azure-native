@@ -65,9 +65,6 @@ func NewVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:compute/preview:VirtualMachineScaleSetVMExtension"),
-		},
-		{
 			Type: pulumi.String("azurerm:compute/v20190701:VirtualMachineScaleSetVMExtension"),
 		},
 		{

@@ -95,7 +95,7 @@ class Topic(pulumi.CustomResource):
             __props__['subscription_count'] = None
             __props__['type'] = None
             __props__['updated_at'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicebus/latest:Topic"), pulumi.Alias(type_="azurerm:servicebus/preview:Topic"), pulumi.Alias(type_="azurerm:servicebus/v20140901:Topic"), pulumi.Alias(type_="azurerm:servicebus/v20150801:Topic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicebus/latest:Topic"), pulumi.Alias(type_="azurerm:servicebus/v20140901:Topic"), pulumi.Alias(type_="azurerm:servicebus/v20150801:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Topic, __self__).__init__(
             'azurerm:servicebus/v20170401:Topic',

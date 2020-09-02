@@ -53,9 +53,6 @@ func NewRemediationAtManagementGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:policyinsights/preview:RemediationAtManagementGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:policyinsights/v20180701preview:RemediationAtManagementGroup"),
 		},
 		{

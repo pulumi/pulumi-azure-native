@@ -58,12 +58,6 @@ func NewSensitivityLabel(ctx *pulumi.Context,
 	if args == nil {
 		args = &SensitivityLabelArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:sql/preview:SensitivityLabel"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource SensitivityLabel
 	err := ctx.RegisterResource("azurerm:sql/v20170301preview:SensitivityLabel", name, args, &resource, opts...)
 	if err != nil {

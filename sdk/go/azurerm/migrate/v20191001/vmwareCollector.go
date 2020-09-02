@@ -38,9 +38,6 @@ func NewVMwareCollector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:migrate/latest:VMwareCollector"),
 		},
-		{
-			Type: pulumi.String("azurerm:migrate/preview:VMwareCollector"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource VMwareCollector

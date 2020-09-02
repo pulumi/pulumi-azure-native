@@ -46,9 +46,6 @@ func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountBatchConfiguration"),
-		},
-		{
 			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountBatchConfiguration"),
 		},
 		{

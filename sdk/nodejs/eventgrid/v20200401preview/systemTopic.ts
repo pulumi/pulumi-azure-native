@@ -107,8 +107,6 @@ export class SystemTopic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/preview:SystemTopic" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SystemTopic.__pulumiType, name, inputs, opts);
     }
 }

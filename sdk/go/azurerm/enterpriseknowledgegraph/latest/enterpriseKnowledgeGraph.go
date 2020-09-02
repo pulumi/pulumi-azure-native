@@ -42,9 +42,6 @@ func NewEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:enterpriseknowledgegraph/preview:EnterpriseKnowledgeGraph"),
-		},
-		{
 			Type: pulumi.String("azurerm:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"),
 		},
 	})

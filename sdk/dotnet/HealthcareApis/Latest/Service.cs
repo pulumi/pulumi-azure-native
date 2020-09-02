@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.HealthcareApis.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:healthcareapis/preview:Service"},
                     new Pulumi.Alias { Type = "azurerm:healthcareapis/v20180820preview:Service"},
                     new Pulumi.Alias { Type = "azurerm:healthcareapis/v20190916:Service"},
                 },

@@ -93,7 +93,6 @@ namespace Pulumi.AzureRM.IoTCentral.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:iotcentral/preview:App"},
                     new Pulumi.Alias { Type = "azurerm:iotcentral/v20170701privatepreview:App"},
                     new Pulumi.Alias { Type = "azurerm:iotcentral/v20180901:App"},
                 },

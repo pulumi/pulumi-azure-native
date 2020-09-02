@@ -98,7 +98,7 @@ class SapMonitor(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hanaonazure/preview:SapMonitor"), pulumi.Alias(type_="azurerm:hanaonazure/v20200207preview:SapMonitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hanaonazure/v20200207preview:SapMonitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SapMonitor, __self__).__init__(
             'azurerm:hanaonazure/v20171103preview:SapMonitor',

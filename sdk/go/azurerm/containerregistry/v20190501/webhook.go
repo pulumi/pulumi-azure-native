@@ -61,9 +61,6 @@ func NewWebhook(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:containerregistry/latest:Webhook"),
 		},
 		{
-			Type: pulumi.String("azurerm:containerregistry/preview:Webhook"),
-		},
-		{
 			Type: pulumi.String("azurerm:containerregistry/v20170601preview:Webhook"),
 		},
 		{

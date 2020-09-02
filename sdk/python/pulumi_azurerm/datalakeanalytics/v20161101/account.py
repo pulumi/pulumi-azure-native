@@ -115,7 +115,7 @@ class Account(pulumi.CustomResource):
             __props__['system_max_degree_of_parallelism'] = None
             __props__['system_max_job_count'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datalakeanalytics/latest:Account"), pulumi.Alias(type_="azurerm:datalakeanalytics/preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datalakeanalytics/latest:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azurerm:datalakeanalytics/v20161101:Account',

@@ -63,9 +63,6 @@ func NewLoadBalancer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:LoadBalancer"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:LoadBalancer"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20150501preview:LoadBalancer"),
 		},
 		{

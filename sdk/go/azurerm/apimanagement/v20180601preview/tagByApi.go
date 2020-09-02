@@ -45,9 +45,6 @@ func NewTagByApi(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:TagByApi"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:TagByApi"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:TagByApi"),
 		},
 		{

@@ -184,7 +184,6 @@ namespace Pulumi.AzureRM.Web.V20181101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:web/preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160301:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:Certificate"},

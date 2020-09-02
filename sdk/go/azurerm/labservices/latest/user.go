@@ -60,9 +60,6 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:labservices/preview:User"),
-		},
-		{
 			Type: pulumi.String("azurerm:labservices/v20181015:User"),
 		},
 	})

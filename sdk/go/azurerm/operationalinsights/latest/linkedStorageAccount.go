@@ -41,9 +41,6 @@ func NewLinkedStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:operationalinsights/preview:LinkedStorageAccount"),
-		},
-		{
 			Type: pulumi.String("azurerm:operationalinsights/v20190801preview:LinkedStorageAccount"),
 		},
 		{

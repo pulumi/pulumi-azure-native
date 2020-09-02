@@ -47,9 +47,6 @@ func NewSqlServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:azuredata/preview:SqlServer"),
-		},
-		{
 			Type: pulumi.String("azurerm:azuredata/v20190724preview:SqlServer"),
 		},
 	})

@@ -151,7 +151,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/preview:Volume" }, { type: "azurerm:storsimple/v20170601:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20170601:Volume" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Volume.__pulumiType, name, inputs, opts);
     }

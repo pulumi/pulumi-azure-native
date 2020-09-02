@@ -60,9 +60,6 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:desktopvirtualization/preview:Application"),
-		},
-		{
 			Type: pulumi.String("azurerm:desktopvirtualization/v20190924preview:Application"),
 		},
 		{

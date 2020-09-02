@@ -59,9 +59,6 @@ func NewP2sVpnServerConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:P2sVpnServerConfiguration"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:P2sVpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20181001:P2sVpnServerConfiguration"),
 		},
 		{

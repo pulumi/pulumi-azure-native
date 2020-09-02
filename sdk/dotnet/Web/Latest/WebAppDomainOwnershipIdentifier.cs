@@ -63,7 +63,6 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppDomainOwnershipIdentifier"},

@@ -141,7 +141,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:FrontDoor"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180801:FrontDoor"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190401:FrontDoor"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190501:FrontDoor"},

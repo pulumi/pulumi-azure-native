@@ -101,8 +101,6 @@ export class SecretValue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicefabricmesh/preview:SecretValue" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SecretValue.__pulumiType, name, inputs, opts);
     }
 }

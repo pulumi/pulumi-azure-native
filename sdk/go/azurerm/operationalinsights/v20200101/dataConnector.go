@@ -46,9 +46,6 @@ func NewDataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:operationalinsights/latest:DataConnector"),
 		},
-		{
-			Type: pulumi.String("azurerm:operationalinsights/preview:DataConnector"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DataConnector

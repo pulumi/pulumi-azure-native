@@ -72,7 +72,6 @@ namespace Pulumi.AzureRM.OffAzure.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:offazure/preview:Site"},
                     new Pulumi.Alias { Type = "azurerm:offazure/v20200101:Site"},
                     new Pulumi.Alias { Type = "azurerm:offazure/v20200707:Site"},
                 },

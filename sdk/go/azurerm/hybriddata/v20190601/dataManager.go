@@ -51,9 +51,6 @@ func NewDataManager(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:hybriddata/latest:DataManager"),
 		},
 		{
-			Type: pulumi.String("azurerm:hybriddata/preview:DataManager"),
-		},
-		{
 			Type: pulumi.String("azurerm:hybriddata/v20160601:DataManager"),
 		},
 	})

@@ -76,9 +76,6 @@ func NewDevice(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databoxedge/latest:Device"),
 		},
 		{
-			Type: pulumi.String("azurerm:databoxedge/preview:Device"),
-		},
-		{
 			Type: pulumi.String("azurerm:databoxedge/v20190301:Device"),
 		},
 		{

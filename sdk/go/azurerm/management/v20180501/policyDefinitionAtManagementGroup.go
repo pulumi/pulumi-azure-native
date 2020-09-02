@@ -51,9 +51,6 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:management/latest:PolicyDefinitionAtManagementGroup"),
 		},
 		{
-			Type: pulumi.String("azurerm:management/preview:PolicyDefinitionAtManagementGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:management/v20161201:PolicyDefinitionAtManagementGroup"),
 		},
 		{

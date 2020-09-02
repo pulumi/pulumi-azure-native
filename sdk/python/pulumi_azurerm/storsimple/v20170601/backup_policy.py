@@ -77,7 +77,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__['schedules_count'] = None
             __props__['ssm_host_name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/latest:BackupPolicy"), pulumi.Alias(type_="azurerm:storsimple/preview:BackupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/latest:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
             'azurerm:storsimple/v20170601:BackupPolicy',

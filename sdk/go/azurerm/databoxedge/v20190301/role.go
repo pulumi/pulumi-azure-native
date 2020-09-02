@@ -45,9 +45,6 @@ func NewRole(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databoxedge/latest:Role"),
 		},
 		{
-			Type: pulumi.String("azurerm:databoxedge/preview:Role"),
-		},
-		{
 			Type: pulumi.String("azurerm:databoxedge/v20190701:Role"),
 		},
 		{

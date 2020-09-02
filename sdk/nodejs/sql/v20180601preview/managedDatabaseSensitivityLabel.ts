@@ -121,8 +121,6 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/preview:ManagedDatabaseSensitivityLabel" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedDatabaseSensitivityLabel.__pulumiType, name, inputs, opts);
     }
 }

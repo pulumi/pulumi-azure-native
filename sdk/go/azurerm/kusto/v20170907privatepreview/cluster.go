@@ -61,9 +61,6 @@ func NewCluster(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:kusto/latest:Cluster"),
 		},
 		{
-			Type: pulumi.String("azurerm:kusto/preview:Cluster"),
-		},
-		{
 			Type: pulumi.String("azurerm:kusto/v20180907preview:Cluster"),
 		},
 		{

@@ -104,8 +104,6 @@ export class TemplateSpec extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:resources/preview:TemplateSpec" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TemplateSpec.__pulumiType, name, inputs, opts);
     }
 }

@@ -93,7 +93,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:ServiceEndpointPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180701:ServiceEndpointPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180801:ServiceEndpointPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181001:ServiceEndpointPolicy"},

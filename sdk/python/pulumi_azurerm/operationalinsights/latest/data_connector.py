@@ -66,7 +66,7 @@ class DataConnector(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/preview:DataConnector"), pulumi.Alias(type_="azurerm:operationalinsights/v20200101:DataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/v20200101:DataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataConnector, __self__).__init__(
             'azurerm:operationalinsights/latest:DataConnector',

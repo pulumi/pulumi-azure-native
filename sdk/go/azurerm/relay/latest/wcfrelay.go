@@ -53,9 +53,6 @@ func NewWCFRelay(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:relay/preview:WCFRelay"),
-		},
-		{
 			Type: pulumi.String("azurerm:relay/v20160701:WCFRelay"),
 		},
 		{

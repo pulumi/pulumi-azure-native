@@ -143,8 +143,6 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:kubernetesconfiguration/preview:SourceControlConfiguration" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SourceControlConfiguration.__pulumiType, name, inputs, opts);
     }
 }

@@ -75,7 +75,6 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:dbformysql/preview:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201preview:ServerAdministrator"},
                 },

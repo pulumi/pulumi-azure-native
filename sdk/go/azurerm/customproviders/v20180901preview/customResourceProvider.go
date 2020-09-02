@@ -47,12 +47,6 @@ func NewCustomResourceProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &CustomResourceProviderArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:customproviders/preview:CustomResourceProvider"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource CustomResourceProvider
 	err := ctx.RegisterResource("azurerm:customproviders/v20180901preview:CustomResourceProvider", name, args, &resource, opts...)
 	if err != nil {

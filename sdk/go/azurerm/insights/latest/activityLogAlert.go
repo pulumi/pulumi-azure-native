@@ -60,9 +60,6 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:insights/preview:ActivityLogAlert"),
-		},
-		{
 			Type: pulumi.String("azurerm:insights/v20170301preview:ActivityLogAlert"),
 		},
 		{

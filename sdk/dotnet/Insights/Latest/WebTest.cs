@@ -135,7 +135,6 @@ namespace Pulumi.AzureRM.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:WebTest"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20150501:WebTest"},
                 },
             };

@@ -91,8 +91,6 @@ class Account(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningexperimentation/preview:Account")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azurerm:machinelearningexperimentation/v20170501preview:Account',
             resource_name,

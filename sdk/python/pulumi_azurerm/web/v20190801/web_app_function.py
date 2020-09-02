@@ -99,7 +99,7 @@ class WebAppFunction(pulumi.CustomResource):
             __props__['test_data'] = test_data
             __props__['test_data_href'] = test_data_href
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:WebAppFunction"), pulumi.Alias(type_="azurerm:web/preview:WebAppFunction"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppFunction"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppFunction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:WebAppFunction"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppFunction"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppFunction, __self__).__init__(
             'azurerm:web/v20190801:WebAppFunction',

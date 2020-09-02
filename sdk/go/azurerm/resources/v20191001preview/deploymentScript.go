@@ -51,12 +51,6 @@ func NewDeploymentScript(ctx *pulumi.Context,
 	if args == nil {
 		args = &DeploymentScriptArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:resources/preview:DeploymentScript"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource DeploymentScript
 	err := ctx.RegisterResource("azurerm:resources/v20191001preview:DeploymentScript", name, args, &resource, opts...)
 	if err != nil {

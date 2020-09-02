@@ -46,12 +46,6 @@ func NewManagementGroupDiagnosticSetting(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagementGroupDiagnosticSettingArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:management/preview:ManagementGroupDiagnosticSetting"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ManagementGroupDiagnosticSetting
 	err := ctx.RegisterResource("azurerm:management/v20200101preview:ManagementGroupDiagnosticSetting", name, args, &resource, opts...)
 	if err != nil {

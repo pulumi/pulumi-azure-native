@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Insights.V20150401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:AutoscaleSetting"},
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:AutoscaleSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

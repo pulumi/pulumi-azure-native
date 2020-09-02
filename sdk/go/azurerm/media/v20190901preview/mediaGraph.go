@@ -55,9 +55,6 @@ func NewMediaGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:media/preview:MediaGraph"),
-		},
-		{
 			Type: pulumi.String("azurerm:media/v20200201preview:MediaGraph"),
 		},
 	})

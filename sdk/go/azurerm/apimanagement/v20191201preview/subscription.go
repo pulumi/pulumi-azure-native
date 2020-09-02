@@ -72,9 +72,6 @@ func NewSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:Subscription"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Subscription"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Subscription"),
 		},
 		{

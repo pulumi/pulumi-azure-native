@@ -141,7 +141,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180201:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180401:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180601:ExpressRouteCrossConnectionPeering"},

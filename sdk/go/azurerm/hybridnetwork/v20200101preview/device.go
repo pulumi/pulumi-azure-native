@@ -49,12 +49,6 @@ func NewDevice(ctx *pulumi.Context,
 	if args == nil {
 		args = &DeviceArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:hybridnetwork/preview:Device"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Device
 	err := ctx.RegisterResource("azurerm:hybridnetwork/v20200101preview:Device", name, args, &resource, opts...)
 	if err != nil {

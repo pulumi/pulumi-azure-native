@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:AnalyticsItem"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20150501:AnalyticsItem"},
                 },
             };

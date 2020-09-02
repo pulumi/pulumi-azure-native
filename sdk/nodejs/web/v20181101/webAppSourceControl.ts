@@ -103,7 +103,7 @@ export class WebAppSourceControl extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppSourceControl" }, { type: "azurerm:web/preview:WebAppSourceControl" }, { type: "azurerm:web/v20150801:WebAppSourceControl" }, { type: "azurerm:web/v20160801:WebAppSourceControl" }, { type: "azurerm:web/v20180201:WebAppSourceControl" }, { type: "azurerm:web/v20190801:WebAppSourceControl" }, { type: "azurerm:web/v20200601:WebAppSourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppSourceControl" }, { type: "azurerm:web/v20150801:WebAppSourceControl" }, { type: "azurerm:web/v20160801:WebAppSourceControl" }, { type: "azurerm:web/v20180201:WebAppSourceControl" }, { type: "azurerm:web/v20190801:WebAppSourceControl" }, { type: "azurerm:web/v20200601:WebAppSourceControl" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppSourceControl.__pulumiType, name, inputs, opts);
     }

@@ -159,7 +159,6 @@ namespace Pulumi.AzureRM.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/preview:Runbook"},
                     new Pulumi.Alias { Type = "azurerm:automation/v20151031:Runbook"},
                     new Pulumi.Alias { Type = "azurerm:automation/v20180630:Runbook"},
                 },

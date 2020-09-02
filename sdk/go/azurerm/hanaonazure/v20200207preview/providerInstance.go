@@ -41,12 +41,6 @@ func NewProviderInstance(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProviderInstanceArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:hanaonazure/preview:ProviderInstance"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ProviderInstance
 	err := ctx.RegisterResource("azurerm:hanaonazure/v20200207preview:ProviderInstance", name, args, &resource, opts...)
 	if err != nil {

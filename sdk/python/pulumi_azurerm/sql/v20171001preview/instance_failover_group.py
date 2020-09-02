@@ -80,8 +80,6 @@ class InstanceFailoverGroup(pulumi.CustomResource):
             __props__['replication_role'] = None
             __props__['replication_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:sql/preview:InstanceFailoverGroup")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InstanceFailoverGroup, __self__).__init__(
             'azurerm:sql/v20171001preview:InstanceFailoverGroup',
             resource_name,

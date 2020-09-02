@@ -49,9 +49,6 @@ func NewCache(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:Cache"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Cache"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:Cache"),
 		},
 		{

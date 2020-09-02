@@ -57,9 +57,6 @@ func NewDatabaseAccountMongoDBCollection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:DatabaseAccountMongoDBCollection"),
 		},
 		{
-			Type: pulumi.String("azurerm:documentdb/preview:DatabaseAccountMongoDBCollection"),
-		},
-		{
 			Type: pulumi.String("azurerm:documentdb/v20150408:DatabaseAccountMongoDBCollection"),
 		},
 		{

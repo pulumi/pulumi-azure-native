@@ -73,7 +73,7 @@ class ApiTagDescription(pulumi.CustomResource):
             __props__['display_name'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/preview:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiTagDescription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiTagDescription"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiTagDescription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiTagDescription, __self__).__init__(
             'azurerm:apimanagement/v20190101:ApiTagDescription',

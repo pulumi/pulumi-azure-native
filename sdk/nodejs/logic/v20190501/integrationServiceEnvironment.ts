@@ -96,7 +96,7 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:IntegrationServiceEnvironment" }, { type: "azurerm:logic/preview:IntegrationServiceEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:IntegrationServiceEnvironment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationServiceEnvironment.__pulumiType, name, inputs, opts);
     }

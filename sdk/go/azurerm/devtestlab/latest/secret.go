@@ -50,9 +50,6 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:devtestlab/preview:Secret"),
-		},
-		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:Secret"),
 		},
 		{

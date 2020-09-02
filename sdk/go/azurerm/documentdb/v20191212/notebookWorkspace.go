@@ -44,9 +44,6 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:NotebookWorkspace"),
 		},
 		{
-			Type: pulumi.String("azurerm:documentdb/preview:NotebookWorkspace"),
-		},
-		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:NotebookWorkspace"),
 		},
 		{

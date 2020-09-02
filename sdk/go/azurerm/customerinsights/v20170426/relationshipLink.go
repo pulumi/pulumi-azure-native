@@ -74,9 +74,6 @@ func NewRelationshipLink(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:customerinsights/latest:RelationshipLink"),
 		},
 		{
-			Type: pulumi.String("azurerm:customerinsights/preview:RelationshipLink"),
-		},
-		{
 			Type: pulumi.String("azurerm:customerinsights/v20170101:RelationshipLink"),
 		},
 	})

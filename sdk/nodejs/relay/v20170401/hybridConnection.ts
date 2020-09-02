@@ -103,7 +103,7 @@ export class HybridConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:relay/latest:HybridConnection" }, { type: "azurerm:relay/preview:HybridConnection" }, { type: "azurerm:relay/v20160701:HybridConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:relay/latest:HybridConnection" }, { type: "azurerm:relay/v20160701:HybridConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HybridConnection.__pulumiType, name, inputs, opts);
     }

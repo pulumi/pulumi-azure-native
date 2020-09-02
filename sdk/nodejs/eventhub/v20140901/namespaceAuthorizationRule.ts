@@ -91,7 +91,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventhub/latest:NamespaceAuthorizationRule" }, { type: "azurerm:eventhub/preview:NamespaceAuthorizationRule" }, { type: "azurerm:eventhub/v20150801:NamespaceAuthorizationRule" }, { type: "azurerm:eventhub/v20170401:NamespaceAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:eventhub/latest:NamespaceAuthorizationRule" }, { type: "azurerm:eventhub/v20150801:NamespaceAuthorizationRule" }, { type: "azurerm:eventhub/v20170401:NamespaceAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NamespaceAuthorizationRule.__pulumiType, name, inputs, opts);
     }

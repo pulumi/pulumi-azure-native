@@ -147,7 +147,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:SecurityRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150501preview:SecurityRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:SecurityRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:SecurityRule"},

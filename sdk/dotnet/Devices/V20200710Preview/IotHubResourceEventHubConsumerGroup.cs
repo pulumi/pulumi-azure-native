@@ -64,7 +64,6 @@ namespace Pulumi.AzureRM.Devices.V20200710Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devices/latest:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azurerm:devices/preview:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20160203:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20170119:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20170701:IotHubResourceEventHubConsumerGroup"},

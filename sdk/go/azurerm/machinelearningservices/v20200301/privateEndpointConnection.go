@@ -57,9 +57,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:machinelearningservices/latest:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azurerm:machinelearningservices/preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20200101:PrivateEndpointConnection"),
 		},
 		{

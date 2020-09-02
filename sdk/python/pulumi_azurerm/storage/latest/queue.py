@@ -61,7 +61,7 @@ class Queue(pulumi.CustomResource):
             __props__['approximate_message_count'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/preview:Queue"), pulumi.Alias(type_="azurerm:storage/v20190601:Queue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/v20190601:Queue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Queue, __self__).__init__(
             'azurerm:storage/latest:Queue',

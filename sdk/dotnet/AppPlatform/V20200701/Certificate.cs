@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:appplatform/latest:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:appplatform/preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:appplatform/v20190501preview:Certificate"},
                 },
             };

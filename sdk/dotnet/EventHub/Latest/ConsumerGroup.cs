@@ -69,7 +69,6 @@ namespace Pulumi.AzureRM.EventHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:eventhub/preview:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20140901:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20150801:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:ConsumerGroup"},

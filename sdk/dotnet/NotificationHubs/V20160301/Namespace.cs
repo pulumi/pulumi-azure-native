@@ -130,7 +130,6 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/latest:Namespace"},
-                    new Pulumi.Alias { Type = "azurerm:notificationhubs/preview:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:notificationhubs/v20170401:Namespace"},
                 },

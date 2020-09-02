@@ -86,9 +86,6 @@ func NewRoleAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:customerinsights/latest:RoleAssignment"),
 		},
 		{
-			Type: pulumi.String("azurerm:customerinsights/preview:RoleAssignment"),
-		},
-		{
 			Type: pulumi.String("azurerm:customerinsights/v20170426:RoleAssignment"),
 		},
 	})

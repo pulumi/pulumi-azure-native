@@ -56,9 +56,6 @@ func NewCredential(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:Credential"),
 		},
-		{
-			Type: pulumi.String("azurerm:automation/preview:Credential"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Credential

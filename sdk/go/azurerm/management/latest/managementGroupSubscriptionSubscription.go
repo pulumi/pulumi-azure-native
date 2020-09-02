@@ -39,9 +39,6 @@ func NewManagementGroupSubscriptionSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:management/preview:ManagementGroupSubscriptionSubscription"),
-		},
-		{
 			Type: pulumi.String("azurerm:management/v20200501:ManagementGroupSubscriptionSubscription"),
 		},
 	})

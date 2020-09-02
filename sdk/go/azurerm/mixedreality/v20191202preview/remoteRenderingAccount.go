@@ -45,9 +45,6 @@ func NewRemoteRenderingAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:mixedreality/preview:RemoteRenderingAccount"),
-		},
-		{
 			Type: pulumi.String("azurerm:mixedreality/v20200406preview:RemoteRenderingAccount"),
 		},
 	})

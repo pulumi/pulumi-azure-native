@@ -110,7 +110,7 @@ export class BotConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:botservice/latest:BotConnection" }, { type: "azurerm:botservice/preview:BotConnection" }, { type: "azurerm:botservice/v20171201:BotConnection" }, { type: "azurerm:botservice/v20180712:BotConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:botservice/latest:BotConnection" }, { type: "azurerm:botservice/v20171201:BotConnection" }, { type: "azurerm:botservice/v20180712:BotConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BotConnection.__pulumiType, name, inputs, opts);
     }

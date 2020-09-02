@@ -85,7 +85,7 @@ class VirtualNetworkResource(pulumi.CustomResource):
             __props__['subnet_overrides'] = subnet_overrides
             __props__['tags'] = tags
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:VirtualNetworkResource"), pulumi.Alias(type_="azurerm:devtestlab/preview:VirtualNetworkResource"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:VirtualNetworkResource"), pulumi.Alias(type_="azurerm:devtestlab/v20180915:VirtualNetworkResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:VirtualNetworkResource"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:VirtualNetworkResource"), pulumi.Alias(type_="azurerm:devtestlab/v20180915:VirtualNetworkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkResource, __self__).__init__(
             'azurerm:devtestlab/v20150521preview:VirtualNetworkResource',

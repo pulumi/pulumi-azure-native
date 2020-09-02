@@ -204,7 +204,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:servicefabric/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/preview:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20160901:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20180201:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301:Cluster"},

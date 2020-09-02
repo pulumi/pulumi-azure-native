@@ -39,9 +39,6 @@ func NewSupportPlanType(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:addons/latest:SupportPlanType"),
 		},
 		{
-			Type: pulumi.String("azurerm:addons/preview:SupportPlanType"),
-		},
-		{
 			Type: pulumi.String("azurerm:addons/v20170515:SupportPlanType"),
 		},
 	})

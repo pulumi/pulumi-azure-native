@@ -122,7 +122,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/preview:CustomIPPrefix" }, { type: "azurerm:network/v20200601:CustomIPPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20200601:CustomIPPrefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomIPPrefix.__pulumiType, name, inputs, opts);
     }

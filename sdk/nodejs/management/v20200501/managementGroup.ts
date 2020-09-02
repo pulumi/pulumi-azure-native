@@ -97,7 +97,7 @@ export class ManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:management/latest:ManagementGroup" }, { type: "azurerm:management/preview:ManagementGroup" }, { type: "azurerm:management/v20171101preview:ManagementGroup" }, { type: "azurerm:management/v20180101preview:ManagementGroup" }, { type: "azurerm:management/v20180301preview:ManagementGroup" }, { type: "azurerm:management/v20191101:ManagementGroup" }, { type: "azurerm:management/v20200201:ManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:management/latest:ManagementGroup" }, { type: "azurerm:management/v20171101preview:ManagementGroup" }, { type: "azurerm:management/v20180101preview:ManagementGroup" }, { type: "azurerm:management/v20180301preview:ManagementGroup" }, { type: "azurerm:management/v20191101:ManagementGroup" }, { type: "azurerm:management/v20200201:ManagementGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementGroup.__pulumiType, name, inputs, opts);
     }

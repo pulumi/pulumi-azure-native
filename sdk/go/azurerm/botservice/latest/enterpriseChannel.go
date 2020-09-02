@@ -46,9 +46,6 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:botservice/preview:EnterpriseChannel"),
-		},
-		{
 			Type: pulumi.String("azurerm:botservice/v20180712:EnterpriseChannel"),
 		},
 	})

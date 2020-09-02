@@ -116,7 +116,7 @@ class Prediction(pulumi.CustomResource):
             __props__['system_generated_entities'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:customerinsights/preview:Prediction"), pulumi.Alias(type_="azurerm:customerinsights/v20170426:Prediction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:customerinsights/v20170426:Prediction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Prediction, __self__).__init__(
             'azurerm:customerinsights/latest:Prediction',

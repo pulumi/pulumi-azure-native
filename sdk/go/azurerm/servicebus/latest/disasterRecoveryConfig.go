@@ -47,9 +47,6 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:servicebus/preview:DisasterRecoveryConfig"),
-		},
-		{
 			Type: pulumi.String("azurerm:servicebus/v20170401:DisasterRecoveryConfig"),
 		},
 	})

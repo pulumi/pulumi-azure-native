@@ -45,9 +45,6 @@ func NewStorageSyncService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storagesync/latest:StorageSyncService"),
 		},
 		{
-			Type: pulumi.String("azurerm:storagesync/preview:StorageSyncService"),
-		},
-		{
 			Type: pulumi.String("azurerm:storagesync/v20180402:StorageSyncService"),
 		},
 		{

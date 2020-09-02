@@ -131,7 +131,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventhub/preview:Namespace" }, { type: "azurerm:eventhub/v20140901:Namespace" }, { type: "azurerm:eventhub/v20150801:Namespace" }, { type: "azurerm:eventhub/v20170401:Namespace" }, { type: "azurerm:eventhub/v20180101preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:eventhub/v20140901:Namespace" }, { type: "azurerm:eventhub/v20150801:Namespace" }, { type: "azurerm:eventhub/v20170401:Namespace" }, { type: "azurerm:eventhub/v20180101preview:Namespace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Namespace.__pulumiType, name, inputs, opts);
     }

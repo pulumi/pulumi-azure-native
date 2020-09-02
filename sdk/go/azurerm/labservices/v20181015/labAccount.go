@@ -50,9 +50,6 @@ func NewLabAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:labservices/latest:LabAccount"),
 		},
-		{
-			Type: pulumi.String("azurerm:labservices/preview:LabAccount"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource LabAccount

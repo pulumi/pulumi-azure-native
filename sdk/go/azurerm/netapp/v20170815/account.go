@@ -48,9 +48,6 @@ func NewAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:netapp/latest:Account"),
 		},
 		{
-			Type: pulumi.String("azurerm:netapp/preview:Account"),
-		},
-		{
 			Type: pulumi.String("azurerm:netapp/v20190501:Account"),
 		},
 		{

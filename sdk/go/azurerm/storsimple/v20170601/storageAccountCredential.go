@@ -56,9 +56,6 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storsimple/latest:StorageAccountCredential"),
 		},
 		{
-			Type: pulumi.String("azurerm:storsimple/preview:StorageAccountCredential"),
-		},
-		{
 			Type: pulumi.String("azurerm:storsimple/v20161001:StorageAccountCredential"),
 		},
 	})

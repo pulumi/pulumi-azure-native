@@ -60,9 +60,6 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:P2sVpnGateway"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:P2sVpnGateway"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20180801:P2sVpnGateway"),
 		},
 		{

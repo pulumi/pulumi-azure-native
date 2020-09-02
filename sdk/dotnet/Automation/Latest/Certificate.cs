@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:automation/v20151031:Certificate"},
                 },
             };

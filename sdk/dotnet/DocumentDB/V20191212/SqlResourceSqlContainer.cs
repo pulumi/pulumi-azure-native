@@ -67,7 +67,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:SqlResourceSqlContainer"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:SqlResourceSqlContainer"},

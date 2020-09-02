@@ -130,7 +130,7 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:SiteHostNameBindingSlot" }, { type: "azurerm:web/preview:SiteHostNameBindingSlot" }, { type: "azurerm:web/v20160801:SiteHostNameBindingSlot" }, { type: "azurerm:web/v20180201:SiteHostNameBindingSlot" }, { type: "azurerm:web/v20181101:SiteHostNameBindingSlot" }, { type: "azurerm:web/v20190801:SiteHostNameBindingSlot" }, { type: "azurerm:web/v20200601:SiteHostNameBindingSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:SiteHostNameBindingSlot" }, { type: "azurerm:web/v20160801:SiteHostNameBindingSlot" }, { type: "azurerm:web/v20180201:SiteHostNameBindingSlot" }, { type: "azurerm:web/v20181101:SiteHostNameBindingSlot" }, { type: "azurerm:web/v20190801:SiteHostNameBindingSlot" }, { type: "azurerm:web/v20200601:SiteHostNameBindingSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteHostNameBindingSlot.__pulumiType, name, inputs, opts);
     }

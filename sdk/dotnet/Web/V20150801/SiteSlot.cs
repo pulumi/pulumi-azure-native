@@ -238,7 +238,6 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:SiteSlot"},
-                    new Pulumi.Alias { Type = "azurerm:web/preview:SiteSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteSlot"},

@@ -63,9 +63,6 @@ func NewController(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:devspaces/preview:Controller"),
-		},
-		{
 			Type: pulumi.String("azurerm:devspaces/v20190401:Controller"),
 		},
 	})

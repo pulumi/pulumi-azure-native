@@ -79,9 +79,6 @@ func NewRunbook(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:automation/latest:Runbook"),
 		},
 		{
-			Type: pulumi.String("azurerm:automation/preview:Runbook"),
-		},
-		{
 			Type: pulumi.String("azurerm:automation/v20180630:Runbook"),
 		},
 	})

@@ -152,7 +152,7 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/preview:ServiceFabricSchedule" }, { type: "azurerm:devtestlab/v20180915:ServiceFabricSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/v20180915:ServiceFabricSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceFabricSchedule.__pulumiType, name, inputs, opts);
     }

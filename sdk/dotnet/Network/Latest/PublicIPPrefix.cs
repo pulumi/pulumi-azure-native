@@ -135,7 +135,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180701:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180801:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181001:PublicIPPrefix"},

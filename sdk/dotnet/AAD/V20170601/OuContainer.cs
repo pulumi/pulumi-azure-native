@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.Aad.V20170601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:aad/latest:OuContainer"},
-                    new Pulumi.Alias { Type = "azurerm:aad/preview:OuContainer"},
                     new Pulumi.Alias { Type = "azurerm:aad/v20200101:OuContainer"},
                 },
             };

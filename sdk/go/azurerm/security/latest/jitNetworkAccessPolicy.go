@@ -48,9 +48,6 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:security/preview:JitNetworkAccessPolicy"),
-		},
-		{
 			Type: pulumi.String("azurerm:security/v20150601preview:JitNetworkAccessPolicy"),
 		},
 		{

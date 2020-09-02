@@ -53,9 +53,6 @@ func NewEventSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:eventgrid/latest:EventSubscription"),
 		},
 		{
-			Type: pulumi.String("azurerm:eventgrid/preview:EventSubscription"),
-		},
-		{
 			Type: pulumi.String("azurerm:eventgrid/v20170615preview:EventSubscription"),
 		},
 		{

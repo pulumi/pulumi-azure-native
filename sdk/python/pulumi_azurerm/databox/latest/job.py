@@ -94,7 +94,7 @@ class Job(pulumi.CustomResource):
             __props__['start_time'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databox/preview:Job"), pulumi.Alias(type_="azurerm:databox/v20180101:Job"), pulumi.Alias(type_="azurerm:databox/v20190901:Job"), pulumi.Alias(type_="azurerm:databox/v20200401:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:databox/v20180101:Job"), pulumi.Alias(type_="azurerm:databox/v20190901:Job"), pulumi.Alias(type_="azurerm:databox/v20200401:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azurerm:databox/latest:Job',

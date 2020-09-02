@@ -78,7 +78,6 @@ namespace Pulumi.AzureRM.HybridData.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hybriddata/preview:DataManager"},
                     new Pulumi.Alias { Type = "azurerm:hybriddata/v20160601:DataManager"},
                     new Pulumi.Alias { Type = "azurerm:hybriddata/v20190601:DataManager"},
                 },

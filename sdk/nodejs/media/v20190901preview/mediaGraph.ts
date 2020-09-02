@@ -116,7 +116,7 @@ export class MediaGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/preview:MediaGraph" }, { type: "azurerm:media/v20200201preview:MediaGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:media/v20200201preview:MediaGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MediaGraph.__pulumiType, name, inputs, opts);
     }

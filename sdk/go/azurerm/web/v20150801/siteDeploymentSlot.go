@@ -70,9 +70,6 @@ func NewSiteDeploymentSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:SiteDeploymentSlot"),
 		},
 		{
-			Type: pulumi.String("azurerm:web/preview:SiteDeploymentSlot"),
-		},
-		{
 			Type: pulumi.String("azurerm:web/v20160801:SiteDeploymentSlot"),
 		},
 		{

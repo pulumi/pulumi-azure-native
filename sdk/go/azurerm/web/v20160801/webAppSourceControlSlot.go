@@ -52,9 +52,6 @@ func NewWebAppSourceControlSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppSourceControlSlot"),
 		},
 		{
-			Type: pulumi.String("azurerm:web/preview:WebAppSourceControlSlot"),
-		},
-		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppSourceControlSlot"),
 		},
 		{

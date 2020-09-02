@@ -74,7 +74,7 @@ class BlobContainer(pulumi.CustomResource):
             __props__['legal_hold'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/latest:BlobContainer"), pulumi.Alias(type_="azurerm:storage/preview:BlobContainer"), pulumi.Alias(type_="azurerm:storage/v20180201:BlobContainer"), pulumi.Alias(type_="azurerm:storage/v20180301preview:BlobContainer"), pulumi.Alias(type_="azurerm:storage/v20180701:BlobContainer"), pulumi.Alias(type_="azurerm:storage/v20190401:BlobContainer"), pulumi.Alias(type_="azurerm:storage/v20190601:BlobContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storage/latest:BlobContainer"), pulumi.Alias(type_="azurerm:storage/v20180201:BlobContainer"), pulumi.Alias(type_="azurerm:storage/v20180301preview:BlobContainer"), pulumi.Alias(type_="azurerm:storage/v20180701:BlobContainer"), pulumi.Alias(type_="azurerm:storage/v20190401:BlobContainer"), pulumi.Alias(type_="azurerm:storage/v20190601:BlobContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobContainer, __self__).__init__(
             'azurerm:storage/v20181101:BlobContainer',

@@ -111,7 +111,7 @@ export class Connection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/preview:Connection" }, { type: "azurerm:automation/v20151031:Connection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/v20151031:Connection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Connection.__pulumiType, name, inputs, opts);
     }

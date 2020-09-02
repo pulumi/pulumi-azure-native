@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:appplatform/latest:Binding"},
-                    new Pulumi.Alias { Type = "azurerm:appplatform/preview:Binding"},
                     new Pulumi.Alias { Type = "azurerm:appplatform/v20200701:Binding"},
                 },
             };

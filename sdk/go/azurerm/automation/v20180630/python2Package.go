@@ -70,9 +70,6 @@ func NewPython2Package(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:Python2Package"),
 		},
-		{
-			Type: pulumi.String("azurerm:automation/preview:Python2Package"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Python2Package

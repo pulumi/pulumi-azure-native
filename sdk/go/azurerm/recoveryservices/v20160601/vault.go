@@ -51,9 +51,6 @@ func NewVault(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:recoveryservices/latest:Vault"),
 		},
-		{
-			Type: pulumi.String("azurerm:recoveryservices/preview:Vault"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Vault

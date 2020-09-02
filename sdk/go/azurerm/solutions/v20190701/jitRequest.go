@@ -66,9 +66,6 @@ func NewJitRequest(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:solutions/latest:JitRequest"),
 		},
 		{
-			Type: pulumi.String("azurerm:solutions/preview:JitRequest"),
-		},
-		{
 			Type: pulumi.String("azurerm:solutions/v20200821preview:JitRequest"),
 		},
 	})

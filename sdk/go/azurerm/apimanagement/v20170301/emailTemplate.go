@@ -52,9 +52,6 @@ func NewEmailTemplate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:EmailTemplate"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:EmailTemplate"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:EmailTemplate"),
 		},
 		{

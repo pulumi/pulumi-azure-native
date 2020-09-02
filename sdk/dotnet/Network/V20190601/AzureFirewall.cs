@@ -130,7 +130,6 @@ namespace Pulumi.AzureRM.Network.V20190601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:AzureFirewall"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:AzureFirewall"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180401:AzureFirewall"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180601:AzureFirewall"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180701:AzureFirewall"},

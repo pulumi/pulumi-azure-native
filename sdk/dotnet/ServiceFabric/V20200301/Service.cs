@@ -136,7 +136,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:servicefabric/latest:Service"},
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/preview:Service"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20170701preview:Service"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301:Service"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301preview:Service"},

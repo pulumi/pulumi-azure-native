@@ -82,9 +82,6 @@ func NewPool(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:batch/latest:Pool"),
 		},
 		{
-			Type: pulumi.String("azurerm:batch/preview:Pool"),
-		},
-		{
 			Type: pulumi.String("azurerm:batch/v20170901:Pool"),
 		},
 		{

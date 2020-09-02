@@ -48,12 +48,6 @@ func NewManagedInstanceKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedInstanceKeyArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:sql/preview:ManagedInstanceKey"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ManagedInstanceKey
 	err := ctx.RegisterResource("azurerm:sql/v20171001preview:ManagedInstanceKey", name, args, &resource, opts...)
 	if err != nil {

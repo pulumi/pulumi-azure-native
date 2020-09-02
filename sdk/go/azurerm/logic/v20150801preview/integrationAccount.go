@@ -42,9 +42,6 @@ func NewIntegrationAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:IntegrationAccount"),
 		},
 		{
-			Type: pulumi.String("azurerm:logic/preview:IntegrationAccount"),
-		},
-		{
 			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccount"),
 		},
 		{

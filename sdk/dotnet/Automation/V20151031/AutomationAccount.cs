@@ -106,7 +106,6 @@ namespace Pulumi.AzureRM.Automation.V20151031
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:automation/latest:AutomationAccount"},
-                    new Pulumi.Alias { Type = "azurerm:automation/preview:AutomationAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -125,7 +125,7 @@ export class CustomImageResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:CustomImageResource" }, { type: "azurerm:devtestlab/preview:CustomImageResource" }, { type: "azurerm:devtestlab/v20160515:CustomImageResource" }, { type: "azurerm:devtestlab/v20180915:CustomImageResource" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:CustomImageResource" }, { type: "azurerm:devtestlab/v20160515:CustomImageResource" }, { type: "azurerm:devtestlab/v20180915:CustomImageResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomImageResource.__pulumiType, name, inputs, opts);
     }

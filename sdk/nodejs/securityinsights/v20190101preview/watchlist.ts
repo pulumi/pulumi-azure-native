@@ -173,8 +173,6 @@ export class Watchlist extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:securityinsights/preview:Watchlist" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Watchlist.__pulumiType, name, inputs, opts);
     }
 }

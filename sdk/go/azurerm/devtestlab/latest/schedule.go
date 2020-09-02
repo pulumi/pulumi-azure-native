@@ -63,9 +63,6 @@ func NewSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:devtestlab/preview:Schedule"),
-		},
-		{
 			Type: pulumi.String("azurerm:devtestlab/v20150521preview:Schedule"),
 		},
 		{

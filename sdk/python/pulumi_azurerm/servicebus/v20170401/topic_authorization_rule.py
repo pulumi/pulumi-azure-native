@@ -68,7 +68,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             __props__['topic_name'] = topic_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicebus/latest:TopicAuthorizationRule"), pulumi.Alias(type_="azurerm:servicebus/preview:TopicAuthorizationRule"), pulumi.Alias(type_="azurerm:servicebus/v20140901:TopicAuthorizationRule"), pulumi.Alias(type_="azurerm:servicebus/v20150801:TopicAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicebus/latest:TopicAuthorizationRule"), pulumi.Alias(type_="azurerm:servicebus/v20140901:TopicAuthorizationRule"), pulumi.Alias(type_="azurerm:servicebus/v20150801:TopicAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TopicAuthorizationRule, __self__).__init__(
             'azurerm:servicebus/v20170401:TopicAuthorizationRule',

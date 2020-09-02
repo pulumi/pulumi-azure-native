@@ -54,9 +54,6 @@ func NewUser(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:User"),
 		},
 		{
-			Type: pulumi.String("azurerm:devtestlab/preview:User"),
-		},
-		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:User"),
 		},
 	})

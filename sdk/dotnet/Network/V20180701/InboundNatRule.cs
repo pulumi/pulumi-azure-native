@@ -106,7 +106,6 @@ namespace Pulumi.AzureRM.Network.V20180701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:InboundNatRule"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:InboundNatRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170601:InboundNatRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170801:InboundNatRule"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170901:InboundNatRule"},

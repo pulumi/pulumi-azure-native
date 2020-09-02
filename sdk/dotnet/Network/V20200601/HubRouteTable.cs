@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:HubRouteTable"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200401:HubRouteTable"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:HubRouteTable"},
                 },

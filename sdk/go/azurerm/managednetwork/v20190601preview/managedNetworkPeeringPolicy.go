@@ -39,12 +39,6 @@ func NewManagedNetworkPeeringPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedNetworkPeeringPolicyArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:managednetwork/preview:ManagedNetworkPeeringPolicy"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ManagedNetworkPeeringPolicy
 	err := ctx.RegisterResource("azurerm:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy", name, args, &resource, opts...)
 	if err != nil {

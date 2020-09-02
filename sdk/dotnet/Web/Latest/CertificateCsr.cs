@@ -105,7 +105,6 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/preview:CertificateCsr"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:CertificateCsr"},
                 },
             };

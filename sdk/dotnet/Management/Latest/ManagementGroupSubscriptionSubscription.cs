@@ -75,7 +75,6 @@ namespace Pulumi.AzureRM.Management.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:management/preview:ManagementGroupSubscriptionSubscription"},
                     new Pulumi.Alias { Type = "azurerm:management/v20200501:ManagementGroupSubscriptionSubscription"},
                 },
             };

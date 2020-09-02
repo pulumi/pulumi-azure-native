@@ -88,7 +88,7 @@ export class SyncGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:SyncGroup" }, { type: "azurerm:storagesync/preview:SyncGroup" }, { type: "azurerm:storagesync/v20170605preview:SyncGroup" }, { type: "azurerm:storagesync/v20180402:SyncGroup" }, { type: "azurerm:storagesync/v20180701:SyncGroup" }, { type: "azurerm:storagesync/v20181001:SyncGroup" }, { type: "azurerm:storagesync/v20190201:SyncGroup" }, { type: "azurerm:storagesync/v20190601:SyncGroup" }, { type: "azurerm:storagesync/v20191001:SyncGroup" }, { type: "azurerm:storagesync/v20200301:SyncGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:SyncGroup" }, { type: "azurerm:storagesync/v20170605preview:SyncGroup" }, { type: "azurerm:storagesync/v20180402:SyncGroup" }, { type: "azurerm:storagesync/v20180701:SyncGroup" }, { type: "azurerm:storagesync/v20181001:SyncGroup" }, { type: "azurerm:storagesync/v20190201:SyncGroup" }, { type: "azurerm:storagesync/v20190601:SyncGroup" }, { type: "azurerm:storagesync/v20191001:SyncGroup" }, { type: "azurerm:storagesync/v20200301:SyncGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SyncGroup.__pulumiType, name, inputs, opts);
     }

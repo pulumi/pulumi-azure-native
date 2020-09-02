@@ -118,7 +118,6 @@ namespace Pulumi.AzureRM.Insights.V20150501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:Workbook"},
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:Workbook"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20180617preview:Workbook"},
                 },
             };

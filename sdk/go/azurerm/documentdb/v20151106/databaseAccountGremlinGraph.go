@@ -69,9 +69,6 @@ func NewDatabaseAccountGremlinGraph(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:DatabaseAccountGremlinGraph"),
 		},
 		{
-			Type: pulumi.String("azurerm:documentdb/preview:DatabaseAccountGremlinGraph"),
-		},
-		{
 			Type: pulumi.String("azurerm:documentdb/v20150401:DatabaseAccountGremlinGraph"),
 		},
 		{

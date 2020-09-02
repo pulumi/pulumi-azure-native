@@ -125,7 +125,7 @@ export class Experiment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:Experiment" }, { type: "azurerm:network/preview:Experiment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:Experiment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Experiment.__pulumiType, name, inputs, opts);
     }

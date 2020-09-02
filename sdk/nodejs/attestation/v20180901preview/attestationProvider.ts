@@ -108,8 +108,6 @@ export class AttestationProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:attestation/preview:AttestationProvider" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AttestationProvider.__pulumiType, name, inputs, opts);
     }
 }

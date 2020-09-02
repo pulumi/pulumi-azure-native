@@ -106,7 +106,6 @@ namespace Pulumi.AzureRM.StorageSync.V20190601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storagesync/latest:CloudEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/preview:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20170605preview:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20180402:CloudEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20180701:CloudEndpoint"},

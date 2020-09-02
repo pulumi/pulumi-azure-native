@@ -43,9 +43,6 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devices/latest:IotHubResourceEventHubConsumerGroup"),
 		},
 		{
-			Type: pulumi.String("azurerm:devices/preview:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:devices/v20160203:IotHubResourceEventHubConsumerGroup"),
 		},
 		{

@@ -124,7 +124,6 @@ namespace Pulumi.AzureRM.Network.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:PrivateLinkService"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190401:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190601:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190701:PrivateLinkService"},

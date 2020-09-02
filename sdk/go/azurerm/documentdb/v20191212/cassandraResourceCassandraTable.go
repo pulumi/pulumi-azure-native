@@ -54,9 +54,6 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:CassandraResourceCassandraTable"),
 		},
 		{
-			Type: pulumi.String("azurerm:documentdb/preview:CassandraResourceCassandraTable"),
-		},
-		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:CassandraResourceCassandraTable"),
 		},
 		{

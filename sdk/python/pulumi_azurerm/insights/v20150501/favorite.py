@@ -82,7 +82,7 @@ class Favorite(pulumi.CustomResource):
             __props__['version'] = version
             __props__['time_modified'] = None
             __props__['user_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:Favorite"), pulumi.Alias(type_="azurerm:insights/preview:Favorite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:Favorite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Favorite, __self__).__init__(
             'azurerm:insights/v20150501:Favorite',

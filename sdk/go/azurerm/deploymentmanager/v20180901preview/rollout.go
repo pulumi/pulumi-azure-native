@@ -63,9 +63,6 @@ func NewRollout(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:deploymentmanager/preview:Rollout"),
-		},
-		{
 			Type: pulumi.String("azurerm:deploymentmanager/v20191101preview:Rollout"),
 		},
 	})

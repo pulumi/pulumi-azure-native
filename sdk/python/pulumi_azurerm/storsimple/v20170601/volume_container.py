@@ -86,7 +86,7 @@ class VolumeContainer(pulumi.CustomResource):
             __props__['total_cloud_storage_usage_in_bytes'] = None
             __props__['type'] = None
             __props__['volume_count'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/latest:VolumeContainer"), pulumi.Alias(type_="azurerm:storsimple/preview:VolumeContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/latest:VolumeContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VolumeContainer, __self__).__init__(
             'azurerm:storsimple/v20170601:VolumeContainer',

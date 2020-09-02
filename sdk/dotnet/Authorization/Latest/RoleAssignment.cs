@@ -57,7 +57,6 @@ namespace Pulumi.AzureRM.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:authorization/preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20150701:RoleAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20171001preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20180101preview:RoleAssignment"},

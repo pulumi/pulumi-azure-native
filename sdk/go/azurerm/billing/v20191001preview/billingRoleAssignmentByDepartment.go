@@ -55,12 +55,6 @@ func NewBillingRoleAssignmentByDepartment(ctx *pulumi.Context,
 	if args == nil {
 		args = &BillingRoleAssignmentByDepartmentArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:billing/preview:BillingRoleAssignmentByDepartment"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource BillingRoleAssignmentByDepartment
 	err := ctx.RegisterResource("azurerm:billing/v20191001preview:BillingRoleAssignmentByDepartment", name, args, &resource, opts...)
 	if err != nil {

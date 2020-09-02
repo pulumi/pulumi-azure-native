@@ -38,9 +38,6 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:managedservices/preview:RegistrationDefinition"),
-		},
-		{
 			Type: pulumi.String("azurerm:managedservices/v20180601preview:RegistrationDefinition"),
 		},
 		{

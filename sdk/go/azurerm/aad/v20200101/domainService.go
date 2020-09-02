@@ -65,9 +65,6 @@ func NewDomainService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:aad/latest:DomainService"),
 		},
 		{
-			Type: pulumi.String("azurerm:aad/preview:DomainService"),
-		},
-		{
 			Type: pulumi.String("azurerm:aad/v20170101:DomainService"),
 		},
 		{

@@ -81,7 +81,6 @@ namespace Pulumi.AzureRM.HybridData.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hybriddata/preview:DataStore"},
                     new Pulumi.Alias { Type = "azurerm:hybriddata/v20160601:DataStore"},
                     new Pulumi.Alias { Type = "azurerm:hybriddata/v20190601:DataStore"},
                 },

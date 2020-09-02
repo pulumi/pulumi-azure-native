@@ -54,9 +54,6 @@ func NewProduct(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Product"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Product"),
 		},
 		{

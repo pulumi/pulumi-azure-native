@@ -47,12 +47,6 @@ func NewQueryPack(ctx *pulumi.Context,
 	if args == nil {
 		args = &QueryPackArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:insights/preview:QueryPack"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource QueryPack
 	err := ctx.RegisterResource("azurerm:insights/v20190901preview:QueryPack", name, args, &resource, opts...)
 	if err != nil {

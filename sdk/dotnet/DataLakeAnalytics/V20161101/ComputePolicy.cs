@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datalakeanalytics/latest:ComputePolicy"},
-                    new Pulumi.Alias { Type = "azurerm:datalakeanalytics/preview:ComputePolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

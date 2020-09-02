@@ -90,7 +90,7 @@ export class DataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datashare/latest:DataSet" }, { type: "azurerm:datashare/preview:DataSet" }, { type: "azurerm:datashare/v20181101preview:DataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datashare/latest:DataSet" }, { type: "azurerm:datashare/v20181101preview:DataSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataSet.__pulumiType, name, inputs, opts);
     }

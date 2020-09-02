@@ -82,7 +82,6 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:Logger"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Logger"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Logger"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Logger"},

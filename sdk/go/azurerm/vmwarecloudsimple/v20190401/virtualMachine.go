@@ -96,9 +96,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:vmwarecloudsimple/latest:VirtualMachine"),
 		},
-		{
-			Type: pulumi.String("azurerm:vmwarecloudsimple/preview:VirtualMachine"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachine

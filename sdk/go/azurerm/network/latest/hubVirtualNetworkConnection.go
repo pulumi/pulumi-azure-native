@@ -49,9 +49,6 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:network/preview:HubVirtualNetworkConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20200501:HubVirtualNetworkConnection"),
 		},
 		{

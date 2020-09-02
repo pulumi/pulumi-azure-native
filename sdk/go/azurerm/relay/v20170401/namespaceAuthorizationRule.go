@@ -45,9 +45,6 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:relay/latest:NamespaceAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azurerm:relay/preview:NamespaceAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azurerm:relay/v20160701:NamespaceAuthorizationRule"),
 		},
 	})

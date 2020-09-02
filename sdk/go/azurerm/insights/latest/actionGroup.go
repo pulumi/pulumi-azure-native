@@ -71,9 +71,6 @@ func NewActionGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:insights/preview:ActionGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:insights/v20170401:ActionGroup"),
 		},
 		{

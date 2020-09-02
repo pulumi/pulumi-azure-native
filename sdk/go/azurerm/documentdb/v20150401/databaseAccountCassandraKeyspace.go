@@ -50,9 +50,6 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azurerm:documentdb/preview:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azurerm:documentdb/v20150408:DatabaseAccountCassandraKeyspace"),
 		},
 		{

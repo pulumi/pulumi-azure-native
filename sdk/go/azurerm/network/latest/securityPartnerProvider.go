@@ -48,9 +48,6 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:network/preview:SecurityPartnerProvider"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20200301:SecurityPartnerProvider"),
 		},
 		{

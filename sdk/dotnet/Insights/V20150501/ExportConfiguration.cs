@@ -154,7 +154,6 @@ namespace Pulumi.AzureRM.Insights.V20150501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:ExportConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:ExportConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

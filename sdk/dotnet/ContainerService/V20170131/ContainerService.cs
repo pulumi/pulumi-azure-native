@@ -118,7 +118,6 @@ namespace Pulumi.AzureRM.ContainerService.V20170131
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerservice/latest:ContainerService"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/preview:ContainerService"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20151101preview:ContainerService"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20160330:ContainerService"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20160930:ContainerService"},

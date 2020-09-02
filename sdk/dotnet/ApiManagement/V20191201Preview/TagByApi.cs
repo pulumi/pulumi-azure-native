@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:TagByApi"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:TagByApi"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:TagByApi"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:TagByApi"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:TagByApi"},

@@ -47,9 +47,6 @@ func NewOutput(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:streamanalytics/latest:Output"),
 		},
-		{
-			Type: pulumi.String("azurerm:streamanalytics/preview:Output"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Output

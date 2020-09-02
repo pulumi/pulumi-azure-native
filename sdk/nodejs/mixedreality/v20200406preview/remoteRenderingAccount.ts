@@ -101,7 +101,7 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:mixedreality/preview:RemoteRenderingAccount" }, { type: "azurerm:mixedreality/v20191202preview:RemoteRenderingAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:mixedreality/v20191202preview:RemoteRenderingAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemoteRenderingAccount.__pulumiType, name, inputs, opts);
     }

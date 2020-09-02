@@ -45,9 +45,6 @@ func NewAccessControlRecord(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storsimple/latest:AccessControlRecord"),
 		},
 		{
-			Type: pulumi.String("azurerm:storsimple/preview:AccessControlRecord"),
-		},
-		{
 			Type: pulumi.String("azurerm:storsimple/v20170601:AccessControlRecord"),
 		},
 	})

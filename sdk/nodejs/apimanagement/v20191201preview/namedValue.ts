@@ -104,7 +104,7 @@ export class NamedValue extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:NamedValue" }, { type: "azurerm:apimanagement/preview:NamedValue" }, { type: "azurerm:apimanagement/v20191201:NamedValue" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:NamedValue" }, { type: "azurerm:apimanagement/v20191201:NamedValue" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NamedValue.__pulumiType, name, inputs, opts);
     }

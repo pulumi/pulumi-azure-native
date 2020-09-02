@@ -69,7 +69,6 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:hdinsight/preview:Application"},
                     new Pulumi.Alias { Type = "azurerm:hdinsight/v20150301preview:Application"},
                 },
             };

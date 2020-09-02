@@ -49,9 +49,6 @@ func NewAssetFilter(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/latest:AssetFilter"),
 		},
 		{
-			Type: pulumi.String("azurerm:media/preview:AssetFilter"),
-		},
-		{
 			Type: pulumi.String("azurerm:media/v20200501:AssetFilter"),
 		},
 	})

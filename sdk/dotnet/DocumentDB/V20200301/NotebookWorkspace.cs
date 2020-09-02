@@ -64,7 +64,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:NotebookWorkspace"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:NotebookWorkspace"},

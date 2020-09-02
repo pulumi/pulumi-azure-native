@@ -44,9 +44,6 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:domainregistration/latest:DomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azurerm:domainregistration/preview:DomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azurerm:domainregistration/v20150401:DomainOwnershipIdentifier"),
 		},
 		{

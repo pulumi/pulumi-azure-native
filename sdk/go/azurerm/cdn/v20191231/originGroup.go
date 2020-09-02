@@ -58,9 +58,6 @@ func NewOriginGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cdn/latest:OriginGroup"),
 		},
 		{
-			Type: pulumi.String("azurerm:cdn/preview:OriginGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:cdn/v20200331:OriginGroup"),
 		},
 		{

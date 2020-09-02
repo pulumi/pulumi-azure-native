@@ -66,7 +66,6 @@ namespace Pulumi.AzureRM.PowerBI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:powerbi/preview:WorkspaceCollection"},
                     new Pulumi.Alias { Type = "azurerm:powerbi/v20160129:WorkspaceCollection"},
                 },
             };

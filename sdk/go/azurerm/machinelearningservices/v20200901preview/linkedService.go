@@ -41,12 +41,6 @@ func NewLinkedService(ctx *pulumi.Context,
 	if args == nil {
 		args = &LinkedServiceArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:machinelearningservices/preview:LinkedService"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource LinkedService
 	err := ctx.RegisterResource("azurerm:machinelearningservices/v20200901preview:LinkedService", name, args, &resource, opts...)
 	if err != nil {

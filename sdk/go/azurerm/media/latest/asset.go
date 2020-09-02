@@ -53,9 +53,6 @@ func NewAsset(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:media/preview:Asset"),
-		},
-		{
 			Type: pulumi.String("azurerm:media/v20180330preview:Asset"),
 		},
 		{

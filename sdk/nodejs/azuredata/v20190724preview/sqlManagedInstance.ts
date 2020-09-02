@@ -124,8 +124,6 @@ export class SqlManagedInstance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:azuredata/preview:SqlManagedInstance" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlManagedInstance.__pulumiType, name, inputs, opts);
     }
 }

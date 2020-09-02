@@ -141,7 +141,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:NetworkVirtualAppliance"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191201:NetworkVirtualAppliance"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200301:NetworkVirtualAppliance"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200401:NetworkVirtualAppliance"},

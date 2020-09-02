@@ -66,7 +66,7 @@ class DeploymentAtScope(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/latest:DeploymentAtScope"), pulumi.Alias(type_="azurerm:resources/preview:DeploymentAtScope"), pulumi.Alias(type_="azurerm:resources/v20190701:DeploymentAtScope"), pulumi.Alias(type_="azurerm:resources/v20190801:DeploymentAtScope"), pulumi.Alias(type_="azurerm:resources/v20200601:DeploymentAtScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/latest:DeploymentAtScope"), pulumi.Alias(type_="azurerm:resources/v20190701:DeploymentAtScope"), pulumi.Alias(type_="azurerm:resources/v20190801:DeploymentAtScope"), pulumi.Alias(type_="azurerm:resources/v20200601:DeploymentAtScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentAtScope, __self__).__init__(
             'azurerm:resources/v20191001:DeploymentAtScope',

@@ -45,9 +45,6 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:aadiam/latest:DiagnosticSetting"),
 		},
-		{
-			Type: pulumi.String("azurerm:aadiam/preview:DiagnosticSetting"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DiagnosticSetting

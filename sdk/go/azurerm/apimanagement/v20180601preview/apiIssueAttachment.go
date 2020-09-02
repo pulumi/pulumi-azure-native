@@ -61,9 +61,6 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:ApiIssueAttachment"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:ApiIssueAttachment"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiIssueAttachment"),
 		},
 		{

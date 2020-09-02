@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:azuredata/preview:SqlServerRegistration"},
                     new Pulumi.Alias { Type = "azurerm:azuredata/v20170301preview:SqlServerRegistration"},
                 },
             };

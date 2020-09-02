@@ -129,7 +129,6 @@ namespace Pulumi.AzureRM.CostManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/preview:View"},
                     new Pulumi.Alias { Type = "azurerm:costmanagement/v20190401preview:View"},
                     new Pulumi.Alias { Type = "azurerm:costmanagement/v20191101:View"},
                     new Pulumi.Alias { Type = "azurerm:costmanagement/v20200601:View"},

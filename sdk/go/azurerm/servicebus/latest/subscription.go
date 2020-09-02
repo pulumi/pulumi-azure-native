@@ -74,9 +74,6 @@ func NewSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:servicebus/preview:Subscription"),
-		},
-		{
 			Type: pulumi.String("azurerm:servicebus/v20140901:Subscription"),
 		},
 		{

@@ -59,9 +59,6 @@ func NewServiceUnit(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:deploymentmanager/preview:ServiceUnit"),
-		},
-		{
 			Type: pulumi.String("azurerm:deploymentmanager/v20191101preview:ServiceUnit"),
 		},
 	})

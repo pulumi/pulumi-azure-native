@@ -147,7 +147,7 @@ export class WebAppFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppFunction" }, { type: "azurerm:web/preview:WebAppFunction" }, { type: "azurerm:web/v20160801:WebAppFunction" }, { type: "azurerm:web/v20181101:WebAppFunction" }, { type: "azurerm:web/v20190801:WebAppFunction" }, { type: "azurerm:web/v20200601:WebAppFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppFunction" }, { type: "azurerm:web/v20160801:WebAppFunction" }, { type: "azurerm:web/v20181101:WebAppFunction" }, { type: "azurerm:web/v20190801:WebAppFunction" }, { type: "azurerm:web/v20200601:WebAppFunction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppFunction.__pulumiType, name, inputs, opts);
     }

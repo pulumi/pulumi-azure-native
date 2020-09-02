@@ -54,9 +54,6 @@ func NewLinkedServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:cache/preview:LinkedServer"),
-		},
-		{
 			Type: pulumi.String("azurerm:cache/v20170201:LinkedServer"),
 		},
 		{

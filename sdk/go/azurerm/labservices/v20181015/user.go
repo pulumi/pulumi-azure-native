@@ -62,9 +62,6 @@ func NewUser(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:labservices/latest:User"),
 		},
-		{
-			Type: pulumi.String("azurerm:labservices/preview:User"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource User

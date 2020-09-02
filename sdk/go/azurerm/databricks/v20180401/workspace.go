@@ -70,9 +70,6 @@ func NewWorkspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:databricks/latest:Workspace"),
 		},
-		{
-			Type: pulumi.String("azurerm:databricks/preview:Workspace"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Workspace

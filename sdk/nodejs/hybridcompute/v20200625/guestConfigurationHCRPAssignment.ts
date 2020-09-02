@@ -90,7 +90,7 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/latest:GuestConfigurationHCRPAssignment" }, { type: "azurerm:hybridcompute/preview:GuestConfigurationHCRPAssignment" }, { type: "azurerm:hybridcompute/v20181120:GuestConfigurationHCRPAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/latest:GuestConfigurationHCRPAssignment" }, { type: "azurerm:hybridcompute/v20181120:GuestConfigurationHCRPAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GuestConfigurationHCRPAssignment.__pulumiType, name, inputs, opts);
     }

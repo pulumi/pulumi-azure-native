@@ -86,8 +86,6 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/preview:ManagedInstanceAzureADOnlyAuthentication" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedInstanceAzureADOnlyAuthentication.__pulumiType, name, inputs, opts);
     }
 }

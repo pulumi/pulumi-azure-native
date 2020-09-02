@@ -55,9 +55,6 @@ func NewOriginGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:cdn/preview:OriginGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:cdn/v20191231:OriginGroup"),
 		},
 		{

@@ -141,7 +141,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:ExpressRoutePort"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180801:ExpressRoutePort"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181001:ExpressRoutePort"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181101:ExpressRoutePort"},

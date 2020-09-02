@@ -100,7 +100,6 @@ namespace Pulumi.AzureRM.Batch.V20151201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:batch/latest:BatchAccount"},
-                    new Pulumi.Alias { Type = "azurerm:batch/preview:BatchAccount"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20170101:BatchAccount"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20170501:BatchAccount"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20170901:BatchAccount"},

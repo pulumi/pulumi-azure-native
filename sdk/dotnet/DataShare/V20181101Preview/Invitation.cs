@@ -108,7 +108,6 @@ namespace Pulumi.AzureRM.DataShare.V20181101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datashare/latest:Invitation"},
-                    new Pulumi.Alias { Type = "azurerm:datashare/preview:Invitation"},
                     new Pulumi.Alias { Type = "azurerm:datashare/v20191101:Invitation"},
                 },
             };

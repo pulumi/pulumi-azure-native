@@ -78,7 +78,7 @@ class ApplicationGroup(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['workspace_arm_path'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:desktopvirtualization/preview:ApplicationGroup"), pulumi.Alias(type_="azurerm:desktopvirtualization/v20190123preview:ApplicationGroup"), pulumi.Alias(type_="azurerm:desktopvirtualization/v20191210preview:ApplicationGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:desktopvirtualization/v20190123preview:ApplicationGroup"), pulumi.Alias(type_="azurerm:desktopvirtualization/v20191210preview:ApplicationGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationGroup, __self__).__init__(
             'azurerm:desktopvirtualization/v20190924preview:ApplicationGroup',

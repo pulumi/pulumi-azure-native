@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.AzureStack.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:azurestack/preview:Registration"},
                     new Pulumi.Alias { Type = "azurerm:azurestack/v20170601:Registration"},
                 },
             };

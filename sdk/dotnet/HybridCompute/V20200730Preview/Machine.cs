@@ -181,7 +181,6 @@ namespace Pulumi.AzureRM.HybridCompute.V20200730Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/latest:Machine"},
-                    new Pulumi.Alias { Type = "azurerm:hybridcompute/preview:Machine"},
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/v20190318preview:Machine"},
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/v20190802preview:Machine"},
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/v20191212:Machine"},

@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.NetApp.V20190501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:netapp/latest:Account"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/preview:Account"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20170815:Account"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Account"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190701:Account"},

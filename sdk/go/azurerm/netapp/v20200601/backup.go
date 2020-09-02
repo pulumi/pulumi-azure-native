@@ -60,9 +60,6 @@ func NewBackup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:netapp/latest:Backup"),
 		},
-		{
-			Type: pulumi.String("azurerm:netapp/preview:Backup"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Backup

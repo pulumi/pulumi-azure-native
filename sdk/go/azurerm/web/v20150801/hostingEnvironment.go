@@ -110,9 +110,6 @@ func NewHostingEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:HostingEnvironment"),
 		},
 		{
-			Type: pulumi.String("azurerm:web/preview:HostingEnvironment"),
-		},
-		{
 			Type: pulumi.String("azurerm:web/v20160901:HostingEnvironment"),
 		},
 		{

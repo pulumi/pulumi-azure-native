@@ -81,7 +81,6 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:servicebus/preview:MigrationConfig"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:MigrationConfig"},
                 },
             };

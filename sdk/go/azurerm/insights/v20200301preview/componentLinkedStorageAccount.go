@@ -37,12 +37,6 @@ func NewComponentLinkedStorageAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &ComponentLinkedStorageAccountArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:insights/preview:ComponentLinkedStorageAccount"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ComponentLinkedStorageAccount
 	err := ctx.RegisterResource("azurerm:insights/v20200301preview:ComponentLinkedStorageAccount", name, args, &resource, opts...)
 	if err != nil {

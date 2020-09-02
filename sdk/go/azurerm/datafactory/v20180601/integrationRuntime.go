@@ -47,9 +47,6 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:datafactory/latest:IntegrationRuntime"),
 		},
 		{
-			Type: pulumi.String("azurerm:datafactory/preview:IntegrationRuntime"),
-		},
-		{
 			Type: pulumi.String("azurerm:datafactory/v20170901preview:IntegrationRuntime"),
 		},
 	})

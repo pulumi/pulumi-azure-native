@@ -74,9 +74,6 @@ func NewManagedDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:sql/preview:ManagedDatabase"),
-		},
-		{
 			Type: pulumi.String("azurerm:sql/v20170301preview:ManagedDatabase"),
 		},
 		{

@@ -40,9 +40,6 @@ func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:resources/preview:DeploymentAtSubscriptionScope"),
-		},
-		{
 			Type: pulumi.String("azurerm:resources/v20180501:DeploymentAtSubscriptionScope"),
 		},
 		{

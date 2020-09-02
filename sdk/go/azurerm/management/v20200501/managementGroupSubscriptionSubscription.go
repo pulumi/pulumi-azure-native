@@ -41,9 +41,6 @@ func NewManagementGroupSubscriptionSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:management/latest:ManagementGroupSubscriptionSubscription"),
 		},
-		{
-			Type: pulumi.String("azurerm:management/preview:ManagementGroupSubscriptionSubscription"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagementGroupSubscriptionSubscription

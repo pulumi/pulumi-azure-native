@@ -50,9 +50,6 @@ func NewVirtualHubBgpConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualHubBgpConnection"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:VirtualHubBgpConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20200601:VirtualHubBgpConnection"),
 		},
 	})

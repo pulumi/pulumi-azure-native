@@ -69,7 +69,6 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
                 },

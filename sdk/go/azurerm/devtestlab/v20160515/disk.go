@@ -67,9 +67,6 @@ func NewDisk(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:Disk"),
 		},
 		{
-			Type: pulumi.String("azurerm:devtestlab/preview:Disk"),
-		},
-		{
 			Type: pulumi.String("azurerm:devtestlab/v20180915:Disk"),
 		},
 	})

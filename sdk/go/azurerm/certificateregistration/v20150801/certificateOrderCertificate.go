@@ -55,9 +55,6 @@ func NewCertificateOrderCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:certificateregistration/latest:CertificateOrderCertificate"),
 		},
 		{
-			Type: pulumi.String("azurerm:certificateregistration/preview:CertificateOrderCertificate"),
-		},
-		{
 			Type: pulumi.String("azurerm:certificateregistration/v20180201:CertificateOrderCertificate"),
 		},
 		{

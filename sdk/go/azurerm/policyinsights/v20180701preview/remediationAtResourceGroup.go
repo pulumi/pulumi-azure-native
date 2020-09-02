@@ -51,9 +51,6 @@ func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:policyinsights/latest:RemediationAtResourceGroup"),
 		},
 		{
-			Type: pulumi.String("azurerm:policyinsights/preview:RemediationAtResourceGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:policyinsights/v20190701:RemediationAtResourceGroup"),
 		},
 	})

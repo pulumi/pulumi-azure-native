@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azurerm:storsimple/v20170601:StorageAccountCredential"},
                 },
             };

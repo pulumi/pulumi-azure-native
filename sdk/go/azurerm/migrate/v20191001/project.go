@@ -44,9 +44,6 @@ func NewProject(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:migrate/latest:Project"),
 		},
-		{
-			Type: pulumi.String("azurerm:migrate/preview:Project"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Project

@@ -47,9 +47,6 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationStorageClassificationMapping"),
-		},
-		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationStorageClassificationMapping"),
 		},
 		{

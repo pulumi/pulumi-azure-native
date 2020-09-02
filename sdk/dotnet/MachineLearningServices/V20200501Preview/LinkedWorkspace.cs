@@ -57,7 +57,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/preview:LinkedWorkspace"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200515preview:LinkedWorkspace"},
                 },
             };

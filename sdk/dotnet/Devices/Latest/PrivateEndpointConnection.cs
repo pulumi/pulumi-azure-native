@@ -57,7 +57,6 @@ namespace Pulumi.AzureRM.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devices/preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200401:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200615:PrivateEndpointConnection"},

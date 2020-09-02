@@ -101,7 +101,7 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VirtualApplianceSite" }, { type: "azurerm:network/preview:VirtualApplianceSite" }, { type: "azurerm:network/v20200601:VirtualApplianceSite" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VirtualApplianceSite" }, { type: "azurerm:network/v20200601:VirtualApplianceSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualApplianceSite.__pulumiType, name, inputs, opts);
     }

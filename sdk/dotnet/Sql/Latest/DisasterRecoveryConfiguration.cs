@@ -99,7 +99,6 @@ namespace Pulumi.AzureRM.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:sql/preview:DisasterRecoveryConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20140401:DisasterRecoveryConfiguration"},
                 },
             };

@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.PowerBIDedicated.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:powerbidedicated/preview:CapacityDetails"},
                     new Pulumi.Alias { Type = "azurerm:powerbidedicated/v20171001:CapacityDetails"},
                 },
             };

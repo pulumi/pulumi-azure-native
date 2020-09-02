@@ -116,8 +116,6 @@ export class MachineGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/preview:MachineGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -68,7 +68,7 @@ class ApiRelease(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['updated_date_time'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/preview:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiRelease")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiRelease"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiRelease")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiRelease, __self__).__init__(
             'azurerm:apimanagement/latest:ApiRelease',

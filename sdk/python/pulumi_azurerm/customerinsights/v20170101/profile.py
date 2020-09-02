@@ -108,7 +108,7 @@ class Profile(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:customerinsights/latest:Profile"), pulumi.Alias(type_="azurerm:customerinsights/preview:Profile"), pulumi.Alias(type_="azurerm:customerinsights/v20170426:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:customerinsights/latest:Profile"), pulumi.Alias(type_="azurerm:customerinsights/v20170426:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azurerm:customerinsights/v20170101:Profile',

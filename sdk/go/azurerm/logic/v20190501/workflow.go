@@ -67,9 +67,6 @@ func NewWorkflow(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:Workflow"),
 		},
 		{
-			Type: pulumi.String("azurerm:logic/preview:Workflow"),
-		},
-		{
 			Type: pulumi.String("azurerm:logic/v20150201preview:Workflow"),
 		},
 		{

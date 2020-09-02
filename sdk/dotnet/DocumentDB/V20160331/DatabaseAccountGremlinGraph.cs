@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:DatabaseAccountGremlinGraph"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountGremlinGraph"},

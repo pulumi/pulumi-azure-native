@@ -94,7 +94,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:customerinsights/latest:View"},
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/preview:View"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:View"},
                 },
             };

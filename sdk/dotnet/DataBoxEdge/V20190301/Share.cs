@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:Share"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/preview:Share"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Share"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:Share"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Share"},

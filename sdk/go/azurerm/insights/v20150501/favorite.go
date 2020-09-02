@@ -57,9 +57,6 @@ func NewFavorite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:insights/latest:Favorite"),
 		},
-		{
-			Type: pulumi.String("azurerm:insights/preview:Favorite"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Favorite

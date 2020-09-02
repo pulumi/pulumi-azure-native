@@ -78,7 +78,6 @@ namespace Pulumi.AzureRM.MixedReality.V20200406Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:mixedreality/preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azurerm:mixedreality/v20191202preview:RemoteRenderingAccount"},
                 },
             };

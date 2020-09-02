@@ -32,9 +32,6 @@ func NewConsoleWithLocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:portal/preview:ConsoleWithLocation"),
-		},
-		{
 			Type: pulumi.String("azurerm:portal/v20181001:ConsoleWithLocation"),
 		},
 	})

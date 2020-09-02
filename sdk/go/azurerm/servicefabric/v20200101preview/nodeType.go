@@ -76,12 +76,6 @@ func NewNodeType(ctx *pulumi.Context,
 	if args == nil {
 		args = &NodeTypeArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:servicefabric/preview:NodeType"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource NodeType
 	err := ctx.RegisterResource("azurerm:servicefabric/v20200101preview:NodeType", name, args, &resource, opts...)
 	if err != nil {

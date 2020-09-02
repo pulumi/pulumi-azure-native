@@ -66,7 +66,7 @@ class IntegrationRuntime(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datafactory/preview:IntegrationRuntime"), pulumi.Alias(type_="azurerm:datafactory/v20170901preview:IntegrationRuntime"), pulumi.Alias(type_="azurerm:datafactory/v20180601:IntegrationRuntime")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datafactory/v20170901preview:IntegrationRuntime"), pulumi.Alias(type_="azurerm:datafactory/v20180601:IntegrationRuntime")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationRuntime, __self__).__init__(
             'azurerm:datafactory/latest:IntegrationRuntime',

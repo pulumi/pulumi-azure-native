@@ -125,7 +125,7 @@ export class Peering extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:peering/latest:Peering" }, { type: "azurerm:peering/preview:Peering" }, { type: "azurerm:peering/v20190801preview:Peering" }, { type: "azurerm:peering/v20190901preview:Peering" }, { type: "azurerm:peering/v20200101preview:Peering" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:peering/latest:Peering" }, { type: "azurerm:peering/v20190801preview:Peering" }, { type: "azurerm:peering/v20190901preview:Peering" }, { type: "azurerm:peering/v20200101preview:Peering" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Peering.__pulumiType, name, inputs, opts);
     }

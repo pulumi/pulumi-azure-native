@@ -50,9 +50,6 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:peering/latest:RegisteredPrefix"),
 		},
 		{
-			Type: pulumi.String("azurerm:peering/preview:RegisteredPrefix"),
-		},
-		{
 			Type: pulumi.String("azurerm:peering/v20200401:RegisteredPrefix"),
 		},
 	})

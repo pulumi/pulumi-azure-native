@@ -294,7 +294,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/latest:Database" }, { type: "azurerm:sql/preview:Database" }, { type: "azurerm:sql/v20140401:Database" }, { type: "azurerm:sql/v20170301preview:Database" }, { type: "azurerm:sql/v20171001preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:sql/latest:Database" }, { type: "azurerm:sql/v20140401:Database" }, { type: "azurerm:sql/v20170301preview:Database" }, { type: "azurerm:sql/v20171001preview:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

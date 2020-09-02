@@ -76,8 +76,6 @@ class ManagedInstanceAdministrator(pulumi.CustomResource):
             __props__['tenant_id'] = tenant_id
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:sql/preview:ManagedInstanceAdministrator")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstanceAdministrator, __self__).__init__(
             'azurerm:sql/v20170301preview:ManagedInstanceAdministrator',
             resource_name,

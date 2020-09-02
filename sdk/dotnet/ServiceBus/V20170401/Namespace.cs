@@ -100,7 +100,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:servicebus/latest:Namespace"},
-                    new Pulumi.Alias { Type = "azurerm:servicebus/preview:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20180101preview:Namespace"},

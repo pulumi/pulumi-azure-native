@@ -139,7 +139,7 @@ export class ElasticPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/latest:ElasticPool" }, { type: "azurerm:sql/preview:ElasticPool" }, { type: "azurerm:sql/v20140401:ElasticPool" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:sql/latest:ElasticPool" }, { type: "azurerm:sql/v20140401:ElasticPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ElasticPool.__pulumiType, name, inputs, opts);
     }

@@ -67,9 +67,6 @@ func NewSchema(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:Schema"),
 		},
 		{
-			Type: pulumi.String("azurerm:logic/preview:Schema"),
-		},
-		{
 			Type: pulumi.String("azurerm:logic/v20150801preview:Schema"),
 		},
 		{

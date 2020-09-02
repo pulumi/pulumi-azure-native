@@ -79,7 +79,7 @@ class Workflow(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/latest:Workflow"), pulumi.Alias(type_="azurerm:logic/preview:Workflow"), pulumi.Alias(type_="azurerm:logic/v20150201preview:Workflow"), pulumi.Alias(type_="azurerm:logic/v20180701preview:Workflow"), pulumi.Alias(type_="azurerm:logic/v20190501:Workflow")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/latest:Workflow"), pulumi.Alias(type_="azurerm:logic/v20150201preview:Workflow"), pulumi.Alias(type_="azurerm:logic/v20180701preview:Workflow"), pulumi.Alias(type_="azurerm:logic/v20190501:Workflow")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workflow, __self__).__init__(
             'azurerm:logic/v20160601:Workflow',

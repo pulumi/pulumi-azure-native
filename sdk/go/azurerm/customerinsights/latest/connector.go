@@ -65,9 +65,6 @@ func NewConnector(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:customerinsights/preview:Connector"),
-		},
-		{
 			Type: pulumi.String("azurerm:customerinsights/v20170101:Connector"),
 		},
 		{

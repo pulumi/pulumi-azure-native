@@ -72,8 +72,6 @@ class ReportByBillingAccount(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:billing/preview:ReportByBillingAccount")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReportByBillingAccount, __self__).__init__(
             'azurerm:billing/v20180801preview:ReportByBillingAccount',
             resource_name,

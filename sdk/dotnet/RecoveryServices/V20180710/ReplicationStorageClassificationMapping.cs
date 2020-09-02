@@ -64,7 +64,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/latest:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azurerm:recoveryservices/preview:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/v20160810:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/v20180110:ReplicationStorageClassificationMapping"},
                 },

@@ -159,7 +159,6 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:Incident"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200101:Incident"},
                 },
             };

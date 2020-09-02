@@ -42,9 +42,6 @@ func NewQueue(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storage/latest:Queue"),
 		},
-		{
-			Type: pulumi.String("azurerm:storage/preview:Queue"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Queue

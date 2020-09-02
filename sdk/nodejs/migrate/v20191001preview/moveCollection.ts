@@ -96,8 +96,6 @@ export class MoveCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:migrate/preview:MoveCollection" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MoveCollection.__pulumiType, name, inputs, opts);
     }
 }

@@ -125,7 +125,7 @@ export class ScheduleResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:ScheduleResource" }, { type: "azurerm:devtestlab/preview:ScheduleResource" }, { type: "azurerm:devtestlab/v20160515:ScheduleResource" }, { type: "azurerm:devtestlab/v20180915:ScheduleResource" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:ScheduleResource" }, { type: "azurerm:devtestlab/v20160515:ScheduleResource" }, { type: "azurerm:devtestlab/v20180915:ScheduleResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ScheduleResource.__pulumiType, name, inputs, opts);
     }

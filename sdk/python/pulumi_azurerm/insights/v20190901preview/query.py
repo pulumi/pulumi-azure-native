@@ -86,8 +86,6 @@ class Query(pulumi.CustomResource):
             __props__['time_created'] = None
             __props__['time_modified'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/preview:Query")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Query, __self__).__init__(
             'azurerm:insights/v20190901preview:Query',
             resource_name,

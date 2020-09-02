@@ -43,12 +43,6 @@ func NewPipelineRun(ctx *pulumi.Context,
 	if args == nil {
 		args = &PipelineRunArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:containerregistry/preview:PipelineRun"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource PipelineRun
 	err := ctx.RegisterResource("azurerm:containerregistry/v20191201preview:PipelineRun", name, args, &resource, opts...)
 	if err != nil {

@@ -194,7 +194,7 @@ export class AppServicePlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:AppServicePlan" }, { type: "azurerm:web/preview:AppServicePlan" }, { type: "azurerm:web/v20150801:AppServicePlan" }, { type: "azurerm:web/v20160901:AppServicePlan" }, { type: "azurerm:web/v20190801:AppServicePlan" }, { type: "azurerm:web/v20200601:AppServicePlan" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:AppServicePlan" }, { type: "azurerm:web/v20150801:AppServicePlan" }, { type: "azurerm:web/v20160901:AppServicePlan" }, { type: "azurerm:web/v20190801:AppServicePlan" }, { type: "azurerm:web/v20200601:AppServicePlan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppServicePlan.__pulumiType, name, inputs, opts);
     }

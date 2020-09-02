@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.Media.V20180701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:media/latest:Transform"},
-                    new Pulumi.Alias { Type = "azurerm:media/preview:Transform"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180330preview:Transform"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180601preview:Transform"},
                     new Pulumi.Alias { Type = "azurerm:media/v20200501:Transform"},

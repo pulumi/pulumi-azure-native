@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ApiRelease"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:ApiRelease"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiRelease"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ApiRelease"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:ApiRelease"},

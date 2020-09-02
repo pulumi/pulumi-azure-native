@@ -41,9 +41,6 @@ func NewWorkspaceCollection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:powerbi/latest:WorkspaceCollection"),
 		},
-		{
-			Type: pulumi.String("azurerm:powerbi/preview:WorkspaceCollection"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource WorkspaceCollection

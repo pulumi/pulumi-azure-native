@@ -44,9 +44,6 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbformariadb/latest:Database"),
 		},
 		{
-			Type: pulumi.String("azurerm:dbformariadb/preview:Database"),
-		},
-		{
 			Type: pulumi.String("azurerm:dbformariadb/v20180601preview:Database"),
 		},
 	})

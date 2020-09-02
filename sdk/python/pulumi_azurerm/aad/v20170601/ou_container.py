@@ -78,7 +78,7 @@ class OuContainer(pulumi.CustomResource):
             __props__['tags'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:aad/latest:OuContainer"), pulumi.Alias(type_="azurerm:aad/preview:OuContainer"), pulumi.Alias(type_="azurerm:aad/v20200101:OuContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:aad/latest:OuContainer"), pulumi.Alias(type_="azurerm:aad/v20200101:OuContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OuContainer, __self__).__init__(
             'azurerm:aad/v20170601:OuContainer',

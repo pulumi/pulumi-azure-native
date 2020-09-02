@@ -39,9 +39,6 @@ func NewJobCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:scheduler/preview:JobCollection"),
-		},
-		{
 			Type: pulumi.String("azurerm:scheduler/v20140801preview:JobCollection"),
 		},
 		{

@@ -64,7 +64,6 @@ namespace Pulumi.AzureRM.Management.V20190510
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:management/latest:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azurerm:management/preview:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azurerm:management/v20190501:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azurerm:management/v20190701:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azurerm:management/v20190801:DeploymentAtManagementGroupScope"},

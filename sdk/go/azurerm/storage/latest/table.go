@@ -39,9 +39,6 @@ func NewTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:storage/preview:Table"),
-		},
-		{
 			Type: pulumi.String("azurerm:storage/v20190601:Table"),
 		},
 	})

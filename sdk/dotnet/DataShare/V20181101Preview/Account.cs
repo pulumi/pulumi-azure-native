@@ -94,7 +94,6 @@ namespace Pulumi.AzureRM.DataShare.V20181101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datashare/latest:Account"},
-                    new Pulumi.Alias { Type = "azurerm:datashare/preview:Account"},
                     new Pulumi.Alias { Type = "azurerm:datashare/v20191101:Account"},
                 },
             };

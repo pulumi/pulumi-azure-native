@@ -57,8 +57,6 @@ class Vendor(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['skus'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybridnetwork/preview:Vendor")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Vendor, __self__).__init__(
             'azurerm:hybridnetwork/v20200101preview:Vendor',
             resource_name,

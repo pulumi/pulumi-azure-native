@@ -53,9 +53,6 @@ func NewIotHubResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devices/latest:IotHubResource"),
 		},
 		{
-			Type: pulumi.String("azurerm:devices/preview:IotHubResource"),
-		},
-		{
 			Type: pulumi.String("azurerm:devices/v20160203:IotHubResource"),
 		},
 		{

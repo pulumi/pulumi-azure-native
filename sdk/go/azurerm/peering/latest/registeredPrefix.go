@@ -47,9 +47,6 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:peering/preview:RegisteredPrefix"),
-		},
-		{
 			Type: pulumi.String("azurerm:peering/v20200101preview:RegisteredPrefix"),
 		},
 		{

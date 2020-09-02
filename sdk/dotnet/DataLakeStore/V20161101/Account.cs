@@ -178,7 +178,6 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datalakestore/latest:Account"},
-                    new Pulumi.Alias { Type = "azurerm:datalakestore/preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

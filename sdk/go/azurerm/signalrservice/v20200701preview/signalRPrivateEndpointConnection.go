@@ -46,9 +46,6 @@ func NewSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:signalrservice/latest:SignalRPrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azurerm:signalrservice/preview:SignalRPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:signalrservice/v20200501:SignalRPrivateEndpointConnection"),
 		},
 	})

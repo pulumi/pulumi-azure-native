@@ -102,7 +102,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:maps/latest:Account" }, { type: "azurerm:maps/preview:Account" }, { type: "azurerm:maps/v20170101preview:Account" }, { type: "azurerm:maps/v20200201preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:maps/latest:Account" }, { type: "azurerm:maps/v20170101preview:Account" }, { type: "azurerm:maps/v20200201preview:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

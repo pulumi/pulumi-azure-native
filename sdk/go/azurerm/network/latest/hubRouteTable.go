@@ -49,9 +49,6 @@ func NewHubRouteTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:network/preview:HubRouteTable"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20200401:HubRouteTable"),
 		},
 		{

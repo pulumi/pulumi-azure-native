@@ -111,7 +111,6 @@ namespace Pulumi.AzureRM.Databricks.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:databricks/preview:vNetPeering"},
                     new Pulumi.Alias { Type = "azurerm:databricks/v20180401:vNetPeering"},
                 },
             };

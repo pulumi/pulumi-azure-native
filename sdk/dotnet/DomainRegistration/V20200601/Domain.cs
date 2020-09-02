@@ -188,7 +188,6 @@ namespace Pulumi.AzureRM.DomainRegistration.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:domainregistration/latest:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:domainregistration/preview:Domain"},
                     new Pulumi.Alias { Type = "azurerm:domainregistration/v20150401:Domain"},
                     new Pulumi.Alias { Type = "azurerm:domainregistration/v20150801:Domain"},
                     new Pulumi.Alias { Type = "azurerm:domainregistration/v20180201:Domain"},

@@ -48,9 +48,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:media/latest:PrivateEndpointConnection"),
 		},
-		{
-			Type: pulumi.String("azurerm:media/preview:PrivateEndpointConnection"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection

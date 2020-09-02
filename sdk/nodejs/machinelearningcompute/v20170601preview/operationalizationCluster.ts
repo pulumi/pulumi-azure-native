@@ -145,7 +145,7 @@ export class OperationalizationCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningcompute/preview:OperationalizationCluster" }, { type: "azurerm:machinelearningcompute/v20170801preview:OperationalizationCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningcompute/v20170801preview:OperationalizationCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OperationalizationCluster.__pulumiType, name, inputs, opts);
     }

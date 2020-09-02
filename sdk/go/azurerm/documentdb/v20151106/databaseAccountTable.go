@@ -50,9 +50,6 @@ func NewDatabaseAccountTable(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:DatabaseAccountTable"),
 		},
 		{
-			Type: pulumi.String("azurerm:documentdb/preview:DatabaseAccountTable"),
-		},
-		{
 			Type: pulumi.String("azurerm:documentdb/v20150401:DatabaseAccountTable"),
 		},
 		{

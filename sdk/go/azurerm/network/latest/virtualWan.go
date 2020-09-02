@@ -57,9 +57,6 @@ func NewVirtualWan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:network/preview:VirtualWan"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20180401:VirtualWan"),
 		},
 		{

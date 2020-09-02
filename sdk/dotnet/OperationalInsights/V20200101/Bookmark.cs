@@ -118,7 +118,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:Bookmark"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:Bookmark"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

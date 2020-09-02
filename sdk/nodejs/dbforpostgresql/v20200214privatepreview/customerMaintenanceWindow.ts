@@ -107,8 +107,6 @@ export class CustomerMaintenanceWindow extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbforpostgresql/preview:CustomerMaintenanceWindow" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomerMaintenanceWindow.__pulumiType, name, inputs, opts);
     }
 }

@@ -106,7 +106,6 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:FormulaResource"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:FormulaResource"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:FormulaResource"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:FormulaResource"},
                 },

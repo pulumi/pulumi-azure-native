@@ -85,9 +85,6 @@ func NewVolume(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:netapp/latest:Volume"),
 		},
 		{
-			Type: pulumi.String("azurerm:netapp/preview:Volume"),
-		},
-		{
 			Type: pulumi.String("azurerm:netapp/v20170815:Volume"),
 		},
 		{

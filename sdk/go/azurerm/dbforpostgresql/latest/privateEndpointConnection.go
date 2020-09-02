@@ -43,9 +43,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:dbforpostgresql/preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:dbforpostgresql/v20180601:PrivateEndpointConnection"),
 		},
 		{

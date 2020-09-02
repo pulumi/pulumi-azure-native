@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.Cache.V20180301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cache/latest:LinkedServer"},
-                    new Pulumi.Alias { Type = "azurerm:cache/preview:LinkedServer"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20170201:LinkedServer"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20171001:LinkedServer"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20190701:LinkedServer"},

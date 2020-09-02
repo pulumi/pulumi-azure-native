@@ -47,12 +47,6 @@ func NewSystemTopic(ctx *pulumi.Context,
 	if args == nil {
 		args = &SystemTopicArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:eventgrid/preview:SystemTopic"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource SystemTopic
 	err := ctx.RegisterResource("azurerm:eventgrid/v20200401preview:SystemTopic", name, args, &resource, opts...)
 	if err != nil {

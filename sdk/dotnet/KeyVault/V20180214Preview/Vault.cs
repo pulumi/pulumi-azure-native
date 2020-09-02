@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.KeyVault.V20180214Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:keyvault/latest:Vault"},
-                    new Pulumi.Alias { Type = "azurerm:keyvault/preview:Vault"},
                     new Pulumi.Alias { Type = "azurerm:keyvault/v20150601:Vault"},
                     new Pulumi.Alias { Type = "azurerm:keyvault/v20161001:Vault"},
                     new Pulumi.Alias { Type = "azurerm:keyvault/v20180214:Vault"},

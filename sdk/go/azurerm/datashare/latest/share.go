@@ -51,9 +51,6 @@ func NewShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:datashare/preview:Share"),
-		},
-		{
 			Type: pulumi.String("azurerm:datashare/v20181101preview:Share"),
 		},
 		{

@@ -56,9 +56,6 @@ func NewWCFRelay(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:relay/latest:WCFRelay"),
 		},
 		{
-			Type: pulumi.String("azurerm:relay/preview:WCFRelay"),
-		},
-		{
 			Type: pulumi.String("azurerm:relay/v20160701:WCFRelay"),
 		},
 	})

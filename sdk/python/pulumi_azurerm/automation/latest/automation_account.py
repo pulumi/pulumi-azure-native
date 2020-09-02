@@ -72,7 +72,7 @@ class AutomationAccount(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/preview:AutomationAccount"), pulumi.Alias(type_="azurerm:automation/v20151031:AutomationAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/v20151031:AutomationAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutomationAccount, __self__).__init__(
             'azurerm:automation/latest:AutomationAccount',

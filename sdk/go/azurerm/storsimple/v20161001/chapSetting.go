@@ -47,9 +47,6 @@ func NewChapSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storsimple/latest:ChapSetting"),
 		},
-		{
-			Type: pulumi.String("azurerm:storsimple/preview:ChapSetting"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ChapSetting

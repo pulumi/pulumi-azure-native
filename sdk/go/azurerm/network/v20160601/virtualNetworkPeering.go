@@ -54,9 +54,6 @@ func NewVirtualNetworkPeering(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualNetworkPeering"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:VirtualNetworkPeering"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20160901:VirtualNetworkPeering"),
 		},
 		{

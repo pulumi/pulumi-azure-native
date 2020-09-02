@@ -63,9 +63,6 @@ func NewVolumeContainer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storsimple/latest:VolumeContainer"),
 		},
-		{
-			Type: pulumi.String("azurerm:storsimple/preview:VolumeContainer"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource VolumeContainer

@@ -44,9 +44,6 @@ func NewHyperVSiteSite(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:offazure/latest:HyperVSiteSite"),
 		},
 		{
-			Type: pulumi.String("azurerm:offazure/preview:HyperVSiteSite"),
-		},
-		{
 			Type: pulumi.String("azurerm:offazure/v20200707:HyperVSiteSite"),
 		},
 	})

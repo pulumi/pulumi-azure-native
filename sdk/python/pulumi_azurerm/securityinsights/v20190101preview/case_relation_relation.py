@@ -82,8 +82,6 @@ class CaseRelationRelation(pulumi.CustomResource):
             __props__['kind'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:securityinsights/preview:CaseRelationRelation")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CaseRelationRelation, __self__).__init__(
             'azurerm:securityinsights/v20190101preview:CaseRelationRelation',
             resource_name,

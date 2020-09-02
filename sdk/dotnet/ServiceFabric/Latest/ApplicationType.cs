@@ -75,7 +75,6 @@ namespace Pulumi.AzureRM.ServiceFabric.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:servicefabric/preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20170701preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301:ApplicationType"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301preview:ApplicationType"},

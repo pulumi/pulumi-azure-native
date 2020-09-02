@@ -128,7 +128,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:StorageAccountCredential" }, { type: "azurerm:databoxedge/preview:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20190301:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20190701:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20200501preview:StorageAccountCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20190301:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20190701:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20200501preview:StorageAccountCredential" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccountCredential.__pulumiType, name, inputs, opts);
     }

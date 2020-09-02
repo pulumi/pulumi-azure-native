@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datafactory/latest:Pipeline"},
-                    new Pulumi.Alias { Type = "azurerm:datafactory/preview:Pipeline"},
                     new Pulumi.Alias { Type = "azurerm:datafactory/v20180601:Pipeline"},
                 },
             };

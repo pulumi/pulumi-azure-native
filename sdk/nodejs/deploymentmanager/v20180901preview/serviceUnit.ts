@@ -118,7 +118,7 @@ export class ServiceUnit extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:deploymentmanager/preview:ServiceUnit" }, { type: "azurerm:deploymentmanager/v20191101preview:ServiceUnit" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:deploymentmanager/v20191101preview:ServiceUnit" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServiceUnit.__pulumiType, name, inputs, opts);
     }

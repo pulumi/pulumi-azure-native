@@ -64,7 +64,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Gateway"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:Gateway"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Gateway"},
                 },
             };

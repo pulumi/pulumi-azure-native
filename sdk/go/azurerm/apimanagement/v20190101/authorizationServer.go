@@ -87,9 +87,6 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:AuthorizationServer"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:AuthorizationServer"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:AuthorizationServer"),
 		},
 		{

@@ -49,12 +49,6 @@ func NewDigitalTwin(ctx *pulumi.Context,
 	if args == nil {
 		args = &DigitalTwinArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:digitaltwins/preview:DigitalTwin"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource DigitalTwin
 	err := ctx.RegisterResource("azurerm:digitaltwins/v20200301preview:DigitalTwin", name, args, &resource, opts...)
 	if err != nil {

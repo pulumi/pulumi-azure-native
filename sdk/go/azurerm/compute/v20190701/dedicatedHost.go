@@ -68,9 +68,6 @@ func NewDedicatedHost(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:DedicatedHost"),
 		},
 		{
-			Type: pulumi.String("azurerm:compute/preview:DedicatedHost"),
-		},
-		{
 			Type: pulumi.String("azurerm:compute/v20190301:DedicatedHost"),
 		},
 		{

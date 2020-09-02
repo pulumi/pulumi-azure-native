@@ -40,12 +40,6 @@ func NewMoveCollection(ctx *pulumi.Context,
 	if args == nil {
 		args = &MoveCollectionArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:migrate/preview:MoveCollection"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource MoveCollection
 	err := ctx.RegisterResource("azurerm:migrate/v20191001preview:MoveCollection", name, args, &resource, opts...)
 	if err != nil {

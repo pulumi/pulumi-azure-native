@@ -70,7 +70,7 @@ class Extension(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:visualstudio/preview:Extension"), pulumi.Alias(type_="azurerm:visualstudio/v20171101preview:Extension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:visualstudio/v20171101preview:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
             'azurerm:visualstudio/v20140401preview:Extension',

@@ -45,9 +45,6 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:authorization/latest:ManagementLockByScope"),
 		},
-		{
-			Type: pulumi.String("azurerm:authorization/preview:ManagementLockByScope"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagementLockByScope

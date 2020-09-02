@@ -94,7 +94,6 @@ namespace Pulumi.AzureRM.Network.V20181101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:DdosCustomPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181201:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190201:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190401:DdosCustomPolicy"},

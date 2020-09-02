@@ -69,7 +69,7 @@ class RoleAssignment(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/latest:RoleAssignment"), pulumi.Alias(type_="azurerm:authorization/preview:RoleAssignment"), pulumi.Alias(type_="azurerm:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azurerm:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azurerm:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azurerm:authorization/v20200401preview:RoleAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/latest:RoleAssignment"), pulumi.Alias(type_="azurerm:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azurerm:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azurerm:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azurerm:authorization/v20200401preview:RoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleAssignment, __self__).__init__(
             'azurerm:authorization/v20180901preview:RoleAssignment',

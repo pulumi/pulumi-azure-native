@@ -49,9 +49,6 @@ func NewVault(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:keyvault/latest:Vault"),
 		},
 		{
-			Type: pulumi.String("azurerm:keyvault/preview:Vault"),
-		},
-		{
 			Type: pulumi.String("azurerm:keyvault/v20161001:Vault"),
 		},
 		{

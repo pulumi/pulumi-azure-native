@@ -93,7 +93,7 @@ class MachineExtension(pulumi.CustomResource):
             __props__['principal_id'] = None
             __props__['provisioning_state'] = None
             __props__['tenant_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybridcompute/latest:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/preview:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20191212:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20200730preview:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20200802:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20200815preview:MachineExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybridcompute/latest:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20191212:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20200730preview:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20200802:MachineExtension"), pulumi.Alias(type_="azurerm:hybridcompute/v20200815preview:MachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineExtension, __self__).__init__(
             'azurerm:hybridcompute/v20190802preview:MachineExtension',

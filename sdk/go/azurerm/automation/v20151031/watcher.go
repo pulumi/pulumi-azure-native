@@ -63,9 +63,6 @@ func NewWatcher(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:Watcher"),
 		},
-		{
-			Type: pulumi.String("azurerm:automation/preview:Watcher"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Watcher

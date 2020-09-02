@@ -140,7 +140,7 @@ export class LiveOutput extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:LiveOutput" }, { type: "azurerm:media/preview:LiveOutput" }, { type: "azurerm:media/v20180330preview:LiveOutput" }, { type: "azurerm:media/v20180601preview:LiveOutput" }, { type: "azurerm:media/v20180701:LiveOutput" }, { type: "azurerm:media/v20200501:LiveOutput" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:LiveOutput" }, { type: "azurerm:media/v20180330preview:LiveOutput" }, { type: "azurerm:media/v20180601preview:LiveOutput" }, { type: "azurerm:media/v20180701:LiveOutput" }, { type: "azurerm:media/v20200501:LiveOutput" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LiveOutput.__pulumiType, name, inputs, opts);
     }

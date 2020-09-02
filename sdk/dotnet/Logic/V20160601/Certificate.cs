@@ -94,7 +94,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:Certificate"},
-                    new Pulumi.Alias { Type = "azurerm:logic/preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20150801preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20190501:Certificate"},

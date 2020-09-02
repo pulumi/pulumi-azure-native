@@ -106,7 +106,6 @@ namespace Pulumi.AzureRM.Network.V20190701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualRouter"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190801:VirtualRouter"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190901:VirtualRouter"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191101:VirtualRouter"},

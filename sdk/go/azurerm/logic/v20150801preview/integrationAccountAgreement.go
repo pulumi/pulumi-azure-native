@@ -61,9 +61,6 @@ func NewIntegrationAccountAgreement(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:IntegrationAccountAgreement"),
 		},
 		{
-			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountAgreement"),
-		},
-		{
 			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountAgreement"),
 		},
 		{

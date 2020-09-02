@@ -111,7 +111,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:PrivateZone"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180901:PrivateZone"},
                 },
             };

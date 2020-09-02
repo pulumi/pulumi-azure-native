@@ -118,7 +118,6 @@ namespace Pulumi.AzureRM.Compute.V20190701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:compute/latest:DedicatedHost"},
-                    new Pulumi.Alias { Type = "azurerm:compute/preview:DedicatedHost"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190301:DedicatedHost"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191201:DedicatedHost"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20200601:DedicatedHost"},

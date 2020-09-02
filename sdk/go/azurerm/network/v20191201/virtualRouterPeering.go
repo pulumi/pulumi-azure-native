@@ -48,9 +48,6 @@ func NewVirtualRouterPeering(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualRouterPeering"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:VirtualRouterPeering"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20190701:VirtualRouterPeering"),
 		},
 		{

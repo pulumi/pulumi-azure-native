@@ -160,7 +160,6 @@ namespace Pulumi.AzureRM.Media.V20200501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:media/latest:StreamingEndpoint"},
-                    new Pulumi.Alias { Type = "azurerm:media/preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180330preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180601preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:StreamingEndpoint"},

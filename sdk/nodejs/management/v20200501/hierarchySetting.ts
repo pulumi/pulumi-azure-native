@@ -85,7 +85,7 @@ export class HierarchySetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:management/latest:HierarchySetting" }, { type: "azurerm:management/preview:HierarchySetting" }, { type: "azurerm:management/v20200201:HierarchySetting" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:management/latest:HierarchySetting" }, { type: "azurerm:management/v20200201:HierarchySetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HierarchySetting.__pulumiType, name, inputs, opts);
     }

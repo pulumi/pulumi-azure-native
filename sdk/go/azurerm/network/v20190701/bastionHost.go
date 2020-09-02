@@ -49,9 +49,6 @@ func NewBastionHost(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:BastionHost"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20190401:BastionHost"),
 		},
 		{

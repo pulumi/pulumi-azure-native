@@ -56,9 +56,6 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:datamigration/preview:Service"),
-		},
-		{
 			Type: pulumi.String("azurerm:datamigration/v20171115preview:Service"),
 		},
 		{

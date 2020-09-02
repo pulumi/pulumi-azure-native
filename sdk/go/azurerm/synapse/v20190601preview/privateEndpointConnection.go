@@ -41,12 +41,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateEndpointConnectionArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:synapse/preview:PrivateEndpointConnection"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
 	err := ctx.RegisterResource("azurerm:synapse/v20190601preview:PrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

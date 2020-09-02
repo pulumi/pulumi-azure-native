@@ -35,12 +35,6 @@ func NewVendorSkuPreview(ctx *pulumi.Context,
 	if args == nil {
 		args = &VendorSkuPreviewArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:hybridnetwork/preview:VendorSkuPreview"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource VendorSkuPreview
 	err := ctx.RegisterResource("azurerm:hybridnetwork/v20200101preview:VendorSkuPreview", name, args, &resource, opts...)
 	if err != nil {

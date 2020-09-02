@@ -128,8 +128,6 @@ export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:billing/preview:BillingRoleAssignmentByDepartment" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BillingRoleAssignmentByDepartment.__pulumiType, name, inputs, opts);
     }
 }

@@ -44,12 +44,6 @@ func NewGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context,
 	if args == nil {
 		args = &GuestDiagnosticsSettingsAssociationArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:insights/preview:GuestDiagnosticsSettingsAssociation"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource GuestDiagnosticsSettingsAssociation
 	err := ctx.RegisterResource("azurerm:insights/v20180601preview:GuestDiagnosticsSettingsAssociation", name, args, &resource, opts...)
 	if err != nil {

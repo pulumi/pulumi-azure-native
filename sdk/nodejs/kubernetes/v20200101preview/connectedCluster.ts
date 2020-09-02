@@ -130,8 +130,6 @@ export class ConnectedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:kubernetes/preview:ConnectedCluster" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectedCluster.__pulumiType, name, inputs, opts);
     }
 }

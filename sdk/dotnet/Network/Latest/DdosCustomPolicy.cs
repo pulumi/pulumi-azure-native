@@ -93,7 +93,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181101:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181201:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190201:DdosCustomPolicy"},

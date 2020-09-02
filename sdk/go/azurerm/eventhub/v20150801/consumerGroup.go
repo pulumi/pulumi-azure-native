@@ -56,9 +56,6 @@ func NewConsumerGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:eventhub/latest:ConsumerGroup"),
 		},
 		{
-			Type: pulumi.String("azurerm:eventhub/preview:ConsumerGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:eventhub/v20140901:ConsumerGroup"),
 		},
 		{

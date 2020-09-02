@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:signalrservice/latest:SignalRPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:signalrservice/preview:SignalRPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:signalrservice/v20200501:SignalRPrivateEndpointConnection"},
                 },
             };

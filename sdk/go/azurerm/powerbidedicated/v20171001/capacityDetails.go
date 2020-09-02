@@ -54,9 +54,6 @@ func NewCapacityDetails(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:powerbidedicated/latest:CapacityDetails"),
 		},
-		{
-			Type: pulumi.String("azurerm:powerbidedicated/preview:CapacityDetails"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource CapacityDetails

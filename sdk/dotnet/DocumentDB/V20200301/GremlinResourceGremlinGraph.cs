@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:GremlinResourceGremlinGraph"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:GremlinResourceGremlinGraph"},

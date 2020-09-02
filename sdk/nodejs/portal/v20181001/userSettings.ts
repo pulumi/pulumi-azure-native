@@ -70,7 +70,7 @@ export class UserSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:portal/latest:UserSettings" }, { type: "azurerm:portal/preview:UserSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:portal/latest:UserSettings" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(UserSettings.__pulumiType, name, inputs, opts);
     }

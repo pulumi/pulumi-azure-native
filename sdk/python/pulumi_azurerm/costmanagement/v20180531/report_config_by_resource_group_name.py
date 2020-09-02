@@ -72,7 +72,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:costmanagement/latest:ReportConfigByResourceGroupName"), pulumi.Alias(type_="azurerm:costmanagement/preview:ReportConfigByResourceGroupName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:costmanagement/latest:ReportConfigByResourceGroupName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReportConfigByResourceGroupName, __self__).__init__(
             'azurerm:costmanagement/v20180531:ReportConfigByResourceGroupName',

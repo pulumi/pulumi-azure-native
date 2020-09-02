@@ -45,9 +45,6 @@ func NewPatchSchedule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cache/latest:PatchSchedule"),
 		},
 		{
-			Type: pulumi.String("azurerm:cache/preview:PatchSchedule"),
-		},
-		{
 			Type: pulumi.String("azurerm:cache/v20171001:PatchSchedule"),
 		},
 		{

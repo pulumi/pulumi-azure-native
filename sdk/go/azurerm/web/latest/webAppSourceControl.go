@@ -48,9 +48,6 @@ func NewWebAppSourceControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:web/preview:WebAppSourceControl"),
-		},
-		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppSourceControl"),
 		},
 		{

@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Cache"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:Cache"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Cache"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Cache"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:Cache"},

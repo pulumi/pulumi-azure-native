@@ -149,7 +149,7 @@ export class LiveEvent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:LiveEvent" }, { type: "azurerm:media/preview:LiveEvent" }, { type: "azurerm:media/v20180330preview:LiveEvent" }, { type: "azurerm:media/v20180701:LiveEvent" }, { type: "azurerm:media/v20190501preview:LiveEvent" }, { type: "azurerm:media/v20200501:LiveEvent" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:LiveEvent" }, { type: "azurerm:media/v20180330preview:LiveEvent" }, { type: "azurerm:media/v20180701:LiveEvent" }, { type: "azurerm:media/v20190501preview:LiveEvent" }, { type: "azurerm:media/v20200501:LiveEvent" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LiveEvent.__pulumiType, name, inputs, opts);
     }

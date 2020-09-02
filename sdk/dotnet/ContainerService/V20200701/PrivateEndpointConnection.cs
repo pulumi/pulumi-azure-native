@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.ContainerService.V20200701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerservice/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200601:PrivateEndpointConnection"},
                 },
             };

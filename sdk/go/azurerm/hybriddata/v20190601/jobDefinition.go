@@ -70,9 +70,6 @@ func NewJobDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:hybriddata/latest:JobDefinition"),
 		},
 		{
-			Type: pulumi.String("azurerm:hybriddata/preview:JobDefinition"),
-		},
-		{
 			Type: pulumi.String("azurerm:hybriddata/v20160601:JobDefinition"),
 		},
 	})

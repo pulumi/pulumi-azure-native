@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.NetApp.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:netapp/latest:Backup"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/preview:Backup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

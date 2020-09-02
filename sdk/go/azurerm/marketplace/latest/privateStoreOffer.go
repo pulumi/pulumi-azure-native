@@ -50,9 +50,6 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:marketplace/preview:PrivateStoreOffer"),
-		},
-		{
 			Type: pulumi.String("azurerm:marketplace/v20200101:PrivateStoreOffer"),
 		},
 	})

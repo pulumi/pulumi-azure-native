@@ -112,7 +112,7 @@ class AppServicePlan(pulumi.CustomResource):
             __props__['status'] = None
             __props__['subscription'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:AppServicePlan"), pulumi.Alias(type_="azurerm:web/preview:AppServicePlan"), pulumi.Alias(type_="azurerm:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azurerm:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azurerm:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azurerm:web/v20200601:AppServicePlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:AppServicePlan"), pulumi.Alias(type_="azurerm:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azurerm:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azurerm:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azurerm:web/v20200601:AppServicePlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlan, __self__).__init__(
             'azurerm:web/v20180201:AppServicePlan',

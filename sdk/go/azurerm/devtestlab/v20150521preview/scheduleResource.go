@@ -58,9 +58,6 @@ func NewScheduleResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:ScheduleResource"),
 		},
 		{
-			Type: pulumi.String("azurerm:devtestlab/preview:ScheduleResource"),
-		},
-		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:ScheduleResource"),
 		},
 		{

@@ -120,7 +120,7 @@ export class CognitiveServicesAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cognitiveservices/latest:CognitiveServicesAccount" }, { type: "azurerm:cognitiveservices/preview:CognitiveServicesAccount" }, { type: "azurerm:cognitiveservices/v20170418:CognitiveServicesAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:cognitiveservices/latest:CognitiveServicesAccount" }, { type: "azurerm:cognitiveservices/v20170418:CognitiveServicesAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CognitiveServicesAccount.__pulumiType, name, inputs, opts);
     }

@@ -46,9 +46,6 @@ func NewDataFlow(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datafactory/latest:DataFlow"),
 		},
-		{
-			Type: pulumi.String("azurerm:datafactory/preview:DataFlow"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DataFlow

@@ -77,9 +77,6 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:databox/preview:Job"),
-		},
-		{
 			Type: pulumi.String("azurerm:databox/v20180101:Job"),
 		},
 		{

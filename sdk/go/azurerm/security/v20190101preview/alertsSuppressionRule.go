@@ -52,12 +52,6 @@ func NewAlertsSuppressionRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &AlertsSuppressionRuleArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:security/preview:AlertsSuppressionRule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource AlertsSuppressionRule
 	err := ctx.RegisterResource("azurerm:security/v20190101preview:AlertsSuppressionRule", name, args, &resource, opts...)
 	if err != nil {

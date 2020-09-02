@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:Trigger"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/preview:Trigger"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Trigger"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:Trigger"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Trigger"},

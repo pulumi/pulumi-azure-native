@@ -46,9 +46,6 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:storsimple/preview:BandwidthSetting"),
-		},
-		{
 			Type: pulumi.String("azurerm:storsimple/v20170601:BandwidthSetting"),
 		},
 	})

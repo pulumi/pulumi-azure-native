@@ -111,7 +111,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/preview:ObjectReplicationPolicy" }, { type: "azurerm:storage/v20190601:ObjectReplicationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/v20190601:ObjectReplicationPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ObjectReplicationPolicy.__pulumiType, name, inputs, opts);
     }

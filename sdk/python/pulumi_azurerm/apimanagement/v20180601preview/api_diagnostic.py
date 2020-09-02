@@ -85,7 +85,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/preview:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiDiagnostic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiDiagnostic"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiDiagnostic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiDiagnostic, __self__).__init__(
             'azurerm:apimanagement/v20180601preview:ApiDiagnostic',

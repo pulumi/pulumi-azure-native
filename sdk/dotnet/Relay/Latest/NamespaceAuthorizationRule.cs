@@ -57,7 +57,6 @@ namespace Pulumi.AzureRM.Relay.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:relay/preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:relay/v20160701:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:relay/v20170401:NamespaceAuthorizationRule"},
                 },

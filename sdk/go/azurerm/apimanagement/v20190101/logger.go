@@ -57,9 +57,6 @@ func NewLogger(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:Logger"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Logger"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Logger"),
 		},
 		{

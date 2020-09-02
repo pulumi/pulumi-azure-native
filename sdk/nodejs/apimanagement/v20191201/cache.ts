@@ -96,7 +96,7 @@ export class Cache extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Cache" }, { type: "azurerm:apimanagement/preview:Cache" }, { type: "azurerm:apimanagement/v20180601preview:Cache" }, { type: "azurerm:apimanagement/v20190101:Cache" }, { type: "azurerm:apimanagement/v20191201preview:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Cache" }, { type: "azurerm:apimanagement/v20180601preview:Cache" }, { type: "azurerm:apimanagement/v20190101:Cache" }, { type: "azurerm:apimanagement/v20191201preview:Cache" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cache.__pulumiType, name, inputs, opts);
     }

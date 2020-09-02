@@ -47,9 +47,6 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:recoveryservices/latest:ProtectionPolicy"),
 		},
-		{
-			Type: pulumi.String("azurerm:recoveryservices/preview:ProtectionPolicy"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ProtectionPolicy

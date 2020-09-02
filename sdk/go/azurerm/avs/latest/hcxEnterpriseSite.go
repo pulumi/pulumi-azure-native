@@ -41,9 +41,6 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:avs/preview:HcxEnterpriseSite"),
-		},
-		{
 			Type: pulumi.String("azurerm:avs/v20200320:HcxEnterpriseSite"),
 		},
 	})

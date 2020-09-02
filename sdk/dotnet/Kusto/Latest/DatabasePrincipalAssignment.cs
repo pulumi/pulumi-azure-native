@@ -93,7 +93,6 @@ namespace Pulumi.AzureRM.Kusto.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:kusto/preview:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20191109:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20200215:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20200614:DatabasePrincipalAssignment"},

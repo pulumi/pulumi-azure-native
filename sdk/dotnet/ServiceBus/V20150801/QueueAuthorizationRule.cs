@@ -64,7 +64,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:servicebus/latest:QueueAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:servicebus/preview:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:QueueAuthorizationRule"},
                 },

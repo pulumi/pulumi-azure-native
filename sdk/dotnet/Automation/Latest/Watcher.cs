@@ -123,7 +123,6 @@ namespace Pulumi.AzureRM.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:automation/preview:Watcher"},
                     new Pulumi.Alias { Type = "azurerm:automation/v20151031:Watcher"},
                 },
             };

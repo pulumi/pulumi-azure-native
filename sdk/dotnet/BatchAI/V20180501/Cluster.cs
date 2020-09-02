@@ -142,7 +142,6 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:batchai/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azurerm:batchai/preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

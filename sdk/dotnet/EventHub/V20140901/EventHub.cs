@@ -94,7 +94,6 @@ namespace Pulumi.AzureRM.EventHub.V20140901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:eventhub/latest:EventHub"},
-                    new Pulumi.Alias { Type = "azurerm:eventhub/preview:EventHub"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20150801:EventHub"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:EventHub"},
                 },

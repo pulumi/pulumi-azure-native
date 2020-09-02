@@ -54,9 +54,6 @@ func NewCredential(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:automation/preview:Credential"),
-		},
-		{
 			Type: pulumi.String("azurerm:automation/v20151031:Credential"),
 		},
 	})

@@ -147,7 +147,6 @@ namespace Pulumi.AzureRM.Batch.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:batch/preview:BatchAccount"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20151201:BatchAccount"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20170101:BatchAccount"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20170501:BatchAccount"},

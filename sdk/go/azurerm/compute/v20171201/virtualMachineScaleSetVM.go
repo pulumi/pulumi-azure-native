@@ -77,9 +77,6 @@ func NewVirtualMachineScaleSetVM(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:VirtualMachineScaleSetVM"),
 		},
 		{
-			Type: pulumi.String("azurerm:compute/preview:VirtualMachineScaleSetVM"),
-		},
-		{
 			Type: pulumi.String("azurerm:compute/v20180401:VirtualMachineScaleSetVM"),
 		},
 		{

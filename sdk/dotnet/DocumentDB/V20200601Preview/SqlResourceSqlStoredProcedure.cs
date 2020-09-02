@@ -73,7 +73,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:SqlResourceSqlStoredProcedure"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlStoredProcedure"},

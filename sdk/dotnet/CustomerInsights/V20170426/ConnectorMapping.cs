@@ -142,7 +142,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:customerinsights/latest:ConnectorMapping"},
-                    new Pulumi.Alias { Type = "azurerm:customerinsights/preview:ConnectorMapping"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:ConnectorMapping"},
                 },
             };

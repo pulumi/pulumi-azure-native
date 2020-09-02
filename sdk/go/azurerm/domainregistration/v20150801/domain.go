@@ -78,9 +78,6 @@ func NewDomain(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:domainregistration/latest:Domain"),
 		},
 		{
-			Type: pulumi.String("azurerm:domainregistration/preview:Domain"),
-		},
-		{
 			Type: pulumi.String("azurerm:domainregistration/v20150401:Domain"),
 		},
 		{

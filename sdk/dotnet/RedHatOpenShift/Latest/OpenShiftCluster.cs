@@ -117,7 +117,6 @@ namespace Pulumi.AzureRM.RedHatOpenShift.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:redhatopenshift/preview:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azurerm:redhatopenshift/v20200430:OpenShiftCluster"},
                 },
             };

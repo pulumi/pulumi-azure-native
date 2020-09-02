@@ -46,12 +46,6 @@ func NewPrivateLinkForAzureAd(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateLinkForAzureAdArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:aadiam/preview:privateLinkForAzureAd"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource PrivateLinkForAzureAd
 	err := ctx.RegisterResource("azurerm:aadiam/v20200301preview:privateLinkForAzureAd", name, args, &resource, opts...)
 	if err != nil {

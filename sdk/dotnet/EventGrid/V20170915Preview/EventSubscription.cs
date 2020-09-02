@@ -82,7 +82,6 @@ namespace Pulumi.AzureRM.EventGrid.V20170915Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:eventgrid/latest:EventSubscription"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20170615preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20180101:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20180501preview:EventSubscription"},

@@ -69,7 +69,6 @@ namespace Pulumi.AzureRM.StorageSync.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storagesync/preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20200301:PrivateEndpointConnection"},
                 },
             };

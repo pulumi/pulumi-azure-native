@@ -48,9 +48,6 @@ func NewWCFRelayAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:relay/latest:WCFRelayAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azurerm:relay/preview:WCFRelayAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azurerm:relay/v20160701:WCFRelayAuthorizationRule"),
 		},
 	})

@@ -57,9 +57,6 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
-			Type: pulumi.String("azurerm:documentdb/preview:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"),
 		},
 		{

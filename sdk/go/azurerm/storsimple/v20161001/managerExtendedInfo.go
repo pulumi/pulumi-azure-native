@@ -57,9 +57,6 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storsimple/latest:ManagerExtendedInfo"),
 		},
 		{
-			Type: pulumi.String("azurerm:storsimple/preview:ManagerExtendedInfo"),
-		},
-		{
 			Type: pulumi.String("azurerm:storsimple/v20170601:ManagerExtendedInfo"),
 		},
 	})

@@ -52,9 +52,6 @@ func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:costmanagement/latest:ReportConfigByResourceGroupName"),
 		},
-		{
-			Type: pulumi.String("azurerm:costmanagement/preview:ReportConfigByResourceGroupName"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReportConfigByResourceGroupName

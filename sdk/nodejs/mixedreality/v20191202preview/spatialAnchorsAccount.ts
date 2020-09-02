@@ -97,7 +97,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:mixedreality/latest:SpatialAnchorsAccount" }, { type: "azurerm:mixedreality/preview:SpatialAnchorsAccount" }, { type: "azurerm:mixedreality/v20190228preview:SpatialAnchorsAccount" }, { type: "azurerm:mixedreality/v20200501:SpatialAnchorsAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:mixedreality/latest:SpatialAnchorsAccount" }, { type: "azurerm:mixedreality/v20190228preview:SpatialAnchorsAccount" }, { type: "azurerm:mixedreality/v20200501:SpatialAnchorsAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SpatialAnchorsAccount.__pulumiType, name, inputs, opts);
     }

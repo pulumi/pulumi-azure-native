@@ -69,9 +69,6 @@ func NewVirtualMachineSchedule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:VirtualMachineSchedule"),
 		},
 		{
-			Type: pulumi.String("azurerm:devtestlab/preview:VirtualMachineSchedule"),
-		},
-		{
 			Type: pulumi.String("azurerm:devtestlab/v20180915:VirtualMachineSchedule"),
 		},
 	})

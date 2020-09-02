@@ -56,9 +56,6 @@ func NewDataStore(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:hybriddata/latest:DataStore"),
 		},
 		{
-			Type: pulumi.String("azurerm:hybriddata/preview:DataStore"),
-		},
-		{
 			Type: pulumi.String("azurerm:hybriddata/v20160601:DataStore"),
 		},
 	})

@@ -43,12 +43,6 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateLinkScopeArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:insights/preview:PrivateLinkScope"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource PrivateLinkScope
 	err := ctx.RegisterResource("azurerm:insights/v20191017preview:PrivateLinkScope", name, args, &resource, opts...)
 	if err != nil {

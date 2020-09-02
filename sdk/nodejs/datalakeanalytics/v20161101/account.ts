@@ -205,7 +205,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datalakeanalytics/latest:Account" }, { type: "azurerm:datalakeanalytics/preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datalakeanalytics/latest:Account" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Account.__pulumiType, name, inputs, opts);
     }

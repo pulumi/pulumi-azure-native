@@ -39,9 +39,6 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:managedservices/latest:RegistrationAssignment"),
 		},
 		{
-			Type: pulumi.String("azurerm:managedservices/preview:RegistrationAssignment"),
-		},
-		{
 			Type: pulumi.String("azurerm:managedservices/v20190401preview:RegistrationAssignment"),
 		},
 		{

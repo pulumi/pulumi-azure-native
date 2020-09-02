@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:AlertRuleAction"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:AlertRuleAction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -69,7 +69,6 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:ApiIssueAttachment"},

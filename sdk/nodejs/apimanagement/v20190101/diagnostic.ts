@@ -123,7 +123,7 @@ export class Diagnostic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Diagnostic" }, { type: "azurerm:apimanagement/preview:Diagnostic" }, { type: "azurerm:apimanagement/v20170301:Diagnostic" }, { type: "azurerm:apimanagement/v20180101:Diagnostic" }, { type: "azurerm:apimanagement/v20180601preview:Diagnostic" }, { type: "azurerm:apimanagement/v20191201:Diagnostic" }, { type: "azurerm:apimanagement/v20191201preview:Diagnostic" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Diagnostic" }, { type: "azurerm:apimanagement/v20170301:Diagnostic" }, { type: "azurerm:apimanagement/v20180101:Diagnostic" }, { type: "azurerm:apimanagement/v20180601preview:Diagnostic" }, { type: "azurerm:apimanagement/v20191201:Diagnostic" }, { type: "azurerm:apimanagement/v20191201preview:Diagnostic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Diagnostic.__pulumiType, name, inputs, opts);
     }

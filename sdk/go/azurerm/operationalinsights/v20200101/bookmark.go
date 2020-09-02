@@ -67,9 +67,6 @@ func NewBookmark(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:operationalinsights/latest:Bookmark"),
 		},
-		{
-			Type: pulumi.String("azurerm:operationalinsights/preview:Bookmark"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Bookmark

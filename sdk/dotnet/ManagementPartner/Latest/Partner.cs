@@ -99,7 +99,6 @@ namespace Pulumi.AzureRM.ManagementPartner.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:managementpartner/preview:Partner"},
                     new Pulumi.Alias { Type = "azurerm:managementpartner/v20180201:Partner"},
                 },
             };

@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Management.V20161201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:management/latest:PolicyDefinitionAtManagementGroup"},
-                    new Pulumi.Alias { Type = "azurerm:management/preview:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azurerm:management/v20180301:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azurerm:management/v20180501:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azurerm:management/v20190101:PolicyDefinitionAtManagementGroup"},

@@ -67,7 +67,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:GremlinResourceGremlinDatabase"},
-                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:GremlinResourceGremlinDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:GremlinResourceGremlinDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:GremlinResourceGremlinDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:GremlinResourceGremlinDatabase"},

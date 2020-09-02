@@ -40,9 +40,6 @@ func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:authorization/preview:ManagementLockAtSubscriptionLevel"),
-		},
-		{
 			Type: pulumi.String("azurerm:authorization/v20150101:ManagementLockAtSubscriptionLevel"),
 		},
 		{

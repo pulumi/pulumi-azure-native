@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:IpAllocation"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:IpAllocation"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200301:IpAllocation"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200401:IpAllocation"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:IpAllocation"},

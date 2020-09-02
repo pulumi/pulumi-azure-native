@@ -55,9 +55,6 @@ func NewJobSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:JobSchedule"),
 		},
-		{
-			Type: pulumi.String("azurerm:automation/preview:JobSchedule"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource JobSchedule

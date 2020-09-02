@@ -69,7 +69,6 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:deploymentmanager/preview:Step"},
                     new Pulumi.Alias { Type = "azurerm:deploymentmanager/v20180901preview:Step"},
                 },
             };

@@ -87,7 +87,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180201:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180401:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180601:DdosProtectionPlan"},

@@ -53,9 +53,6 @@ func NewSubnet(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:Subnet"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:Subnet"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20150615:Subnet"),
 		},
 		{

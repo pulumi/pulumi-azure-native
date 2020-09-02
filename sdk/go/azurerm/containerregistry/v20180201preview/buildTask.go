@@ -65,12 +65,6 @@ func NewBuildTask(ctx *pulumi.Context,
 	if args == nil {
 		args = &BuildTaskArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:containerregistry/preview:BuildTask"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource BuildTask
 	err := ctx.RegisterResource("azurerm:containerregistry/v20180201preview:BuildTask", name, args, &resource, opts...)
 	if err != nil {

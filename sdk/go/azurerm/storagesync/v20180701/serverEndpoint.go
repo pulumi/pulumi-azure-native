@@ -63,9 +63,6 @@ func NewServerEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storagesync/latest:ServerEndpoint"),
 		},
 		{
-			Type: pulumi.String("azurerm:storagesync/preview:ServerEndpoint"),
-		},
-		{
 			Type: pulumi.String("azurerm:storagesync/v20170605preview:ServerEndpoint"),
 		},
 		{

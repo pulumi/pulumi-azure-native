@@ -44,9 +44,6 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:kusto/latest:Database"),
 		},
 		{
-			Type: pulumi.String("azurerm:kusto/preview:Database"),
-		},
-		{
 			Type: pulumi.String("azurerm:kusto/v20170907privatepreview:Database"),
 		},
 		{

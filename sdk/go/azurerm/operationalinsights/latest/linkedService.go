@@ -45,9 +45,6 @@ func NewLinkedService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:operationalinsights/preview:LinkedService"),
-		},
-		{
 			Type: pulumi.String("azurerm:operationalinsights/v20151101preview:LinkedService"),
 		},
 		{

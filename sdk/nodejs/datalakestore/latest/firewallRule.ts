@@ -94,7 +94,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datalakestore/preview:FirewallRule" }, { type: "azurerm:datalakestore/v20161101:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datalakestore/v20161101:FirewallRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

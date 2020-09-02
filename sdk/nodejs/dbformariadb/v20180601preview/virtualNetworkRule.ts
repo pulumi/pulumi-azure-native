@@ -96,7 +96,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformariadb/latest:VirtualNetworkRule" }, { type: "azurerm:dbformariadb/preview:VirtualNetworkRule" }, { type: "azurerm:dbformariadb/v20180601:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbformariadb/latest:VirtualNetworkRule" }, { type: "azurerm:dbformariadb/v20180601:VirtualNetworkRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }

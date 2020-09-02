@@ -81,9 +81,6 @@ func NewServer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbforpostgresql/latest:Server"),
 		},
 		{
-			Type: pulumi.String("azurerm:dbforpostgresql/preview:Server"),
-		},
-		{
 			Type: pulumi.String("azurerm:dbforpostgresql/v20171201preview:Server"),
 		},
 	})

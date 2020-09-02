@@ -43,9 +43,6 @@ func NewCustomerSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:azurestack/latest:CustomerSubscription"),
 		},
-		{
-			Type: pulumi.String("azurerm:azurestack/preview:CustomerSubscription"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomerSubscription

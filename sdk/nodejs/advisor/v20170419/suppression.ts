@@ -87,7 +87,7 @@ export class Suppression extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:advisor/latest:Suppression" }, { type: "azurerm:advisor/preview:Suppression" }, { type: "azurerm:advisor/v20160712preview:Suppression" }, { type: "azurerm:advisor/v20170331:Suppression" }, { type: "azurerm:advisor/v20200101:Suppression" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:advisor/latest:Suppression" }, { type: "azurerm:advisor/v20160712preview:Suppression" }, { type: "azurerm:advisor/v20170331:Suppression" }, { type: "azurerm:advisor/v20200101:Suppression" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Suppression.__pulumiType, name, inputs, opts);
     }

@@ -47,9 +47,6 @@ func NewDataset(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:datafactory/latest:Dataset"),
 		},
 		{
-			Type: pulumi.String("azurerm:datafactory/preview:Dataset"),
-		},
-		{
 			Type: pulumi.String("azurerm:datafactory/v20170901preview:Dataset"),
 		},
 	})

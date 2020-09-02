@@ -63,9 +63,6 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:kusto/preview:DatabasePrincipalAssignment"),
-		},
-		{
 			Type: pulumi.String("azurerm:kusto/v20191109:DatabasePrincipalAssignment"),
 		},
 		{

@@ -48,9 +48,6 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:sql/preview:ServerCommunicationLink"),
-		},
-		{
 			Type: pulumi.String("azurerm:sql/v20140401:ServerCommunicationLink"),
 		},
 	})

@@ -44,9 +44,6 @@ func NewGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:Gateway"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Gateway"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:Gateway"),
 		},
 	})

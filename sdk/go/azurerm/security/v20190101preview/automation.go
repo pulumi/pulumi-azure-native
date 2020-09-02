@@ -50,12 +50,6 @@ func NewAutomation(ctx *pulumi.Context,
 	if args == nil {
 		args = &AutomationArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:security/preview:Automation"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Automation
 	err := ctx.RegisterResource("azurerm:security/v20190101preview:Automation", name, args, &resource, opts...)
 	if err != nil {

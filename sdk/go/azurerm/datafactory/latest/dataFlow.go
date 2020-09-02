@@ -44,9 +44,6 @@ func NewDataFlow(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:datafactory/preview:DataFlow"),
-		},
-		{
 			Type: pulumi.String("azurerm:datafactory/v20180601:DataFlow"),
 		},
 	})

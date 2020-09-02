@@ -45,9 +45,6 @@ func NewHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:relay/preview:HybridConnectionAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azurerm:relay/v20160701:HybridConnectionAuthorizationRule"),
 		},
 		{

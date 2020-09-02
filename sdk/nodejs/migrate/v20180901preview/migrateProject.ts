@@ -96,8 +96,6 @@ export class MigrateProject extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:migrate/preview:MigrateProject" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MigrateProject.__pulumiType, name, inputs, opts);
     }
 }

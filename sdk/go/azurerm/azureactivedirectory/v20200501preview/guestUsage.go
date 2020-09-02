@@ -38,12 +38,6 @@ func NewGuestUsage(ctx *pulumi.Context,
 	if args == nil {
 		args = &GuestUsageArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:azureactivedirectory/preview:GuestUsage"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource GuestUsage
 	err := ctx.RegisterResource("azurerm:azureactivedirectory/v20200501preview:GuestUsage", name, args, &resource, opts...)
 	if err != nil {

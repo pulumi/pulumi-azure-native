@@ -98,7 +98,7 @@ export class BandwidthSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/preview:BandwidthSetting" }, { type: "azurerm:storsimple/v20170601:BandwidthSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20170601:BandwidthSetting" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BandwidthSetting.__pulumiType, name, inputs, opts);
     }

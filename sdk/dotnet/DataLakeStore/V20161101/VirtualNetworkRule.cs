@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datalakestore/latest:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azurerm:datalakestore/preview:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

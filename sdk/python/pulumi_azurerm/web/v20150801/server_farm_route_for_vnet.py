@@ -93,7 +93,7 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
             if vnet_name is None:
                 raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:ServerFarmRouteForVnet"), pulumi.Alias(type_="azurerm:web/preview:ServerFarmRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20160901:ServerFarmRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20180201:ServerFarmRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20190801:ServerFarmRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20200601:ServerFarmRouteForVnet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:ServerFarmRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20160901:ServerFarmRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20180201:ServerFarmRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20190801:ServerFarmRouteForVnet"), pulumi.Alias(type_="azurerm:web/v20200601:ServerFarmRouteForVnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerFarmRouteForVnet, __self__).__init__(
             'azurerm:web/v20150801:ServerFarmRouteForVnet',

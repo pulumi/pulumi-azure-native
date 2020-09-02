@@ -132,7 +132,7 @@ export class VolumeContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/preview:VolumeContainer" }, { type: "azurerm:storsimple/v20170601:VolumeContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storsimple/v20170601:VolumeContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VolumeContainer.__pulumiType, name, inputs, opts);
     }

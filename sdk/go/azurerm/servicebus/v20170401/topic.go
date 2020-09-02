@@ -72,9 +72,6 @@ func NewTopic(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicebus/latest:Topic"),
 		},
 		{
-			Type: pulumi.String("azurerm:servicebus/preview:Topic"),
-		},
-		{
 			Type: pulumi.String("azurerm:servicebus/v20140901:Topic"),
 		},
 		{

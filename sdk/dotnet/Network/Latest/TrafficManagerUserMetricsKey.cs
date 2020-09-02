@@ -57,7 +57,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180401:TrafficManagerUserMetricsKey"},
                 },
             };

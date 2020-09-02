@@ -73,7 +73,7 @@ class Bot(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:botservice/latest:Bot"), pulumi.Alias(type_="azurerm:botservice/preview:Bot"), pulumi.Alias(type_="azurerm:botservice/v20180712:Bot"), pulumi.Alias(type_="azurerm:botservice/v20200602:Bot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:botservice/latest:Bot"), pulumi.Alias(type_="azurerm:botservice/v20180712:Bot"), pulumi.Alias(type_="azurerm:botservice/v20200602:Bot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Bot, __self__).__init__(
             'azurerm:botservice/v20171201:Bot',

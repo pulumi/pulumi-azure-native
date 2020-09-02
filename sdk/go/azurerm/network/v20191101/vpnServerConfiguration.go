@@ -67,9 +67,6 @@ func NewVpnServerConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VpnServerConfiguration"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:VpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20190801:VpnServerConfiguration"),
 		},
 		{

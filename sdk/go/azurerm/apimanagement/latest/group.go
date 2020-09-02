@@ -48,9 +48,6 @@ func NewGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Group"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Group"),
 		},
 		{

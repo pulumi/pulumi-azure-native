@@ -54,9 +54,6 @@ func NewExport(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:costmanagement/preview:Export"),
-		},
-		{
 			Type: pulumi.String("azurerm:costmanagement/v20190101:Export"),
 		},
 		{

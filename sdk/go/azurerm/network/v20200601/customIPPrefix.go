@@ -54,9 +54,6 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/latest:CustomIPPrefix"),
 		},
-		{
-			Type: pulumi.String("azurerm:network/preview:CustomIPPrefix"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomIPPrefix

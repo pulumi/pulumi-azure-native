@@ -49,9 +49,6 @@ func NewStorageDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:storsimple/preview:StorageDomain"),
-		},
-		{
 			Type: pulumi.String("azurerm:storsimple/v20161001:StorageDomain"),
 		},
 	})

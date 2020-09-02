@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.Migrate.V20191001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:migrate/latest:Project"},
-                    new Pulumi.Alias { Type = "azurerm:migrate/preview:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

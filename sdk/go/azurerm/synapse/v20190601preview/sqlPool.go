@@ -64,9 +64,6 @@ func NewSqlPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:synapse/preview:SqlPool"),
-		},
-		{
 			Type: pulumi.String("azurerm:synapse/v20200401preview:SqlPool"),
 		},
 	})

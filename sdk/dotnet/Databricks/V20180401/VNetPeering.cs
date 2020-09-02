@@ -112,7 +112,6 @@ namespace Pulumi.AzureRM.Databricks.V20180401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databricks/latest:vNetPeering"},
-                    new Pulumi.Alias { Type = "azurerm:databricks/preview:vNetPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

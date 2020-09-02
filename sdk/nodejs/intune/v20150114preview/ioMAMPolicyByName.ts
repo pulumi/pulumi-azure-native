@@ -127,7 +127,7 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:intune/preview:IoMAMPolicyByName" }, { type: "azurerm:intune/v20150114privatepreview:IoMAMPolicyByName" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:intune/v20150114privatepreview:IoMAMPolicyByName" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IoMAMPolicyByName.__pulumiType, name, inputs, opts);
     }

@@ -130,7 +130,6 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:ServiceFabricSchedule"},
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:ServiceFabricSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

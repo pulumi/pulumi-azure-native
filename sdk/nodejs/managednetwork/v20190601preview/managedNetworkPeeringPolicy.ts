@@ -90,8 +90,6 @@ export class ManagedNetworkPeeringPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:managednetwork/preview:ManagedNetworkPeeringPolicy" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedNetworkPeeringPolicy.__pulumiType, name, inputs, opts);
     }
 }

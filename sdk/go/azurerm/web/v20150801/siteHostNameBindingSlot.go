@@ -64,9 +64,6 @@ func NewSiteHostNameBindingSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:SiteHostNameBindingSlot"),
 		},
 		{
-			Type: pulumi.String("azurerm:web/preview:SiteHostNameBindingSlot"),
-		},
-		{
 			Type: pulumi.String("azurerm:web/v20160801:SiteHostNameBindingSlot"),
 		},
 		{

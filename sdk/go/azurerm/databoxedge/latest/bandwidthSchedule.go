@@ -57,9 +57,6 @@ func NewBandwidthSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:databoxedge/preview:BandwidthSchedule"),
-		},
-		{
 			Type: pulumi.String("azurerm:databoxedge/v20190301:BandwidthSchedule"),
 		},
 		{

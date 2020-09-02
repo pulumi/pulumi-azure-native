@@ -82,7 +82,6 @@ namespace Pulumi.AzureRM.Cdn.V20160402
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cdn/latest:Origin"},
-                    new Pulumi.Alias { Type = "azurerm:cdn/preview:Origin"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20150601:Origin"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20191231:Origin"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Origin"},

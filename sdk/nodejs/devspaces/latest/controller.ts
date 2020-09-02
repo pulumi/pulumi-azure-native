@@ -129,7 +129,7 @@ export class Controller extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devspaces/preview:Controller" }, { type: "azurerm:devspaces/v20190401:Controller" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devspaces/v20190401:Controller" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Controller.__pulumiType, name, inputs, opts);
     }

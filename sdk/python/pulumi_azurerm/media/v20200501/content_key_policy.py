@@ -71,7 +71,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['policy_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/latest:ContentKeyPolicy"), pulumi.Alias(type_="azurerm:media/preview:ContentKeyPolicy"), pulumi.Alias(type_="azurerm:media/v20180330preview:ContentKeyPolicy"), pulumi.Alias(type_="azurerm:media/v20180601preview:ContentKeyPolicy"), pulumi.Alias(type_="azurerm:media/v20180701:ContentKeyPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/latest:ContentKeyPolicy"), pulumi.Alias(type_="azurerm:media/v20180330preview:ContentKeyPolicy"), pulumi.Alias(type_="azurerm:media/v20180601preview:ContentKeyPolicy"), pulumi.Alias(type_="azurerm:media/v20180701:ContentKeyPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContentKeyPolicy, __self__).__init__(
             'azurerm:media/v20200501:ContentKeyPolicy',

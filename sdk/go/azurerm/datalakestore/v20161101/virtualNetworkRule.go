@@ -44,9 +44,6 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datalakestore/latest:VirtualNetworkRule"),
 		},
-		{
-			Type: pulumi.String("azurerm:datalakestore/preview:VirtualNetworkRule"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkRule

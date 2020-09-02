@@ -73,7 +73,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:SecurityPartnerProvider"), pulumi.Alias(type_="azurerm:network/preview:SecurityPartnerProvider"), pulumi.Alias(type_="azurerm:network/v20200301:SecurityPartnerProvider"), pulumi.Alias(type_="azurerm:network/v20200501:SecurityPartnerProvider"), pulumi.Alias(type_="azurerm:network/v20200601:SecurityPartnerProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:SecurityPartnerProvider"), pulumi.Alias(type_="azurerm:network/v20200301:SecurityPartnerProvider"), pulumi.Alias(type_="azurerm:network/v20200501:SecurityPartnerProvider"), pulumi.Alias(type_="azurerm:network/v20200601:SecurityPartnerProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityPartnerProvider, __self__).__init__(
             'azurerm:network/v20200401:SecurityPartnerProvider',

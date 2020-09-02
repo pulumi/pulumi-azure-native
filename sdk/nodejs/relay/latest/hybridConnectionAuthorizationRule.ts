@@ -90,7 +90,7 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:relay/preview:HybridConnectionAuthorizationRule" }, { type: "azurerm:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azurerm:relay/v20170401:HybridConnectionAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azurerm:relay/v20170401:HybridConnectionAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HybridConnectionAuthorizationRule.__pulumiType, name, inputs, opts);
     }

@@ -40,9 +40,6 @@ func NewMasterSiteSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:offazure/preview:MasterSiteSite"),
-		},
-		{
 			Type: pulumi.String("azurerm:offazure/v20200707:MasterSiteSite"),
 		},
 	})

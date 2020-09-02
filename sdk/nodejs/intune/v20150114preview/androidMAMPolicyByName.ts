@@ -127,7 +127,7 @@ export class AndroidMAMPolicyByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:intune/preview:AndroidMAMPolicyByName" }, { type: "azurerm:intune/v20150114privatepreview:AndroidMAMPolicyByName" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:intune/v20150114privatepreview:AndroidMAMPolicyByName" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AndroidMAMPolicyByName.__pulumiType, name, inputs, opts);
     }

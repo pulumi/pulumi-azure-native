@@ -67,9 +67,6 @@ func NewOperationalizationCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:machinelearningcompute/preview:OperationalizationCluster"),
-		},
-		{
 			Type: pulumi.String("azurerm:machinelearningcompute/v20170801preview:OperationalizationCluster"),
 		},
 	})

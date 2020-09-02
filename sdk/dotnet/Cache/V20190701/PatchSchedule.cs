@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.Cache.V20190701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cache/latest:PatchSchedule"},
-                    new Pulumi.Alias { Type = "azurerm:cache/preview:PatchSchedule"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20171001:PatchSchedule"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20180301:PatchSchedule"},
                 },

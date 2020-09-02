@@ -42,9 +42,6 @@ func NewWebAppDomainOwnershipIdentifier(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppDomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azurerm:web/preview:WebAppDomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azurerm:web/v20160801:WebAppDomainOwnershipIdentifier"),
 		},
 		{

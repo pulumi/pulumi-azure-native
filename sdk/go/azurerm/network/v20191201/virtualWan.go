@@ -60,9 +60,6 @@ func NewVirtualWan(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualWan"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:VirtualWan"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20180401:VirtualWan"),
 		},
 		{

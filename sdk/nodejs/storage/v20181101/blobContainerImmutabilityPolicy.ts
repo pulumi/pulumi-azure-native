@@ -100,7 +100,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/preview:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180301preview:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20190601:BlobContainerImmutabilityPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180301preview:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20190601:BlobContainerImmutabilityPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainerImmutabilityPolicy.__pulumiType, name, inputs, opts);
     }

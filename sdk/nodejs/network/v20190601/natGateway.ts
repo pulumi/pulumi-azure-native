@@ -132,7 +132,7 @@ export class NatGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:NatGateway" }, { type: "azurerm:network/preview:NatGateway" }, { type: "azurerm:network/v20190201:NatGateway" }, { type: "azurerm:network/v20190401:NatGateway" }, { type: "azurerm:network/v20190701:NatGateway" }, { type: "azurerm:network/v20190801:NatGateway" }, { type: "azurerm:network/v20190901:NatGateway" }, { type: "azurerm:network/v20191101:NatGateway" }, { type: "azurerm:network/v20191201:NatGateway" }, { type: "azurerm:network/v20200301:NatGateway" }, { type: "azurerm:network/v20200401:NatGateway" }, { type: "azurerm:network/v20200501:NatGateway" }, { type: "azurerm:network/v20200601:NatGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:NatGateway" }, { type: "azurerm:network/v20190201:NatGateway" }, { type: "azurerm:network/v20190401:NatGateway" }, { type: "azurerm:network/v20190701:NatGateway" }, { type: "azurerm:network/v20190801:NatGateway" }, { type: "azurerm:network/v20190901:NatGateway" }, { type: "azurerm:network/v20191101:NatGateway" }, { type: "azurerm:network/v20191201:NatGateway" }, { type: "azurerm:network/v20200301:NatGateway" }, { type: "azurerm:network/v20200401:NatGateway" }, { type: "azurerm:network/v20200501:NatGateway" }, { type: "azurerm:network/v20200601:NatGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NatGateway.__pulumiType, name, inputs, opts);
     }

@@ -177,7 +177,6 @@ namespace Pulumi.AzureRM.DataLakeStore.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:datalakestore/preview:Account"},
                     new Pulumi.Alias { Type = "azurerm:datalakestore/v20161101:Account"},
                 },
             };

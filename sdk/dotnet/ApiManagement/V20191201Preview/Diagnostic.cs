@@ -100,7 +100,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Diagnostic"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:Diagnostic"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Diagnostic"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Diagnostic"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Diagnostic"},

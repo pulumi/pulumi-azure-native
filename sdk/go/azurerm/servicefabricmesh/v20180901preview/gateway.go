@@ -63,12 +63,6 @@ func NewGateway(ctx *pulumi.Context,
 	if args == nil {
 		args = &GatewayArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:servicefabricmesh/preview:Gateway"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Gateway
 	err := ctx.RegisterResource("azurerm:servicefabricmesh/v20180901preview:Gateway", name, args, &resource, opts...)
 	if err != nil {

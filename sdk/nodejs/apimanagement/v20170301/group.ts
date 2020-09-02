@@ -101,7 +101,7 @@ export class Group extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Group" }, { type: "azurerm:apimanagement/preview:Group" }, { type: "azurerm:apimanagement/v20160707:Group" }, { type: "azurerm:apimanagement/v20161010:Group" }, { type: "azurerm:apimanagement/v20180101:Group" }, { type: "azurerm:apimanagement/v20180601preview:Group" }, { type: "azurerm:apimanagement/v20190101:Group" }, { type: "azurerm:apimanagement/v20191201:Group" }, { type: "azurerm:apimanagement/v20191201preview:Group" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Group" }, { type: "azurerm:apimanagement/v20160707:Group" }, { type: "azurerm:apimanagement/v20161010:Group" }, { type: "azurerm:apimanagement/v20180101:Group" }, { type: "azurerm:apimanagement/v20180601preview:Group" }, { type: "azurerm:apimanagement/v20190101:Group" }, { type: "azurerm:apimanagement/v20191201:Group" }, { type: "azurerm:apimanagement/v20191201preview:Group" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Group.__pulumiType, name, inputs, opts);
     }

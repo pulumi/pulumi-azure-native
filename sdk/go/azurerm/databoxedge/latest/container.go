@@ -51,9 +51,6 @@ func NewContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:databoxedge/preview:Container"),
-		},
-		{
 			Type: pulumi.String("azurerm:databoxedge/v20190801:Container"),
 		},
 		{

@@ -56,9 +56,6 @@ func NewSyncGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:sql/preview:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:sql/v20190601preview:SyncGroup"),
 		},
 	})

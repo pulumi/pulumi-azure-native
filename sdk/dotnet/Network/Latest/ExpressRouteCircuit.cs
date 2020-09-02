@@ -159,7 +159,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150501preview:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:ExpressRouteCircuit"},

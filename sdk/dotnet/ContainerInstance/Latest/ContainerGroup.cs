@@ -156,7 +156,6 @@ namespace Pulumi.AzureRM.ContainerInstance.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:containerinstance/preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azurerm:containerinstance/v20170801preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azurerm:containerinstance/v20171001preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azurerm:containerinstance/v20171201preview:ContainerGroup"},

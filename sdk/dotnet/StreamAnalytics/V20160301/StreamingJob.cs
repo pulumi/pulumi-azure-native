@@ -178,7 +178,6 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:streamanalytics/latest:StreamingJob"},
-                    new Pulumi.Alias { Type = "azurerm:streamanalytics/preview:StreamingJob"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

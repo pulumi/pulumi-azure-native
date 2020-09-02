@@ -76,7 +76,7 @@ class Export(pulumi.CustomResource):
             __props__['next_run_time_estimate'] = None
             __props__['run_history'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:costmanagement/latest:Export"), pulumi.Alias(type_="azurerm:costmanagement/preview:Export"), pulumi.Alias(type_="azurerm:costmanagement/v20190101:Export"), pulumi.Alias(type_="azurerm:costmanagement/v20190901:Export"), pulumi.Alias(type_="azurerm:costmanagement/v20191001:Export"), pulumi.Alias(type_="azurerm:costmanagement/v20191101:Export")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:costmanagement/latest:Export"), pulumi.Alias(type_="azurerm:costmanagement/v20190101:Export"), pulumi.Alias(type_="azurerm:costmanagement/v20190901:Export"), pulumi.Alias(type_="azurerm:costmanagement/v20191001:Export"), pulumi.Alias(type_="azurerm:costmanagement/v20191101:Export")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Export, __self__).__init__(
             'azurerm:costmanagement/v20200601:Export',

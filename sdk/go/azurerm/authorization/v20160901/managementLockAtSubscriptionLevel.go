@@ -43,9 +43,6 @@ func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:authorization/latest:ManagementLockAtSubscriptionLevel"),
 		},
 		{
-			Type: pulumi.String("azurerm:authorization/preview:ManagementLockAtSubscriptionLevel"),
-		},
-		{
 			Type: pulumi.String("azurerm:authorization/v20150101:ManagementLockAtSubscriptionLevel"),
 		},
 	})

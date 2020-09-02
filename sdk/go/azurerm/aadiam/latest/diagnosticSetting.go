@@ -43,9 +43,6 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:aadiam/preview:DiagnosticSetting"),
-		},
-		{
 			Type: pulumi.String("azurerm:aadiam/v20170401:DiagnosticSetting"),
 		},
 	})

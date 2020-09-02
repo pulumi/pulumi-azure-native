@@ -63,9 +63,6 @@ func NewAssessmentsMetadataSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:security/latest:AssessmentsMetadataSubscription"),
 		},
 		{
-			Type: pulumi.String("azurerm:security/preview:AssessmentsMetadataSubscription"),
-		},
-		{
 			Type: pulumi.String("azurerm:security/v20200101:AssessmentsMetadataSubscription"),
 		},
 	})

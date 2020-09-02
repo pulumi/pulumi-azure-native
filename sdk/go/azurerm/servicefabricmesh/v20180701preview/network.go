@@ -52,9 +52,6 @@ func NewNetwork(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:servicefabricmesh/preview:Network"),
-		},
-		{
 			Type: pulumi.String("azurerm:servicefabricmesh/v20180901preview:Network"),
 		},
 	})

@@ -78,8 +78,6 @@ class Workspace(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['workspace_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningexperimentation/preview:Workspace")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azurerm:machinelearningexperimentation/v20170501preview:Workspace',
             resource_name,

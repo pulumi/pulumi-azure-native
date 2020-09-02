@@ -80,9 +80,6 @@ func NewGalleryImage(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:GalleryImage"),
 		},
 		{
-			Type: pulumi.String("azurerm:compute/preview:GalleryImage"),
-		},
-		{
 			Type: pulumi.String("azurerm:compute/v20190301:GalleryImage"),
 		},
 		{

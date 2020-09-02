@@ -46,9 +46,6 @@ func NewWebService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:machinelearning/preview:WebService"),
-		},
-		{
 			Type: pulumi.String("azurerm:machinelearning/v20160501preview:WebService"),
 		},
 		{

@@ -57,7 +57,6 @@ namespace Pulumi.AzureRM.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:ChapSetting"},
                     new Pulumi.Alias { Type = "azurerm:storsimple/v20161001:ChapSetting"},
                 },
             };

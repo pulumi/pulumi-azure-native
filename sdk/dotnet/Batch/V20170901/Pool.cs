@@ -185,7 +185,6 @@ namespace Pulumi.AzureRM.Batch.V20170901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:batch/latest:Pool"},
-                    new Pulumi.Alias { Type = "azurerm:batch/preview:Pool"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20181201:Pool"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20190401:Pool"},
                     new Pulumi.Alias { Type = "azurerm:batch/v20190801:Pool"},

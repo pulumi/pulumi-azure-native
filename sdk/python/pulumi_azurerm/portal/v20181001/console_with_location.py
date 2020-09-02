@@ -53,7 +53,7 @@ class ConsoleWithLocation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['properties'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:portal/latest:ConsoleWithLocation"), pulumi.Alias(type_="azurerm:portal/preview:ConsoleWithLocation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:portal/latest:ConsoleWithLocation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConsoleWithLocation, __self__).__init__(
             'azurerm:portal/v20181001:ConsoleWithLocation',

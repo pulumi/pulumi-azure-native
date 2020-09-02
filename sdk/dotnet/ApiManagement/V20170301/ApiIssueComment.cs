@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ApiIssueComment"},

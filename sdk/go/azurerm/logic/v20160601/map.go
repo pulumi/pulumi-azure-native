@@ -63,9 +63,6 @@ func NewMap(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:Map"),
 		},
 		{
-			Type: pulumi.String("azurerm:logic/preview:Map"),
-		},
-		{
 			Type: pulumi.String("azurerm:logic/v20150801preview:Map"),
 		},
 		{

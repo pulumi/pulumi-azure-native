@@ -59,9 +59,6 @@ func NewLogProfile(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:insights/latest:LogProfile"),
 		},
-		{
-			Type: pulumi.String("azurerm:insights/preview:LogProfile"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource LogProfile

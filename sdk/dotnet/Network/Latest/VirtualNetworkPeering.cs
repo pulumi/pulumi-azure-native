@@ -105,7 +105,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160901:VirtualNetworkPeering"},
                     new Pulumi.Alias { Type = "azurerm:network/v20161201:VirtualNetworkPeering"},

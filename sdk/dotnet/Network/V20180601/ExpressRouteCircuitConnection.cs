@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Network.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:ExpressRouteCircuitConnection"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180201:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180401:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180701:ExpressRouteCircuitConnection"},

@@ -64,10 +64,6 @@ namespace Pulumi.AzureRM.Aadiam.V20200701Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                Aliases =
-                {
-                    new Pulumi.Alias { Type = "azurerm:aadiam/preview:azureADMetric"},
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

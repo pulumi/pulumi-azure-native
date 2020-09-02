@@ -51,9 +51,6 @@ func NewHub(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:customerinsights/latest:Hub"),
 		},
 		{
-			Type: pulumi.String("azurerm:customerinsights/preview:Hub"),
-		},
-		{
 			Type: pulumi.String("azurerm:customerinsights/v20170101:Hub"),
 		},
 	})

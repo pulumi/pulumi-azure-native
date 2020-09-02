@@ -60,9 +60,6 @@ func NewNotificationChannel(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:NotificationChannel"),
 		},
 		{
-			Type: pulumi.String("azurerm:devtestlab/preview:NotificationChannel"),
-		},
-		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:NotificationChannel"),
 		},
 	})

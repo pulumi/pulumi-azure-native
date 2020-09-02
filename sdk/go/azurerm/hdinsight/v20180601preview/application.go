@@ -43,9 +43,6 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:hdinsight/preview:Application"),
-		},
-		{
 			Type: pulumi.String("azurerm:hdinsight/v20150301preview:Application"),
 		},
 	})

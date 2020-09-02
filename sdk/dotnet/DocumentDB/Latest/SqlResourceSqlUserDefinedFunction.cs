@@ -66,7 +66,6 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"},

@@ -50,9 +50,6 @@ func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20200601:ApplicationGatewayPrivateEndpointConnection"),
 		},
 	})

@@ -156,7 +156,7 @@ class WebAppSlot(pulumi.CustomResource):
             __props__['traffic_manager_host_names'] = None
             __props__['type'] = None
             __props__['usage_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/preview:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20150801:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/v20150801:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppSlot"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSlot, __self__).__init__(
             'azurerm:web/latest:WebAppSlot',

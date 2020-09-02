@@ -196,7 +196,6 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/latest:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/preview:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

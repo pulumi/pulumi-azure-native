@@ -67,9 +67,6 @@ func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:NetworkVirtualAppliance"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:NetworkVirtualAppliance"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20191201:NetworkVirtualAppliance"),
 		},
 		{

@@ -44,9 +44,6 @@ func NewAlertRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:operationalinsights/preview:AlertRule"),
-		},
-		{
 			Type: pulumi.String("azurerm:operationalinsights/v20200101:AlertRule"),
 		},
 	})

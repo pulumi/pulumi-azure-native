@@ -49,9 +49,6 @@ func NewDisasterRecoveryConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:servicebus/latest:DisasterRecoveryConfig"),
 		},
-		{
-			Type: pulumi.String("azurerm:servicebus/preview:DisasterRecoveryConfig"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DisasterRecoveryConfig

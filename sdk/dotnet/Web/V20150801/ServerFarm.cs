@@ -143,7 +143,6 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:ServerFarm"},
-                    new Pulumi.Alias { Type = "azurerm:web/preview:ServerFarm"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160901:ServerFarm"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:ServerFarm"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:ServerFarm"},

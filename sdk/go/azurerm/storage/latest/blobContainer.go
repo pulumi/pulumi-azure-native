@@ -71,9 +71,6 @@ func NewBlobContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:storage/preview:BlobContainer"),
-		},
-		{
 			Type: pulumi.String("azurerm:storage/v20180201:BlobContainer"),
 		},
 		{

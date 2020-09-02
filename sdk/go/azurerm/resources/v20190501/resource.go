@@ -62,9 +62,6 @@ func NewResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:resources/latest:Resource"),
 		},
 		{
-			Type: pulumi.String("azurerm:resources/preview:Resource"),
-		},
-		{
 			Type: pulumi.String("azurerm:resources/v20151101:Resource"),
 		},
 		{

@@ -66,9 +66,6 @@ func NewView(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:costmanagement/latest:View"),
 		},
 		{
-			Type: pulumi.String("azurerm:costmanagement/preview:View"),
-		},
-		{
 			Type: pulumi.String("azurerm:costmanagement/v20190401preview:View"),
 		},
 		{

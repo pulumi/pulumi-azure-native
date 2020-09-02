@@ -129,7 +129,6 @@ namespace Pulumi.AzureRM.LabServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:labservices/preview:Lab"},
                     new Pulumi.Alias { Type = "azurerm:labservices/v20181015:Lab"},
                 },
             };

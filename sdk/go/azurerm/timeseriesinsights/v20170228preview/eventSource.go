@@ -52,9 +52,6 @@ func NewEventSource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:timeseriesinsights/latest:EventSource"),
 		},
 		{
-			Type: pulumi.String("azurerm:timeseriesinsights/preview:EventSource"),
-		},
-		{
 			Type: pulumi.String("azurerm:timeseriesinsights/v20171115:EventSource"),
 		},
 		{

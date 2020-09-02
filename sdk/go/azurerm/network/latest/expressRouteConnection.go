@@ -53,9 +53,6 @@ func NewExpressRouteConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:network/preview:ExpressRouteConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20180801:ExpressRouteConnection"),
 		},
 		{

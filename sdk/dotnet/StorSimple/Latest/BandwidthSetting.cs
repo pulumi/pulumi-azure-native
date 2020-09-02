@@ -69,7 +69,6 @@ namespace Pulumi.AzureRM.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:BandwidthSetting"},
                     new Pulumi.Alias { Type = "azurerm:storsimple/v20170601:BandwidthSetting"},
                 },
             };

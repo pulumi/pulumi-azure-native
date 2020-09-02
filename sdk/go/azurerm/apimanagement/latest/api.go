@@ -76,9 +76,6 @@ func NewApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Api"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Api"),
 		},
 		{

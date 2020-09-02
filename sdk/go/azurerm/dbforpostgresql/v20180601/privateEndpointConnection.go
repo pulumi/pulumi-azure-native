@@ -46,9 +46,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbforpostgresql/latest:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azurerm:dbforpostgresql/preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"),
 		},
 	})

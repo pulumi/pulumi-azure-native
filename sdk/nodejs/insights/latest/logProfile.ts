@@ -119,7 +119,7 @@ export class LogProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/preview:LogProfile" }, { type: "azurerm:insights/v20160301:LogProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/v20160301:LogProfile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LogProfile.__pulumiType, name, inputs, opts);
     }

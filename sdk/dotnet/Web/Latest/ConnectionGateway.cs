@@ -72,7 +72,6 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:web/preview:ConnectionGateway"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160601:ConnectionGateway"},
                 },
             };

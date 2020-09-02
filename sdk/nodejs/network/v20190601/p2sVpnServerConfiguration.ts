@@ -131,7 +131,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:P2sVpnServerConfiguration" }, { type: "azurerm:network/preview:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20180801:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20181001:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20181101:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20181201:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20190201:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20190401:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20190701:P2sVpnServerConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20180801:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20181001:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20181101:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20181201:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20190201:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20190401:P2sVpnServerConfiguration" }, { type: "azurerm:network/v20190701:P2sVpnServerConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(P2sVpnServerConfiguration.__pulumiType, name, inputs, opts);
     }

@@ -141,7 +141,6 @@ namespace Pulumi.AzureRM.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:batchai/preview:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:batchai/v20180501:Cluster"},
                 },
             };

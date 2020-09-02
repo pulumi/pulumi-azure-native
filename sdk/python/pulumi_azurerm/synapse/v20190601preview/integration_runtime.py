@@ -66,8 +66,6 @@ class IntegrationRuntime(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:synapse/preview:IntegrationRuntime")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationRuntime, __self__).__init__(
             'azurerm:synapse/v20190601preview:IntegrationRuntime',
             resource_name,

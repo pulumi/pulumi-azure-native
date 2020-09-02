@@ -68,7 +68,7 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['value'] = value
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azurerm:web/preview:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppDomainOwnershipIdentifierSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppDomainOwnershipIdentifierSlot"), pulumi.Alias(type_="azurerm:web/v20190801:WebAppDomainOwnershipIdentifierSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppDomainOwnershipIdentifierSlot, __self__).__init__(
             'azurerm:web/v20200601:WebAppDomainOwnershipIdentifierSlot',

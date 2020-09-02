@@ -122,7 +122,7 @@ export class CertificateCsr extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/preview:CertificateCsr" }, { type: "azurerm:web/v20150801:CertificateCsr" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/v20150801:CertificateCsr" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CertificateCsr.__pulumiType, name, inputs, opts);
     }

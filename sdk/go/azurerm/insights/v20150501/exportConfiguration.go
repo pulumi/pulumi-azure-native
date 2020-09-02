@@ -73,9 +73,6 @@ func NewExportConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:insights/latest:ExportConfiguration"),
 		},
-		{
-			Type: pulumi.String("azurerm:insights/preview:ExportConfiguration"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ExportConfiguration

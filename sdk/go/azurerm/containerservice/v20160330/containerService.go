@@ -67,9 +67,6 @@ func NewContainerService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:containerservice/latest:ContainerService"),
 		},
 		{
-			Type: pulumi.String("azurerm:containerservice/preview:ContainerService"),
-		},
-		{
 			Type: pulumi.String("azurerm:containerservice/v20151101preview:ContainerService"),
 		},
 		{

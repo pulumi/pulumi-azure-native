@@ -114,7 +114,6 @@ namespace Pulumi.AzureRM.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:cdn/preview:Policy"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Policy"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190615preview:Policy"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Policy"},

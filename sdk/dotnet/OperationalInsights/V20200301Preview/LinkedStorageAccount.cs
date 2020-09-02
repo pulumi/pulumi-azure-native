@@ -64,7 +64,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:LinkedStorageAccount"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:LinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20190801preview:LinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:LinkedStorageAccount"},
                 },

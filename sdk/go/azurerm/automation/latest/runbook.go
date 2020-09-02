@@ -76,9 +76,6 @@ func NewRunbook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:automation/preview:Runbook"),
-		},
-		{
 			Type: pulumi.String("azurerm:automation/v20151031:Runbook"),
 		},
 		{

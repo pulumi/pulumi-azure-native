@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.Resources.V20160901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:resources/latest:ResourceGroup"},
-                    new Pulumi.Alias { Type = "azurerm:resources/preview:ResourceGroup"},
                     new Pulumi.Alias { Type = "azurerm:resources/v20151101:ResourceGroup"},
                     new Pulumi.Alias { Type = "azurerm:resources/v20160201:ResourceGroup"},
                     new Pulumi.Alias { Type = "azurerm:resources/v20160701:ResourceGroup"},

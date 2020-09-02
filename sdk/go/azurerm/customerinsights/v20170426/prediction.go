@@ -94,9 +94,6 @@ func NewPrediction(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:customerinsights/latest:Prediction"),
 		},
-		{
-			Type: pulumi.String("azurerm:customerinsights/preview:Prediction"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Prediction

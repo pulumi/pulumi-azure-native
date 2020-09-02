@@ -75,7 +75,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160901:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azurerm:network/v20161201:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170301:NetworkWatcher"},

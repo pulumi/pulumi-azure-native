@@ -42,12 +42,6 @@ func NewDelegatedSubnetServiceDetails(ctx *pulumi.Context,
 	if args == nil {
 		args = &DelegatedSubnetServiceDetailsArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:network/preview:DelegatedSubnetServiceDetails"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource DelegatedSubnetServiceDetails
 	err := ctx.RegisterResource("azurerm:network/v20200808preview:DelegatedSubnetServiceDetails", name, args, &resource, opts...)
 	if err != nil {

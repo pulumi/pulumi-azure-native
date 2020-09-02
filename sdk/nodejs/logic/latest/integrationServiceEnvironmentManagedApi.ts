@@ -95,7 +95,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/preview:IntegrationServiceEnvironmentManagedApi" }, { type: "azurerm:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationServiceEnvironmentManagedApi.__pulumiType, name, inputs, opts);
     }

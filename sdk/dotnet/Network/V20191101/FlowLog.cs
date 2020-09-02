@@ -118,7 +118,6 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:FlowLog"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:FlowLog"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191201:FlowLog"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200301:FlowLog"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200401:FlowLog"},

@@ -94,9 +94,6 @@ func NewManagedInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:sql/preview:ManagedInstance"),
-		},
-		{
 			Type: pulumi.String("azurerm:sql/v20150501preview:ManagedInstance"),
 		},
 		{

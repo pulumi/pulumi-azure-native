@@ -43,9 +43,6 @@ func NewDeploymentAtTenantScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:resources/preview:DeploymentAtTenantScope"),
-		},
-		{
 			Type: pulumi.String("azurerm:resources/v20190701:DeploymentAtTenantScope"),
 		},
 		{

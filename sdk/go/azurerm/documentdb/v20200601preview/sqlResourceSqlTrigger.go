@@ -59,9 +59,6 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:SqlResourceSqlTrigger"),
 		},
 		{
-			Type: pulumi.String("azurerm:documentdb/preview:SqlResourceSqlTrigger"),
-		},
-		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:SqlResourceSqlTrigger"),
 		},
 		{

@@ -58,9 +58,6 @@ func NewCustomImageResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:CustomImageResource"),
 		},
 		{
-			Type: pulumi.String("azurerm:devtestlab/preview:CustomImageResource"),
-		},
-		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:CustomImageResource"),
 		},
 		{

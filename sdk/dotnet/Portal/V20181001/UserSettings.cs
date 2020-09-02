@@ -46,7 +46,6 @@ namespace Pulumi.AzureRM.Portal.V20181001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:portal/latest:UserSettings"},
-                    new Pulumi.Alias { Type = "azurerm:portal/preview:UserSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

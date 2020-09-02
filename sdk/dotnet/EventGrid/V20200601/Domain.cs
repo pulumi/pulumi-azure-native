@@ -113,7 +113,6 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:eventgrid/latest:Domain"},
-                    new Pulumi.Alias { Type = "azurerm:eventgrid/preview:Domain"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20180915preview:Domain"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20190201preview:Domain"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20190601:Domain"},

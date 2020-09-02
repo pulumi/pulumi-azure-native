@@ -53,9 +53,6 @@ func NewComputePolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datalakeanalytics/latest:ComputePolicy"),
 		},
-		{
-			Type: pulumi.String("azurerm:datalakeanalytics/preview:ComputePolicy"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ComputePolicy

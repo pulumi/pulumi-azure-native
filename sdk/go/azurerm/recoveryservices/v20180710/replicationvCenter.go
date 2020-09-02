@@ -47,9 +47,6 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationvCenter"),
 		},
 		{
-			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationvCenter"),
-		},
-		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationvCenter"),
 		},
 		{

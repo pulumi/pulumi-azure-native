@@ -78,9 +78,6 @@ func NewStreamingJob(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:streamanalytics/latest:StreamingJob"),
 		},
-		{
-			Type: pulumi.String("azurerm:streamanalytics/preview:StreamingJob"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource StreamingJob

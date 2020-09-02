@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Web.V20160801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppSourceControl"},

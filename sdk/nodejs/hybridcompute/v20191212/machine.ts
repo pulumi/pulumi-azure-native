@@ -160,7 +160,7 @@ export class Machine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/latest:Machine" }, { type: "azurerm:hybridcompute/preview:Machine" }, { type: "azurerm:hybridcompute/v20190318preview:Machine" }, { type: "azurerm:hybridcompute/v20190802preview:Machine" }, { type: "azurerm:hybridcompute/v20200730preview:Machine" }, { type: "azurerm:hybridcompute/v20200802:Machine" }, { type: "azurerm:hybridcompute/v20200815preview:Machine" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/latest:Machine" }, { type: "azurerm:hybridcompute/v20190318preview:Machine" }, { type: "azurerm:hybridcompute/v20190802preview:Machine" }, { type: "azurerm:hybridcompute/v20200730preview:Machine" }, { type: "azurerm:hybridcompute/v20200802:Machine" }, { type: "azurerm:hybridcompute/v20200815preview:Machine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Machine.__pulumiType, name, inputs, opts);
     }

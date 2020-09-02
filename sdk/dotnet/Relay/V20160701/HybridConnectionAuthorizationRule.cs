@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.Relay.V20160701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:relay/latest:HybridConnectionAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azurerm:relay/preview:HybridConnectionAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:relay/v20170401:HybridConnectionAuthorizationRule"},
                 },
             };

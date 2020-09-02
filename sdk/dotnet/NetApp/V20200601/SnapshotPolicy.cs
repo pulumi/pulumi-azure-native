@@ -94,7 +94,6 @@ namespace Pulumi.AzureRM.NetApp.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:netapp/latest:snapshotPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:netapp/preview:snapshotPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

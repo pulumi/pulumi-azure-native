@@ -97,9 +97,6 @@ func NewApiManagementService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:ApiManagementService"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:ApiManagementService"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:ApiManagementService"),
 		},
 		{

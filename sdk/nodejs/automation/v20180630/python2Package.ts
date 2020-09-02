@@ -153,7 +153,7 @@ export class Python2Package extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:Python2Package" }, { type: "azurerm:automation/preview:Python2Package" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:Python2Package" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Python2Package.__pulumiType, name, inputs, opts);
     }

@@ -190,7 +190,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ApiManagementService"},
-                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:ApiManagementService"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:ApiManagementService"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:ApiManagementService"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ApiManagementService"},

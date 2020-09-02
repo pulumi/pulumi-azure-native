@@ -39,9 +39,6 @@ func NewInput(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:streamanalytics/preview:Input"),
-		},
-		{
 			Type: pulumi.String("azurerm:streamanalytics/v20160301:Input"),
 		},
 	})

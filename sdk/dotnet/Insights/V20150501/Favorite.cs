@@ -106,7 +106,6 @@ namespace Pulumi.AzureRM.Insights.V20150501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:Favorite"},
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:Favorite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

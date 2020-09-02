@@ -54,9 +54,6 @@ func NewContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databoxedge/latest:Container"),
 		},
 		{
-			Type: pulumi.String("azurerm:databoxedge/preview:Container"),
-		},
-		{
 			Type: pulumi.String("azurerm:databoxedge/v20190801:Container"),
 		},
 	})

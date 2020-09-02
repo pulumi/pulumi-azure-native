@@ -94,8 +94,6 @@ class BlockchainMember(pulumi.CustomResource):
             __props__['root_contract_address'] = None
             __props__['type'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:blockchain/preview:BlockchainMember")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlockchainMember, __self__).__init__(
             'azurerm:blockchain/v20180601preview:BlockchainMember',
             resource_name,

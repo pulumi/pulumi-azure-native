@@ -119,7 +119,7 @@ export class RoleAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:RoleAssignment" }, { type: "azurerm:authorization/preview:RoleAssignment" }, { type: "azurerm:authorization/v20150701:RoleAssignment" }, { type: "azurerm:authorization/v20171001preview:RoleAssignment" }, { type: "azurerm:authorization/v20180101preview:RoleAssignment" }, { type: "azurerm:authorization/v20180901preview:RoleAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:RoleAssignment" }, { type: "azurerm:authorization/v20150701:RoleAssignment" }, { type: "azurerm:authorization/v20171001preview:RoleAssignment" }, { type: "azurerm:authorization/v20180101preview:RoleAssignment" }, { type: "azurerm:authorization/v20180901preview:RoleAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RoleAssignment.__pulumiType, name, inputs, opts);
     }

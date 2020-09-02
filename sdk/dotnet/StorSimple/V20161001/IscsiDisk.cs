@@ -100,7 +100,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:IscsiDisk"},
-                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:IscsiDisk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -57,9 +57,6 @@ func NewProduct(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:Product"),
 		},
 		{
-			Type: pulumi.String("azurerm:apimanagement/preview:Product"),
-		},
-		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Product"),
 		},
 		{

@@ -117,7 +117,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181201:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190201:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190401:WebApplicationFirewallPolicy"},

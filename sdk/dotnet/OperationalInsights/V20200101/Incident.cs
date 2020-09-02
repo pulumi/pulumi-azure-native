@@ -160,7 +160,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:Incident"},
-                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:Incident"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

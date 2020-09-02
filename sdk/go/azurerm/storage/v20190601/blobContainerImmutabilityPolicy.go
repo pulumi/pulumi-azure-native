@@ -51,9 +51,6 @@ func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storage/latest:BlobContainerImmutabilityPolicy"),
 		},
 		{
-			Type: pulumi.String("azurerm:storage/preview:BlobContainerImmutabilityPolicy"),
-		},
-		{
 			Type: pulumi.String("azurerm:storage/v20180201:BlobContainerImmutabilityPolicy"),
 		},
 		{

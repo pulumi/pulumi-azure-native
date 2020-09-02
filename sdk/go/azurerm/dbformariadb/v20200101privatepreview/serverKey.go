@@ -46,12 +46,6 @@ func NewServerKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerKeyArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:dbformariadb/preview:ServerKey"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ServerKey
 	err := ctx.RegisterResource("azurerm:dbformariadb/v20200101privatepreview:ServerKey", name, args, &resource, opts...)
 	if err != nil {

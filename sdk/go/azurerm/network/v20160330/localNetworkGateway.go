@@ -53,9 +53,6 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:LocalNetworkGateway"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:LocalNetworkGateway"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20150615:LocalNetworkGateway"),
 		},
 		{

@@ -53,9 +53,6 @@ func NewObjectReplicationPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:storage/preview:ObjectReplicationPolicy"),
-		},
-		{
 			Type: pulumi.String("azurerm:storage/v20190601:ObjectReplicationPolicy"),
 		},
 	})

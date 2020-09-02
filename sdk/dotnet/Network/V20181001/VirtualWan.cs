@@ -121,7 +121,6 @@ namespace Pulumi.AzureRM.Network.V20181001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:VirtualWan"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualWan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180401:VirtualWan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180601:VirtualWan"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180701:VirtualWan"},

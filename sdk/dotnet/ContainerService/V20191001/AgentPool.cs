@@ -148,7 +148,6 @@ namespace Pulumi.AzureRM.ContainerService.V20191001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerservice/latest:AgentPool"},
-                    new Pulumi.Alias { Type = "azurerm:containerservice/preview:AgentPool"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20190201:AgentPool"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20190401:AgentPool"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20190601:AgentPool"},

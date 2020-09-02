@@ -67,9 +67,6 @@ func NewProject(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:datamigration/latest:Project"),
 		},
 		{
-			Type: pulumi.String("azurerm:datamigration/preview:Project"),
-		},
-		{
 			Type: pulumi.String("azurerm:datamigration/v20171115preview:Project"),
 		},
 		{

@@ -142,7 +142,6 @@ namespace Pulumi.AzureRM.Network.V20190901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:VpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190801:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191101:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191201:VpnServerConfiguration"},

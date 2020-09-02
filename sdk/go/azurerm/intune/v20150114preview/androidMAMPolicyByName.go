@@ -61,9 +61,6 @@ func NewAndroidMAMPolicyByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:intune/preview:AndroidMAMPolicyByName"),
-		},
-		{
 			Type: pulumi.String("azurerm:intune/v20150114privatepreview:AndroidMAMPolicyByName"),
 		},
 	})

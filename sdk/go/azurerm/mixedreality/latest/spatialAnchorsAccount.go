@@ -45,9 +45,6 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:mixedreality/preview:SpatialAnchorsAccount"),
-		},
-		{
 			Type: pulumi.String("azurerm:mixedreality/v20190228preview:SpatialAnchorsAccount"),
 		},
 		{

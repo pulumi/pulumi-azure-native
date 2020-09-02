@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Media.V20200501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:media/latest:StreamingPolicy"},
-                    new Pulumi.Alias { Type = "azurerm:media/preview:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180330preview:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180601preview:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:StreamingPolicy"},

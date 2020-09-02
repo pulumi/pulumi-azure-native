@@ -49,7 +49,6 @@ namespace Pulumi.AzureRM.Migrate.V20191001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:migrate/latest:VMwareCollector"},
-                    new Pulumi.Alias { Type = "azurerm:migrate/preview:VMwareCollector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

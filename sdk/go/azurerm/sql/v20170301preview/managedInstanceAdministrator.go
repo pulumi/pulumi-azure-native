@@ -52,12 +52,6 @@ func NewManagedInstanceAdministrator(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedInstanceAdministratorArgs{}
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azurerm:sql/preview:ManagedInstanceAdministrator"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ManagedInstanceAdministrator
 	err := ctx.RegisterResource("azurerm:sql/v20170301preview:ManagedInstanceAdministrator", name, args, &resource, opts...)
 	if err != nil {

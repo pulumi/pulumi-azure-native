@@ -130,7 +130,6 @@ namespace Pulumi.AzureRM.Insights.V20180301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:ActionGroup"},
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:ActionGroup"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20170401:ActionGroup"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20180901:ActionGroup"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20190301:ActionGroup"},

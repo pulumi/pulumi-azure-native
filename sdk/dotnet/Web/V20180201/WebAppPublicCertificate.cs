@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppPublicCertificate"},
-                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppPublicCertificate"},

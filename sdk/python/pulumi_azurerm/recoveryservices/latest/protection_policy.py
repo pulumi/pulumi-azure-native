@@ -79,7 +79,7 @@ class ProtectionPolicy(pulumi.CustomResource):
             if vault_name is None:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/preview:ProtectionPolicy"), pulumi.Alias(type_="azurerm:recoveryservices/v20160601:ProtectionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:recoveryservices/v20160601:ProtectionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProtectionPolicy, __self__).__init__(
             'azurerm:recoveryservices/latest:ProtectionPolicy',

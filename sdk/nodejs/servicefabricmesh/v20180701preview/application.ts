@@ -139,7 +139,7 @@ export class Application extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicefabricmesh/preview:Application" }, { type: "azurerm:servicefabricmesh/v20180901preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:servicefabricmesh/v20180901preview:Application" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Application.__pulumiType, name, inputs, opts);
     }

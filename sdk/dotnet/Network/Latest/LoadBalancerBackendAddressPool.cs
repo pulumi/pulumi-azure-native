@@ -93,7 +93,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200401:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200601:LoadBalancerBackendAddressPool"},

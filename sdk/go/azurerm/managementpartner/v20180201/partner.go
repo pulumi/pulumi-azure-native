@@ -49,9 +49,6 @@ func NewPartner(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:managementpartner/latest:Partner"),
 		},
-		{
-			Type: pulumi.String("azurerm:managementpartner/preview:Partner"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Partner

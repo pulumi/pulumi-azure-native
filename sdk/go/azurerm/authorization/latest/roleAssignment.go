@@ -39,9 +39,6 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:authorization/preview:RoleAssignment"),
-		},
-		{
 			Type: pulumi.String("azurerm:authorization/v20150701:RoleAssignment"),
 		},
 		{

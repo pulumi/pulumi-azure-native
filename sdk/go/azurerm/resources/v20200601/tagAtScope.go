@@ -39,9 +39,6 @@ func NewTagAtScope(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:resources/latest:TagAtScope"),
 		},
 		{
-			Type: pulumi.String("azurerm:resources/preview:TagAtScope"),
-		},
-		{
 			Type: pulumi.String("azurerm:resources/v20191001:TagAtScope"),
 		},
 	})

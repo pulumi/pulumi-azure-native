@@ -70,7 +70,6 @@ namespace Pulumi.AzureRM.Resources.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:resources/latest:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azurerm:resources/preview:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azurerm:resources/v20190701:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azurerm:resources/v20190801:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azurerm:resources/v20191001:DeploymentAtScope"},

@@ -82,9 +82,6 @@ func NewQueue(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicebus/latest:Queue"),
 		},
 		{
-			Type: pulumi.String("azurerm:servicebus/preview:Queue"),
-		},
-		{
 			Type: pulumi.String("azurerm:servicebus/v20140901:Queue"),
 		},
 		{

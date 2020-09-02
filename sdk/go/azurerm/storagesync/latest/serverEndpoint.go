@@ -76,9 +76,6 @@ func NewServerEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:storagesync/preview:ServerEndpoint"),
-		},
-		{
 			Type: pulumi.String("azurerm:storagesync/v20170605preview:ServerEndpoint"),
 		},
 		{

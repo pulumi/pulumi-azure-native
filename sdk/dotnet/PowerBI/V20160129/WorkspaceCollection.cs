@@ -67,7 +67,6 @@ namespace Pulumi.AzureRM.PowerBI.V20160129
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:powerbi/latest:WorkspaceCollection"},
-                    new Pulumi.Alias { Type = "azurerm:powerbi/preview:WorkspaceCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -75,9 +75,6 @@ func NewSecurityRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:SecurityRule"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:SecurityRule"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20150501preview:SecurityRule"),
 		},
 		{

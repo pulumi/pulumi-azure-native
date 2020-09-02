@@ -108,7 +108,7 @@ export class Credential extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:Credential" }, { type: "azurerm:automation/preview:Credential" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:Credential" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Credential.__pulumiType, name, inputs, opts);
     }

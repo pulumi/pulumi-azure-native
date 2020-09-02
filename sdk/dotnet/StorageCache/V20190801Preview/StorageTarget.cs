@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storagecache/latest:StorageTarget"},
-                    new Pulumi.Alias { Type = "azurerm:storagecache/preview:StorageTarget"},
                     new Pulumi.Alias { Type = "azurerm:storagecache/v20191101:StorageTarget"},
                     new Pulumi.Alias { Type = "azurerm:storagecache/v20200301:StorageTarget"},
                 },

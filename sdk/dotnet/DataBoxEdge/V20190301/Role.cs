@@ -58,7 +58,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:Role"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/preview:Role"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Role"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:Role"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Role"},

@@ -190,7 +190,6 @@ namespace Pulumi.AzureRM.Insights.V20180501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:Component"},
-                    new Pulumi.Alias { Type = "azurerm:insights/preview:Component"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20150501:Component"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20200202preview:Component"},
                 },

@@ -103,7 +103,6 @@ namespace Pulumi.AzureRM.Network.V20191001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:Policy"},
-                    new Pulumi.Alias { Type = "azurerm:network/preview:Policy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20180801:Policy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190301:Policy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200401:Policy"},

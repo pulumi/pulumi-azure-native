@@ -113,7 +113,7 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/preview:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/v20160801:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/v20180201:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/v20181101:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/v20190801:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/v20200601:SiteRelayServiceConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/v20160801:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/v20180201:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/v20181101:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/v20190801:SiteRelayServiceConnectionSlot" }, { type: "azurerm:web/v20200601:SiteRelayServiceConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteRelayServiceConnectionSlot.__pulumiType, name, inputs, opts);
     }

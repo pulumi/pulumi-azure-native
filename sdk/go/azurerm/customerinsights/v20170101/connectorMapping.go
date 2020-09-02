@@ -82,9 +82,6 @@ func NewConnectorMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:customerinsights/latest:ConnectorMapping"),
 		},
 		{
-			Type: pulumi.String("azurerm:customerinsights/preview:ConnectorMapping"),
-		},
-		{
 			Type: pulumi.String("azurerm:customerinsights/v20170426:ConnectorMapping"),
 		},
 	})

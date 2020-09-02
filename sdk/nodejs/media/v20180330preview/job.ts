@@ -125,7 +125,7 @@ export class Job extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:Job" }, { type: "azurerm:media/preview:Job" }, { type: "azurerm:media/v20180601preview:Job" }, { type: "azurerm:media/v20180701:Job" }, { type: "azurerm:media/v20200501:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:media/latest:Job" }, { type: "azurerm:media/v20180601preview:Job" }, { type: "azurerm:media/v20180701:Job" }, { type: "azurerm:media/v20200501:Job" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Job.__pulumiType, name, inputs, opts);
     }

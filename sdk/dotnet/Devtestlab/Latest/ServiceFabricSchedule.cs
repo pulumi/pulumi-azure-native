@@ -129,7 +129,6 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:ServiceFabricSchedule"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:ServiceFabricSchedule"},
                 },
             };

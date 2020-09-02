@@ -76,7 +76,6 @@ namespace Pulumi.AzureRM.StorageSync.V20180701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storagesync/latest:StorageSyncService"},
-                    new Pulumi.Alias { Type = "azurerm:storagesync/preview:StorageSyncService"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20170605preview:StorageSyncService"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20180402:StorageSyncService"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20181001:StorageSyncService"},

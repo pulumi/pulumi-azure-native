@@ -67,9 +67,6 @@ func NewEnvironmentSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:labservices/preview:EnvironmentSetting"),
-		},
-		{
 			Type: pulumi.String("azurerm:labservices/v20181015:EnvironmentSetting"),
 		},
 	})

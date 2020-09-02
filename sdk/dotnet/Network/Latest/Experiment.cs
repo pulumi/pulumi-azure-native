@@ -105,7 +105,6 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azurerm:network/preview:Experiment"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191101:Experiment"},
                 },
             };

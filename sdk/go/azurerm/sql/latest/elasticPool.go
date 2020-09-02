@@ -62,9 +62,6 @@ func NewElasticPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:sql/preview:ElasticPool"),
-		},
-		{
 			Type: pulumi.String("azurerm:sql/v20140401:ElasticPool"),
 		},
 		{

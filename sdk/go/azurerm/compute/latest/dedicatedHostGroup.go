@@ -54,9 +54,6 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azurerm:compute/preview:DedicatedHostGroup"),
-		},
-		{
 			Type: pulumi.String("azurerm:compute/v20190301:DedicatedHostGroup"),
 		},
 		{

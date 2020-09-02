@@ -71,9 +71,6 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:solutions/latest:ApplicationDefinition"),
 		},
 		{
-			Type: pulumi.String("azurerm:solutions/preview:ApplicationDefinition"),
-		},
-		{
 			Type: pulumi.String("azurerm:solutions/v20170901:ApplicationDefinition"),
 		},
 		{

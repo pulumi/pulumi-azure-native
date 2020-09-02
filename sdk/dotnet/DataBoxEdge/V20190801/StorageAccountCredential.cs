@@ -100,7 +100,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:StorageAccountCredential"},
-                    new Pulumi.Alias { Type = "azurerm:databoxedge/preview:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:StorageAccountCredential"},

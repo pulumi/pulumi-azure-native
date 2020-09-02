@@ -123,7 +123,7 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:IntegrationAccountMap" }, { type: "azurerm:logic/preview:IntegrationAccountMap" }, { type: "azurerm:logic/v20160601:IntegrationAccountMap" }, { type: "azurerm:logic/v20180701preview:IntegrationAccountMap" }, { type: "azurerm:logic/v20190501:IntegrationAccountMap" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:IntegrationAccountMap" }, { type: "azurerm:logic/v20160601:IntegrationAccountMap" }, { type: "azurerm:logic/v20180701preview:IntegrationAccountMap" }, { type: "azurerm:logic/v20190501:IntegrationAccountMap" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountMap.__pulumiType, name, inputs, opts);
     }

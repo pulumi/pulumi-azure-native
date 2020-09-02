@@ -59,9 +59,6 @@ func NewExpressRouteCircuitConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20180201:ExpressRouteCircuitConnection"),
 		},
 		{

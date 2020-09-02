@@ -104,7 +104,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/latest:ProtectionContainer" }, { type: "azurerm:recoveryservices/preview:ProtectionContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/latest:ProtectionContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionContainer.__pulumiType, name, inputs, opts);
     }

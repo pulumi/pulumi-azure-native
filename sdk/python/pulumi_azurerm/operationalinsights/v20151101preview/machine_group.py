@@ -82,8 +82,6 @@ class MachineGroup(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/preview:MachineGroup")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineGroup, __self__).__init__(
             'azurerm:operationalinsights/v20151101preview:MachineGroup',
             resource_name,

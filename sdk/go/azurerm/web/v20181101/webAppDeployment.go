@@ -60,9 +60,6 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppDeployment"),
 		},
 		{
-			Type: pulumi.String("azurerm:web/preview:WebAppDeployment"),
-		},
-		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppDeployment"),
 		},
 		{

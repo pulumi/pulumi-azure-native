@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.ManagedIdentity.V20150831Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:managedidentity/latest:UserAssignedIdentity"},
-                    new Pulumi.Alias { Type = "azurerm:managedidentity/preview:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azurerm:managedidentity/v20181130:UserAssignedIdentity"},
                 },
             };

@@ -98,7 +98,7 @@ export class WorkspaceConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/preview:WorkspaceConnection" }, { type: "azurerm:machinelearningservices/v20200601:WorkspaceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/v20200601:WorkspaceConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceConnection.__pulumiType, name, inputs, opts);
     }

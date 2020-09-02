@@ -82,7 +82,6 @@ namespace Pulumi.AzureRM.CostManagement.V20180531
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:costmanagement/latest:ReportConfigByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azurerm:costmanagement/preview:ReportConfigByResourceGroupName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

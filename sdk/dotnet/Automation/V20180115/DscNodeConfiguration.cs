@@ -88,7 +88,6 @@ namespace Pulumi.AzureRM.Automation.V20180115
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:automation/latest:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azurerm:automation/preview:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:automation/v20151031:DscNodeConfiguration"},
                 },
             };

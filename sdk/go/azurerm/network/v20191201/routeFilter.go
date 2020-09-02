@@ -54,9 +54,6 @@ func NewRouteFilter(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:RouteFilter"),
 		},
 		{
-			Type: pulumi.String("azurerm:network/preview:RouteFilter"),
-		},
-		{
 			Type: pulumi.String("azurerm:network/v20161201:RouteFilter"),
 		},
 		{
