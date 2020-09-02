@@ -11,6 +11,9 @@ const randomString = new random.RandomString("random", {
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString.result,
     location: "westeurope",
+    tags: {
+        Owner: "mikhail"
+    }
 });
 
 export const cosmosdbAccount = new cosmosdb.DatabaseAccount(randomString.result, {
@@ -18,9 +21,7 @@ export const cosmosdbAccount = new cosmosdb.DatabaseAccount(randomString.result,
     api: "Sql",
     consisencyPolicy: { defaultConsistencyLevel: "Session" },
     location: { 
-        type: "multiple",
-        regions: ["westeurope", "northeurope"],
-        enableMultipleWriteLocations: true,
-        enableAutomaticFailover: true,
+        type: "single",
+        region: "westeurope",
     },    
 });

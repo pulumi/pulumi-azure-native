@@ -81,7 +81,7 @@ export class DatabaseAccount {
     constructor(name: pulumi.Output<string>, args: MyDatabaseAccountArgs) {
 
         let kind = "GlobalDocumentDB";
-        let capabilities: documentdbInputs.latest.Capability[] = [];
+        let capabilities: documentdbInputs.latest.Capability[] | undefined = undefined;
         if (args.api === "MongoDB") {
             kind = "MongoDB";
         } else if (args.api === "Cassandra") {
