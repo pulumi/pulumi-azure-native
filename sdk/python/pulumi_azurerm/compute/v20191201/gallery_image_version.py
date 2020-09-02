@@ -31,7 +31,8 @@ class GalleryImageVersion(pulumi.CustomResource):
         """
         Specifies information about the gallery Image Version that you want to create or update.
 
-        ## Create or update a simple Gallery Image Version (Managed Image as source).
+        ## Example Usage
+        ### Create or update a simple Gallery Image Version (Managed Image as source).
 
         ```python
         import pulumi
@@ -78,8 +79,7 @@ class GalleryImageVersion(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create or update a simple Gallery Image Version using snapshots as a source.
+        ### Create or update a simple Gallery Image Version using snapshots as a source.
 
         ```python
         import pulumi

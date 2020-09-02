@@ -42,7 +42,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         """
         A common class for general resource information
 
-        ## CreateVirtualNetworkGatewayConnection_S2S
+        ## Example Usage
+        ### CreateVirtualNetworkGatewayConnection_S2S
 
         ```python
         import pulumi

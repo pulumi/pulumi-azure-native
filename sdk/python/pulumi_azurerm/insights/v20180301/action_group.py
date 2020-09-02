@@ -38,7 +38,8 @@ class ActionGroup(pulumi.CustomResource):
         """
         An action group resource.
 
-        ## Create or update an action group
+        ## Example Usage
+        ### Create or update an action group
 
         ```python
         import pulumi

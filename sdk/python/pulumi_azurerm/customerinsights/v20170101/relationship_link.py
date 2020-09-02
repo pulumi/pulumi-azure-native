@@ -33,7 +33,8 @@ class RelationshipLink(pulumi.CustomResource):
         """
         The relationship link resource format.
 
-        ## RelationshipLinks_CreateOrUpdate
+        ## Example Usage
+        ### RelationshipLinks_CreateOrUpdate
 
         ```python
         import pulumi

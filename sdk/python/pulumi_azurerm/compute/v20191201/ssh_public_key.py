@@ -26,7 +26,8 @@ class SshPublicKey(pulumi.CustomResource):
         """
         Specifies information about the SSH public key.
 
-        ## Create a new SSH public key resource.
+        ## Example Usage
+        ### Create a new SSH public key resource.
 
         ```python
         import pulumi

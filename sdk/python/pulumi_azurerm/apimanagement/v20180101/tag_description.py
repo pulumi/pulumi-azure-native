@@ -28,7 +28,8 @@ class TagDescription(pulumi.CustomResource):
         """
         Contract details.
 
-        ## ApiManagementCreateApiTagDescription
+        ## Example Usage
+        ### ApiManagementCreateApiTagDescription
 
         ```python
         import pulumi

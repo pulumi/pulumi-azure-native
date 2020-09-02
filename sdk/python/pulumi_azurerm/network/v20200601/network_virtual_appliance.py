@@ -35,7 +35,8 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         """
         NetworkVirtualAppliance Resource.
 
-        ## Create NetworkVirtualAppliance
+        ## Example Usage
+        ### Create NetworkVirtualAppliance
 
         ```python
         import pulumi

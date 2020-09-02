@@ -39,7 +39,8 @@ class VpnConnection(pulumi.CustomResource):
         """
         VpnConnection Resource.
 
-        ## VpnConnectionPut
+        ## Example Usage
+        ### VpnConnectionPut
 
         ```python
         import pulumi

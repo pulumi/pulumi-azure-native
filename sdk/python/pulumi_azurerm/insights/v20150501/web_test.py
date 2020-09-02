@@ -37,7 +37,8 @@ class WebTest(pulumi.CustomResource):
         """
         An Application Insights web test definition.
 
-        ## webTestCreate
+        ## Example Usage
+        ### webTestCreate
 
         ```python
         import pulumi
@@ -63,8 +64,7 @@ class WebTest(pulumi.CustomResource):
             web_test_name="my-webtest-my-component")
 
         ```
-
-        ## webTestUpdate
+        ### webTestUpdate
 
         ```python
         import pulumi

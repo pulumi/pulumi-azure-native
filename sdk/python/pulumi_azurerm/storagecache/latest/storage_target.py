@@ -32,7 +32,8 @@ class StorageTarget(pulumi.CustomResource):
         """
         Type of the Storage Target.
 
-        ## StorageTargets_CreateOrUpdate
+        ## Example Usage
+        ### StorageTargets_CreateOrUpdate
 
         ```python
         import pulumi

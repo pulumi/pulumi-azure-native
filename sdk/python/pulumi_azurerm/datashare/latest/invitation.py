@@ -28,7 +28,8 @@ class Invitation(pulumi.CustomResource):
         """
         A Invitation data transfer object.
 
-        ## Invitations_Create
+        ## Example Usage
+        ### Invitations_Create
 
         ```python
         import pulumi

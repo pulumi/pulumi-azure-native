@@ -30,7 +30,8 @@ class Vault(pulumi.CustomResource):
         """
         Resource information, as returned by the resource provider.
 
-        ## Create of Update Recovery Services vault
+        ## Example Usage
+        ### Create of Update Recovery Services vault
 
         ```python
         import pulumi

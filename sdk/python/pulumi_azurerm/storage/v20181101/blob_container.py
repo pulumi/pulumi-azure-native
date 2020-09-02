@@ -27,7 +27,8 @@ class BlobContainer(pulumi.CustomResource):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
 
-        ## PutContainers
+        ## Example Usage
+        ### PutContainers
 
         ```python
         import pulumi

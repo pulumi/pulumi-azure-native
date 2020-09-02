@@ -30,7 +30,8 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         The diagnostic setting resource.
 
-        ## BatchAccountDelete
+        ## Example Usage
+        ### BatchAccountDelete
 
         ```python
         import pulumi

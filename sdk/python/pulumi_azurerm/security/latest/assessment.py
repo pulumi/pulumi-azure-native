@@ -30,7 +30,8 @@ class Assessment(pulumi.CustomResource):
         """
         Security assessment on a resource
 
-        ## Create security recommendation task on a resource
+        ## Example Usage
+        ### Create security recommendation task on a resource
 
         ```python
         import pulumi

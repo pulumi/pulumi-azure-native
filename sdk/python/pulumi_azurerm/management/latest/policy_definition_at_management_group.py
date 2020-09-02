@@ -32,7 +32,8 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
         """
         The policy definition.
 
-        ## Create or update a policy definition at management group level
+        ## Example Usage
+        ### Create or update a policy definition at management group level
 
         ```python
         import pulumi

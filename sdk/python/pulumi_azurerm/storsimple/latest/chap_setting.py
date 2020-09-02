@@ -28,7 +28,8 @@ class ChapSetting(pulumi.CustomResource):
         """
         Challenge-Handshake Authentication Protocol (CHAP) setting
 
-        ## ChapSettingsCreateOrUpdate
+        ## Example Usage
+        ### ChapSettingsCreateOrUpdate
 
         ```python
         import pulumi

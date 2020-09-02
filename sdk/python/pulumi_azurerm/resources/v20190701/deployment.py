@@ -27,7 +27,8 @@ class Deployment(pulumi.CustomResource):
         """
         Deployment information.
 
-        ## Create a deployment that will redeploy another deployment on failure
+        ## Example Usage
+        ### Create a deployment that will redeploy another deployment on failure
 
         ```python
         import pulumi
@@ -38,8 +39,7 @@ class Deployment(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create a deployment that will redeploy the last successful deployment on failure
+        ### Create a deployment that will redeploy the last successful deployment on failure
 
         ```python
         import pulumi

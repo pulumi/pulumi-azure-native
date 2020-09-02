@@ -31,7 +31,8 @@ class Cluster(pulumi.CustomResource):
         """
         The top level Log Analytics cluster resource container.
 
-        ## ClustersCreate
+        ## Example Usage
+        ### ClustersCreate
 
         ```python
         import pulumi

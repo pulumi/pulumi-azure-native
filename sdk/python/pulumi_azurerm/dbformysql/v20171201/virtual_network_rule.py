@@ -26,7 +26,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         A virtual network rule.
 
-        ## Create or update a virtual network rule
+        ## Example Usage
+        ### Create or update a virtual network rule
 
         ```python
         import pulumi

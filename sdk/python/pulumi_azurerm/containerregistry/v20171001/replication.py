@@ -27,7 +27,8 @@ class Replication(pulumi.CustomResource):
         """
         An object that represents a replication for a container registry.
 
-        ## ReplicationCreate
+        ## Example Usage
+        ### ReplicationCreate
 
         ```python
         import pulumi

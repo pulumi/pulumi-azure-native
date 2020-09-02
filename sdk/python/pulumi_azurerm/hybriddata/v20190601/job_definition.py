@@ -36,7 +36,8 @@ class JobDefinition(pulumi.CustomResource):
         """
         Job Definition.
 
-        ## JobDefinitions_CreateOrUpdatePUT83
+        ## Example Usage
+        ### JobDefinitions_CreateOrUpdatePUT83
 
         ```python
         import pulumi

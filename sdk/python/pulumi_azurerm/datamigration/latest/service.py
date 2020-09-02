@@ -32,7 +32,8 @@ class Service(pulumi.CustomResource):
         """
         A Database Migration Service resource
 
-        ## Services_CreateOrUpdate
+        ## Example Usage
+        ### Services_CreateOrUpdate
 
         ```python
         import pulumi

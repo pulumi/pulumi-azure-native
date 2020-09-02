@@ -26,7 +26,8 @@ class StorageSyncService(pulumi.CustomResource):
         """
         Storage Sync Service object.
 
-        ## StorageSyncServices_Create
+        ## Example Usage
+        ### StorageSyncServices_Create
 
         ```python
         import pulumi

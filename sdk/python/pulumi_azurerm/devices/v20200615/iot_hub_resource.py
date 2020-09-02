@@ -30,7 +30,8 @@ class IotHubResource(pulumi.CustomResource):
         """
         The description of the IoT hub.
 
-        ## IotHubResource_CreateOrUpdate
+        ## Example Usage
+        ### IotHubResource_CreateOrUpdate
 
         ```python
         import pulumi

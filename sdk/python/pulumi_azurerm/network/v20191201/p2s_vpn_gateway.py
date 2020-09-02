@@ -32,7 +32,8 @@ class P2sVpnGateway(pulumi.CustomResource):
         """
         P2SVpnGateway Resource.
 
-        ## P2SVpnGatewayPut
+        ## Example Usage
+        ### P2SVpnGatewayPut
 
         ```python
         import pulumi

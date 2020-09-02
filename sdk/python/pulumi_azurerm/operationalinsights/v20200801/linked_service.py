@@ -28,7 +28,8 @@ class LinkedService(pulumi.CustomResource):
         """
         The top level Linked service resource container.
 
-        ## LinkedServicesCreate
+        ## Example Usage
+        ### LinkedServicesCreate
 
         ```python
         import pulumi

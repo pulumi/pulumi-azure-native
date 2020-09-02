@@ -32,7 +32,8 @@ class DedicatedHost(pulumi.CustomResource):
         """
         Specifies information about the Dedicated host.
 
-        ## Create or update a dedicated host .
+        ## Example Usage
+        ### Create or update a dedicated host .
 
         ```python
         import pulumi

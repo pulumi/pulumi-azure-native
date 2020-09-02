@@ -27,7 +27,8 @@ class Share(pulumi.CustomResource):
         """
         A share data transfer object.
 
-        ## Shares_Create
+        ## Example Usage
+        ### Shares_Create
 
         ```python
         import pulumi

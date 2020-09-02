@@ -28,7 +28,8 @@ class NamedValue(pulumi.CustomResource):
         """
         NamedValue details.
 
-        ## ApiManagementCreateNamedValue
+        ## Example Usage
+        ### ApiManagementCreateNamedValue
 
         ```python
         import pulumi

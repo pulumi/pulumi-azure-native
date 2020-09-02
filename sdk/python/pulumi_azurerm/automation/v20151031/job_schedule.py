@@ -30,7 +30,8 @@ class JobSchedule(pulumi.CustomResource):
         """
         Definition of the job schedule.
 
-        ## Create a job schedule
+        ## Example Usage
+        ### Create a job schedule
 
         ```python
         import pulumi

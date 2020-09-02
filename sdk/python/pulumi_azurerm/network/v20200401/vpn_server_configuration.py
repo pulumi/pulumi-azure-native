@@ -40,7 +40,8 @@ class VpnServerConfiguration(pulumi.CustomResource):
         """
         VpnServerConfiguration Resource.
 
-        ## VpnServerConfigurationCreate
+        ## Example Usage
+        ### VpnServerConfigurationCreate
 
         ```python
         import pulumi

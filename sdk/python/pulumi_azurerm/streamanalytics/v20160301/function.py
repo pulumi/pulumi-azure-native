@@ -28,7 +28,8 @@ class Function(pulumi.CustomResource):
         """
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 
-        ## Create a JavaScript function
+        ## Example Usage
+        ### Create a JavaScript function
 
         ```python
         import pulumi
@@ -41,8 +42,7 @@ class Function(pulumi.CustomResource):
             resource_group_name="sjrg1637")
 
         ```
-
-        ## Create an Azure ML function
+        ### Create an Azure ML function
 
         ```python
         import pulumi

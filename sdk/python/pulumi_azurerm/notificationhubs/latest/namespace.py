@@ -41,7 +41,8 @@ class Namespace(pulumi.CustomResource):
         """
         Description of a Namespace resource.
 
-        ## NameSpaceCreate
+        ## Example Usage
+        ### NameSpaceCreate
 
         ```python
         import pulumi

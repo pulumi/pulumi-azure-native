@@ -29,7 +29,8 @@ class SignalR(pulumi.CustomResource):
         """
         A class represent a SignalR service resource.
 
-        ## SignalR_CreateOrUpdate
+        ## Example Usage
+        ### SignalR_CreateOrUpdate
 
         ```python
         import pulumi

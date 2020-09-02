@@ -36,7 +36,8 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         """
         The integration account RosettaNet process configuration.
 
-        ## Create or update an RosettaNetProcessConfiguration
+        ## Example Usage
+        ### Create or update an RosettaNetProcessConfiguration
 
         ```python
         import pulumi

@@ -35,7 +35,8 @@ class StreamingLocator(pulumi.CustomResource):
         """
         A Streaming Locator resource
 
-        ## Creates a Streaming Locator with clear streaming
+        ## Example Usage
+        ### Creates a Streaming Locator with clear streaming
 
         ```python
         import pulumi
@@ -49,8 +50,7 @@ class StreamingLocator(pulumi.CustomResource):
             streaming_policy_name="clearStreamingPolicy")
 
         ```
-
-        ## Creates a Streaming Locator with secure streaming
+        ### Creates a Streaming Locator with secure streaming
 
         ```python
         import pulumi
@@ -66,8 +66,7 @@ class StreamingLocator(pulumi.CustomResource):
             streaming_policy_name="secureStreamingPolicy")
 
         ```
-
-        ## Creates a Streaming Locator with user defined content keys
+        ### Creates a Streaming Locator with user defined content keys
 
         ```python
         import pulumi

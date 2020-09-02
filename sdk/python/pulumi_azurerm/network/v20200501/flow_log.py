@@ -35,7 +35,8 @@ class FlowLog(pulumi.CustomResource):
         """
         A flow log resource.
 
-        ## Create or update flow log
+        ## Example Usage
+        ### Create or update flow log
 
         ```python
         import pulumi

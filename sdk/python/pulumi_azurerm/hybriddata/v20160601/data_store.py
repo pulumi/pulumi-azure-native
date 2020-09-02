@@ -31,7 +31,8 @@ class DataStore(pulumi.CustomResource):
         """
         Data store.
 
-        ## DataStores_CreateOrUpdate_DataSinkPUT162
+        ## Example Usage
+        ### DataStores_CreateOrUpdate_DataSinkPUT162
 
         ```python
         import pulumi
@@ -63,8 +64,7 @@ class DataStore(pulumi.CustomResource):
             state="Enabled")
 
         ```
-
-        ## DataStores_CreateOrUpdate_DataSourcePUT162
+        ### DataStores_CreateOrUpdate_DataSourcePUT162
 
         ```python
         import pulumi

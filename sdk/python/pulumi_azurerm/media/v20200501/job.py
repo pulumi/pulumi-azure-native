@@ -32,7 +32,8 @@ class Job(pulumi.CustomResource):
         """
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
 
-        ## Create a Job
+        ## Example Usage
+        ### Create a Job
 
         ```python
         import pulumi

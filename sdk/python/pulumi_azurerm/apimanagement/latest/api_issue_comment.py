@@ -29,7 +29,8 @@ class ApiIssueComment(pulumi.CustomResource):
         """
         Issue Comment Contract details.
 
-        ## ApiManagementCreateApiIssueComment
+        ## Example Usage
+        ### ApiManagementCreateApiIssueComment
 
         ```python
         import pulumi

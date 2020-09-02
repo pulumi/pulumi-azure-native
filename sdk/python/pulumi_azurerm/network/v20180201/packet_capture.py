@@ -32,7 +32,8 @@ class PacketCapture(pulumi.CustomResource):
         """
         Information about packet capture session.
 
-        ## Create packet capture
+        ## Example Usage
+        ### Create packet capture
 
         ```python
         import pulumi

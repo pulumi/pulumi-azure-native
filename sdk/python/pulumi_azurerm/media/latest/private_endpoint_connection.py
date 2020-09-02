@@ -28,7 +28,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
-        ## Update private endpoint connection.
+        ## Example Usage
+        ### Update private endpoint connection.
 
         ```python
         import pulumi

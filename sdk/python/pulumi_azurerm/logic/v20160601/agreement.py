@@ -35,7 +35,8 @@ class Agreement(pulumi.CustomResource):
         """
         The integration account agreement.
 
-        ## Create or update an agreement
+        ## Example Usage
+        ### Create or update an agreement
 
         ```python
         import pulumi

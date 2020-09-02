@@ -26,7 +26,8 @@ class DedicatedCloudService(pulumi.CustomResource):
         """
         Dedicated cloud service model
 
-        ## CreateDedicatedCloudService
+        ## Example Usage
+        ### CreateDedicatedCloudService
 
         ```python
         import pulumi

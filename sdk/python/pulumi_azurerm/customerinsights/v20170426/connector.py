@@ -29,7 +29,8 @@ class Connector(pulumi.CustomResource):
         """
         The connector resource format.
 
-        ## Connectors_CreateOrUpdate
+        ## Example Usage
+        ### Connectors_CreateOrUpdate
 
         ```python
         import pulumi

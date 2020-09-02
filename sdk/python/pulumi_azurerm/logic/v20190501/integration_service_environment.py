@@ -29,7 +29,8 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         """
         The integration service environment.
 
-        ## Create or update an integration service environment
+        ## Example Usage
+        ### Create or update an integration service environment
 
         ```python
         import pulumi

@@ -34,7 +34,8 @@ class Schedule(pulumi.CustomResource):
         """
         Definition of the schedule.
 
-        ## Create or update a schedule
+        ## Example Usage
+        ### Create or update a schedule
 
         ```python
         import pulumi

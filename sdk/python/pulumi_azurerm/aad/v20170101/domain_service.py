@@ -34,7 +34,8 @@ class DomainService(pulumi.CustomResource):
         """
         Domain service.
 
-        ## Create Domain Service
+        ## Example Usage
+        ### Create Domain Service
 
         ```python
         import pulumi

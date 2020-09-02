@@ -27,7 +27,8 @@ class ReplicationFabric(pulumi.CustomResource):
         """
         Fabric definition.
 
-        ## Creates an Azure Site Recovery fabric.
+        ## Example Usage
+        ### Creates an Azure Site Recovery fabric.
 
         ```python
         import pulumi

@@ -29,7 +29,8 @@ class Cluster(pulumi.CustomResource):
         """
         The HDInsight cluster.
 
-        ## Create HDInsight cluster with Autoscale configuration
+        ## Example Usage
+        ### Create HDInsight cluster with Autoscale configuration
 
         ```python
         import pulumi
@@ -40,8 +41,7 @@ class Cluster(pulumi.CustomResource):
             resource_group_name="rg1")
 
         ```
-
-        ## Create Hadoop cluster with Azure Data Lake Storage Gen 2
+        ### Create Hadoop cluster with Azure Data Lake Storage Gen 2
 
         ```python
         import pulumi
@@ -55,23 +55,7 @@ class Cluster(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create Hadoop on Linux cluster with SSH password
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        cluster = azurerm.hdinsight.latest.Cluster("cluster",
-            cluster_name="cluster1",
-            resource_group_name="rg1",
-            tags={
-                "key1": "val1",
-            })
-
-        ```
-
-        ## Create Hadoop on Linux cluster with SSH public key
+        ### Create Hadoop on Linux cluster with SSH password
 
         ```python
         import pulumi
@@ -85,20 +69,7 @@ class Cluster(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create Kafka cluster with Kafka Rest Proxy
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        cluster = azurerm.hdinsight.latest.Cluster("cluster",
-            cluster_name="cluster1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Create Secure Hadoop cluster
+        ### Create Hadoop on Linux cluster with SSH public key
 
         ```python
         import pulumi
@@ -112,8 +83,18 @@ class Cluster(pulumi.CustomResource):
             })
 
         ```
+        ### Create Kafka cluster with Kafka Rest Proxy
 
-        ## Create Spark on Linux Cluster with SSH password
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.hdinsight.latest.Cluster("cluster",
+            cluster_name="cluster1",
+            resource_group_name="rg1")
+
+        ```
+        ### Create Secure Hadoop cluster
 
         ```python
         import pulumi
@@ -127,8 +108,21 @@ class Cluster(pulumi.CustomResource):
             })
 
         ```
+        ### Create Spark on Linux Cluster with SSH password
 
-        ## Create cluster with TLS 1.2
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.hdinsight.latest.Cluster("cluster",
+            cluster_name="cluster1",
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create cluster with TLS 1.2
 
         ```python
         import pulumi
@@ -139,20 +133,7 @@ class Cluster(pulumi.CustomResource):
             resource_group_name="rg1")
 
         ```
-
-        ## Create cluster with custom network settings
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        cluster = azurerm.hdinsight.latest.Cluster("cluster",
-            cluster_name="cluster1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Create cluster with encryption at host
+        ### Create cluster with custom network settings
 
         ```python
         import pulumi
@@ -163,8 +144,18 @@ class Cluster(pulumi.CustomResource):
             resource_group_name="rg1")
 
         ```
+        ### Create cluster with encryption at host
 
-        ## Create cluster with encryption in transit
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.hdinsight.latest.Cluster("cluster",
+            cluster_name="cluster1",
+            resource_group_name="rg1")
+
+        ```
+        ### Create cluster with encryption in transit
 
         ```python
         import pulumi

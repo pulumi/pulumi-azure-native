@@ -24,7 +24,8 @@ class HcxEnterpriseSite(pulumi.CustomResource):
         """
         An HCX Enterprise Site resource
 
-        ## HcxEnterpriseSites_CreateOrUpdate
+        ## Example Usage
+        ### HcxEnterpriseSites_CreateOrUpdate
 
         ```python
         import pulumi

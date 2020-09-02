@@ -28,7 +28,8 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection to SignalR resource
 
-        ## SignalRPrivateEndpointConnections_Update
+        ## Example Usage
+        ### SignalRPrivateEndpointConnections_Update
 
         ```python
         import pulumi

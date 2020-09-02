@@ -28,7 +28,8 @@ class Backup(pulumi.CustomResource):
         """
         Backup of a Volume
 
-        ## Backups_Create
+        ## Example Usage
+        ### Backups_Create
 
         ```python
         import pulumi

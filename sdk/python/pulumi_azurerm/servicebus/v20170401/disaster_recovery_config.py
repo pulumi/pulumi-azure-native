@@ -26,7 +26,8 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
 
-        ## SBAliasCreate
+        ## Example Usage
+        ### SBAliasCreate
 
         ```python
         import pulumi

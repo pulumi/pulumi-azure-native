@@ -27,7 +27,8 @@ class RegistrationDefinition(pulumi.CustomResource):
         """
         Registration definition.
 
-        ## Put Registration Definition
+        ## Example Usage
+        ### Put Registration Definition
 
         ```python
         import pulumi

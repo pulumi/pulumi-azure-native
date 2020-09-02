@@ -26,7 +26,8 @@ class FirewallRule(pulumi.CustomResource):
         """
         Represents a server firewall rule.
 
-        ## Create a firewall rule max/min
+        ## Example Usage
+        ### Create a firewall rule max/min
 
         ```python
         import pulumi
@@ -40,8 +41,7 @@ class FirewallRule(pulumi.CustomResource):
             start_ip_address="0.0.0.3")
 
         ```
-
-        ## Update a firewall rule max/min
+        ### Update a firewall rule max/min
 
         ```python
         import pulumi

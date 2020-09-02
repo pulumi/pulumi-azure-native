@@ -29,7 +29,8 @@ class PolicyDefinition(pulumi.CustomResource):
         """
         The policy definition.
 
-        ## Create or update a policy definition
+        ## Example Usage
+        ### Create or update a policy definition
 
         ```python
         import pulumi

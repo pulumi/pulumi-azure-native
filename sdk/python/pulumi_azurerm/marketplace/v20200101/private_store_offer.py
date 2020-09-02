@@ -25,7 +25,8 @@ class PrivateStoreOffer(pulumi.CustomResource):
         """
         The privateStore offer data structure.
 
-        ## UpdatePrivateStoreOffer
+        ## Example Usage
+        ### UpdatePrivateStoreOffer
 
         ```python
         import pulumi

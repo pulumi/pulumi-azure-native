@@ -39,7 +39,8 @@ class AzureFirewall(pulumi.CustomResource):
         """
         Azure Firewall resource.
 
-        ## Create Azure Firewall
+        ## Example Usage
+        ### Create Azure Firewall
 
         ```python
         import pulumi
@@ -72,8 +73,7 @@ class AzureFirewall(pulumi.CustomResource):
             zones=[])
 
         ```
-
-        ## Create Azure Firewall With Additional Properties
+        ### Create Azure Firewall With Additional Properties
 
         ```python
         import pulumi
@@ -110,8 +110,7 @@ class AzureFirewall(pulumi.CustomResource):
             zones=[])
 
         ```
-
-        ## Create Azure Firewall With IpGroups
+        ### Create Azure Firewall With IpGroups
 
         ```python
         import pulumi
@@ -144,8 +143,7 @@ class AzureFirewall(pulumi.CustomResource):
             zones=[])
 
         ```
-
-        ## Create Azure Firewall With Zones
+        ### Create Azure Firewall With Zones
 
         ```python
         import pulumi
@@ -182,8 +180,7 @@ class AzureFirewall(pulumi.CustomResource):
             ])
 
         ```
-
-        ## Create Azure Firewall With management subnet
+        ### Create Azure Firewall With management subnet
 
         ```python
         import pulumi
@@ -219,8 +216,7 @@ class AzureFirewall(pulumi.CustomResource):
             zones=[])
 
         ```
-
-        ## Create Azure Firewall in virtual Hub
+        ### Create Azure Firewall in virtual Hub
 
         ```python
         import pulumi

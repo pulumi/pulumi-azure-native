@@ -29,7 +29,8 @@ class ReplicationProtectedItem(pulumi.CustomResource):
         """
         Replication protected item.
 
-        ## Enables protection.
+        ## Example Usage
+        ### Enables protection.
 
         ```python
         import pulumi

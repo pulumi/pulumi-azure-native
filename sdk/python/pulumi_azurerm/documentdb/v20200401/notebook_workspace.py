@@ -24,7 +24,8 @@ class NotebookWorkspace(pulumi.CustomResource):
         """
         A notebook workspace resource
 
-        ## CosmosDBNotebookWorkspaceCreate
+        ## Example Usage
+        ### CosmosDBNotebookWorkspaceCreate
 
         ```python
         import pulumi

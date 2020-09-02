@@ -33,7 +33,8 @@ class Device(pulumi.CustomResource):
         """
         The Data Box Edge/Gateway device.
 
-        ## DataBoxEdgeDevicePut
+        ## Example Usage
+        ### DataBoxEdgeDevicePut
 
         ```python
         import pulumi

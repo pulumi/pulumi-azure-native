@@ -31,7 +31,8 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
         """
         An Azure Cosmos DB Gremlin graph.
 
-        ## CosmosDBGremlinGraphCreateUpdate
+        ## Example Usage
+        ### CosmosDBGremlinGraphCreateUpdate
 
         ```python
         import pulumi

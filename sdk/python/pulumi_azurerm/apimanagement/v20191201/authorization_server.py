@@ -42,7 +42,8 @@ class AuthorizationServer(pulumi.CustomResource):
         """
         External OAuth authorization server settings.
 
-        ## ApiManagementCreateAuthorizationServer
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationServer
 
         ```python
         import pulumi

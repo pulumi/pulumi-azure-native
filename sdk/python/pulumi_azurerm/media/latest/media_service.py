@@ -31,7 +31,8 @@ class MediaService(pulumi.CustomResource):
         """
         A Media Services account.
 
-        ## Create a Media Services account
+        ## Example Usage
+        ### Create a Media Services account
 
         ```python
         import pulumi

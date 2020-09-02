@@ -28,7 +28,8 @@ class Job(pulumi.CustomResource):
         """
         Contains the job information.
 
-        ## Create job
+        ## Example Usage
+        ### Create job
 
         ```python
         import pulumi

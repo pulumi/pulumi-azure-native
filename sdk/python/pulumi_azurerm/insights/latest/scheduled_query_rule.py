@@ -32,7 +32,8 @@ class ScheduledQueryRule(pulumi.CustomResource):
         """
         The Log Search Rule resource.
 
-        ## Create or Update rule - AlertingAction
+        ## Example Usage
+        ### Create or Update rule - AlertingAction
 
         ```python
         import pulumi
@@ -59,8 +60,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
             tags={})
 
         ```
-
-        ## Create or Update rule - AlertingAction with Cross-Resource
+        ### Create or Update rule - AlertingAction with Cross-Resource
 
         ```python
         import pulumi
@@ -91,8 +91,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
             tags={})
 
         ```
-
-        ## Create or Update rule - LogToMetricAction
+        ### Create or Update rule - LogToMetricAction
 
         ```python
         import pulumi

@@ -43,7 +43,8 @@ class ApplicationDefinition(pulumi.CustomResource):
         """
         Information about managed application definition.
 
-        ## Create or update managed application definition
+        ## Example Usage
+        ### Create or update managed application definition
 
         ```python
         import pulumi

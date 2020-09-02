@@ -28,7 +28,8 @@ class PeerAsn(pulumi.CustomResource):
         """
         The essential information related to the peer's ASN.
 
-        ## Create a peer ASN
+        ## Example Usage
+        ### Create a peer ASN
 
         ```python
         import pulumi

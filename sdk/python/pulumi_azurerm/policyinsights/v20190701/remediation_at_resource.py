@@ -29,7 +29,8 @@ class RemediationAtResource(pulumi.CustomResource):
         """
         The remediation definition.
 
-        ## Create remediation at individual resource scope
+        ## Example Usage
+        ### Create remediation at individual resource scope
 
         ```python
         import pulumi

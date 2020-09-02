@@ -26,7 +26,8 @@ class ConsumerGroup(pulumi.CustomResource):
         """
         Single item in List or Get Consumer group operation
 
-        ## ConsumerGroupCreate
+        ## Example Usage
+        ### ConsumerGroupCreate
 
         ```python
         import pulumi

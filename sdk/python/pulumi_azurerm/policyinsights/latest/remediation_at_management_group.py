@@ -30,7 +30,8 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
         """
         The remediation definition.
 
-        ## Create remediation at management group scope
+        ## Example Usage
+        ### Create remediation at management group scope
 
         ```python
         import pulumi

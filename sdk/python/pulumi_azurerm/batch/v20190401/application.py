@@ -27,7 +27,8 @@ class Application(pulumi.CustomResource):
         """
         Contains information about an application in a Batch account.
 
-        ## ApplicationCreate
+        ## Example Usage
+        ### ApplicationCreate
 
         ```python
         import pulumi

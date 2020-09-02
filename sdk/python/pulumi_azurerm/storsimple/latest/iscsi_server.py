@@ -30,7 +30,8 @@ class IscsiServer(pulumi.CustomResource):
         """
         The iSCSI server.
 
-        ## IscsiServersCreateOrUpdate
+        ## Example Usage
+        ### IscsiServersCreateOrUpdate
 
         ```python
         import pulumi

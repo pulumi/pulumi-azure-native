@@ -27,7 +27,8 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## Update an application control machine group by adding a new application
+        ## Example Usage
+        ### Update an application control machine group by adding a new application
 
         ```python
         import pulumi

@@ -35,7 +35,8 @@ class Backend(pulumi.CustomResource):
         """
         Backend details.
 
-        ## ApiManagementCreateBackendProxyBackend
+        ## Example Usage
+        ### ApiManagementCreateBackendProxyBackend
 
         ```python
         import pulumi
@@ -78,8 +79,7 @@ class Backend(pulumi.CustomResource):
             url="https://backendname2644/")
 
         ```
-
-        ## ApiManagementCreateBackendServiceFabric
+        ### ApiManagementCreateBackendServiceFabric
 
         ```python
         import pulumi

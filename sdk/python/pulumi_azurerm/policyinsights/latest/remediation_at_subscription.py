@@ -28,7 +28,8 @@ class RemediationAtSubscription(pulumi.CustomResource):
         """
         The remediation definition.
 
-        ## Create remediation at subscription scope
+        ## Example Usage
+        ### Create remediation at subscription scope
 
         ```python
         import pulumi
@@ -39,8 +40,7 @@ class RemediationAtSubscription(pulumi.CustomResource):
             remediation_name="storageRemediation")
 
         ```
-
-        ## Create remediation at subscription scope with all properties
+        ### Create remediation at subscription scope with all properties
 
         ```python
         import pulumi

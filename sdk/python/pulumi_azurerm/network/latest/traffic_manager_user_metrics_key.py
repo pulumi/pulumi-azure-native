@@ -21,7 +21,8 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
         """
         Class representing Traffic Manager User Metrics.
 
-        ## TrafficManagerUserMetricsKeys-PUT
+        ## Example Usage
+        ### TrafficManagerUserMetricsKeys-PUT
 
         ```python
         import pulumi

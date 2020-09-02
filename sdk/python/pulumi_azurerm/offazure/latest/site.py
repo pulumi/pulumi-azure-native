@@ -30,7 +30,8 @@ class Site(pulumi.CustomResource):
         """
         Site REST Resource.
 
-        ## Create VMware site
+        ## Example Usage
+        ### Create VMware site
 
         ```python
         import pulumi

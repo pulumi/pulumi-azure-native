@@ -32,7 +32,8 @@ class AutoscaleSetting(pulumi.CustomResource):
         """
         The autoscale setting resource.
 
-        ## Create or update an autoscale setting
+        ## Example Usage
+        ### Create or update an autoscale setting
 
         ```python
         import pulumi

@@ -28,7 +28,8 @@ class CustomDomain(pulumi.CustomResource):
         """
         Custom domain resource payload.
 
-        ## CustomDomains_CreateOrUpdate
+        ## Example Usage
+        ### CustomDomains_CreateOrUpdate
 
         ```python
         import pulumi

@@ -26,7 +26,8 @@ class Certificate(pulumi.CustomResource):
         """
         Certificate details.
 
-        ## ApiManagementCreateCertificate
+        ## Example Usage
+        ### ApiManagementCreateCertificate
 
         ```python
         import pulumi

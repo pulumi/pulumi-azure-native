@@ -27,7 +27,8 @@ class LinkedService(pulumi.CustomResource):
         """
         Linked service resource type.
 
-        ## LinkedServices_Create
+        ## Example Usage
+        ### LinkedServices_Create
 
         ```python
         import pulumi
@@ -39,8 +40,7 @@ class LinkedService(pulumi.CustomResource):
             resource_group_name="exampleResourceGroup")
 
         ```
-
-        ## LinkedServices_Update
+        ### LinkedServices_Update
 
         ```python
         import pulumi

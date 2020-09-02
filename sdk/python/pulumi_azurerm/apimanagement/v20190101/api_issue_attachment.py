@@ -29,7 +29,8 @@ class ApiIssueAttachment(pulumi.CustomResource):
         """
         Issue Attachment Contract details.
 
-        ## ApiManagementCreateApiIssueAttachment
+        ## Example Usage
+        ### ApiManagementCreateApiIssueAttachment
 
         ```python
         import pulumi

@@ -29,7 +29,8 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
         """
         An Azure Cosmos DB Cassandra table.
 
-        ## CosmosDBCassandraTableCreateUpdate
+        ## Example Usage
+        ### CosmosDBCassandraTableCreateUpdate
 
         ```python
         import pulumi

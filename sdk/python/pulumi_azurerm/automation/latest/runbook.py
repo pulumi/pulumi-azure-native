@@ -36,7 +36,8 @@ class Runbook(pulumi.CustomResource):
         """
         Definition of the runbook type.
 
-        ## Create or update runbook and publish it
+        ## Example Usage
+        ### Create or update runbook and publish it
 
         ```python
         import pulumi
@@ -66,8 +67,7 @@ class Runbook(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create runbook as draft
+        ### Create runbook as draft
 
         ```python
         import pulumi

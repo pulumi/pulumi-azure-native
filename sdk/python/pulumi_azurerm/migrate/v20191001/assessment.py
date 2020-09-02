@@ -29,7 +29,8 @@ class Assessment(pulumi.CustomResource):
         """
         An assessment created for a group in the Migration project.
 
-        ## Assessments_Create
+        ## Example Usage
+        ### Assessments_Create
 
         ```python
         import pulumi

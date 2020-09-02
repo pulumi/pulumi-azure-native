@@ -24,7 +24,8 @@ class Authorization(pulumi.CustomResource):
         """
         ExpressRoute Circuit Authorization
 
-        ## Authorizations_CreateOrUpdate
+        ## Example Usage
+        ### Authorizations_CreateOrUpdate
 
         ```python
         import pulumi

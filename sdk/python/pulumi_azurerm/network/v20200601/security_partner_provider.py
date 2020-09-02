@@ -30,7 +30,8 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         """
         Security Partner Provider resource.
 
-        ## Create Security Partner Provider
+        ## Example Usage
+        ### Create Security Partner Provider
 
         ```python
         import pulumi

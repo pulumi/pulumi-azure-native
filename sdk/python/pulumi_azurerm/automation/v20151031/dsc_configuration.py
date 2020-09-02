@@ -34,7 +34,8 @@ class DscConfiguration(pulumi.CustomResource):
         """
         Definition of the configuration type.
 
-        ## Create or Update Configuration
+        ## Example Usage
+        ### Create or Update Configuration
 
         ```python
         import pulumi

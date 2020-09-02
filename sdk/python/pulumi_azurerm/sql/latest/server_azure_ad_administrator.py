@@ -28,7 +28,8 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         """
         An server Active Directory Administrator.
 
-        ## Create/Update a server administrator
+        ## Example Usage
+        ### Create/Update a server administrator
 
         ```python
         import pulumi

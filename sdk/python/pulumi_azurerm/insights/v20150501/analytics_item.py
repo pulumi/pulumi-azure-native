@@ -33,7 +33,8 @@ class AnalyticsItem(pulumi.CustomResource):
         """
         Properties that define an Analytics item that is associated to an Application Insights component.
 
-        ## AnalyticsItemPut
+        ## Example Usage
+        ### AnalyticsItemPut
 
         ```python
         import pulumi

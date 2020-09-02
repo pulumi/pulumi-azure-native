@@ -39,7 +39,8 @@ class StreamingEndpoint(pulumi.CustomResource):
         """
         The StreamingEndpoint.
 
-        ## Create a StreamingEndpoint
+        ## Example Usage
+        ### Create a StreamingEndpoint
 
         ```python
         import pulumi

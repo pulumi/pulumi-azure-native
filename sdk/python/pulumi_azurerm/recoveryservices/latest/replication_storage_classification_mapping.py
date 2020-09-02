@@ -29,7 +29,8 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
         """
         Storage mapping object.
 
-        ## Create storage classification mapping.
+        ## Example Usage
+        ### Create storage classification mapping.
 
         ```python
         import pulumi

@@ -26,7 +26,8 @@ class SynchronizationSetting(pulumi.CustomResource):
         """
         A Synchronization Setting data transfer object.
 
-        ## SynchronizationSettings_Create
+        ## Example Usage
+        ### SynchronizationSettings_Create
 
         ```python
         import pulumi

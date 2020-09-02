@@ -28,7 +28,8 @@ class EventSubscription(pulumi.CustomResource):
         """
         Event Subscription
 
-        ## EventSubscriptions_CreateOrUpdateForCustomTopic
+        ## Example Usage
+        ### EventSubscriptions_CreateOrUpdateForCustomTopic
 
         ```python
         import pulumi
@@ -47,8 +48,7 @@ class EventSubscription(pulumi.CustomResource):
             scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
 
         ```
-
-        ## EventSubscriptions_CreateOrUpdateForResource
+        ### EventSubscriptions_CreateOrUpdateForResource
 
         ```python
         import pulumi
@@ -67,8 +67,7 @@ class EventSubscription(pulumi.CustomResource):
             scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1")
 
         ```
-
-        ## EventSubscriptions_CreateOrUpdateForResourceGroup
+        ### EventSubscriptions_CreateOrUpdateForResourceGroup
 
         ```python
         import pulumi
@@ -87,8 +86,7 @@ class EventSubscription(pulumi.CustomResource):
             scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg")
 
         ```
-
-        ## EventSubscriptions_CreateOrUpdateForSubscription
+        ### EventSubscriptions_CreateOrUpdateForSubscription
 
         ```python
         import pulumi

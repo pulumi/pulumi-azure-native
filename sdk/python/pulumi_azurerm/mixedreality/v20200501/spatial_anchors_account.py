@@ -25,7 +25,8 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         """
         SpatialAnchorsAccount Response.
 
-        ## Create spatial anchor account
+        ## Example Usage
+        ### Create spatial anchor account
 
         ```python
         import pulumi

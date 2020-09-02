@@ -40,7 +40,8 @@ class Queue(pulumi.CustomResource):
         """
         Description of queue Resource.
 
-        ## QueueCreate
+        ## Example Usage
+        ### QueueCreate
 
         ```python
         import pulumi

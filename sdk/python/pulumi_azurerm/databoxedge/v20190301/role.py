@@ -25,7 +25,8 @@ class Role(pulumi.CustomResource):
         """
         Compute role.
 
-        ## RolePut
+        ## Example Usage
+        ### RolePut
 
         ```python
         import pulumi

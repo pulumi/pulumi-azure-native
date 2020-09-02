@@ -31,7 +31,8 @@ class Subscription(pulumi.CustomResource):
         """
         Subscription details.
 
-        ## ApiManagementCreateSubscription
+        ## Example Usage
+        ### ApiManagementCreateSubscription
 
         ```python
         import pulumi

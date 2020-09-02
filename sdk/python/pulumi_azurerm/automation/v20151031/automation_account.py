@@ -29,7 +29,8 @@ class AutomationAccount(pulumi.CustomResource):
         """
         Definition of the automation account type.
 
-        ## Create or update automation account
+        ## Example Usage
+        ### Create or update automation account
 
         ```python
         import pulumi

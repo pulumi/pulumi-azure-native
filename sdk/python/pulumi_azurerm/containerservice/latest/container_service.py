@@ -35,7 +35,8 @@ class ContainerService(pulumi.CustomResource):
         """
         Container service.
 
-        ## Create/Update Container Service
+        ## Example Usage
+        ### Create/Update Container Service
 
         ```python
         import pulumi

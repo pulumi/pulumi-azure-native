@@ -27,7 +27,8 @@ class DatabaseAccountCassandraKeyspace(pulumi.CustomResource):
         """
         An Azure Cosmos DB Cassandra keyspace.
 
-        ## CosmosDBCassandraKeyspaceCreateUpdate
+        ## Example Usage
+        ### CosmosDBCassandraKeyspaceCreateUpdate
 
         ```python
         import pulumi

@@ -28,7 +28,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         """
         Managed private endpoint resource type.
 
-        ## ManagedVirtualNetworks_Create
+        ## Example Usage
+        ### ManagedVirtualNetworks_Create
 
         ```python
         import pulumi

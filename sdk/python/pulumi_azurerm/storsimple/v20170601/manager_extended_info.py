@@ -31,7 +31,8 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         """
         The extended info of the manager.
 
-        ## ManagersCreateExtendedInfo
+        ## Example Usage
+        ### ManagersCreateExtendedInfo
 
         ```python
         import pulumi

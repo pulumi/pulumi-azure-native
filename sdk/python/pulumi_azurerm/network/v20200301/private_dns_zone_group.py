@@ -29,7 +29,8 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         """
         Private dns zone group resource.
 
-        ## Create private dns zone group
+        ## Example Usage
+        ### Create private dns zone group
 
         ```python
         import pulumi

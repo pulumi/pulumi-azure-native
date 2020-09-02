@@ -32,7 +32,8 @@ class RegisteredServer(pulumi.CustomResource):
         """
         Registered Server resource.
 
-        ## RegisteredServers_Create
+        ## Example Usage
+        ### RegisteredServers_Create
 
         ```python
         import pulumi

@@ -27,7 +27,8 @@ class Trigger(pulumi.CustomResource):
         """
         Trigger resource type.
 
-        ## Triggers_Create
+        ## Example Usage
+        ### Triggers_Create
 
         ```python
         import pulumi
@@ -39,8 +40,7 @@ class Trigger(pulumi.CustomResource):
             trigger_name="exampleTrigger")
 
         ```
-
-        ## Triggers_Update
+        ### Triggers_Update
 
         ```python
         import pulumi

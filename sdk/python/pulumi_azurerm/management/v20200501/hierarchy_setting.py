@@ -24,7 +24,8 @@ class HierarchySetting(pulumi.CustomResource):
         """
         Settings defined at the Management Group scope.
 
-        ## GetGroupSettings
+        ## Example Usage
+        ### GetGroupSettings
 
         ```python
         import pulumi

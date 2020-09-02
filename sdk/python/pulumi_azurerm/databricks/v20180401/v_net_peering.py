@@ -34,7 +34,8 @@ class VNetPeering(pulumi.CustomResource):
         """
         Peerings in a VirtualNetwork resource
 
-        ## Create vNet Peering for Workspace
+        ## Example Usage
+        ### Create vNet Peering for Workspace
 
         ```python
         import pulumi

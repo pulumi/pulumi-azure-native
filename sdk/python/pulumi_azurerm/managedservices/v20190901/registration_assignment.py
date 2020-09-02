@@ -26,7 +26,8 @@ class RegistrationAssignment(pulumi.CustomResource):
         """
         Registration assignment.
 
-        ## Put Registration Assignment
+        ## Example Usage
+        ### Put Registration Assignment
 
         ```python
         import pulumi

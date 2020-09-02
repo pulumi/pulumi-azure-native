@@ -27,7 +27,8 @@ class View(pulumi.CustomResource):
         """
         The view resource format.
 
-        ## Views_CreateOrUpdate
+        ## Example Usage
+        ### Views_CreateOrUpdate
 
         ```python
         import pulumi

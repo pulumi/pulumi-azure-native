@@ -28,7 +28,8 @@ class Account(pulumi.CustomResource):
         """
         An account data transfer object.
 
-        ## Accounts_Create
+        ## Example Usage
+        ### Accounts_Create
 
         ```python
         import pulumi

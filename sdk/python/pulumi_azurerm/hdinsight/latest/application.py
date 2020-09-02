@@ -29,7 +29,8 @@ class Application(pulumi.CustomResource):
         """
         The HDInsight cluster application
 
-        ## Create Application
+        ## Example Usage
+        ### Create Application
 
         ```python
         import pulumi

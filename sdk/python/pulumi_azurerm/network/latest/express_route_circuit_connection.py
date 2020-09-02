@@ -35,7 +35,8 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         """
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
 
-        ## ExpressRouteCircuitConnectionCreate
+        ## Example Usage
+        ### ExpressRouteCircuitConnectionCreate
 
         ```python
         import pulumi

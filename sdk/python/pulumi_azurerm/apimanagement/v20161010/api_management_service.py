@@ -37,7 +37,8 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
-        ## ApiManagementCreateService
+        ## Example Usage
+        ### ApiManagementCreateService
 
         ```python
         import pulumi

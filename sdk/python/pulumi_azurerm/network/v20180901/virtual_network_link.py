@@ -31,7 +31,8 @@ class VirtualNetworkLink(pulumi.CustomResource):
         """
         Describes a link to virtual network for a Private DNS zone.
 
-        ## PUT Private DNS Zone Virtual Network Link
+        ## Example Usage
+        ### PUT Private DNS Zone Virtual Network Link
 
         ```python
         import pulumi

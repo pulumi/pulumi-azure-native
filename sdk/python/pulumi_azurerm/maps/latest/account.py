@@ -28,7 +28,8 @@ class Account(pulumi.CustomResource):
         """
         An Azure resource which represents access to a suite of Maps REST APIs.
 
-        ## CreateAccount
+        ## Example Usage
+        ### CreateAccount
 
         ```python
         import pulumi

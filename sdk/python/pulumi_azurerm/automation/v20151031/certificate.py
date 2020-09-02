@@ -29,7 +29,8 @@ class Certificate(pulumi.CustomResource):
         """
         Definition of the certificate.
 
-        ## Create or update a certificate
+        ## Example Usage
+        ### Create or update a certificate
 
         ```python
         import pulumi

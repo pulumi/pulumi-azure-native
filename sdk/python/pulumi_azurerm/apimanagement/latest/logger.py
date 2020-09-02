@@ -29,7 +29,8 @@ class Logger(pulumi.CustomResource):
         """
         Logger details.
 
-        ## ApiManagementCreateAILogger
+        ## Example Usage
+        ### ApiManagementCreateAILogger
 
         ```python
         import pulumi
@@ -46,8 +47,7 @@ class Logger(pulumi.CustomResource):
             service_name="apimService1")
 
         ```
-
-        ## ApiManagementCreateEHLogger
+        ### ApiManagementCreateEHLogger
 
         ```python
         import pulumi

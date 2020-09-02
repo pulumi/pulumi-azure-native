@@ -28,7 +28,8 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         """
         Class representing a cluster principal assignment.
 
-        ## KustoClusterPrincipalAssignmentsCreateOrUpdate
+        ## Example Usage
+        ### KustoClusterPrincipalAssignmentsCreateOrUpdate
 
         ```python
         import pulumi

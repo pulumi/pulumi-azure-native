@@ -31,7 +31,8 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
         """
         An Azure Cosmos DB MongoDB collection.
 
-        ## CosmosDBMongoDBCollectionCreateUpdate
+        ## Example Usage
+        ### CosmosDBMongoDBCollectionCreateUpdate
 
         ```python
         import pulumi

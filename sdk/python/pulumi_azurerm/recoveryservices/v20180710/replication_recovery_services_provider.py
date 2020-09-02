@@ -28,7 +28,8 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
         """
         Provider details.
 
-        ## Adds a recovery services provider.
+        ## Example Usage
+        ### Adds a recovery services provider.
 
         ```python
         import pulumi

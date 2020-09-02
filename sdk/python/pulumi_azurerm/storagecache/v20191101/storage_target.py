@@ -32,7 +32,8 @@ class StorageTarget(pulumi.CustomResource):
         """
         A storage system being cached by a Cache.
 
-        ## StorageTargets_CreateOrUpdate
+        ## Example Usage
+        ### StorageTargets_CreateOrUpdate
 
         ```python
         import pulumi

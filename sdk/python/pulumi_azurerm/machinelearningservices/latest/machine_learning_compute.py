@@ -31,7 +31,8 @@ class MachineLearningCompute(pulumi.CustomResource):
         """
         Machine Learning compute object wrapped into ARM resource envelope.
 
-        ## Create AKS Compute
+        ## Example Usage
+        ### Create AKS Compute
 
         ```python
         import pulumi
@@ -44,8 +45,7 @@ class MachineLearningCompute(pulumi.CustomResource):
             workspace_name="workspaces123")
 
         ```
-
-        ## Create a AML Compute
+        ### Create a AML Compute
 
         ```python
         import pulumi
@@ -62,23 +62,7 @@ class MachineLearningCompute(pulumi.CustomResource):
             workspace_name="workspaces123")
 
         ```
-
-        ## Create a ComputeInstance Compute
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
-            compute_name="compute123",
-            location="eastus",
-            properties={},
-            resource_group_name="testrg123",
-            workspace_name="workspaces123")
-
-        ```
-
-        ## Create a ComputeInstance Compute with minimal inputs
+        ### Create a ComputeInstance Compute
 
         ```python
         import pulumi
@@ -92,22 +76,7 @@ class MachineLearningCompute(pulumi.CustomResource):
             workspace_name="workspaces123")
 
         ```
-
-        ## Create a DataFactory Compute
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
-            compute_name="compute123",
-            location="eastus",
-            resource_group_name="testrg123",
-            workspace_name="workspaces123")
-
-        ```
-
-        ## Update a AKS Compute
+        ### Create a ComputeInstance Compute with minimal inputs
 
         ```python
         import pulumi
@@ -121,8 +90,34 @@ class MachineLearningCompute(pulumi.CustomResource):
             workspace_name="workspaces123")
 
         ```
+        ### Create a DataFactory Compute
 
-        ## Update a AML Compute
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            location="eastus",
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Update a AKS Compute
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            location="eastus",
+            properties={},
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Update a AML Compute
 
         ```python
         import pulumi

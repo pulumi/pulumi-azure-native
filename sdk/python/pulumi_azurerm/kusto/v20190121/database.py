@@ -30,7 +30,8 @@ class Database(pulumi.CustomResource):
         """
         Class representing a Kusto database.
 
-        ## KustoDatabasesCreateOrUpdate
+        ## Example Usage
+        ### KustoDatabasesCreateOrUpdate
 
         ```python
         import pulumi

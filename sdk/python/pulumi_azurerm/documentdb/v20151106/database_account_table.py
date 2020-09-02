@@ -27,7 +27,8 @@ class DatabaseAccountTable(pulumi.CustomResource):
         """
         An Azure Cosmos DB Table.
 
-        ## CosmosDBTableReplace
+        ## Example Usage
+        ### CosmosDBTableReplace
 
         ```python
         import pulumi

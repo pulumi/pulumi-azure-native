@@ -44,7 +44,8 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Describes a Virtual Machine.
 
-        ## Create a custom-image vm from an unmanaged generalized os image.
+        ## Example Usage
+        ### Create a custom-image vm from an unmanaged generalized os image.
 
         ```python
         import pulumi
@@ -83,8 +84,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="{vm-name}")
 
         ```
-
-        ## Create a platform-image vm with unmanaged os and data disks.
+        ### Create a platform-image vm with unmanaged os and data disks.
 
         ```python
         import pulumi
@@ -143,8 +143,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="{vm-name}")
 
         ```
-
-        ## Create a vm from a custom image.
+        ### Create a vm from a custom image.
 
         ```python
         import pulumi
@@ -182,8 +181,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="myVM")
 
         ```
-
-        ## Create a vm in an availability set.
+        ### Create a vm in an availability set.
 
         ```python
         import pulumi
@@ -227,8 +225,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="myVM")
 
         ```
-
-        ## Create a vm with DiskEncryptionSet resource id in the os disk and data disk.
+        ### Create a vm with DiskEncryptionSet resource id in the os disk and data disk.
 
         ```python
         import pulumi
@@ -296,8 +293,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="myVM")
 
         ```
-
-        ## Create a vm with a marketplace image plan.
+        ### Create a vm with a marketplace image plan.
 
         ```python
         import pulumi
@@ -343,8 +339,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="myVM")
 
         ```
-
-        ## Create a vm with boot diagnostics.
+        ### Create a vm with boot diagnostics.
 
         ```python
         import pulumi
@@ -391,8 +386,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="myVM")
 
         ```
-
-        ## Create a vm with empty data disks.
+        ### Create a vm with empty data disks.
 
         ```python
         import pulumi
@@ -445,8 +439,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="myVM")
 
         ```
-
-        ## Create a vm with ephemeral os disk.
+        ### Create a vm with ephemeral os disk.
 
         ```python
         import pulumi
@@ -495,8 +488,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="myVM")
 
         ```
-
-        ## Create a vm with password authentication.
+        ### Create a vm with password authentication.
 
         ```python
         import pulumi
@@ -537,8 +529,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="myVM")
 
         ```
-
-        ## Create a vm with premium storage.
+        ### Create a vm with premium storage.
 
         ```python
         import pulumi
@@ -579,8 +570,7 @@ class VirtualMachine(pulumi.CustomResource):
             vm_name="myVM")
 
         ```
-
-        ## Create a vm with ssh authentication.
+        ### Create a vm with ssh authentication.
 
         ```python
         import pulumi

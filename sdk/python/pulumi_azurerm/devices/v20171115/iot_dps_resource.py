@@ -30,7 +30,8 @@ class IotDpsResource(pulumi.CustomResource):
         """
         The description of the provisioning service.
 
-        ## DPSCreate
+        ## Example Usage
+        ### DPSCreate
 
         ```python
         import pulumi

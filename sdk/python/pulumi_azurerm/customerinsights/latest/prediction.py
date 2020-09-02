@@ -39,7 +39,8 @@ class Prediction(pulumi.CustomResource):
         """
         The prediction resource format.
 
-        ## Predictions_CreateOrUpdate
+        ## Example Usage
+        ### Predictions_CreateOrUpdate
 
         ```python
         import pulumi

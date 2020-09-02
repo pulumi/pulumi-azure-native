@@ -29,7 +29,8 @@ class StorageDomain(pulumi.CustomResource):
         """
         The storage domain.
 
-        ## StorageDomainsCreateOrUpdate
+        ## Example Usage
+        ### StorageDomainsCreateOrUpdate
 
         ```python
         import pulumi

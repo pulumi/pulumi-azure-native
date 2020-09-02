@@ -30,7 +30,8 @@ class EventHub(pulumi.CustomResource):
         """
         Single item in List or Get Event Hub operation
 
-        ## EventHubCreate
+        ## Example Usage
+        ### EventHubCreate
 
         ```python
         import pulumi

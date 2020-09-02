@@ -26,7 +26,8 @@ class FileShare(pulumi.CustomResource):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
 
-        ## PutShares
+        ## Example Usage
+        ### PutShares
 
         ```python
         import pulumi

@@ -31,7 +31,8 @@ class MachineLearningCompute(pulumi.CustomResource):
         """
         Machine Learning compute object wrapped into ARM resource envelope.
 
-        ## Create AKS Compute
+        ## Example Usage
+        ### Create AKS Compute
 
         ```python
         import pulumi
@@ -44,8 +45,7 @@ class MachineLearningCompute(pulumi.CustomResource):
             workspace_name="workspaces123")
 
         ```
-
-        ## Create a AML Compute
+        ### Create a AML Compute
 
         ```python
         import pulumi
@@ -62,8 +62,7 @@ class MachineLearningCompute(pulumi.CustomResource):
             workspace_name="workspaces123")
 
         ```
-
-        ## Create a DataFactory Compute
+        ### Create a DataFactory Compute
 
         ```python
         import pulumi
@@ -76,8 +75,7 @@ class MachineLearningCompute(pulumi.CustomResource):
             workspace_name="workspaces123")
 
         ```
-
-        ## Update a AKS Compute
+        ### Update a AKS Compute
 
         ```python
         import pulumi
@@ -91,8 +89,7 @@ class MachineLearningCompute(pulumi.CustomResource):
             workspace_name="workspaces123")
 
         ```
-
-        ## Update a AML Compute
+        ### Update a AML Compute
 
         ```python
         import pulumi

@@ -42,7 +42,8 @@ class DatabaseAccount(pulumi.CustomResource):
         """
         An Azure Cosmos DB database account.
 
-        ## CosmosDBDatabaseAccountCreateMax
+        ## Example Usage
+        ### CosmosDBDatabaseAccountCreateMax
 
         ```python
         import pulumi
@@ -81,8 +82,7 @@ class DatabaseAccount(pulumi.CustomResource):
             }])
 
         ```
-
-        ## CosmosDBDatabaseAccountCreateMin
+        ### CosmosDBDatabaseAccountCreateMin
 
         ```python
         import pulumi

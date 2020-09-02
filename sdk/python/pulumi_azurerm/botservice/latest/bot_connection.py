@@ -32,7 +32,8 @@ class BotConnection(pulumi.CustomResource):
         """
         Bot channel resource definition
 
-        ## Create Connection Setting
+        ## Example Usage
+        ### Create Connection Setting
 
         ```python
         import pulumi

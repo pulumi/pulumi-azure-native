@@ -38,7 +38,8 @@ class Incident(pulumi.CustomResource):
         """
         Represents an incident in Azure Security Insights.
 
-        ## Creates or updates an incident.
+        ## Example Usage
+        ### Creates or updates an incident.
 
         ```python
         import pulumi

@@ -30,7 +30,8 @@ class Connection(pulumi.CustomResource):
         """
         Definition of the connection.
 
-        ## Create or update connection
+        ## Example Usage
+        ### Create or update connection
 
         ```python
         import pulumi

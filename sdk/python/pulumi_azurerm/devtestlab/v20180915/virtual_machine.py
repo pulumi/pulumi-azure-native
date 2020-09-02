@@ -59,7 +59,8 @@ class VirtualMachine(pulumi.CustomResource):
         """
         A virtual machine.
 
-        ## VirtualMachines_CreateOrUpdate
+        ## Example Usage
+        ### VirtualMachines_CreateOrUpdate
 
         ```python
         import pulumi

@@ -33,7 +33,8 @@ class Cluster(pulumi.CustomResource):
         """
         Information about a Cluster.
 
-        ## Create a cluster
+        ## Example Usage
+        ### Create a cluster
 
         ```python
         import pulumi

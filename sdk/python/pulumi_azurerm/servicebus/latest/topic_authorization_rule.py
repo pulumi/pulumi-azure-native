@@ -26,7 +26,8 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         """
         Description of a namespace authorization rule.
 
-        ## TopicAuthorizationRuleCreate
+        ## Example Usage
+        ### TopicAuthorizationRuleCreate
 
         ```python
         import pulumi

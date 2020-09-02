@@ -27,7 +27,8 @@ class Gallery(pulumi.CustomResource):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
 
-        ## Create or update a simple gallery.
+        ## Example Usage
+        ### Create or update a simple gallery.
 
         ```python
         import pulumi

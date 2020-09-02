@@ -31,7 +31,8 @@ class Product(pulumi.CustomResource):
         """
         Product details.
 
-        ## ApiManagementCreateProductBasic
+        ## Example Usage
+        ### ApiManagementCreateProductBasic
 
         ```python
         import pulumi

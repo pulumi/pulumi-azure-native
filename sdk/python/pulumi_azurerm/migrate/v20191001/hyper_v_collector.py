@@ -26,7 +26,8 @@ class HyperVCollector(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## HyperVCollectors_Create
+        ## Example Usage
+        ### HyperVCollectors_Create
 
         ```python
         import pulumi

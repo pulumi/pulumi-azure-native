@@ -28,7 +28,8 @@ class Controller(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## ControllersCreate
+        ## Example Usage
+        ### ControllersCreate
 
         ```python
         import pulumi

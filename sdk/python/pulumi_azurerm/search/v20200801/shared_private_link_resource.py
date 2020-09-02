@@ -27,7 +27,8 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         """
         Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 
-        ## SharedPrivateLinkResourceCreateOrUpdate
+        ## Example Usage
+        ### SharedPrivateLinkResourceCreateOrUpdate
 
         ```python
         import pulumi

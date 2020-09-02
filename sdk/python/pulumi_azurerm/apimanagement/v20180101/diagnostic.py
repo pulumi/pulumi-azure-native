@@ -25,7 +25,8 @@ class Diagnostic(pulumi.CustomResource):
         """
         Diagnostic details.
 
-        ## ApiManagementCreateDiagnostic
+        ## Example Usage
+        ### ApiManagementCreateDiagnostic
 
         ```python
         import pulumi

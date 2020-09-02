@@ -28,7 +28,8 @@ class Vault(pulumi.CustomResource):
         """
         Resource information with extended details.
 
-        ## Create a new vault or update an existing vault
+        ## Example Usage
+        ### Create a new vault or update an existing vault
 
         ```python
         import pulumi
@@ -40,8 +41,7 @@ class Vault(pulumi.CustomResource):
             vault_name="sample-vault")
 
         ```
-
-        ## Create or update a vault with network acls
+        ### Create or update a vault with network acls
 
         ```python
         import pulumi

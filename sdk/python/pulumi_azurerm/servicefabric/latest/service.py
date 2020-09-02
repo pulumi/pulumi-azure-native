@@ -39,7 +39,8 @@ class Service(pulumi.CustomResource):
         """
         The service resource.
 
-        ## Put a service with maximum parameters
+        ## Example Usage
+        ### Put a service with maximum parameters
 
         ```python
         import pulumi
@@ -70,8 +71,7 @@ class Service(pulumi.CustomResource):
             service_type_name="myServiceType")
 
         ```
-
-        ## Put a service with minimum parameters
+        ### Put a service with minimum parameters
 
         ```python
         import pulumi

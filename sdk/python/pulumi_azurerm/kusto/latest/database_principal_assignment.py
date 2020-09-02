@@ -29,7 +29,8 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         """
         Class representing a database principal assignment.
 
-        ## KustoDatabasePrincipalAssignmentsCreateOrUpdate
+        ## Example Usage
+        ### KustoDatabasePrincipalAssignmentsCreateOrUpdate
 
         ```python
         import pulumi

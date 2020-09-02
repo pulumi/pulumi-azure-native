@@ -26,7 +26,8 @@ class HybridConnection(pulumi.CustomResource):
         """
         Description of HybridConnection Resource.
 
-        ## RelayHybridConnectionCreate
+        ## Example Usage
+        ### RelayHybridConnectionCreate
 
         ```python
         import pulumi

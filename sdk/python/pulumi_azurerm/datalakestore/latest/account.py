@@ -38,7 +38,8 @@ class Account(pulumi.CustomResource):
         """
         Data Lake Store account information.
 
-        ## Creates the specified Data Lake Store account
+        ## Example Usage
+        ### Creates the specified Data Lake Store account
 
         ```python
         import pulumi

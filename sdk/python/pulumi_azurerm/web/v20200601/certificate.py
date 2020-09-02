@@ -34,7 +34,8 @@ class Certificate(pulumi.CustomResource):
         """
         SSL certificate for an app.
 
-        ## Create Or Update Certificate
+        ## Example Usage
+        ### Create Or Update Certificate
 
         ```python
         import pulumi

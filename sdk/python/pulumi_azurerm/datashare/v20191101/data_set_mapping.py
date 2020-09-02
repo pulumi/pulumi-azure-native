@@ -26,7 +26,8 @@ class DataSetMapping(pulumi.CustomResource):
         """
         A data set mapping data transfer object.
 
-        ## DataSetMappings_Create
+        ## Example Usage
+        ### DataSetMappings_Create
 
         ```python
         import pulumi
@@ -40,8 +41,7 @@ class DataSetMapping(pulumi.CustomResource):
             share_subscription_name="ShareSubscription1")
 
         ```
-
-        ## DataSetMappings_SqlDB_Create
+        ### DataSetMappings_SqlDB_Create
 
         ```python
         import pulumi
@@ -55,8 +55,7 @@ class DataSetMapping(pulumi.CustomResource):
             share_subscription_name="ShareSubscription1")
 
         ```
-
-        ## DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+        ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
 
         ```python
         import pulumi
@@ -70,8 +69,7 @@ class DataSetMapping(pulumi.CustomResource):
             share_subscription_name="ShareSubscription1")
 
         ```
-
-        ## DataSetMappings_SqlDW_Create
+        ### DataSetMappings_SqlDW_Create
 
         ```python
         import pulumi

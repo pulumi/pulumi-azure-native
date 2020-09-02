@@ -29,7 +29,8 @@ class MasterSiteSite(pulumi.CustomResource):
         """
         Site REST Resource.
 
-        ## Create Master site
+        ## Example Usage
+        ### Create Master site
 
         ```python
         import pulumi

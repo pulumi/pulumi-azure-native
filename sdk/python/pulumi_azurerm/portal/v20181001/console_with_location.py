@@ -24,7 +24,8 @@ class ConsoleWithLocation(pulumi.CustomResource):
         """
         Cloud shell console
 
-        ## PutConsole
+        ## Example Usage
+        ### PutConsole
 
         ```python
         import pulumi

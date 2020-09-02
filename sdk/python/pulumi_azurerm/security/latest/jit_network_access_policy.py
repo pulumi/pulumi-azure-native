@@ -27,7 +27,8 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## Create JIT network access policy
+        ## Example Usage
+        ### Create JIT network access policy
 
         ```python
         import pulumi

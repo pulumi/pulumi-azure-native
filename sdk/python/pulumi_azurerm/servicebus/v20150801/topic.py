@@ -41,7 +41,8 @@ class Topic(pulumi.CustomResource):
         """
         Description of topic resource.
 
-        ## TopicCreate
+        ## Example Usage
+        ### TopicCreate
 
         ```python
         import pulumi

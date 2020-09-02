@@ -30,7 +30,8 @@ class VirtualApplianceSite(pulumi.CustomResource):
         """
         Virtual Appliance Site resource.
 
-        ## Create Network Virtual Appliance Site
+        ## Example Usage
+        ### Create Network Virtual Appliance Site
 
         ```python
         import pulumi

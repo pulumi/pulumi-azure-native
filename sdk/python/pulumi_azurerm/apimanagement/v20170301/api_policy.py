@@ -26,7 +26,8 @@ class ApiPolicy(pulumi.CustomResource):
         """
         Policy Contract details.
 
-        ## ApiManagementCreateApiPolicy
+        ## Example Usage
+        ### ApiManagementCreateApiPolicy
 
         ```python
         import pulumi

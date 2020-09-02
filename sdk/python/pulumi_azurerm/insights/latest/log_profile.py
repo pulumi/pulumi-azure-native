@@ -31,7 +31,8 @@ class LogProfile(pulumi.CustomResource):
         """
         The log profile resource.
 
-        ## Create or update a log profile
+        ## Example Usage
+        ### Create or update a log profile
 
         ```python
         import pulumi

@@ -36,7 +36,8 @@ class MachineExtension(pulumi.CustomResource):
         """
         Describes a Machine Extension.
 
-        ## Create or Update a Machine Extension
+        ## Example Usage
+        ### Create or Update a Machine Extension
 
         ```python
         import pulumi

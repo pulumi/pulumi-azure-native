@@ -45,7 +45,8 @@ class ManagedCluster(pulumi.CustomResource):
         """
         Managed cluster.
 
-        ## Create Managed Cluster with PPG
+        ## Example Usage
+        ### Create Managed Cluster with PPG
 
         ```python
         import pulumi
@@ -110,8 +111,7 @@ class ManagedCluster(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create/Update AAD Managed Cluster with EnableAzureRBAC
+        ### Create/Update AAD Managed Cluster with EnableAzureRBAC
 
         ```python
         import pulumi
@@ -184,8 +184,7 @@ class ManagedCluster(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create/Update Managed Cluster
+        ### Create/Update Managed Cluster
 
         ```python
         import pulumi
@@ -257,8 +256,7 @@ class ManagedCluster(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create/Update Managed Cluster with EnableAHUB
+        ### Create/Update Managed Cluster with EnableAHUB
 
         ```python
         import pulumi

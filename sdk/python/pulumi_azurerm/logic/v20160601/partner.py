@@ -31,7 +31,8 @@ class Partner(pulumi.CustomResource):
         """
         The integration account partner.
 
-        ## Create or update a partner
+        ## Example Usage
+        ### Create or update a partner
 
         ```python
         import pulumi

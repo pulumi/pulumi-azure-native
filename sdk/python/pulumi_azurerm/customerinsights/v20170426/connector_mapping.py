@@ -33,7 +33,8 @@ class ConnectorMapping(pulumi.CustomResource):
         """
         The connector mapping resource format.
 
-        ## ConnectorMappings_CreateOrUpdate
+        ## Example Usage
+        ### ConnectorMappings_CreateOrUpdate
 
         ```python
         import pulumi

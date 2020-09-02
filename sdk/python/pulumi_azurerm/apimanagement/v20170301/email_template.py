@@ -31,7 +31,8 @@ class EmailTemplate(pulumi.CustomResource):
         """
         Email Template details.
 
-        ## ApiManagementCreateEmailTemplate
+        ## Example Usage
+        ### ApiManagementCreateEmailTemplate
 
         ```python
         import pulumi

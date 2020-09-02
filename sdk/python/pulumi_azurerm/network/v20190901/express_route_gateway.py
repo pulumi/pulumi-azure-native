@@ -30,7 +30,8 @@ class ExpressRouteGateway(pulumi.CustomResource):
         """
         ExpressRoute gateway resource.
 
-        ## ExpressRouteGatewayCreate
+        ## Example Usage
+        ### ExpressRouteGatewayCreate
 
         ```python
         import pulumi

@@ -31,7 +31,8 @@ class App(pulumi.CustomResource):
         """
         The IoT Central application.
 
-        ## Apps_CreateOrUpdate
+        ## Example Usage
+        ### Apps_CreateOrUpdate
 
         ```python
         import pulumi

@@ -26,7 +26,8 @@ class ResourceGroup(pulumi.CustomResource):
         """
         Resource group information.
 
-        ## Create or update a resource group
+        ## Example Usage
+        ### Create or update a resource group
 
         ```python
         import pulumi

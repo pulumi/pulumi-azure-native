@@ -28,7 +28,8 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         """
         Maintenance configuration record type
 
-        ## MaintenanceConfigurations_CreateOrUpdateForResource
+        ## Example Usage
+        ### MaintenanceConfigurations_CreateOrUpdateForResource
 
         ```python
         import pulumi

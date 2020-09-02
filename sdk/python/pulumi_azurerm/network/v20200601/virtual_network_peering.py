@@ -36,7 +36,8 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         """
         Peerings in a virtual network resource.
 
-        ## Create peering
+        ## Example Usage
+        ### Create peering
 
         ```python
         import pulumi

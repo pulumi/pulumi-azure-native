@@ -26,7 +26,8 @@ class ApiRelease(pulumi.CustomResource):
         """
         ApiRelease details.
 
-        ## ApiManagementCreateApiRelease
+        ## Example Usage
+        ### ApiManagementCreateApiRelease
 
         ```python
         import pulumi

@@ -36,7 +36,8 @@ class LiveEvent(pulumi.CustomResource):
         """
         The Live Event.
 
-        ## Create a LiveEvent
+        ## Example Usage
+        ### Create a LiveEvent
 
         ```python
         import pulumi

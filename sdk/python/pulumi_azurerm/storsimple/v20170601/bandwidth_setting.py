@@ -28,7 +28,8 @@ class BandwidthSetting(pulumi.CustomResource):
         """
         The bandwidth setting.
 
-        ## BandwidthSettingsCreateOrUpdate
+        ## Example Usage
+        ### BandwidthSettingsCreateOrUpdate
 
         ```python
         import pulumi

@@ -36,7 +36,8 @@ class FrontDoor(pulumi.CustomResource):
         """
         Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 
-        ## Create or update specific Front Door
+        ## Example Usage
+        ### Create or update specific Front Door
 
         ```python
         import pulumi

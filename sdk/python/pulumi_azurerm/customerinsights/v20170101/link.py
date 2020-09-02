@@ -34,7 +34,8 @@ class Link(pulumi.CustomResource):
         """
         The link resource format.
 
-        ## Links_CreateOrUpdate
+        ## Example Usage
+        ### Links_CreateOrUpdate
 
         ```python
         import pulumi

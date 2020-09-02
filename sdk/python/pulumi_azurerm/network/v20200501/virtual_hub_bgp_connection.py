@@ -28,7 +28,8 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         """
         Virtual Appliance Site resource.
 
-        ## VirtualHubRouteTableV2Put
+        ## Example Usage
+        ### VirtualHubRouteTableV2Put
 
         ```python
         import pulumi

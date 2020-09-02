@@ -28,7 +28,8 @@ class Asset(pulumi.CustomResource):
         """
         An Asset.
 
-        ## Create an Asset
+        ## Example Usage
+        ### Create an Asset
 
         ```python
         import pulumi

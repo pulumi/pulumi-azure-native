@@ -34,7 +34,8 @@ class SavedSearch(pulumi.CustomResource):
         """
         Value object for saved search results.
 
-        ## SavedSearchCreateOrUpdate
+        ## Example Usage
+        ### SavedSearchCreateOrUpdate
 
         ```python
         import pulumi

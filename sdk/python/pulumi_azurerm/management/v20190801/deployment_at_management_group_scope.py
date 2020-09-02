@@ -27,7 +27,8 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
         """
         Deployment information.
 
-        ## Create deployment at management group scope.
+        ## Example Usage
+        ### Create deployment at management group scope.
 
         ```python
         import pulumi

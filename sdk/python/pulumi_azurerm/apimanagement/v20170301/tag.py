@@ -25,7 +25,8 @@ class Tag(pulumi.CustomResource):
         """
         Tag Contract details.
 
-        ## ApiManagementCreateTag
+        ## Example Usage
+        ### ApiManagementCreateTag
 
         ```python
         import pulumi

@@ -26,7 +26,8 @@ class PatchSchedule(pulumi.CustomResource):
         """
         Response to put/get patch schedules for Redis cache.
 
-        ## RedisCachePatchSchedulesCreateOrUpdate
+        ## Example Usage
+        ### RedisCachePatchSchedulesCreateOrUpdate
 
         ```python
         import pulumi

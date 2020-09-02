@@ -26,7 +26,8 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
         """
         Deployment information.
 
-        ## Create deployment at tenant scope.
+        ## Example Usage
+        ### Create deployment at tenant scope.
 
         ```python
         import pulumi

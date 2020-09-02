@@ -25,7 +25,8 @@ class ContentItem(pulumi.CustomResource):
         """
         Content type contract details.
 
-        ## ApiManagementCreateContentItem
+        ## Example Usage
+        ### ApiManagementCreateContentItem
 
         ```python
         import pulumi

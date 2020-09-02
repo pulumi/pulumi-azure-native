@@ -27,7 +27,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The private endpoint connection of an IotHub
 
-        ## PrivateEndpointConnection_Update
+        ## Example Usage
+        ### PrivateEndpointConnection_Update
 
         ```python
         import pulumi

@@ -28,7 +28,8 @@ class ComputePolicy(pulumi.CustomResource):
         """
         Data Lake Analytics compute policy information.
 
-        ## Creates or updates the specified compute policy
+        ## Example Usage
+        ### Creates or updates the specified compute policy
 
         ```python
         import pulumi

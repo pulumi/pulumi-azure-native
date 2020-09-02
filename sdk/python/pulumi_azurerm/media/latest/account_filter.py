@@ -29,7 +29,8 @@ class AccountFilter(pulumi.CustomResource):
         """
         An Account Filter.
 
-        ## Create an Account Filter
+        ## Example Usage
+        ### Create an Account Filter
 
         ```python
         import pulumi

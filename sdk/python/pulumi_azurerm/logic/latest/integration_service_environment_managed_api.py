@@ -25,7 +25,8 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
         """
         The managed api definition.
 
-        ## Gets the integration service environment managed Apis
+        ## Example Usage
+        ### Gets the integration service environment managed Apis
 
         ```python
         import pulumi

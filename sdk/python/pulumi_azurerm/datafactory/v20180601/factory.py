@@ -30,7 +30,8 @@ class Factory(pulumi.CustomResource):
         """
         Factory resource type.
 
-        ## Factories_CreateOrUpdate
+        ## Example Usage
+        ### Factories_CreateOrUpdate
 
         ```python
         import pulumi

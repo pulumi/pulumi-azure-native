@@ -33,7 +33,8 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         """
         HubVirtualNetworkConnection Resource.
 
-        ## HubVirtualNetworkConnectionPut
+        ## Example Usage
+        ### HubVirtualNetworkConnectionPut
 
         ```python
         import pulumi

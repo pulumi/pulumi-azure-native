@@ -32,7 +32,8 @@ class VirtualRouter(pulumi.CustomResource):
         """
         VirtualRouter Resource.
 
-        ## Create VirtualRouter
+        ## Example Usage
+        ### Create VirtualRouter
 
         ```python
         import pulumi

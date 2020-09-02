@@ -42,7 +42,8 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         """
         Describes a Virtual Machine Scale Set.
 
-        ## Create a custom-image scale set from an unmanaged generalized os image.
+        ## Example Usage
+        ### Create a custom-image scale set from an unmanaged generalized os image.
 
         ```python
         import pulumi
@@ -85,8 +86,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a platform-image scale set with unmanaged os disks.
+        ### Create a platform-image scale set with unmanaged os disks.
 
         ```python
         import pulumi
@@ -139,8 +139,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set from a custom image.
+        ### Create a scale set from a custom image.
 
         ```python
         import pulumi
@@ -185,8 +184,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with DiskEncryptionSet resource in os disk and data disk.
+        ### Create a scale set with DiskEncryptionSet resource in os disk and data disk.
 
         ```python
         import pulumi
@@ -246,8 +244,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with a marketplace image plan.
+        ### Create a scale set with a marketplace image plan.
 
         ```python
         import pulumi
@@ -300,57 +297,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with an azure application gateway.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        virtual_machine_scale_set = azurerm.compute.v20190701.VirtualMachineScaleSet("virtualMachineScaleSet",
-            location="westus",
-            overprovision=True,
-            resource_group_name="myResourceGroup",
-            sku={
-                "capacity": 3,
-                "name": "Standard_D1_v2",
-                "tier": "Standard",
-            },
-            upgrade_policy={
-                "mode": "Manual",
-            },
-            virtual_machine_profile={
-                "networkProfile": {
-                    "networkInterfaceConfigurations": [{
-                        "name": "{vmss-name}",
-                    }],
-                },
-                "osProfile": {
-                    "adminPassword": "{your-password}",
-                    "adminUsername": "{your-username}",
-                    "computerNamePrefix": "{vmss-name}",
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "offer": "WindowsServer",
-                        "publisher": "MicrosoftWindowsServer",
-                        "sku": "2016-Datacenter",
-                        "version": "latest",
-                    },
-                    "osDisk": {
-                        "caching": "ReadWrite",
-                        "createOption": "FromImage",
-                        "managedDisk": {
-                            "storageAccountType": "Standard_LRS",
-                        },
-                    },
-                },
-            },
-            vm_scale_set_name="{vmss-name}")
-
-        ```
-
-        ## Create a scale set with an azure load balancer.
+        ### Create a scale set with an azure application gateway.
 
         ```python
         import pulumi
@@ -398,8 +345,55 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
+        ### Create a scale set with an azure load balancer.
 
-        ## Create a scale set with automatic repairs enabled
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_machine_scale_set = azurerm.compute.v20190701.VirtualMachineScaleSet("virtualMachineScaleSet",
+            location="westus",
+            overprovision=True,
+            resource_group_name="myResourceGroup",
+            sku={
+                "capacity": 3,
+                "name": "Standard_D1_v2",
+                "tier": "Standard",
+            },
+            upgrade_policy={
+                "mode": "Manual",
+            },
+            virtual_machine_profile={
+                "networkProfile": {
+                    "networkInterfaceConfigurations": [{
+                        "name": "{vmss-name}",
+                    }],
+                },
+                "osProfile": {
+                    "adminPassword": "{your-password}",
+                    "adminUsername": "{your-username}",
+                    "computerNamePrefix": "{vmss-name}",
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "offer": "WindowsServer",
+                        "publisher": "MicrosoftWindowsServer",
+                        "sku": "2016-Datacenter",
+                        "version": "latest",
+                    },
+                    "osDisk": {
+                        "caching": "ReadWrite",
+                        "createOption": "FromImage",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS",
+                        },
+                    },
+                },
+            },
+            vm_scale_set_name="{vmss-name}")
+
+        ```
+        ### Create a scale set with automatic repairs enabled
 
         ```python
         import pulumi
@@ -451,8 +445,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with boot diagnostics.
+        ### Create a scale set with boot diagnostics.
 
         ```python
         import pulumi
@@ -506,8 +499,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with empty data disks on each vm.
+        ### Create a scale set with empty data disks on each vm.
 
         ```python
         import pulumi
@@ -568,8 +560,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with ephemeral os disks.
+        ### Create a scale set with ephemeral os disks.
 
         ```python
         import pulumi
@@ -625,8 +616,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with password authentication.
+        ### Create a scale set with password authentication.
 
         ```python
         import pulumi
@@ -674,8 +664,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with premium storage.
+        ### Create a scale set with premium storage.
 
         ```python
         import pulumi
@@ -723,8 +712,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with ssh authentication.
+        ### Create a scale set with ssh authentication.
 
         ```python
         import pulumi
@@ -780,8 +768,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with terminate scheduled events enabled.
+        ### Create a scale set with terminate scheduled events enabled.
 
         ```python
         import pulumi
@@ -835,8 +822,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             vm_scale_set_name="{vmss-name}")
 
         ```
-
-        ## Create a scale set with virtual machines in different zones.
+        ### Create a scale set with virtual machines in different zones.
 
         ```python
         import pulumi

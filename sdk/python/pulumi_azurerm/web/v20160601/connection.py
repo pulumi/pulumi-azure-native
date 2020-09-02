@@ -29,7 +29,8 @@ class Connection(pulumi.CustomResource):
         """
         API connection
 
-        ## Replace a connection
+        ## Example Usage
+        ### Replace a connection
 
         ```python
         import pulumi

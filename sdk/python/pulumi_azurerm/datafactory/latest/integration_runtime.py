@@ -27,7 +27,8 @@ class IntegrationRuntime(pulumi.CustomResource):
         """
         Integration runtime resource type.
 
-        ## IntegrationRuntimes_Create
+        ## Example Usage
+        ### IntegrationRuntimes_Create
 
         ```python
         import pulumi

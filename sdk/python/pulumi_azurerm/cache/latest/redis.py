@@ -36,7 +36,8 @@ class Redis(pulumi.CustomResource):
         """
         A single Redis item in List or Get Operation.
 
-        ## RedisCacheCreate
+        ## Example Usage
+        ### RedisCacheCreate
 
         ```python
         import pulumi

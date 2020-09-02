@@ -29,7 +29,8 @@ class ReplicationMigrationItem(pulumi.CustomResource):
         """
         Migration item.
 
-        ## Enables migration.
+        ## Example Usage
+        ### Enables migration.
 
         ```python
         import pulumi

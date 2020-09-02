@@ -32,7 +32,8 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
         """
         An Azure Cosmos DB userDefinedFunction.
 
-        ## CosmosDBSqlUserDefinedFunctionCreateUpdate
+        ## Example Usage
+        ### CosmosDBSqlUserDefinedFunctionCreateUpdate
 
         ```python
         import pulumi

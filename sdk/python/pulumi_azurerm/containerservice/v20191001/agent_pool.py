@@ -40,7 +40,8 @@ class AgentPool(pulumi.CustomResource):
         """
         Agent Pool.
 
-        ## Create/Update Agent Pool
+        ## Example Usage
+        ### Create/Update Agent Pool
 
         ```python
         import pulumi
@@ -59,8 +60,7 @@ class AgentPool(pulumi.CustomResource):
             vm_size="Standard_DS1_v2")
 
         ```
-
-        ## Update Agent Pool
+        ### Update Agent Pool
 
         ```python
         import pulumi

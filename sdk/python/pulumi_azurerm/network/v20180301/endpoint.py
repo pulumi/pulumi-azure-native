@@ -40,7 +40,8 @@ class Endpoint(pulumi.CustomResource):
         """
         Class representing a Traffic Manager endpoint.
 
-        ## Endpoint-PUT-External-WithCustomHeaders
+        ## Example Usage
+        ### Endpoint-PUT-External-WithCustomHeaders
 
         ```python
         import pulumi
@@ -68,8 +69,7 @@ class Endpoint(pulumi.CustomResource):
             type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
 
         ```
-
-        ## Endpoint-PUT-External-WithGeoMapping
+        ### Endpoint-PUT-External-WithGeoMapping
 
         ```python
         import pulumi
@@ -90,8 +90,7 @@ class Endpoint(pulumi.CustomResource):
             type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
 
         ```
-
-        ## Endpoint-PUT-External-WithLocation
+        ### Endpoint-PUT-External-WithLocation
 
         ```python
         import pulumi

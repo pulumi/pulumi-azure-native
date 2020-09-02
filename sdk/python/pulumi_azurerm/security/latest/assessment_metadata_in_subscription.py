@@ -35,7 +35,8 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         """
         Security assessment metadata
 
-        ## Create security assessment metadata for subscription
+        ## Example Usage
+        ### Create security assessment metadata for subscription
 
         ```python
         import pulumi

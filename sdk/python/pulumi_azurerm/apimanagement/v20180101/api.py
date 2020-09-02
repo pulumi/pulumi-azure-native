@@ -44,7 +44,8 @@ class Api(pulumi.CustomResource):
         """
         API details.
 
-        ## ApiManagementCreateApi
+        ## Example Usage
+        ### ApiManagementCreateApi
 
         ```python
         import pulumi
@@ -74,8 +75,7 @@ class Api(pulumi.CustomResource):
             })
 
         ```
-
-        ## ApiManagementCreateApiRevision
+        ### ApiManagementCreateApiRevision
 
         ```python
         import pulumi
@@ -97,8 +97,7 @@ class Api(pulumi.CustomResource):
             })
 
         ```
-
-        ## ApiManagementCreateApiUsingSwaggerImport
+        ### ApiManagementCreateApiUsingSwaggerImport
 
         ```python
         import pulumi
@@ -113,8 +112,7 @@ class Api(pulumi.CustomResource):
             service_name="apimService1")
 
         ```
-
-        ## ApiManagementCreateApiUsingWadlImport
+        ### ApiManagementCreateApiUsingWadlImport
 
         ```python
         import pulumi
@@ -129,8 +127,7 @@ class Api(pulumi.CustomResource):
             service_name="apimService1")
 
         ```
-
-        ## ApiManagementCreateApiWithOpenIdConnect
+        ### ApiManagementCreateApiWithOpenIdConnect
 
         ```python
         import pulumi
@@ -157,8 +154,7 @@ class Api(pulumi.CustomResource):
             })
 
         ```
-
-        ## ApiManagementCreateSoapPassThroughApiUsingWsdlImport
+        ### ApiManagementCreateSoapPassThroughApiUsingWsdlImport
 
         ```python
         import pulumi
@@ -178,8 +174,7 @@ class Api(pulumi.CustomResource):
             })
 
         ```
-
-        ## ApiManagementCreateSoapToRestApiUsingWsdlImport
+        ### ApiManagementCreateSoapToRestApiUsingWsdlImport
 
         ```python
         import pulumi

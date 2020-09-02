@@ -28,7 +28,8 @@ class WCFRelay(pulumi.CustomResource):
         """
         Description of WcfRelays Resource.
 
-        ## RelayCreate
+        ## Example Usage
+        ### RelayCreate
 
         ```python
         import pulumi

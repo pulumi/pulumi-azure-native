@@ -30,7 +30,8 @@ class DscNodeConfiguration(pulumi.CustomResource):
         """
         Definition of the dsc node configuration.
 
-        ## Get a DSC node configuration
+        ## Example Usage
+        ### Get a DSC node configuration
 
         ```python
         import pulumi

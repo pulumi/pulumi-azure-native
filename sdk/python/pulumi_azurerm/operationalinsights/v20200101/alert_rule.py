@@ -26,7 +26,8 @@ class AlertRule(pulumi.CustomResource):
         """
         Alert rule.
 
-        ## Creates or updates a Fusion alert rule.
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule.
 
         ```python
         import pulumi
@@ -40,8 +41,7 @@ class AlertRule(pulumi.CustomResource):
             workspace_name="myWorkspace")
 
         ```
-
-        ## Creates or updates a MicrosoftSecurityIncidentCreation rule.
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
 
         ```python
         import pulumi
@@ -55,8 +55,7 @@ class AlertRule(pulumi.CustomResource):
             workspace_name="myWorkspace")
 
         ```
-
-        ## Creates or updates a Scheduled alert rule.
+        ### Creates or updates a Scheduled alert rule.
 
         ```python
         import pulumi

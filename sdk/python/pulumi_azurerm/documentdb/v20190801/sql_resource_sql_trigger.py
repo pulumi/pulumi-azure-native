@@ -32,7 +32,8 @@ class SqlResourceSqlTrigger(pulumi.CustomResource):
         """
         An Azure Cosmos DB trigger.
 
-        ## CosmosDBSqlTriggerCreateUpdate
+        ## Example Usage
+        ### CosmosDBSqlTriggerCreateUpdate
 
         ```python
         import pulumi

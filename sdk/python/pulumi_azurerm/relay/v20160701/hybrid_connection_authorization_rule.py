@@ -26,7 +26,8 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         """
         Description of a Namespace AuthorizationRules.
 
-        ## RelayHybridConnectionAuthorizationRuleCreate
+        ## Example Usage
+        ### RelayHybridConnectionAuthorizationRuleCreate
 
         ```python
         import pulumi

@@ -36,7 +36,8 @@ class OpenShiftCluster(pulumi.CustomResource):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
 
-        ## Creates or updates a OpenShift cluster with the specified subscription, resource group and resource name.
+        ## Example Usage
+        ### Creates or updates a OpenShift cluster with the specified subscription, resource group and resource name.
 
         ```python
         import pulumi

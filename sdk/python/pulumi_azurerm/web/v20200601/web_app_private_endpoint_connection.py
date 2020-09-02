@@ -28,7 +28,8 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
         """
         Private Endpoint Connection ARM resource.
 
-        ## Approves or rejects a private endpoint connection for a site.
+        ## Example Usage
+        ### Approves or rejects a private endpoint connection for a site.
 
         ```python
         import pulumi

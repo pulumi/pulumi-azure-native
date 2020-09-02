@@ -32,7 +32,8 @@ class ConnectionMonitor(pulumi.CustomResource):
         """
         Information about the connection monitor.
 
-        ## Create connection monitor
+        ## Example Usage
+        ### Create connection monitor
 
         ```python
         import pulumi

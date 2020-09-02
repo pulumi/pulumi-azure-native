@@ -33,7 +33,8 @@ class IntegrationAccountMap(pulumi.CustomResource):
         """
         The integration account map.
 
-        ## Create or update a map
+        ## Example Usage
+        ### Create or update a map
 
         ```python
         import pulumi

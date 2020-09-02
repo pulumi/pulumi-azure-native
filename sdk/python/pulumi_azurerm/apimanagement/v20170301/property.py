@@ -28,7 +28,8 @@ class Property(pulumi.CustomResource):
         """
         Property details.
 
-        ## ApiManagementCreateProperty
+        ## Example Usage
+        ### ApiManagementCreateProperty
 
         ```python
         import pulumi

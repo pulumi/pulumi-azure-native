@@ -35,7 +35,8 @@ class VpnSite(pulumi.CustomResource):
         """
         VpnSite Resource.
 
-        ## VpnSiteCreate
+        ## Example Usage
+        ### VpnSiteCreate
 
         ```python
         import pulumi

@@ -44,7 +44,8 @@ class Cluster(pulumi.CustomResource):
         """
         The cluster resource
 
-        ## Put a cluster with maximum parameters
+        ## Example Usage
+        ### Put a cluster with maximum parameters
 
         ```python
         import pulumi
@@ -168,8 +169,7 @@ class Cluster(pulumi.CustomResource):
             vm_image="Windows")
 
         ```
-
-        ## Put a cluster with minimum parameters
+        ### Put a cluster with minimum parameters
 
         ```python
         import pulumi

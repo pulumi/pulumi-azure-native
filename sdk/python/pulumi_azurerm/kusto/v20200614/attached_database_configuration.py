@@ -28,7 +28,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Class representing an attached database configuration.
 
-        ## AttachedDatabaseConfigurationsCreateOrUpdate
+        ## Example Usage
+        ### AttachedDatabaseConfigurationsCreateOrUpdate
 
         ```python
         import pulumi

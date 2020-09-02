@@ -26,14 +26,15 @@ class ApiRelease(pulumi.CustomResource):
         """
         ApiRelease details.
 
-        ## ApiManagementCreateApiRelease
+        ## Example Usage
+        ### ApiManagementCreateApiRelease
 
         ```python
         import pulumi
         import pulumi_azurerm as azurerm
 
         api_release = azurerm.apimanagement.latest.ApiRelease("apiRelease",
-            api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1",
+            api_id="a1",
             notes="yahooagain",
             release_id="testrev",
             resource_group_name="rg1",

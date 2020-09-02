@@ -28,7 +28,8 @@ class Binding(pulumi.CustomResource):
         """
         Binding resource payload
 
-        ## Bindings_CreateOrUpdate
+        ## Example Usage
+        ### Bindings_CreateOrUpdate
 
         ```python
         import pulumi

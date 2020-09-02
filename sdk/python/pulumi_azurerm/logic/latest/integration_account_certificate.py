@@ -31,7 +31,8 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         """
         The integration account certificate.
 
-        ## Create or update a certificate
+        ## Example Usage
+        ### Create or update a certificate
 
         ```python
         import pulumi

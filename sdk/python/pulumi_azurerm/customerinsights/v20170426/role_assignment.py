@@ -43,7 +43,8 @@ class RoleAssignment(pulumi.CustomResource):
         """
         The Role Assignment resource format.
 
-        ## RoleAssignments_CreateOrUpdate
+        ## Example Usage
+        ### RoleAssignments_CreateOrUpdate
 
         ```python
         import pulumi

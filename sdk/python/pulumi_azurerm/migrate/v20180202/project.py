@@ -29,7 +29,8 @@ class Project(pulumi.CustomResource):
         """
         Azure Migrate Project.
 
-        ## Projects_Create
+        ## Example Usage
+        ### Projects_Create
 
         ```python
         import pulumi

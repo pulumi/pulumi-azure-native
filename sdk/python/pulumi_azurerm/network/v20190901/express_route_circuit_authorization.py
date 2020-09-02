@@ -28,7 +28,8 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         """
         Authorization in an ExpressRouteCircuit resource.
 
-        ## Create ExpressRouteCircuit Authorization
+        ## Example Usage
+        ### Create ExpressRouteCircuit Authorization
 
         ```python
         import pulumi

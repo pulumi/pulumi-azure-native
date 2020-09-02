@@ -32,7 +32,8 @@ class IscsiDisk(pulumi.CustomResource):
         """
         The iSCSI disk.
 
-        ## IscsiDisksCreateOrUpdate
+        ## Example Usage
+        ### IscsiDisksCreateOrUpdate
 
         ```python
         import pulumi

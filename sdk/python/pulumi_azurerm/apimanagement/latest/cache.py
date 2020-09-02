@@ -27,7 +27,8 @@ class Cache(pulumi.CustomResource):
         """
         Cache details.
 
-        ## ApiManagementCreateCache
+        ## Example Usage
+        ### ApiManagementCreateCache
 
         ```python
         import pulumi

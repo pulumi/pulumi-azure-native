@@ -34,7 +34,8 @@ class Pipeline(pulumi.CustomResource):
         """
         Pipeline resource type.
 
-        ## Pipelines_Create
+        ## Example Usage
+        ### Pipelines_Create
 
         ```python
         import pulumi
@@ -69,8 +70,7 @@ class Pipeline(pulumi.CustomResource):
             })
 
         ```
-
-        ## Pipelines_Update
+        ### Pipelines_Update
 
         ```python
         import pulumi

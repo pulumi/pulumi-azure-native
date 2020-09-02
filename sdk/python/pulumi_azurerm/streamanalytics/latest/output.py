@@ -29,7 +29,8 @@ class Output(pulumi.CustomResource):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 
-        ## Create a DocumentDB output
+        ## Example Usage
+        ### Create a DocumentDB output
 
         ```python
         import pulumi
@@ -44,8 +45,7 @@ class Output(pulumi.CustomResource):
             resource_group_name="sjrg7983")
 
         ```
-
-        ## Create a Power BI output
+        ### Create a Power BI output
 
         ```python
         import pulumi
@@ -60,8 +60,7 @@ class Output(pulumi.CustomResource):
             resource_group_name="sjrg7983")
 
         ```
-
-        ## Create a Service Bus Queue output with Avro serialization
+        ### Create a Service Bus Queue output with Avro serialization
 
         ```python
         import pulumi
@@ -79,8 +78,7 @@ class Output(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a Service Bus Topic output with CSV serialization
+        ### Create a Service Bus Topic output with CSV serialization
 
         ```python
         import pulumi
@@ -98,8 +96,7 @@ class Output(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a blob output with CSV serialization
+        ### Create a blob output with CSV serialization
 
         ```python
         import pulumi
@@ -117,8 +114,7 @@ class Output(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create an Azure Data Lake Store output with JSON serialization
+        ### Create an Azure Data Lake Store output with JSON serialization
 
         ```python
         import pulumi
@@ -136,8 +132,7 @@ class Output(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create an Azure SQL database output
+        ### Create an Azure SQL database output
 
         ```python
         import pulumi
@@ -152,8 +147,7 @@ class Output(pulumi.CustomResource):
             resource_group_name="sjrg2157")
 
         ```
-
-        ## Create an Azure Table output
+        ### Create an Azure Table output
 
         ```python
         import pulumi
@@ -168,8 +162,7 @@ class Output(pulumi.CustomResource):
             resource_group_name="sjrg5176")
 
         ```
-
-        ## Create an Event Hub output with JSON serialization
+        ### Create an Event Hub output with JSON serialization
 
         ```python
         import pulumi

@@ -32,7 +32,8 @@ class DataExport(pulumi.CustomResource):
         """
         The top level data export resource container.
 
-        ## DataExportCreate
+        ## Example Usage
+        ### DataExportCreate
 
         ```python
         import pulumi

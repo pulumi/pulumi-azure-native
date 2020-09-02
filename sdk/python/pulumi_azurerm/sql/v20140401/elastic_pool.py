@@ -32,7 +32,8 @@ class ElasticPool(pulumi.CustomResource):
         """
         Represents a database elastic pool.
 
-        ## Create elastic pool max
+        ## Example Usage
+        ### Create elastic pool max
 
         ```python
         import pulumi
@@ -50,8 +51,7 @@ class ElasticPool(pulumi.CustomResource):
             storage_mb=5000)
 
         ```
-
-        ## Create elastic pool min
+        ### Create elastic pool min
 
         ```python
         import pulumi

@@ -37,7 +37,8 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
         """
         P2SVpnServerConfiguration Resource.
 
-        ## P2SVpnServerConfigurationPut
+        ## Example Usage
+        ### P2SVpnServerConfigurationPut
 
         ```python
         import pulumi

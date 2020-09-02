@@ -29,7 +29,8 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         """
         The assembly definition.
 
-        ## Create or update an account assembly
+        ## Example Usage
+        ### Create or update an account assembly
 
         ```python
         import pulumi

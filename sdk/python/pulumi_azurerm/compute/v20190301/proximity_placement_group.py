@@ -27,7 +27,8 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         """
         Specifies information about the proximity placement group.
 
-        ## Create or Update a proximity placement group.
+        ## Example Usage
+        ### Create or Update a proximity placement group.
 
         ```python
         import pulumi

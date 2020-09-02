@@ -39,7 +39,8 @@ class GalleryImage(pulumi.CustomResource):
         """
         Specifies information about the gallery Image Definition that you want to create or update.
 
-        ## Create or update a simple gallery image.
+        ## Example Usage
+        ### Create or update a simple gallery image.
 
         ```python
         import pulumi

@@ -47,7 +47,8 @@ class Api(pulumi.CustomResource):
         """
         Api details.
 
-        ## ApiManagementCreateApi
+        ## Example Usage
+        ### ApiManagementCreateApi
 
         ```python
         import pulumi
@@ -77,8 +78,7 @@ class Api(pulumi.CustomResource):
             })
 
         ```
-
-        ## ApiManagementCreateApiClone
+        ### ApiManagementCreateApiClone
 
         ```python
         import pulumi
@@ -101,8 +101,7 @@ class Api(pulumi.CustomResource):
             subscription_required=True)
 
         ```
-
-        ## ApiManagementCreateApiNewVersionUsingExistingApi
+        ### ApiManagementCreateApiNewVersionUsingExistingApi
 
         ```python
         import pulumi
@@ -127,8 +126,7 @@ class Api(pulumi.CustomResource):
             subscription_required=True)
 
         ```
-
-        ## ApiManagementCreateApiRevisionFromExistingApi
+        ### ApiManagementCreateApiRevisionFromExistingApi
 
         ```python
         import pulumi
@@ -144,8 +142,7 @@ class Api(pulumi.CustomResource):
             source_api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echo-api")
 
         ```
-
-        ## ApiManagementCreateApiUsingImportOverrideServiceUrl
+        ### ApiManagementCreateApiUsingImportOverrideServiceUrl
 
         ```python
         import pulumi
@@ -161,8 +158,7 @@ class Api(pulumi.CustomResource):
             value="http://apimpimportviaurl.azurewebsites.net/api/apidocs/")
 
         ```
-
-        ## ApiManagementCreateApiUsingOai3Import
+        ### ApiManagementCreateApiUsingOai3Import
 
         ```python
         import pulumi
@@ -177,8 +173,7 @@ class Api(pulumi.CustomResource):
             value="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml")
 
         ```
-
-        ## ApiManagementCreateApiUsingSwaggerImport
+        ### ApiManagementCreateApiUsingSwaggerImport
 
         ```python
         import pulumi
@@ -193,8 +188,7 @@ class Api(pulumi.CustomResource):
             value="http://petstore.swagger.io/v2/swagger.json")
 
         ```
-
-        ## ApiManagementCreateApiUsingWadlImport
+        ### ApiManagementCreateApiUsingWadlImport
 
         ```python
         import pulumi
@@ -209,8 +203,7 @@ class Api(pulumi.CustomResource):
             value="https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl")
 
         ```
-
-        ## ApiManagementCreateApiWithOpenIdConnect
+        ### ApiManagementCreateApiWithOpenIdConnect
 
         ```python
         import pulumi
@@ -237,8 +230,7 @@ class Api(pulumi.CustomResource):
             })
 
         ```
-
-        ## ApiManagementCreateSoapPassThroughApiUsingWsdlImport
+        ### ApiManagementCreateSoapPassThroughApiUsingWsdlImport
 
         ```python
         import pulumi
@@ -258,8 +250,7 @@ class Api(pulumi.CustomResource):
             })
 
         ```
-
-        ## ApiManagementCreateSoapToRestApiUsingWsdlImport
+        ### ApiManagementCreateSoapToRestApiUsingWsdlImport
 
         ```python
         import pulumi

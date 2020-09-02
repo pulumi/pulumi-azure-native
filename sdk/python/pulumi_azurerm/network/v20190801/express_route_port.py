@@ -34,7 +34,8 @@ class ExpressRoutePort(pulumi.CustomResource):
         """
         ExpressRoutePort resource definition.
 
-        ## ExpressRoutePortCreate
+        ## Example Usage
+        ### ExpressRoutePortCreate
 
         ```python
         import pulumi
@@ -49,8 +50,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             resource_group_name="rg1")
 
         ```
-
-        ## ExpressRoutePortUpdateLink
+        ### ExpressRoutePortUpdateLink
 
         ```python
         import pulumi

@@ -27,7 +27,8 @@ class ApiSchema(pulumi.CustomResource):
         """
         Schema Contract details.
 
-        ## ApiManagementCreateApiSchema
+        ## Example Usage
+        ### ApiManagementCreateApiSchema
 
         ```python
         import pulumi

@@ -31,7 +31,8 @@ class ExpressRouteConnection(pulumi.CustomResource):
         """
         ExpressRouteConnection resource.
 
-        ## ExpressRouteConnectionCreate
+        ## Example Usage
+        ### ExpressRouteConnectionCreate
 
         ```python
         import pulumi

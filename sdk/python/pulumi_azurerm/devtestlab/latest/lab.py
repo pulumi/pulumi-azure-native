@@ -35,7 +35,8 @@ class Lab(pulumi.CustomResource):
         """
         A lab.
 
-        ## Labs_CreateOrUpdate
+        ## Example Usage
+        ### Labs_CreateOrUpdate
 
         ```python
         import pulumi

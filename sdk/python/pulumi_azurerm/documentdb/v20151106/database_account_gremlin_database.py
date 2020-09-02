@@ -27,7 +27,8 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
         """
         An Azure Cosmos DB Gremlin database.
 
-        ## CosmosDBGremlinDatabaseCreateUpdate
+        ## Example Usage
+        ### CosmosDBGremlinDatabaseCreateUpdate
 
         ```python
         import pulumi

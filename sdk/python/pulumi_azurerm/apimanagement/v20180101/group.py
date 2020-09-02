@@ -28,7 +28,8 @@ class Group(pulumi.CustomResource):
         """
         Contract details.
 
-        ## ApiManagementCreateGroup
+        ## Example Usage
+        ### ApiManagementCreateGroup
 
         ```python
         import pulumi
@@ -41,8 +42,7 @@ class Group(pulumi.CustomResource):
             service_name="apimService1")
 
         ```
-
-        ## ApiManagementCreateGroupExternal
+        ### ApiManagementCreateGroupExternal
 
         ```python
         import pulumi

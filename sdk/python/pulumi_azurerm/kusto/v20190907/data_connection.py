@@ -27,7 +27,8 @@ class DataConnection(pulumi.CustomResource):
         """
         Class representing an data connection.
 
-        ## KustoDataConnectionsCreateOrUpdate
+        ## Example Usage
+        ### KustoDataConnectionsCreateOrUpdate
 
         ```python
         import pulumi

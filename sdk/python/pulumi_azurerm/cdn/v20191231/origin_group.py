@@ -31,7 +31,8 @@ class OriginGroup(pulumi.CustomResource):
         """
         Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 
-        ## OriginGroups_Create
+        ## Example Usage
+        ### OriginGroups_Create
 
         ```python
         import pulumi

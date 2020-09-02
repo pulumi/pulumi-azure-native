@@ -31,7 +31,8 @@ class Service(pulumi.CustomResource):
         """
         The description of the service.
 
-        ## Create or Update a service with all parameters
+        ## Example Usage
+        ### Create or Update a service with all parameters
 
         ```python
         import pulumi
@@ -48,8 +49,7 @@ class Service(pulumi.CustomResource):
             tags={})
 
         ```
-
-        ## Create or Update a service with minimum parameters
+        ### Create or Update a service with minimum parameters
 
         ```python
         import pulumi

@@ -33,7 +33,8 @@ class ServerDetails(pulumi.CustomResource):
         """
         Represents an instance of an Analysis Services resource.
 
-        ## Create a server.
+        ## Example Usage
+        ### Create a server.
 
         ```python
         import pulumi

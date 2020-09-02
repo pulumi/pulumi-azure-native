@@ -35,7 +35,8 @@ class Application(pulumi.CustomResource):
         """
         Information about managed application.
 
-        ## Create or update managed application
+        ## Example Usage
+        ### Create or update managed application
 
         ```python
         import pulumi

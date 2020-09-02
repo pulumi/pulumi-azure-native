@@ -31,7 +31,8 @@ class SnapshotPolicy(pulumi.CustomResource):
         """
         Snapshot policy information
 
-        ## SnapshotPolicies_Create
+        ## Example Usage
+        ### SnapshotPolicies_Create
 
         ```python
         import pulumi

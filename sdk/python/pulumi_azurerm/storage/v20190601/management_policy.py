@@ -27,7 +27,8 @@ class ManagementPolicy(pulumi.CustomResource):
         """
         The Get Storage Account ManagementPolicies operation response.
 
-        ## StorageAccountSetManagementPolicies
+        ## Example Usage
+        ### StorageAccountSetManagementPolicies
 
         ```python
         import pulumi

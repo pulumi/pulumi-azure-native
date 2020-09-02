@@ -29,7 +29,8 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
 
-        ## Create or update guest configuration assignment
+        ## Example Usage
+        ### Create or update guest configuration assignment
 
         ```python
         import pulumi

@@ -29,7 +29,8 @@ class FileShare(pulumi.CustomResource):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
 
-        ## Create NFS Shares
+        ## Example Usage
+        ### Create NFS Shares
 
         ```python
         import pulumi
@@ -42,8 +43,7 @@ class FileShare(pulumi.CustomResource):
             share_name="share1235")
 
         ```
-
-        ## PutShares
+        ### PutShares
 
         ```python
         import pulumi
@@ -55,8 +55,7 @@ class FileShare(pulumi.CustomResource):
             share_name="share6185")
 
         ```
-
-        ## PutShares with Access Tier
+        ### PutShares with Access Tier
 
         ```python
         import pulumi

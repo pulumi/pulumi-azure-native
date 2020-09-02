@@ -30,7 +30,8 @@ class ApiIssue(pulumi.CustomResource):
         """
         Issue Contract details.
 
-        ## ApiManagementCreateApiIssue
+        ## Example Usage
+        ### ApiManagementCreateApiIssue
 
         ```python
         import pulumi

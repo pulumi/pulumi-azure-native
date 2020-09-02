@@ -29,7 +29,8 @@ class DdosCustomPolicy(pulumi.CustomResource):
         """
         A DDoS custom policy in a resource group.
 
-        ## Create DDoS custom policy
+        ## Example Usage
+        ### Create DDoS custom policy
 
         ```python
         import pulumi

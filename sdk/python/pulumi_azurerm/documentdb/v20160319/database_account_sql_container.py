@@ -29,7 +29,8 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
         """
         An Azure Cosmos DB container.
 
-        ## CosmosDBSqlContainerCreateUpdate
+        ## Example Usage
+        ### CosmosDBSqlContainerCreateUpdate
 
         ```python
         import pulumi

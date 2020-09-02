@@ -37,7 +37,8 @@ class Profile(pulumi.CustomResource):
         """
         Class representing a Traffic Manager profile.
 
-        ## Profile-PUT-NoEndpoints
+        ## Example Usage
+        ### Profile-PUT-NoEndpoints
 
         ```python
         import pulumi
@@ -60,8 +61,7 @@ class Profile(pulumi.CustomResource):
             traffic_routing_method="Performance")
 
         ```
-
-        ## Profile-PUT-WithCustomHeaders
+        ### Profile-PUT-WithCustomHeaders
 
         ```python
         import pulumi
@@ -112,8 +112,7 @@ class Profile(pulumi.CustomResource):
             traffic_view_enrollment_status="Disabled")
 
         ```
-
-        ## Profile-PUT-WithEndpoints
+        ### Profile-PUT-WithEndpoints
 
         ```python
         import pulumi

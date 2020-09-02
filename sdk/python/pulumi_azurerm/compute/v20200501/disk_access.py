@@ -26,7 +26,8 @@ class DiskAccess(pulumi.CustomResource):
         """
         disk access resource.
 
-        ## Create a disk access resource.
+        ## Example Usage
+        ### Create a disk access resource.
 
         ```python
         import pulumi

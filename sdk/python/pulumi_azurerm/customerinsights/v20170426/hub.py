@@ -29,7 +29,8 @@ class Hub(pulumi.CustomResource):
         """
         Hub resource.
 
-        ## Hubs_CreateOrUpdate
+        ## Example Usage
+        ### Hubs_CreateOrUpdate
 
         ```python
         import pulumi

@@ -28,7 +28,8 @@ class Gateway(pulumi.CustomResource):
         """
         Gateway details.
 
-        ## ApiManagementCreateGateway
+        ## Example Usage
+        ### ApiManagementCreateGateway
 
         ```python
         import pulumi

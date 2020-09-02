@@ -31,7 +31,8 @@ class ServerEndpoint(pulumi.CustomResource):
         """
         Server Endpoint object.
 
-        ## ServerEndpoints_Create
+        ## Example Usage
+        ### ServerEndpoints_Create
 
         ```python
         import pulumi

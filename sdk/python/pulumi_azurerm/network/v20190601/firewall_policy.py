@@ -31,7 +31,8 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         FirewallPolicy Resource.
 
-        ## Create FirewallPolicy
+        ## Example Usage
+        ### Create FirewallPolicy
 
         ```python
         import pulumi

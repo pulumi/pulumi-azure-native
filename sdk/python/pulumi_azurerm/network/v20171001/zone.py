@@ -26,7 +26,8 @@ class Zone(pulumi.CustomResource):
         """
         Describes a DNS zone.
 
-        ## Create zone
+        ## Example Usage
+        ### Create zone
 
         ```python
         import pulumi

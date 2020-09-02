@@ -34,7 +34,8 @@ class ADCCatalog(pulumi.CustomResource):
         """
         Azure Data Catalog.
 
-        ## Create Azure Data Catalog Service
+        ## Example Usage
+        ### Create Azure Data Catalog Service
 
         ```python
         import pulumi

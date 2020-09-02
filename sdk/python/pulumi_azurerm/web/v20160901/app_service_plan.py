@@ -38,7 +38,8 @@ class AppServicePlan(pulumi.CustomResource):
         """
         App Service plan.
 
-        ## Create or Update App Service plan
+        ## Example Usage
+        ### Create or Update App Service plan
 
         ```python
         import pulumi

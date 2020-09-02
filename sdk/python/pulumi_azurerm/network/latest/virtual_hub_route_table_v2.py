@@ -30,7 +30,8 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         """
         VirtualHubRouteTableV2 Resource.
 
-        ## VirtualHubRouteTableV2Put
+        ## Example Usage
+        ### VirtualHubRouteTableV2Put
 
         ```python
         import pulumi

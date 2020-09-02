@@ -26,7 +26,8 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
 
-        ## CreateOrUpdateImmutabilityPolicy
+        ## Example Usage
+        ### CreateOrUpdateImmutabilityPolicy
 
         ```python
         import pulumi

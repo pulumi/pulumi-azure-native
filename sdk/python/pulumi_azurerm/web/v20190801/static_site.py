@@ -33,7 +33,8 @@ class StaticSite(pulumi.CustomResource):
         """
         Static Site ARM resource.
 
-        ## Create or update a static site
+        ## Example Usage
+        ### Create or update a static site
 
         ```python
         import pulumi

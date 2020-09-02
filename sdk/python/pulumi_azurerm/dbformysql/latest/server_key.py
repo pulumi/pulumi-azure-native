@@ -26,7 +26,8 @@ class ServerKey(pulumi.CustomResource):
         """
         A MySQL Server key.
 
-        ## Creates or updates a MySQL Server key
+        ## Example Usage
+        ### Creates or updates a MySQL Server key
 
         ```python
         import pulumi

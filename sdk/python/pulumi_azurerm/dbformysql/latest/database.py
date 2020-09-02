@@ -26,7 +26,8 @@ class Database(pulumi.CustomResource):
         """
         Represents a Database.
 
-        ## DatabaseCreate
+        ## Example Usage
+        ### DatabaseCreate
 
         ```python
         import pulumi

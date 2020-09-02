@@ -25,7 +25,8 @@ class LinkedStorageAccount(pulumi.CustomResource):
         """
         Linked storage accounts top level resource container.
 
-        ## LinkedStorageAccountsCreate
+        ## Example Usage
+        ### LinkedStorageAccountsCreate
 
         ```python
         import pulumi

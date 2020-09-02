@@ -38,7 +38,8 @@ class NotificationHub(pulumi.CustomResource):
         """
         Description of a NotificationHub Resource.
 
-        ## NotificationHubCreate
+        ## Example Usage
+        ### NotificationHubCreate
 
         ```python
         import pulumi

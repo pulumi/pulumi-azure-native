@@ -34,7 +34,8 @@ class Relationship(pulumi.CustomResource):
         """
         The relationship resource format.
 
-        ## Relationships_CreateOrUpdate
+        ## Example Usage
+        ### Relationships_CreateOrUpdate
 
         ```python
         import pulumi

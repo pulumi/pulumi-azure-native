@@ -36,7 +36,8 @@ class ManagedCluster(pulumi.CustomResource):
         """
         Managed cluster.
 
-        ## Create/Update Managed Cluster
+        ## Example Usage
+        ### Create/Update Managed Cluster
 
         ```python
         import pulumi

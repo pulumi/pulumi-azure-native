@@ -28,7 +28,8 @@ class Workspace(pulumi.CustomResource):
         """
         An object that represents a machine learning workspace.
 
-        ## WorkspaceCreate
+        ## Example Usage
+        ### WorkspaceCreate
 
         ```python
         import pulumi

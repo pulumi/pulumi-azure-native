@@ -26,7 +26,8 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
 
-        ## EventHubAuthorizationRuleCreate
+        ## Example Usage
+        ### EventHubAuthorizationRuleCreate
 
         ```python
         import pulumi

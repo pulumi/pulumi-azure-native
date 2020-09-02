@@ -26,7 +26,8 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
         """
         Description of a namespace authorization rule.
 
-        ## RelayAuthorizationRuleCreate
+        ## Example Usage
+        ### RelayAuthorizationRuleCreate
 
         ```python
         import pulumi

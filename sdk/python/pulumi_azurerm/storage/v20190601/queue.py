@@ -23,7 +23,8 @@ class Queue(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## QueueOperationPut
+        ## Example Usage
+        ### QueueOperationPut
 
         ```python
         import pulumi
@@ -35,8 +36,7 @@ class Queue(pulumi.CustomResource):
             resource_group_name="res3376")
 
         ```
-
-        ## QueueOperationPutWithMetadata
+        ### QueueOperationPutWithMetadata
 
         ```python
         import pulumi

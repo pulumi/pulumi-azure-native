@@ -26,7 +26,8 @@ class MigrationConfig(pulumi.CustomResource):
         """
         Single item in List or Get Migration Config operation
 
-        ## MigrationConfigurationsStartMigration
+        ## Example Usage
+        ### MigrationConfigurationsStartMigration
 
         ```python
         import pulumi

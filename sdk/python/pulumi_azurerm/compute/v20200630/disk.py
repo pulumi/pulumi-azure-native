@@ -44,7 +44,8 @@ class Disk(pulumi.CustomResource):
         """
         Disk resource.
 
-        ## Create a managed disk and associate with disk access resource.
+        ## Example Usage
+        ### Create a managed disk and associate with disk access resource.
 
         ```python
         import pulumi
@@ -62,8 +63,7 @@ class Disk(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create a managed disk and associate with disk encryption set.
+        ### Create a managed disk and associate with disk encryption set.
 
         ```python
         import pulumi
@@ -82,8 +82,7 @@ class Disk(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create a managed disk by copying a snapshot.
+        ### Create a managed disk by copying a snapshot.
 
         ```python
         import pulumi
@@ -99,8 +98,7 @@ class Disk(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create a managed disk by importing an unmanaged blob from a different subscription.
+        ### Create a managed disk by importing an unmanaged blob from a different subscription.
 
         ```python
         import pulumi
@@ -117,8 +115,7 @@ class Disk(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create a managed disk by importing an unmanaged blob from the same subscription.
+        ### Create a managed disk by importing an unmanaged blob from the same subscription.
 
         ```python
         import pulumi
@@ -134,8 +131,7 @@ class Disk(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create a managed disk from a platform image.
+        ### Create a managed disk from a platform image.
 
         ```python
         import pulumi
@@ -154,8 +150,7 @@ class Disk(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create a managed disk from an existing managed disk in the same or different subscription.
+        ### Create a managed disk from an existing managed disk in the same or different subscription.
 
         ```python
         import pulumi
@@ -171,8 +166,7 @@ class Disk(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create a managed upload disk.
+        ### Create a managed upload disk.
 
         ```python
         import pulumi
@@ -188,8 +182,7 @@ class Disk(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create an empty managed disk.
+        ### Create an empty managed disk.
 
         ```python
         import pulumi
@@ -205,8 +198,7 @@ class Disk(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create an ultra managed disk with logicalSectorSize 512E
+        ### Create an ultra managed disk with logicalSectorSize 512E
 
         ```python
         import pulumi

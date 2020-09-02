@@ -36,7 +36,8 @@ class Application(pulumi.CustomResource):
         """
         The application resource.
 
-        ## Put an application with maximum parameters
+        ## Example Usage
+        ### Put an application with maximum parameters
 
         ```python
         import pulumi
@@ -85,8 +86,7 @@ class Application(pulumi.CustomResource):
             })
 
         ```
-
-        ## Put an application with minimum parameters
+        ### Put an application with minimum parameters
 
         ```python
         import pulumi

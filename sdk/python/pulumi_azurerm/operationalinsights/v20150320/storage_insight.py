@@ -31,7 +31,8 @@ class StorageInsight(pulumi.CustomResource):
         """
         The top level storage insight resource container.
 
-        ## StorageInsightsCreate
+        ## Example Usage
+        ### StorageInsightsCreate
 
         ```python
         import pulumi

@@ -29,7 +29,8 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         """
         The device security group resource
 
-        ## Create or update a device security group for the specified IoT hub resource
+        ## Example Usage
+        ### Create or update a device security group for the specified IoT hub resource
 
         ```python
         import pulumi

@@ -26,7 +26,8 @@ class VMwareCollector(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## VMwareCollectors_Create
+        ## Example Usage
+        ### VMwareCollectors_Create
 
         ```python
         import pulumi

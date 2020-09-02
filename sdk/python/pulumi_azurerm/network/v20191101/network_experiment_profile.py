@@ -29,7 +29,8 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         """
         Defines an Network Experiment Profile and lists of Experiments
 
-        ## Creates an NetworkExperiment Profile in a Resource Group
+        ## Example Usage
+        ### Creates an NetworkExperiment Profile in a Resource Group
 
         ```python
         import pulumi

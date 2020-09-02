@@ -25,7 +25,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
 
-        ## NameSpaceAuthorizationRuleCreate
+        ## Example Usage
+        ### NameSpaceAuthorizationRuleCreate
 
         ```python
         import pulumi

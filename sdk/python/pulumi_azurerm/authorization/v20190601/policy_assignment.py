@@ -35,7 +35,8 @@ class PolicyAssignment(pulumi.CustomResource):
         """
         The policy assignment.
 
-        ## Create or update a policy assignment
+        ## Example Usage
+        ### Create or update a policy assignment
 
         ```python
         import pulumi
@@ -60,8 +61,7 @@ class PolicyAssignment(pulumi.CustomResource):
             scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
 
         ```
-
-        ## Create or update a policy assignment with a managed identity
+        ### Create or update a policy assignment with a managed identity
 
         ```python
         import pulumi
@@ -91,8 +91,7 @@ class PolicyAssignment(pulumi.CustomResource):
             scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
 
         ```
-
-        ## Create or update a policy assignment without enforcing policy effect during resource creation or update.
+        ### Create or update a policy assignment without enforcing policy effect during resource creation or update.
 
         ```python
         import pulumi

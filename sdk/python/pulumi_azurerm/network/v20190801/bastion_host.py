@@ -31,7 +31,8 @@ class BastionHost(pulumi.CustomResource):
         """
         Bastion Host resource.
 
-        ## Create Bastion Host
+        ## Example Usage
+        ### Create Bastion Host
 
         ```python
         import pulumi

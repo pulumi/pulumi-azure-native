@@ -27,7 +27,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 
-        ## PrivateEndpointConnectionUpdate
+        ## Example Usage
+        ### PrivateEndpointConnectionUpdate
 
         ```python
         import pulumi

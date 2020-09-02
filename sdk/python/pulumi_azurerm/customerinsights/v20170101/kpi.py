@@ -40,7 +40,8 @@ class Kpi(pulumi.CustomResource):
         """
         The KPI resource format.
 
-        ## Kpi_CreateOrUpdate
+        ## Example Usage
+        ### Kpi_CreateOrUpdate
 
         ```python
         import pulumi

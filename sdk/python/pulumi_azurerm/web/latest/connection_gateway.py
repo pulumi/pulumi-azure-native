@@ -29,7 +29,8 @@ class ConnectionGateway(pulumi.CustomResource):
         """
         The gateway definition
 
-        ## Replace a connection gateway definition
+        ## Example Usage
+        ### Replace a connection gateway definition
 
         ```python
         import pulumi

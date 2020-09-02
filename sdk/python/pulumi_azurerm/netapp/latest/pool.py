@@ -29,7 +29,8 @@ class Pool(pulumi.CustomResource):
         """
         Capacity pool resource
 
-        ## Pools_CreateOrUpdate
+        ## Example Usage
+        ### Pools_CreateOrUpdate
 
         ```python
         import pulumi

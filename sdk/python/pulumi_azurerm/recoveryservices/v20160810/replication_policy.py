@@ -27,7 +27,8 @@ class ReplicationPolicy(pulumi.CustomResource):
         """
         Protection profile details.
 
-        ## Creates the policy.
+        ## Example Usage
+        ### Creates the policy.
 
         ```python
         import pulumi

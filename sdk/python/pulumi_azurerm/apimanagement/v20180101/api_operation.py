@@ -35,7 +35,8 @@ class ApiOperation(pulumi.CustomResource):
         """
         Api Operation details.
 
-        ## ApiManagementCreateApiOperation
+        ## Example Usage
+        ### ApiManagementCreateApiOperation
 
         ```python
         import pulumi

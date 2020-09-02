@@ -32,7 +32,8 @@ class Domain(pulumi.CustomResource):
         """
         EventGrid Domain.
 
-        ## Domains_CreateOrUpdate
+        ## Example Usage
+        ### Domains_CreateOrUpdate
 
         ```python
         import pulumi

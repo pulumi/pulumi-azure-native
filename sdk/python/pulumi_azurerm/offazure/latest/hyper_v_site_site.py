@@ -30,7 +30,8 @@ class HyperVSiteSite(pulumi.CustomResource):
         """
         Site REST Resource.
 
-        ## Create Hyper-V site
+        ## Example Usage
+        ### Create Hyper-V site
 
         ```python
         import pulumi

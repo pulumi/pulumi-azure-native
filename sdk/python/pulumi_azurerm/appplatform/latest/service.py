@@ -29,7 +29,8 @@ class Service(pulumi.CustomResource):
         """
         Service resource
 
-        ## Services_CreateOrUpdate
+        ## Example Usage
+        ### Services_CreateOrUpdate
 
         ```python
         import pulumi
@@ -48,8 +49,7 @@ class Service(pulumi.CustomResource):
             })
 
         ```
-
-        ## Services_CreateOrUpdate_VNetInjection
+        ### Services_CreateOrUpdate_VNetInjection
 
         ```python
         import pulumi

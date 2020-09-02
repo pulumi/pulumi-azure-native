@@ -26,7 +26,8 @@ class AccessControlRecord(pulumi.CustomResource):
         """
         The access control record.
 
-        ## AccessControlRecordsCreateOrUpdate
+        ## Example Usage
+        ### AccessControlRecordsCreateOrUpdate
 
         ```python
         import pulumi

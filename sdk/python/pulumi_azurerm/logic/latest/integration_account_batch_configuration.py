@@ -29,7 +29,8 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         """
         The batch configuration resource definition.
 
-        ## Create or update a batch configuration
+        ## Example Usage
+        ### Create or update a batch configuration
 
         ```python
         import pulumi

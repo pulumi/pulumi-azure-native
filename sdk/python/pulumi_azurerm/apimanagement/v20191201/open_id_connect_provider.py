@@ -29,7 +29,8 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         """
         OpenId Connect Provider details.
 
-        ## ApiManagementCreateOpenIdConnectProvider
+        ## Example Usage
+        ### ApiManagementCreateOpenIdConnectProvider
 
         ```python
         import pulumi

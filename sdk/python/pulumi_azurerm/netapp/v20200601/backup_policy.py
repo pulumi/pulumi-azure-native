@@ -35,7 +35,8 @@ class BackupPolicy(pulumi.CustomResource):
         """
         Backup policy information
 
-        ## BackupPolicies_Create
+        ## Example Usage
+        ### BackupPolicies_Create
 
         ```python
         import pulumi

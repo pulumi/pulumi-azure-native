@@ -38,7 +38,8 @@ class MetricAlert(pulumi.CustomResource):
         """
         The metric alert resource.
 
-        ## Create or update a dynamic alert rule for Multiple Resources
+        ## Example Usage
+        ### Create or update a dynamic alert rule for Multiple Resources
 
         ```python
         import pulumi
@@ -73,8 +74,7 @@ class MetricAlert(pulumi.CustomResource):
             window_size="PT15M")
 
         ```
-
-        ## Create or update a dynamic alert rule for Single Resource
+        ### Create or update a dynamic alert rule for Single Resource
 
         ```python
         import pulumi
@@ -106,8 +106,7 @@ class MetricAlert(pulumi.CustomResource):
             window_size="PT15M")
 
         ```
-
-        ## Create or update a web test alert rule
+        ### Create or update a web test alert rule
 
         ```python
         import pulumi
@@ -136,8 +135,7 @@ class MetricAlert(pulumi.CustomResource):
             window_size="PT15M")
 
         ```
-
-        ## Create or update an alert rule for Multiple Resource
+        ### Create or update an alert rule for Multiple Resource
 
         ```python
         import pulumi
@@ -172,8 +170,7 @@ class MetricAlert(pulumi.CustomResource):
             window_size="PT15M")
 
         ```
-
-        ## Create or update an alert rule for Single Resource
+        ### Create or update an alert rule for Single Resource
 
         ```python
         import pulumi
@@ -203,8 +200,7 @@ class MetricAlert(pulumi.CustomResource):
             window_size="Pt15m")
 
         ```
-
-        ## Create or update an alert rule on Resource group(s)
+        ### Create or update an alert rule on Resource group(s)
 
         ```python
         import pulumi
@@ -239,8 +235,7 @@ class MetricAlert(pulumi.CustomResource):
             window_size="PT15M")
 
         ```
-
-        ## Create or update an alert rule on Subscription
+        ### Create or update an alert rule on Subscription
 
         ```python
         import pulumi

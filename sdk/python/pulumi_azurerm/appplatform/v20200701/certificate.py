@@ -27,7 +27,8 @@ class Certificate(pulumi.CustomResource):
         """
         Certificate resource payload.
 
-        ## Certificates_CreateOrUpdate
+        ## Example Usage
+        ### Certificates_CreateOrUpdate
 
         ```python
         import pulumi

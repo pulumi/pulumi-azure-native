@@ -31,7 +31,8 @@ class Route(pulumi.CustomResource):
         """
         Route resource.
 
-        ## Create route
+        ## Example Usage
+        ### Create route
 
         ```python
         import pulumi

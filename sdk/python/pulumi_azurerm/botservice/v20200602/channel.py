@@ -32,7 +32,8 @@ class Channel(pulumi.CustomResource):
         """
         Bot channel resource definition
 
-        ## Create Alexa Bot
+        ## Example Usage
+        ### Create Alexa Bot
 
         ```python
         import pulumi
@@ -46,8 +47,7 @@ class Channel(pulumi.CustomResource):
             resource_name="samplebotname")
 
         ```
-
-        ## Create Bot
+        ### Create Bot
 
         ```python
         import pulumi
@@ -61,8 +61,7 @@ class Channel(pulumi.CustomResource):
             resource_name="samplebotname")
 
         ```
-
-        ## Create DirectLine Speech Bot
+        ### Create DirectLine Speech Bot
 
         ```python
         import pulumi
@@ -76,8 +75,7 @@ class Channel(pulumi.CustomResource):
             resource_name="samplebotname")
 
         ```
-
-        ## Create Line Bot
+        ### Create Line Bot
 
         ```python
         import pulumi

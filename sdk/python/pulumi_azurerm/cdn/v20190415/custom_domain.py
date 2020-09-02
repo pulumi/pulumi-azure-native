@@ -27,7 +27,8 @@ class CustomDomain(pulumi.CustomResource):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 
-        ## CustomDomains_Create
+        ## Example Usage
+        ### CustomDomains_Create
 
         ```python
         import pulumi

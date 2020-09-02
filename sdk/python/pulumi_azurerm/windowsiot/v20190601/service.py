@@ -27,7 +27,8 @@ class Service(pulumi.CustomResource):
         """
         The description of the Windows IoT Device Service.
 
-        ## Service_Create
+        ## Example Usage
+        ### Service_Create
 
         ```python
         import pulumi

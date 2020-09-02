@@ -26,7 +26,8 @@ class DpsCertificate(pulumi.CustomResource):
         """
         The X509 Certificate.
 
-        ## DPSCreateOrUpdateCertificate
+        ## Example Usage
+        ### DPSCreateOrUpdateCertificate
 
         ```python
         import pulumi

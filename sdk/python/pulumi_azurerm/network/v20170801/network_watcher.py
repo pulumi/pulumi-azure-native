@@ -27,7 +27,8 @@ class NetworkWatcher(pulumi.CustomResource):
         """
         Network watcher in a resource group.
 
-        ## Create Network Watcher
+        ## Example Usage
+        ### Create Network Watcher
 
         ```python
         import pulumi

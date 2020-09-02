@@ -27,7 +27,8 @@ class ServerAdministrator(pulumi.CustomResource):
         """
         Represents a and external administrator to be created.
 
-        ## ServerAdministratorCreate
+        ## Example Usage
+        ### ServerAdministratorCreate
 
         ```python
         import pulumi

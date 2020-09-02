@@ -26,7 +26,8 @@ class Group(pulumi.CustomResource):
         """
         A group created in a Migration project.
 
-        ## Groups_Create
+        ## Example Usage
+        ### Groups_Create
 
         ```python
         import pulumi

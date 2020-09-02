@@ -30,7 +30,8 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         """
         Specifies information about the gallery Application Version that you want to create or update.
 
-        ## Create or update a simple gallery Application Version.
+        ## Example Usage
+        ### Create or update a simple gallery Application Version.
 
         ```python
         import pulumi

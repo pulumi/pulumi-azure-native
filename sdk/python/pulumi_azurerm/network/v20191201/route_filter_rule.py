@@ -30,7 +30,8 @@ class RouteFilterRule(pulumi.CustomResource):
         """
         Route Filter Rule Resource.
 
-        ## RouteFilterRuleCreate
+        ## Example Usage
+        ### RouteFilterRuleCreate
 
         ```python
         import pulumi

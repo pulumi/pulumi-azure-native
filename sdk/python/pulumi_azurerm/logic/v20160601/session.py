@@ -27,7 +27,8 @@ class Session(pulumi.CustomResource):
         """
         The integration account session.
 
-        ## SessionsCreateOrUpdate
+        ## Example Usage
+        ### SessionsCreateOrUpdate
 
         ```python
         import pulumi

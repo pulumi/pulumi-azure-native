@@ -25,7 +25,8 @@ class Alias(pulumi.CustomResource):
         """
         Subscription Information with the alias.
 
-        ## CreateAlias
+        ## Example Usage
+        ### CreateAlias
 
         ```python
         import pulumi

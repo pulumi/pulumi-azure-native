@@ -28,7 +28,8 @@ class BackupScheduleGroup(pulumi.CustomResource):
         """
         The Backup Schedule Group
 
-        ## BackupScheduleGroupsCreateOrUpdate
+        ## Example Usage
+        ### BackupScheduleGroupsCreateOrUpdate
 
         ```python
         import pulumi

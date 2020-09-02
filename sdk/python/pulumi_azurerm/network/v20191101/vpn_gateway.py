@@ -32,7 +32,8 @@ class VpnGateway(pulumi.CustomResource):
         """
         VpnGateway Resource.
 
-        ## VpnGatewayPut
+        ## Example Usage
+        ### VpnGatewayPut
 
         ```python
         import pulumi

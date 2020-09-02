@@ -32,7 +32,8 @@ class Peering(pulumi.CustomResource):
         """
         Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
 
-        ## Create a direct peering
+        ## Example Usage
+        ### Create a direct peering
 
         ```python
         import pulumi
@@ -78,8 +79,7 @@ class Peering(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a peering with exchange route server
+        ### Create a peering with exchange route server
 
         ```python
         import pulumi
@@ -116,8 +116,7 @@ class Peering(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create an exchange peering
+        ### Create an exchange peering
 
         ```python
         import pulumi

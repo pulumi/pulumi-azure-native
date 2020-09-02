@@ -32,7 +32,8 @@ class ProtectedItem(pulumi.CustomResource):
         """
         Base class for backup items.
 
-        ## Enable Protection on Azure IaasVm
+        ## Example Usage
+        ### Enable Protection on Azure IaasVm
 
         ```python
         import pulumi
@@ -46,8 +47,7 @@ class ProtectedItem(pulumi.CustomResource):
             vault_name="NetSDKTestRsVault")
 
         ```
-
-        ## Stop Protection with retain data on Azure IaasVm
+        ### Stop Protection with retain data on Azure IaasVm
 
         ```python
         import pulumi

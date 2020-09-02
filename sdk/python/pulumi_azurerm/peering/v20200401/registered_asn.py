@@ -25,7 +25,8 @@ class RegisteredAsn(pulumi.CustomResource):
         """
         The customer's ASN that is registered by the peering service provider.
 
-        ## Create or update a registered ASN for the peering
+        ## Example Usage
+        ### Create or update a registered ASN for the peering
 
         ```python
         import pulumi

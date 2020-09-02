@@ -30,7 +30,8 @@ class RoleDefinition(pulumi.CustomResource):
         """
         Role definition.
 
-        ## GetConfigurations
+        ## Example Usage
+        ### GetConfigurations
 
         ```python
         import pulumi

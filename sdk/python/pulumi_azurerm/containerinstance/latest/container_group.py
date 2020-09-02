@@ -40,7 +40,8 @@ class ContainerGroup(pulumi.CustomResource):
         """
         A container group.
 
-        ## ContainerGroupsCreateOrUpdate
+        ## Example Usage
+        ### ContainerGroupsCreateOrUpdate
 
         ```python
         import pulumi

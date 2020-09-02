@@ -27,7 +27,8 @@ class ApiPolicy(pulumi.CustomResource):
         """
         Policy Contract details.
 
-        ## ApiManagementCreateApiPolicy
+        ## Example Usage
+        ### ApiManagementCreateApiPolicy
 
         ```python
         import pulumi
@@ -42,8 +43,7 @@ class ApiPolicy(pulumi.CustomResource):
             value="<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>")
 
         ```
-
-        ## ApiManagementCreateApiPolicyNonXmlEncoded
+        ### ApiManagementCreateApiPolicyNonXmlEncoded
 
         ```python
         import pulumi

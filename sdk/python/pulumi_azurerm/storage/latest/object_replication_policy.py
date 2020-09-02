@@ -29,7 +29,8 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
 
-        ## StorageAccountCreateObjectReplicationPolicyOnDestination
+        ## Example Usage
+        ### StorageAccountCreateObjectReplicationPolicyOnDestination
 
         ```python
         import pulumi
@@ -53,8 +54,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             source_account="src1122")
 
         ```
-
-        ## StorageAccountCreateObjectReplicationPolicyOnSource
+        ### StorageAccountCreateObjectReplicationPolicyOnSource
 
         ```python
         import pulumi
@@ -80,8 +80,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             source_account="src1122")
 
         ```
-
-        ## StorageAccountUpdateObjectReplicationPolicyOnDestination
+        ### StorageAccountUpdateObjectReplicationPolicyOnDestination
 
         ```python
         import pulumi
@@ -112,8 +111,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             source_account="src1122")
 
         ```
-
-        ## StorageAccountUpdateObjectReplicationPolicyOnSource
+        ### StorageAccountUpdateObjectReplicationPolicyOnSource
 
         ```python
         import pulumi

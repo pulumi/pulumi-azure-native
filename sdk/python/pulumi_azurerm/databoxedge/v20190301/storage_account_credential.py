@@ -33,7 +33,8 @@ class StorageAccountCredential(pulumi.CustomResource):
         """
         The storage account credential.
 
-        ## SACPut
+        ## Example Usage
+        ### SACPut
 
         ```python
         import pulumi

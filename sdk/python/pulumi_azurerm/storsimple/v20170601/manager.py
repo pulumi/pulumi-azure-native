@@ -31,7 +31,8 @@ class Manager(pulumi.CustomResource):
         """
         The StorSimple Manager.
 
-        ## ManagersCreateOrUpdate
+        ## Example Usage
+        ### ManagersCreateOrUpdate
 
         ```python
         import pulumi

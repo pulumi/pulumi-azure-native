@@ -32,7 +32,8 @@ class PolicyAssignment(pulumi.CustomResource):
         """
         The policy assignment.
 
-        ## Create or update a policy assignment
+        ## Example Usage
+        ### Create or update a policy assignment
 
         ```python
         import pulumi

@@ -28,7 +28,8 @@ class ContentKeyPolicy(pulumi.CustomResource):
         """
         A Content Key Policy resource.
 
-        ## Creates a Content Key Policy with ClearKey option and Token Restriction
+        ## Example Usage
+        ### Creates a Content Key Policy with ClearKey option and Token Restriction
 
         ```python
         import pulumi
@@ -50,8 +51,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
             resource_group_name="contoso")
 
         ```
-
-        ## Creates a Content Key Policy with PlayReady option and Open Restriction
+        ### Creates a Content Key Policy with PlayReady option and Open Restriction
 
         ```python
         import pulumi
@@ -73,8 +73,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
             resource_group_name="contoso")
 
         ```
-
-        ## Creates a Content Key Policy with Widevine option and Token Restriction
+        ### Creates a Content Key Policy with Widevine option and Token Restriction
 
         ```python
         import pulumi
@@ -96,8 +95,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
             resource_group_name="contoso")
 
         ```
-
-        ## Creates a Content Key Policy with multiple options
+        ### Creates a Content Key Policy with multiple options
 
         ```python
         import pulumi

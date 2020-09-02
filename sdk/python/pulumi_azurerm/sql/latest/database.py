@@ -41,7 +41,8 @@ class Database(pulumi.CustomResource):
         """
         Represents a database.
 
-        ## Create a database as a copy
+        ## Example Usage
+        ### Create a database as a copy
 
         ```python
         import pulumi
@@ -56,8 +57,7 @@ class Database(pulumi.CustomResource):
             source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb")
 
         ```
-
-        ## Create a database as a dropped database restore to a specific point in time
+        ### Create a database as a dropped database restore to a specific point in time
 
         ```python
         import pulumi
@@ -73,8 +73,7 @@ class Database(pulumi.CustomResource):
             source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/restorableDroppedDatabases/sourcedb,131403269876900000")
 
         ```
-
-        ## Create a database as a dropped database restore to deletion time
+        ### Create a database as a dropped database restore to deletion time
 
         ```python
         import pulumi
@@ -90,8 +89,7 @@ class Database(pulumi.CustomResource):
             source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/sourcedb")
 
         ```
-
-        ## Create a database as a geo restore
+        ### Create a database as a geo restore
 
         ```python
         import pulumi
@@ -106,8 +104,7 @@ class Database(pulumi.CustomResource):
             source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/recoverableDatabases/sourcedb")
 
         ```
-
-        ## Create a database as a non-readable secondary
+        ### Create a database as a non-readable secondary
 
         ```python
         import pulumi
@@ -122,8 +119,7 @@ class Database(pulumi.CustomResource):
             source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb")
 
         ```
-
-        ## Create a database as a point in time restore
+        ### Create a database as a point in time restore
 
         ```python
         import pulumi
@@ -139,8 +135,7 @@ class Database(pulumi.CustomResource):
             source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb")
 
         ```
-
-        ## Create a database as an online secondary
+        ### Create a database as an online secondary
 
         ```python
         import pulumi
@@ -155,8 +150,7 @@ class Database(pulumi.CustomResource):
             source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb")
 
         ```
-
-        ## Create a database from a long term retention backup
+        ### Create a database from a long term retention backup
 
         ```python
         import pulumi
@@ -171,8 +165,7 @@ class Database(pulumi.CustomResource):
             server_name="sqlcrudtest-3584")
 
         ```
-
-        ## Create a database max
+        ### Create a database max
 
         ```python
         import pulumi
@@ -193,8 +186,7 @@ class Database(pulumi.CustomResource):
             server_name="sqlcrudtest-6440")
 
         ```
-
-        ## Create a database min
+        ### Create a database min
 
         ```python
         import pulumi
@@ -207,8 +199,7 @@ class Database(pulumi.CustomResource):
             server_name="sqlcrudtest-5961")
 
         ```
-
-        ## Update a database max
+        ### Update a database max
 
         ```python
         import pulumi
@@ -228,8 +219,7 @@ class Database(pulumi.CustomResource):
             server_name="sqlcrudtest-5961")
 
         ```
-
-        ## Update a database's elastic pool'
+        ### Update a database's elastic pool'
 
         ```python
         import pulumi

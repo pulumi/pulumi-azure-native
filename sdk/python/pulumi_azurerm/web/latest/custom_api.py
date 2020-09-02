@@ -29,7 +29,8 @@ class CustomApi(pulumi.CustomResource):
         """
         A custom API
 
-        ## Replace a custom API
+        ## Example Usage
+        ### Replace a custom API
 
         ```python
         import pulumi

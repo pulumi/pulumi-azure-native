@@ -29,7 +29,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## PrivateEndpointConnections_Update
+        ## Example Usage
+        ### PrivateEndpointConnections_Update
 
         ```python
         import pulumi

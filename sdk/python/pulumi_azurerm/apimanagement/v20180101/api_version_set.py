@@ -29,7 +29,8 @@ class ApiVersionSet(pulumi.CustomResource):
         """
         Api Version Set Contract details.
 
-        ## ApiManagementCreateApiVersionSet
+        ## Example Usage
+        ### ApiManagementCreateApiVersionSet
 
         ```python
         import pulumi

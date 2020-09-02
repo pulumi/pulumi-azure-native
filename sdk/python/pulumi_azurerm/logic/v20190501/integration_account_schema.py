@@ -34,7 +34,8 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         """
         The integration account schema.
 
-        ## Create or update schema
+        ## Example Usage
+        ### Create or update schema
 
         ```python
         import pulumi

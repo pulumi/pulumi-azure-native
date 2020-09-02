@@ -24,7 +24,8 @@ class DomainTopic(pulumi.CustomResource):
         """
         Domain Topic.
 
-        ## DomainTopics_CreateOrUpdate
+        ## Example Usage
+        ### DomainTopics_CreateOrUpdate
 
         ```python
         import pulumi

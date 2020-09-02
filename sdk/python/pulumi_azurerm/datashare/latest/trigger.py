@@ -26,7 +26,8 @@ class Trigger(pulumi.CustomResource):
         """
         A Trigger data transfer object.
 
-        ## Triggers_Create
+        ## Example Usage
+        ### Triggers_Create
 
         ```python
         import pulumi

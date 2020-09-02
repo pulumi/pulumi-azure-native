@@ -29,7 +29,8 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
-        ## Create a database as a point in time restore
+        ## Example Usage
+        ### Create a database as a point in time restore
 
         ```python
         import pulumi
@@ -50,8 +51,7 @@ class Server(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a new server
+        ### Create a new server
 
         ```python
         import pulumi
@@ -72,8 +72,7 @@ class Server(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a replica server
+        ### Create a replica server
 
         ```python
         import pulumi
@@ -85,8 +84,7 @@ class Server(pulumi.CustomResource):
             server_name="targetserver")
 
         ```
-
-        ## Create a server as a geo restore
+        ### Create a server as a geo restore
 
         ```python
         import pulumi

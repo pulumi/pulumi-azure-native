@@ -26,7 +26,8 @@ class Certificate(pulumi.CustomResource):
         """
         The X509 Certificate.
 
-        ## Certificates_CreateOrUpdate
+        ## Example Usage
+        ### Certificates_CreateOrUpdate
 
         ```python
         import pulumi

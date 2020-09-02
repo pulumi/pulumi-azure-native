@@ -26,7 +26,8 @@ class SyncGroup(pulumi.CustomResource):
         """
         Sync Group object.
 
-        ## SyncGroups_Create
+        ## Example Usage
+        ### SyncGroups_Create
 
         ```python
         import pulumi

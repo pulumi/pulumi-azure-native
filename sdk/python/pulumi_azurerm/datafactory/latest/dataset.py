@@ -27,7 +27,8 @@ class Dataset(pulumi.CustomResource):
         """
         Dataset resource type.
 
-        ## Datasets_Create
+        ## Example Usage
+        ### Datasets_Create
 
         ```python
         import pulumi
@@ -39,8 +40,7 @@ class Dataset(pulumi.CustomResource):
             resource_group_name="exampleResourceGroup")
 
         ```
-
-        ## Datasets_Update
+        ### Datasets_Update
 
         ```python
         import pulumi

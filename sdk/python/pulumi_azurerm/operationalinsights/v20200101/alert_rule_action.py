@@ -28,7 +28,8 @@ class AlertRuleAction(pulumi.CustomResource):
         """
         Action for alert rule.
 
-        ## Creates or updates an action of alert rule.
+        ## Example Usage
+        ### Creates or updates an action of alert rule.
 
         ```python
         import pulumi

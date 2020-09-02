@@ -32,7 +32,8 @@ class Favorite(pulumi.CustomResource):
         """
         Properties that define a favorite that is associated to an Application Insights component.
 
-        ## FavoriteAdd
+        ## Example Usage
+        ### FavoriteAdd
 
         ```python
         import pulumi

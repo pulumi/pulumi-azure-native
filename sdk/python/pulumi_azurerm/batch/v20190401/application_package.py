@@ -25,7 +25,8 @@ class ApplicationPackage(pulumi.CustomResource):
         """
         An application package which represents a particular version of an application.
 
-        ## ApplicationPackageCreate
+        ## Example Usage
+        ### ApplicationPackageCreate
 
         ```python
         import pulumi

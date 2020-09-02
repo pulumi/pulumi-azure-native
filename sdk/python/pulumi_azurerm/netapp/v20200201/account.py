@@ -28,7 +28,8 @@ class Account(pulumi.CustomResource):
         """
         NetApp account resource
 
-        ## Accounts_CreateOrUpdate
+        ## Example Usage
+        ### Accounts_CreateOrUpdate
 
         ```python
         import pulumi

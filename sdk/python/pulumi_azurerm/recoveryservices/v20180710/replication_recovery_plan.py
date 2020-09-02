@@ -27,7 +27,8 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         """
         Recovery plan details.
 
-        ## Creates a recovery plan with the given details.
+        ## Example Usage
+        ### Creates a recovery plan with the given details.
 
         ```python
         import pulumi

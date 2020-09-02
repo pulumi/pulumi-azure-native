@@ -34,7 +34,8 @@ class PrivateCloud(pulumi.CustomResource):
         """
         A private cloud resource
 
-        ## PrivateClouds_CreateOrUpdate
+        ## Example Usage
+        ### PrivateClouds_CreateOrUpdate
 
         ```python
         import pulumi

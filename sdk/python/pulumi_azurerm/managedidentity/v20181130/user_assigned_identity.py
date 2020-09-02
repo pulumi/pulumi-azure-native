@@ -25,7 +25,8 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """
         Describes an identity resource.
 
-        ## IdentityCreate
+        ## Example Usage
+        ### IdentityCreate
 
         ```python
         import pulumi

@@ -40,7 +40,8 @@ class VirtualHub(pulumi.CustomResource):
         """
         VirtualHub Resource.
 
-        ## VirtualHubPut
+        ## Example Usage
+        ### VirtualHubPut
 
         ```python
         import pulumi

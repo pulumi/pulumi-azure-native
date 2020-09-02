@@ -29,7 +29,8 @@ class Image(pulumi.CustomResource):
         """
         The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
 
-        ## Create a virtual machine image from a blob.
+        ## Example Usage
+        ### Create a virtual machine image from a blob.
 
         ```python
         import pulumi
@@ -48,8 +49,7 @@ class Image(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a virtual machine image from a managed disk.
+        ### Create a virtual machine image from a managed disk.
 
         ```python
         import pulumi
@@ -70,8 +70,7 @@ class Image(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a virtual machine image from a snapshot.
+        ### Create a virtual machine image from a snapshot.
 
         ```python
         import pulumi
@@ -92,8 +91,7 @@ class Image(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a virtual machine image from an existing virtual machine.
+        ### Create a virtual machine image from an existing virtual machine.
 
         ```python
         import pulumi
@@ -108,8 +106,7 @@ class Image(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a virtual machine image that includes a data disk from a blob.
+        ### Create a virtual machine image that includes a data disk from a blob.
 
         ```python
         import pulumi
@@ -132,8 +129,7 @@ class Image(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a virtual machine image that includes a data disk from a managed disk.
+        ### Create a virtual machine image that includes a data disk from a managed disk.
 
         ```python
         import pulumi
@@ -160,8 +156,7 @@ class Image(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create a virtual machine image that includes a data disk from a snapshot.
+        ### Create a virtual machine image that includes a data disk from a snapshot.
 
         ```python
         import pulumi

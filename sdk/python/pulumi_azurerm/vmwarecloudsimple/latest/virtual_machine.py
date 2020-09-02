@@ -39,7 +39,8 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Virtual machine model
 
-        ## CreateVirtualMachine
+        ## Example Usage
+        ### CreateVirtualMachine
 
         ```python
         import pulumi

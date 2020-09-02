@@ -31,7 +31,8 @@ class Policy(pulumi.CustomResource):
         """
         Defines web application firewall policy.
 
-        ## Creates specific policy
+        ## Example Usage
+        ### Creates specific policy
 
         ```python
         import pulumi

@@ -25,7 +25,8 @@ class Registration(pulumi.CustomResource):
         """
         Registration information.
 
-        ## Create or update an Azure Stack registration.
+        ## Example Usage
+        ### Create or update an Azure Stack registration.
 
         ```python
         import pulumi

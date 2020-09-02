@@ -34,7 +34,8 @@ class PublicIPPrefix(pulumi.CustomResource):
         """
         Public IP prefix resource.
 
-        ## Create public IP prefix allocation method
+        ## Example Usage
+        ### Create public IP prefix allocation method
 
         ```python
         import pulumi
@@ -51,8 +52,7 @@ class PublicIPPrefix(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create public IP prefix defaults
+        ### Create public IP prefix defaults
 
         ```python
         import pulumi

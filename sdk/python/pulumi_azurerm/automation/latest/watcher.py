@@ -32,7 +32,8 @@ class Watcher(pulumi.CustomResource):
         """
         Definition of the watcher type.
 
-        ## Create or update watcher
+        ## Example Usage
+        ### Create or update watcher
 
         ```python
         import pulumi

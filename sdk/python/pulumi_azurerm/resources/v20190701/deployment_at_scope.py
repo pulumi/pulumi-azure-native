@@ -27,7 +27,8 @@ class DeploymentAtScope(pulumi.CustomResource):
         """
         Deployment information.
 
-        ## Create deployment at a given scope.
+        ## Example Usage
+        ### Create deployment at a given scope.
 
         ```python
         import pulumi

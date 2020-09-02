@@ -31,7 +31,8 @@ class PolicySetDefinition(pulumi.CustomResource):
         """
         The policy set definition.
 
-        ## Create or update a policy set definition
+        ## Example Usage
+        ### Create or update a policy set definition
 
         ```python
         import pulumi
@@ -81,8 +82,7 @@ class PolicySetDefinition(pulumi.CustomResource):
             policy_set_definition_name="CostManagement")
 
         ```
-
-        ## Create or update a policy set definition with groups
+        ### Create or update a policy set definition with groups
 
         ```python
         import pulumi

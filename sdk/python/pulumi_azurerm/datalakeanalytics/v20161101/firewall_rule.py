@@ -26,7 +26,8 @@ class FirewallRule(pulumi.CustomResource):
         """
         Data Lake Analytics firewall rule information.
 
-        ## Creates or updates the specified firewall rule
+        ## Example Usage
+        ### Creates or updates the specified firewall rule
 
         ```python
         import pulumi

@@ -27,7 +27,8 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
         """
         An Azure Cosmos DB SQL database.
 
-        ## CosmosDBSqlDatabaseCreateUpdate
+        ## Example Usage
+        ### CosmosDBSqlDatabaseCreateUpdate
 
         ```python
         import pulumi

@@ -34,7 +34,8 @@ class Endpoint(pulumi.CustomResource):
         """
         Class representing a Traffic Manager endpoint.
 
-        ## Endpoint-PUT-External-WithGeoMapping
+        ## Example Usage
+        ### Endpoint-PUT-External-WithGeoMapping
 
         ```python
         import pulumi
@@ -53,8 +54,7 @@ class Endpoint(pulumi.CustomResource):
             target="foobar.contoso.com")
 
         ```
-
-        ## Endpoint-PUT-External-WithLocation
+        ### Endpoint-PUT-External-WithLocation
 
         ```python
         import pulumi

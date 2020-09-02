@@ -37,7 +37,8 @@ class Bookmark(pulumi.CustomResource):
         """
         Represents a bookmark in Azure Security Insights.
 
-        ## Creates or updates a bookmark.
+        ## Example Usage
+        ### Creates or updates a bookmark.
 
         ```python
         import pulumi

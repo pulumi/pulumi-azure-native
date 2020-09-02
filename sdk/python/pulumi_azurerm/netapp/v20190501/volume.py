@@ -37,7 +37,8 @@ class Volume(pulumi.CustomResource):
         """
         Volume resource
 
-        ## Volumes_CreateOrUpdate
+        ## Example Usage
+        ### Volumes_CreateOrUpdate
 
         ```python
         import pulumi

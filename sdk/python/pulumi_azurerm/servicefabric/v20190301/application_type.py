@@ -26,7 +26,8 @@ class ApplicationType(pulumi.CustomResource):
         """
         The application type name resource
 
-        ## Put an application type
+        ## Example Usage
+        ### Put an application type
 
         ```python
         import pulumi

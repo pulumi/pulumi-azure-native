@@ -33,7 +33,8 @@ class Project(pulumi.CustomResource):
         """
         A project resource
 
-        ## Projects_CreateOrUpdate
+        ## Example Usage
+        ### Projects_CreateOrUpdate
 
         ```python
         import pulumi

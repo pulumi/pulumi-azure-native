@@ -26,7 +26,8 @@ class DataConnector(pulumi.CustomResource):
         """
         Data connector.
 
-        ## Creates or updates an Office365 data connector.
+        ## Example Usage
+        ### Creates or updates an Office365 data connector.
 
         ```python
         import pulumi

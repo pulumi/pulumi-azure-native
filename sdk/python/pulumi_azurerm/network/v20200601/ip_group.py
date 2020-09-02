@@ -28,7 +28,8 @@ class IpGroup(pulumi.CustomResource):
         """
         The IpGroups resource information.
 
-        ## CreateOrUpdate_IpGroups
+        ## Example Usage
+        ### CreateOrUpdate_IpGroups
 
         ```python
         import pulumi

@@ -32,7 +32,8 @@ class Rule(pulumi.CustomResource):
         """
         Description of Rule Resource.
 
-        ## RulesCreateCorrelationFilter
+        ## Example Usage
+        ### RulesCreateCorrelationFilter
 
         ```python
         import pulumi
@@ -52,8 +53,7 @@ class Rule(pulumi.CustomResource):
             topic_name="sdk-Topics-2081")
 
         ```
-
-        ## RulesCreateOrUpdate
+        ### RulesCreateOrUpdate
 
         ```python
         import pulumi
@@ -67,8 +67,7 @@ class Rule(pulumi.CustomResource):
             topic_name="sdk-Topics-2081")
 
         ```
-
-        ## RulesCreateSqlFilter
+        ### RulesCreateSqlFilter
 
         ```python
         import pulumi

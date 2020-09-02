@@ -25,7 +25,8 @@ class Workspace(pulumi.CustomResource):
         """
         Batch AI Workspace information.
 
-        ## Create a workspace
+        ## Example Usage
+        ### Create a workspace
 
         ```python
         import pulumi

@@ -28,7 +28,8 @@ class Credential(pulumi.CustomResource):
         """
         Definition of the credential.
 
-        ## Create a credential
+        ## Example Usage
+        ### Create a credential
 
         ```python
         import pulumi

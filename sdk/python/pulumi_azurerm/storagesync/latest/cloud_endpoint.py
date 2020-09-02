@@ -29,7 +29,8 @@ class CloudEndpoint(pulumi.CustomResource):
         """
         Cloud Endpoint object.
 
-        ## CloudEndpoints_Create
+        ## Example Usage
+        ### CloudEndpoints_Create
 
         ```python
         import pulumi

@@ -25,7 +25,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Description of a Namespace AuthorizationRules.
 
-        ## RelayNameSpaceAuthorizationRuleCreate
+        ## Example Usage
+        ### RelayNameSpaceAuthorizationRuleCreate
 
         ```python
         import pulumi

@@ -33,7 +33,8 @@ class LiveOutput(pulumi.CustomResource):
         """
         The Live Output.
 
-        ## Create a LiveOutput
+        ## Example Usage
+        ### Create a LiveOutput
 
         ```python
         import pulumi

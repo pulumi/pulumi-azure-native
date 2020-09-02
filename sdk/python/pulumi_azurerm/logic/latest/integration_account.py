@@ -30,7 +30,8 @@ class IntegrationAccount(pulumi.CustomResource):
         """
         The integration account.
 
-        ## Create or update an integration account
+        ## Example Usage
+        ### Create or update an integration account
 
         ```python
         import pulumi

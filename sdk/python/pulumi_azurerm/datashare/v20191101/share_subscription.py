@@ -26,7 +26,8 @@ class ShareSubscription(pulumi.CustomResource):
         """
         A share subscription data transfer object.
 
-        ## ShareSubscriptions_Create
+        ## Example Usage
+        ### ShareSubscriptions_Create
 
         ```python
         import pulumi

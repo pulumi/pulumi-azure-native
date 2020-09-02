@@ -31,7 +31,8 @@ class Bot(pulumi.CustomResource):
         """
         Bot resource definition
 
-        ## Create Bot
+        ## Example Usage
+        ### Create Bot
 
         ```python
         import pulumi

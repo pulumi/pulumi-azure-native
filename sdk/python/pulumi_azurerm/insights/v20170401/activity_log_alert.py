@@ -32,7 +32,8 @@ class ActivityLogAlert(pulumi.CustomResource):
         """
         An activity log alert resource.
 
-        ## Create or update an activity log alert
+        ## Example Usage
+        ### Create or update an activity log alert
 
         ```python
         import pulumi

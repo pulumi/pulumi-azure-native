@@ -29,7 +29,8 @@ class WorkspaceConnection(pulumi.CustomResource):
         """
         Workspace connection.
 
-        ## CreateWorkspaceConnection
+        ## Example Usage
+        ### CreateWorkspaceConnection
 
         ```python
         import pulumi

@@ -26,7 +26,8 @@ class FirewallRule(pulumi.CustomResource):
         """
         Represents a server firewall rule.
 
-        ## FirewallRuleCreate
+        ## Example Usage
+        ### FirewallRuleCreate
 
         ```python
         import pulumi

@@ -32,7 +32,8 @@ class AlertRule(pulumi.CustomResource):
         """
         The alert rule resource.
 
-        ## Create or update an alert rule
+        ## Example Usage
+        ### Create or update an alert rule
 
         ```python
         import pulumi

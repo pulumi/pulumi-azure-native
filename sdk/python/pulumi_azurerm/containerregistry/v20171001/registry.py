@@ -31,7 +31,8 @@ class Registry(pulumi.CustomResource):
         """
         An object that represents a container registry.
 
-        ## RegistryCreate
+        ## Example Usage
+        ### RegistryCreate
 
         ```python
         import pulumi

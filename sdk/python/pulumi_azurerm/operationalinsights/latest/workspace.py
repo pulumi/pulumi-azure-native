@@ -34,7 +34,8 @@ class Workspace(pulumi.CustomResource):
         """
         The top level Workspace resource container.
 
-        ## WorkspacesCreate
+        ## Example Usage
+        ### WorkspacesCreate
 
         ```python
         import pulumi

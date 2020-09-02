@@ -29,7 +29,8 @@ class BlobContainer(pulumi.CustomResource):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
 
-        ## PutContainerWithDefaultEncryptionScope
+        ## Example Usage
+        ### PutContainerWithDefaultEncryptionScope
 
         ```python
         import pulumi
@@ -43,8 +44,7 @@ class BlobContainer(pulumi.CustomResource):
             resource_group_name="res3376")
 
         ```
-
-        ## PutContainers
+        ### PutContainers
 
         ```python
         import pulumi

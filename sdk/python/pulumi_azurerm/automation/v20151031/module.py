@@ -30,7 +30,8 @@ class Module(pulumi.CustomResource):
         """
         Definition of the module type.
 
-        ## Create or update a module
+        ## Example Usage
+        ### Create or update a module
 
         ```python
         import pulumi

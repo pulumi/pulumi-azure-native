@@ -29,7 +29,8 @@ class DiskEncryptionSet(pulumi.CustomResource):
         """
         disk encryption set resource.
 
-        ## Create a disk encryption set.
+        ## Example Usage
+        ### Create a disk encryption set.
 
         ```python
         import pulumi

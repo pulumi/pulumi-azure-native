@@ -28,7 +28,8 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
-        ## Create server max
+        ## Example Usage
+        ### Create server max
 
         ```python
         import pulumi
@@ -46,8 +47,7 @@ class Server(pulumi.CustomResource):
             version="12.0")
 
         ```
-
-        ## Create server min
+        ### Create server min
 
         ```python
         import pulumi

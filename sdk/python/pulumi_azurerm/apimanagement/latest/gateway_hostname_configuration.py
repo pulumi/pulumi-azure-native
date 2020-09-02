@@ -28,7 +28,8 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         """
         Gateway hostname configuration details.
 
-        ## ApiManagementCreateGatewayHostnameConfiguration
+        ## Example Usage
+        ### ApiManagementCreateGatewayHostnameConfiguration
 
         ```python
         import pulumi

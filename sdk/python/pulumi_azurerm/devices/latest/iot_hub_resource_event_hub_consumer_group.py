@@ -27,7 +27,8 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
         """
         The properties of the EventHubConsumerGroupInfo object.
 
-        ## IotHubResource_CreateEventHubConsumerGroup
+        ## Example Usage
+        ### IotHubResource_CreateEventHubConsumerGroup
 
         ```python
         import pulumi

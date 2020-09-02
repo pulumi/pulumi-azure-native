@@ -32,7 +32,8 @@ class Topic(pulumi.CustomResource):
         """
         EventGrid Topic
 
-        ## Topics_CreateOrUpdate
+        ## Example Usage
+        ### Topics_CreateOrUpdate
 
         ```python
         import pulumi

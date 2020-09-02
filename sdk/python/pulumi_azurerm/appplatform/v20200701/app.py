@@ -29,7 +29,8 @@ class App(pulumi.CustomResource):
         """
         App resource payload
 
-        ## Apps_CreateOrUpdate
+        ## Example Usage
+        ### Apps_CreateOrUpdate
 
         ```python
         import pulumi

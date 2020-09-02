@@ -28,7 +28,8 @@ class DataSource(pulumi.CustomResource):
         """
         Datasources under OMS Workspace.
 
-        ## DataSourcesCreate
+        ## Example Usage
+        ### DataSourcesCreate
 
         ```python
         import pulumi

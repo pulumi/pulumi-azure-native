@@ -29,7 +29,8 @@ class ConnectionType(pulumi.CustomResource):
         """
         Definition of the connection type.
 
-        ## Create or update connection type
+        ## Example Usage
+        ### Create or update connection type
 
         ```python
         import pulumi

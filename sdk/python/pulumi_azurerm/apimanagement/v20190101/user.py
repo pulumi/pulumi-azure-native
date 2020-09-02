@@ -36,7 +36,8 @@ class User(pulumi.CustomResource):
         """
         User details.
 
-        ## ApiManagementCreateUser
+        ## Example Usage
+        ### ApiManagementCreateUser
 
         ```python
         import pulumi

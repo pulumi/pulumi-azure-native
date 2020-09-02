@@ -34,7 +34,8 @@ class Service(pulumi.CustomResource):
         """
         Describes an Azure Cognitive Search service and its current state.
 
-        ## SearchCreateOrUpdateService
+        ## Example Usage
+        ### SearchCreateOrUpdateService
 
         ```python
         import pulumi
@@ -55,8 +56,7 @@ class Service(pulumi.CustomResource):
             })
 
         ```
-
-        ## SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints
+        ### SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints
 
         ```python
         import pulumi
@@ -78,8 +78,7 @@ class Service(pulumi.CustomResource):
             })
 
         ```
-
-        ## SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs
+        ### SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs
 
         ```python
         import pulumi
@@ -110,8 +109,7 @@ class Service(pulumi.CustomResource):
             })
 
         ```
-
-        ## SearchCreateOrUpdateServiceWithIdentity
+        ### SearchCreateOrUpdateServiceWithIdentity
 
         ```python
         import pulumi

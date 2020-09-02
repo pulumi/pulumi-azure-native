@@ -34,7 +34,8 @@ class DedicatedCloudNode(pulumi.CustomResource):
         """
         Dedicated cloud node model
 
-        ## CreateDedicatedCloudNode
+        ## Example Usage
+        ### CreateDedicatedCloudNode
 
         ```python
         import pulumi

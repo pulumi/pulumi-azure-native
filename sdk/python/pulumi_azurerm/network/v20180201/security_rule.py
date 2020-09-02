@@ -45,7 +45,8 @@ class SecurityRule(pulumi.CustomResource):
         """
         Network security rule.
 
-        ## Create security rule
+        ## Example Usage
+        ### Create security rule
 
         ```python
         import pulumi

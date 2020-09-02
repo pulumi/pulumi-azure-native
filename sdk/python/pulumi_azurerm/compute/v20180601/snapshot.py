@@ -32,7 +32,8 @@ class Snapshot(pulumi.CustomResource):
         """
         Snapshot resource.
 
-        ## Create a snapshot by importing an unmanaged blob from a different subscription.
+        ## Example Usage
+        ### Create a snapshot by importing an unmanaged blob from a different subscription.
 
         ```python
         import pulumi
@@ -49,8 +50,7 @@ class Snapshot(pulumi.CustomResource):
             snapshot_name="mySnapshot1")
 
         ```
-
-        ## Create a snapshot by importing an unmanaged blob from the same subscription.
+        ### Create a snapshot by importing an unmanaged blob from the same subscription.
 
         ```python
         import pulumi
@@ -66,8 +66,7 @@ class Snapshot(pulumi.CustomResource):
             snapshot_name="mySnapshot1")
 
         ```
-
-        ## Create a snapshot from an existing snapshot in the same or a different subscription.
+        ### Create a snapshot from an existing snapshot in the same or a different subscription.
 
         ```python
         import pulumi

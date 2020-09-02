@@ -25,7 +25,8 @@ class ServerCommunicationLink(pulumi.CustomResource):
         """
         Server communication link.
 
-        ## Create a server communication link
+        ## Example Usage
+        ### Create a server communication link
 
         ```python
         import pulumi

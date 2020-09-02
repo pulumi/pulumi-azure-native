@@ -26,7 +26,8 @@ class CustomerSubscription(pulumi.CustomResource):
         """
         Customer subscription.
 
-        ## Creates a new customer subscription under a registration.
+        ## Example Usage
+        ### Creates a new customer subscription under a registration.
 
         ```python
         import pulumi

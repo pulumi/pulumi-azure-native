@@ -34,7 +34,8 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         """
         OpenShift Managed cluster.
 
-        ## Create/Update OpenShift Managed Cluster
+        ## Example Usage
+        ### Create/Update OpenShift Managed Cluster
 
         ```python
         import pulumi

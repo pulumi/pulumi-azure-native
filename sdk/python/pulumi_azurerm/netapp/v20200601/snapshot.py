@@ -27,7 +27,8 @@ class Snapshot(pulumi.CustomResource):
         """
         Snapshot of a Volume
 
-        ## Snapshots_Create
+        ## Example Usage
+        ### Snapshots_Create
 
         ```python
         import pulumi

@@ -32,7 +32,8 @@ class VolumeContainer(pulumi.CustomResource):
         """
         The volume container.
 
-        ## VolumeContainersCreateOrUpdate
+        ## Example Usage
+        ### VolumeContainersCreateOrUpdate
 
         ```python
         import pulumi

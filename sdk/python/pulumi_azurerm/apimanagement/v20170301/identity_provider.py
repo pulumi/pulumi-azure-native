@@ -32,7 +32,8 @@ class IdentityProvider(pulumi.CustomResource):
         """
         Identity Provider details.
 
-        ## ApiManagementCreateIdentityProvider
+        ## Example Usage
+        ### ApiManagementCreateIdentityProvider
 
         ```python
         import pulumi

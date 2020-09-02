@@ -40,7 +40,8 @@ class RecordSet(pulumi.CustomResource):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type).
 
-        ## Create CAA recordset
+        ## Example Usage
+        ### Create CAA recordset
 
         ```python
         import pulumi

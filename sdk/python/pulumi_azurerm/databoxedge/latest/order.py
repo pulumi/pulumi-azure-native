@@ -28,7 +28,8 @@ class Order(pulumi.CustomResource):
         """
         The order details.
 
-        ## OrderPut
+        ## Example Usage
+        ### OrderPut
 
         ```python
         import pulumi

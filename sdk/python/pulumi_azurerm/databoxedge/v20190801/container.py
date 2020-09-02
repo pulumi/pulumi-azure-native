@@ -27,7 +27,8 @@ class Container(pulumi.CustomResource):
         """
         Represents a container on the  Data Box Edge/Gateway device.
 
-        ## ContainerPut
+        ## Example Usage
+        ### ContainerPut
 
         ```python
         import pulumi

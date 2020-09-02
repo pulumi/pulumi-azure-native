@@ -26,7 +26,8 @@ class RoleAssignment(pulumi.CustomResource):
         """
         Role Assignments
 
-        ## GetConfigurations
+        ## Example Usage
+        ### GetConfigurations
 
         ```python
         import pulumi

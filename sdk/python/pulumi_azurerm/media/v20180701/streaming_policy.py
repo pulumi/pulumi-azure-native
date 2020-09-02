@@ -31,7 +31,8 @@ class StreamingPolicy(pulumi.CustomResource):
         """
         A Streaming Policy resource
 
-        ## Creates a Streaming Policy with clear streaming
+        ## Example Usage
+        ### Creates a Streaming Policy with clear streaming
 
         ```python
         import pulumi
@@ -51,8 +52,7 @@ class StreamingPolicy(pulumi.CustomResource):
             streaming_policy_name="UserCreatedClearStreamingPolicy")
 
         ```
-
-        ## Creates a Streaming Policy with commonEncryptionCbcs only
+        ### Creates a Streaming Policy with commonEncryptionCbcs only
 
         ```python
         import pulumi
@@ -84,8 +84,7 @@ class StreamingPolicy(pulumi.CustomResource):
             streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly")
 
         ```
-
-        ## Creates a Streaming Policy with commonEncryptionCenc only
+        ### Creates a Streaming Policy with commonEncryptionCenc only
 
         ```python
         import pulumi
@@ -127,8 +126,7 @@ class StreamingPolicy(pulumi.CustomResource):
             streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCencOnly")
 
         ```
-
-        ## Creates a Streaming Policy with envelopeEncryption only
+        ### Creates a Streaming Policy with envelopeEncryption only
 
         ```python
         import pulumi
@@ -154,8 +152,7 @@ class StreamingPolicy(pulumi.CustomResource):
             streaming_policy_name="UserCreatedSecureStreamingPolicyWithEnvelopeEncryptionOnly")
 
         ```
-
-        ## Creates a Streaming Policy with secure streaming
+        ### Creates a Streaming Policy with secure streaming
 
         ```python
         import pulumi

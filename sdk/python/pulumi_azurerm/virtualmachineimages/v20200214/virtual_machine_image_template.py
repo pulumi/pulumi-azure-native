@@ -33,7 +33,8 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
 
-        ## Create an Image Template for Linux.
+        ## Example Usage
+        ### Create an Image Template for Linux.
 
         ```python
         import pulumi
@@ -73,8 +74,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create an Image Template for Windows.
+        ### Create an Image Template for Windows.
 
         ```python
         import pulumi

@@ -32,7 +32,8 @@ class VirtualWan(pulumi.CustomResource):
         """
         VirtualWAN Resource.
 
-        ## VirtualWANCreate
+        ## Example Usage
+        ### VirtualWANCreate
 
         ```python
         import pulumi

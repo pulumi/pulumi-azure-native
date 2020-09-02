@@ -30,7 +30,8 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         """
         Rule Collection Group resource.
 
-        ## Create FirewallPolicyRuleCollectionGroup
+        ## Example Usage
+        ### Create FirewallPolicyRuleCollectionGroup
 
         ```python
         import pulumi
@@ -47,8 +48,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             }])
 
         ```
-
-        ## Create FirewallPolicyRuleCollectionGroup With IpGroups
+        ### Create FirewallPolicyRuleCollectionGroup With IpGroups
 
         ```python
         import pulumi

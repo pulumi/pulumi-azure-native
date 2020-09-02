@@ -36,7 +36,8 @@ class Component(pulumi.CustomResource):
         """
         An Application Insights component definition.
 
-        ## ComponentCreate
+        ## Example Usage
+        ### ComponentCreate
 
         ```python
         import pulumi
@@ -52,8 +53,7 @@ class Component(pulumi.CustomResource):
             resource_name="my-component")
 
         ```
-
-        ## ComponentUpdate
+        ### ComponentUpdate
 
         ```python
         import pulumi

@@ -38,7 +38,8 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
-        ## ApiManagementCreateMultiRegionServiceWithCustomHostname
+        ## Example Usage
+        ### ApiManagementCreateMultiRegionServiceWithCustomHostname
 
         ```python
         import pulumi
@@ -91,8 +92,7 @@ class ApiManagementService(pulumi.CustomResource):
             virtual_network_type="External")
 
         ```
-
-        ## ApiManagementCreateService
+        ### ApiManagementCreateService
 
         ```python
         import pulumi
@@ -110,8 +110,7 @@ class ApiManagementService(pulumi.CustomResource):
             })
 
         ```
-
-        ## ApiManagementCreateServiceHavingMsi
+        ### ApiManagementCreateServiceHavingMsi
 
         ```python
         import pulumi
@@ -131,8 +130,7 @@ class ApiManagementService(pulumi.CustomResource):
             })
 
         ```
-
-        ## ApiManagementCreateServiceWithSystemCertificates
+        ### ApiManagementCreateServiceWithSystemCertificates
 
         ```python
         import pulumi

@@ -41,7 +41,8 @@ class RecordSet(pulumi.CustomResource):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type).
 
-        ## Create A recordset
+        ## Example Usage
+        ### Create A recordset
 
         ```python
         import pulumi
@@ -61,8 +62,7 @@ class RecordSet(pulumi.CustomResource):
             zone_name="zone1")
 
         ```
-
-        ## Create A recordset with alias target resource
+        ### Create A recordset with alias target resource
 
         ```python
         import pulumi
@@ -82,8 +82,7 @@ class RecordSet(pulumi.CustomResource):
             zone_name="zone1")
 
         ```
-
-        ## Create AAAA recordset
+        ### Create AAAA recordset
 
         ```python
         import pulumi
@@ -103,8 +102,7 @@ class RecordSet(pulumi.CustomResource):
             zone_name="zone1")
 
         ```
-
-        ## Create CAA recordset
+        ### Create CAA recordset
 
         ```python
         import pulumi
@@ -126,8 +124,7 @@ class RecordSet(pulumi.CustomResource):
             zone_name="zone1")
 
         ```
-
-        ## Create CNAME recordset
+        ### Create CNAME recordset
 
         ```python
         import pulumi
@@ -147,8 +144,7 @@ class RecordSet(pulumi.CustomResource):
             zone_name="zone1")
 
         ```
-
-        ## Create MX recordset
+        ### Create MX recordset
 
         ```python
         import pulumi
@@ -169,8 +165,7 @@ class RecordSet(pulumi.CustomResource):
             zone_name="zone1")
 
         ```
-
-        ## Create NS recordset
+        ### Create NS recordset
 
         ```python
         import pulumi
@@ -190,8 +185,7 @@ class RecordSet(pulumi.CustomResource):
             zone_name="zone1")
 
         ```
-
-        ## Create PTR recordset
+        ### Create PTR recordset
 
         ```python
         import pulumi
@@ -211,8 +205,7 @@ class RecordSet(pulumi.CustomResource):
             zone_name="0.0.127.in-addr.arpa")
 
         ```
-
-        ## Create SOA recordset
+        ### Create SOA recordset
 
         ```python
         import pulumi
@@ -238,8 +231,7 @@ class RecordSet(pulumi.CustomResource):
             zone_name="zone1")
 
         ```
-
-        ## Create SRV recordset
+        ### Create SRV recordset
 
         ```python
         import pulumi
@@ -262,8 +254,7 @@ class RecordSet(pulumi.CustomResource):
             zone_name="zone1")
 
         ```
-
-        ## Create TXT recordset
+        ### Create TXT recordset
 
         ```python
         import pulumi

@@ -31,7 +31,8 @@ class Workflow(pulumi.CustomResource):
         """
         The workflow type.
 
-        ## Create or update a workflow
+        ## Example Usage
+        ### Create or update a workflow
 
         ```python
         import pulumi

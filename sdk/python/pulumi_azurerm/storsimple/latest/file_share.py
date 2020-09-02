@@ -32,7 +32,8 @@ class FileShare(pulumi.CustomResource):
         """
         The File Share.
 
-        ## FileSharesCreateOrUpdate
+        ## Example Usage
+        ### FileSharesCreateOrUpdate
 
         ```python
         import pulumi

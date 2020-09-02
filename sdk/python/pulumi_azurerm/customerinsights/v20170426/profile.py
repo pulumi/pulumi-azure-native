@@ -41,7 +41,8 @@ class Profile(pulumi.CustomResource):
         """
         The profile resource format.
 
-        ## Profiles_CreateOrUpdate
+        ## Example Usage
+        ### Profiles_CreateOrUpdate
 
         ```python
         import pulumi

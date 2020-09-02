@@ -34,7 +34,8 @@ class Namespace(pulumi.CustomResource):
         """
         Single Namespace item in List or Get Operation
 
-        ## NamespaceCreate
+        ## Example Usage
+        ### NamespaceCreate
 
         ```python
         import pulumi

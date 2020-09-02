@@ -35,7 +35,8 @@ class NatGateway(pulumi.CustomResource):
         """
         Nat Gateway resource.
 
-        ## Create nat gateway
+        ## Example Usage
+        ### Create nat gateway
 
         ```python
         import pulumi

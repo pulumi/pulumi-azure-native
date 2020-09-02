@@ -24,7 +24,8 @@ class Experiment(pulumi.CustomResource):
         """
         Experiment information.
 
-        ## Create an experiment
+        ## Example Usage
+        ### Create an experiment
 
         ```python
         import pulumi

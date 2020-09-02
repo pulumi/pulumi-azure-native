@@ -33,7 +33,8 @@ class Experiment(pulumi.CustomResource):
         """
         Defines the properties of an Experiment
 
-        ## Creates an Experiment
+        ## Example Usage
+        ### Creates an Experiment
 
         ```python
         import pulumi

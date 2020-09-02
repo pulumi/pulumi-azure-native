@@ -32,7 +32,8 @@ class BatchAccount(pulumi.CustomResource):
         """
         Contains information about an Azure Batch account.
 
-        ## BatchAccountCreate_BYOS
+        ## Example Usage
+        ### BatchAccountCreate_BYOS
 
         ```python
         import pulumi
@@ -52,8 +53,7 @@ class BatchAccount(pulumi.CustomResource):
             resource_group_name="default-azurebatch-japaneast")
 
         ```
-
-        ## BatchAccountCreate_Default
+        ### BatchAccountCreate_Default
 
         ```python
         import pulumi
@@ -68,8 +68,7 @@ class BatchAccount(pulumi.CustomResource):
             resource_group_name="default-azurebatch-japaneast")
 
         ```
-
-        ## PrivateBatchAccountCreate
+        ### PrivateBatchAccountCreate
 
         ```python
         import pulumi

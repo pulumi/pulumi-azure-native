@@ -29,7 +29,8 @@ class Deployment(pulumi.CustomResource):
         """
         Deployment resource payload
 
-        ## Deployments_CreateOrUpdate
+        ## Example Usage
+        ### Deployments_CreateOrUpdate
 
         ```python
         import pulumi

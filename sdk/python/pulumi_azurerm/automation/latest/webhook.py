@@ -33,7 +33,8 @@ class Webhook(pulumi.CustomResource):
         """
         Definition of the webhook type.
 
-        ## Create or update webhook
+        ## Example Usage
+        ### Create or update webhook
 
         ```python
         import pulumi

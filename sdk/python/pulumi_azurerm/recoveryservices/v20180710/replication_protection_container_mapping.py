@@ -29,7 +29,8 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
         """
         Protection container mapping object.
 
-        ## Create protection container mapping.
+        ## Example Usage
+        ### Create protection container mapping.
 
         ```python
         import pulumi

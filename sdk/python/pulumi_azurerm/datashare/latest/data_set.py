@@ -26,7 +26,8 @@ class DataSet(pulumi.CustomResource):
         """
         A DataSet data transfer object.
 
-        ## DataSets_Create
+        ## Example Usage
+        ### DataSets_Create
 
         ```python
         import pulumi
@@ -40,8 +41,7 @@ class DataSet(pulumi.CustomResource):
             share_name="Share1")
 
         ```
-
-        ## DataSets_KustoCluster_Create
+        ### DataSets_KustoCluster_Create
 
         ```python
         import pulumi
@@ -55,8 +55,7 @@ class DataSet(pulumi.CustomResource):
             share_name="Share1")
 
         ```
-
-        ## DataSets_KustoDatabase_Create
+        ### DataSets_KustoDatabase_Create
 
         ```python
         import pulumi
@@ -70,8 +69,7 @@ class DataSet(pulumi.CustomResource):
             share_name="Share1")
 
         ```
-
-        ## DataSets_SqlDBTable_Create
+        ### DataSets_SqlDBTable_Create
 
         ```python
         import pulumi
@@ -85,8 +83,7 @@ class DataSet(pulumi.CustomResource):
             share_name="Share1")
 
         ```
-
-        ## DataSets_SqlDWTable_Create
+        ### DataSets_SqlDWTable_Create
 
         ```python
         import pulumi

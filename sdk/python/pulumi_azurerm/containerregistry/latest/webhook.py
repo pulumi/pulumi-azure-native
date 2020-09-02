@@ -31,7 +31,8 @@ class Webhook(pulumi.CustomResource):
         """
         An object that represents a webhook for a container registry.
 
-        ## WebhookCreate
+        ## Example Usage
+        ### WebhookCreate
 
         ```python
         import pulumi

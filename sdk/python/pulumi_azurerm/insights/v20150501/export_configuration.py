@@ -33,7 +33,8 @@ class ExportConfiguration(pulumi.CustomResource):
         """
         Properties that define a Continuous Export configuration.
 
-        ## ExportConfigurationUpdate
+        ## Example Usage
+        ### ExportConfigurationUpdate
 
         ```python
         import pulumi

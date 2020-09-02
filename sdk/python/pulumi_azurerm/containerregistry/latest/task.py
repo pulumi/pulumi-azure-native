@@ -37,7 +37,8 @@ class Task(pulumi.CustomResource):
         The task that has the ARM resource and task properties.
         The task will have all information to schedule a run against it.
 
-        ## Tasks_Create
+        ## Example Usage
+        ### Tasks_Create
 
         ```python
         import pulumi
@@ -90,8 +91,7 @@ class Task(pulumi.CustomResource):
             })
 
         ```
-
-        ## Tasks_Create_WithSystemAndUserIdentities
+        ### Tasks_Create_WithSystemAndUserIdentities
 
         ```python
         import pulumi
@@ -147,8 +147,7 @@ class Task(pulumi.CustomResource):
             })
 
         ```
-
-        ## Tasks_Create_WithUserIdentities
+        ### Tasks_Create_WithUserIdentities
 
         ```python
         import pulumi
@@ -205,8 +204,7 @@ class Task(pulumi.CustomResource):
             })
 
         ```
-
-        ## Tasks_Create_WithUserIdentities_WithSystemIdentity
+        ### Tasks_Create_WithUserIdentities_WithSystemIdentity
 
         ```python
         import pulumi

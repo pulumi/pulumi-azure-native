@@ -31,7 +31,8 @@ class ConfigurationStore(pulumi.CustomResource):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 
-        ## ConfigurationStores_Create
+        ## Example Usage
+        ### ConfigurationStores_Create
 
         ```python
         import pulumi
@@ -49,8 +50,7 @@ class ConfigurationStore(pulumi.CustomResource):
             })
 
         ```
-
-        ## ConfigurationStores_Create_WithIdentity
+        ### ConfigurationStores_Create_WithIdentity
 
         ```python
         import pulumi

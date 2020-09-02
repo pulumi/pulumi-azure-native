@@ -31,7 +31,8 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
         """
         Service Endpoint policy definitions.
 
-        ## Create service endpoint policy definition
+        ## Example Usage
+        ### Create service endpoint policy definition
 
         ```python
         import pulumi

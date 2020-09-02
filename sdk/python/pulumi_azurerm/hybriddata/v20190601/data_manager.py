@@ -29,7 +29,8 @@ class DataManager(pulumi.CustomResource):
         """
         The DataManager resource.
 
-        ## DataManagers_CreatePUT41
+        ## Example Usage
+        ### DataManagers_CreatePUT41
 
         ```python
         import pulumi

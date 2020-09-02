@@ -31,7 +31,8 @@ class Account(pulumi.CustomResource):
         """
         Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
 
-        ## Create Account
+        ## Example Usage
+        ### Create Account
 
         ```python
         import pulumi
@@ -50,8 +51,7 @@ class Account(pulumi.CustomResource):
             })
 
         ```
-
-        ## Create Account Min
+        ### Create Account Min
 
         ```python
         import pulumi

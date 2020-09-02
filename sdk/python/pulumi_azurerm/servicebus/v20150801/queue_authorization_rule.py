@@ -28,7 +28,8 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         """
         Description of a namespace authorization rule.
 
-        ## QueueAuthorizationRuleCreate
+        ## Example Usage
+        ### QueueAuthorizationRuleCreate
 
         ```python
         import pulumi

@@ -38,7 +38,8 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         """
         Describes a Virtual Machine Extension.
 
-        ## Create VirtualMachineScaleSet VM extension.
+        ## Example Usage
+        ### Create VirtualMachineScaleSet VM extension.
 
         ```python
         import pulumi

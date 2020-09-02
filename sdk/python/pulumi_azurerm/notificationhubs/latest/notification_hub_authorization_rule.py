@@ -28,7 +28,8 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
         """
         Description of a Namespace AuthorizationRules.
 
-        ## NotificationHubAuthorizationRuleCreate
+        ## Example Usage
+        ### NotificationHubAuthorizationRuleCreate
 
         ```python
         import pulumi

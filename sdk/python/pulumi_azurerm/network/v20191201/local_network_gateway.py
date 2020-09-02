@@ -32,7 +32,8 @@ class LocalNetworkGateway(pulumi.CustomResource):
         """
         A common class for general resource information.
 
-        ## CreateLocalNetworkGateway
+        ## Example Usage
+        ### CreateLocalNetworkGateway
 
         ```python
         import pulumi

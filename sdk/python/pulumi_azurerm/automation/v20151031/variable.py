@@ -28,7 +28,8 @@ class Variable(pulumi.CustomResource):
         """
         Definition of the variable.
 
-        ## Create or update a variable
+        ## Example Usage
+        ### Create or update a variable
 
         ```python
         import pulumi

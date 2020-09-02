@@ -28,7 +28,8 @@ class BandwidthSchedule(pulumi.CustomResource):
         """
         The bandwidth schedule details.
 
-        ## BandwidthSchedulePut
+        ## Example Usage
+        ### BandwidthSchedulePut
 
         ```python
         import pulumi

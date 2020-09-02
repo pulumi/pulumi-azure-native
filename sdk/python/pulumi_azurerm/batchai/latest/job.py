@@ -48,7 +48,8 @@ class Job(pulumi.CustomResource):
         """
         Information about a Job.
 
-        ## Create a job
+        ## Example Usage
+        ### Create a job
 
         ```python
         import pulumi

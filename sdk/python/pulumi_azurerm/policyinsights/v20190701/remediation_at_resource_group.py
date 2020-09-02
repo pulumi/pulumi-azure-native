@@ -29,7 +29,8 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
         """
         The remediation definition.
 
-        ## Create remediation at resource group scope
+        ## Example Usage
+        ### Create remediation at resource group scope
 
         ```python
         import pulumi

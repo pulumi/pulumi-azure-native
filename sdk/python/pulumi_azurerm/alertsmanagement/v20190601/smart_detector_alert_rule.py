@@ -35,7 +35,8 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         """
         The alert rule information
 
-        ## Create or update a Smart Detector alert rule
+        ## Example Usage
+        ### Create or update a Smart Detector alert rule
 
         ```python
         import pulumi

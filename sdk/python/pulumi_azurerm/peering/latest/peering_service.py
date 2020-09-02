@@ -30,7 +30,8 @@ class PeeringService(pulumi.CustomResource):
         """
         Peering Service
 
-        ## Create a  peering service
+        ## Example Usage
+        ### Create a  peering service
 
         ```python
         import pulumi

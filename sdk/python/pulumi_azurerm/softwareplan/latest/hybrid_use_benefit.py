@@ -26,7 +26,8 @@ class HybridUseBenefit(pulumi.CustomResource):
         """
         Response on GET of a hybrid use benefit
 
-        ## HybridUseBenefit
+        ## Example Usage
+        ### HybridUseBenefit
 
         ```python
         import pulumi

@@ -26,7 +26,8 @@ class ServerKey(pulumi.CustomResource):
         """
         A PostgreSQL Server key.
 
-        ## Creates or updates a PostgreSQL Server key
+        ## Example Usage
+        ### Creates or updates a PostgreSQL Server key
 
         ```python
         import pulumi

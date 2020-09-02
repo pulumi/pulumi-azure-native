@@ -32,7 +32,8 @@ class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
         """
         An Azure Cosmos DB storedProcedure.
 
-        ## CosmosDBSqlStoredProcedureCreateUpdate
+        ## Example Usage
+        ### CosmosDBSqlStoredProcedureCreateUpdate
 
         ```python
         import pulumi

@@ -32,7 +32,8 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
         """
         The policy set definition.
 
-        ## Create or update a policy set definition at management group level
+        ## Example Usage
+        ### Create or update a policy set definition at management group level
 
         ```python
         import pulumi
@@ -74,8 +75,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
             policy_set_definition_name="CostManagement")
 
         ```
-
-        ## Create or update a policy set definition with groups at management group level
+        ### Create or update a policy set definition with groups at management group level
 
         ```python
         import pulumi

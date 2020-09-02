@@ -25,7 +25,8 @@ class Trigger(pulumi.CustomResource):
         """
         Trigger details.
 
-        ## TriggerPut
+        ## Example Usage
+        ### TriggerPut
 
         ```python
         import pulumi

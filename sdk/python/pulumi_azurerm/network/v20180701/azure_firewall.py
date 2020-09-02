@@ -32,7 +32,8 @@ class AzureFirewall(pulumi.CustomResource):
         """
         Azure Firewall resource
 
-        ## Create Azure Firewall
+        ## Example Usage
+        ### Create Azure Firewall
 
         ```python
         import pulumi

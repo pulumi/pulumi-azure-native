@@ -31,7 +31,8 @@ class ProtectionIntent(pulumi.CustomResource):
         """
         Base class for backup ProtectionIntent.
 
-        ## Create or Update Azure Vm Protection Intent
+        ## Example Usage
+        ### Create or Update Azure Vm Protection Intent
 
         ```python
         import pulumi

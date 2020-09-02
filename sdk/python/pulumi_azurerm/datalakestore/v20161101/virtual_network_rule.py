@@ -25,7 +25,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         Data Lake Store virtual network rule information.
 
-        ## Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
+        ## Example Usage
+        ### Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
 
         ```python
         import pulumi

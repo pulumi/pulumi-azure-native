@@ -34,7 +34,8 @@ class MyWorkbook(pulumi.CustomResource):
         """
         An Application Insights private workbook definition.
 
-        ## WorkbookAdd
+        ## Example Usage
+        ### WorkbookAdd
 
         ```python
         import pulumi

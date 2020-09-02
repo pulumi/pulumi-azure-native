@@ -24,7 +24,8 @@ class Table(pulumi.CustomResource):
         """
         Properties of the table, including Id, resource name, resource type.
 
-        ## TableOperationPut
+        ## Example Usage
+        ### TableOperationPut
 
         ```python
         import pulumi

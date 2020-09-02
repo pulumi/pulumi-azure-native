@@ -27,7 +27,8 @@ class DataFlow(pulumi.CustomResource):
         """
         Data flow resource type.
 
-        ## DataFlows_Create
+        ## Example Usage
+        ### DataFlows_Create
 
         ```python
         import pulumi
@@ -39,8 +40,7 @@ class DataFlow(pulumi.CustomResource):
             resource_group_name="exampleResourceGroup")
 
         ```
-
-        ## DataFlows_Update
+        ### DataFlows_Update
 
         ```python
         import pulumi

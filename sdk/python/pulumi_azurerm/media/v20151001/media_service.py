@@ -28,7 +28,8 @@ class MediaService(pulumi.CustomResource):
         """
         The properties of a Media Service resource.
 
-        ## MediaServiceCreate
+        ## Example Usage
+        ### MediaServiceCreate
 
         ```python
         import pulumi

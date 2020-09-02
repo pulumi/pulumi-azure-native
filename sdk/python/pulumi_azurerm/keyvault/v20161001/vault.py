@@ -28,7 +28,8 @@ class Vault(pulumi.CustomResource):
         """
         Resource information with extended details.
 
-        ## Create a new vault or update an existing vault
+        ## Example Usage
+        ### Create a new vault or update an existing vault
 
         ```python
         import pulumi

@@ -26,7 +26,8 @@ class PrivateZone(pulumi.CustomResource):
         """
         Describes a Private DNS zone.
 
-        ## PUT Private DNS Zone
+        ## Example Usage
+        ### PUT Private DNS Zone
 
         ```python
         import pulumi

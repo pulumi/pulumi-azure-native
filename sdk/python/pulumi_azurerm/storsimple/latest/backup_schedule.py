@@ -34,7 +34,8 @@ class BackupSchedule(pulumi.CustomResource):
         """
         The backup schedule.
 
-        ## BackupSchedulesCreateOrUpdate
+        ## Example Usage
+        ### BackupSchedulesCreateOrUpdate
 
         ```python
         import pulumi

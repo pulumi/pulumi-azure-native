@@ -28,7 +28,8 @@ class User(pulumi.CustomResource):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 
-        ## UserPut
+        ## Example Usage
+        ### UserPut
 
         ```python
         import pulumi

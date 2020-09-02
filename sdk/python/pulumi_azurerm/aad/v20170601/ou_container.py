@@ -28,7 +28,8 @@ class OuContainer(pulumi.CustomResource):
         """
         Resource for OuContainer.
 
-        ## Create Domain Service
+        ## Example Usage
+        ### Create Domain Service
 
         ```python
         import pulumi

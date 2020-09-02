@@ -37,7 +37,8 @@ class StorageAccount(pulumi.CustomResource):
         """
         The storage account.
 
-        ## StorageAccountCreate
+        ## Example Usage
+        ### StorageAccountCreate
 
         ```python
         import pulumi

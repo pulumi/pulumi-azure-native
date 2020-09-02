@@ -33,7 +33,8 @@ class IpAllocation(pulumi.CustomResource):
         """
         IpAllocation resource.
 
-        ## Create IpAllocation
+        ## Example Usage
+        ### Create IpAllocation
 
         ```python
         import pulumi

@@ -32,7 +32,8 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
         """
         A budget resource.
 
-        ## CreateOrUpdateBudget
+        ## Example Usage
+        ### CreateOrUpdateBudget
 
         ```python
         import pulumi

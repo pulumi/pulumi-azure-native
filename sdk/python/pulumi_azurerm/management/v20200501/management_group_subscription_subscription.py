@@ -23,7 +23,8 @@ class ManagementGroupSubscriptionSubscription(pulumi.CustomResource):
         """
         The details of subscription under management group.
 
-        ## AddSubscriptionToManagementGroup
+        ## Example Usage
+        ### AddSubscriptionToManagementGroup
 
         ```python
         import pulumi

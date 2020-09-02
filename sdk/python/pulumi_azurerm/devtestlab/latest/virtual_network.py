@@ -32,7 +32,8 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         A virtual network.
 
-        ## VirtualNetworks_CreateOrUpdate
+        ## Example Usage
+        ### VirtualNetworks_CreateOrUpdate
 
         ```python
         import pulumi

@@ -28,7 +28,8 @@ class Job(pulumi.CustomResource):
         """
         Contains the job information.
 
-        ## Create export job
+        ## Example Usage
+        ### Create export job
 
         ```python
         import pulumi
@@ -40,8 +41,7 @@ class Job(pulumi.CustomResource):
             resource_group_name="myResourceGroup")
 
         ```
-
-        ## Create import job
+        ### Create import job
 
         ```python
         import pulumi

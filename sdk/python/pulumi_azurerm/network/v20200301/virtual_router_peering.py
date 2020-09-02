@@ -28,7 +28,8 @@ class VirtualRouterPeering(pulumi.CustomResource):
         """
         Virtual Router Peering resource.
 
-        ## Create Virtual Router Peering
+        ## Example Usage
+        ### Create Virtual Router Peering
 
         ```python
         import pulumi

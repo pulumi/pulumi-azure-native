@@ -33,7 +33,8 @@ class Workspace(pulumi.CustomResource):
         """
         Information about workspace.
 
-        ## Create a workspace which is ready for Customer-Managed Key (CMK) encryption
+        ## Example Usage
+        ### Create a workspace which is ready for Customer-Managed Key (CMK) encryption
 
         ```python
         import pulumi
@@ -51,8 +52,7 @@ class Workspace(pulumi.CustomResource):
             workspace_name="myWorkspace")
 
         ```
-
-        ## Create or update workspace
+        ### Create or update workspace
 
         ```python
         import pulumi
@@ -65,8 +65,7 @@ class Workspace(pulumi.CustomResource):
             workspace_name="myWorkspace")
 
         ```
-
-        ## Create or update workspace with custom parameters
+        ### Create or update workspace with custom parameters
 
         ```python
         import pulumi
@@ -90,8 +89,7 @@ class Workspace(pulumi.CustomResource):
             workspace_name="myWorkspace")
 
         ```
-
-        ## Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption
+        ### Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption
 
         ```python
         import pulumi
@@ -117,8 +115,7 @@ class Workspace(pulumi.CustomResource):
             workspace_name="myWorkspace")
 
         ```
-
-        ## Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace
+        ### Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace
 
         ```python
         import pulumi

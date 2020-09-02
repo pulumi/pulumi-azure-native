@@ -28,7 +28,8 @@ class ReplicationvCenter(pulumi.CustomResource):
         """
         vCenter definition.
 
-        ## Add vCenter.
+        ## Example Usage
+        ### Add vCenter.
 
         ```python
         import pulumi

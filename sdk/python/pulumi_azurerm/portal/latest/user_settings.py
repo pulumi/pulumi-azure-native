@@ -25,7 +25,8 @@ class UserSettings(pulumi.CustomResource):
         """
         Response to get user settings
 
-        ## PutUserSettings
+        ## Example Usage
+        ### PutUserSettings
 
         ```python
         import pulumi

@@ -29,7 +29,8 @@ class FileServer(pulumi.CustomResource):
         """
         The file server.
 
-        ## FileServersCreateOrUpdate
+        ## Example Usage
+        ### FileServersCreateOrUpdate
 
         ```python
         import pulumi

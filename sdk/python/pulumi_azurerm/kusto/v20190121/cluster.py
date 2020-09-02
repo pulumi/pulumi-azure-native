@@ -29,7 +29,8 @@ class Cluster(pulumi.CustomResource):
         """
         Class representing a Kusto cluster.
 
-        ## KustoClustersCreateOrUpdate
+        ## Example Usage
+        ### KustoClustersCreateOrUpdate
 
         ```python
         import pulumi

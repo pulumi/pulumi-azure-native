@@ -28,7 +28,8 @@ class Cluster(pulumi.CustomResource):
         """
         A cluster resource
 
-        ## Clusters_CreateOrUpdate
+        ## Example Usage
+        ### Clusters_CreateOrUpdate
 
         ```python
         import pulumi
