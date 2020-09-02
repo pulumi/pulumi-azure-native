@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * External OAuth authorization server settings.
  *
- * ## ApiManagementCreateAuthorizationServer
+ * ## Example Usage
+ * ### ApiManagementCreateAuthorizationServer
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

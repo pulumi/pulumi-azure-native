@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Product details.
  *
- * ## ApiManagementCreateProduct
+ * ## Example Usage
+ * ### ApiManagementCreateProduct
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A DDoS protection plan in a resource group.
  *
- * ## Create DDoS protection plan
+ * ## Example Usage
+ * ### Create DDoS protection plan
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

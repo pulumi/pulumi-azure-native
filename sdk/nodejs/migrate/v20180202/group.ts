@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A group created in a Migration project.
  *
- * ## Groups_Create
+ * ## Example Usage
+ * ### Groups_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

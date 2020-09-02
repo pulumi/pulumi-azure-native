@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Alert rule.
  *
- * ## Creates or updates a Fusion alert rule.
+ * ## Example Usage
+ * ### Creates or updates a Fusion alert rule.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates or updates a MicrosoftSecurityIncidentCreation rule.
+ * ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,8 +38,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates or updates a Scheduled alert rule.
+ * ### Creates or updates a Scheduled alert rule.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

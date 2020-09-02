@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The StorSimple Manager.
  *
- * ## ManagersCreateOrUpdate
+ * ## Example Usage
+ * ### ManagersCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

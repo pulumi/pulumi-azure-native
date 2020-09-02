@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The assembly definition.
  *
- * ## Create or update an account assembly
+ * ## Example Usage
+ * ### Create or update an account assembly
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

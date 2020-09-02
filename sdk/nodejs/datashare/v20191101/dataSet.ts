@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A DataSet data transfer object.
  *
- * ## DataSets_Create
+ * ## Example Usage
+ * ### DataSets_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## DataSets_KustoCluster_Create
+ * ### DataSets_KustoCluster_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,8 +38,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## DataSets_KustoDatabase_Create
+ * ### DataSets_KustoDatabase_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -54,8 +53,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## DataSets_SqlDBTable_Create
+ * ### DataSets_SqlDBTable_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -70,8 +68,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## DataSets_SqlDWTable_Create
+ * ### DataSets_SqlDWTable_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

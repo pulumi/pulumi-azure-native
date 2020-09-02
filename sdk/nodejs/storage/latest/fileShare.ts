@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
  *
- * ## Create NFS Shares
+ * ## Example Usage
+ * ### Create NFS Shares
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,8 +22,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## PutShares
+ * ### PutShares
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -35,8 +35,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## PutShares with Access Tier
+ * ### PutShares with Access Tier
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

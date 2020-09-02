@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
  *
- * ## Create Account
+ * ## Example Usage
+ * ### Create Account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,8 +30,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create Account Min
+ * ### Create Account Min
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

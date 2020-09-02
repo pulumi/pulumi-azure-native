@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Api details.
  *
- * ## ApiManagementCreateApi
+ * ## Example Usage
+ * ### ApiManagementCreateApi
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -40,8 +41,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateApiClone
+ * ### ApiManagementCreateApiClone
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -65,8 +65,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateApiNewVersionUsingExistingApi
+ * ### ApiManagementCreateApiNewVersionUsingExistingApi
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -92,8 +91,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateApiRevisionFromExistingApi
+ * ### ApiManagementCreateApiRevisionFromExistingApi
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -110,8 +108,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateApiUsingImportOverrideServiceUrl
+ * ### ApiManagementCreateApiUsingImportOverrideServiceUrl
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -128,8 +125,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateApiUsingOai3Import
+ * ### ApiManagementCreateApiUsingOai3Import
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -145,8 +141,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateApiUsingSwaggerImport
+ * ### ApiManagementCreateApiUsingSwaggerImport
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -162,8 +157,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateApiUsingWadlImport
+ * ### ApiManagementCreateApiUsingWadlImport
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -179,8 +173,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateApiWithOpenIdConnect
+ * ### ApiManagementCreateApiWithOpenIdConnect
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -208,8 +201,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateSoapPassThroughApiUsingWsdlImport
+ * ### ApiManagementCreateSoapPassThroughApiUsingWsdlImport
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -230,8 +222,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateSoapToRestApiUsingWsdlImport
+ * ### ApiManagementCreateSoapToRestApiUsingWsdlImport
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

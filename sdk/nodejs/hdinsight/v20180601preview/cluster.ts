@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The HDInsight cluster.
  *
- * ## Create HDInsight cluster with Autoscale configuration
+ * ## Example Usage
+ * ### Create HDInsight cluster with Autoscale configuration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,24 +22,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create Hadoop cluster with Azure Data Lake Storage Gen 2
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const cluster = new azurerm.hdinsight.v20180601preview.Cluster("cluster", {
- *     clusterName: "cluster1",
- *     resourceGroupName: "rg1",
- *     tags: {
- *         key1: "val1",
- *     },
- * });
- *
- * ```
- *
- * ## Create Hadoop on Linux cluster with SSH password
+ * ### Create Hadoop cluster with Azure Data Lake Storage Gen 2
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -53,37 +37,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create Hadoop on Linux cluster with SSH public key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const cluster = new azurerm.hdinsight.v20180601preview.Cluster("cluster", {
- *     clusterName: "cluster1",
- *     resourceGroupName: "rg1",
- *     tags: {
- *         key1: "val1",
- *     },
- * });
- *
- * ```
- *
- * ## Create Kafka cluster with Kafka Rest Proxy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const cluster = new azurerm.hdinsight.v20180601preview.Cluster("cluster", {
- *     clusterName: "cluster1",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
- *
- * ## Create Secure Hadoop cluster
+ * ### Create Hadoop on Linux cluster with SSH password
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -98,8 +52,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create Spark on Linux Cluster with SSH password
+ * ### Create Hadoop on Linux cluster with SSH public key
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -114,21 +67,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create cluster with TLS 1.2
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const cluster = new azurerm.hdinsight.v20180601preview.Cluster("cluster", {
- *     clusterName: "cluster1",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
- *
- * ## Create cluster with custom network settings
+ * ### Create Kafka cluster with Kafka Rest Proxy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -140,8 +79,37 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
+ * ### Create Secure Hadoop cluster
  *
- * ## Create cluster with encryption at host
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cluster = new azurerm.hdinsight.v20180601preview.Cluster("cluster", {
+ *     clusterName: "cluster1",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "val1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create Spark on Linux Cluster with SSH password
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cluster = new azurerm.hdinsight.v20180601preview.Cluster("cluster", {
+ *     clusterName: "cluster1",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "val1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create cluster with TLS 1.2
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -153,8 +121,31 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
+ * ### Create cluster with custom network settings
  *
- * ## Create cluster with encryption in transit
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cluster = new azurerm.hdinsight.v20180601preview.Cluster("cluster", {
+ *     clusterName: "cluster1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### Create cluster with encryption at host
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cluster = new azurerm.hdinsight.v20180601preview.Cluster("cluster", {
+ *     clusterName: "cluster1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### Create cluster with encryption in transit
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

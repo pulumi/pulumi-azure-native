@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Response to put/get linked server (with properties) for Redis cache.
  *
- * ## LinkedServer_Create
+ * ## Example Usage
+ * ### LinkedServer_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

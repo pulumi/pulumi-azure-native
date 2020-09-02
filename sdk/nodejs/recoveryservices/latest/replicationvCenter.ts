@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * vCenter definition.
  *
- * ## Add vCenter.
+ * ## Example Usage
+ * ### Add vCenter.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The storage domain.
  *
- * ## StorageDomainsCreateOrUpdate
+ * ## Example Usage
+ * ### StorageDomainsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

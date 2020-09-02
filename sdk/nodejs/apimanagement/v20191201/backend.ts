@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Backend details.
  *
- * ## ApiManagementCreateBackendProxyBackend
+ * ## Example Usage
+ * ### ApiManagementCreateBackendProxyBackend
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -53,8 +54,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateBackendServiceFabric
+ * ### ApiManagementCreateBackendServiceFabric
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
  *
- * ## Create or update guest configuration assignment
+ * ## Example Usage
+ * ### Create or update guest configuration assignment
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

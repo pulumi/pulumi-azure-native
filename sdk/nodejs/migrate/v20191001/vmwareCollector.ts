@@ -7,7 +7,8 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * ## VMwareCollectors_Create
+ * ## Example Usage
+ * ### VMwareCollectors_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

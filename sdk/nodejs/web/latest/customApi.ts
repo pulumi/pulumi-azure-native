@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A custom API
  *
- * ## Replace a custom API
+ * ## Example Usage
+ * ### Replace a custom API
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

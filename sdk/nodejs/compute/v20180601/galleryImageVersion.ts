@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the gallery Image Version that you want to create or update.
  *
- * ## Create or update a simple gallery Image Version.
+ * ## Example Usage
+ * ### Create or update a simple gallery Image Version.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

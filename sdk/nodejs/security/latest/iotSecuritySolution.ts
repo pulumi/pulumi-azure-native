@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * IoT Security solution configuration and resource information.
  *
- * ## Create or update a IoT security solution
+ * ## Example Usage
+ * ### Create or update a IoT security solution
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The policy set definition.
  *
- * ## Create or update a policy set definition
+ * ## Example Usage
+ * ### Create or update a policy set definition
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -60,8 +61,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update a policy set definition with groups
+ * ### Create or update a policy set definition with groups
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

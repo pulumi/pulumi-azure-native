@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Registration definition.
  *
- * ## Put Registration Definition
+ * ## Example Usage
+ * ### Put Registration Definition
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

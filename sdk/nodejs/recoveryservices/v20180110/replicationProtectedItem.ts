@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Replication protected item.
  *
- * ## Enables protection.
+ * ## Example Usage
+ * ### Enables protection.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

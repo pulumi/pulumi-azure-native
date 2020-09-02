@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents an incident in Azure Security Insights.
  *
- * ## Creates or updates an incident.
+ * ## Example Usage
+ * ### Creates or updates an incident.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

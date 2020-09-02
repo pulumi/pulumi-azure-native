@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Gateway hostname configuration details.
  *
- * ## ApiManagementCreateGatewayHostnameConfiguration
+ * ## Example Usage
+ * ### ApiManagementCreateGatewayHostnameConfiguration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

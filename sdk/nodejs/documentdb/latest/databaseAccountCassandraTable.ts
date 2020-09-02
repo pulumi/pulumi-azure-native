@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Cassandra table.
  *
- * ## CosmosDBCassandraTableCreateUpdate
+ * ## Example Usage
+ * ### CosmosDBCassandraTableCreateUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

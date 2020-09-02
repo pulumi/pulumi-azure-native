@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a DNS record set (a collection of DNS records with the same name and type).
  *
- * ## Create A recordset
+ * ## Example Usage
+ * ### Create A recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -30,8 +31,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create A recordset with alias target resource
+ * ### Create A recordset with alias target resource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -52,8 +52,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create AAAA recordset
+ * ### Create AAAA recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -74,8 +73,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create CAA recordset
+ * ### Create CAA recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -98,8 +96,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create CNAME recordset
+ * ### Create CNAME recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -120,8 +117,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create MX recordset
+ * ### Create MX recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -143,8 +139,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create NS recordset
+ * ### Create NS recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -165,8 +160,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create PTR recordset
+ * ### Create PTR recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -187,8 +181,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create SOA recordset
+ * ### Create SOA recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -215,8 +208,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create SRV recordset
+ * ### Create SRV recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -240,8 +232,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create TXT recordset
+ * ### Create TXT recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

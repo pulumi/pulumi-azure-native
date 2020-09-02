@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The top level Linked service resource container.
  *
- * ## LinkedServicesCreate
+ * ## Example Usage
+ * ### LinkedServicesCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

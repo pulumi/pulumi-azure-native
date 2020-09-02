@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Service End point policy resource.
  *
- * ## Create service endpoint policy
+ * ## Example Usage
+ * ### Create service endpoint policy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,8 +22,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create service endpoint policy with definition
+ * ### Create service endpoint policy with definition
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

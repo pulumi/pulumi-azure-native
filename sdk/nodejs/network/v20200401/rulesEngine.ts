@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
  *
- * ## Create or update a specific Rules Engine Configuration
+ * ## Example Usage
+ * ### Create or update a specific Rules Engine Configuration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

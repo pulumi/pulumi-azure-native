@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Backup policy information
  *
- * ## BackupPolicies_Create
+ * ## Example Usage
+ * ### BackupPolicies_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

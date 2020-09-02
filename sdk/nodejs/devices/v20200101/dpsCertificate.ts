@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The X509 Certificate.
  *
- * ## DPSCreateOrUpdateCertificate
+ * ## Example Usage
+ * ### DPSCreateOrUpdateCertificate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

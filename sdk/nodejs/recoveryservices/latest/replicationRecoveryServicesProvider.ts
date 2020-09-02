@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Provider details.
  *
- * ## Adds a recovery services provider.
+ * ## Example Usage
+ * ### Adds a recovery services provider.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

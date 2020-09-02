@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The prediction resource format.
  *
- * ## Predictions_CreateOrUpdate
+ * ## Example Usage
+ * ### Predictions_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

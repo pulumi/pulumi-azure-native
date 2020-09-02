@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Recovery plan details.
  *
- * ## Creates a recovery plan with the given details.
+ * ## Example Usage
+ * ### Creates a recovery plan with the given details.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

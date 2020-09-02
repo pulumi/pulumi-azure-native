@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The bandwidth schedule details.
  *
- * ## BandwidthSchedulePut
+ * ## Example Usage
+ * ### BandwidthSchedulePut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

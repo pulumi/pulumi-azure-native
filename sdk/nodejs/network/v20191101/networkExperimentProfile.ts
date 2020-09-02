@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Defines an Network Experiment Profile and lists of Experiments
  *
- * ## Creates an NetworkExperiment Profile in a Resource Group
+ * ## Example Usage
+ * ### Creates an NetworkExperiment Profile in a Resource Group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

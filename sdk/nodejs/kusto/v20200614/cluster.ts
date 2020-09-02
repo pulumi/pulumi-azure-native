@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Kusto cluster.
  *
- * ## KustoClustersCreateOrUpdate
+ * ## Example Usage
+ * ### KustoClustersCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

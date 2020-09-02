@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An account data transfer object.
  *
- * ## Accounts_Create
+ * ## Example Usage
+ * ### Accounts_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

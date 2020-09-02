@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the webhook type.
  *
- * ## Create or update webhook
+ * ## Example Usage
+ * ### Create or update webhook
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

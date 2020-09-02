@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the runbook type.
  *
- * ## Create or update runbook and publish it
+ * ## Example Usage
+ * ### Create or update runbook and publish it
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -40,8 +41,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create runbook as draft
+ * ### Create runbook as draft
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

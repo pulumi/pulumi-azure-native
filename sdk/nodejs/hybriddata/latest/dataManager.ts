@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The DataManager resource.
  *
- * ## DataManagers_CreatePUT41
+ * ## Example Usage
+ * ### DataManagers_CreatePUT41
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

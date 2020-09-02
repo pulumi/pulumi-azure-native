@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The HDInsight cluster application
  *
- * ## Create Application
+ * ## Example Usage
+ * ### Create Application
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

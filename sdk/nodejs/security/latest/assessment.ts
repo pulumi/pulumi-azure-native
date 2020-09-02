@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Security assessment on a resource
  *
- * ## Create security recommendation task on a resource
+ * ## Example Usage
+ * ### Create security recommendation task on a resource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

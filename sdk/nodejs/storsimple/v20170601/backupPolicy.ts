@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The backup policy.
  *
- * ## BackupPoliciesCreateOrUpdate
+ * ## Example Usage
+ * ### BackupPoliciesCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

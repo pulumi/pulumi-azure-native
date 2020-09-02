@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Snapshot of a Volume
  *
- * ## Snapshots_Create
+ * ## Example Usage
+ * ### Snapshots_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

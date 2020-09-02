@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Snapshot policy information
  *
- * ## SnapshotPolicies_Create
+ * ## Example Usage
+ * ### SnapshotPolicies_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

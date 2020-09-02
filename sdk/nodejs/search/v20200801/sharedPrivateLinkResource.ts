@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
  *
- * ## SharedPrivateLinkResourceCreateOrUpdate
+ * ## Example Usage
+ * ### SharedPrivateLinkResourceCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

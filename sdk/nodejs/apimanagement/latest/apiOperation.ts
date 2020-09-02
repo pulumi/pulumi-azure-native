@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Api Operation details.
  *
- * ## ApiManagementCreateApiOperation
+ * ## Example Usage
+ * ### ApiManagementCreateApiOperation
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

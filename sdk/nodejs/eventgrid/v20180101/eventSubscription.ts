@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Event Subscription
  *
- * ## EventSubscriptions_CreateOrUpdateForCustomTopic
+ * ## Example Usage
+ * ### EventSubscriptions_CreateOrUpdateForCustomTopic
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,8 +30,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## EventSubscriptions_CreateOrUpdateForResource
+ * ### EventSubscriptions_CreateOrUpdateForResource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -50,8 +50,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## EventSubscriptions_CreateOrUpdateForResourceGroup
+ * ### EventSubscriptions_CreateOrUpdateForResourceGroup
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -71,8 +70,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## EventSubscriptions_CreateOrUpdateForSubscription
+ * ### EventSubscriptions_CreateOrUpdateForSubscription
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

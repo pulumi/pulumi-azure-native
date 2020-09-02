@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Subscription Information with the alias.
  *
- * ## CreateAlias
+ * ## Example Usage
+ * ### CreateAlias
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

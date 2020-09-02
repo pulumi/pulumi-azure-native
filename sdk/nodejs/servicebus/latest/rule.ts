@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of Rule Resource.
  *
- * ## RulesCreateCorrelationFilter
+ * ## Example Usage
+ * ### RulesCreateCorrelationFilter
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -30,8 +31,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## RulesCreateOrUpdate
+ * ### RulesCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -46,8 +46,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## RulesCreateSqlFilter
+ * ### RulesCreateSqlFilter
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

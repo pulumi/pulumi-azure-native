@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Information about managed application.
  *
- * ## Create or update managed application
+ * ## Example Usage
+ * ### Create or update managed application
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The essential information related to the peer's ASN.
  *
- * ## Create a peer ASN
+ * ## Example Usage
+ * ### Create a peer ASN
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the configuration type.
  *
- * ## Create or Update Configuration
+ * ## Example Usage
+ * ### Create or Update Configuration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

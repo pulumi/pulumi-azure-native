@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Base class for backup items.
  *
- * ## Enable Protection on Azure IaasVm
+ * ## Example Usage
+ * ### Enable Protection on Azure IaasVm
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -24,8 +25,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Stop Protection with retain data on Azure IaasVm
+ * ### Stop Protection with retain data on Azure IaasVm
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

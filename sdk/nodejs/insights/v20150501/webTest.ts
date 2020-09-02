@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Application Insights web test definition.
  *
- * ## webTestCreate
+ * ## Example Usage
+ * ### webTestCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -36,8 +37,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## webTestUpdate
+ * ### webTestUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

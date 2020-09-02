@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The order details.
  *
- * ## OrderPut
+ * ## Example Usage
+ * ### OrderPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

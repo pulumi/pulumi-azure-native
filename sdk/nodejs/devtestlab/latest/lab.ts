@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A lab.
  *
- * ## Labs_CreateOrUpdate
+ * ## Example Usage
+ * ### Labs_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

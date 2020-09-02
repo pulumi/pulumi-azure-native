@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The description of the Windows IoT Device Service.
  *
- * ## Service_Create
+ * ## Example Usage
+ * ### Service_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

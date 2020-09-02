@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Private Endpoint Connection ARM resource.
  *
- * ## Approves or rejects a private endpoint connection for a site.
+ * ## Example Usage
+ * ### Approves or rejects a private endpoint connection for a site.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

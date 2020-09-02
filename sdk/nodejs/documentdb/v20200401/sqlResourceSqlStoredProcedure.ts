@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB storedProcedure.
  *
- * ## CosmosDBSqlStoredProcedureCreateUpdate
+ * ## Example Usage
+ * ### CosmosDBSqlStoredProcedureCreateUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

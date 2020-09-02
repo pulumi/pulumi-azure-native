@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Traffic Manager profile.
  *
- * ## Profile-PUT-NoEndpoints
+ * ## Example Usage
+ * ### Profile-PUT-NoEndpoints
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -33,8 +34,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Profile-PUT-WithEndpoints
+ * ### Profile-PUT-WithEndpoints
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

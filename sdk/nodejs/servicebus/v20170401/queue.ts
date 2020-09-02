@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of queue Resource.
  *
- * ## QueueCreate
+ * ## Example Usage
+ * ### QueueCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Data store.
  *
- * ## DataStores_CreateOrUpdate_DataSinkPUT162
+ * ## Example Usage
+ * ### DataStores_CreateOrUpdate_DataSinkPUT162
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -42,8 +43,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## DataStores_CreateOrUpdate_DataSourcePUT162
+ * ### DataStores_CreateOrUpdate_DataSourcePUT162
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

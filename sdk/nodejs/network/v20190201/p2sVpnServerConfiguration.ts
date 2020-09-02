@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * P2SVpnServerConfiguration Resource.
  *
- * ## P2SVpnServerConfigurationPut
+ * ## Example Usage
+ * ### P2SVpnServerConfigurationPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

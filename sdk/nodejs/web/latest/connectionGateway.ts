@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The gateway definition
  *
- * ## Replace a connection gateway definition
+ * ## Example Usage
+ * ### Replace a connection gateway definition
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

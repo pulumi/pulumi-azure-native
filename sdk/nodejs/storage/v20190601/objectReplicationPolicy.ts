@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
  *
- * ## StorageAccountCreateObjectReplicationPolicyOnDestination
+ * ## Example Usage
+ * ### StorageAccountCreateObjectReplicationPolicyOnDestination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -34,8 +35,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## StorageAccountCreateObjectReplicationPolicyOnSource
+ * ### StorageAccountCreateObjectReplicationPolicyOnSource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -62,8 +62,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## StorageAccountUpdateObjectReplicationPolicyOnDestination
+ * ### StorageAccountUpdateObjectReplicationPolicyOnDestination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -95,8 +94,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## StorageAccountUpdateObjectReplicationPolicyOnSource
+ * ### StorageAccountUpdateObjectReplicationPolicyOnSource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Customer subscription.
  *
- * ## Creates a new customer subscription under a registration.
+ * ## Example Usage
+ * ### Creates a new customer subscription under a registration.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

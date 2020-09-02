@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * SSL certificate for an app.
  *
- * ## Create Or Update Certificate
+ * ## Example Usage
+ * ### Create Or Update Certificate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

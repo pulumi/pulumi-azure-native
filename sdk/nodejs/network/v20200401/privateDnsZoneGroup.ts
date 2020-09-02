@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Private dns zone group resource.
  *
- * ## Create private dns zone group
+ * ## Example Usage
+ * ### Create private dns zone group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

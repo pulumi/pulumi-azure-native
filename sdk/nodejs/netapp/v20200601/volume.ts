@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Volume resource
  *
- * ## Volumes_CreateOrUpdate
+ * ## Example Usage
+ * ### Volumes_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

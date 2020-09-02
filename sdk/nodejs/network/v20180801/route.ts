@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Route resource
  *
- * ## Create route
+ * ## Example Usage
+ * ### Create route
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

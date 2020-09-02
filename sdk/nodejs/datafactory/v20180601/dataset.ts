@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Dataset resource type.
  *
- * ## Datasets_Create
+ * ## Example Usage
+ * ### Datasets_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Datasets_Update
+ * ### Datasets_Update
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

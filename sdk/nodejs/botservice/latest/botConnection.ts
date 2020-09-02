@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Bot channel resource definition
  *
- * ## Create Connection Setting
+ * ## Example Usage
+ * ### Create Connection Setting
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

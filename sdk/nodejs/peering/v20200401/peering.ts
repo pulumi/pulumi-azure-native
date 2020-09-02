@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
  *
- * ## Create a direct peering
+ * ## Example Usage
+ * ### Create a direct peering
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -56,8 +57,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a peering with exchange route server
+ * ### Create a peering with exchange route server
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -95,8 +95,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create an exchange peering
+ * ### Create an exchange peering
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

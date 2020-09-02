@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Linked service resource type.
  *
- * ## LinkedServices_Create
+ * ## Example Usage
+ * ### LinkedServices_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## LinkedServices_Update
+ * ### LinkedServices_Update
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

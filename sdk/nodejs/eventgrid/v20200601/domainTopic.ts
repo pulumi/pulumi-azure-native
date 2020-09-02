@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Domain Topic.
  *
- * ## DomainTopics_CreateOrUpdate
+ * ## Example Usage
+ * ### DomainTopics_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

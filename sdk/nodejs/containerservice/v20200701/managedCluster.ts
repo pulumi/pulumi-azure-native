@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Managed cluster.
  *
- * ## Create Managed Cluster with PPG
+ * ## Example Usage
+ * ### Create Managed Cluster with PPG
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -75,8 +76,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create/Update AAD Managed Cluster with EnableAzureRBAC
+ * ### Create/Update AAD Managed Cluster with EnableAzureRBAC
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -150,8 +150,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create/Update Managed Cluster
+ * ### Create/Update Managed Cluster
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -224,8 +223,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create/Update Managed Cluster with EnableAHUB
+ * ### Create/Update Managed Cluster with EnableAHUB
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

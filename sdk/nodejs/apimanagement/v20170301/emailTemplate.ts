@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Email Template details.
  *
- * ## ApiManagementCreateEmailTemplate
+ * ## Example Usage
+ * ### ApiManagementCreateEmailTemplate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

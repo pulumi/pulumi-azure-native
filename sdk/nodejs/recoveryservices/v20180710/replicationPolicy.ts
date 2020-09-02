@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Protection profile details.
  *
- * ## Creates the policy.
+ * ## Example Usage
+ * ### Creates the policy.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

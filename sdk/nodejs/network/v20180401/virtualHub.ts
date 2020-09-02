@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * VirtualHub Resource.
  *
- * ## VirtualHubPut
+ * ## Example Usage
+ * ### VirtualHubPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

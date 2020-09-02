@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of a Namespace AuthorizationRules.
  *
- * ## RelayAuthorizationRuleCreate
+ * ## Example Usage
+ * ### RelayAuthorizationRuleCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Gateway details.
  *
- * ## ApiManagementCreateGateway
+ * ## Example Usage
+ * ### ApiManagementCreateGateway
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

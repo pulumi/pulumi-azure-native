@@ -7,7 +7,8 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * ## Update an application control machine group by adding a new application
+ * ## Example Usage
+ * ### Update an application control machine group by adding a new application
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

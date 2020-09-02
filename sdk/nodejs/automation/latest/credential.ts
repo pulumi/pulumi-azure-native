@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the credential.
  *
- * ## Create a credential
+ * ## Example Usage
+ * ### Create a credential
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

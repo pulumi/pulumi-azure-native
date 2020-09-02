@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the job schedule.
  *
- * ## Create a job schedule
+ * ## Example Usage
+ * ### Create a job schedule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

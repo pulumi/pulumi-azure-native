@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The top level Log Analytics cluster resource container.
  *
- * ## ClustersCreate
+ * ## Example Usage
+ * ### ClustersCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

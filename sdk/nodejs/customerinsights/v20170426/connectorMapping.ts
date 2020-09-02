@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The connector mapping resource format.
  *
- * ## ConnectorMappings_CreateOrUpdate
+ * ## Example Usage
+ * ### ConnectorMappings_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

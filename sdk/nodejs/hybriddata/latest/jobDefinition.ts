@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Job Definition.
  *
- * ## JobDefinitions_CreateOrUpdatePUT83
+ * ## Example Usage
+ * ### JobDefinitions_CreateOrUpdatePUT83
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

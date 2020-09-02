@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A streaming job object, containing all information associated with the named streaming job.
  *
- * ## Create a complete streaming job (a streaming job with a transformation, at least 1 input and at least 1 output)
+ * ## Example Usage
+ * ### Create a complete streaming job (a streaming job with a transformation, at least 1 input and at least 1 output)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -52,8 +53,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a streaming job shell (a streaming job with no inputs, outputs, transformation, or functions)
+ * ### Create a streaming job shell (a streaming job with no inputs, outputs, transformation, or functions)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

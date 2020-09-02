@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the SSH public key.
  *
- * ## Create a new SSH public key resource.
+ * ## Example Usage
+ * ### Create a new SSH public key resource.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

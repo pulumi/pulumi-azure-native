@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A PostgreSQL Server key.
  *
- * ## Creates or updates a PostgreSQL Server key
+ * ## Example Usage
+ * ### Creates or updates a PostgreSQL Server key
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

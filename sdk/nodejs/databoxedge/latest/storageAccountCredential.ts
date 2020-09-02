@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The storage account credential.
  *
- * ## SACPut
+ * ## Example Usage
+ * ### SACPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Class representing an attached database configuration.
  *
- * ## AttachedDatabaseConfigurationsCreateOrUpdate
+ * ## Example Usage
+ * ### AttachedDatabaseConfigurationsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

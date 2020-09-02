@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Registered Server resource.
  *
- * ## RegisteredServers_Create
+ * ## Example Usage
+ * ### RegisteredServers_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Properties that define an Analytics item that is associated to an Application Insights component.
  *
- * ## AnalyticsItemPut
+ * ## Example Usage
+ * ### AnalyticsItemPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

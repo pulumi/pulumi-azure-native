@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the certificate.
  *
- * ## Create or update a certificate
+ * ## Example Usage
+ * ### Create or update a certificate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

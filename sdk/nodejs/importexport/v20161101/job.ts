@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Contains the job information.
  *
- * ## Create job
+ * ## Example Usage
+ * ### Create job
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

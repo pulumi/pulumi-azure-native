@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An object that represents a machine learning workspace.
  *
- * ## Create Workspace
+ * ## Example Usage
+ * ### Create Workspace
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

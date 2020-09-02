@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The diagnostic setting resource.
  *
- * ## BatchAccountDelete
+ * ## Example Usage
+ * ### BatchAccountDelete
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

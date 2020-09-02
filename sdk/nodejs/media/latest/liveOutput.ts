@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The Live Output.
  *
- * ## Create a LiveOutput
+ * ## Example Usage
+ * ### Create a LiveOutput
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

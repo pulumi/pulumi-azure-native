@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Data Lake Store account information.
  *
- * ## Creates the specified Data Lake Store account
+ * ## Example Usage
+ * ### Creates the specified Data Lake Store account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The integration service environment.
  *
- * ## Create or update an integration service environment
+ * ## Example Usage
+ * ### Create or update an integration service environment
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Data Lake Analytics firewall rule information.
  *
- * ## Creates or updates the specified firewall rule
+ * ## Example Usage
+ * ### Creates or updates the specified firewall rule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

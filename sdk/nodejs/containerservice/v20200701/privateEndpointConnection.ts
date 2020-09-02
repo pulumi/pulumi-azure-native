@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A private endpoint connection
  *
- * ## Update Private Endpoint Connection
+ * ## Example Usage
+ * ### Update Private Endpoint Connection
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

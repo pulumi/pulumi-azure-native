@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Properties that define a favorite that is associated to an Application Insights component.
  *
- * ## FavoriteAdd
+ * ## Example Usage
+ * ### FavoriteAdd
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

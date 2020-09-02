@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Deployment information.
  *
- * ## Create a deployment that will redeploy another deployment on failure
+ * ## Example Usage
+ * ### Create a deployment that will redeploy another deployment on failure
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,8 +22,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a deployment that will redeploy the last successful deployment on failure
+ * ### Create a deployment that will redeploy the last successful deployment on failure
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Cloud shell console
  *
- * ## PutConsole
+ * ## Example Usage
+ * ### PutConsole
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Private endpoint connection resource.
  *
- * ## KeyVaultPutPrivateEndpointConnection
+ * ## Example Usage
+ * ### KeyVaultPutPrivateEndpointConnection
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

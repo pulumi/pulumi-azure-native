@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Resource group information.
  *
- * ## Create or update a resource group
+ * ## Example Usage
+ * ### Create or update a resource group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

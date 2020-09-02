@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * disk access resource.
  *
- * ## Create a disk access resource.
+ * ## Example Usage
+ * ### Create a disk access resource.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

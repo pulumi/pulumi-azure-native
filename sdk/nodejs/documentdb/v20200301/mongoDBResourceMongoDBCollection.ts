@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB MongoDB collection.
  *
- * ## CosmosDBMongoDBCollectionCreateUpdate
+ * ## Example Usage
+ * ### CosmosDBMongoDBCollectionCreateUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

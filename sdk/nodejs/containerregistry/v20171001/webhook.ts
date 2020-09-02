@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * An object that represents a webhook for a container registry.
  *
- * ## WebhookCreate
+ * ## Example Usage
+ * ### WebhookCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

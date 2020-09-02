@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a disaster recovery configuration.
  *
- * ## Update a disaster recovery configuration
+ * ## Example Usage
+ * ### Update a disaster recovery configuration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

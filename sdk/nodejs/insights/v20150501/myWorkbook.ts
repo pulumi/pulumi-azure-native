@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * An Application Insights private workbook definition.
  *
- * ## WorkbookAdd
+ * ## Example Usage
+ * ### WorkbookAdd
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

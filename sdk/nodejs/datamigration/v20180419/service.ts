@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A Database Migration Service resource
  *
- * ## Services_CreateOrUpdate
+ * ## Example Usage
+ * ### Services_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A project resource
  *
- * ## Projects_CreateOrUpdate
+ * ## Example Usage
+ * ### Projects_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

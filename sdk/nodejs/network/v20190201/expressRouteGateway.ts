@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * ExpressRoute gateway resource.
  *
- * ## ExpressRouteGatewayCreate
+ * ## Example Usage
+ * ### ExpressRouteGatewayCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Database.
  *
- * ## DatabaseCreate
+ * ## Example Usage
+ * ### DatabaseCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

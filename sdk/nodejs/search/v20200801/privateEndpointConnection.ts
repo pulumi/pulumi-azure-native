@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
  *
- * ## PrivateEndpointConnectionUpdate
+ * ## Example Usage
+ * ### PrivateEndpointConnectionUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

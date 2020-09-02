@@ -7,7 +7,8 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * ## Create JIT network access policy
+ * ## Example Usage
+ * ### Create JIT network access policy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

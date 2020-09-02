@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Security assessment metadata
  *
- * ## Create security assessment metadata for subscription
+ * ## Example Usage
+ * ### Create security assessment metadata for subscription
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The description of the IoT hub.
  *
- * ## IotHubResource_CreateOrUpdate
+ * ## Example Usage
+ * ### IotHubResource_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The Private Endpoint Connection resource.
  *
- * ## PrivateEndpointConnections_Create
+ * ## Example Usage
+ * ### PrivateEndpointConnections_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

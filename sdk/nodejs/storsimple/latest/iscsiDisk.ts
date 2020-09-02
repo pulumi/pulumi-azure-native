@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The iSCSI disk.
  *
- * ## IscsiDisksCreateOrUpdate
+ * ## Example Usage
+ * ### IscsiDisksCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

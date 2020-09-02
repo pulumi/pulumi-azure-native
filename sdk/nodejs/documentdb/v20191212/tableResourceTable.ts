@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Table.
  *
- * ## CosmosDBTableReplace
+ * ## Example Usage
+ * ### CosmosDBTableReplace
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

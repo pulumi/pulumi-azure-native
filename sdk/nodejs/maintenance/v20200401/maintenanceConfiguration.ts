@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Maintenance configuration record type
  *
- * ## MaintenanceConfigurations_CreateOrUpdateForResource
+ * ## Example Usage
+ * ### MaintenanceConfigurations_CreateOrUpdateForResource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

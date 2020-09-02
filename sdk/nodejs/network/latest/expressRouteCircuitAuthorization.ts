@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Authorization in an ExpressRouteCircuit resource.
  *
- * ## Create ExpressRouteCircuit Authorization
+ * ## Example Usage
+ * ### Create ExpressRouteCircuit Authorization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

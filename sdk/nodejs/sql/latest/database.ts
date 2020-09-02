@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a database.
  *
- * ## Create a database as a copy
+ * ## Example Usage
+ * ### Create a database as a copy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -25,8 +26,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a database as a dropped database restore to a specific point in time
+ * ### Create a database as a dropped database restore to a specific point in time
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -43,8 +43,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a database as a dropped database restore to deletion time
+ * ### Create a database as a dropped database restore to deletion time
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -61,8 +60,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a database as a geo restore
+ * ### Create a database as a geo restore
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -78,8 +76,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a database as a non-readable secondary
+ * ### Create a database as a non-readable secondary
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -95,8 +92,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a database as a point in time restore
+ * ### Create a database as a point in time restore
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -113,8 +109,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a database as an online secondary
+ * ### Create a database as an online secondary
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -130,8 +125,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a database from a long term retention backup
+ * ### Create a database from a long term retention backup
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -147,8 +141,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a database max
+ * ### Create a database max
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -170,8 +163,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a database min
+ * ### Create a database min
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -185,8 +177,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Update a database max
+ * ### Update a database max
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -207,8 +198,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Update a database's elastic pool'
+ * ### Update a database's elastic pool'
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

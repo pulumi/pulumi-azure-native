@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Single item in List or Get Migration Config operation
  *
- * ## MigrationConfigurationsStartMigration
+ * ## Example Usage
+ * ### MigrationConfigurationsStartMigration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a database principal assignment.
  *
- * ## KustoDatabasePrincipalAssignmentsCreateOrUpdate
+ * ## Example Usage
+ * ### KustoDatabasePrincipalAssignmentsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Rule Group resource.
  *
- * ## Create FirewallPolicyRuleGroup
+ * ## Example Usage
+ * ### Create FirewallPolicyRuleGroup
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -27,8 +28,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create FirewallPolicyRuleGroup With IpGroups
+ * ### Create FirewallPolicyRuleGroup With IpGroups
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

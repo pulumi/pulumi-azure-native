@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An assessment created for a group in the Migration project.
  *
- * ## Assessments_Create
+ * ## Example Usage
+ * ### Assessments_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

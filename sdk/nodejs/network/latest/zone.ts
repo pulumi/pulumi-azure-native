@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a DNS zone.
  *
- * ## Create zone
+ * ## Example Usage
+ * ### Create zone
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

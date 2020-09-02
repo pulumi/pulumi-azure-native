@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Properties that define a Continuous Export configuration.
  *
- * ## ExportConfigurationUpdate
+ * ## Example Usage
+ * ### ExportConfigurationUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

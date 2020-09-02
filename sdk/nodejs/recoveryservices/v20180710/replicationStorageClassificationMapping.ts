@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Storage mapping object.
  *
- * ## Create storage classification mapping.
+ * ## Example Usage
+ * ### Create storage classification mapping.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

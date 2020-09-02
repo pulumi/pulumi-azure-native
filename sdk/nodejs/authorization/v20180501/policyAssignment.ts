@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The policy assignment.
  *
- * ## Create or update a policy assignment
+ * ## Example Usage
+ * ### Create or update a policy assignment
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -35,8 +36,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update a policy assignment with a managed identity
+ * ### Create or update a policy assignment with a managed identity
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

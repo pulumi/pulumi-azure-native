@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of WcfRelays Resource.
  *
- * ## RelayCreate
+ * ## Example Usage
+ * ### RelayCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

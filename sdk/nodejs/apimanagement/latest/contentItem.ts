@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Content type contract details.
  *
- * ## ApiManagementCreateContentItem
+ * ## Example Usage
+ * ### ApiManagementCreateContentItem
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

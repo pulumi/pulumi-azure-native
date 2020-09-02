@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The autoscale setting resource.
  *
- * ## Create or update an autoscale setting
+ * ## Example Usage
+ * ### Create or update an autoscale setting
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

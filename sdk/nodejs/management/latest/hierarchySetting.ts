@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Settings defined at the Management Group scope.
  *
- * ## GetGroupSettings
+ * ## Example Usage
+ * ### GetGroupSettings
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

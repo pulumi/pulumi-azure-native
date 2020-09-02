@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Subscription details.
  *
- * ## ApiManagementCreateSubscription
+ * ## Example Usage
+ * ### ApiManagementCreateSubscription
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

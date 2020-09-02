@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Service resource
  *
- * ## Services_CreateOrUpdate
+ * ## Example Usage
+ * ### Services_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,8 +30,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Services_CreateOrUpdate_VNetInjection
+ * ### Services_CreateOrUpdate_VNetInjection
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A common class for general resource information
  *
- * ## UpdateVirtualNetworkGateway
+ * ## Example Usage
+ * ### UpdateVirtualNetworkGateway
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

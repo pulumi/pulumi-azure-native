@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The alert rule resource.
  *
- * ## Create or update an alert rule
+ * ## Example Usage
+ * ### Create or update an alert rule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

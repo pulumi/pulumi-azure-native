@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A virtual network.
  *
- * ## VirtualNetworks_CreateOrUpdate
+ * ## Example Usage
+ * ### VirtualNetworks_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

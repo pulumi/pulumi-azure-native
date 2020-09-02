@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Route Filter Rule Resource
  *
- * ## RouteFilterRuleCreate
+ * ## Example Usage
+ * ### RouteFilterRuleCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

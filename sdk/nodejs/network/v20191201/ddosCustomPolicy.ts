@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A DDoS custom policy in a resource group.
  *
- * ## Create DDoS custom policy
+ * ## Example Usage
+ * ### Create DDoS custom policy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

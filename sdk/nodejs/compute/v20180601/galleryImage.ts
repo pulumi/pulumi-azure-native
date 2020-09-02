@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the gallery Image Definition that you want to create or update.
  *
- * ## Create or update a simple gallery image.
+ * ## Example Usage
+ * ### Create or update a simple gallery image.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

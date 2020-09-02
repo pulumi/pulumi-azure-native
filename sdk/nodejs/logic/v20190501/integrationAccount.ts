@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The integration account.
  *
- * ## Create or update an integration account
+ * ## Example Usage
+ * ### Create or update an integration account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

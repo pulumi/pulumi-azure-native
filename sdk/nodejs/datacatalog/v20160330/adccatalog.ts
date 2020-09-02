@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Azure Data Catalog.
  *
- * ## Create Azure Data Catalog Service
+ * ## Example Usage
+ * ### Create Azure Data Catalog Service
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

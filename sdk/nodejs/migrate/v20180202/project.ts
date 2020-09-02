@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Azure Migrate Project.
  *
- * ## Projects_Create
+ * ## Example Usage
+ * ### Projects_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

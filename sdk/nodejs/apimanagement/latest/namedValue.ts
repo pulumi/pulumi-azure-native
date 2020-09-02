@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * NamedValue details.
  *
- * ## ApiManagementCreateNamedValue
+ * ## Example Usage
+ * ### ApiManagementCreateNamedValue
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

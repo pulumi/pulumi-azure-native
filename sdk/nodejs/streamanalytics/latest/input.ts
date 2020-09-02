@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
  *
- * ## Create a reference blob input with CSV serialization
+ * ## Example Usage
+ * ### Create a reference blob input with CSV serialization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a stream Event Hub input with JSON serialization
+ * ### Create a stream Event Hub input with JSON serialization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -36,8 +36,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a stream IoT Hub input with Avro serialization
+ * ### Create a stream IoT Hub input with Avro serialization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -50,8 +49,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a stream blob input with CSV serialization
+ * ### Create a stream blob input with CSV serialization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
  *
- * ## ExpressRouteCircuitConnectionCreate
+ * ## Example Usage
+ * ### ExpressRouteCircuitConnectionCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

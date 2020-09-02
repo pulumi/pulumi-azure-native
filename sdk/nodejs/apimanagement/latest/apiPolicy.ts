@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Policy Contract details.
  *
- * ## ApiManagementCreateApiPolicy
+ * ## Example Usage
+ * ### ApiManagementCreateApiPolicy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,8 +24,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateApiPolicyNonXmlEncoded
+ * ### ApiManagementCreateApiPolicyNonXmlEncoded
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

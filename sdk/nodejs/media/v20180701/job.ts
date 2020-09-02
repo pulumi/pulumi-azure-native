@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
  *
- * ## Create a Job
+ * ## Example Usage
+ * ### Create a Job
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

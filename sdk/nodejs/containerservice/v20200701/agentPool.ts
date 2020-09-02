@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Agent Pool.
  *
- * ## Create Agent Pool with PPG
+ * ## Example Usage
+ * ### Create Agent Pool with PPG
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -27,8 +28,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create Spot Agent Pool
+ * ### Create Spot Agent Pool
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -54,8 +54,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create/Update Agent Pool
+ * ### Create/Update Agent Pool
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -82,8 +81,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Update Agent Pool
+ * ### Update Agent Pool
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

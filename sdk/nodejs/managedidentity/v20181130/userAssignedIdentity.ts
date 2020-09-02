@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes an identity resource.
  *
- * ## IdentityCreate
+ * ## Example Usage
+ * ### IdentityCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

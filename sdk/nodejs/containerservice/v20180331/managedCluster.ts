@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Managed cluster.
  *
- * ## Create/Update Managed Cluster
+ * ## Example Usage
+ * ### Create/Update Managed Cluster
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

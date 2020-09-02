@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * VirtualHubRouteTableV2 Resource.
  *
- * ## VirtualHubRouteTableV2Put
+ * ## Example Usage
+ * ### VirtualHubRouteTableV2Put
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

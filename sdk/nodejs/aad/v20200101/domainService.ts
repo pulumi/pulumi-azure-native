@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Domain service.
  *
- * ## Create Domain Service
+ * ## Example Usage
+ * ### Create Domain Service
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

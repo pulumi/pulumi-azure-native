@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Trigger details.
  *
- * ## TriggerPut
+ * ## Example Usage
+ * ### TriggerPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

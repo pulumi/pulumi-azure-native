@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Fabric definition.
  *
- * ## Creates an Azure Site Recovery fabric.
+ * ## Example Usage
+ * ### Creates an Azure Site Recovery fabric.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

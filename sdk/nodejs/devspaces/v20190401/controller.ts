@@ -7,7 +7,8 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * ## ControllersCreate
+ * ## Example Usage
+ * ### ControllersCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

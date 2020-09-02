@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a database elastic pool.
  *
- * ## Create elastic pool max
+ * ## Example Usage
+ * ### Create elastic pool max
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,8 +27,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create elastic pool min
+ * ### Create elastic pool min
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

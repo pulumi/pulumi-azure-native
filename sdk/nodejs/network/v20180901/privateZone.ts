@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Private DNS zone.
  *
- * ## PUT Private DNS Zone
+ * ## Example Usage
+ * ### PUT Private DNS Zone
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

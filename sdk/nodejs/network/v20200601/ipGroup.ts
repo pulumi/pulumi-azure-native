@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The IpGroups resource information.
  *
- * ## CreateOrUpdate_IpGroups
+ * ## Example Usage
+ * ### CreateOrUpdate_IpGroups
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

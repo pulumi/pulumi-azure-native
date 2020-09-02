@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
  *
- * ## EnvironmentsCreate
+ * ## Example Usage
+ * ### EnvironmentsCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

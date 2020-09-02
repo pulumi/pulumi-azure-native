@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Defines the properties of an Experiment
  *
- * ## Creates an Experiment
+ * ## Example Usage
+ * ### Creates an Experiment
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

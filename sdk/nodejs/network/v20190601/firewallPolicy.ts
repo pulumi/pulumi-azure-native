@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * FirewallPolicy Resource.
  *
- * ## Create FirewallPolicy
+ * ## Example Usage
+ * ### Create FirewallPolicy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

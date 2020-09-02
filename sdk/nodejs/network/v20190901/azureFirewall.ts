@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Azure Firewall resource.
  *
- * ## Create Azure Firewall
+ * ## Example Usage
+ * ### Create Azure Firewall
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -43,8 +44,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create Azure Firewall With Additional Properties
+ * ### Create Azure Firewall With Additional Properties
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -82,8 +82,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create Azure Firewall With Zones
+ * ### Create Azure Firewall With Zones
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -121,8 +120,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create Azure Firewall in virtual Hub
+ * ### Create Azure Firewall in virtual Hub
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

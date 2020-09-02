@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Network security rule.
  *
- * ## Create security rule
+ * ## Example Usage
+ * ### Create security rule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

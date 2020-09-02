@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
  *
- * ## RegisterAzure Storage ProtectionContainers
+ * ## Example Usage
+ * ### RegisterAzure Storage ProtectionContainers
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

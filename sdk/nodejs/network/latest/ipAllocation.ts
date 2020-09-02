@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * IpAllocation resource.
  *
- * ## Create IpAllocation
+ * ## Example Usage
+ * ### Create IpAllocation
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

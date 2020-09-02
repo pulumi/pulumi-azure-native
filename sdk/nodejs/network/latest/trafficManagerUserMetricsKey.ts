@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Class representing Traffic Manager User Metrics.
  *
- * ## TrafficManagerUserMetricsKeys-PUT
+ * ## Example Usage
+ * ### TrafficManagerUserMetricsKeys-PUT
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

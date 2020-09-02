@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a server firewall rule.
  *
- * ## Create a firewall rule max/min
+ * ## Example Usage
+ * ### Create a firewall rule max/min
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Update a firewall rule max/min
+ * ### Update a firewall rule max/min
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

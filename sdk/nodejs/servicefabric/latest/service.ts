@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The service resource.
  *
- * ## Put a service with maximum parameters
+ * ## Example Usage
+ * ### Put a service with maximum parameters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -41,8 +42,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Put a service with minimum parameters
+ * ### Put a service with minimum parameters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

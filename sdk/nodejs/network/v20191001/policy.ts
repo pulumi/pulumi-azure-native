@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Defines web application firewall policy.
  *
- * ## Creates specific policy
+ * ## Example Usage
+ * ### Creates specific policy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The Backup Schedule Group
  *
- * ## BackupScheduleGroupsCreateOrUpdate
+ * ## Example Usage
+ * ### BackupScheduleGroupsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,14 +7,15 @@ import * as utilities from "../../utilities";
 /**
  * Api Release details.
  *
- * ## ApiManagementCreateApiRelease
+ * ## Example Usage
+ * ### ApiManagementCreateApiRelease
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azurerm from "@pulumi/azurerm";
  *
  * const apiRelease = new azurerm.apimanagement.v20170301.ApiRelease("apiRelease", {
- *     apiId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1",
+ *     apiId: "a1",
  *     notes: "yahooagain",
  *     releaseId: "testrev",
  *     resourceGroupName: "rg1",

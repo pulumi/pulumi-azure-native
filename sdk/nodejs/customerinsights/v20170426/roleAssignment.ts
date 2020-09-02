@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The Role Assignment resource format.
  *
- * ## RoleAssignments_CreateOrUpdate
+ * ## Example Usage
+ * ### RoleAssignments_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

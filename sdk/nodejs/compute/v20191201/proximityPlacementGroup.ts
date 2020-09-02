@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the proximity placement group.
  *
- * ## Create or Update a proximity placement group.
+ * ## Example Usage
+ * ### Create or Update a proximity placement group.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

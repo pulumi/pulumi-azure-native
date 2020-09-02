@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A single API Management service resource in List or Get response.
  *
- * ## ApiManagementCreateService
+ * ## Example Usage
+ * ### ApiManagementCreateService
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

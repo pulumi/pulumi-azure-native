@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Information about workspace.
  *
- * ## Create a workspace which is ready for Customer-Managed Key (CMK) encryption
+ * ## Example Usage
+ * ### Create a workspace which is ready for Customer-Managed Key (CMK) encryption
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,8 +29,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update workspace
+ * ### Create or update workspace
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -43,8 +43,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update workspace with custom parameters
+ * ### Create or update workspace with custom parameters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -69,8 +68,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption
+ * ### Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -97,8 +95,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace
+ * ### Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

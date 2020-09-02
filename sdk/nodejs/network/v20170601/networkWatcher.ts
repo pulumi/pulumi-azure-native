@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Network watcher in a resource group.
  *
- * ## Create Network Watcher
+ * ## Example Usage
+ * ### Create Network Watcher
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

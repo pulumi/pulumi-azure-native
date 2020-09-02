@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A private endpoint connection to SignalR resource
  *
- * ## SignalRPrivateEndpointConnections_Update
+ * ## Example Usage
+ * ### SignalRPrivateEndpointConnections_Update
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

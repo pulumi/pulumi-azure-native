@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Virtual Router Peering resource
  *
- * ## Create Virtual Router Peering
+ * ## Example Usage
+ * ### Create Virtual Router Peering
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

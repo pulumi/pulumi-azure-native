@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the variable.
  *
- * ## Create or update a variable
+ * ## Example Usage
+ * ### Create or update a variable
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

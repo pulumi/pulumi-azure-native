@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Contains information about the File Server.
  *
- * ## Create or update file server
+ * ## Example Usage
+ * ### Create or update file server
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

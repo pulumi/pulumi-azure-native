@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Factory resource type.
  *
- * ## Factories_CreateOrUpdate
+ * ## Example Usage
+ * ### Factories_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

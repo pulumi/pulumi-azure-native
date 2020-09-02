@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of a namespace resource.
  *
- * ## RelayNamespaceCreate
+ * ## Example Usage
+ * ### RelayNamespaceCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

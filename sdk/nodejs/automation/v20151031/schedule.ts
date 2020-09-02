@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the schedule.
  *
- * ## Create or update a schedule
+ * ## Example Usage
+ * ### Create or update a schedule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * SpatialAnchorsAccount Response.
  *
- * ## Create spatial anchor account
+ * ## Example Usage
+ * ### Create spatial anchor account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A flow log resource.
  *
- * ## Create or update flow log
+ * ## Example Usage
+ * ### Create or update flow log
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

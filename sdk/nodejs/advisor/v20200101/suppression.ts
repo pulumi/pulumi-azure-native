@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
  *
- * ## CreateSuppression
+ * ## Example Usage
+ * ### CreateSuppression
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Response on GET of a hybrid use benefit
  *
- * ## HybridUseBenefit
+ * ## Example Usage
+ * ### HybridUseBenefit
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

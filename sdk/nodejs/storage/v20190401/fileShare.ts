@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
  *
- * ## PutShares
+ * ## Example Usage
+ * ### PutShares
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

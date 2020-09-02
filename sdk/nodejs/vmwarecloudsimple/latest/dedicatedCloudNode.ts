@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Dedicated cloud node model
  *
- * ## CreateDedicatedCloudNode
+ * ## Example Usage
+ * ### CreateDedicatedCloudNode
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure resource which represents access to a suite of Maps REST APIs.
  *
- * ## CreateAccount
+ * ## Example Usage
+ * ### CreateAccount
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

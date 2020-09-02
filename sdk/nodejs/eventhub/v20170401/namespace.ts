@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Single Namespace item in List or Get Operation
  *
- * ## NamespaceCreate
+ * ## Example Usage
+ * ### NamespaceCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

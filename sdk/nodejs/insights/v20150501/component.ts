@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Application Insights component definition.
  *
- * ## ComponentCreate
+ * ## Example Usage
+ * ### ComponentCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,8 +27,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ComponentUpdate
+ * ### ComponentUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Gremlin database.
  *
- * ## CosmosDBGremlinDatabaseCreateUpdate
+ * ## Example Usage
+ * ### CosmosDBGremlinDatabaseCreateUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * An Asset.
  *
- * ## Create an Asset
+ * ## Example Usage
+ * ### Create an Asset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

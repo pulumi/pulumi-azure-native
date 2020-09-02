@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Virtual Machine.
  *
- * ## Create a custom-image vm from an unmanaged generalized os image.
+ * ## Example Usage
+ * ### Create a custom-image vm from an unmanaged generalized os image.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -49,8 +50,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a platform-image vm with unmanaged os and data disks.
+ * ### Create a platform-image vm with unmanaged os and data disks.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -110,8 +110,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm from a custom image.
+ * ### Create a vm from a custom image.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -150,8 +149,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm in an availability set.
+ * ### Create a vm in an availability set.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -196,8 +194,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with DiskEncryptionSet resource id in the os disk and data disk.
+ * ### Create a vm with DiskEncryptionSet resource id in the os disk and data disk.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -266,8 +263,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with Host Encryption using encryptionAtHost property.
+ * ### Create a vm with Host Encryption using encryptionAtHost property.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -317,8 +313,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with a marketplace image plan.
+ * ### Create a vm with a marketplace image plan.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -365,8 +360,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with a patch setting patchMode of AutomaticByOS.
+ * ### Create a vm with a patch setting patchMode of AutomaticByOS.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -415,8 +409,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with a patch setting patchMode of AutomaticByPlatform.
+ * ### Create a vm with a patch setting patchMode of AutomaticByPlatform.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -465,8 +458,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with a patch setting patchMode of Manual.
+ * ### Create a vm with a patch setting patchMode of Manual.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -515,8 +507,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with an extensions time budget.
+ * ### Create a vm with an extensions time budget.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -565,8 +556,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with boot diagnostics.
+ * ### Create a vm with boot diagnostics.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -614,8 +604,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with empty data disks.
+ * ### Create a vm with empty data disks.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -669,8 +658,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with ephemeral os disk provisioning in Cache disk using placement property.
+ * ### Create a vm with ephemeral os disk provisioning in Cache disk using placement property.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -721,8 +709,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with ephemeral os disk provisioning in Resource disk using placement property.
+ * ### Create a vm with ephemeral os disk provisioning in Resource disk using placement property.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -773,8 +760,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with ephemeral os disk.
+ * ### Create a vm with ephemeral os disk.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -824,8 +810,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with managed boot diagnostics.
+ * ### Create a vm with managed boot diagnostics.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -872,8 +857,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with password authentication.
+ * ### Create a vm with password authentication.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -915,8 +899,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with premium storage.
+ * ### Create a vm with premium storage.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -958,8 +941,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a vm with ssh authentication.
+ * ### Create a vm with ssh authentication.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

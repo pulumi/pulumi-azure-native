@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Virtual Appliance Site resource.
  *
- * ## VirtualHubRouteTableV2Put
+ * ## Example Usage
+ * ### VirtualHubRouteTableV2Put
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

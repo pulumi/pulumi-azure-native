@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Traffic Manager endpoint.
  *
- * ## Endpoint-PUT-External-WithCustomHeaders
+ * ## Example Usage
+ * ### Endpoint-PUT-External-WithCustomHeaders
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,8 +39,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Endpoint-PUT-External-WithGeoMapping
+ * ### Endpoint-PUT-External-WithGeoMapping
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -61,8 +61,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Endpoint-PUT-External-WithLocation
+ * ### Endpoint-PUT-External-WithLocation
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

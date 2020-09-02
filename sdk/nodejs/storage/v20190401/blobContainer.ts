@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  *
- * ## PutContainers
+ * ## Example Usage
+ * ### PutContainers
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

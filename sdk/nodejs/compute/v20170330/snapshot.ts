@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Snapshot resource.
  *
- * ## Create a snapshot by importing an unmanaged blob from a different subscription.
+ * ## Example Usage
+ * ### Create a snapshot by importing an unmanaged blob from a different subscription.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -27,8 +28,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a snapshot by importing an unmanaged blob from the same subscription.
+ * ### Create a snapshot by importing an unmanaged blob from the same subscription.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,8 +45,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a snapshot from an existing snapshot in the same or a different subscription.
+ * ### Create a snapshot from an existing snapshot in the same or a different subscription.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

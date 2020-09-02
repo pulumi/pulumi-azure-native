@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Bot resource definition
  *
- * ## Create Bot
+ * ## Example Usage
+ * ### Create Bot
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

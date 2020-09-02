@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Integration runtime resource type.
  *
- * ## IntegrationRuntimes_Create
+ * ## Example Usage
+ * ### IntegrationRuntimes_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

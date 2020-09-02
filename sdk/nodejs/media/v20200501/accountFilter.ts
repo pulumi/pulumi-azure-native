@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Account Filter.
  *
- * ## Create an Account Filter
+ * ## Example Usage
+ * ### Create an Account Filter
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

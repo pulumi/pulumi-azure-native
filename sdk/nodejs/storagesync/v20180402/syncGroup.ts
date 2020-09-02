@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Sync Group object.
  *
- * ## SyncGroups_Create
+ * ## Example Usage
+ * ### SyncGroups_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

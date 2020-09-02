@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Diagnostic details.
  *
- * ## ApiManagementCreateDiagnostic
+ * ## Example Usage
+ * ### ApiManagementCreateDiagnostic
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

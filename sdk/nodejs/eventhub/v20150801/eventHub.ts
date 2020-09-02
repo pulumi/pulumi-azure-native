@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Single item in List or Get Event Hub operation
  *
- * ## EventHubCreate
+ * ## Example Usage
+ * ### EventHubCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

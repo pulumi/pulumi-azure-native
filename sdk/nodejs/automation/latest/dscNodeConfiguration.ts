@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the dsc node configuration.
  *
- * ## Create node configuration
+ * ## Example Usage
+ * ### Create node configuration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

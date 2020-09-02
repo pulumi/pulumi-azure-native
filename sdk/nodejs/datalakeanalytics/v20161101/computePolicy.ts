@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Data Lake Analytics compute policy information.
  *
- * ## Creates or updates the specified compute policy
+ * ## Example Usage
+ * ### Creates or updates the specified compute policy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

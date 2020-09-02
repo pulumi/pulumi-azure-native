@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Contains information about an application in a Batch account.
  *
- * ## ApplicationCreate
+ * ## Example Usage
+ * ### ApplicationCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

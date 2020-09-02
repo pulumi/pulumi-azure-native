@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the Shared Image Gallery that you want to create or update.
  *
- * ## Create or update a simple gallery.
+ * ## Example Usage
+ * ### Create or update a simple gallery.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

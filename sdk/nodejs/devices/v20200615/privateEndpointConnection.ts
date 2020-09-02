@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The private endpoint connection of an IotHub
  *
- * ## PrivateEndpointConnection_Update
+ * ## Example Usage
+ * ### PrivateEndpointConnection_Update
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The File Share.
  *
- * ## FileSharesCreateOrUpdate
+ * ## Example Usage
+ * ### FileSharesCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

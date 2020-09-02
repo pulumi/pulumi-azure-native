@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A private cloud resource
  *
- * ## PrivateClouds_CreateOrUpdate
+ * ## Example Usage
+ * ### PrivateClouds_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

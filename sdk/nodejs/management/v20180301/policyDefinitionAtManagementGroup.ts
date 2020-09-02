@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The policy definition.
  *
- * ## Create or update a policy definition at management group level
+ * ## Example Usage
+ * ### Create or update a policy definition at management group level
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

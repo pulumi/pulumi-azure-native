@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A share data transfer object.
  *
- * ## Shares_Create
+ * ## Example Usage
+ * ### Shares_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

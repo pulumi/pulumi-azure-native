@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Site REST Resource.
  *
- * ## Create Hyper-V site
+ * ## Example Usage
+ * ### Create Hyper-V site
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Contains information about an Azure Batch account.
  *
- * ## BatchAccountCreate_BYOS
+ * ## Example Usage
+ * ### BatchAccountCreate_BYOS
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -30,8 +31,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## BatchAccountCreate_Default
+ * ### BatchAccountCreate_Default
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -47,8 +47,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## BatchAccountCreate_SystemAssignedIdentity
+ * ### BatchAccountCreate_SystemAssignedIdentity
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -67,8 +66,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## PrivateBatchAccountCreate
+ * ### PrivateBatchAccountCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

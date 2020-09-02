@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The file server.
  *
- * ## FileServersCreateOrUpdate
+ * ## Example Usage
+ * ### FileServersCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

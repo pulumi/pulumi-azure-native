@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The link resource format.
  *
- * ## Links_CreateOrUpdate
+ * ## Example Usage
+ * ### Links_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

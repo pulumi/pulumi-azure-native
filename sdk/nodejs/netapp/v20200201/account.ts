@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * NetApp account resource
  *
- * ## Accounts_CreateOrUpdate
+ * ## Example Usage
+ * ### Accounts_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

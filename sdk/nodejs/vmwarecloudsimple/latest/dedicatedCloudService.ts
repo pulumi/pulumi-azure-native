@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Dedicated cloud service model
  *
- * ## CreateDedicatedCloudService
+ * ## Example Usage
+ * ### CreateDedicatedCloudService
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

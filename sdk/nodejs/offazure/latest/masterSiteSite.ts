@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Site REST Resource.
  *
- * ## Create Master site
+ * ## Example Usage
+ * ### Create Master site
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

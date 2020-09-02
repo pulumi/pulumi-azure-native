@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Static Site ARM resource.
  *
- * ## Create or update a static site
+ * ## Example Usage
+ * ### Create or update a static site
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the gallery Application Definition that you want to create or update.
  *
- * ## Create or update a simple gallery Application.
+ * ## Example Usage
+ * ### Create or update a simple gallery Application.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

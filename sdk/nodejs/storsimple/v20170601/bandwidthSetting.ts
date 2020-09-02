@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The bandwidth setting.
  *
- * ## BandwidthSettingsCreateOrUpdate
+ * ## Example Usage
+ * ### BandwidthSettingsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

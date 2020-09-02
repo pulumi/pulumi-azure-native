@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * VpnServerConfiguration Resource.
  *
- * ## VpnServerConfigurationCreate
+ * ## Example Usage
+ * ### VpnServerConfigurationCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

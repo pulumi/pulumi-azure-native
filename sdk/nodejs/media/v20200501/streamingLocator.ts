@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A Streaming Locator resource
  *
- * ## Creates a Streaming Locator with clear streaming
+ * ## Example Usage
+ * ### Creates a Streaming Locator with clear streaming
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -24,8 +25,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates a Streaming Locator with secure streaming
+ * ### Creates a Streaming Locator with secure streaming
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -42,8 +42,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates a Streaming Locator with user defined content keys
+ * ### Creates a Streaming Locator with user defined content keys
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

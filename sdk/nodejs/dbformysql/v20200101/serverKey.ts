@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A MySQL Server key.
  *
- * ## Creates or updates a MySQL Server key
+ * ## Example Usage
+ * ### Creates or updates a MySQL Server key
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

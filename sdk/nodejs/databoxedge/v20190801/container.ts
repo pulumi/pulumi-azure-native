@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
  *
- * ## ContainerPut
+ * ## Example Usage
+ * ### ContainerPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

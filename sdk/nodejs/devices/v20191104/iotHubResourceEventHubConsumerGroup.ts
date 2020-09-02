@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The properties of the EventHubConsumerGroupInfo object.
  *
- * ## IotHubResource_CreateEventHubConsumerGroup
+ * ## Example Usage
+ * ### IotHubResource_CreateEventHubConsumerGroup
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

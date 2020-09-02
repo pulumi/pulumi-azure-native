@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents an instance of an Analysis Services resource.
  *
- * ## Create a server.
+ * ## Example Usage
+ * ### Create a server.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

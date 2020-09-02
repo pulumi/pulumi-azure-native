@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An object that represents a container registry.
  *
- * ## RegistryCreate
+ * ## Example Usage
+ * ### RegistryCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Logger details.
  *
- * ## ApiManagementCreateAILogger
+ * ## Example Usage
+ * ### ApiManagementCreateAILogger
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -27,8 +28,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateEHLogger
+ * ### ApiManagementCreateEHLogger
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

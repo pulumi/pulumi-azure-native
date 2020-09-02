@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The top level storage insight resource container.
  *
- * ## StorageInsightsCreate
+ * ## Example Usage
+ * ### StorageInsightsCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

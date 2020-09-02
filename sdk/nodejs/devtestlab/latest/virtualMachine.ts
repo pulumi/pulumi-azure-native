@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A virtual machine.
  *
- * ## VirtualMachines_CreateOrUpdate
+ * ## Example Usage
+ * ### VirtualMachines_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

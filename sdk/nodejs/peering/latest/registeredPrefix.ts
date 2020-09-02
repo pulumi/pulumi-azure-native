@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The customer's prefix that is registered by the peering service provider.
  *
- * ## Create or update a registered prefix for the peering
+ * ## Example Usage
+ * ### Create or update a registered prefix for the peering
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

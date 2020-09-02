@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
  *
- * ## Create a DocumentDB output
+ * ## Example Usage
+ * ### Create a DocumentDB output
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -25,8 +26,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a Power BI output
+ * ### Create a Power BI output
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -42,8 +42,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a Service Bus Queue output with Avro serialization
+ * ### Create a Service Bus Queue output with Avro serialization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -62,8 +61,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a Service Bus Topic output with CSV serialization
+ * ### Create a Service Bus Topic output with CSV serialization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -82,8 +80,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a blob output with CSV serialization
+ * ### Create a blob output with CSV serialization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -102,8 +99,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create an Azure Data Lake Store output with JSON serialization
+ * ### Create an Azure Data Lake Store output with JSON serialization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -122,8 +118,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create an Azure SQL database output
+ * ### Create an Azure SQL database output
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -139,8 +134,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create an Azure Table output
+ * ### Create an Azure Table output
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -156,8 +150,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create an Event Hub output with JSON serialization
+ * ### Create an Event Hub output with JSON serialization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

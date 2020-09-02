@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A private endpoint connection
  *
- * ## Approve or reject a private endpoint connection with a given name.
+ * ## Example Usage
+ * ### Approve or reject a private endpoint connection with a given name.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A class represent a SignalR service resource.
  *
- * ## SignalR_CreateOrUpdate
+ * ## Example Usage
+ * ### SignalR_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

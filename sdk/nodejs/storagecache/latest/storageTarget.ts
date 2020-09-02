@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Type of the Storage Target.
  *
- * ## StorageTargets_CreateOrUpdate
+ * ## Example Usage
+ * ### StorageTargets_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

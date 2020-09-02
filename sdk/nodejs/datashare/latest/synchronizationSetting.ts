@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A Synchronization Setting data transfer object.
  *
- * ## SynchronizationSettings_Create
+ * ## Example Usage
+ * ### SynchronizationSettings_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

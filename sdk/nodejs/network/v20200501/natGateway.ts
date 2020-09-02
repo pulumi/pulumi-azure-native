@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Nat Gateway resource.
  *
- * ## Create nat gateway
+ * ## Example Usage
+ * ### Create nat gateway
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

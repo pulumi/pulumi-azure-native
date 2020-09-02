@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The cluster resource
  *
- * ## Put a cluster with max parameter
+ * ## Example Usage
+ * ### Put a cluster with max parameter
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -96,8 +97,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Put a cluster with min parameter
+ * ### Put a cluster with min parameter
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

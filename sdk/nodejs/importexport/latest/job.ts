@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Contains the job information.
  *
- * ## Create export job
+ * ## Example Usage
+ * ### Create export job
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create import job
+ * ### Create import job
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

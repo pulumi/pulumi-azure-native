@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Property details.
  *
- * ## ApiManagementCreateProperty
+ * ## Example Usage
+ * ### ApiManagementCreateProperty
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

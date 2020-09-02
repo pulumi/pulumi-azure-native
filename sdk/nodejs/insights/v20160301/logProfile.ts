@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The log profile resource.
  *
- * ## Create or update a log profile
+ * ## Example Usage
+ * ### Create or update a log profile
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

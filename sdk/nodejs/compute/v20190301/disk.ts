@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Disk resource.
  *
- * ## Create a managed disk by copying a snapshot.
+ * ## Example Usage
+ * ### Create a managed disk by copying a snapshot.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,8 +27,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a managed disk by importing an unmanaged blob from a different subscription.
+ * ### Create a managed disk by importing an unmanaged blob from a different subscription.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,8 +45,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a managed disk by importing an unmanaged blob from the same subscription.
+ * ### Create a managed disk by importing an unmanaged blob from the same subscription.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -63,8 +62,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a managed disk from a platform image.
+ * ### Create a managed disk from a platform image.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -84,8 +82,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a managed disk from an existing managed disk in the same or different subscription.
+ * ### Create a managed disk from an existing managed disk in the same or different subscription.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -102,8 +99,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a managed upload disk.
+ * ### Create a managed upload disk.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -120,8 +116,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create an empty managed disk.
+ * ### Create an empty managed disk.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

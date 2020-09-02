@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of a NotificationHub Resource.
  *
- * ## NotificationHubCreate
+ * ## Example Usage
+ * ### NotificationHubCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

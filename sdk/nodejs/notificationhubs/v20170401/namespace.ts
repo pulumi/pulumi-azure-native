@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of a Namespace resource.
  *
- * ## NameSpaceCreate
+ * ## Example Usage
+ * ### NameSpaceCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

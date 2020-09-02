@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An object that represents a replication for a container registry.
  *
- * ## ReplicationCreate
+ * ## Example Usage
+ * ### ReplicationCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Datasources under OMS Workspace.
  *
- * ## DataSourcesCreate
+ * ## Example Usage
+ * ### DataSourcesCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The application type name resource
  *
- * ## Put an application type
+ * ## Example Usage
+ * ### Put an application type
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

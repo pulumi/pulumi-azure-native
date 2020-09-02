@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * OpenShift Managed cluster.
  *
- * ## Create/Update OpenShift Managed Cluster
+ * ## Example Usage
+ * ### Create/Update OpenShift Managed Cluster
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

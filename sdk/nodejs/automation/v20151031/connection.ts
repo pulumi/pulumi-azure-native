@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the connection.
  *
- * ## Create or update connection
+ * ## Example Usage
+ * ### Create or update connection
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

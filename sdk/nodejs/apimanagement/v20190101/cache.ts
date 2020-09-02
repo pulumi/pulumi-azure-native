@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Cache details.
  *
- * ## ApiManagementCreateCache
+ * ## Example Usage
+ * ### ApiManagementCreateCache
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The integration account session.
  *
- * ## SessionsCreateOrUpdate
+ * ## Example Usage
+ * ### SessionsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

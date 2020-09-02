@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB database account.
  *
- * ## CosmosDBDatabaseAccountCreateMax
+ * ## Example Usage
+ * ### CosmosDBDatabaseAccountCreateMax
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -48,8 +49,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## CosmosDBDatabaseAccountCreateMin
+ * ### CosmosDBDatabaseAccountCreateMin
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The access control record
  *
- * ## AccessControlRecordsCreateOrUpdate
+ * ## Example Usage
+ * ### AccessControlRecordsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

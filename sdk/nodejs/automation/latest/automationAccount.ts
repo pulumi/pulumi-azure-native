@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the automation account type.
  *
- * ## Create or update automation account
+ * ## Example Usage
+ * ### Create or update automation account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

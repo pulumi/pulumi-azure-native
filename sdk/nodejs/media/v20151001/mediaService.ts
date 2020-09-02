@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The properties of a Media Service resource.
  *
- * ## MediaServiceCreate
+ * ## Example Usage
+ * ### MediaServiceCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

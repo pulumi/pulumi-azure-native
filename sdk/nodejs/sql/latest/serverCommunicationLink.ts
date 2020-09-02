@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Server communication link.
  *
- * ## Create a server communication link
+ * ## Example Usage
+ * ### Create a server communication link
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

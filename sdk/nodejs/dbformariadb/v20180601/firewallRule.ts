@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a server firewall rule.
  *
- * ## FirewallRuleCreate
+ * ## Example Usage
+ * ### FirewallRuleCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

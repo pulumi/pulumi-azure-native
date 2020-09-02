@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Registration information.
  *
- * ## Create or update an Azure Stack registration.
+ * ## Example Usage
+ * ### Create or update an Azure Stack registration.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

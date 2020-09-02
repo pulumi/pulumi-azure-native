@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The Get Storage Account ManagementPolicies operation response.
  *
- * ## StorageAccountSetManagementPolicies
+ * ## Example Usage
+ * ### StorageAccountSetManagementPolicies
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

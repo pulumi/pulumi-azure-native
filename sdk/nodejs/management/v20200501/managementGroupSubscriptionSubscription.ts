@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The details of subscription under management group.
  *
- * ## AddSubscriptionToManagementGroup
+ * ## Example Usage
+ * ### AddSubscriptionToManagementGroup
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

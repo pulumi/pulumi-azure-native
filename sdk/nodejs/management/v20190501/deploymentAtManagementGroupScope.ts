@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Deployment information.
  *
- * ## Create deployment at management group scope.
+ * ## Example Usage
+ * ### Create deployment at management group scope.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

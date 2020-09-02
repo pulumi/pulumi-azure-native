@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Cloud Endpoint object.
  *
- * ## CloudEndpoints_Create
+ * ## Example Usage
+ * ### CloudEndpoints_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a cluster principal assignment.
  *
- * ## KustoClusterPrincipalAssignmentsCreateOrUpdate
+ * ## Example Usage
+ * ### KustoClusterPrincipalAssignmentsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

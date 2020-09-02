@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The IoT Central application.
  *
- * ## Apps_CreateOrUpdate
+ * ## Example Usage
+ * ### Apps_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

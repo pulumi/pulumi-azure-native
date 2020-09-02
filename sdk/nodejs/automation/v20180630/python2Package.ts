@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the module type.
  *
- * ## Create or update a python 2 package
+ * ## Example Usage
+ * ### Create or update a python 2 package
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

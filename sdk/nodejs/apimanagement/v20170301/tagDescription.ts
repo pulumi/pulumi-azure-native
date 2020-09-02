@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Contract details.
  *
- * ## ApiManagementCreateApiTagDescription
+ * ## Example Usage
+ * ### ApiManagementCreateApiTagDescription
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

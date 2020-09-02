@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Action for alert rule.
  *
- * ## Creates or updates an action of alert rule.
+ * ## Example Usage
+ * ### Creates or updates an action of alert rule.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

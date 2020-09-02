@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the module type.
  *
- * ## Create or update a module
+ * ## Example Usage
+ * ### Create or update a module
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

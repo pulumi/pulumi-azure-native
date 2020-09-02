@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes an Azure Cognitive Search service and its current state.
  *
- * ## SearchCreateOrUpdateService
+ * ## Example Usage
+ * ### SearchCreateOrUpdateService
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -31,8 +32,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints
+ * ### SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -55,8 +55,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs
+ * ### SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -88,8 +87,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## SearchCreateOrUpdateServiceWithIdentity
+ * ### SearchCreateOrUpdateServiceWithIdentity
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

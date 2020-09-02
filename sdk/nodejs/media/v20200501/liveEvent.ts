@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The Live Event.
  *
- * ## Create a LiveEvent
+ * ## Example Usage
+ * ### Create a LiveEvent
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

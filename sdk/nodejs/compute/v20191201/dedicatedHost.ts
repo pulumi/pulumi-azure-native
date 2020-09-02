@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the Dedicated host.
  *
- * ## Create or update a dedicated host .
+ * ## Example Usage
+ * ### Create or update a dedicated host .
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

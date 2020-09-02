@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The extended info of the manager.
  *
- * ## ManagersCreateExtendedInfo
+ * ## Example Usage
+ * ### ManagersCreateExtendedInfo
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

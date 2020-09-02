@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Class representing an data connection.
  *
- * ## KustoDataConnectionsCreateOrUpdate
+ * ## Example Usage
+ * ### KustoDataConnectionsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

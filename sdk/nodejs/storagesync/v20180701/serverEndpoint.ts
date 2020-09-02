@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Server Endpoint object.
  *
- * ## ServerEndpoints_Create
+ * ## Example Usage
+ * ### ServerEndpoints_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

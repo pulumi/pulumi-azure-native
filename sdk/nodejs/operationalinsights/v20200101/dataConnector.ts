@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Data connector.
  *
- * ## Creates or updates an Office365 data connector.
+ * ## Example Usage
+ * ### Creates or updates an Office365 data connector.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

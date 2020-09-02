@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A data set mapping data transfer object.
  *
- * ## DataSetMappings_Create
+ * ## Example Usage
+ * ### DataSetMappings_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## DataSetMappings_SqlDB_Create
+ * ### DataSetMappings_SqlDB_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,8 +38,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+ * ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -54,8 +53,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## DataSetMappings_SqlDW_Create
+ * ### DataSetMappings_SqlDW_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

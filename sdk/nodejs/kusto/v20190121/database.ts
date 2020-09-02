@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Kusto database.
  *
- * ## KustoDatabasesCreateOrUpdate
+ * ## Example Usage
+ * ### KustoDatabasesCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

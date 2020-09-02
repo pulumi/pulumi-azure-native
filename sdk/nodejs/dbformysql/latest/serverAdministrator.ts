@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a and external administrator to be created.
  *
- * ## ServerAdministratorCreate
+ * ## Example Usage
+ * ### ServerAdministratorCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

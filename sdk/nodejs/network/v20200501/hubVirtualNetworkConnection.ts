@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * HubVirtualNetworkConnection Resource.
  *
- * ## HubVirtualNetworkConnectionPut
+ * ## Example Usage
+ * ### HubVirtualNetworkConnectionPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

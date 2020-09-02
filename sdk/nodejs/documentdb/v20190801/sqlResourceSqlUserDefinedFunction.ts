@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB userDefinedFunction.
  *
- * ## CosmosDBSqlUserDefinedFunctionCreateUpdate
+ * ## Example Usage
+ * ### CosmosDBSqlUserDefinedFunctionCreateUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

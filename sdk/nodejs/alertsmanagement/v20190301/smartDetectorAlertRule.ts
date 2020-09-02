@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The alert rule information
  *
- * ## Create or update a Smart Detector alert rule
+ * ## Example Usage
+ * ### Create or update a Smart Detector alert rule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

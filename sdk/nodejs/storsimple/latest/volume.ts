@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The volume.
  *
- * ## VolumesCreateOrUpdate
+ * ## Example Usage
+ * ### VolumesCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

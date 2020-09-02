@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Single item in a List or Get AuthorizationRule operation
  *
- * ## EventHubAuthorizationRuleCreate
+ * ## Example Usage
+ * ### EventHubAuthorizationRuleCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

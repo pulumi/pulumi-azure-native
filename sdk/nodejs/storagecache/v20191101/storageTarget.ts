@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A storage system being cached by a Cache.
  *
- * ## StorageTargets_CreateOrUpdate
+ * ## Example Usage
+ * ### StorageTargets_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

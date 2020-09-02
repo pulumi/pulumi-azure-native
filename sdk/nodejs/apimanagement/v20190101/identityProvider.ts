@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Identity Provider details.
  *
- * ## ApiManagementCreateIdentityProvider
+ * ## Example Usage
+ * ### ApiManagementCreateIdentityProvider
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

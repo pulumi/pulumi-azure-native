@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Certificate details.
  *
- * ## ApiManagementCreateCertificate
+ * ## Example Usage
+ * ### ApiManagementCreateCertificate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The top level data export resource container.
  *
- * ## DataExportCreate
+ * ## Example Usage
+ * ### DataExportCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

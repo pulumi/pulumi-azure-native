@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Security Partner Provider resource.
  *
- * ## Create Security Partner Provider
+ * ## Example Usage
+ * ### Create Security Partner Provider
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

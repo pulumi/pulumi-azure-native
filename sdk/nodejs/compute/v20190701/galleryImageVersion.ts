@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the gallery Image Version that you want to create or update.
  *
- * ## Create or update a simple Gallery Image Version (Managed Image as source).
+ * ## Example Usage
+ * ### Create or update a simple Gallery Image Version (Managed Image as source).
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -42,8 +43,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update a simple Gallery Image Version using snapshots as a source.
+ * ### Create or update a simple Gallery Image Version using snapshots as a source.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

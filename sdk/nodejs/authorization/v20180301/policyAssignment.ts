@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The policy assignment.
  *
- * ## Create or update a policy assignment
+ * ## Example Usage
+ * ### Create or update a policy assignment
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

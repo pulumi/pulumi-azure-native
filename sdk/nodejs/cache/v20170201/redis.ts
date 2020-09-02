@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A single Redis item in List or Get Operation.
  *
- * ## RedisCacheCreate
+ * ## Example Usage
+ * ### RedisCacheCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

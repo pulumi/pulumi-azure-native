@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The profile resource format.
  *
- * ## Profiles_CreateOrUpdate
+ * ## Example Usage
+ * ### Profiles_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

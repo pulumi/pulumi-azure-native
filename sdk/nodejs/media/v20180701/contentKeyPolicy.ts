@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A Content Key Policy resource.
  *
- * ## Creates a Content Key Policy with ClearKey option and Token Restriction
+ * ## Example Usage
+ * ### Creates a Content Key Policy with ClearKey option and Token Restriction
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -32,8 +33,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates a Content Key Policy with PlayReady option and Open Restriction
+ * ### Creates a Content Key Policy with PlayReady option and Open Restriction
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -56,8 +56,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates a Content Key Policy with Widevine option and Token Restriction
+ * ### Creates a Content Key Policy with Widevine option and Token Restriction
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -80,8 +79,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates a Content Key Policy with multiple options
+ * ### Creates a Content Key Policy with multiple options
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

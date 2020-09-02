@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Azure Firewall resource
  *
- * ## Create Azure Firewall
+ * ## Example Usage
+ * ### Create Azure Firewall
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

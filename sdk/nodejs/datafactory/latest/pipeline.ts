@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Pipeline resource type.
  *
- * ## Pipelines_Create
+ * ## Example Usage
+ * ### Pipelines_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,8 +46,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Pipelines_Update
+ * ### Pipelines_Update
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

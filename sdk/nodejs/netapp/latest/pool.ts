@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Capacity pool resource
  *
- * ## Pools_CreateOrUpdate
+ * ## Example Usage
+ * ### Pools_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

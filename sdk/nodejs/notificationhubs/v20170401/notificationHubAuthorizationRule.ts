@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of a Namespace AuthorizationRules.
  *
- * ## NotificationHubAuthorizationRuleCreate
+ * ## Example Usage
+ * ### NotificationHubAuthorizationRuleCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

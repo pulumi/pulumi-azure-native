@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The workflow type.
  *
- * ## Create or update a workflow
+ * ## Example Usage
+ * ### Create or update a workflow
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

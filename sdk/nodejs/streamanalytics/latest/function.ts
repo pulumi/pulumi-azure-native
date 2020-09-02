@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
  *
- * ## Create a JavaScript function
+ * ## Example Usage
+ * ### Create a JavaScript function
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,8 +24,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create an Azure ML function
+ * ### Create an Azure ML function
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

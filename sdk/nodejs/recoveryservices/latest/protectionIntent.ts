@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Base class for backup ProtectionIntent.
  *
- * ## Create or Update Azure Vm Protection Intent
+ * ## Example Usage
+ * ### Create or Update Azure Vm Protection Intent
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

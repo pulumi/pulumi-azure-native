@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A notebook workspace resource
  *
- * ## CosmosDBNotebookWorkspaceCreate
+ * ## Example Usage
+ * ### CosmosDBNotebookWorkspaceCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * An server Active Directory Administrator.
  *
- * ## Create/Update a server administrator
+ * ## Example Usage
+ * ### Create/Update a server administrator
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

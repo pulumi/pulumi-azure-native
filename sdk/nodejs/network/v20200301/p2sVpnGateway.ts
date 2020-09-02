@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * P2SVpnGateway Resource.
  *
- * ## P2SVpnGatewayPut
+ * ## Example Usage
+ * ### P2SVpnGatewayPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

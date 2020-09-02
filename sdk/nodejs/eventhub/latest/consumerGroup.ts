@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Single item in List or Get Consumer group operation
  *
- * ## ConsumerGroupCreate
+ * ## Example Usage
+ * ### ConsumerGroupCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

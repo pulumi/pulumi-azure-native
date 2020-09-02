@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Site REST Resource.
  *
- * ## Create VMware site
+ * ## Example Usage
+ * ### Create VMware site
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

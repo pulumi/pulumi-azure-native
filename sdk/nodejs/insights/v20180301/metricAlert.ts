@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The metric alert resource.
  *
- * ## Create or update a dynamic alert rule for Multiple Resources
+ * ## Example Usage
+ * ### Create or update a dynamic alert rule for Multiple Resources
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,8 +46,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update a dynamic alert rule for Single Resource
+ * ### Create or update a dynamic alert rule for Single Resource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -79,8 +79,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update a web test alert rule
+ * ### Create or update a web test alert rule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -110,8 +109,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update an alert rule for Multiple Resource
+ * ### Create or update an alert rule for Multiple Resource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -147,8 +145,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update an alert rule for Single Resource
+ * ### Create or update an alert rule for Single Resource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -179,8 +176,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update an alert rule on Resource group(s)
+ * ### Create or update an alert rule on Resource group(s)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -216,8 +212,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update an alert rule on Subscription
+ * ### Create or update an alert rule on Subscription
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

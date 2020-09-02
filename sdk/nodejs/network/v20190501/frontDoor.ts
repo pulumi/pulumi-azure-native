@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
  *
- * ## Create or update specific Front Door
+ * ## Example Usage
+ * ### Create or update specific Front Door
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

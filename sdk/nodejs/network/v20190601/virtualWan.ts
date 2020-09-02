@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * VirtualWAN Resource.
  *
- * ## VirtualWANCreate
+ * ## Example Usage
+ * ### VirtualWANCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

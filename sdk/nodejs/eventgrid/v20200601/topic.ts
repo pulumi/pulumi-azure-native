@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * EventGrid Topic
  *
- * ## Topics_CreateOrUpdate
+ * ## Example Usage
+ * ### Topics_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

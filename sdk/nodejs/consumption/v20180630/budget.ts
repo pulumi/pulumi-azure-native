@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A budget resource.
  *
- * ## CreateOrUpdateBudget
+ * ## Example Usage
+ * ### CreateOrUpdateBudget
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

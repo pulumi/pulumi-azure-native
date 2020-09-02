@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  *
- * ## StorageAccountPut
+ * ## Example Usage
+ * ### StorageAccountPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

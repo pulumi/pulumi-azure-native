@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Properties of the table, including Id, resource name, resource type.
  *
- * ## TableOperationPut
+ * ## Example Usage
+ * ### TableOperationPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

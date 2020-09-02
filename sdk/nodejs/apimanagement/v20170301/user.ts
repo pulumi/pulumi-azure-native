@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * User details.
  *
- * ## ApiManagementCreateUserBasic
+ * ## Example Usage
+ * ### ApiManagementCreateUserBasic
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

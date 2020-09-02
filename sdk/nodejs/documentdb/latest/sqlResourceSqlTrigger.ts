@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB trigger.
  *
- * ## CosmosDBSqlTriggerCreateUpdate
+ * ## Example Usage
+ * ### CosmosDBSqlTriggerCreateUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

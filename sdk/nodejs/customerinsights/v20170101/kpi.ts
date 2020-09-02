@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The KPI resource format.
  *
- * ## Kpi_CreateOrUpdate
+ * ## Example Usage
+ * ### Kpi_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

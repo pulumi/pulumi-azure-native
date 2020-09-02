@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Registration assignment.
  *
- * ## Put Registration Assignment
+ * ## Example Usage
+ * ### Put Registration Assignment
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

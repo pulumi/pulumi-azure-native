@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Machine Extension.
  *
- * ## Create or Update a Machine Extension
+ * ## Example Usage
+ * ### Create or Update a Machine Extension
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

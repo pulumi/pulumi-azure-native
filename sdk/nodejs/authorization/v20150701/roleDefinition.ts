@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Role definition.
  *
- * ## GetConfigurations
+ * ## Example Usage
+ * ### GetConfigurations
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

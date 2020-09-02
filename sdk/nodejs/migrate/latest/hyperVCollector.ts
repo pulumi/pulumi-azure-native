@@ -7,7 +7,8 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * ## HyperVCollectors_Create
+ * ## Example Usage
+ * ### HyperVCollectors_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

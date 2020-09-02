@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Backup of a Volume
  *
- * ## Backups_Create
+ * ## Example Usage
+ * ### Backups_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A container group.
  *
- * ## ContainerGroupsCreateOrUpdate
+ * ## Example Usage
+ * ### ContainerGroupsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

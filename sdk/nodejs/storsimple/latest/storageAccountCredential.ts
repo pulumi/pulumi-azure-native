@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The storage account credential.
  *
- * ## StorageAccountCredentialsCreateOrUpdate
+ * ## Example Usage
+ * ### StorageAccountCredentialsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

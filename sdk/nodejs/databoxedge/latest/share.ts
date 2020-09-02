@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
  *
- * ## SharePut
+ * ## Example Usage
+ * ### SharePut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

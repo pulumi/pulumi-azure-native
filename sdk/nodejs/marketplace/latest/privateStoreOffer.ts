@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The privateStore offer data structure.
  *
- * ## UpdatePrivateStoreOffer
+ * ## Example Usage
+ * ### UpdatePrivateStoreOffer
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

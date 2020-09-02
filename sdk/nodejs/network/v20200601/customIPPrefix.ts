@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Custom IP prefix resource.
  *
- * ## Create custom IP prefix allocation method
+ * ## Example Usage
+ * ### Create custom IP prefix allocation method
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

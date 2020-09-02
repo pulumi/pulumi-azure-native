@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Compute role.
  *
- * ## RolePut
+ * ## Example Usage
+ * ### RolePut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

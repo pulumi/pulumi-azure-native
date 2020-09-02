@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Protection container mapping object.
  *
- * ## Create protection container mapping.
+ * ## Example Usage
+ * ### Create protection container mapping.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

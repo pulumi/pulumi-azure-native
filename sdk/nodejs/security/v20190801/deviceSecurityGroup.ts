@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The device security group resource
  *
- * ## Create or update a device security group for the specified IoT hub resource
+ * ## Example Usage
+ * ### Create or update a device security group for the specified IoT hub resource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
  *
- * ## Create or update a Transform
+ * ## Example Usage
+ * ### Create or update a Transform
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

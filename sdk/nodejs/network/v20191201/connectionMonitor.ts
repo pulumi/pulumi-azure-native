@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Information about the connection monitor.
  *
- * ## Create connection monitor V1
+ * ## Example Usage
+ * ### Create connection monitor V1
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -30,8 +31,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create connection monitor V2
+ * ### Create connection monitor V2
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

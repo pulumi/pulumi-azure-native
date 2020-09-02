@@ -10,7 +10,8 @@ import * as utilities from "../../utilities";
  * The task that has the ARM resource and task properties.
  * The task will have all information to schedule a run against it.
  *
- * ## Tasks_Create
+ * ## Example Usage
+ * ### Tasks_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -64,8 +65,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Tasks_Create_WithSystemAndUserIdentities
+ * ### Tasks_Create_WithSystemAndUserIdentities
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -122,8 +122,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Tasks_Create_WithUserIdentities
+ * ### Tasks_Create_WithUserIdentities
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -181,8 +180,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Tasks_Create_WithUserIdentities_WithSystemIdentity
+ * ### Tasks_Create_WithUserIdentities_WithSystemIdentity
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

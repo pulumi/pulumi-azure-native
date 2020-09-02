@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a DNS record set (a collection of DNS records with the same name and type).
  *
- * ## Create CAA recordset
+ * ## Example Usage
+ * ### Create CAA recordset
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

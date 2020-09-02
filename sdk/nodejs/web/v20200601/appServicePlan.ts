@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * App Service plan.
  *
- * ## Create Or Update App Service plan
+ * ## Example Usage
+ * ### Create Or Update App Service plan
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

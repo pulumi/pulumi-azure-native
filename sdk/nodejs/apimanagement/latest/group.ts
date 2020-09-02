@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Contract details.
  *
- * ## ApiManagementCreateGroup
+ * ## Example Usage
+ * ### ApiManagementCreateGroup
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,8 +22,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateGroupExternal
+ * ### ApiManagementCreateGroupExternal
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Experiment information.
  *
- * ## Create an experiment
+ * ## Example Usage
+ * ### Create an experiment
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The relationship link resource format.
  *
- * ## RelationshipLinks_CreateOrUpdate
+ * ## Example Usage
+ * ### RelationshipLinks_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

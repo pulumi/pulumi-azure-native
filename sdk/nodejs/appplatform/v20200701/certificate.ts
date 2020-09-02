@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Certificate resource payload.
  *
- * ## Certificates_CreateOrUpdate
+ * ## Example Usage
+ * ### Certificates_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

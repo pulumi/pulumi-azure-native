@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
  *
- * ## UserPut
+ * ## Example Usage
+ * ### UserPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Peering Service
  *
- * ## Create a  peering service
+ * ## Example Usage
+ * ### Create a  peering service
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

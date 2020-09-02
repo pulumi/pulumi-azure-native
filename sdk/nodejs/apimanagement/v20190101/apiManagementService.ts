@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A single API Management service resource in List or Get response.
  *
- * ## ApiManagementCreateMultiRegionServiceWithCustomHostname
+ * ## Example Usage
+ * ### ApiManagementCreateMultiRegionServiceWithCustomHostname
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -63,8 +64,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateService
+ * ### ApiManagementCreateService
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -88,8 +88,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateServiceHavingMsi
+ * ### ApiManagementCreateServiceHavingMsi
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -115,8 +114,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## ApiManagementCreateServiceWithSystemCertificates
+ * ### ApiManagementCreateServiceWithSystemCertificates
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

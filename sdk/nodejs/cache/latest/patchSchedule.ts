@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Response to put/get patch schedules for Redis cache.
  *
- * ## RedisCachePatchSchedulesCreateOrUpdate
+ * ## Example Usage
+ * ### RedisCachePatchSchedulesCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Data Lake Store firewall rule information.
  *
- * ## Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule
+ * ## Example Usage
+ * ### Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

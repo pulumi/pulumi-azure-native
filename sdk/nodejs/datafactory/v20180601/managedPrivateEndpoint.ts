@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Managed private endpoint resource type.
  *
- * ## ManagedVirtualNetworks_Create
+ * ## Example Usage
+ * ### ManagedVirtualNetworks_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

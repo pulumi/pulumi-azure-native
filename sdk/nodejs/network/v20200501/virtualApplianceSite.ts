@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Virtual Appliance Site resource.
  *
- * ## Create Network Virtual Appliance Site
+ * ## Example Usage
+ * ### Create Network Virtual Appliance Site
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

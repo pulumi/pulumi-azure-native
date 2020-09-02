@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Bastion Host resource.
  *
- * ## Create Bastion Host
+ * ## Example Usage
+ * ### Create Bastion Host
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

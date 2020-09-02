@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Gremlin graph.
  *
- * ## CosmosDBGremlinGraphCreateUpdate
+ * ## Example Usage
+ * ### CosmosDBGremlinGraphCreateUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

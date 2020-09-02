@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A Streaming Policy resource
  *
- * ## Creates a Streaming Policy with clear streaming
+ * ## Example Usage
+ * ### Creates a Streaming Policy with clear streaming
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -30,8 +31,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates a Streaming Policy with commonEncryptionCbcs only
+ * ### Creates a Streaming Policy with commonEncryptionCbcs only
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -64,8 +64,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates a Streaming Policy with commonEncryptionCenc only
+ * ### Creates a Streaming Policy with commonEncryptionCenc only
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -108,8 +107,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates a Streaming Policy with envelopeEncryption only
+ * ### Creates a Streaming Policy with envelopeEncryption only
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -137,8 +135,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Creates a Streaming Policy with secure streaming
+ * ### Creates a Streaming Policy with secure streaming
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

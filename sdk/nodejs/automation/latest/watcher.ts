@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the watcher type.
  *
- * ## Create or update watcher
+ * ## Example Usage
+ * ### Create or update watcher
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

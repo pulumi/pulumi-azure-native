@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The Data Box Edge/Gateway device.
  *
- * ## DataBoxEdgeDevicePut
+ * ## Example Usage
+ * ### DataBoxEdgeDevicePut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

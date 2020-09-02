@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The top level Workspace resource container.
  *
- * ## WorkspacesCreate
+ * ## Example Usage
+ * ### WorkspacesCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

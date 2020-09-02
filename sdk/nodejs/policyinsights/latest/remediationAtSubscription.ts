@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The remediation definition.
  *
- * ## Create remediation at subscription scope
+ * ## Example Usage
+ * ### Create remediation at subscription scope
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,8 +22,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create remediation at subscription scope with all properties
+ * ### Create remediation at subscription scope with all properties
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

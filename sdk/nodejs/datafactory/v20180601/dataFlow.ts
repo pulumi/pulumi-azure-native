@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Data flow resource type.
  *
- * ## DataFlows_Create
+ * ## Example Usage
+ * ### DataFlows_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## DataFlows_Update
+ * ### DataFlows_Update
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

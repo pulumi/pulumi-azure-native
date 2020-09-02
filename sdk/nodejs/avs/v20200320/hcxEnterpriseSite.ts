@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * An HCX Enterprise Site resource
  *
- * ## HcxEnterpriseSites_CreateOrUpdate
+ * ## Example Usage
+ * ### HcxEnterpriseSites_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

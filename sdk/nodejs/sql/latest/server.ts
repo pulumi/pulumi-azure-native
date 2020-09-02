@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a server.
  *
- * ## Create server max
+ * ## Example Usage
+ * ### Create server max
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,8 +27,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create server min
+ * ### Create server min
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

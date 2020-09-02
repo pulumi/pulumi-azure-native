@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The description of the provisioning service.
  *
- * ## DPSCreate
+ * ## Example Usage
+ * ### DPSCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

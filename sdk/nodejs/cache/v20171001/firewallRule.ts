@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
  *
- * ## RedisCacheFirewallRuleCreate
+ * ## Example Usage
+ * ### RedisCacheFirewallRuleCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

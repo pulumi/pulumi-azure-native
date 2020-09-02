@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Storage Sync Service object.
  *
- * ## StorageSyncServices_Create
+ * ## Example Usage
+ * ### StorageSyncServices_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

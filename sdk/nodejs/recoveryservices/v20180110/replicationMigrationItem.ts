@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Migration item.
  *
- * ## Enables migration.
+ * ## Example Usage
+ * ### Enables migration.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

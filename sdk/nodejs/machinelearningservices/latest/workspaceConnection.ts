@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Workspace connection.
  *
- * ## CreateWorkspaceConnection
+ * ## Example Usage
+ * ### CreateWorkspaceConnection
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Definition of the connection type.
  *
- * ## Create or update connection type
+ * ## Example Usage
+ * ### Create or update connection type
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

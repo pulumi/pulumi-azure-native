@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Linked storage accounts top level resource container.
  *
- * ## LinkedStorageAccountsCreate
+ * ## Example Usage
+ * ### LinkedStorageAccountsCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

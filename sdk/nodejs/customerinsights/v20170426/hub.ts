@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Hub resource.
  *
- * ## Hubs_CreateOrUpdate
+ * ## Example Usage
+ * ### Hubs_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

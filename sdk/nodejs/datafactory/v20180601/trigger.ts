@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Trigger resource type.
  *
- * ## Triggers_Create
+ * ## Example Usage
+ * ### Triggers_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Triggers_Update
+ * ### Triggers_Update
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

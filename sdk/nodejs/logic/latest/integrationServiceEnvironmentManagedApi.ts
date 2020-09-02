@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The managed api definition.
  *
- * ## Gets the integration service environment managed Apis
+ * ## Example Usage
+ * ### Gets the integration service environment managed Apis
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

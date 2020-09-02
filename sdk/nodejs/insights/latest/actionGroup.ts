@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * An action group resource.
  *
- * ## Create or update an action group
+ * ## Example Usage
+ * ### Create or update an action group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

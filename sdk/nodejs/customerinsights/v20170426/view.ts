@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The view resource format.
  *
- * ## Views_CreateOrUpdate
+ * ## Example Usage
+ * ### Views_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

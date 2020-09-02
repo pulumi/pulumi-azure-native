@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * RouteTable resource in a virtual hub.
  *
- * ## RouteTablePut
+ * ## Example Usage
+ * ### RouteTablePut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

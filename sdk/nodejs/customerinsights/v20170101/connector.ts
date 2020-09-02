@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The connector resource format.
  *
- * ## Connectors_CreateOrUpdate
+ * ## Example Usage
+ * ### Connectors_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

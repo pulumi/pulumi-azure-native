@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * EventGrid Domain.
  *
- * ## Domains_CreateOrUpdate
+ * ## Example Usage
+ * ### Domains_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

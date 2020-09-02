@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of topic resource.
  *
- * ## TopicCreate
+ * ## Example Usage
+ * ### TopicCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

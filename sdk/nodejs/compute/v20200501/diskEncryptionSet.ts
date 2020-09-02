@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * disk encryption set resource.
  *
- * ## Create a disk encryption set.
+ * ## Example Usage
+ * ### Create a disk encryption set.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

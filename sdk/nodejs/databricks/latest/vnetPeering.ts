@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Peerings in a VirtualNetwork resource
  *
- * ## Create vNet Peering for Workspace
+ * ## Example Usage
+ * ### Create vNet Peering for Workspace
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

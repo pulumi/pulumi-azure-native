@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a server.
  *
- * ## Create a database as a point in time restore
+ * ## Example Usage
+ * ### Create a database as a point in time restore
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -31,8 +32,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a new server
+ * ### Create a new server
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -54,8 +54,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a replica server
+ * ### Create a replica server
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -74,8 +73,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a server as a geo restore
+ * ### Create a server as a geo restore
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

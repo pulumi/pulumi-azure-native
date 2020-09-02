@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Bot channel resource definition
  *
- * ## Create Alexa Bot
+ * ## Example Usage
+ * ### Create Alexa Bot
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -24,8 +25,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create Bot
+ * ### Create Bot
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -40,8 +40,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create DirectLine Speech Bot
+ * ### Create DirectLine Speech Bot
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -56,8 +55,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create Line Bot
+ * ### Create Line Bot
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

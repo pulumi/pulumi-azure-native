@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * The iSCSI server.
  *
- * ## IscsiServersCreateOrUpdate
+ * ## Example Usage
+ * ### IscsiServersCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

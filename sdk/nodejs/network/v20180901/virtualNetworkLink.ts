@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a link to virtual network for a Private DNS zone.
  *
- * ## PUT Private DNS Zone Virtual Network Link
+ * ## Example Usage
+ * ### PUT Private DNS Zone Virtual Network Link
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

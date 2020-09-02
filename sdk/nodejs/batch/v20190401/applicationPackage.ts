@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * An application package which represents a particular version of an application.
  *
- * ## ApplicationPackageCreate
+ * ## Example Usage
+ * ### ApplicationPackageCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

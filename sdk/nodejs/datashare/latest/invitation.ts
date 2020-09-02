@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A Invitation data transfer object.
  *
- * ## Invitations_Create
+ * ## Example Usage
+ * ### Invitations_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

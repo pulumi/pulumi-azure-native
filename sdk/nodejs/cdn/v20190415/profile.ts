@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
  *
- * ## Profiles_Create
+ * ## Example Usage
+ * ### Profiles_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

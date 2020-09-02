@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of subscription resource.
  *
- * ## SubscriptionCreate
+ * ## Example Usage
+ * ### SubscriptionCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

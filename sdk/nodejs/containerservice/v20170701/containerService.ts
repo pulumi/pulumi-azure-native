@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Container service.
  *
- * ## Create/Update Container Service
+ * ## Example Usage
+ * ### Create/Update Container Service
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

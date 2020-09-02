@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Information about packet capture session.
  *
- * ## Create Packet Capture
+ * ## Example Usage
+ * ### Create Packet Capture
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

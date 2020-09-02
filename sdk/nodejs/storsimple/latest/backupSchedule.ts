@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The backup schedule.
  *
- * ## BackupSchedulesCreateOrUpdate
+ * ## Example Usage
+ * ### BackupSchedulesCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

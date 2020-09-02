@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Deployment resource payload
  *
- * ## Deployments_CreateOrUpdate
+ * ## Example Usage
+ * ### Deployments_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

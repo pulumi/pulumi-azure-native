@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The Log Search Rule resource.
  *
- * ## Create or Update rule - AlertingAction
+ * ## Example Usage
+ * ### Create or Update rule - AlertingAction
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -37,8 +38,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or Update rule - AlertingAction with Cross-Resource
+ * ### Create or Update rule - AlertingAction with Cross-Resource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -70,8 +70,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or Update rule - LogToMetricAction
+ * ### Create or Update rule - LogToMetricAction
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

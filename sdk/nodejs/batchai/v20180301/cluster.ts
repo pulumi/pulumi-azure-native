@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Contains information about a Cluster.
  *
- * ## Create or update cluster
+ * ## Example Usage
+ * ### Create or update cluster
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The description of the service.
  *
- * ## Create or Update a service with all parameters
+ * ## Example Usage
+ * ### Create or Update a service with all parameters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -27,8 +28,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or Update a service with minimum parameters
+ * ### Create or Update a service with minimum parameters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

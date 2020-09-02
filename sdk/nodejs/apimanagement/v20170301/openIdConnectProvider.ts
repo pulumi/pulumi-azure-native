@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * OpenId Connect Provider details.
  *
- * ## ApiManagementCreateOpenIdConnectProvider
+ * ## Example Usage
+ * ### ApiManagementCreateOpenIdConnectProvider
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

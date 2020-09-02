@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Resource information, as returned by the resource provider.
  *
- * ## Create of Update Recovery Services vault
+ * ## Example Usage
+ * ### Create of Update Recovery Services vault
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

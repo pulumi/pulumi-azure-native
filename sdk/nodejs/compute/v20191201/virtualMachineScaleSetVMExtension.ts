@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Virtual Machine Extension.
  *
- * ## Create VirtualMachineScaleSet VM extension.
+ * ## Example Usage
+ * ### Create VirtualMachineScaleSet VM extension.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

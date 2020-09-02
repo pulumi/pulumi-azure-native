@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
  *
- * ## Caches_CreateOrUpdate
+ * ## Example Usage
+ * ### Caches_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

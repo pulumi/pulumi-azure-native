@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Description of hybrid connection resource.
  *
- * ## RelayHybridConnectionCreate
+ * ## Example Usage
+ * ### RelayHybridConnectionCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

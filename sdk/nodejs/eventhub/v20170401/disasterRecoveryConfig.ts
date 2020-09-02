@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
  *
- * ## EHAliasCreate
+ * ## Example Usage
+ * ### EHAliasCreate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

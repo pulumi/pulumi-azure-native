@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * ApiRelease details.
  *
- * ## ApiManagementCreateApiRelease
+ * ## Example Usage
+ * ### ApiManagementCreateApiRelease
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

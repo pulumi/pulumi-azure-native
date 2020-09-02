@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Value object for saved search results.
  *
- * ## SavedSearchCreateOrUpdate
+ * ## Example Usage
+ * ### SavedSearchCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

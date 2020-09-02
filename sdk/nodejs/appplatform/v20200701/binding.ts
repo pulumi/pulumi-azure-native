@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Binding resource payload
  *
- * ## Bindings_CreateOrUpdate
+ * ## Example Usage
+ * ### Bindings_CreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

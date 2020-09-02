@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Represents a bookmark in Azure Security Insights.
  *
- * ## Creates or updates a bookmark.
+ * ## Example Usage
+ * ### Creates or updates a bookmark.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The remediation definition.
  *
- * ## Create remediation at individual resource scope
+ * ## Example Usage
+ * ### Create remediation at individual resource scope
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

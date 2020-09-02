@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Peerings in a virtual network resource.
  *
- * ## Create peering
+ * ## Example Usage
+ * ### Create peering
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The application resource.
  *
- * ## Put an application with maximum parameters
+ * ## Example Usage
+ * ### Put an application with maximum parameters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -58,8 +59,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Put an application with minimum parameters
+ * ### Put an application with minimum parameters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

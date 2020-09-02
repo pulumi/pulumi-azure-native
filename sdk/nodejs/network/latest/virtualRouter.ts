@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * VirtualRouter Resource.
  *
- * ## Create VirtualRouter
+ * ## Example Usage
+ * ### Create VirtualRouter
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

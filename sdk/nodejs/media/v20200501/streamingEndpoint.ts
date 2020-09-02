@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The StreamingEndpoint.
  *
- * ## Create a StreamingEndpoint
+ * ## Example Usage
+ * ### Create a StreamingEndpoint
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

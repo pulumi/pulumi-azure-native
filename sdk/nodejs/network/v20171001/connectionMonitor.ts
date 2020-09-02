@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Information about the connection monitor.
  *
- * ## Create connection monitor
+ * ## Example Usage
+ * ### Create connection monitor
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

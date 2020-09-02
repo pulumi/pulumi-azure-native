@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
  *
- * ## Create an Image Template for Linux.
+ * ## Example Usage
+ * ### Create an Image Template for Linux.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -50,8 +51,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create an Image Template for Windows.
+ * ### Create an Image Template for Windows.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Deployment information.
  *
- * ## Create deployment at tenant scope.
+ * ## Example Usage
+ * ### Create deployment at tenant scope.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

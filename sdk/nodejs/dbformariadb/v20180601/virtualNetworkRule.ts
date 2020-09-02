@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A virtual network rule.
  *
- * ## Create or update a virtual network rule
+ * ## Example Usage
+ * ### Create or update a virtual network rule
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

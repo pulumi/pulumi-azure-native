@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * An application security group in a resource group.
  *
- * ## Create application security group
+ * ## Example Usage
+ * ### Create application security group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

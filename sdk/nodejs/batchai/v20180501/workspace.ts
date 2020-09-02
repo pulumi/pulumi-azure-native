@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Batch AI Workspace information.
  *
- * ## Create a workspace
+ * ## Example Usage
+ * ### Create a workspace
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

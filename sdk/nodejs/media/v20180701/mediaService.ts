@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * A Media Services account.
  *
- * ## Create a Media Services account
+ * ## Example Usage
+ * ### Create a Media Services account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

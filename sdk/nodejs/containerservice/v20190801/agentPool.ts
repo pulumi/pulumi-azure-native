@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Agent Pool.
  *
- * ## Create/Update Agent Pool
+ * ## Example Usage
+ * ### Create/Update Agent Pool
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -27,8 +28,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Update Agent Pool
+ * ### Update Agent Pool
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

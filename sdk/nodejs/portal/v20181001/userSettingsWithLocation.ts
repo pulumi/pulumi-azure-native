@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Response to get user settings
  *
- * ## PutUserSettings
+ * ## Example Usage
+ * ### PutUserSettings
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Challenge-Handshake Authentication Protocol (CHAP) setting
  *
- * ## ChapSettingsCreateOrUpdate
+ * ## Example Usage
+ * ### ChapSettingsCreateOrUpdate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Resource information with extended details.
  *
- * ## Create a new vault or update an existing vault
+ * ## Example Usage
+ * ### Create a new vault or update an existing vault
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,8 +23,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create or update a vault with network acls
+ * ### Create or update a vault with network acls
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

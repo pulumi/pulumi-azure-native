@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * VpnGateway Resource.
  *
- * ## VpnGatewayPut
+ * ## Example Usage
+ * ### VpnGatewayPut
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

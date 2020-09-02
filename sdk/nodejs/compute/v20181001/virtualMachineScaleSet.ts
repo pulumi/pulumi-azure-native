@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Virtual Machine Scale Set.
  *
- * ## Create a custom-image scale set from an unmanaged generalized os image.
+ * ## Example Usage
+ * ### Create a custom-image scale set from an unmanaged generalized os image.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -53,8 +54,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a platform-image scale set with unmanaged os disks.
+ * ### Create a platform-image scale set with unmanaged os disks.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -108,8 +108,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a scale set from a custom image.
+ * ### Create a scale set from a custom image.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -155,8 +154,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a scale set with a marketplace image plan.
+ * ### Create a scale set with a marketplace image plan.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -210,58 +208,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a scale set with an azure application gateway.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const virtualMachineScaleSet = new azurerm.compute.v20181001.VirtualMachineScaleSet("virtualMachineScaleSet", {
- *     location: "westus",
- *     overprovision: true,
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         capacity: 3,
- *         name: "Standard_D1_v2",
- *         tier: "Standard",
- *     },
- *     upgradePolicy: {
- *         mode: "Manual",
- *     },
- *     virtualMachineProfile: {
- *         networkProfile: {
- *             networkInterfaceConfigurations: [{
- *                 name: "{vmss-name}",
- *             }],
- *         },
- *         osProfile: {
- *             adminPassword: "{your-password}",
- *             adminUsername: "{your-username}",
- *             computerNamePrefix: "{vmss-name}",
- *         },
- *         storageProfile: {
- *             imageReference: {
- *                 offer: "WindowsServer",
- *                 publisher: "MicrosoftWindowsServer",
- *                 sku: "2016-Datacenter",
- *                 version: "latest",
- *             },
- *             osDisk: {
- *                 caching: "ReadWrite",
- *                 createOption: "FromImage",
- *                 managedDisk: {
- *                     storageAccountType: "Standard_LRS",
- *                 },
- *             },
- *         },
- *     },
- *     vmScaleSetName: "{vmss-name}",
- * });
- *
- * ```
- *
- * ## Create a scale set with an azure load balancer.
+ * ### Create a scale set with an azure application gateway.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -310,8 +257,56 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
+ * ### Create a scale set with an azure load balancer.
  *
- * ## Create a scale set with automatic repairs enabled
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualMachineScaleSet = new azurerm.compute.v20181001.VirtualMachineScaleSet("virtualMachineScaleSet", {
+ *     location: "westus",
+ *     overprovision: true,
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         capacity: 3,
+ *         name: "Standard_D1_v2",
+ *         tier: "Standard",
+ *     },
+ *     upgradePolicy: {
+ *         mode: "Manual",
+ *     },
+ *     virtualMachineProfile: {
+ *         networkProfile: {
+ *             networkInterfaceConfigurations: [{
+ *                 name: "{vmss-name}",
+ *             }],
+ *         },
+ *         osProfile: {
+ *             adminPassword: "{your-password}",
+ *             adminUsername: "{your-username}",
+ *             computerNamePrefix: "{vmss-name}",
+ *         },
+ *         storageProfile: {
+ *             imageReference: {
+ *                 offer: "WindowsServer",
+ *                 publisher: "MicrosoftWindowsServer",
+ *                 sku: "2016-Datacenter",
+ *                 version: "latest",
+ *             },
+ *             osDisk: {
+ *                 caching: "ReadWrite",
+ *                 createOption: "FromImage",
+ *                 managedDisk: {
+ *                     storageAccountType: "Standard_LRS",
+ *                 },
+ *             },
+ *         },
+ *     },
+ *     vmScaleSetName: "{vmss-name}",
+ * });
+ *
+ * ```
+ * ### Create a scale set with automatic repairs enabled
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -364,8 +359,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a scale set with boot diagnostics.
+ * ### Create a scale set with boot diagnostics.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -420,8 +414,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a scale set with empty data disks on each vm.
+ * ### Create a scale set with empty data disks on each vm.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -483,8 +476,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a scale set with ephemeral os disks.
+ * ### Create a scale set with ephemeral os disks.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -541,8 +533,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a scale set with password authentication.
+ * ### Create a scale set with password authentication.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -591,8 +582,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a scale set with premium storage.
+ * ### Create a scale set with premium storage.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -641,8 +631,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a scale set with ssh authentication.
+ * ### Create a scale set with ssh authentication.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -699,8 +688,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a scale set with virtual machines in different zones.
+ * ### Create a scale set with virtual machines in different zones.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

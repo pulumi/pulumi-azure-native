@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
  *
- * ## Create AKS Compute
+ * ## Example Usage
+ * ### Create AKS Compute
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,8 +24,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a AML Compute
+ * ### Create a AML Compute
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -42,8 +42,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Create a DataFactory Compute
+ * ### Create a DataFactory Compute
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -57,8 +56,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Update a AKS Compute
+ * ### Update a AKS Compute
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -73,8 +71,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## Update a AML Compute
+ * ### Update a AML Compute
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

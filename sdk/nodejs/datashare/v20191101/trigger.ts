@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * A Trigger data transfer object.
  *
- * ## Triggers_Create
+ * ## Example Usage
+ * ### Triggers_Create
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

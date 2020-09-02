@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * The batch configuration resource definition.
  *
- * ## Create or update a batch configuration
+ * ## Example Usage
+ * ### Create or update a batch configuration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

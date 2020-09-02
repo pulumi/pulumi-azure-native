@@ -7,7 +7,8 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * ## PrivateEndpointConnections_Update
+ * ## Example Usage
+ * ### PrivateEndpointConnections_Update
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

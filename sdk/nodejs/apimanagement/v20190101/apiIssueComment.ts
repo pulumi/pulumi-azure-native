@@ -7,7 +7,8 @@ import * as utilities from "../../utilities";
 /**
  * Issue Comment Contract details.
  *
- * ## ApiManagementCreateApiIssueComment
+ * ## Example Usage
+ * ### ApiManagementCreateApiIssueComment
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

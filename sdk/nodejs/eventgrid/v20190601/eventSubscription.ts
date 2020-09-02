@@ -9,7 +9,8 @@ import * as utilities from "../../utilities";
 /**
  * Event Subscription
  *
- * ## EventSubscriptions_CreateOrUpdateForCustomTopic_EventHubDestination
+ * ## Example Usage
+ * ### EventSubscriptions_CreateOrUpdateForCustomTopic_EventHubDestination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -32,8 +33,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## EventSubscriptions_CreateOrUpdateForCustomTopic_HybridConnectionDestination
+ * ### EventSubscriptions_CreateOrUpdateForCustomTopic_HybridConnectionDestination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -56,8 +56,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## EventSubscriptions_CreateOrUpdateForCustomTopic_StorageQueueDestination
+ * ### EventSubscriptions_CreateOrUpdateForCustomTopic_StorageQueueDestination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -80,8 +79,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## EventSubscriptions_CreateOrUpdateForCustomTopic_WebhookDestination
+ * ### EventSubscriptions_CreateOrUpdateForCustomTopic_WebhookDestination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -101,8 +99,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## EventSubscriptions_CreateOrUpdateForResource
+ * ### EventSubscriptions_CreateOrUpdateForResource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -122,8 +119,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## EventSubscriptions_CreateOrUpdateForResourceGroup
+ * ### EventSubscriptions_CreateOrUpdateForResourceGroup
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -143,8 +139,7 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
- *
- * ## EventSubscriptions_CreateOrUpdateForSubscription
+ * ### EventSubscriptions_CreateOrUpdateForSubscription
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
