@@ -11,9 +11,6 @@ const randomString = new random.RandomString("random", {
 const resourceGroup = new resources.ResourceGroup("rg", {
     resourceGroupName: randomString.result,
     location: "westeurope",
-    tags: {
-        Owner: "mikhail"
-    }
 });
 
 export const cosmosdbAccount = new cosmosdb.DatabaseAccount(randomString.result, {
