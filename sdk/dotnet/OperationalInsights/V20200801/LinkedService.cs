@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
     /// <summary>
     /// The top level Linked service resource container.
     /// 
-    /// ## LinkedServicesCreate
-    /// 
+    /// ## Example Usage
+    /// ### LinkedServicesCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

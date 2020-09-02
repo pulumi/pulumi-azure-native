@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     /// <summary>
     /// Schema Contract details.
     /// 
-    /// ## ApiManagementCreateApiSchema
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiSchema
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

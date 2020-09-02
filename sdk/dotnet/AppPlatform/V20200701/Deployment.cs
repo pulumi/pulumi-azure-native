@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
     /// <summary>
     /// Deployment resource payload
     /// 
-    /// ## Deployments_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Deployments_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

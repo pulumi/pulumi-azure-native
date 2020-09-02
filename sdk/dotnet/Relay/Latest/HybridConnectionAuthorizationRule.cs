@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Relay.Latest
     /// <summary>
     /// Description of a namespace authorization rule.
     /// 
-    /// ## RelayHybridConnectionAuthorizationRuleCreate
-    /// 
+    /// ## Example Usage
+    /// ### RelayHybridConnectionAuthorizationRuleCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

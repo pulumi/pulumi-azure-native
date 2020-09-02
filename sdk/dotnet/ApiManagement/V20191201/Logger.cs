@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     /// <summary>
     /// Logger details.
     /// 
-    /// ## ApiManagementCreateAILogger
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateAILogger
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -39,9 +39,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateEHLogger
-    /// 
+    /// ### ApiManagementCreateEHLogger
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Kusto.Latest
     /// <summary>
     /// Class representing a database principal assignment.
     /// 
-    /// ## KustoDatabasePrincipalAssignmentsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### KustoDatabasePrincipalAssignmentsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

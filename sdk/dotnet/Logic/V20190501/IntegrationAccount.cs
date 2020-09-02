@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.V20190501
     /// <summary>
     /// The integration account.
     /// 
-    /// ## Create or update an integration account
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an integration account
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.DevSpaces.V20190401
 {
     /// <summary>
-    /// ## ControllersCreate
-    /// 
+    /// ## Example Usage
+    /// ### ControllersCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

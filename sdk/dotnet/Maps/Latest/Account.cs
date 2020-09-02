@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Maps.Latest
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
     /// 
-    /// ## CreateAccount
-    /// 
+    /// ## Example Usage
+    /// ### CreateAccount
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

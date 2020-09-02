@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
     /// <summary>
     /// Registered Server resource.
     /// 
-    /// ## RegisteredServers_Create
-    /// 
+    /// ## Example Usage
+    /// ### RegisteredServers_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

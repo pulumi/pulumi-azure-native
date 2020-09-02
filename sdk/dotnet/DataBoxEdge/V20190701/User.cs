@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
     /// <summary>
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     /// 
-    /// ## UserPut
-    /// 
+    /// ## Example Usage
+    /// ### UserPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

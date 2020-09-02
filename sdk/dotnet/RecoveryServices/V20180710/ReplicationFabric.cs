@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
     /// <summary>
     /// Fabric definition.
     /// 
-    /// ## Creates an Azure Site Recovery fabric.
-    /// 
+    /// ## Example Usage
+    /// ### Creates an Azure Site Recovery fabric.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

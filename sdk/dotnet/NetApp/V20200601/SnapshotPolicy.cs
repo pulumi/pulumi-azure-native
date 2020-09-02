@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.NetApp.V20200601
     /// <summary>
     /// Snapshot policy information
     /// 
-    /// ## SnapshotPolicies_Create
-    /// 
+    /// ## Example Usage
+    /// ### SnapshotPolicies_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

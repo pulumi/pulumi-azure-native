@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
     /// <summary>
     /// Event Subscription
     /// 
-    /// ## EventSubscriptions_CreateOrUpdateForCustomTopic
-    /// 
+    /// ## Example Usage
+    /// ### EventSubscriptions_CreateOrUpdateForCustomTopic
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -42,9 +42,7 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## EventSubscriptions_CreateOrUpdateForResource
-    /// 
+    /// ### EventSubscriptions_CreateOrUpdateForResource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -73,9 +71,7 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## EventSubscriptions_CreateOrUpdateForResourceGroup
-    /// 
+    /// ### EventSubscriptions_CreateOrUpdateForResourceGroup
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -104,9 +100,7 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## EventSubscriptions_CreateOrUpdateForSubscription
-    /// 
+    /// ### EventSubscriptions_CreateOrUpdateForSubscription
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

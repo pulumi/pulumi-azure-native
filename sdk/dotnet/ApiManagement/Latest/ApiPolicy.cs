@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// <summary>
     /// Policy Contract details.
     /// 
-    /// ## ApiManagementCreateApiPolicy
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiPolicy
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -36,9 +36,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiPolicyNonXmlEncoded
-    /// 
+    /// ### ApiManagementCreateApiPolicyNonXmlEncoded
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

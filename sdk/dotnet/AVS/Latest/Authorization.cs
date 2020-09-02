@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AVS.Latest
     /// <summary>
     /// ExpressRoute Circuit Authorization
     /// 
-    /// ## Authorizations_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Authorizations_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

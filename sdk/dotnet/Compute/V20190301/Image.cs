@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.V20190301
     /// <summary>
     /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
     /// 
-    /// ## Create a virtual machine image from a blob.
-    /// 
+    /// ## Example Usage
+    /// ### Create a virtual machine image from a blob.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -43,9 +43,7 @@ namespace Pulumi.AzureRM.Compute.V20190301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a virtual machine image from a managed disk.
-    /// 
+    /// ### Create a virtual machine image from a managed disk.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -78,9 +76,7 @@ namespace Pulumi.AzureRM.Compute.V20190301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a virtual machine image from a snapshot.
-    /// 
+    /// ### Create a virtual machine image from a snapshot.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -113,9 +109,7 @@ namespace Pulumi.AzureRM.Compute.V20190301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a virtual machine image from an existing virtual machine.
-    /// 
+    /// ### Create a virtual machine image from an existing virtual machine.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -139,9 +133,7 @@ namespace Pulumi.AzureRM.Compute.V20190301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a virtual machine image that includes a data disk from a blob.
-    /// 
+    /// ### Create a virtual machine image that includes a data disk from a blob.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -179,9 +171,7 @@ namespace Pulumi.AzureRM.Compute.V20190301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a virtual machine image that includes a data disk from a managed disk.
-    /// 
+    /// ### Create a virtual machine image that includes a data disk from a managed disk.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -225,9 +215,7 @@ namespace Pulumi.AzureRM.Compute.V20190301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a virtual machine image that includes a data disk from a snapshot.
-    /// 
+    /// ### Create a virtual machine image that includes a data disk from a snapshot.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

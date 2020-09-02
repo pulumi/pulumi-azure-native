@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20181101
     /// <summary>
     /// VpnSite Resource.
     /// 
-    /// ## VpnSiteCreate
-    /// 
+    /// ## Example Usage
+    /// ### VpnSiteCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

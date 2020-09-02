@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataLakeStore.Latest
     /// <summary>
     /// Data Lake Store virtual network rule information.
     /// 
-    /// ## Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
-    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

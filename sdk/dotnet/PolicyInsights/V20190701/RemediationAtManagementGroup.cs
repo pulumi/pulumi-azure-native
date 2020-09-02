@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
     /// <summary>
     /// The remediation definition.
     /// 
-    /// ## Create remediation at management group scope
-    /// 
+    /// ## Example Usage
+    /// ### Create remediation at management group scope
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

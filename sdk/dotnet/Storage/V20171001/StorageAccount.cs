@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Storage.V20171001
     /// <summary>
     /// The storage account.
     /// 
-    /// ## StorageAccountCreate
-    /// 
+    /// ## Example Usage
+    /// ### StorageAccountCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

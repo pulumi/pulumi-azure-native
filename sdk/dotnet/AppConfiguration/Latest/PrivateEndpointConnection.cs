@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AppConfiguration.Latest
     /// <summary>
     /// A private endpoint connection
     /// 
-    /// ## PrivateEndpointConnection_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// A DDoS custom policy in a resource group.
     /// 
-    /// ## Create DDoS custom policy
-    /// 
+    /// ## Example Usage
+    /// ### Create DDoS custom policy
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

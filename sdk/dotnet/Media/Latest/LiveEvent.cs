@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.Latest
     /// <summary>
     /// The Live Event.
     /// 
-    /// ## Create a LiveEvent
-    /// 
+    /// ## Example Usage
+    /// ### Create a LiveEvent
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

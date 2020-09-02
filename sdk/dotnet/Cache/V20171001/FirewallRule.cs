@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Cache.V20171001
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
     /// 
-    /// ## RedisCacheFirewallRuleCreate
-    /// 
+    /// ## Example Usage
+    /// ### RedisCacheFirewallRuleCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

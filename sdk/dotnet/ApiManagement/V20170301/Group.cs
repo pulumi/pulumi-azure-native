@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     /// <summary>
     /// Contract details.
     /// 
-    /// ## ApiManagementCreateGroup
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGroup
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -34,9 +34,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateGroupExternal
-    /// 
+    /// ### ApiManagementCreateGroupExternal
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
     /// <summary>
     /// Agent Pool.
     /// 
-    /// ## Create/Update Agent Pool
-    /// 
+    /// ## Example Usage
+    /// ### Create/Update Agent Pool
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

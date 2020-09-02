@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     /// <summary>
     /// Property details.
     /// 
-    /// ## ApiManagementCreateProperty
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateProperty
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

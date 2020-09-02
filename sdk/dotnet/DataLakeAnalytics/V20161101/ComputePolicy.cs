@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
     /// <summary>
     /// Data Lake Analytics compute policy information.
     /// 
-    /// ## Creates or updates the specified compute policy
-    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the specified compute policy
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

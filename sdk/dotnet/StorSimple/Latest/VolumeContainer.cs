@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.Latest
     /// <summary>
     /// The volume container.
     /// 
-    /// ## VolumeContainersCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### VolumeContainersCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

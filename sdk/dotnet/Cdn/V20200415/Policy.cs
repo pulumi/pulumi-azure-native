@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Cdn.V20200415
     /// <summary>
     /// Defines web application firewall policy for Azure CDN.
     /// 
-    /// ## Creates specific policy
-    /// 
+    /// ## Example Usage
+    /// ### Creates specific policy
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

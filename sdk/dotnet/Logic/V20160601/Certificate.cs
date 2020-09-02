@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.V20160601
     /// <summary>
     /// The integration account certificate.
     /// 
-    /// ## Create or update a certificate
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a certificate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

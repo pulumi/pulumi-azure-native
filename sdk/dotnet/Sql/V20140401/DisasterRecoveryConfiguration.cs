@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Sql.V20140401
     /// <summary>
     /// Represents a disaster recovery configuration.
     /// 
-    /// ## Update a disaster recovery configuration
-    /// 
+    /// ## Example Usage
+    /// ### Update a disaster recovery configuration
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

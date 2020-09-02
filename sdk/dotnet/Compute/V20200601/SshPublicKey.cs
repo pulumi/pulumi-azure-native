@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.V20200601
     /// <summary>
     /// Specifies information about the SSH public key.
     /// 
-    /// ## Create a new SSH public key resource.
-    /// 
+    /// ## Example Usage
+    /// ### Create a new SSH public key resource.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

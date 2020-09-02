@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.Latest
     /// <summary>
     /// The backup policy.
     /// 
-    /// ## BackupPoliciesCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### BackupPoliciesCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

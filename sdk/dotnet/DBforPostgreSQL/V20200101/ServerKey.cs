@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101
     /// <summary>
     /// A PostgreSQL Server key.
     /// 
-    /// ## Creates or updates a PostgreSQL Server key
-    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a PostgreSQL Server key
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

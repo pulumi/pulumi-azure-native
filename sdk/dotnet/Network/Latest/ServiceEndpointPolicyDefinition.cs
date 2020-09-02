@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// Service Endpoint policy definitions.
     /// 
-    /// ## Create service endpoint policy definition
-    /// 
+    /// ## Example Usage
+    /// ### Create service endpoint policy definition
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

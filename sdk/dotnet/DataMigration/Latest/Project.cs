@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataMigration.Latest
     /// <summary>
     /// A project resource
     /// 
-    /// ## Projects_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Projects_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.V20180930
     /// <summary>
     /// Snapshot resource.
     /// 
-    /// ## Create a snapshot by importing an unmanaged blob from a different subscription.
-    /// 
+    /// ## Example Usage
+    /// ### Create a snapshot by importing an unmanaged blob from a different subscription.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -39,9 +39,7 @@ namespace Pulumi.AzureRM.Compute.V20180930
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a snapshot by importing an unmanaged blob from the same subscription.
-    /// 
+    /// ### Create a snapshot by importing an unmanaged blob from the same subscription.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -66,9 +64,7 @@ namespace Pulumi.AzureRM.Compute.V20180930
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a snapshot from an existing snapshot in the same or a different subscription.
-    /// 
+    /// ### Create a snapshot from an existing snapshot in the same or a different subscription.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

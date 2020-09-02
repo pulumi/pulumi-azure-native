@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
     /// <summary>
     /// An Azure Cosmos DB database account.
     /// 
-    /// ## CosmosDBDatabaseAccountCreateMax
-    /// 
+    /// ## Example Usage
+    /// ### CosmosDBDatabaseAccountCreateMax
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -67,9 +67,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
     /// }
     /// 
     /// ```
-    /// 
-    /// ## CosmosDBDatabaseAccountCreateMin
-    /// 
+    /// ### CosmosDBDatabaseAccountCreateMin
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

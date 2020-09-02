@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20191101
     /// <summary>
     /// Bastion Host resource.
     /// 
-    /// ## Create Bastion Host
-    /// 
+    /// ## Example Usage
+    /// ### Create Bastion Host
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

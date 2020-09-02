@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AVS.V20200320
     /// <summary>
     /// An HCX Enterprise Site resource
     /// 
-    /// ## HcxEnterpriseSites_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### HcxEnterpriseSites_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

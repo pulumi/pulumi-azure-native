@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Resources.V20190801
     /// <summary>
     /// Deployment information.
     /// 
-    /// ## Create deployment at tenant scope.
-    /// 
+    /// ## Example Usage
+    /// ### Create deployment at tenant scope.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

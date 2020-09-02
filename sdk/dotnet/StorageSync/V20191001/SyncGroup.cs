@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
     /// <summary>
     /// Sync Group object.
     /// 
-    /// ## SyncGroups_Create
-    /// 
+    /// ## Example Usage
+    /// ### SyncGroups_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

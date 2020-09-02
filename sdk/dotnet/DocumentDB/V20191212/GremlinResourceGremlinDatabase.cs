@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
     /// <summary>
     /// An Azure Cosmos DB Gremlin database.
     /// 
-    /// ## CosmosDBGremlinDatabaseCreateUpdate
-    /// 
+    /// ## Example Usage
+    /// ### CosmosDBGremlinDatabaseCreateUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

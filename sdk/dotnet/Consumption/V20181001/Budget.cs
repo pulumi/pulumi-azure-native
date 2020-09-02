@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Consumption.V20181001
     /// <summary>
     /// A budget resource.
     /// 
-    /// ## CreateOrUpdateBudget
-    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateBudget
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

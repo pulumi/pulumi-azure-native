@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.NotificationHubs.Latest
     /// <summary>
     /// Description of a Namespace resource.
     /// 
-    /// ## NameSpaceCreate
-    /// 
+    /// ## Example Usage
+    /// ### NameSpaceCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

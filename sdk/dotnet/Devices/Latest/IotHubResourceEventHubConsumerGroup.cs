@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Devices.Latest
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
     /// 
-    /// ## IotHubResource_CreateEventHubConsumerGroup
-    /// 
+    /// ## Example Usage
+    /// ### IotHubResource_CreateEventHubConsumerGroup
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

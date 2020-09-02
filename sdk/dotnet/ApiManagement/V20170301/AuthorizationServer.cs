@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     /// <summary>
     /// External OAuth authorization server settings.
     /// 
-    /// ## ApiManagementCreateAuthorizationServer
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateAuthorizationServer
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

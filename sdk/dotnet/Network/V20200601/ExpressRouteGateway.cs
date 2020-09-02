@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200601
     /// <summary>
     /// ExpressRoute gateway resource.
     /// 
-    /// ## ExpressRouteGatewayCreate
-    /// 
+    /// ## Example Usage
+    /// ### ExpressRouteGatewayCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.NetApp.V20200601
     /// <summary>
     /// Backup of a Volume
     /// 
-    /// ## Backups_Create
-    /// 
+    /// ## Example Usage
+    /// ### Backups_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

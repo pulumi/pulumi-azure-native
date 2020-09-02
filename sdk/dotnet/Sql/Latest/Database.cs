@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// <summary>
     /// Represents a database.
     /// 
-    /// ## Create a database as a copy
-    /// 
+    /// ## Example Usage
+    /// ### Create a database as a copy
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -36,9 +36,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a database as a dropped database restore to a specific point in time
-    /// 
+    /// ### Create a database as a dropped database restore to a specific point in time
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -62,9 +60,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a database as a dropped database restore to deletion time
-    /// 
+    /// ### Create a database as a dropped database restore to deletion time
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -88,9 +84,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a database as a geo restore
-    /// 
+    /// ### Create a database as a geo restore
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -113,9 +107,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a database as a non-readable secondary
-    /// 
+    /// ### Create a database as a non-readable secondary
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -138,9 +130,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a database as a point in time restore
-    /// 
+    /// ### Create a database as a point in time restore
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -164,9 +154,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a database as an online secondary
-    /// 
+    /// ### Create a database as an online secondary
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -189,9 +177,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a database from a long term retention backup
-    /// 
+    /// ### Create a database from a long term retention backup
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -214,9 +200,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a database max
-    /// 
+    /// ### Create a database max
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -245,9 +229,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a database min
-    /// 
+    /// ### Create a database min
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -268,9 +250,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Update a database max
-    /// 
+    /// ### Update a database max
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -298,9 +278,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Update a database's elastic pool'
-    /// 
+    /// ### Update a database's elastic pool'
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

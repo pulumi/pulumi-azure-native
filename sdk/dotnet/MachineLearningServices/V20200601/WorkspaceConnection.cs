@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
     /// <summary>
     /// Workspace connection.
     /// 
-    /// ## CreateWorkspaceConnection
-    /// 
+    /// ## Example Usage
+    /// ### CreateWorkspaceConnection
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

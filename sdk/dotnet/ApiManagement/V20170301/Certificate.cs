@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     /// <summary>
     /// Certificate details.
     /// 
-    /// ## ApiManagementCreateCertificate
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateCertificate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

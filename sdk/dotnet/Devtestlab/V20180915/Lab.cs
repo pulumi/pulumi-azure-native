@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     /// <summary>
     /// A lab.
     /// 
-    /// ## Labs_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Labs_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

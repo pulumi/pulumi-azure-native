@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AzureStack.Latest
     /// <summary>
     /// Registration information.
     /// 
-    /// ## Create or update an Azure Stack registration.
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an Azure Stack registration.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

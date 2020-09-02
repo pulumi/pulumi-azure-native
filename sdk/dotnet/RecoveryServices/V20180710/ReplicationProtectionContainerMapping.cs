@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
     /// <summary>
     /// Protection container mapping object.
     /// 
-    /// ## Create protection container mapping.
-    /// 
+    /// ## Example Usage
+    /// ### Create protection container mapping.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

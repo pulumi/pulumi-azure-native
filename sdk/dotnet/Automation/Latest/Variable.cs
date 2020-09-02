@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.Latest
     /// <summary>
     /// Definition of the variable.
     /// 
-    /// ## Create or update a variable
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a variable
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

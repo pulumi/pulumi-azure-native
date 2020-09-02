@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     /// <summary>
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     /// 
-    /// ## Create a DocumentDB output
-    /// 
+    /// ## Example Usage
+    /// ### Create a DocumentDB output
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -37,9 +37,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a Power BI output
-    /// 
+    /// ### Create a Power BI output
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -63,9 +61,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a Service Bus Queue output with Avro serialization
-    /// 
+    /// ### Create a Service Bus Queue output with Avro serialization
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -93,9 +89,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a Service Bus Topic output with CSV serialization
-    /// 
+    /// ### Create a Service Bus Topic output with CSV serialization
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -123,9 +117,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a blob output with CSV serialization
-    /// 
+    /// ### Create a blob output with CSV serialization
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -153,9 +145,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create an Azure Data Lake Store output with JSON serialization
-    /// 
+    /// ### Create an Azure Data Lake Store output with JSON serialization
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -183,9 +173,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create an Azure SQL database output
-    /// 
+    /// ### Create an Azure SQL database output
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -209,9 +197,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create an Azure Table output
-    /// 
+    /// ### Create an Azure Table output
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -235,9 +221,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create an Event Hub output with JSON serialization
-    /// 
+    /// ### Create an Event Hub output with JSON serialization
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

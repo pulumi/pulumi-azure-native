@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.V20180701
     /// <summary>
     /// A Media Services account.
     /// 
-    /// ## Create a Media Services account
-    /// 
+    /// ## Example Usage
+    /// ### Create a Media Services account
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200501
     /// <summary>
     /// Network watcher in a resource group.
     /// 
-    /// ## Create network watcher
-    /// 
+    /// ## Example Usage
+    /// ### Create network watcher
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

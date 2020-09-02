@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
     /// <summary>
     /// The Data Box Edge/Gateway device.
     /// 
-    /// ## DataBoxEdgeDevicePut
-    /// 
+    /// ## Example Usage
+    /// ### DataBoxEdgeDevicePut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

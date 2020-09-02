@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Peering.V20200401
     /// <summary>
     /// The peering service prefix class.
     /// 
-    /// ## Create or update a prefix for the peering service
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a prefix for the peering service
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

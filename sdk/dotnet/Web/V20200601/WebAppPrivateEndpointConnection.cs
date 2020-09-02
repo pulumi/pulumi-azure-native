@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Web.V20200601
     /// <summary>
     /// Private Endpoint Connection ARM resource.
     /// 
-    /// ## Approves or rejects a private endpoint connection for a site.
-    /// 
+    /// ## Example Usage
+    /// ### Approves or rejects a private endpoint connection for a site.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

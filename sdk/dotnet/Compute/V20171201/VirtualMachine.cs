@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.V20171201
     /// <summary>
     /// Describes a Virtual Machine.
     /// 
-    /// ## Create a custom-image vm from an unmanaged generalized os image.
-    /// 
+    /// ## Example Usage
+    /// ### Create a custom-image vm from an unmanaged generalized os image.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -71,9 +71,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a platform-image vm with unmanaged os and data disks.
-    /// 
+    /// ### Create a platform-image vm with unmanaged os and data disks.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -156,9 +154,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a vm from a custom image.
-    /// 
+    /// ### Create a vm from a custom image.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -215,9 +211,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a vm in an availability set.
-    /// 
+    /// ### Create a vm in an availability set.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -281,9 +275,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a vm with a marketplace image plan.
-    /// 
+    /// ### Create a vm with a marketplace image plan.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -349,9 +341,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a vm with boot diagnostics.
-    /// 
+    /// ### Create a vm with boot diagnostics.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -419,9 +409,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a vm with empty data disks.
-    /// 
+    /// ### Create a vm with empty data disks.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -496,9 +484,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a vm with password authentication.
-    /// 
+    /// ### Create a vm with password authentication.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -558,9 +544,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a vm with premium storage.
-    /// 
+    /// ### Create a vm with premium storage.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -620,9 +604,7 @@ namespace Pulumi.AzureRM.Compute.V20171201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a vm with ssh authentication.
-    /// 
+    /// ### Create a vm with ssh authentication.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Migrate.V20180202
     /// <summary>
     /// A group created in a Migration project.
     /// 
-    /// ## Groups_Create
-    /// 
+    /// ## Example Usage
+    /// ### Groups_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

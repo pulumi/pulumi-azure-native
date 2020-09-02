@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Relay.V20160701
     /// <summary>
     /// Description of WcfRelays Resource.
     /// 
-    /// ## RelayCreate
-    /// 
+    /// ## Example Usage
+    /// ### RelayCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

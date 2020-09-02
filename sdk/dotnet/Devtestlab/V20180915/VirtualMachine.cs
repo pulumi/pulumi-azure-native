@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     /// <summary>
     /// A virtual machine.
     /// 
-    /// ## VirtualMachines_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### VirtualMachines_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.Latest
     /// <summary>
     /// Definition of the runbook type.
     /// 
-    /// ## Create or update runbook and publish it
-    /// 
+    /// ## Example Usage
+    /// ### Create or update runbook and publish it
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -54,9 +54,7 @@ namespace Pulumi.AzureRM.Automation.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create runbook as draft
-    /// 
+    /// ### Create runbook as draft
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

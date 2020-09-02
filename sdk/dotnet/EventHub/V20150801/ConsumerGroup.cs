@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventHub.V20150801
     /// <summary>
     /// Single item in List or Get Consumer group operation
     /// 
-    /// ## ConsumerGroupCreate
-    /// 
+    /// ## Example Usage
+    /// ### ConsumerGroupCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

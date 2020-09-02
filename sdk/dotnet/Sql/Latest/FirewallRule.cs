@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// <summary>
     /// Represents a server firewall rule.
     /// 
-    /// ## Create a firewall rule max/min
-    /// 
+    /// ## Example Usage
+    /// ### Create a firewall rule max/min
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -35,9 +35,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Update a firewall rule max/min
-    /// 
+    /// ### Update a firewall rule max/min
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

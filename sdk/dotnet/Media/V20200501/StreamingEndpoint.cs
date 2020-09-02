@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// <summary>
     /// The StreamingEndpoint.
     /// 
-    /// ## Create a StreamingEndpoint
-    /// 
+    /// ## Example Usage
+    /// ### Create a StreamingEndpoint
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

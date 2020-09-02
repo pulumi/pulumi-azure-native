@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200401
     /// <summary>
     /// VirtualHubRouteTableV2 Resource.
     /// 
-    /// ## VirtualHubRouteTableV2Put
-    /// 
+    /// ## Example Usage
+    /// ### VirtualHubRouteTableV2Put
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

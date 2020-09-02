@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.KeyVault.V20161001
     /// <summary>
     /// Resource information with extended details.
     /// 
-    /// ## Create a new vault or update an existing vault
-    /// 
+    /// ## Example Usage
+    /// ### Create a new vault or update an existing vault
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

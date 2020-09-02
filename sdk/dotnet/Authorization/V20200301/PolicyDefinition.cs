@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Authorization.V20200301
     /// <summary>
     /// The policy definition.
     /// 
-    /// ## Create or update a policy definition
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy definition
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -74,9 +74,7 @@ namespace Pulumi.AzureRM.Authorization.V20200301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update a policy definition with advanced parameters
-    /// 
+    /// ### Create or update a policy definition with advanced parameters
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventHub.V20170401
     /// <summary>
     /// Single Namespace item in List or Get Operation
     /// 
-    /// ## NamespaceCreate
-    /// 
+    /// ## Example Usage
+    /// ### NamespaceCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

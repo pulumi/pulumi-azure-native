@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
     /// <summary>
     /// EventGrid Topic
     /// 
-    /// ## Topics_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Topics_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.V20180701
     /// <summary>
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     /// 
-    /// ## Create a Job
-    /// 
+    /// ## Example Usage
+    /// ### Create a Job
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

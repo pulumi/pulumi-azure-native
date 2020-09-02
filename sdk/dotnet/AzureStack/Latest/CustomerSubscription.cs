@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AzureStack.Latest
     /// <summary>
     /// Customer subscription.
     /// 
-    /// ## Creates a new customer subscription under a registration.
-    /// 
+    /// ## Example Usage
+    /// ### Creates a new customer subscription under a registration.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ContainerInstance.Latest
     /// <summary>
     /// A container group.
     /// 
-    /// ## ContainerGroupsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### ContainerGroupsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

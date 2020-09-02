@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Web.Latest
     /// <summary>
     /// Static Site ARM resource.
     /// 
-    /// ## Create or update a static site
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a static site
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

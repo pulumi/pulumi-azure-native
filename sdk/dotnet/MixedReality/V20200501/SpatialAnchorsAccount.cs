@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.MixedReality.V20200501
     /// <summary>
     /// SpatialAnchorsAccount Response.
     /// 
-    /// ## Create spatial anchor account
-    /// 
+    /// ## Example Usage
+    /// ### Create spatial anchor account
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

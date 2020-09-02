@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Web.V20160601
     /// <summary>
     /// API connection
     /// 
-    /// ## Replace a connection
-    /// 
+    /// ## Example Usage
+    /// ### Replace a connection
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

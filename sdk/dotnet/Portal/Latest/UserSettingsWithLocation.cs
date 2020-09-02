@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Portal.Latest
     /// <summary>
     /// Response to get user settings
     /// 
-    /// ## PutUserSettings
-    /// 
+    /// ## Example Usage
+    /// ### PutUserSettings
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

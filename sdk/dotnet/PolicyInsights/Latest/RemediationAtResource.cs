@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.PolicyInsights.Latest
     /// <summary>
     /// The remediation definition.
     /// 
-    /// ## Create remediation at individual resource scope
-    /// 
+    /// ## Example Usage
+    /// ### Create remediation at individual resource scope
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

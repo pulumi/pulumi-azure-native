@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ImportExport.Latest
     /// <summary>
     /// Contains the job information.
     /// 
-    /// ## Create export job
-    /// 
+    /// ## Example Usage
+    /// ### Create export job
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -33,9 +33,7 @@ namespace Pulumi.AzureRM.ImportExport.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create import job
-    /// 
+    /// ### Create import job
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

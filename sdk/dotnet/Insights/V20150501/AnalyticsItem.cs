@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.V20150501
     /// <summary>
     /// Properties that define an Analytics item that is associated to an Application Insights component.
     /// 
-    /// ## AnalyticsItemPut
-    /// 
+    /// ## Example Usage
+    /// ### AnalyticsItemPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

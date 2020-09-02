@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200501
     /// <summary>
     /// A common class for general resource information.
     /// 
-    /// ## CreateVirtualNetworkGatewayConnection_S2S
-    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualNetworkGatewayConnection_S2S
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

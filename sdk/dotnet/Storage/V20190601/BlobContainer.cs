@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Storage.V20190601
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
     /// 
-    /// ## PutContainerWithDefaultEncryptionScope
-    /// 
+    /// ## Example Usage
+    /// ### PutContainerWithDefaultEncryptionScope
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -35,9 +35,7 @@ namespace Pulumi.AzureRM.Storage.V20190601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PutContainers
-    /// 
+    /// ### PutContainers
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

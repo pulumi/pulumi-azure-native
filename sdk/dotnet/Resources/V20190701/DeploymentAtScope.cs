@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Resources.V20190701
     /// <summary>
     /// Deployment information.
     /// 
-    /// ## Create deployment at a given scope.
-    /// 
+    /// ## Example Usage
+    /// ### Create deployment at a given scope.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

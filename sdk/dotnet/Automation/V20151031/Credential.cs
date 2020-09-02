@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
     /// <summary>
     /// Definition of the credential.
     /// 
-    /// ## Create a credential
-    /// 
+    /// ## Example Usage
+    /// ### Create a credential
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

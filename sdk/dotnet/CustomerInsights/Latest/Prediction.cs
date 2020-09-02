@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
     /// <summary>
     /// The prediction resource format.
     /// 
-    /// ## Predictions_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Predictions_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

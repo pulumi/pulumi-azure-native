@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Storage.Latest
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
     /// 
-    /// ## StorageAccountSetManagementPolicies
-    /// 
+    /// ## Example Usage
+    /// ### StorageAccountSetManagementPolicies
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

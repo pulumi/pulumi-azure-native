@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
     /// <summary>
     /// The connector resource format.
     /// 
-    /// ## Connectors_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Connectors_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

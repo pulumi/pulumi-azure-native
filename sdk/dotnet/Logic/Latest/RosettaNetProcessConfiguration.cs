@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.Latest
     /// <summary>
     /// The integration account RosettaNet process configuration.
     /// 
-    /// ## Create or update an RosettaNetProcessConfiguration
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an RosettaNetProcessConfiguration
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

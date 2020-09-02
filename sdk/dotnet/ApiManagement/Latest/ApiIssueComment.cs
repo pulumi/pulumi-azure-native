@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// <summary>
     /// Issue Comment Contract details.
     /// 
-    /// ## ApiManagementCreateApiIssueComment
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiIssueComment
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// <summary>
     /// An Application Insights web test definition.
     /// 
-    /// ## webTestCreate
-    /// 
+    /// ## Example Usage
+    /// ### webTestCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -52,9 +52,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## webTestUpdate
-    /// 
+    /// ### webTestUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

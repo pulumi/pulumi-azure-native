@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Resources.Latest
     /// <summary>
     /// Wrapper resource for tags API requests and responses.
     /// 
-    /// ## Update tags on a resource
-    /// 
+    /// ## Example Usage
+    /// ### Update tags on a resource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -31,9 +31,7 @@ namespace Pulumi.AzureRM.Resources.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Update tags on a subscription
-    /// 
+    /// ### Update tags on a subscription
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

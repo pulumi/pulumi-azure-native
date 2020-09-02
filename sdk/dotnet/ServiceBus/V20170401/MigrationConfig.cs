@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     /// <summary>
     /// Single item in List or Get Migration Config operation
     /// 
-    /// ## MigrationConfigurationsStartMigration
-    /// 
+    /// ## Example Usage
+    /// ### MigrationConfigurationsStartMigration
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

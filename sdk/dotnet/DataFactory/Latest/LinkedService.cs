@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     /// <summary>
     /// Linked service resource type.
     /// 
-    /// ## LinkedServices_Create
-    /// 
+    /// ## Example Usage
+    /// ### LinkedServices_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -33,9 +33,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## LinkedServices_Update
-    /// 
+    /// ### LinkedServices_Update
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
     /// <summary>
     /// An Azure Cosmos DB trigger.
     /// 
-    /// ## CosmosDBSqlTriggerCreateUpdate
-    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlTriggerCreateUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

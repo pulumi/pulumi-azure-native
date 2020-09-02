@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Batch.V20190801
     /// <summary>
     /// An application package which represents a particular version of an application.
     /// 
-    /// ## ApplicationPackageCreate
-    /// 
+    /// ## Example Usage
+    /// ### ApplicationPackageCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

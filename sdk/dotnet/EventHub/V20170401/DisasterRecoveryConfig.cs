@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventHub.V20170401
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// 
-    /// ## EHAliasCreate
-    /// 
+    /// ## Example Usage
+    /// ### EHAliasCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

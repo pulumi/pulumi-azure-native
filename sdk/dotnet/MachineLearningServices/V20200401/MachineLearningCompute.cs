@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200401
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
     /// 
-    /// ## Create AKS Compute
-    /// 
+    /// ## Example Usage
+    /// ### Create AKS Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -34,9 +34,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a AML Compute
-    /// 
+    /// ### Create a AML Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -62,9 +60,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a DataFactory Compute
-    /// 
+    /// ### Create a DataFactory Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -85,9 +81,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Update a AKS Compute
-    /// 
+    /// ### Update a AKS Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -109,9 +103,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Update a AML Compute
-    /// 
+    /// ### Update a AML Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

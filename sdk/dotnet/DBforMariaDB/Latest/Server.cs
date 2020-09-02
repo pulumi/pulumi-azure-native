@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
     /// <summary>
     /// Represents a server.
     /// 
-    /// ## Create a database as a point in time restore
-    /// 
+    /// ## Example Usage
+    /// ### Create a database as a point in time restore
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -44,9 +44,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a new server
-    /// 
+    /// ### Create a new server
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -77,9 +75,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a replica server
-    /// 
+    /// ### Create a replica server
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -99,9 +95,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a server as a geo restore
-    /// 
+    /// ### Create a server as a geo restore
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

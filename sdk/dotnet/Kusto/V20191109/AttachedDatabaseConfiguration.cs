@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Kusto.V20191109
     /// <summary>
     /// Class representing an attached database configuration.
     /// 
-    /// ## AttachedDatabaseConfigurationsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### AttachedDatabaseConfigurationsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type).
     /// 
-    /// ## Create A recordset
-    /// 
+    /// ## Example Usage
+    /// ### Create A recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -46,9 +46,7 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create A recordset with alias target resource
-    /// 
+    /// ### Create A recordset with alias target resource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -78,9 +76,7 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create AAAA recordset
-    /// 
+    /// ### Create AAAA recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -113,9 +109,7 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create CAA recordset
-    /// 
+    /// ### Create CAA recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -150,9 +144,7 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create CNAME recordset
-    /// 
+    /// ### Create CNAME recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -182,9 +174,7 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create MX recordset
-    /// 
+    /// ### Create MX recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -218,9 +208,7 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create NS recordset
-    /// 
+    /// ### Create NS recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -253,9 +241,7 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create PTR recordset
-    /// 
+    /// ### Create PTR recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -288,9 +274,7 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create SOA recordset
-    /// 
+    /// ### Create SOA recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -326,9 +310,7 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create SRV recordset
-    /// 
+    /// ### Create SRV recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -364,9 +346,7 @@ namespace Pulumi.AzureRM.Network.V20180501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create TXT recordset
-    /// 
+    /// ### Create TXT recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

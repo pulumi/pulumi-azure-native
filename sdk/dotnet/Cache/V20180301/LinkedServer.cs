@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Cache.V20180301
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
     /// 
-    /// ## LinkedServer_Create
-    /// 
+    /// ## Example Usage
+    /// ### LinkedServer_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

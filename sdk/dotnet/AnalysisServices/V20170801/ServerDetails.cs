@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
     /// 
-    /// ## Create a server.
-    /// 
+    /// ## Example Usage
+    /// ### Create a server.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

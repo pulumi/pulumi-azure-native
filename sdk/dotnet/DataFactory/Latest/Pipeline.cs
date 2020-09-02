@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     /// <summary>
     /// Pipeline resource type.
     /// 
-    /// ## Pipelines_Create
-    /// 
+    /// ## Example Usage
+    /// ### Pipelines_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -67,9 +67,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Pipelines_Update
-    /// 
+    /// ### Pipelines_Update
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

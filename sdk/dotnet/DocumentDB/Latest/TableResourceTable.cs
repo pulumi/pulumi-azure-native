@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
     /// <summary>
     /// An Azure Cosmos DB Table.
     /// 
-    /// ## CosmosDBTableReplace
-    /// 
+    /// ## Example Usage
+    /// ### CosmosDBTableReplace
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

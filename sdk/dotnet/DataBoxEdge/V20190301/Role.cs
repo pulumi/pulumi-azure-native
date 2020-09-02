@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
     /// <summary>
     /// Compute role.
     /// 
-    /// ## RolePut
-    /// 
+    /// ## Example Usage
+    /// ### RolePut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

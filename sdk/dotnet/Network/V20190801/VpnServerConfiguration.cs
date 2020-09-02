@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190801
     /// <summary>
     /// VpnServerConfiguration Resource.
     /// 
-    /// ## VpnServerConfigurationCreate
-    /// 
+    /// ## Example Usage
+    /// ### VpnServerConfigurationCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

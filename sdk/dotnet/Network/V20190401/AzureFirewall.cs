@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190401
     /// <summary>
     /// Azure Firewall resource.
     /// 
-    /// ## Create Azure Firewall
-    /// 
+    /// ## Example Usage
+    /// ### Create Azure Firewall
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -67,9 +67,7 @@ namespace Pulumi.AzureRM.Network.V20190401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create Azure Firewall With Zones
-    /// 
+    /// ### Create Azure Firewall With Zones
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

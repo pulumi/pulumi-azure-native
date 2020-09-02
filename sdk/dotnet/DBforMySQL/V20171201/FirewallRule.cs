@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
     /// <summary>
     /// Represents a server firewall rule.
     /// 
-    /// ## FirewallRuleCreate
-    /// 
+    /// ## Example Usage
+    /// ### FirewallRuleCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

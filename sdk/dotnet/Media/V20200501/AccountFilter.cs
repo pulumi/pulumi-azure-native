@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// <summary>
     /// An Account Filter.
     /// 
-    /// ## Create an Account Filter
-    /// 
+    /// ## Example Usage
+    /// ### Create an Account Filter
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

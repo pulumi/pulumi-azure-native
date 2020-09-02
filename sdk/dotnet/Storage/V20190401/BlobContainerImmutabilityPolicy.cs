@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Storage.V20190401
     /// <summary>
     /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
     /// 
-    /// ## CreateOrUpdateImmutabilityPolicy
-    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateImmutabilityPolicy
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

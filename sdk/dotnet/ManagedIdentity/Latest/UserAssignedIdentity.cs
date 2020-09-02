@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ManagedIdentity.Latest
     /// <summary>
     /// Describes an identity resource.
     /// 
-    /// ## IdentityCreate
-    /// 
+    /// ## Example Usage
+    /// ### IdentityCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Migrate.V20191001
 {
     /// <summary>
-    /// ## VMwareCollectors_Create
-    /// 
+    /// ## Example Usage
+    /// ### VMwareCollectors_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

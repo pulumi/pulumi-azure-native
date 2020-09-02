@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Aad.V20200101
     /// <summary>
     /// Resource for OuContainer.
     /// 
-    /// ## Create Domain Service
-    /// 
+    /// ## Example Usage
+    /// ### Create Domain Service
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

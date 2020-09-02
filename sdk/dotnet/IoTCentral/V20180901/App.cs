@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
     /// <summary>
     /// The IoT Central application.
     /// 
-    /// ## Apps_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Apps_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
     /// <summary>
     /// The top level Log Analytics cluster resource container.
     /// 
-    /// ## ClustersCreate
-    /// 
+    /// ## Example Usage
+    /// ### ClustersCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

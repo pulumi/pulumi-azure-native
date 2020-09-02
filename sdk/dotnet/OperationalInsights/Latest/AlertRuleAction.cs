@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
     /// <summary>
     /// Action for alert rule.
     /// 
-    /// ## Creates or updates an action of alert rule.
-    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an action of alert rule.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// <summary>
     /// Represents a database elastic pool.
     /// 
-    /// ## Create elastic pool max
-    /// 
+    /// ## Example Usage
+    /// ### Create elastic pool max
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -39,9 +39,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create elastic pool min
-    /// 
+    /// ### Create elastic pool min
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.HybridData.V20160601
     /// <summary>
     /// Data store.
     /// 
-    /// ## DataStores_CreateOrUpdate_DataSinkPUT162
-    /// 
+    /// ## Example Usage
+    /// ### DataStores_CreateOrUpdate_DataSinkPUT162
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -57,9 +57,7 @@ namespace Pulumi.AzureRM.HybridData.V20160601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## DataStores_CreateOrUpdate_DataSourcePUT162
-    /// 
+    /// ### DataStores_CreateOrUpdate_DataSourcePUT162
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

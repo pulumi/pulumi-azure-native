@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.V20180701
     /// <summary>
     /// A Content Key Policy resource.
     /// 
-    /// ## Creates a Content Key Policy with ClearKey option and Token Restriction
-    /// 
+    /// ## Example Usage
+    /// ### Creates a Content Key Policy with ClearKey option and Token Restriction
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -49,9 +49,7 @@ namespace Pulumi.AzureRM.Media.V20180701
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates a Content Key Policy with PlayReady option and Open Restriction
-    /// 
+    /// ### Creates a Content Key Policy with PlayReady option and Open Restriction
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -87,9 +85,7 @@ namespace Pulumi.AzureRM.Media.V20180701
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates a Content Key Policy with Widevine option and Token Restriction
-    /// 
+    /// ### Creates a Content Key Policy with Widevine option and Token Restriction
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -125,9 +121,7 @@ namespace Pulumi.AzureRM.Media.V20180701
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates a Content Key Policy with multiple options
-    /// 
+    /// ### Creates a Content Key Policy with multiple options
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

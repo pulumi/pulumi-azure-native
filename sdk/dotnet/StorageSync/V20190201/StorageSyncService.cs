@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorageSync.V20190201
     /// <summary>
     /// Storage Sync Service object.
     /// 
-    /// ## StorageSyncServices_Create
-    /// 
+    /// ## Example Usage
+    /// ### StorageSyncServices_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190701
     /// <summary>
     /// Rule Group resource.
     /// 
-    /// ## Create FirewallPolicyRuleGroup
-    /// 
+    /// ## Example Usage
+    /// ### Create FirewallPolicyRuleGroup
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

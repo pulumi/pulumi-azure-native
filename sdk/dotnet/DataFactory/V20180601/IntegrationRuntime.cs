@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     /// <summary>
     /// Integration runtime resource type.
     /// 
-    /// ## IntegrationRuntimes_Create
-    /// 
+    /// ## Example Usage
+    /// ### IntegrationRuntimes_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

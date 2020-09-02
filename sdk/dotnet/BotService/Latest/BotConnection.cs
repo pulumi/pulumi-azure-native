@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.BotService.Latest
     /// <summary>
     /// Bot channel resource definition
     /// 
-    /// ## Create Connection Setting
-    /// 
+    /// ## Example Usage
+    /// ### Create Connection Setting
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

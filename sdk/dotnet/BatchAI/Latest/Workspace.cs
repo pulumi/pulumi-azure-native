@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.BatchAI.Latest
     /// <summary>
     /// Batch AI Workspace information.
     /// 
-    /// ## Create a workspace
-    /// 
+    /// ## Example Usage
+    /// ### Create a workspace
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

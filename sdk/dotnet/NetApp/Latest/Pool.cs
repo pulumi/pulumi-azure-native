@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.NetApp.Latest
     /// <summary>
     /// Capacity pool resource
     /// 
-    /// ## Pools_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Pools_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

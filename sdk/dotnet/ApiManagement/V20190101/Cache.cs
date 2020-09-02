@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// <summary>
     /// Cache details.
     /// 
-    /// ## ApiManagementCreateCache
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateCache
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

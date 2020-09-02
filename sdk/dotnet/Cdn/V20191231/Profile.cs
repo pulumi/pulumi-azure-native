@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Cdn.V20191231
     /// <summary>
     /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
     /// 
-    /// ## Profiles_Create
-    /// 
+    /// ## Example Usage
+    /// ### Profiles_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

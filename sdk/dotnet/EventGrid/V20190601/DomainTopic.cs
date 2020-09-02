@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
     /// <summary>
     /// Domain Topic.
     /// 
-    /// ## DomainTopics_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### DomainTopics_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

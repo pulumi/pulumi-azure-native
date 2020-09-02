@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.Latest
     /// <summary>
     /// The Backup Schedule Group
     /// 
-    /// ## BackupScheduleGroupsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### BackupScheduleGroupsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

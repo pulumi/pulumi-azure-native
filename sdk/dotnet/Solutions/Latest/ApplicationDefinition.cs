@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Solutions.Latest
     /// <summary>
     /// Information about managed application definition.
     /// 
-    /// ## Create or update managed application definition
-    /// 
+    /// ## Example Usage
+    /// ### Create or update managed application definition
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

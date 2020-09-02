@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Management.V20200201
     /// <summary>
     /// Settings defined at the Management Group scope.
     /// 
-    /// ## GetGroupSettings
-    /// 
+    /// ## Example Usage
+    /// ### GetGroupSettings
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

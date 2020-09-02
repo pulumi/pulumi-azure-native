@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20150408
     /// <summary>
     /// An Azure Cosmos DB Cassandra keyspace.
     /// 
-    /// ## CosmosDBCassandraKeyspaceCreateUpdate
-    /// 
+    /// ## Example Usage
+    /// ### CosmosDBCassandraKeyspaceCreateUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Cache.V20171001
     /// <summary>
     /// Response to put/get patch schedules for Redis cache.
     /// 
-    /// ## RedisCachePatchSchedulesCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### RedisCachePatchSchedulesCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

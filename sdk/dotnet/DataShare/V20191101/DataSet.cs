@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     /// <summary>
     /// A DataSet data transfer object.
     /// 
-    /// ## DataSets_Create
-    /// 
+    /// ## Example Usage
+    /// ### DataSets_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -35,9 +35,7 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## DataSets_KustoCluster_Create
-    /// 
+    /// ### DataSets_KustoCluster_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -59,9 +57,7 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## DataSets_KustoDatabase_Create
-    /// 
+    /// ### DataSets_KustoDatabase_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -83,9 +79,7 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## DataSets_SqlDBTable_Create
-    /// 
+    /// ### DataSets_SqlDBTable_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -107,9 +101,7 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## DataSets_SqlDWTable_Create
-    /// 
+    /// ### DataSets_SqlDWTable_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

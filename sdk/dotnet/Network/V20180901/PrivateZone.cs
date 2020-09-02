@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20180901
     /// <summary>
     /// Describes a Private DNS zone.
     /// 
-    /// ## PUT Private DNS Zone
-    /// 
+    /// ## Example Usage
+    /// ### PUT Private DNS Zone
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

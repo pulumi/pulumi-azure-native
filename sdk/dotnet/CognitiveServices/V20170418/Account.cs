@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
     /// <summary>
     /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
     /// 
-    /// ## Create Account
-    /// 
+    /// ## Example Usage
+    /// ### Create Account
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -42,9 +42,7 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create Account Min
-    /// 
+    /// ### Create Account Min
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

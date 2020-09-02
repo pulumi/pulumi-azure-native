@@ -13,8 +13,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
     /// The task that has the ARM resource and task properties.
     /// The task will have all information to schedule a run against it.
     /// 
-    /// ## Tasks_Create
-    /// 
+    /// ## Example Usage
+    /// ### Tasks_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -95,9 +95,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Tasks_Create_WithSystemAndUserIdentities
-    /// 
+    /// ### Tasks_Create_WithSystemAndUserIdentities
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -182,9 +180,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Tasks_Create_WithUserIdentities
-    /// 
+    /// ### Tasks_Create_WithUserIdentities
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -270,9 +266,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Tasks_Create_WithUserIdentities_WithSystemIdentity
-    /// 
+    /// ### Tasks_Create_WithUserIdentities_WithSystemIdentity
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

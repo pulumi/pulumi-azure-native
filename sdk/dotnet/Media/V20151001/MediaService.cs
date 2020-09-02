@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.V20151001
     /// <summary>
     /// The properties of a Media Service resource.
     /// 
-    /// ## MediaServiceCreate
-    /// 
+    /// ## Example Usage
+    /// ### MediaServiceCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

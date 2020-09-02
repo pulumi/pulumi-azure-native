@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.Latest
     /// <summary>
     /// Definition of the module type.
     /// 
-    /// ## Create or update a module
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a module
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

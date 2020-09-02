@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.NetApp.V20191101
     /// <summary>
     /// Snapshot of a Volume
     /// 
-    /// ## Snapshots_Create
-    /// 
+    /// ## Example Usage
+    /// ### Snapshots_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataShare.Latest
     /// <summary>
     /// A Invitation data transfer object.
     /// 
-    /// ## Invitations_Create
-    /// 
+    /// ## Example Usage
+    /// ### Invitations_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

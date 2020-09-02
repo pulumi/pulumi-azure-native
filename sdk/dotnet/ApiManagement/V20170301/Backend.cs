@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     /// <summary>
     /// Backend details.
     /// 
-    /// ## ApiManagementCreateBackendProxyBackend
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateBackendProxyBackend
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -72,9 +72,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateBackendServiceFabric
-    /// 
+    /// ### ApiManagementCreateBackendServiceFabric
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

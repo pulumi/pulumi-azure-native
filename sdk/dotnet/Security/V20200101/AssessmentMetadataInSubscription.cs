@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Security.V20200101
     /// <summary>
     /// Security assessment metadata
     /// 
-    /// ## Create security assessment metadata for subscription
-    /// 
+    /// ## Example Usage
+    /// ### Create security assessment metadata for subscription
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
     /// <summary>
     /// Private Endpoint Connection Response Properties
     /// 
-    /// ## Update PrivateEndpointConnection
-    /// 
+    /// ## Example Usage
+    /// ### Update PrivateEndpointConnection
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

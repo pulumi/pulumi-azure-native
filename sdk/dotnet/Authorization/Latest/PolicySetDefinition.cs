@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Authorization.Latest
     /// <summary>
     /// The policy set definition.
     /// 
-    /// ## Create or update a policy set definition
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy set definition
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -84,9 +84,7 @@ namespace Pulumi.AzureRM.Authorization.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update a policy set definition with groups
-    /// 
+    /// ### Create or update a policy set definition with groups
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

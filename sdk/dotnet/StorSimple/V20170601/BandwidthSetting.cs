@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     /// <summary>
     /// The bandwidth setting.
     /// 
-    /// ## BandwidthSettingsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### BandwidthSettingsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

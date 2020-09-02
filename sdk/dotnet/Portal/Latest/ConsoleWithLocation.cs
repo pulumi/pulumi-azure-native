@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Portal.Latest
     /// <summary>
     /// Cloud shell console
     /// 
-    /// ## PutConsole
-    /// 
+    /// ## Example Usage
+    /// ### PutConsole
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     /// <summary>
     /// A share subscription data transfer object.
     /// 
-    /// ## ShareSubscriptions_Create
-    /// 
+    /// ## Example Usage
+    /// ### ShareSubscriptions_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

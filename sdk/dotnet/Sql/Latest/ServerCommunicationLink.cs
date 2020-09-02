@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// <summary>
     /// Server communication link.
     /// 
-    /// ## Create a server communication link
-    /// 
+    /// ## Example Usage
+    /// ### Create a server communication link
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

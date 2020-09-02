@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
     /// <summary>
     /// A Database Migration Service resource
     /// 
-    /// ## Services_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Services_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

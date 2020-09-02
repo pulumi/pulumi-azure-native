@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
     /// <summary>
     /// Certificate resource payload.
     /// 
-    /// ## Certificates_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Certificates_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

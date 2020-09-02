@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     /// 
-    /// ## Create an Image Template for Linux.
-    /// 
+    /// ## Example Usage
+    /// ### Create an Image Template for Linux.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -75,9 +75,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create an Image Template for Windows.
-    /// 
+    /// ### Create an Image Template for Windows.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

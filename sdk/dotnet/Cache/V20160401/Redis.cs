@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Cache.V20160401
     /// <summary>
     /// A single Redis item in List or Get Operation.
     /// 
-    /// ## RedisCacheCreate
-    /// 
+    /// ## Example Usage
+    /// ### RedisCacheCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

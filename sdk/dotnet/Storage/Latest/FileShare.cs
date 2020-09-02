@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Storage.Latest
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
     /// 
-    /// ## Create NFS Shares
-    /// 
+    /// ## Example Usage
+    /// ### Create NFS Shares
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -34,9 +34,7 @@ namespace Pulumi.AzureRM.Storage.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PutShares
-    /// 
+    /// ### PutShares
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -56,9 +54,7 @@ namespace Pulumi.AzureRM.Storage.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PutShares with Access Tier
-    /// 
+    /// ### PutShares with Access Tier
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

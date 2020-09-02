@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
     /// <summary>
     /// Data Lake Store account information.
     /// 
-    /// ## Creates the specified Data Lake Store account
-    /// 
+    /// ## Example Usage
+    /// ### Creates the specified Data Lake Store account
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

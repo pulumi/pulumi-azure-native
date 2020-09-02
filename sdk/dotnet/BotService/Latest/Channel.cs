@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.BotService.Latest
     /// <summary>
     /// Bot channel resource definition
     /// 
-    /// ## Create Alexa Bot
-    /// 
+    /// ## Example Usage
+    /// ### Create Alexa Bot
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -35,9 +35,7 @@ namespace Pulumi.AzureRM.BotService.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create Bot
-    /// 
+    /// ### Create Bot
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -59,9 +57,7 @@ namespace Pulumi.AzureRM.BotService.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create DirectLine Speech Bot
-    /// 
+    /// ### Create DirectLine Speech Bot
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -83,9 +79,7 @@ namespace Pulumi.AzureRM.BotService.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create Line Bot
-    /// 
+    /// ### Create Line Bot
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

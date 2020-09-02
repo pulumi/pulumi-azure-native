@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190601
     /// <summary>
     /// An application security group in a resource group.
     /// 
-    /// ## Create application security group
-    /// 
+    /// ## Example Usage
+    /// ### Create application security group
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

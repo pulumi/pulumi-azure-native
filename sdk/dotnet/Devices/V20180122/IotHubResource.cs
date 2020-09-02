@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Devices.V20180122
     /// <summary>
     /// The description of the IoT hub.
     /// 
-    /// ## IotHubResource_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### IotHubResource_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

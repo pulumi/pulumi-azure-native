@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.Latest
     /// <summary>
     /// Definition of the certificate.
     /// 
-    /// ## Create or update a certificate
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a certificate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

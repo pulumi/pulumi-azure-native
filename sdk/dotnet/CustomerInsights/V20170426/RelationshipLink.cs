@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     /// <summary>
     /// The relationship link resource format.
     /// 
-    /// ## RelationshipLinks_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### RelationshipLinks_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

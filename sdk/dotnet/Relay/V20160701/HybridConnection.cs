@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Relay.V20160701
     /// <summary>
     /// Description of HybridConnection Resource.
     /// 
-    /// ## RelayHybridConnectionCreate
-    /// 
+    /// ## Example Usage
+    /// ### RelayHybridConnectionCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
     /// 
-    /// ## SharePut
-    /// 
+    /// ## Example Usage
+    /// ### SharePut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.Latest
     /// <summary>
     /// The iSCSI disk.
     /// 
-    /// ## IscsiDisksCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### IscsiDisksCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

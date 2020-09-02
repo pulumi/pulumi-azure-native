@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     /// <summary>
     /// The File Share.
     /// 
-    /// ## FileSharesCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### FileSharesCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

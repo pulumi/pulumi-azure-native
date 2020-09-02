@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Cdn.V20200331
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// 
-    /// ## CustomDomains_Create
-    /// 
+    /// ## Example Usage
+    /// ### CustomDomains_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

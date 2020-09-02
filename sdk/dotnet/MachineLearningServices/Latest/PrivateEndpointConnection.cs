@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// 
-    /// ## WorkspacePutPrivateEndpointConnection
-    /// 
+    /// ## Example Usage
+    /// ### WorkspacePutPrivateEndpointConnection
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

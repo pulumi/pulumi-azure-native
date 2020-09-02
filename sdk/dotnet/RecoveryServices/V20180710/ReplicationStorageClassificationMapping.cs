@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
     /// <summary>
     /// Storage mapping object.
     /// 
-    /// ## Create storage classification mapping.
-    /// 
+    /// ## Example Usage
+    /// ### Create storage classification mapping.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

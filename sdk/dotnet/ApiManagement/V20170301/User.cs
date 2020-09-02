@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     /// <summary>
     /// User details.
     /// 
-    /// ## ApiManagementCreateUserBasic
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateUserBasic
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

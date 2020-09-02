@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20170901
     /// <summary>
     /// Describes a DNS zone.
     /// 
-    /// ## Create zone
-    /// 
+    /// ## Example Usage
+    /// ### Create zone
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

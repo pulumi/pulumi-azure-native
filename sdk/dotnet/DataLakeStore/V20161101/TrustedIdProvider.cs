@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
     /// <summary>
     /// Data Lake Store trusted identity provider information.
     /// 
-    /// ## Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider
-    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

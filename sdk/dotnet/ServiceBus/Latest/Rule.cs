@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
     /// <summary>
     /// Description of Rule Resource.
     /// 
-    /// ## RulesCreateCorrelationFilter
-    /// 
+    /// ## Example Usage
+    /// ### RulesCreateCorrelationFilter
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -43,9 +43,7 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## RulesCreateOrUpdate
-    /// 
+    /// ### RulesCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -67,9 +65,7 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## RulesCreateSqlFilter
-    /// 
+    /// ### RulesCreateSqlFilter
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

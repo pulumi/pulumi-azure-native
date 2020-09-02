@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
     /// 
-    /// ## Create AKS Compute
-    /// 
+    /// ## Example Usage
+    /// ### Create AKS Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -34,9 +34,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a AML Compute
-    /// 
+    /// ### Create a AML Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -62,9 +60,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a ComputeInstance Compute
-    /// 
+    /// ### Create a ComputeInstance Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -86,9 +82,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a ComputeInstance Compute with minimal inputs
-    /// 
+    /// ### Create a ComputeInstance Compute with minimal inputs
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -110,9 +104,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a DataFactory Compute
-    /// 
+    /// ### Create a DataFactory Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -133,9 +125,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Update a AKS Compute
-    /// 
+    /// ### Update a AKS Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -157,9 +147,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Update a AML Compute
-    /// 
+    /// ### Update a AML Compute
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

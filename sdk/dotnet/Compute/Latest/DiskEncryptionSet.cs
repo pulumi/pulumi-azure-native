@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.Latest
     /// <summary>
     /// disk encryption set resource.
     /// 
-    /// ## Create a disk encryption set.
-    /// 
+    /// ## Example Usage
+    /// ### Create a disk encryption set.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

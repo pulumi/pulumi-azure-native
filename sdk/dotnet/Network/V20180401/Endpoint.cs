@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20180401
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
     /// 
-    /// ## Endpoint-PUT-External-WithCustomHeaders
-    /// 
+    /// ## Example Usage
+    /// ### Endpoint-PUT-External-WithCustomHeaders
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -52,9 +52,7 @@ namespace Pulumi.AzureRM.Network.V20180401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Endpoint-PUT-External-WithGeoMapping
-    /// 
+    /// ### Endpoint-PUT-External-WithGeoMapping
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -84,9 +82,7 @@ namespace Pulumi.AzureRM.Network.V20180401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Endpoint-PUT-External-WithLocation
-    /// 
+    /// ### Endpoint-PUT-External-WithLocation
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -112,9 +108,7 @@ namespace Pulumi.AzureRM.Network.V20180401
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Endpoint-PUT-External-WithSubnetMapping
-    /// 
+    /// ### Endpoint-PUT-External-WithSubnetMapping
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

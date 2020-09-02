@@ -13,8 +13,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180901
     /// The task that has the ARM resource and task properties.
     /// The task will have all information to schedule a run against it.
     /// 
-    /// ## Tasks_Create
-    /// 
+    /// ## Example Usage
+    /// ### Tasks_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

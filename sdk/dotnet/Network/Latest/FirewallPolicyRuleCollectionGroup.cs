@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// Rule Collection Group resource.
     /// 
-    /// ## Create FirewallPolicyRuleCollectionGroup
-    /// 
+    /// ## Example Usage
+    /// ### Create FirewallPolicyRuleCollectionGroup
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -42,9 +42,7 @@ namespace Pulumi.AzureRM.Network.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create FirewallPolicyRuleCollectionGroup With IpGroups
-    /// 
+    /// ### Create FirewallPolicyRuleCollectionGroup With IpGroups
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

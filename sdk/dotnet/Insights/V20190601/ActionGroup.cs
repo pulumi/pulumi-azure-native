@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.V20190601
     /// <summary>
     /// An action group resource.
     /// 
-    /// ## Create or update an action group
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an action group
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

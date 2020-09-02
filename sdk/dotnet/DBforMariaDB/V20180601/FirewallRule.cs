@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
     /// <summary>
     /// Represents a server firewall rule.
     /// 
-    /// ## FirewallRuleCreate
-    /// 
+    /// ## Example Usage
+    /// ### FirewallRuleCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

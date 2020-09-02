@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     /// <summary>
     /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
     /// 
-    /// ## Create a JavaScript function
-    /// 
+    /// ## Example Usage
+    /// ### Create a JavaScript function
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -34,9 +34,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create an Azure ML function
-    /// 
+    /// ### Create an Azure ML function
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

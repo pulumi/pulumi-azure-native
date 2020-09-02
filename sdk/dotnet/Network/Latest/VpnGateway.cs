@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// VpnGateway Resource.
     /// 
-    /// ## VpnGatewayPut
-    /// 
+    /// ## Example Usage
+    /// ### VpnGatewayPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

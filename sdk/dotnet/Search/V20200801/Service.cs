@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Search.V20200801
     /// <summary>
     /// Describes an Azure Cognitive Search service and its current state.
     /// 
-    /// ## SearchCreateOrUpdateService
-    /// 
+    /// ## Example Usage
+    /// ### SearchCreateOrUpdateService
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -44,9 +44,7 @@ namespace Pulumi.AzureRM.Search.V20200801
     /// }
     /// 
     /// ```
-    /// 
-    /// ## SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints
-    /// 
+    /// ### SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -78,9 +76,7 @@ namespace Pulumi.AzureRM.Search.V20200801
     /// }
     /// 
     /// ```
-    /// 
-    /// ## SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs
-    /// 
+    /// ### SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -125,9 +121,7 @@ namespace Pulumi.AzureRM.Search.V20200801
     /// }
     /// 
     /// ```
-    /// 
-    /// ## SearchCreateOrUpdateServiceWithIdentity
-    /// 
+    /// ### SearchCreateOrUpdateServiceWithIdentity
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

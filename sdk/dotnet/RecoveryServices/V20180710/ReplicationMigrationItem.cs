@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
     /// <summary>
     /// Migration item.
     /// 
-    /// ## Enables migration.
-    /// 
+    /// ## Example Usage
+    /// ### Enables migration.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

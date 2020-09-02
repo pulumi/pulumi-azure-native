@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventHub.V20170401
     /// <summary>
     /// Single item in List or Get Event Hub operation
     /// 
-    /// ## EventHubCreate
-    /// 
+    /// ## Example Usage
+    /// ### EventHubCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

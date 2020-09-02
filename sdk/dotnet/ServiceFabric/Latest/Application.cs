@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ServiceFabric.Latest
     /// <summary>
     /// The application resource.
     /// 
-    /// ## Put an application with maximum parameters
-    /// 
+    /// ## Example Usage
+    /// ### Put an application with maximum parameters
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -78,9 +78,7 @@ namespace Pulumi.AzureRM.ServiceFabric.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Put an application with minimum parameters
-    /// 
+    /// ### Put an application with minimum parameters
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

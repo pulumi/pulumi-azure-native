@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.NetApp.Latest
     /// <summary>
     /// NetApp account resource
     /// 
-    /// ## Accounts_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Accounts_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// Virtual Appliance Site resource.
     /// 
-    /// ## Create Network Virtual Appliance Site
-    /// 
+    /// ## Example Usage
+    /// ### Create Network Virtual Appliance Site
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

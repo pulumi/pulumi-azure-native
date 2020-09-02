@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Kusto.V20191109
     /// <summary>
     /// Class representing a cluster principal assignment.
     /// 
-    /// ## KustoClusterPrincipalAssignmentsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### KustoClusterPrincipalAssignmentsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

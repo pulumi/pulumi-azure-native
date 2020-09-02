@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
     /// <summary>
     /// Binding resource payload
     /// 
-    /// ## Bindings_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Bindings_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

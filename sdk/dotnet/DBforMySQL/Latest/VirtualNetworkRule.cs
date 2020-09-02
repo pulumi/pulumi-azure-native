@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
     /// <summary>
     /// A virtual network rule.
     /// 
-    /// ## Create or update a virtual network rule
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a virtual network rule
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

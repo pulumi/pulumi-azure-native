@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     /// <summary>
     /// File Server information.
     /// 
-    /// ## Create a file server
-    /// 
+    /// ## Example Usage
+    /// ### Create a file server
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

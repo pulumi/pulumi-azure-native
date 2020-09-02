@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataCatalog.Latest
     /// <summary>
     /// Azure Data Catalog.
     /// 
-    /// ## Create Azure Data Catalog Service
-    /// 
+    /// ## Example Usage
+    /// ### Create Azure Data Catalog Service
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.KeyVault.V20180214
     /// <summary>
     /// Private endpoint connection resource.
     /// 
-    /// ## KeyVaultPutPrivateEndpointConnection
-    /// 
+    /// ## Example Usage
+    /// ### KeyVaultPutPrivateEndpointConnection
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

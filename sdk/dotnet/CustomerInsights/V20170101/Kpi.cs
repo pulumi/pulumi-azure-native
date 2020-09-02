@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     /// <summary>
     /// The KPI resource format.
     /// 
-    /// ## Kpi_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Kpi_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

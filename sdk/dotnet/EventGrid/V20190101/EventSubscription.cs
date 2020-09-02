@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
     /// <summary>
     /// Event Subscription
     /// 
-    /// ## EventSubscriptions_CreateOrUpdateForCustomTopic_EventHubDestination
-    /// 
+    /// ## Example Usage
+    /// ### EventSubscriptions_CreateOrUpdateForCustomTopic_EventHubDestination
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -46,9 +46,7 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## EventSubscriptions_CreateOrUpdateForCustomTopic_HybridConnectionDestination
-    /// 
+    /// ### EventSubscriptions_CreateOrUpdateForCustomTopic_HybridConnectionDestination
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -81,9 +79,7 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## EventSubscriptions_CreateOrUpdateForCustomTopic_StorageQueueDestination
-    /// 
+    /// ### EventSubscriptions_CreateOrUpdateForCustomTopic_StorageQueueDestination
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -116,9 +112,7 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## EventSubscriptions_CreateOrUpdateForCustomTopic_WebhookDestination
-    /// 
+    /// ### EventSubscriptions_CreateOrUpdateForCustomTopic_WebhookDestination
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -151,9 +145,7 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## EventSubscriptions_CreateOrUpdateForResource
-    /// 
+    /// ### EventSubscriptions_CreateOrUpdateForResource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -182,9 +174,7 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## EventSubscriptions_CreateOrUpdateForResourceGroup
-    /// 
+    /// ### EventSubscriptions_CreateOrUpdateForResourceGroup
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -213,9 +203,7 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## EventSubscriptions_CreateOrUpdateForSubscription
-    /// 
+    /// ### EventSubscriptions_CreateOrUpdateForSubscription
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

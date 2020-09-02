@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// 
-    /// ## Update private endpoint connection.
-    /// 
+    /// ## Example Usage
+    /// ### Update private endpoint connection.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

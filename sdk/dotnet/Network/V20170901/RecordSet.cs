@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20170901
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type).
     /// 
-    /// ## Create CAA recordset
-    /// 
+    /// ## Example Usage
+    /// ### Create CAA recordset
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

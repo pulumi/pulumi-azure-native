@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Peering.V20200401
     /// <summary>
     /// Peering Service
     /// 
-    /// ## Create a  peering service
-    /// 
+    /// ## Example Usage
+    /// ### Create a  peering service
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

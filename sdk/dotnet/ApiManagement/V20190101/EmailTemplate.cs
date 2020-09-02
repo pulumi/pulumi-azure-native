@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// <summary>
     /// Email Template details.
     /// 
-    /// ## ApiManagementCreateEmailTemplate
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateEmailTemplate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

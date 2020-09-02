@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     /// <summary>
     /// The connector mapping resource format.
     /// 
-    /// ## ConnectorMappings_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### ConnectorMappings_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

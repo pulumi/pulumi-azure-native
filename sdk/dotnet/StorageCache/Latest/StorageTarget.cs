@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorageCache.Latest
     /// <summary>
     /// Type of the Storage Target.
     /// 
-    /// ## StorageTargets_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### StorageTargets_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

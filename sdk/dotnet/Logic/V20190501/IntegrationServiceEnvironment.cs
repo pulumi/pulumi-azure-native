@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.V20190501
     /// <summary>
     /// The integration service environment.
     /// 
-    /// ## Create or update an integration service environment
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an integration service environment
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

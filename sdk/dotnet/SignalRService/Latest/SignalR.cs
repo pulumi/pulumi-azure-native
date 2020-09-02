@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.SignalRService.Latest
     /// <summary>
     /// A class represent a SignalR service resource.
     /// 
-    /// ## SignalR_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### SignalR_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

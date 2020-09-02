@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
     /// <summary>
     /// An object that represents a webhook for a container registry.
     /// 
-    /// ## WebhookCreate
-    /// 
+    /// ## Example Usage
+    /// ### WebhookCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

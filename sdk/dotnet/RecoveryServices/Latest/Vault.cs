@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
     /// <summary>
     /// Resource information, as returned by the resource provider.
     /// 
-    /// ## Create of Update Recovery Services vault
-    /// 
+    /// ## Example Usage
+    /// ### Create of Update Recovery Services vault
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

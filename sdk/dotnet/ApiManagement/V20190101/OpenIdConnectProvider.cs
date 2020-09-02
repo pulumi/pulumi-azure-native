@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// <summary>
     /// OpenId Connect Provider details.
     /// 
-    /// ## ApiManagementCreateOpenIdConnectProvider
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateOpenIdConnectProvider
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

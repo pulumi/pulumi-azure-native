@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.Latest
     /// <summary>
     /// The integration account session.
     /// 
-    /// ## Create or update an integration account session
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an integration account session
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

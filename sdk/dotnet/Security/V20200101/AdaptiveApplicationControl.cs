@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Security.V20200101
 {
     /// <summary>
-    /// ## Update an application control machine group by adding a new application
-    /// 
+    /// ## Example Usage
+    /// ### Update an application control machine group by adding a new application
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

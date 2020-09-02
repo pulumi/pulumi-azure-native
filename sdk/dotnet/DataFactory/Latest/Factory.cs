@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     /// <summary>
     /// Factory resource type.
     /// 
-    /// ## Factories_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Factories_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

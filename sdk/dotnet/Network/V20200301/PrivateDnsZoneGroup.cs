@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200301
     /// <summary>
     /// Private dns zone group resource.
     /// 
-    /// ## Create private dns zone group
-    /// 
+    /// ## Example Usage
+    /// ### Create private dns zone group
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

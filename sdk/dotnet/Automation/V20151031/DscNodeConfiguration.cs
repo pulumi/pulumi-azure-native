@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
     /// <summary>
     /// Definition of the dsc node configuration.
     /// 
-    /// ## Get a DSC node configuration
-    /// 
+    /// ## Example Usage
+    /// ### Get a DSC node configuration
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

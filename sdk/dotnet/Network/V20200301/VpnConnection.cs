@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200301
     /// <summary>
     /// VpnConnection Resource.
     /// 
-    /// ## VpnConnectionPut
-    /// 
+    /// ## Example Usage
+    /// ### VpnConnectionPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Kusto.V20190515
     /// <summary>
     /// Class representing an data connection.
     /// 
-    /// ## KustoDataConnectionsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### KustoDataConnectionsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

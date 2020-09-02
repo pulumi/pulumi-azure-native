@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
     /// <summary>
     /// Definition of the webhook type.
     /// 
-    /// ## Create or update webhook
-    /// 
+    /// ## Example Usage
+    /// ### Create or update webhook
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

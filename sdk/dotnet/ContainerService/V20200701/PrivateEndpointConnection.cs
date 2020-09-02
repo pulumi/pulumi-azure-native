@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ContainerService.V20200701
     /// <summary>
     /// A private endpoint connection
     /// 
-    /// ## Update Private Endpoint Connection
-    /// 
+    /// ## Example Usage
+    /// ### Update Private Endpoint Connection
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

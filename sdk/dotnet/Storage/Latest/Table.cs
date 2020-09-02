@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Storage.Latest
     /// <summary>
     /// Properties of the table, including Id, resource name, resource type.
     /// 
-    /// ## TableOperationPut
-    /// 
+    /// ## Example Usage
+    /// ### TableOperationPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

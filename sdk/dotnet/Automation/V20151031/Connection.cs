@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
     /// <summary>
     /// Definition of the connection.
     /// 
-    /// ## Create or update connection
-    /// 
+    /// ## Example Usage
+    /// ### Create or update connection
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

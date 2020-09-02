@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.Latest
     /// <summary>
     /// Challenge-Handshake Authentication Protocol (CHAP) setting
     /// 
-    /// ## ChapSettingsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### ChapSettingsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

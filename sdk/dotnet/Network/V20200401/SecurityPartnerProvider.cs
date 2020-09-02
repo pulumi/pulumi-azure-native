@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200401
     /// <summary>
     /// Security Partner Provider resource.
     /// 
-    /// ## Create Security Partner Provider
-    /// 
+    /// ## Example Usage
+    /// ### Create Security Partner Provider
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

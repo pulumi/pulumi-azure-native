@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20191101
     /// <summary>
     /// Defines the properties of an Experiment
     /// 
-    /// ## Creates an Experiment
-    /// 
+    /// ## Example Usage
+    /// ### Creates an Experiment
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

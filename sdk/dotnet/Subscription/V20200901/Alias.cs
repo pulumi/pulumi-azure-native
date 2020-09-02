@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Subscription.V20200901
     /// <summary>
     /// Subscription Information with the alias.
     /// 
-    /// ## CreateAlias
-    /// 
+    /// ## Example Usage
+    /// ### CreateAlias
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

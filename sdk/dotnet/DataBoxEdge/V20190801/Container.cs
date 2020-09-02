@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     /// <summary>
     /// Represents a container on the  Data Box Edge/Gateway device.
     /// 
-    /// ## ContainerPut
-    /// 
+    /// ## Example Usage
+    /// ### ContainerPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

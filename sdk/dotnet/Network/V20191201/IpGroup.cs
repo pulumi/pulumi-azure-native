@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20191201
     /// <summary>
     /// The IpGroups resource information.
     /// 
-    /// ## CreateOrUpdate_IpGroups
-    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate_IpGroups
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

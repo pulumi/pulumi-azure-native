@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20170701
     /// <summary>
     /// Base class for backup ProtectionIntent.
     /// 
-    /// ## Create or Update Azure Vm Protection Intent
-    /// 
+    /// ## Example Usage
+    /// ### Create or Update Azure Vm Protection Intent
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

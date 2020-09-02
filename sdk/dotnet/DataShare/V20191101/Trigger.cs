@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     /// <summary>
     /// A Trigger data transfer object.
     /// 
-    /// ## Triggers_Create
-    /// 
+    /// ## Example Usage
+    /// ### Triggers_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

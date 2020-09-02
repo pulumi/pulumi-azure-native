@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.HDInsight.Latest
     /// <summary>
     /// The HDInsight cluster application
     /// 
-    /// ## Create Application
-    /// 
+    /// ## Example Usage
+    /// ### Create Application
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

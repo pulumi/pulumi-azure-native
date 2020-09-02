@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     /// <summary>
     /// Identity Provider details.
     /// 
-    /// ## ApiManagementCreateIdentityProvider
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateIdentityProvider
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

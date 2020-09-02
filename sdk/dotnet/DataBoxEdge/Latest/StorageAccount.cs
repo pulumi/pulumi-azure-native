@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
     /// 
-    /// ## StorageAccountPut
-    /// 
+    /// ## Example Usage
+    /// ### StorageAccountPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.Latest
     /// <summary>
     /// The integration account map.
     /// 
-    /// ## Create or update a map
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a map
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

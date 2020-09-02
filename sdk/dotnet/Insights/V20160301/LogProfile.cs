@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.V20160301
     /// <summary>
     /// The log profile resource.
     /// 
-    /// ## Create or update a log profile
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a log profile
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

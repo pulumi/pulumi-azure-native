@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Resources.V20190801
     /// <summary>
     /// Deployment information.
     /// 
-    /// ## Create a deployment that will redeploy another deployment on failure
-    /// 
+    /// ## Example Usage
+    /// ### Create a deployment that will redeploy another deployment on failure
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -32,9 +32,7 @@ namespace Pulumi.AzureRM.Resources.V20190801
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a deployment that will redeploy the last successful deployment on failure
-    /// 
+    /// ### Create a deployment that will redeploy the last successful deployment on failure
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

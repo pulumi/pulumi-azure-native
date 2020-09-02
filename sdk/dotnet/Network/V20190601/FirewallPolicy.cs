@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190601
     /// <summary>
     /// FirewallPolicy Resource.
     /// 
-    /// ## Create FirewallPolicy
-    /// 
+    /// ## Example Usage
+    /// ### Create FirewallPolicy
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

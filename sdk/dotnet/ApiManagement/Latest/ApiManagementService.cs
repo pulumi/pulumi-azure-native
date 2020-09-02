@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// <summary>
     /// A single API Management service resource in List or Get response.
     /// 
-    /// ## ApiManagementCreateMultiRegionServiceWithCustomHostname
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateMultiRegionServiceWithCustomHostname
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -89,9 +89,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateService
-    /// 
+    /// ### ApiManagementCreateService
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -123,9 +121,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateServiceHavingMsi
-    /// 
+    /// ### ApiManagementCreateServiceHavingMsi
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -162,9 +158,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateServiceWithSystemCertificates
-    /// 
+    /// ### ApiManagementCreateServiceWithSystemCertificates
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -206,9 +200,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateServiceWithUserAssignedIdentity
-    /// 
+    /// ### ApiManagementCreateServiceWithUserAssignedIdentity
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
     /// <summary>
     /// Protection profile details.
     /// 
-    /// ## Creates the policy.
-    /// 
+    /// ## Example Usage
+    /// ### Creates the policy.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

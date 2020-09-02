@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190401
     /// <summary>
     /// Route resource.
     /// 
-    /// ## Create route
-    /// 
+    /// ## Example Usage
+    /// ### Create route
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Resources.V20191001
     /// <summary>
     /// Resource group information.
     /// 
-    /// ## Create or update a resource group
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a resource group
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

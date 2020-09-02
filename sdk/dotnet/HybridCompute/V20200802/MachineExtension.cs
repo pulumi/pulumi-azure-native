@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.HybridCompute.V20200802
     /// <summary>
     /// Describes a Machine Extension.
     /// 
-    /// ## Create or Update a Machine Extension
-    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Machine Extension
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

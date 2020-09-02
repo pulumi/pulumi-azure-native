@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// <summary>
     /// The autoscale setting resource.
     /// 
-    /// ## Create or update an autoscale setting
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an autoscale setting
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

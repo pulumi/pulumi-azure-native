@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     /// <summary>
     /// The extended info of the manager.
     /// 
-    /// ## ManagersCreateExtendedInfo
-    /// 
+    /// ## Example Usage
+    /// ### ManagersCreateExtendedInfo
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

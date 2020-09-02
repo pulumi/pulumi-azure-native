@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
     /// <summary>
     /// Datasources under OMS Workspace.
     /// 
-    /// ## DataSourcesCreate
-    /// 
+    /// ## Example Usage
+    /// ### DataSourcesCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

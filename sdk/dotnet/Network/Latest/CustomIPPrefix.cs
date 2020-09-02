@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// Custom IP prefix resource.
     /// 
-    /// ## Create custom IP prefix allocation method
-    /// 
+    /// ## Example Usage
+    /// ### Create custom IP prefix allocation method
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

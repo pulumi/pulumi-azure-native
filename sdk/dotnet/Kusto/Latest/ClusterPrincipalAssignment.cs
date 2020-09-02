@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Kusto.Latest
     /// <summary>
     /// Class representing a cluster principal assignment.
     /// 
-    /// ## KustoClusterPrincipalAssignmentsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### KustoClusterPrincipalAssignmentsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

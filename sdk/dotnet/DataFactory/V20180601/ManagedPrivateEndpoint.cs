@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     /// <summary>
     /// Managed private endpoint resource type.
     /// 
-    /// ## ManagedVirtualNetworks_Create
-    /// 
+    /// ## Example Usage
+    /// ### ManagedVirtualNetworks_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

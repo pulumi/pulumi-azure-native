@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190701
     /// <summary>
     /// Authorization in an ExpressRouteCircuit resource.
     /// 
-    /// ## Create ExpressRouteCircuit Authorization
-    /// 
+    /// ## Example Usage
+    /// ### Create ExpressRouteCircuit Authorization
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

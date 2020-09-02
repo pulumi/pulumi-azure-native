@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     /// <summary>
     /// The StorSimple Manager.
     /// 
-    /// ## ManagersCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### ManagersCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

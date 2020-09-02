@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DBforMySQL.V20200101
     /// <summary>
     /// A MySQL Server key.
     /// 
-    /// ## Creates or updates a MySQL Server key
-    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a MySQL Server key
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Authorization.V20180301
     /// <summary>
     /// The policy definition.
     /// 
-    /// ## Create or update a policy definition
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy definition
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

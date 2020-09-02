@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// <summary>
     /// Gateway hostname configuration details.
     /// 
-    /// ## ApiManagementCreateGatewayHostnameConfiguration
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGatewayHostnameConfiguration
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

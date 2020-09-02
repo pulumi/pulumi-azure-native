@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Authorization.Latest
     /// <summary>
     /// The policy assignment.
     /// 
-    /// ## Create or update a policy assignment
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy assignment
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -50,9 +50,7 @@ namespace Pulumi.AzureRM.Authorization.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update a policy assignment with a managed identity
-    /// 
+    /// ### Create or update a policy assignment with a managed identity
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -95,9 +93,7 @@ namespace Pulumi.AzureRM.Authorization.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update a policy assignment without enforcing policy effect during resource creation or update.
-    /// 
+    /// ### Create or update a policy assignment without enforcing policy effect during resource creation or update.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

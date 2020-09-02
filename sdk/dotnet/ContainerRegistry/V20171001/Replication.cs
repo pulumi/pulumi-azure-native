@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
     /// <summary>
     /// An object that represents a replication for a container registry.
     /// 
-    /// ## ReplicationCreate
-    /// 
+    /// ## Example Usage
+    /// ### ReplicationCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

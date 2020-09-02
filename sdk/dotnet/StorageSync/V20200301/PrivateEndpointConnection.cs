@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// 
-    /// ## PrivateEndpointConnections_Create
-    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnections_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

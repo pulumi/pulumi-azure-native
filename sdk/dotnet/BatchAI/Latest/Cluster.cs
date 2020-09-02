@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.BatchAI.Latest
     /// <summary>
     /// Information about a Cluster.
     /// 
-    /// ## Create a cluster
-    /// 
+    /// ## Example Usage
+    /// ### Create a cluster
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20191201
     /// <summary>
     /// Response on GET of a hybrid use benefit
     /// 
-    /// ## HybridUseBenefit
-    /// 
+    /// ## Example Usage
+    /// ### HybridUseBenefit
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

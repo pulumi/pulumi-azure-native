@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
     /// <summary>
     /// An application type version resource for the specified application type name resource.
     /// 
-    /// ## Put an application type version
-    /// 
+    /// ## Example Usage
+    /// ### Put an application type version
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

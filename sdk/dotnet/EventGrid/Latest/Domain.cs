@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventGrid.Latest
     /// <summary>
     /// EventGrid Domain.
     /// 
-    /// ## Domains_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Domains_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

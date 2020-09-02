@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
     /// <summary>
     /// The cluster resource
     /// 
-    /// ## Put a cluster with maximum parameters
-    /// 
+    /// ## Example Usage
+    /// ### Put a cluster with maximum parameters
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -194,9 +194,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Put a cluster with minimum parameters
-    /// 
+    /// ### Put a cluster with minimum parameters
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

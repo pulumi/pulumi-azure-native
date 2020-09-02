@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// <summary>
     /// An server Active Directory Administrator.
     /// 
-    /// ## Create/Update a server administrator
-    /// 
+    /// ## Example Usage
+    /// ### Create/Update a server administrator
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

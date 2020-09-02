@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.V20200630
     /// <summary>
     /// disk access resource.
     /// 
-    /// ## Create a disk access resource.
-    /// 
+    /// ## Example Usage
+    /// ### Create a disk access resource.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

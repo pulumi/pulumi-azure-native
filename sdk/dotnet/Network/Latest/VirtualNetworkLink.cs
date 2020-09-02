@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// Describes a link to virtual network for a Private DNS zone.
     /// 
-    /// ## PUT Private DNS Zone Virtual Network Link
-    /// 
+    /// ## Example Usage
+    /// ### PUT Private DNS Zone Virtual Network Link
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     /// <summary>
     /// The Role Assignment resource format.
     /// 
-    /// ## RoleAssignments_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### RoleAssignments_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

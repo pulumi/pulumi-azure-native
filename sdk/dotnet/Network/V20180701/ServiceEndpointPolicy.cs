@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20180701
     /// <summary>
     /// Service End point policy resource.
     /// 
-    /// ## Create service endpoint policy
-    /// 
+    /// ## Example Usage
+    /// ### Create service endpoint policy
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -32,9 +32,7 @@ namespace Pulumi.AzureRM.Network.V20180701
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create service endpoint policy with definition
-    /// 
+    /// ### Create service endpoint policy with definition
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

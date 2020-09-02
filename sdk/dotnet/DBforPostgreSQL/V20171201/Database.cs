@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
     /// <summary>
     /// Represents a Database.
     /// 
-    /// ## DatabaseCreate
-    /// 
+    /// ## Example Usage
+    /// ### DatabaseCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     /// <summary>
     /// Content type contract details.
     /// 
-    /// ## ApiManagementCreateContentItem
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateContentItem
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

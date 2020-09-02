@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     /// <summary>
     /// A Synchronization Setting data transfer object.
     /// 
-    /// ## SynchronizationSettings_Create
-    /// 
+    /// ## Example Usage
+    /// ### SynchronizationSettings_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

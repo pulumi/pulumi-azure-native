@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20191101
     /// <summary>
     /// Defines an Network Experiment Profile and lists of Experiments
     /// 
-    /// ## Creates an NetworkExperiment Profile in a Resource Group
-    /// 
+    /// ## Example Usage
+    /// ### Creates an NetworkExperiment Profile in a Resource Group
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

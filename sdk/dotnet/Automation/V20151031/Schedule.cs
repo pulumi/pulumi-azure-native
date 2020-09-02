@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
     /// <summary>
     /// Definition of the schedule.
     /// 
-    /// ## Create or update a schedule
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a schedule
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// VirtualWAN Resource.
     /// 
-    /// ## VirtualWANCreate
-    /// 
+    /// ## Example Usage
+    /// ### VirtualWANCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
     /// <summary>
     /// Replication protected item.
     /// 
-    /// ## Enables protection.
-    /// 
+    /// ## Example Usage
+    /// ### Enables protection.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

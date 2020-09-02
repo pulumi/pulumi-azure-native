@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Marketplace.V20200101
     /// <summary>
     /// The privateStore offer data structure.
     /// 
-    /// ## UpdatePrivateStoreOffer
-    /// 
+    /// ## Example Usage
+    /// ### UpdatePrivateStoreOffer
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

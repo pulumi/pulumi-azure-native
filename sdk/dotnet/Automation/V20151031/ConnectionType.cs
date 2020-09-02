@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
     /// <summary>
     /// Definition of the connection type.
     /// 
-    /// ## Create or update connection type
-    /// 
+    /// ## Example Usage
+    /// ### Create or update connection type
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

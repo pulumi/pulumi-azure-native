@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Storage.V20190601
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// 
-    /// ## StorageAccountPutPrivateEndpointConnection
-    /// 
+    /// ## Example Usage
+    /// ### StorageAccountPutPrivateEndpointConnection
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20180401
     /// <summary>
     /// Class representing Traffic Manager User Metrics.
     /// 
-    /// ## TrafficManagerUserMetricsKeys-PUT
-    /// 
+    /// ## Example Usage
+    /// ### TrafficManagerUserMetricsKeys-PUT
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

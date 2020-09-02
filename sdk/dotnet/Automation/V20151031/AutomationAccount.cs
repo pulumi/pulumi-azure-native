@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.V20151031
     /// <summary>
     /// Definition of the automation account type.
     /// 
-    /// ## Create or update automation account
-    /// 
+    /// ## Example Usage
+    /// ### Create or update automation account
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

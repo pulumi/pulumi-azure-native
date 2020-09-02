@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventHub.Latest
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
     /// 
-    /// ## NameSpaceAuthorizationRuleCreate
-    /// 
+    /// ## Example Usage
+    /// ### NameSpaceAuthorizationRuleCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

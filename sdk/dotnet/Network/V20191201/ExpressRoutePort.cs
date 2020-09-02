@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20191201
     /// <summary>
     /// ExpressRoutePort resource definition.
     /// 
-    /// ## ExpressRoutePortCreate
-    /// 
+    /// ## Example Usage
+    /// ### ExpressRoutePortCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -36,9 +36,7 @@ namespace Pulumi.AzureRM.Network.V20191201
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ExpressRoutePortUpdateLink
-    /// 
+    /// ### ExpressRoutePortUpdateLink
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

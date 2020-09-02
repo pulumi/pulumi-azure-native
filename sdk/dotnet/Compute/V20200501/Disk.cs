@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.V20200501
     /// <summary>
     /// Disk resource.
     /// 
-    /// ## Create a managed disk and associate with disk access resource.
-    /// 
+    /// ## Example Usage
+    /// ### Create a managed disk and associate with disk access resource.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -40,9 +40,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a managed disk and associate with disk encryption set.
-    /// 
+    /// ### Create a managed disk and associate with disk encryption set.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -71,9 +69,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a managed disk by copying a snapshot.
-    /// 
+    /// ### Create a managed disk by copying a snapshot.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -98,9 +94,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a managed disk by importing an unmanaged blob from a different subscription.
-    /// 
+    /// ### Create a managed disk by importing an unmanaged blob from a different subscription.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -126,9 +120,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a managed disk by importing an unmanaged blob from the same subscription.
-    /// 
+    /// ### Create a managed disk by importing an unmanaged blob from the same subscription.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -153,9 +145,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a managed disk from a platform image.
-    /// 
+    /// ### Create a managed disk from a platform image.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -184,9 +174,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a managed disk from an existing managed disk in the same or different subscription.
-    /// 
+    /// ### Create a managed disk from an existing managed disk in the same or different subscription.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -211,9 +199,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a managed upload disk.
-    /// 
+    /// ### Create a managed upload disk.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -238,9 +224,7 @@ namespace Pulumi.AzureRM.Compute.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create an empty managed disk.
-    /// 
+    /// ### Create an empty managed disk.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

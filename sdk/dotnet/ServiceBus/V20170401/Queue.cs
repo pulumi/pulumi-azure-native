@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     /// <summary>
     /// Description of queue Resource.
     /// 
-    /// ## QueueCreate
-    /// 
+    /// ## Example Usage
+    /// ### QueueCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

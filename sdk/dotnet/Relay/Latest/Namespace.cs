@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Relay.Latest
     /// <summary>
     /// Description of a namespace resource.
     /// 
-    /// ## RelayNamespaceCreate
-    /// 
+    /// ## Example Usage
+    /// ### RelayNamespaceCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

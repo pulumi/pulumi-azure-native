@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.NetApp.V20190601
     /// <summary>
     /// Volume resource
     /// 
-    /// ## Volumes_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Volumes_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20180701
     /// <summary>
     /// Network security rule.
     /// 
-    /// ## Create security rule
-    /// 
+    /// ## Example Usage
+    /// ### Create security rule
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

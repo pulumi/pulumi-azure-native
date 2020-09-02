@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
     /// <summary>
     /// vCenter definition.
     /// 
-    /// ## Add vCenter.
-    /// 
+    /// ## Example Usage
+    /// ### Add vCenter.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

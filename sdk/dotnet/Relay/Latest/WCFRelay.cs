@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Relay.Latest
     /// <summary>
     /// Description of the WCF relay resource.
     /// 
-    /// ## RelayCreate
-    /// 
+    /// ## Example Usage
+    /// ### RelayCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

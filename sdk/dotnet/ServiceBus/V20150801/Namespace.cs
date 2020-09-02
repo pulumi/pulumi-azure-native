@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
     /// <summary>
     /// Description of a namespace resource.
     /// 
-    /// ## NameSpaceCreate
-    /// 
+    /// ## Example Usage
+    /// ### NameSpaceCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

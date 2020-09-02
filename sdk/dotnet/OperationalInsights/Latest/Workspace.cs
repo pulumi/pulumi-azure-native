@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
     /// <summary>
     /// The top level Workspace resource container.
     /// 
-    /// ## WorkspacesCreate
-    /// 
+    /// ## Example Usage
+    /// ### WorkspacesCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

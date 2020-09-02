@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     /// <summary>
     /// OpenShift Managed cluster.
     /// 
-    /// ## Create/Update OpenShift Managed Cluster
-    /// 
+    /// ## Example Usage
+    /// ### Create/Update OpenShift Managed Cluster
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

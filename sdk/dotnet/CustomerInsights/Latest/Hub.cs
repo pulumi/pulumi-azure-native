@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
     /// <summary>
     /// Hub resource.
     /// 
-    /// ## Hubs_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Hubs_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

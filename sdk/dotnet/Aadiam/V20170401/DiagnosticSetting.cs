@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Aadiam.V20170401
     /// <summary>
     /// The diagnostic setting resource.
     /// 
-    /// ## BatchAccountDelete
-    /// 
+    /// ## Example Usage
+    /// ### BatchAccountDelete
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

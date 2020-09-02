@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20191101
     /// <summary>
     /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     /// 
-    /// ## ExpressRouteCircuitConnectionCreate
-    /// 
+    /// ## Example Usage
+    /// ### ExpressRouteCircuitConnectionCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

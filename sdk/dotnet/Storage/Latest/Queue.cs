@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Storage.Latest
 {
     /// <summary>
-    /// ## QueueOperationPut
-    /// 
+    /// ## Example Usage
+    /// ### QueueOperationPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -31,9 +31,7 @@ namespace Pulumi.AzureRM.Storage.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## QueueOperationPutWithMetadata
-    /// 
+    /// ### QueueOperationPutWithMetadata
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

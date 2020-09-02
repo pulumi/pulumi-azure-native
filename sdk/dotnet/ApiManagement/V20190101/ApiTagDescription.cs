@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// <summary>
     /// Contract details.
     /// 
-    /// ## ApiManagementCreateApiTagDescription
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiTagDescription
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

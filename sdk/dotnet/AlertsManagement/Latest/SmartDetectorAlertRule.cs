@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AlertsManagement.Latest
     /// <summary>
     /// The alert rule information
     /// 
-    /// ## Create or update a Smart Detector alert rule
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a Smart Detector alert rule
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

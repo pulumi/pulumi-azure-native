@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Cdn.Latest
     /// <summary>
     /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     /// 
-    /// ## OriginGroups_Create
-    /// 
+    /// ## Example Usage
+    /// ### OriginGroups_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190701
     /// <summary>
     /// Information about the connection monitor.
     /// 
-    /// ## Create connection monitor
-    /// 
+    /// ## Example Usage
+    /// ### Create connection monitor
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

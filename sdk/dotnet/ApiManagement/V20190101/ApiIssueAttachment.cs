@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// <summary>
     /// Issue Attachment Contract details.
     /// 
-    /// ## ApiManagementCreateApiIssueAttachment
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiIssueAttachment
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

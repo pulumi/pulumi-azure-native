@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
     /// <summary>
     /// Dedicated cloud node model
     /// 
-    /// ## CreateDedicatedCloudNode
-    /// 
+    /// ## Example Usage
+    /// ### CreateDedicatedCloudNode
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

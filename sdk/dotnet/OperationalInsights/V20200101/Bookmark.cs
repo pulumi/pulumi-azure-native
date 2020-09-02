@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     /// <summary>
     /// Represents a bookmark in Azure Security Insights.
     /// 
-    /// ## Creates or updates a bookmark.
-    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a bookmark.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

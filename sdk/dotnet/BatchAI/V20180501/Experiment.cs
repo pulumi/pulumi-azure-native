@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     /// <summary>
     /// Experiment information.
     /// 
-    /// ## Create an experiment
-    /// 
+    /// ## Example Usage
+    /// ### Create an experiment
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

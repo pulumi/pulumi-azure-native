@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Storage.V20190401
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
     /// 
-    /// ## PutShares
-    /// 
+    /// ## Example Usage
+    /// ### PutShares
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     /// <summary>
     /// The profile resource format.
     /// 
-    /// ## Profiles_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Profiles_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

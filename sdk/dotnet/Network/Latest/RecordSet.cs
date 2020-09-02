@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     /// 
-    /// ## PUT Private DNS Zone A Record Set
-    /// 
+    /// ## Example Usage
+    /// ### PUT Private DNS Zone A Record Set
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -46,9 +46,7 @@ namespace Pulumi.AzureRM.Network.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PUT Private DNS Zone AAAA Record Set
-    /// 
+    /// ### PUT Private DNS Zone AAAA Record Set
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -81,9 +79,7 @@ namespace Pulumi.AzureRM.Network.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PUT Private DNS Zone CNAME Record Set
-    /// 
+    /// ### PUT Private DNS Zone CNAME Record Set
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -113,9 +109,7 @@ namespace Pulumi.AzureRM.Network.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PUT Private DNS Zone MX Record Set
-    /// 
+    /// ### PUT Private DNS Zone MX Record Set
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -149,9 +143,7 @@ namespace Pulumi.AzureRM.Network.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PUT Private DNS Zone PTR Record Set
-    /// 
+    /// ### PUT Private DNS Zone PTR Record Set
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -184,9 +176,7 @@ namespace Pulumi.AzureRM.Network.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PUT Private DNS Zone SOA Record Set
-    /// 
+    /// ### PUT Private DNS Zone SOA Record Set
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -222,9 +212,7 @@ namespace Pulumi.AzureRM.Network.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PUT Private DNS Zone SRV Record Set
-    /// 
+    /// ### PUT Private DNS Zone SRV Record Set
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -260,9 +248,7 @@ namespace Pulumi.AzureRM.Network.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PUT Private DNS Zone TXT Record Set
-    /// 
+    /// ### PUT Private DNS Zone TXT Record Set
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

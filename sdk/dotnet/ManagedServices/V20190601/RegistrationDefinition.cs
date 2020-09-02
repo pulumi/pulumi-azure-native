@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ManagedServices.V20190601
     /// <summary>
     /// Registration definition.
     /// 
-    /// ## Put Registration Definition
-    /// 
+    /// ## Example Usage
+    /// ### Put Registration Definition
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

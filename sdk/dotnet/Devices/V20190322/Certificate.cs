@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Devices.V20190322
     /// <summary>
     /// The X509 Certificate.
     /// 
-    /// ## Certificates_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Certificates_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

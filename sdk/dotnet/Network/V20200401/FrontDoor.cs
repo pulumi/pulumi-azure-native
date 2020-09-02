@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200401
     /// <summary>
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
     /// 
-    /// ## Create or update specific Front Door
-    /// 
+    /// ## Example Usage
+    /// ### Create or update specific Front Door
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     /// <summary>
     /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
     /// 
-    /// ## Create a reference blob input with CSV serialization
-    /// 
+    /// ## Example Usage
+    /// ### Create a reference blob input with CSV serialization
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -33,9 +33,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a stream Event Hub input with JSON serialization
-    /// 
+    /// ### Create a stream Event Hub input with JSON serialization
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -55,9 +53,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a stream IoT Hub input with Avro serialization
-    /// 
+    /// ### Create a stream IoT Hub input with Avro serialization
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -77,9 +73,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a stream blob input with CSV serialization
-    /// 
+    /// ### Create a stream blob input with CSV serialization
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// IpAllocation resource.
     /// 
-    /// ## Create IpAllocation
-    /// 
+    /// ## Example Usage
+    /// ### Create IpAllocation
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

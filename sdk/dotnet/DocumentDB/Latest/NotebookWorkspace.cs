@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
     /// <summary>
     /// A notebook workspace resource
     /// 
-    /// ## CosmosDBNotebookWorkspaceCreate
-    /// 
+    /// ## Example Usage
+    /// ### CosmosDBNotebookWorkspaceCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

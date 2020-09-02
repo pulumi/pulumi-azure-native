@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBox.V20190901
     /// <summary>
     /// Job Resource.
     /// 
-    /// ## JobsCreate
-    /// 
+    /// ## Example Usage
+    /// ### JobsCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

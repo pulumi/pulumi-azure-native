@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Management.V20190601
     /// <summary>
     /// The policy set definition.
     /// 
-    /// ## Create or update a policy set definition at management group level
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy set definition at management group level
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

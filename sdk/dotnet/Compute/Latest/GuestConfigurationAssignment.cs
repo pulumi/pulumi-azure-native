@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.Latest
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
     /// 
-    /// ## Create or update guest configuration assignment
-    /// 
+    /// ## Example Usage
+    /// ### Create or update guest configuration assignment
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

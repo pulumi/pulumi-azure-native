@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// <summary>
     /// Represents a server.
     /// 
-    /// ## Create server max
-    /// 
+    /// ## Example Usage
+    /// ### Create server max
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -40,9 +40,7 @@ namespace Pulumi.AzureRM.Sql.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create server min
-    /// 
+    /// ### Create server min
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

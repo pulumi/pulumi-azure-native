@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Migrate.V20191001
     /// <summary>
     /// Azure Migrate Project.
     /// 
-    /// ## Projects_Create
-    /// 
+    /// ## Example Usage
+    /// ### Projects_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

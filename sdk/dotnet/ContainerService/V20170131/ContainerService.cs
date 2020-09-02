@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ContainerService.V20170131
     /// <summary>
     /// Container service.
     /// 
-    /// ## Create/Update Container Service
-    /// 
+    /// ## Example Usage
+    /// ### Create/Update Container Service
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

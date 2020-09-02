@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200401
     /// <summary>
     /// RouteTable resource in a virtual hub.
     /// 
-    /// ## RouteTablePut
-    /// 
+    /// ## Example Usage
+    /// ### RouteTablePut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

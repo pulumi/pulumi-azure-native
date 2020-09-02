@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Security.Latest
     /// <summary>
     /// Security assessment on a resource
     /// 
-    /// ## Create security recommendation task on a resource
-    /// 
+    /// ## Example Usage
+    /// ### Create security recommendation task on a resource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

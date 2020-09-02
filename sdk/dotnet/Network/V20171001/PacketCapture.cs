@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20171001
     /// <summary>
     /// Information about packet capture session.
     /// 
-    /// ## Create packet capture
-    /// 
+    /// ## Example Usage
+    /// ### Create packet capture
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

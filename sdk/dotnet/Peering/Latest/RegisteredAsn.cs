@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Peering.Latest
     /// <summary>
     /// The customer's ASN that is registered by the peering service provider.
     /// 
-    /// ## Create or update a registered ASN for the peering
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a registered ASN for the peering
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

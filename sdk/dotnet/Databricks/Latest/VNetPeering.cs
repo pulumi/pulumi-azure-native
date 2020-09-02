@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Databricks.Latest
     /// <summary>
     /// Peerings in a VirtualNetwork resource
     /// 
-    /// ## Create vNet Peering for Workspace
-    /// 
+    /// ## Example Usage
+    /// ### Create vNet Peering for Workspace
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

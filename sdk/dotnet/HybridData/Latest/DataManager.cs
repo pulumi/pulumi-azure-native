@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.HybridData.Latest
     /// <summary>
     /// The DataManager resource.
     /// 
-    /// ## DataManagers_CreatePUT41
-    /// 
+    /// ## Example Usage
+    /// ### DataManagers_CreatePUT41
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

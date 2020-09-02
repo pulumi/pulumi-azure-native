@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AVS.Latest
     /// <summary>
     /// A private cloud resource
     /// 
-    /// ## PrivateClouds_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### PrivateClouds_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

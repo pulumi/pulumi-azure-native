@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ContainerService.V20180331
     /// <summary>
     /// Managed cluster.
     /// 
-    /// ## Create/Update Managed Cluster
-    /// 
+    /// ## Example Usage
+    /// ### Create/Update Managed Cluster
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

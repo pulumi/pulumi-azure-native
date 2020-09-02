@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Web.V20160901
     /// <summary>
     /// App Service plan.
     /// 
-    /// ## Create or Update App Service plan
-    /// 
+    /// ## Example Usage
+    /// ### Create or Update App Service plan
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

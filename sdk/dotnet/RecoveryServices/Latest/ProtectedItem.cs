@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
     /// <summary>
     /// Base class for backup items.
     /// 
-    /// ## Enable Protection on Azure IaasVm
-    /// 
+    /// ## Example Usage
+    /// ### Enable Protection on Azure IaasVm
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -35,9 +35,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Stop Protection with retain data on Azure IaasVm
-    /// 
+    /// ### Stop Protection with retain data on Azure IaasVm
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Cdn.V20170402
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
     /// 
-    /// ## Endpoints_Create
-    /// 
+    /// ## Example Usage
+    /// ### Endpoints_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

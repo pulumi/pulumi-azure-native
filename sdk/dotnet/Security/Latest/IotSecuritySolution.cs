@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Security.Latest
     /// <summary>
     /// IoT Security solution configuration and resource information.
     /// 
-    /// ## Create or update a IoT security solution
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a IoT security solution
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

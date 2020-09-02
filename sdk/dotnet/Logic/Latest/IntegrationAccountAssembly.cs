@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.Latest
     /// <summary>
     /// The assembly definition.
     /// 
-    /// ## Create or update an account assembly
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an account assembly
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

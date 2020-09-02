@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Peering.Latest
     /// <summary>
     /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
     /// 
-    /// ## Create a direct peering
-    /// 
+    /// ## Example Usage
+    /// ### Create a direct peering
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -74,9 +74,7 @@ namespace Pulumi.AzureRM.Peering.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a peering with exchange route server
-    /// 
+    /// ### Create a peering with exchange route server
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -129,9 +127,7 @@ namespace Pulumi.AzureRM.Peering.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create an exchange peering
-    /// 
+    /// ### Create an exchange peering
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

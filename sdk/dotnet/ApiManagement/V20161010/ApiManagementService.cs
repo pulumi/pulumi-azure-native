@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20161010
     /// <summary>
     /// A single API Management service resource in List or Get response.
     /// 
-    /// ## ApiManagementCreateService
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateService
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

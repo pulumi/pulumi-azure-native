@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     /// <summary>
     /// The file server.
     /// 
-    /// ## FileServersCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### FileServersCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

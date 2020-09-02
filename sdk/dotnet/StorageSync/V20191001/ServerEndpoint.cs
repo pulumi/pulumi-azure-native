@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
     /// <summary>
     /// Server Endpoint object.
     /// 
-    /// ## ServerEndpoints_Create
-    /// 
+    /// ## Example Usage
+    /// ### ServerEndpoints_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

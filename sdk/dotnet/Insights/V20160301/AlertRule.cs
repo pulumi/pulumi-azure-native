@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.V20160301
     /// <summary>
     /// The alert rule resource.
     /// 
-    /// ## Create or update an alert rule
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an alert rule
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

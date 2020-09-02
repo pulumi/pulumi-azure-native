@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Authorization.V20180301
     /// <summary>
     /// The policy assignment.
     /// 
-    /// ## Create or update a policy assignment
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy assignment
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

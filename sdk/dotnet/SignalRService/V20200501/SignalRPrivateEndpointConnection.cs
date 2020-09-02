@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
     /// <summary>
     /// A private endpoint connection to SignalR resource
     /// 
-    /// ## SignalRPrivateEndpointConnections_Update
-    /// 
+    /// ## Example Usage
+    /// ### SignalRPrivateEndpointConnections_Update
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

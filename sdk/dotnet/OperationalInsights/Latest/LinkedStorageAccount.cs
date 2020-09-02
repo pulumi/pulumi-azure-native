@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
     /// <summary>
     /// Linked storage accounts top level resource container.
     /// 
-    /// ## LinkedStorageAccountsCreate
-    /// 
+    /// ## Example Usage
+    /// ### LinkedStorageAccountsCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

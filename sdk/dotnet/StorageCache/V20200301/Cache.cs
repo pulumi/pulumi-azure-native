@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
     /// <summary>
     /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// 
-    /// ## Caches_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Caches_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

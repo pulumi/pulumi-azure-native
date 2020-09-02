@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.BotService.V20200602
     /// <summary>
     /// Bot resource definition
     /// 
-    /// ## Create Bot
-    /// 
+    /// ## Example Usage
+    /// ### Create Bot
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

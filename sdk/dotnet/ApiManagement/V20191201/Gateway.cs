@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     /// <summary>
     /// Gateway details.
     /// 
-    /// ## ApiManagementCreateGateway
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGateway
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

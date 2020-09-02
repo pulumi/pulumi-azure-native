@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OffAzure.Latest
     /// <summary>
     /// Site REST Resource.
     /// 
-    /// ## Create Hyper-V site
-    /// 
+    /// ## Example Usage
+    /// ### Create Hyper-V site
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.Latest
     /// <summary>
     /// The workflow type.
     /// 
-    /// ## Create or update a workflow
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a workflow
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

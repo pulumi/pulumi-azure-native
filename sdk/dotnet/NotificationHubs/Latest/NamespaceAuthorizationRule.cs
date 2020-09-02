@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.NotificationHubs.Latest
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
     /// 
-    /// ## NameSpaceAuthorizationRuleCreate
-    /// 
+    /// ## Example Usage
+    /// ### NameSpaceAuthorizationRuleCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

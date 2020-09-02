@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     /// <summary>
     /// API details.
     /// 
-    /// ## ApiManagementCreateApi
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApi
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -55,9 +55,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiRevision
-    /// 
+    /// ### ApiManagementCreateApiRevision
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -91,9 +89,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiUsingSwaggerImport
-    /// 
+    /// ### ApiManagementCreateApiUsingSwaggerImport
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -116,9 +112,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiUsingWadlImport
-    /// 
+    /// ### ApiManagementCreateApiUsingWadlImport
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -141,9 +135,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiWithOpenIdConnect
-    /// 
+    /// ### ApiManagementCreateApiWithOpenIdConnect
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -187,9 +179,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateSoapPassThroughApiUsingWsdlImport
-    /// 
+    /// ### ApiManagementCreateSoapPassThroughApiUsingWsdlImport
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -218,9 +208,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateSoapToRestApiUsingWsdlImport
-    /// 
+    /// ### ApiManagementCreateSoapToRestApiUsingWsdlImport
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

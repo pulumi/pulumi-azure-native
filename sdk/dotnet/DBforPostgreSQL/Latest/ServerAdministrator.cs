@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
     /// <summary>
     /// Represents a and external administrator to be created.
     /// 
-    /// ## ServerAdministratorCreate
-    /// 
+    /// ## Example Usage
+    /// ### ServerAdministratorCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

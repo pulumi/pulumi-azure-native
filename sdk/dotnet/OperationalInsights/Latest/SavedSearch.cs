@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
     /// <summary>
     /// Value object for saved search results.
     /// 
-    /// ## SavedSearchCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### SavedSearchCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20181001
     /// <summary>
     /// VirtualHub Resource.
     /// 
-    /// ## VirtualHubPut
-    /// 
+    /// ## Example Usage
+    /// ### VirtualHubPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

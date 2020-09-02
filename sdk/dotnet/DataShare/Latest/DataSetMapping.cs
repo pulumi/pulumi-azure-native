@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataShare.Latest
     /// <summary>
     /// A data set mapping data transfer object.
     /// 
-    /// ## DataSetMappings_Create
-    /// 
+    /// ## Example Usage
+    /// ### DataSetMappings_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -35,9 +35,7 @@ namespace Pulumi.AzureRM.DataShare.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## DataSetMappings_SqlDB_Create
-    /// 
+    /// ### DataSetMappings_SqlDB_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -59,9 +57,7 @@ namespace Pulumi.AzureRM.DataShare.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
-    /// 
+    /// ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -83,9 +79,7 @@ namespace Pulumi.AzureRM.DataShare.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## DataSetMappings_SqlDW_Create
-    /// 
+    /// ### DataSetMappings_SqlDW_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

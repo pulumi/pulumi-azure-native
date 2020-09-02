@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
     /// <summary>
     /// Maintenance configuration record type
     /// 
-    /// ## MaintenanceConfigurations_CreateOrUpdateForResource
-    /// 
+    /// ## Example Usage
+    /// ### MaintenanceConfigurations_CreateOrUpdateForResource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

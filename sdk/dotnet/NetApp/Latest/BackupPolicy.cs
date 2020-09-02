@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.NetApp.Latest
     /// <summary>
     /// Backup policy information
     /// 
-    /// ## BackupPolicies_Create
-    /// 
+    /// ## Example Usage
+    /// ### BackupPolicies_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

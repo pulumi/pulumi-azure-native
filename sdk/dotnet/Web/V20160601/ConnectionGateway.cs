@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Web.V20160601
     /// <summary>
     /// The gateway definition
     /// 
-    /// ## Replace a connection gateway definition
-    /// 
+    /// ## Example Usage
+    /// ### Replace a connection gateway definition
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

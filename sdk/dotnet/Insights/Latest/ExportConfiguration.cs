@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// <summary>
     /// Properties that define a Continuous Export configuration.
     /// 
-    /// ## ExportConfigurationUpdate
-    /// 
+    /// ## Example Usage
+    /// ### ExportConfigurationUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

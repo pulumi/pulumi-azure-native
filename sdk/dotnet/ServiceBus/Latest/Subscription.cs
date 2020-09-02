@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
     /// <summary>
     /// Description of subscription resource.
     /// 
-    /// ## SubscriptionCreate
-    /// 
+    /// ## Example Usage
+    /// ### SubscriptionCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Advisor.V20170419
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     /// 
-    /// ## CreateSuppression
-    /// 
+    /// ## Example Usage
+    /// ### CreateSuppression
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

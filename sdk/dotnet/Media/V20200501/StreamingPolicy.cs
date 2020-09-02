@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// <summary>
     /// A Streaming Policy resource
     /// 
-    /// ## Creates a Streaming Policy with clear streaming
-    /// 
+    /// ## Example Usage
+    /// ### Creates a Streaming Policy with clear streaming
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -43,9 +43,7 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates a Streaming Policy with commonEncryptionCbcs only
-    /// 
+    /// ### Creates a Streaming Policy with commonEncryptionCbcs only
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -91,9 +89,7 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates a Streaming Policy with commonEncryptionCenc only
-    /// 
+    /// ### Creates a Streaming Policy with commonEncryptionCenc only
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -158,9 +154,7 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates a Streaming Policy with envelopeEncryption only
-    /// 
+    /// ### Creates a Streaming Policy with envelopeEncryption only
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -199,9 +193,7 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates a Streaming Policy with secure streaming
-    /// 
+    /// ### Creates a Streaming Policy with secure streaming
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

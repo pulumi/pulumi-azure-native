@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200601
     /// <summary>
     /// HubVirtualNetworkConnection Resource.
     /// 
-    /// ## HubVirtualNetworkConnectionPut
-    /// 
+    /// ## Example Usage
+    /// ### HubVirtualNetworkConnectionPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

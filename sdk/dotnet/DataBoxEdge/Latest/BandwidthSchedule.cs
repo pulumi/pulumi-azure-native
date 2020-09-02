@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
     /// <summary>
     /// The bandwidth schedule details.
     /// 
-    /// ## BandwidthSchedulePut
-    /// 
+    /// ## Example Usage
+    /// ### BandwidthSchedulePut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

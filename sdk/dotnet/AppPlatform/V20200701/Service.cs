@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
     /// <summary>
     /// Service resource
     /// 
-    /// ## Services_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Services_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -42,9 +42,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Services_CreateOrUpdate_VNetInjection
-    /// 
+    /// ### Services_CreateOrUpdate_VNetInjection
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

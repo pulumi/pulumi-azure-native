@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Search.Latest
     /// <summary>
     /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
     /// 
-    /// ## PrivateEndpointConnectionUpdate
-    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnectionUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

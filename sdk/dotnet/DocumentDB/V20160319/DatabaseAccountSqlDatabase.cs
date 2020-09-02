@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
     /// <summary>
     /// An Azure Cosmos DB SQL database.
     /// 
-    /// ## CosmosDBSqlDatabaseCreateUpdate
-    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlDatabaseCreateUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

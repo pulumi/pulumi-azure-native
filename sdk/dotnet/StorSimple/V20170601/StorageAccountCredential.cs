@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     /// <summary>
     /// The storage account credential.
     /// 
-    /// ## StorageAccountCredentialsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### StorageAccountCredentialsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

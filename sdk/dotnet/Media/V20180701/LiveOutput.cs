@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.V20180701
     /// <summary>
     /// The Live Output.
     /// 
-    /// ## Create a LiveOutput
-    /// 
+    /// ## Example Usage
+    /// ### Create a LiveOutput
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

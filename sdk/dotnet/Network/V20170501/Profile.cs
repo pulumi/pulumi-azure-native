@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20170501
     /// <summary>
     /// Class representing a Traffic Manager profile.
     /// 
-    /// ## Profile-PUT-NoEndpoints
-    /// 
+    /// ## Example Usage
+    /// ### Profile-PUT-NoEndpoints
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -46,9 +46,7 @@ namespace Pulumi.AzureRM.Network.V20170501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Profile-PUT-WithEndpoints
-    /// 
+    /// ### Profile-PUT-WithEndpoints
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

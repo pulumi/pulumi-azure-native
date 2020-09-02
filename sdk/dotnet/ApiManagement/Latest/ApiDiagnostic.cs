@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// <summary>
     /// Diagnostic details.
     /// 
-    /// ## ApiManagementCreateApiDiagnostic
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiDiagnostic
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

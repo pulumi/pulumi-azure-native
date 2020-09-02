@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Web.Latest
     /// <summary>
     /// SSL certificate for an app.
     /// 
-    /// ## Create Or Update Certificate
-    /// 
+    /// ## Example Usage
+    /// ### Create Or Update Certificate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

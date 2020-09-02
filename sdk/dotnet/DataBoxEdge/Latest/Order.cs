@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
     /// <summary>
     /// The order details.
     /// 
-    /// ## OrderPut
-    /// 
+    /// ## Example Usage
+    /// ### OrderPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

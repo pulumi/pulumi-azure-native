@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.Latest
     /// <summary>
     /// Definition of the configuration type.
     /// 
-    /// ## Create or Update Configuration
-    /// 
+    /// ## Example Usage
+    /// ### Create or Update Configuration
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

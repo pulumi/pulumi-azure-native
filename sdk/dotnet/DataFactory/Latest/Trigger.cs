@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     /// <summary>
     /// Trigger resource type.
     /// 
-    /// ## Triggers_Create
-    /// 
+    /// ## Example Usage
+    /// ### Triggers_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -33,9 +33,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Triggers_Update
-    /// 
+    /// ### Triggers_Update
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

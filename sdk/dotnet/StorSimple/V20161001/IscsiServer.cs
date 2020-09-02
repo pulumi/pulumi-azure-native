@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     /// <summary>
     /// The iSCSI server.
     /// 
-    /// ## IscsiServersCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### IscsiServersCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

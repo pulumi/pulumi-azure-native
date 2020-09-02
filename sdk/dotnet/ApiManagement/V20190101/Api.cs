@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// <summary>
     /// Api details.
     /// 
-    /// ## ApiManagementCreateApi
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApi
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -55,9 +55,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiClone
-    /// 
+    /// ### ApiManagementCreateApiClone
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -89,9 +87,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiNewVersionUsingExistingApi
-    /// 
+    /// ### ApiManagementCreateApiNewVersionUsingExistingApi
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -125,9 +121,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiRevisionFromExistingApi
-    /// 
+    /// ### ApiManagementCreateApiRevisionFromExistingApi
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -151,9 +145,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiUsingImportOverrideServiceUrl
-    /// 
+    /// ### ApiManagementCreateApiUsingImportOverrideServiceUrl
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -177,9 +169,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiUsingOai3Import
-    /// 
+    /// ### ApiManagementCreateApiUsingOai3Import
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -202,9 +192,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiUsingSwaggerImport
-    /// 
+    /// ### ApiManagementCreateApiUsingSwaggerImport
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -227,9 +215,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiUsingWadlImport
-    /// 
+    /// ### ApiManagementCreateApiUsingWadlImport
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -252,9 +238,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateApiWithOpenIdConnect
-    /// 
+    /// ### ApiManagementCreateApiWithOpenIdConnect
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -298,9 +282,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateSoapPassThroughApiUsingWsdlImport
-    /// 
+    /// ### ApiManagementCreateSoapPassThroughApiUsingWsdlImport
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -329,9 +311,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ApiManagementCreateSoapToRestApiUsingWsdlImport
-    /// 
+    /// ### ApiManagementCreateSoapToRestApiUsingWsdlImport
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

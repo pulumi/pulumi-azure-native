@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Kusto.V20191109
     /// <summary>
     /// Class representing a Kusto cluster.
     /// 
-    /// ## KustoClustersCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### KustoClustersCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

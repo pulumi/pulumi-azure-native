@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.Latest
     /// <summary>
     /// Definition of the module type.
     /// 
-    /// ## Create or update a python 2 package
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a python 2 package
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

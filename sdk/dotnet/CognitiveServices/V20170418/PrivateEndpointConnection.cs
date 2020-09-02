@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// 
-    /// ## PutPrivateEndpointConnection
-    /// 
+    /// ## Example Usage
+    /// ### PutPrivateEndpointConnection
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

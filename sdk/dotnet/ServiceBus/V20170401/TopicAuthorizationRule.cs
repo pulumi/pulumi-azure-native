@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     /// <summary>
     /// Description of a namespace authorization rule.
     /// 
-    /// ## TopicAuthorizationRuleCreate
-    /// 
+    /// ## Example Usage
+    /// ### TopicAuthorizationRuleCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

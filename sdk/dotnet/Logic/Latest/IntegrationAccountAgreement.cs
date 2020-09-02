@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.Latest
     /// <summary>
     /// The integration account agreement.
     /// 
-    /// ## Create or update an agreement
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an agreement
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

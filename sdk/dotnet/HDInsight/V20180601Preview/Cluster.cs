@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     /// <summary>
     /// The HDInsight cluster.
     /// 
-    /// ## Create HDInsight cluster with Autoscale configuration
-    /// 
+    /// ## Example Usage
+    /// ### Create HDInsight cluster with Autoscale configuration
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -32,34 +32,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create Hadoop cluster with Azure Data Lake Storage Gen 2
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var cluster = new AzureRM.HDInsight.V20180601Preview.Cluster("cluster", new AzureRM.HDInsight.V20180601Preview.ClusterArgs
-    ///         {
-    ///             ClusterName = "cluster1",
-    ///             ResourceGroupName = "rg1",
-    ///             Tags = 
-    ///             {
-    ///                 { "key1", "val1" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// 
-    /// ## Create Hadoop on Linux cluster with SSH password
-    /// 
+    /// ### Create Hadoop cluster with Azure Data Lake Storage Gen 2
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -82,9 +55,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create Hadoop on Linux cluster with SSH public key
-    /// 
+    /// ### Create Hadoop on Linux cluster with SSH password
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -107,30 +78,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create Kafka cluster with Kafka Rest Proxy
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var cluster = new AzureRM.HDInsight.V20180601Preview.Cluster("cluster", new AzureRM.HDInsight.V20180601Preview.ClusterArgs
-    ///         {
-    ///             ClusterName = "cluster1",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// 
-    /// ## Create Secure Hadoop cluster
-    /// 
+    /// ### Create Hadoop on Linux cluster with SSH public key
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -153,9 +101,26 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     /// }
     /// 
     /// ```
+    /// ### Create Kafka cluster with Kafka Rest Proxy
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
     /// 
-    /// ## Create Spark on Linux Cluster with SSH password
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cluster = new AzureRM.HDInsight.V20180601Preview.Cluster("cluster", new AzureRM.HDInsight.V20180601Preview.ClusterArgs
+    ///         {
+    ///             ClusterName = "cluster1",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
     /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create Secure Hadoop cluster
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -178,9 +143,30 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     /// }
     /// 
     /// ```
+    /// ### Create Spark on Linux Cluster with SSH password
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
     /// 
-    /// ## Create cluster with TLS 1.2
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cluster = new AzureRM.HDInsight.V20180601Preview.Cluster("cluster", new AzureRM.HDInsight.V20180601Preview.ClusterArgs
+    ///         {
+    ///             ClusterName = "cluster1",
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "val1" },
+    ///             },
+    ///         });
+    ///     }
     /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create cluster with TLS 1.2
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -199,9 +185,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create cluster with custom network settings
-    /// 
+    /// ### Create cluster with custom network settings
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -220,9 +204,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create cluster with encryption at host
-    /// 
+    /// ### Create cluster with encryption at host
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -241,9 +223,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create cluster with encryption in transit
-    /// 
+    /// ### Create cluster with encryption in transit
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

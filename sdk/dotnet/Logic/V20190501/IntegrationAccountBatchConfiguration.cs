@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.V20190501
     /// <summary>
     /// The batch configuration resource definition.
     /// 
-    /// ## Create or update a batch configuration
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a batch configuration
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

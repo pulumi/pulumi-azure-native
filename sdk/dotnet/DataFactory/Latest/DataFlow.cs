@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     /// <summary>
     /// Data flow resource type.
     /// 
-    /// ## DataFlows_Create
-    /// 
+    /// ## Example Usage
+    /// ### DataFlows_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -33,9 +33,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## DataFlows_Update
-    /// 
+    /// ### DataFlows_Update
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

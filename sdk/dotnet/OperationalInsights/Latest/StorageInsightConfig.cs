@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
     /// <summary>
     /// The top level storage insight resource container.
     /// 
-    /// ## StorageInsightsCreate
-    /// 
+    /// ## Example Usage
+    /// ### StorageInsightsCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.HybridData.Latest
     /// <summary>
     /// Job Definition.
     /// 
-    /// ## JobDefinitions_CreateOrUpdatePUT83
-    /// 
+    /// ## Example Usage
+    /// ### JobDefinitions_CreateOrUpdatePUT83
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

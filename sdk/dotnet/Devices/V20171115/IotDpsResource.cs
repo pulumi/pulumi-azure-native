@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Devices.V20171115
     /// <summary>
     /// The description of the provisioning service.
     /// 
-    /// ## DPSCreate
-    /// 
+    /// ## Example Usage
+    /// ### DPSCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

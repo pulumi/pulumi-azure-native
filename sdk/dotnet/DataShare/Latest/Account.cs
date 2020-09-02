@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataShare.Latest
     /// <summary>
     /// An account data transfer object.
     /// 
-    /// ## Accounts_Create
-    /// 
+    /// ## Example Usage
+    /// ### Accounts_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

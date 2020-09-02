@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Logic.V20190501
     /// <summary>
     /// The managed api definition.
     /// 
-    /// ## Gets the integration service environment managed Apis
-    /// 
+    /// ## Example Usage
+    /// ### Gets the integration service environment managed Apis
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

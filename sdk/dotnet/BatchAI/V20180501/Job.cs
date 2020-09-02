@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     /// <summary>
     /// Information about a Job.
     /// 
-    /// ## Create a job
-    /// 
+    /// ## Example Usage
+    /// ### Create a job
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

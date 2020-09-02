@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200501
     /// <summary>
     /// VirtualRouter Resource.
     /// 
-    /// ## Create VirtualRouter
-    /// 
+    /// ## Example Usage
+    /// ### Create VirtualRouter
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20191001
     /// <summary>
     /// Defines web application firewall policy.
     /// 
-    /// ## Creates specific policy
-    /// 
+    /// ## Example Usage
+    /// ### Creates specific policy
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

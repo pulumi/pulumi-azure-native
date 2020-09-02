@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.WindowsIoT.V20190601
     /// <summary>
     /// The description of the Windows IoT Device Service.
     /// 
-    /// ## Service_Create
-    /// 
+    /// ## Example Usage
+    /// ### Service_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Authorization.V20150701
     /// <summary>
     /// Role Assignments
     /// 
-    /// ## GetConfigurations
-    /// 
+    /// ## Example Usage
+    /// ### GetConfigurations
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

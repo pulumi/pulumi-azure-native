@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.Latest
     /// <summary>
     /// Specifies information about the gallery Image Definition that you want to create or update.
     /// 
-    /// ## Create or update a simple gallery image.
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery image.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

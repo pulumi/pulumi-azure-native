@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.V20150501
     /// <summary>
     /// Properties that define a favorite that is associated to an Application Insights component.
     /// 
-    /// ## FavoriteAdd
-    /// 
+    /// ## Example Usage
+    /// ### FavoriteAdd
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

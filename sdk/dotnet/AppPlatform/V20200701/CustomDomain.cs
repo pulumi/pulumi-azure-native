@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
     /// <summary>
     /// Custom domain resource payload.
     /// 
-    /// ## CustomDomains_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### CustomDomains_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

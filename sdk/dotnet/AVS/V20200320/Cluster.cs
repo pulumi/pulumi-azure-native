@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.AVS.V20200320
     /// <summary>
     /// A cluster resource
     /// 
-    /// ## Clusters_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Clusters_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

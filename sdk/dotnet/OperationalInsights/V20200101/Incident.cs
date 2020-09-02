@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     /// <summary>
     /// Represents an incident in Azure Security Insights.
     /// 
-    /// ## Creates or updates an incident.
-    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an incident.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

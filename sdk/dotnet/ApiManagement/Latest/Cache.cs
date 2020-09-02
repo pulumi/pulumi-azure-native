@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// <summary>
     /// Cache details.
     /// 
-    /// ## ApiManagementCreateCache
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateCache
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

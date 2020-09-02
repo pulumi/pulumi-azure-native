@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.V20200601
     /// <summary>
     /// Describes a Virtual Machine Extension.
     /// 
-    /// ## Create VirtualMachineScaleSet VM extension.
-    /// 
+    /// ## Example Usage
+    /// ### Create VirtualMachineScaleSet VM extension.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

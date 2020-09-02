@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Security.V20200101
 {
     /// <summary>
-    /// ## Create JIT network access policy
-    /// 
+    /// ## Example Usage
+    /// ### Create JIT network access policy
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

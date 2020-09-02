@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.MachineLearning.V20191001
     /// <summary>
     /// An object that represents a machine learning workspace.
     /// 
-    /// ## WorkspaceCreate
-    /// 
+    /// ## Example Usage
+    /// ### WorkspaceCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

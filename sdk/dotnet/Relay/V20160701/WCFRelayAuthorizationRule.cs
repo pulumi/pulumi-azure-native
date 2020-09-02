@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Relay.V20160701
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
     /// 
-    /// ## RelayAuthorizationRuleCreate
-    /// 
+    /// ## Example Usage
+    /// ### RelayAuthorizationRuleCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

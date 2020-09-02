@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.Latest
     /// <summary>
     /// Specifies information about the proximity placement group.
     /// 
-    /// ## Create or Update a proximity placement group.
-    /// 
+    /// ## Example Usage
+    /// ### Create or Update a proximity placement group.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

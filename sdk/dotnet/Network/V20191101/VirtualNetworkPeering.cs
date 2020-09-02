@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20191101
     /// <summary>
     /// Peerings in a virtual network resource.
     /// 
-    /// ## Create peering
-    /// 
+    /// ## Example Usage
+    /// ### Create peering
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

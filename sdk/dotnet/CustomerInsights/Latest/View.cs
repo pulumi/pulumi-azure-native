@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
     /// <summary>
     /// The view resource format.
     /// 
-    /// ## Views_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### Views_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

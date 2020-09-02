@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
     /// <summary>
     /// Data connector.
     /// 
-    /// ## Creates or updates an Office365 data connector.
-    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an Office365 data connector.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

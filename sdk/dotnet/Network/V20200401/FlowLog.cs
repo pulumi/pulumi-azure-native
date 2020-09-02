@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200401
     /// <summary>
     /// A flow log resource.
     /// 
-    /// ## Create or update flow log
-    /// 
+    /// ## Example Usage
+    /// ### Create or update flow log
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

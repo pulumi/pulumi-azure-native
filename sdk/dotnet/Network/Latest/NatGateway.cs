@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.Latest
     /// <summary>
     /// Nat Gateway resource.
     /// 
-    /// ## Create nat gateway
-    /// 
+    /// ## Example Usage
+    /// ### Create nat gateway
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

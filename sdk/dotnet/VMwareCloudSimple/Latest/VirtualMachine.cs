@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
     /// <summary>
     /// Virtual machine model
     /// 
-    /// ## CreateVirtualMachine
-    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualMachine
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

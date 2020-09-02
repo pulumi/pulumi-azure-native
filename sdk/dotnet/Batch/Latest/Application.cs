@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Batch.Latest
     /// <summary>
     /// Contains information about an application in a Batch account.
     /// 
-    /// ## ApplicationCreate
-    /// 
+    /// ## Example Usage
+    /// ### ApplicationCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

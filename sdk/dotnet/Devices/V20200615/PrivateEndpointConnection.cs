@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Devices.V20200615
     /// <summary>
     /// The private endpoint connection of an IotHub
     /// 
-    /// ## PrivateEndpointConnection_Update
-    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_Update
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

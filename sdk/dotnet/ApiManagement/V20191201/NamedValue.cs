@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     /// <summary>
     /// NamedValue details.
     /// 
-    /// ## ApiManagementCreateNamedValue
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateNamedValue
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

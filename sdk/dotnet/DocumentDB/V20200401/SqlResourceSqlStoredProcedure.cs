@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
     /// <summary>
     /// An Azure Cosmos DB storedProcedure.
     /// 
-    /// ## CosmosDBSqlStoredProcedureCreateUpdate
-    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlStoredProcedureCreateUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

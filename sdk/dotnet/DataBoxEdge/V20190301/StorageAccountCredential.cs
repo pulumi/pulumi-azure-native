@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
     /// <summary>
     /// The storage account credential.
     /// 
-    /// ## SACPut
-    /// 
+    /// ## Example Usage
+    /// ### SACPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

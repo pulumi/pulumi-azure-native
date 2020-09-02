@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.KeyVault.Latest
     /// <summary>
     /// Resource information with extended details.
     /// 
-    /// ## Create a new vault or update an existing vault
-    /// 
+    /// ## Example Usage
+    /// ### Create a new vault or update an existing vault
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -33,9 +33,7 @@ namespace Pulumi.AzureRM.KeyVault.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update a vault with network acls
-    /// 
+    /// ### Create or update a vault with network acls
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

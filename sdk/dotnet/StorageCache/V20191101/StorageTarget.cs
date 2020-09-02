@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
     /// <summary>
     /// A storage system being cached by a Cache.
     /// 
-    /// ## StorageTargets_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### StorageTargets_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

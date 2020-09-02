@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// <summary>
     /// A Streaming Locator resource
     /// 
-    /// ## Creates a Streaming Locator with clear streaming
-    /// 
+    /// ## Example Usage
+    /// ### Creates a Streaming Locator with clear streaming
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -35,9 +35,7 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates a Streaming Locator with secure streaming
-    /// 
+    /// ### Creates a Streaming Locator with secure streaming
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -61,9 +59,7 @@ namespace Pulumi.AzureRM.Media.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates a Streaming Locator with user defined content keys
-    /// 
+    /// ### Creates a Streaming Locator with user defined content keys
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

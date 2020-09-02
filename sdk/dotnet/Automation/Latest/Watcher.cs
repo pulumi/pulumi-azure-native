@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.Latest
     /// <summary>
     /// Definition of the watcher type.
     /// 
-    /// ## Create or update watcher
-    /// 
+    /// ## Example Usage
+    /// ### Create or update watcher
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

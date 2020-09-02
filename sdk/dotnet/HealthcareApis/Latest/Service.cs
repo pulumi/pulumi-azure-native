@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.HealthcareApis.Latest
     /// <summary>
     /// The description of the service.
     /// 
-    /// ## Create or Update a service with all parameters
-    /// 
+    /// ## Example Usage
+    /// ### Create or Update a service with all parameters
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -39,9 +39,7 @@ namespace Pulumi.AzureRM.HealthcareApis.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or Update a service with minimum parameters
-    /// 
+    /// ### Create or Update a service with minimum parameters
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190201
     /// <summary>
     /// Route Filter Rule Resource
     /// 
-    /// ## RouteFilterRuleCreate
-    /// 
+    /// ## Example Usage
+    /// ### RouteFilterRuleCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

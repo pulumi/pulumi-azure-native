@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.V20161201
     /// <summary>
     /// Base class for container with backup items. Containers with specific workloads are derived from this class.
     /// 
-    /// ## RegisterAzure Storage ProtectionContainers
-    /// 
+    /// ## Example Usage
+    /// ### RegisterAzure Storage ProtectionContainers
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

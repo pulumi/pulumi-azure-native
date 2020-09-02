@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     /// <summary>
     /// Agent Pool.
     /// 
-    /// ## Create Agent Pool with PPG
-    /// 
+    /// ## Example Usage
+    /// ### Create Agent Pool with PPG
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -38,9 +38,7 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create Spot Agent Pool
-    /// 
+    /// ### Create Spot Agent Pool
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -78,9 +76,7 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create/Update Agent Pool
-    /// 
+    /// ### Create/Update Agent Pool
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -119,9 +115,7 @@ namespace Pulumi.AzureRM.ContainerService.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Update Agent Pool
-    /// 
+    /// ### Update Agent Pool
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OffAzure.Latest
     /// <summary>
     /// Site REST Resource.
     /// 
-    /// ## Create Master site
-    /// 
+    /// ## Example Usage
+    /// ### Create Master site
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

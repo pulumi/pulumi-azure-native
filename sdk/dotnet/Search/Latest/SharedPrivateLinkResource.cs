@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Search.Latest
     /// <summary>
     /// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
     /// 
-    /// ## SharedPrivateLinkResourceCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### SharedPrivateLinkResourceCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

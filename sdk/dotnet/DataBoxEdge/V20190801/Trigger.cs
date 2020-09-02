@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     /// <summary>
     /// Trigger details.
     /// 
-    /// ## TriggerPut
-    /// 
+    /// ## Example Usage
+    /// ### TriggerPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

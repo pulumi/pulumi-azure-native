@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// <summary>
     /// An Application Insights workbook definition.
     /// 
-    /// ## WorkbookAdd
-    /// 
+    /// ## Example Usage
+    /// ### WorkbookAdd
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

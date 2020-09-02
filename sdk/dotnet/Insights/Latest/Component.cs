@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// <summary>
     /// An Application Insights component definition.
     /// 
-    /// ## ComponentCreate
-    /// 
+    /// ## Example Usage
+    /// ### ComponentCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -37,9 +37,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## ComponentUpdate
-    /// 
+    /// ### ComponentUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

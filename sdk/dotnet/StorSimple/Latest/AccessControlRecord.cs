@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.Latest
     /// <summary>
     /// The access control record.
     /// 
-    /// ## AccessControlRecordsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### AccessControlRecordsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

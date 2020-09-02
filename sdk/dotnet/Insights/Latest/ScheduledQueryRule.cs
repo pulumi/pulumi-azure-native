@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// <summary>
     /// The Log Search Rule resource.
     /// 
-    /// ## Create or Update rule - AlertingAction
-    /// 
+    /// ## Example Usage
+    /// ### Create or Update rule - AlertingAction
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -51,9 +51,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or Update rule - AlertingAction with Cross-Resource
-    /// 
+    /// ### Create or Update rule - AlertingAction with Cross-Resource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -96,9 +94,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or Update rule - LogToMetricAction
-    /// 
+    /// ### Create or Update rule - LogToMetricAction
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

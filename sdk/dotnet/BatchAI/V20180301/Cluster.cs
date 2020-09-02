@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
     /// <summary>
     /// Contains information about a Cluster.
     /// 
-    /// ## Create or update cluster
-    /// 
+    /// ## Example Usage
+    /// ### Create or update cluster
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

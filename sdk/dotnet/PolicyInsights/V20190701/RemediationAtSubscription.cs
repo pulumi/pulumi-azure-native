@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
     /// <summary>
     /// The remediation definition.
     /// 
-    /// ## Create remediation at subscription scope
-    /// 
+    /// ## Example Usage
+    /// ### Create remediation at subscription scope
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -32,9 +32,7 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create remediation at subscription scope with all properties
-    /// 
+    /// ### Create remediation at subscription scope with all properties
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

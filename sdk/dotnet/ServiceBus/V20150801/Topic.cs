@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
     /// <summary>
     /// Description of topic resource.
     /// 
-    /// ## TopicCreate
-    /// 
+    /// ## Example Usage
+    /// ### TopicCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

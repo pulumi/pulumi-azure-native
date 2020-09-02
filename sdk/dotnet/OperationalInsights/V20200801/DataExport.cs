@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
     /// <summary>
     /// The top level data export resource container.
     /// 
-    /// ## DataExportCreate
-    /// 
+    /// ## Example Usage
+    /// ### DataExportCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

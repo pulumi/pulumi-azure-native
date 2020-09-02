@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     /// <summary>
     /// Alert rule.
     /// 
-    /// ## Creates or updates a Fusion alert rule.
-    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a Fusion alert rule.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -35,9 +35,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates or updates a MicrosoftSecurityIncidentCreation rule.
-    /// 
+    /// ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -59,9 +57,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Creates or updates a Scheduled alert rule.
-    /// 
+    /// ### Creates or updates a Scheduled alert rule.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

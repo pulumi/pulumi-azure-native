@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Management.V20190701
     /// <summary>
     /// Deployment information.
     /// 
-    /// ## Create deployment at management group scope.
-    /// 
+    /// ## Example Usage
+    /// ### Create deployment at management group scope.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

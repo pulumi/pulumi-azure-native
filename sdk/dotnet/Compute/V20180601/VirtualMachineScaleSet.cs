@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// <summary>
     /// Describes a Virtual Machine Scale Set.
     /// 
-    /// ## Create a custom-image scale set from an unmanaged generalized os image.
-    /// 
+    /// ## Example Usage
+    /// ### Create a custom-image scale set from an unmanaged generalized os image.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -76,9 +76,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a platform-image scale set with unmanaged os disks.
-    /// 
+    /// ### Create a platform-image scale set with unmanaged os disks.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -152,9 +150,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set from a custom image.
-    /// 
+    /// ### Create a scale set from a custom image.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -220,9 +216,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set with a marketplace image plan.
-    /// 
+    /// ### Create a scale set with a marketplace image plan.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -297,9 +291,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set with an azure application gateway.
-    /// 
+    /// ### Create a scale set with an azure application gateway.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -368,9 +360,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set with an azure load balancer.
-    /// 
+    /// ### Create a scale set with an azure load balancer.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -439,9 +429,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set with boot diagnostics.
-    /// 
+    /// ### Create a scale set with boot diagnostics.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -518,9 +506,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set with empty data disks on each vm.
-    /// 
+    /// ### Create a scale set with empty data disks on each vm.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -605,9 +591,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set with ephemeral os disks.
-    /// 
+    /// ### Create a scale set with ephemeral os disks.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -686,9 +670,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set with password authentication.
-    /// 
+    /// ### Create a scale set with password authentication.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -757,9 +739,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set with premium storage.
-    /// 
+    /// ### Create a scale set with premium storage.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -828,9 +808,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set with ssh authentication.
-    /// 
+    /// ### Create a scale set with ssh authentication.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -913,9 +891,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create a scale set with virtual machines in different zones.
-    /// 
+    /// ### Create a scale set with virtual machines in different zones.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
     /// <summary>
     /// Provider details.
     /// 
-    /// ## Adds a recovery services provider.
-    /// 
+    /// ## Example Usage
+    /// ### Adds a recovery services provider.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

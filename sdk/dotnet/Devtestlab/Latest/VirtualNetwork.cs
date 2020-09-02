@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
     /// <summary>
     /// A virtual network.
     /// 
-    /// ## VirtualNetworks_CreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### VirtualNetworks_CreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

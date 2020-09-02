@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190901
     /// <summary>
     /// A DDoS protection plan in a resource group.
     /// 
-    /// ## Create DDoS protection plan
-    /// 
+    /// ## Example Usage
+    /// ### Create DDoS protection plan
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

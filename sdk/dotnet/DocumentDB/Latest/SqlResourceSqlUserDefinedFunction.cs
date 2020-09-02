@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
     /// <summary>
     /// An Azure Cosmos DB userDefinedFunction.
     /// 
-    /// ## CosmosDBSqlUserDefinedFunctionCreateUpdate
-    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlUserDefinedFunctionCreateUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

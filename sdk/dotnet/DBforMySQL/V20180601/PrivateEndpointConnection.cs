@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DBforMySQL.V20180601
     /// <summary>
     /// A private endpoint connection
     /// 
-    /// ## Approve or reject a private endpoint connection with a given name.
-    /// 
+    /// ## Example Usage
+    /// ### Approve or reject a private endpoint connection with a given name.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

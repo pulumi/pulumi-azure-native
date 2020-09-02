@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20181001
     /// <summary>
     /// P2SVpnGateway Resource.
     /// 
-    /// ## P2SVpnGatewayPut
-    /// 
+    /// ## Example Usage
+    /// ### P2SVpnGatewayPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

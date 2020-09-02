@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.V20180601
     /// <summary>
     /// Specifies information about the gallery Image Version that you want to create or update.
     /// 
-    /// ## Create or update a simple gallery Image Version.
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery Image Version.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

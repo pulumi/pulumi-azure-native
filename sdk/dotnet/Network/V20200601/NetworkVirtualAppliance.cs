@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20200601
     /// <summary>
     /// NetworkVirtualAppliance Resource.
     /// 
-    /// ## Create NetworkVirtualAppliance
-    /// 
+    /// ## Example Usage
+    /// ### Create NetworkVirtualAppliance
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

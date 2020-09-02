@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
     /// <summary>
     /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     /// 
-    /// ## Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
-    /// 
+    /// ## Example Usage
+    /// ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

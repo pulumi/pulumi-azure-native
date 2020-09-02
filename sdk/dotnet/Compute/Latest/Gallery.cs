@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.Latest
     /// <summary>
     /// Specifies information about the Shared Image Gallery that you want to create or update.
     /// 
-    /// ## Create or update a simple gallery.
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery.
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

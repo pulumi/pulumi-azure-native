@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Security.V20190801
     /// <summary>
     /// The device security group resource
     /// 
-    /// ## Create or update a device security group for the specified IoT hub resource
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a device security group for the specified IoT hub resource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

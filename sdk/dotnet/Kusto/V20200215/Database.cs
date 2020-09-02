@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Kusto.V20200215
     /// <summary>
     /// Class representing a Kusto database.
     /// 
-    /// ## KustoDatabasesCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### KustoDatabasesCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

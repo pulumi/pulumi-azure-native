@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Storage.Latest
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
     /// 
-    /// ## StorageAccountCreateObjectReplicationPolicyOnDestination
-    /// 
+    /// ## Example Usage
+    /// ### StorageAccountCreateObjectReplicationPolicyOnDestination
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -51,9 +51,7 @@ namespace Pulumi.AzureRM.Storage.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## StorageAccountCreateObjectReplicationPolicyOnSource
-    /// 
+    /// ### StorageAccountCreateObjectReplicationPolicyOnSource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -93,9 +91,7 @@ namespace Pulumi.AzureRM.Storage.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## StorageAccountUpdateObjectReplicationPolicyOnDestination
-    /// 
+    /// ### StorageAccountUpdateObjectReplicationPolicyOnDestination
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -139,9 +135,7 @@ namespace Pulumi.AzureRM.Storage.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## StorageAccountUpdateObjectReplicationPolicyOnSource
-    /// 
+    /// ### StorageAccountUpdateObjectReplicationPolicyOnSource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

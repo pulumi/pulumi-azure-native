@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190801
     /// <summary>
     /// Public IP prefix resource.
     /// 
-    /// ## Create public IP prefix allocation method
-    /// 
+    /// ## Example Usage
+    /// ### Create public IP prefix allocation method
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -39,9 +39,7 @@ namespace Pulumi.AzureRM.Network.V20190801
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create public IP prefix defaults
-    /// 
+    /// ### Create public IP prefix defaults
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

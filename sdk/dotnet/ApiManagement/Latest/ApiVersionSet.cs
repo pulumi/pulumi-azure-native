@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
     /// <summary>
     /// Api Version Set Contract details.
     /// 
-    /// ## ApiManagementCreateApiVersionSet
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiVersionSet
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

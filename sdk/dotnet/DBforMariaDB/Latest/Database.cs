@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
     /// <summary>
     /// Represents a Database.
     /// 
-    /// ## DatabaseCreate
-    /// 
+    /// ## Example Usage
+    /// ### DatabaseCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

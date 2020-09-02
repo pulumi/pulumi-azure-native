@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190401
     /// <summary>
     /// P2SVpnServerConfiguration Resource.
     /// 
-    /// ## P2SVpnServerConfigurationPut
-    /// 
+    /// ## Example Usage
+    /// ### P2SVpnServerConfigurationPut
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

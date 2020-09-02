@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
     /// <summary>
     /// Description of a NotificationHub Resource.
     /// 
-    /// ## NotificationHubCreate
-    /// 
+    /// ## Example Usage
+    /// ### NotificationHubCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

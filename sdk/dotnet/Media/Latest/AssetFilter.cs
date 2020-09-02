@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Media.Latest
     /// <summary>
     /// An Asset Filter.
     /// 
-    /// ## Create an Asset Filter
-    /// 
+    /// ## Example Usage
+    /// ### Create an Asset Filter
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

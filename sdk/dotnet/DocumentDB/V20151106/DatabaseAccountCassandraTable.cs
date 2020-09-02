@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
     /// 
-    /// ## CosmosDBCassandraTableCreateUpdate
-    /// 
+    /// ## Example Usage
+    /// ### CosmosDBCassandraTableCreateUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

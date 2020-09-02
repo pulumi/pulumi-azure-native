@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// <summary>
     /// The metric alert resource.
     /// 
-    /// ## Create or update a dynamic alert rule for Multiple Resources
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a dynamic alert rule for Multiple Resources
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -63,9 +63,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update a dynamic alert rule for Single Resource
-    /// 
+    /// ### Create or update a dynamic alert rule for Single Resource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -114,9 +112,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update a web test alert rule
-    /// 
+    /// ### Create or update a web test alert rule
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -156,9 +152,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update an alert rule for Multiple Resource
-    /// 
+    /// ### Create or update an alert rule for Multiple Resource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -208,9 +202,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update an alert rule for Single Resource
-    /// 
+    /// ### Create or update an alert rule for Single Resource
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -257,9 +249,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update an alert rule on Resource group(s)
-    /// 
+    /// ### Create or update an alert rule on Resource group(s)
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -309,9 +299,7 @@ namespace Pulumi.AzureRM.Insights.Latest
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create or update an alert rule on Subscription
-    /// 
+    /// ### Create or update an alert rule on Subscription
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

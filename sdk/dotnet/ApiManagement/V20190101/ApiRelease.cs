@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     /// <summary>
     /// ApiRelease details.
     /// 
-    /// ## ApiManagementCreateApiRelease
-    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiRelease
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

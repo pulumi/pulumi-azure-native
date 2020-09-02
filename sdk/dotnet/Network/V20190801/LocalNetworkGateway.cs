@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Network.V20190801
     /// <summary>
     /// A common class for general resource information.
     /// 
-    /// ## CreateLocalNetworkGateway
-    /// 
+    /// ## Example Usage
+    /// ### CreateLocalNetworkGateway
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

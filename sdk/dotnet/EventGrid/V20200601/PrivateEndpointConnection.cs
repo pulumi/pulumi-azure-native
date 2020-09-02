@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.EventGrid.V20200601
 {
     /// <summary>
-    /// ## PrivateEndpointConnections_Update
-    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnections_Update
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

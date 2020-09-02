@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Batch.V20200501
     /// <summary>
     /// Contains information about an Azure Batch account.
     /// 
-    /// ## BatchAccountCreate_BYOS
-    /// 
+    /// ## Example Usage
+    /// ### BatchAccountCreate_BYOS
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -43,9 +43,7 @@ namespace Pulumi.AzureRM.Batch.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## BatchAccountCreate_Default
-    /// 
+    /// ### BatchAccountCreate_Default
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -69,9 +67,7 @@ namespace Pulumi.AzureRM.Batch.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## BatchAccountCreate_SystemAssignedIdentity
-    /// 
+    /// ### BatchAccountCreate_SystemAssignedIdentity
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -99,9 +95,7 @@ namespace Pulumi.AzureRM.Batch.V20200501
     /// }
     /// 
     /// ```
-    /// 
-    /// ## PrivateBatchAccountCreate
-    /// 
+    /// ### PrivateBatchAccountCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

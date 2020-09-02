@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Management.V20200501
     /// <summary>
     /// The details of subscription under management group.
     /// 
-    /// ## AddSubscriptionToManagementGroup
-    /// 
+    /// ## Example Usage
+    /// ### AddSubscriptionToManagementGroup
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

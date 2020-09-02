@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.StorSimple.Latest
     /// <summary>
     /// The storage domain.
     /// 
-    /// ## StorageDomainsCreateOrUpdate
-    /// 
+    /// ## Example Usage
+    /// ### StorageDomainsCreateOrUpdate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

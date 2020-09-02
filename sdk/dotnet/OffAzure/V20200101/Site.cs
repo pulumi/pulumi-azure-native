@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.OffAzure.V20200101
     /// <summary>
     /// Site REST Resource.
     /// 
-    /// ## Create VMware site
-    /// 
+    /// ## Example Usage
+    /// ### Create VMware site
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Insights.V20170401
     /// <summary>
     /// An activity log alert resource.
     /// 
-    /// ## Create or update an activity log alert
-    /// 
+    /// ## Example Usage
+    /// ### Create or update an activity log alert
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Migrate.V20191001
 {
     /// <summary>
-    /// ## HyperVCollectors_Create
-    /// 
+    /// ## Example Usage
+    /// ### HyperVCollectors_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

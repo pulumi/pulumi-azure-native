@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.EventHub.V20150801
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
     /// 
-    /// ## EventHubAuthorizationRuleCreate
-    /// 
+    /// ## Example Usage
+    /// ### EventHubAuthorizationRuleCreate
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

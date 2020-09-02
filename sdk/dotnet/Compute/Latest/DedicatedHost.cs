@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Compute.Latest
     /// <summary>
     /// Specifies information about the Dedicated host.
     /// 
-    /// ## Create or update a dedicated host .
-    /// 
+    /// ## Example Usage
+    /// ### Create or update a dedicated host .
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

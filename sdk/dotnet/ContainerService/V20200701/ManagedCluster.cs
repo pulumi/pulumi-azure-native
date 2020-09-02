@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.ContainerService.V20200701
     /// <summary>
     /// Managed cluster.
     /// 
-    /// ## Create Managed Cluster with PPG
-    /// 
+    /// ## Example Usage
+    /// ### Create Managed Cluster with PPG
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -104,9 +104,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200701
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create/Update AAD Managed Cluster with EnableAzureRBAC
-    /// 
+    /// ### Create/Update AAD Managed Cluster with EnableAzureRBAC
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -207,9 +205,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200701
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create/Update Managed Cluster
-    /// 
+    /// ### Create/Update Managed Cluster
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
@@ -309,9 +305,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200701
     /// }
     /// 
     /// ```
-    /// 
-    /// ## Create/Update Managed Cluster with EnableAHUB
-    /// 
+    /// ### Create/Update Managed Cluster with EnableAHUB
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

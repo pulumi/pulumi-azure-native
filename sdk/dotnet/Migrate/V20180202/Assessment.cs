@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Migrate.V20180202
     /// <summary>
     /// An assessment created for a group in the Migration project.
     /// 
-    /// ## Assessments_Create
-    /// 
+    /// ## Example Usage
+    /// ### Assessments_Create
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;

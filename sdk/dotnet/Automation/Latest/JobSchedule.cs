@@ -12,8 +12,8 @@ namespace Pulumi.AzureRM.Automation.Latest
     /// <summary>
     /// Definition of the job schedule.
     /// 
-    /// ## Create a job schedule
-    /// 
+    /// ## Example Usage
+    /// ### Create a job schedule
     /// ```csharp
     /// using Pulumi;
     /// using AzureRM = Pulumi.AzureRM;
