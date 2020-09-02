@@ -184,9 +184,11 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureApiMetadata, 
 					LanguageToExampleProgram: languageExample,
 				})
 		}
-		err := renderExampleToSchema(pkgSpec, pulumiToken, &examplesRenderData)
-		if err != nil {
-			return err
+		if len(examplesRenderData.Data) > 0 {
+			err := renderExampleToSchema(pkgSpec, pulumiToken, &examplesRenderData)
+			if err != nil {
+				return err
+			}
 		}
 
 		// Don't need the example information in metadata anymore
@@ -201,17 +203,17 @@ func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string, exa
 	const tmpl = `
 
 {{"{{% examples %}}"}}
+## Example Usage
 {{- range .Data }}
-## {{ .ExampleDescription }}
+{{ "{{% example %}}" }}
+### {{ .ExampleDescription }}
 
 {{- range $lang, $example := .LanguageToExampleProgram }}
-{{ "{{% example %}}" }}
-
 {{ beginLanguage $lang }}
 {{ $example }}
 {{ endLanguage }}
-{{"{{% /example %}}"}}
 {{ end }}
+{{"{{% /example %}}"}}
 {{- end }}
 {{"{{% /examples %}}"}}
 `
