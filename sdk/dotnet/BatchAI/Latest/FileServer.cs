@@ -11,6 +11,43 @@ namespace Pulumi.AzureRM.BatchAI.Latest
 {
     /// <summary>
     /// File Server information.
+    /// 
+    /// ## Create a file server
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fileServer = new AzureRM.BatchAI.Latest.FileServer("fileServer", new AzureRM.BatchAI.Latest.FileServerArgs
+    ///         {
+    ///             DataDisks = new AzureRM.BatchAI.Latest.Inputs.DataDisksArgs
+    ///             {
+    ///                 DiskCount = 2,
+    ///                 DiskSizeInGB = 10,
+    ///                 StorageAccountType = "Standard_LRS",
+    ///             },
+    ///             FileServerName = "demo_nfs",
+    ///             ResourceGroupName = "demo_resource_group",
+    ///             SshConfiguration = new AzureRM.BatchAI.Latest.Inputs.SshConfigurationArgs
+    ///             {
+    ///                 UserAccountSettings = new AzureRM.BatchAI.Latest.Inputs.UserAccountSettingsArgs
+    ///                 {
+    ///                     AdminUserName = "admin_user_name",
+    ///                     AdminUserPassword = "admin_user_password",
+    ///                 },
+    ///             },
+    ///             VmSize = "STANDARD_NC6",
+    ///             WorkspaceName = "demo_workspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FileServer : Pulumi.CustomResource
     {

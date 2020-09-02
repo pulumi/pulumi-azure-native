@@ -11,6 +11,374 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Azure Firewall resource.
+    /// 
+    /// ## Create Azure Firewall
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var azureFirewall = new AzureRM.Network.Latest.AzureFirewall("azureFirewall", new AzureRM.Network.Latest.AzureFirewallArgs
+    ///         {
+    ///             ApplicationRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///                 {
+    ///                     Name = "apprulecoll",
+    ///                 },
+    ///             },
+    ///             AzureFirewallName = "azurefirewall",
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallIPConfigurationArgs
+    ///                 {
+    ///                     Name = "azureFirewallIpConfiguration",
+    ///                 },
+    ///             },
+    ///             Location = "West US",
+    ///             NatRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///                 {
+    ///                     Name = "natrulecoll",
+    ///                 },
+    ///             },
+    ///             NetworkRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///                 {
+    ///                     Name = "netrulecoll",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.Latest.Inputs.AzureFirewallSkuArgs
+    ///             {
+    ///                 Name = "AZFW_VNet",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             ThreatIntelMode = "Alert",
+    ///             Zones = {},
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create Azure Firewall With Additional Properties
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var azureFirewall = new AzureRM.Network.Latest.AzureFirewall("azureFirewall", new AzureRM.Network.Latest.AzureFirewallArgs
+    ///         {
+    ///             AdditionalProperties = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///                 { "key2", "value2" },
+    ///             },
+    ///             ApplicationRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///                 {
+    ///                     Name = "apprulecoll",
+    ///                 },
+    ///             },
+    ///             AzureFirewallName = "azurefirewall",
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallIPConfigurationArgs
+    ///                 {
+    ///                     Name = "azureFirewallIpConfiguration",
+    ///                 },
+    ///             },
+    ///             Location = "West US",
+    ///             NatRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///                 {
+    ///                     Name = "natrulecoll",
+    ///                 },
+    ///             },
+    ///             NetworkRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///                 {
+    ///                     Name = "netrulecoll",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.Latest.Inputs.AzureFirewallSkuArgs
+    ///             {
+    ///                 Name = "AZFW_VNet",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             ThreatIntelMode = "Alert",
+    ///             Zones = {},
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create Azure Firewall With IpGroups
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var azureFirewall = new AzureRM.Network.Latest.AzureFirewall("azureFirewall", new AzureRM.Network.Latest.AzureFirewallArgs
+    ///         {
+    ///             ApplicationRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///                 {
+    ///                     Name = "apprulecoll",
+    ///                 },
+    ///             },
+    ///             AzureFirewallName = "azurefirewall",
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallIPConfigurationArgs
+    ///                 {
+    ///                     Name = "azureFirewallIpConfiguration",
+    ///                 },
+    ///             },
+    ///             Location = "West US",
+    ///             NatRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///                 {
+    ///                     Name = "natrulecoll",
+    ///                 },
+    ///             },
+    ///             NetworkRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///                 {
+    ///                     Name = "netrulecoll",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.Latest.Inputs.AzureFirewallSkuArgs
+    ///             {
+    ///                 Name = "AZFW_VNet",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             ThreatIntelMode = "Alert",
+    ///             Zones = {},
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create Azure Firewall With Zones
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var azureFirewall = new AzureRM.Network.Latest.AzureFirewall("azureFirewall", new AzureRM.Network.Latest.AzureFirewallArgs
+    ///         {
+    ///             ApplicationRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///                 {
+    ///                     Name = "apprulecoll",
+    ///                 },
+    ///             },
+    ///             AzureFirewallName = "azurefirewall",
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallIPConfigurationArgs
+    ///                 {
+    ///                     Name = "azureFirewallIpConfiguration",
+    ///                 },
+    ///             },
+    ///             Location = "West US 2",
+    ///             NatRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///                 {
+    ///                     Name = "natrulecoll",
+    ///                 },
+    ///             },
+    ///             NetworkRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///                 {
+    ///                     Name = "netrulecoll",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.Latest.Inputs.AzureFirewallSkuArgs
+    ///             {
+    ///                 Name = "AZFW_VNet",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             ThreatIntelMode = "Alert",
+    ///             Zones = 
+    ///             {
+    ///                 "1",
+    ///                 "2",
+    ///                 "3",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create Azure Firewall With management subnet
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var azureFirewall = new AzureRM.Network.Latest.AzureFirewall("azureFirewall", new AzureRM.Network.Latest.AzureFirewallArgs
+    ///         {
+    ///             ApplicationRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///                 {
+    ///                     Name = "apprulecoll",
+    ///                 },
+    ///             },
+    ///             AzureFirewallName = "azurefirewall",
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallIPConfigurationArgs
+    ///                 {
+    ///                     Name = "azureFirewallIpConfiguration",
+    ///                 },
+    ///             },
+    ///             Location = "West US",
+    ///             ManagementIpConfiguration = new AzureRM.Network.Latest.Inputs.AzureFirewallIPConfigurationArgs
+    ///             {
+    ///                 Name = "azureFirewallMgmtIpConfiguration",
+    ///             },
+    ///             NatRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///                 {
+    ///                     Name = "natrulecoll",
+    ///                 },
+    ///             },
+    ///             NetworkRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///                 {
+    ///                     Name = "netrulecoll",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.Latest.Inputs.AzureFirewallSkuArgs
+    ///             {
+    ///                 Name = "AZFW_VNet",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             ThreatIntelMode = "Alert",
+    ///             Zones = {},
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create Azure Firewall in virtual Hub
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var azureFirewall = new AzureRM.Network.Latest.AzureFirewall("azureFirewall", new AzureRM.Network.Latest.AzureFirewallArgs
+    ///         {
+    ///             AzureFirewallName = "azurefirewall",
+    ///             FirewallPolicy = new AzureRM.Network.Latest.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/policy1",
+    ///             },
+    ///             HubIPAddresses = new AzureRM.Network.Latest.Inputs.HubIPAddressesArgs
+    ///             {
+    ///                 PublicIPs = new AzureRM.Network.Latest.Inputs.HubPublicIPAddressesArgs
+    ///                 {
+    ///                     Addresses = {},
+    ///                     Count = 1,
+    ///                 },
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.Latest.Inputs.AzureFirewallSkuArgs
+    ///             {
+    ///                 Name = "AZFW_Hub",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             ThreatIntelMode = "Alert",
+    ///             VirtualHub = new AzureRM.Network.Latest.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+    ///             },
+    ///             Zones = {},
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AzureFirewall : Pulumi.CustomResource
     {

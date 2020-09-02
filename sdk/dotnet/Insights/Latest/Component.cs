@@ -11,6 +11,60 @@ namespace Pulumi.AzureRM.Insights.Latest
 {
     /// <summary>
     /// An Application Insights component definition.
+    /// 
+    /// ## ComponentCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var component = new AzureRM.Insights.Latest.Component("component", new AzureRM.Insights.Latest.ComponentArgs
+    ///         {
+    ///             ApplicationType = "web",
+    ///             FlowType = "Bluefield",
+    ///             Kind = "web",
+    ///             Location = "South Central US",
+    ///             RequestSource = "rest",
+    ///             ResourceGroupName = "my-resource-group",
+    ///             ResourceName = "my-component",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## ComponentUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var component = new AzureRM.Insights.Latest.Component("component", new AzureRM.Insights.Latest.ComponentArgs
+    ///         {
+    ///             Kind = "web",
+    ///             Location = "South Central US",
+    ///             ResourceGroupName = "my-resource-group",
+    ///             ResourceName = "my-component",
+    ///             Tags = 
+    ///             {
+    ///                 { "ApplicationGatewayType", "Internal-Only" },
+    ///                 { "BillingEntity", "Self" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Component : Pulumi.CustomResource
     {

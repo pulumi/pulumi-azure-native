@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 {
     /// <summary>
     /// A virtual network.
+    /// 
+    /// ## VirtualNetworks_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualNetwork = new AzureRM.DevTestLab.V20180915.VirtualNetwork("virtualNetwork", new AzureRM.DevTestLab.V20180915.VirtualNetworkArgs
+    ///         {
+    ///             LabName = "{devtestlab-name}",
+    ///             Location = "{azure-location}",
+    ///             Name = "{virtualnetwork-name}",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Tags = 
+    ///             {
+    ///                 { "MyTag", "MyValue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualNetwork : Pulumi.CustomResource
     {

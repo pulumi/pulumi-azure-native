@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.SoftwarePlan.Latest
 {
     /// <summary>
     /// Response on GET of a hybrid use benefit
+    /// 
+    /// ## HybridUseBenefit
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hybridUseBenefit = new AzureRM.SoftwarePlan.Latest.HybridUseBenefit("hybridUseBenefit", new AzureRM.SoftwarePlan.Latest.HybridUseBenefitArgs
+    ///         {
+    ///             PlanId = "94f46eda-45f8-493a-8425-251921463a89",
+    ///             Scope = "subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
+    ///             Sku = new AzureRM.SoftwarePlan.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "SQL_Server_Perpetual",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class HybridUseBenefit : Pulumi.CustomResource
     {

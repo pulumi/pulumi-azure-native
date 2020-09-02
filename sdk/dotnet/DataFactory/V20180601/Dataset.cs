@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
 {
     /// <summary>
     /// Dataset resource type.
+    /// 
+    /// ## Datasets_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataset = new AzureRM.DataFactory.V20180601.Dataset("dataset", new AzureRM.DataFactory.V20180601.DatasetArgs
+    ///         {
+    ///             DatasetName = "exampleDataset",
+    ///             FactoryName = "exampleFactoryName",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Datasets_Update
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataset = new AzureRM.DataFactory.V20180601.Dataset("dataset", new AzureRM.DataFactory.V20180601.DatasetArgs
+    ///         {
+    ///             DatasetName = "exampleDataset",
+    ///             FactoryName = "exampleFactoryName",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Dataset : Pulumi.CustomResource
     {

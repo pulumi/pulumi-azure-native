@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
 {
     /// <summary>
     /// Storage mapping object.
+    /// 
+    /// ## Create storage classification mapping.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var replicationStorageClassificationMapping = new AzureRM.RecoveryServices.V20180110.ReplicationStorageClassificationMapping("replicationStorageClassificationMapping", new AzureRM.RecoveryServices.V20180110.ReplicationStorageClassificationMappingArgs
+    ///         {
+    ///             FabricName = "2a48e3770ac08aa2be8bfbd94fcfb1cbf2dcc487b78fb9d3bd778304441b06a0",
+    ///             ResourceGroupName = "resourceGroupPS1",
+    ///             ResourceName = "vault1",
+    ///             StorageClassificationMappingName = "testStorageMapping",
+    ///             StorageClassificationName = "8891569e-aaef-4a46-a4a0-78c14f2d7b09",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ReplicationStorageClassificationMapping : Pulumi.CustomResource
     {

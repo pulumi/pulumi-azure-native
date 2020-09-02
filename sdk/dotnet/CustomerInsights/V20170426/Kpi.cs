@@ -11,6 +11,60 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 {
     /// <summary>
     /// The KPI resource format.
+    /// 
+    /// ## Kpi_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var kpi = new AzureRM.CustomerInsights.V20170426.Kpi("kpi", new AzureRM.CustomerInsights.V20170426.KpiArgs
+    ///         {
+    ///             Aliases = 
+    ///             {
+    ///                 new AzureRM.CustomerInsights.V20170426.Inputs.KpiAliasArgs
+    ///                 {
+    ///                     AliasName = "alias",
+    ///                     Expression = "Id+4",
+    ///                 },
+    ///             },
+    ///             CalculationWindow = "Day",
+    ///             Description = 
+    ///             {
+    ///                 { "en-us", "Kpi Description" },
+    ///             },
+    ///             DisplayName = 
+    ///             {
+    ///                 { "en-us", "Kpi DisplayName" },
+    ///             },
+    ///             EntityType = "Profile",
+    ///             EntityTypeName = "testProfile2327128",
+    ///             Expression = "SavingAccountBalance",
+    ///             Function = "Sum",
+    ///             GroupBy = 
+    ///             {
+    ///                 "SavingAccountBalance",
+    ///             },
+    ///             HubName = "sdkTestHub",
+    ///             KpiName = "kpiTest45453647",
+    ///             ResourceGroupName = "TestHubRG",
+    ///             ThresHolds = new AzureRM.CustomerInsights.V20170426.Inputs.KpiThresholdsArgs
+    ///             {
+    ///                 IncreasingKpi = true,
+    ///                 LowerLimit = 5,
+    ///                 UpperLimit = 50,
+    ///             },
+    ///             Unit = "unit",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Kpi : Pulumi.CustomResource
     {

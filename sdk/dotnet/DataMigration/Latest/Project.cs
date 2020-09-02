@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.DataMigration.Latest
 {
     /// <summary>
     /// A project resource
+    /// 
+    /// ## Projects_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var project = new AzureRM.DataMigration.Latest.Project("project", new AzureRM.DataMigration.Latest.ProjectArgs
+    ///         {
+    ///             GroupName = "DmsSdkRg",
+    ///             Location = "southcentralus",
+    ///             ProjectName = "DmsSdkProject",
+    ///             ServiceName = "DmsSdkService",
+    ///             SourcePlatform = "SQL",
+    ///             TargetPlatform = "SQLDB",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Project : Pulumi.CustomResource
     {

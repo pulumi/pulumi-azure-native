@@ -11,6 +11,54 @@ namespace Pulumi.AzureRM.Network.V20180601
 {
     /// <summary>
     /// VpnGateway Resource.
+    /// 
+    /// ## VpnGatewayPut
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vpnGateway = new AzureRM.Network.V20180601.VpnGateway("vpnGateway", new AzureRM.Network.V20180601.VpnGatewayArgs
+    ///         {
+    ///             BgpSettings = new AzureRM.Network.V20180601.Inputs.BgpSettingsArgs
+    ///             {
+    ///                 Asn = 65515,
+    ///                 BgpPeeringAddress = "10.0.1.30",
+    ///                 PeerWeight = 0,
+    ///             },
+    ///             Connections = 
+    ///             {
+    ///                 new AzureRM.Network.V20180601.Inputs.VpnConnectionArgs
+    ///                 {
+    ///                     Name = "vpnConnection1",
+    ///                 },
+    ///             },
+    ///             GatewayName = "gateway1",
+    ///             Location = "West US",
+    ///             Policies = new AzureRM.Network.V20180601.Inputs.PoliciesArgs
+    ///             {
+    ///                 AllowBranchToBranchTraffic = true,
+    ///                 AllowVnetToVnetTraffic = false,
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             VirtualHub = new AzureRM.Network.V20180601.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VpnGateway : Pulumi.CustomResource
     {

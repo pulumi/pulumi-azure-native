@@ -11,6 +11,63 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
 {
     /// <summary>
     /// Policy Contract details.
+    /// 
+    /// ## ApiManagementCreateApiPolicy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiPolicy = new AzureRM.ApiManagement.V20190101.ApiPolicy("apiPolicy", new AzureRM.ApiManagement.V20190101.ApiPolicyArgs
+    ///         {
+    ///             ApiId = "5600b57e7e8880006a040001",
+    ///             Format = "xml",
+    ///             PolicyId = "policy",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Value = "&lt;policies&gt; &lt;inbound /&gt; &lt;backend&gt;    &lt;forward-request /&gt;  &lt;/backend&gt;  &lt;outbound /&gt;&lt;/policies&gt;",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## ApiManagementCreateApiPolicyNonXmlEncoded
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiPolicy = new AzureRM.ApiManagement.V20190101.ApiPolicy("apiPolicy", new AzureRM.ApiManagement.V20190101.ApiPolicyArgs
+    ///         {
+    ///             ApiId = "5600b57e7e8880006a040001",
+    ///             Format = "rawxml",
+    ///             PolicyId = "policy",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Value = @"&lt;policies&gt;
+    ///      &lt;inbound&gt;
+    ///      &lt;base /&gt;
+    ///   &lt;set-header name=""newvalue"" exists-action=""override""&gt;
+    ///    &lt;value&gt;""@(context.Request.Headers.FirstOrDefault(h =&gt; h.Ke==""Via""))"" &lt;/value&gt;
+    ///     &lt;/set-header&gt;
+    ///   &lt;/inbound&gt;
+    ///       &lt;/policies&gt;",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApiPolicy : Pulumi.CustomResource
     {

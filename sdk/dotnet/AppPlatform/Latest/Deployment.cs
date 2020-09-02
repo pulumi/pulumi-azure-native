@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
 {
     /// <summary>
     /// Deployment resource payload
+    /// 
+    /// ## Deployments_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var deployment = new AzureRM.AppPlatform.Latest.Deployment("deployment", new AzureRM.AppPlatform.Latest.DeploymentArgs
+    ///         {
+    ///             AppName = "myapp",
+    ///             DeploymentName = "mydeployment",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceName = "myservice",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Deployment : Pulumi.CustomResource
     {

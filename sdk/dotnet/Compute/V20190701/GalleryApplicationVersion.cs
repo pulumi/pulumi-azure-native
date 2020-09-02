@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.Compute.V20190701
 {
     /// <summary>
     /// Specifies information about the gallery Application Version that you want to create or update.
+    /// 
+    /// ## Create or update a simple gallery Application Version.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var galleryApplicationVersion = new AzureRM.Compute.V20190701.GalleryApplicationVersion("galleryApplicationVersion", new AzureRM.Compute.V20190701.GalleryApplicationVersionArgs
+    ///         {
+    ///             GalleryApplicationName = "myGalleryApplicationName",
+    ///             GalleryApplicationVersionName = "1.0.0",
+    ///             GalleryName = "myGalleryName",
+    ///             Location = "West US",
+    ///             PublishingProfile = new AzureRM.Compute.V20190701.Inputs.GalleryApplicationVersionPublishingProfileArgs
+    ///             {
+    ///                 EndOfLifeDate = "2019-07-01T07:00:00Z",
+    ///                 ReplicaCount = 1,
+    ///                 Source = new AzureRM.Compute.V20190701.Inputs.UserArtifactSourceArgs
+    ///                 {
+    ///                     FileName = "package.zip",
+    ///                     MediaLink = "https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}",
+    ///                 },
+    ///                 StorageAccountType = "Standard_LRS",
+    ///                 TargetRegions = 
+    ///                 {
+    ///                     new AzureRM.Compute.V20190701.Inputs.TargetRegionArgs
+    ///                     {
+    ///                         Name = "West US",
+    ///                         RegionalReplicaCount = 1,
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class GalleryApplicationVersion : Pulumi.CustomResource
     {

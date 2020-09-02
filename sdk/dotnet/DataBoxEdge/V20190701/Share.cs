@@ -11,6 +11,47 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
 {
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
+    /// 
+    /// ## SharePut
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var share = new AzureRM.DataBoxEdge.V20190701.Share("share", new AzureRM.DataBoxEdge.V20190701.ShareArgs
+    ///         {
+    ///             AccessProtocol = "SMB",
+    ///             AzureContainerInfo = new AzureRM.DataBoxEdge.V20190701.Inputs.AzureContainerInfoArgs
+    ///             {
+    ///                 ContainerName = "testContainerSMB",
+    ///                 DataFormat = "BlockBlob",
+    ///                 StorageAccountCredentialId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
+    ///             },
+    ///             DataPolicy = "Cloud",
+    ///             Description = "",
+    ///             DeviceName = "testedgedevice",
+    ///             MonitoringStatus = "Enabled",
+    ///             Name = "smbshare",
+    ///             ResourceGroupName = "GroupForEdgeAutomation",
+    ///             ShareStatus = "Online",
+    ///             UserAccessRights = 
+    ///             {
+    ///                 new AzureRM.DataBoxEdge.V20190701.Inputs.UserAccessRightArgs
+    ///                 {
+    ///                     AccessType = "Change",
+    ///                     UserId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Share : Pulumi.CustomResource
     {

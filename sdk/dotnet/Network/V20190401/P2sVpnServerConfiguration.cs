@@ -11,6 +11,55 @@ namespace Pulumi.AzureRM.Network.V20190401
 {
     /// <summary>
     /// P2SVpnServerConfiguration Resource.
+    /// 
+    /// ## P2SVpnServerConfigurationPut
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var p2sVpnServerConfiguration = new AzureRM.Network.V20190401.P2sVpnServerConfiguration("p2sVpnServerConfiguration", new AzureRM.Network.V20190401.P2sVpnServerConfigurationArgs
+    ///         {
+    ///             P2SVpnServerConfigRadiusServerRootCertificates = 
+    ///             {
+    ///                 new AzureRM.Network.V20190401.Inputs.P2SVpnServerConfigRadiusServerRootCertificateArgs
+    ///                 {
+    ///                     Name = "p2sVpnServerConfigRadiusServerRootCert1",
+    ///                 },
+    ///             },
+    ///             P2SVpnServerConfigurationName = "p2sVpnServerConfiguration1",
+    ///             RadiusServerAddress = "8.9.9.9",
+    ///             RadiusServerSecret = "123_abc",
+    ///             ResourceGroupName = "rg1",
+    ///             VirtualWanName = "virtualWan1",
+    ///             VpnClientIpsecPolicies = 
+    ///             {
+    ///                 new AzureRM.Network.V20190401.Inputs.IpsecPolicyArgs
+    ///                 {
+    ///                     DhGroup = "DHGroup14",
+    ///                     IkeEncryption = "AES256",
+    ///                     IkeIntegrity = "SHA384",
+    ///                     IpsecEncryption = "AES256",
+    ///                     IpsecIntegrity = "SHA256",
+    ///                     PfsGroup = "PFS14",
+    ///                     SaDataSizeKilobytes = 429497,
+    ///                     SaLifeTimeSeconds = 86472,
+    ///                 },
+    ///             },
+    ///             VpnProtocols = 
+    ///             {
+    ///                 "IkeV2",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class P2sVpnServerConfiguration : Pulumi.CustomResource
     {

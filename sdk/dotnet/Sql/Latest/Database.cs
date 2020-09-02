@@ -11,6 +11,317 @@ namespace Pulumi.AzureRM.Sql.Latest
 {
     /// <summary>
     /// Represents a database.
+    /// 
+    /// ## Create a database as a copy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             CreateMode = "Copy",
+    ///             DatabaseName = "testdb",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-4799",
+    ///             ServerName = "sqlcrudtest-6440",
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a database as a dropped database restore to a specific point in time
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             CreateMode = "Restore",
+    ///             DatabaseName = "testdb",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-8412",
+    ///             RestorePointInTime = "2017-05-20T21:24:37.467Z",
+    ///             ServerName = "sqlcrudtest-3584",
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/restorableDroppedDatabases/sourcedb,131403269876900000",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a database as a dropped database restore to deletion time
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             CreateMode = "Restore",
+    ///             DatabaseName = "testdb",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-8412",
+    ///             ServerName = "sqlcrudtest-3584",
+    ///             SourceDatabaseDeletionDate = "2017-05-27T02:49:47.69Z",
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/sourcedb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a database as a geo restore
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             CreateMode = "Recovery",
+    ///             DatabaseName = "testdb",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-8412",
+    ///             ServerName = "sqlcrudtest-3584",
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/recoverableDatabases/sourcedb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a database as a non-readable secondary
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             CreateMode = "NonReadableSecondary",
+    ///             DatabaseName = "testdb",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-4799",
+    ///             ServerName = "sqlcrudtest-6440",
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a database as a point in time restore
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             CreateMode = "PointInTimeRestore",
+    ///             DatabaseName = "testdb",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-8412",
+    ///             RestorePointInTime = "2017-02-16T21:24:37.467Z",
+    ///             ServerName = "sqlcrudtest-3584",
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a database as an online secondary
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             CreateMode = "OnlineSecondary",
+    ///             DatabaseName = "testdb",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-4799",
+    ///             ServerName = "sqlcrudtest-6440",
+    ///             SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a database from a long term retention backup
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             CreateMode = "RestoreLongTermRetentionBackup",
+    ///             DatabaseName = "testdb",
+    ///             Location = "Japan East",
+    ///             RecoveryServicesRecoveryPointResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/AzureSqlContainer;Sql;sqlcrudtest-8412;testsvr/protectedItems/AzureSqlDb;dsName;testdb;9dafcc99-7c84-4727-88ee-1a4fdb89afd7/RecoveryPoints/16043455089734",
+    ///             ResourceGroupName = "sqlcrudtest-8412",
+    ///             ServerName = "sqlcrudtest-3584",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a database max
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///             CreateMode = "Default",
+    ///             DatabaseName = "testdb",
+    ///             Edition = "Standard",
+    ///             Location = "Japan East",
+    ///             MaxSizeBytes = "268435456000",
+    ///             ReadScale = "Disabled",
+    ///             RequestedServiceObjectiveId = "f1173c43-91bd-4aaa-973c-54e79e15235b",
+    ///             RequestedServiceObjectiveName = "S0",
+    ///             ResourceGroupName = "sqlcrudtest-4799",
+    ///             SampleName = "AdventureWorksLT",
+    ///             ServerName = "sqlcrudtest-6440",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a database min
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             DatabaseName = "testdb",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-4799",
+    ///             ServerName = "sqlcrudtest-5961",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Update a database max
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///             CreateMode = "Default",
+    ///             DatabaseName = "testdb",
+    ///             Edition = "Standard",
+    ///             Location = "Japan East",
+    ///             MaxSizeBytes = "268435456000",
+    ///             ReadScale = "Disabled",
+    ///             RequestedServiceObjectiveId = "f1173c43-91bd-4aaa-973c-54e79e15235b",
+    ///             RequestedServiceObjectiveName = "S0",
+    ///             ResourceGroupName = "sqlcrudtest-4799",
+    ///             ServerName = "sqlcrudtest-5961",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Update a database's elastic pool'
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Sql.Latest.Database("database", new AzureRM.Sql.Latest.DatabaseArgs
+    ///         {
+    ///             DatabaseName = "testdb",
+    ///             ElasticPoolName = "7537",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-4799",
+    ///             ServerName = "sqlcrudtest-6440",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Database : Pulumi.CustomResource
     {

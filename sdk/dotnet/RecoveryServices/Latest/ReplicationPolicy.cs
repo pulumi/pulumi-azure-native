@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
 {
     /// <summary>
     /// Protection profile details.
+    /// 
+    /// ## Creates the policy.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var replicationPolicy = new AzureRM.RecoveryServices.Latest.ReplicationPolicy("replicationPolicy", new AzureRM.RecoveryServices.Latest.ReplicationPolicyArgs
+    ///         {
+    ///             PolicyName = "protectionprofile1",
+    ///             ResourceGroupName = "resourceGroupPS1",
+    ///             ResourceName = "vault1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ReplicationPolicy : Pulumi.CustomResource
     {

@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
 {
     /// <summary>
     /// Base class for backup ProtectionIntent.
+    /// 
+    /// ## Create or Update Azure Vm Protection Intent
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var protectionIntent = new AzureRM.RecoveryServices.Latest.ProtectionIntent("protectionIntent", new AzureRM.RecoveryServices.Latest.ProtectionIntentArgs
+    ///         {
+    ///             FabricName = "Azure",
+    ///             IntentObjectName = "vm;iaasvmcontainerv2;chamsrgtest;chamscandel",
+    ///             ResourceGroupName = "myRG",
+    ///             VaultName = "myVault",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ProtectionIntent : Pulumi.CustomResource
     {

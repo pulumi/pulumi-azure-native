@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
 {
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
+    /// 
+    /// ## NotificationHubAuthorizationRuleCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var notificationHubAuthorizationRule = new AzureRM.NotificationHubs.V20170401.NotificationHubAuthorizationRule("notificationHubAuthorizationRule", new AzureRM.NotificationHubs.V20170401.NotificationHubAuthorizationRuleArgs
+    ///         {
+    ///             AuthorizationRuleName = "DefaultListenSharedAccessSignature",
+    ///             NamespaceName = "nh-sdk-ns",
+    ///             NotificationHubName = "nh-sdk-hub",
+    ///             ResourceGroupName = "5ktrial",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NotificationHubAuthorizationRule : Pulumi.CustomResource
     {

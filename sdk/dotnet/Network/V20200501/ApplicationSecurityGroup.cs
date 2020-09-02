@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Network.V20200501
 {
     /// <summary>
     /// An application security group in a resource group.
+    /// 
+    /// ## Create application security group
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var applicationSecurityGroup = new AzureRM.Network.V20200501.ApplicationSecurityGroup("applicationSecurityGroup", new AzureRM.Network.V20200501.ApplicationSecurityGroupArgs
+    ///         {
+    ///             ApplicationSecurityGroupName = "test-asg",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApplicationSecurityGroup : Pulumi.CustomResource
     {

@@ -11,6 +11,53 @@ namespace Pulumi.AzureRM.Network.V20200501
 {
     /// <summary>
     /// FirewallPolicy Resource.
+    /// 
+    /// ## Create FirewallPolicy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallPolicy = new AzureRM.Network.V20200501.FirewallPolicy("firewallPolicy", new AzureRM.Network.V20200501.FirewallPolicyArgs
+    ///         {
+    ///             DnsSettings = new AzureRM.Network.V20200501.Inputs.DnsSettingsArgs
+    ///             {
+    ///                 EnableProxy = true,
+    ///                 RequireProxyForNetworkRules = false,
+    ///                 Servers = 
+    ///                 {
+    ///                     "30.3.4.5",
+    ///                 },
+    ///             },
+    ///             FirewallPolicyName = "firewallPolicy",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             ThreatIntelMode = "Alert",
+    ///             ThreatIntelWhitelist = new AzureRM.Network.V20200501.Inputs.FirewallPolicyThreatIntelWhitelistArgs
+    ///             {
+    ///                 Fqdns = 
+    ///                 {
+    ///                     "*.microsoft.com",
+    ///                 },
+    ///                 IpAddresses = 
+    ///                 {
+    ///                     "20.3.4.5",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FirewallPolicy : Pulumi.CustomResource
     {

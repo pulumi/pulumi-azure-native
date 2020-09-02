@@ -11,6 +11,91 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
 {
     /// <summary>
     /// An Azure Cosmos DB container.
+    /// 
+    /// ## CosmosDBSqlContainerCreateUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sqlResourceSqlContainer = new AzureRM.DocumentDB.V20191212.SqlResourceSqlContainer("sqlResourceSqlContainer", new AzureRM.DocumentDB.V20191212.SqlResourceSqlContainerArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             ContainerName = "containerName",
+    ///             DatabaseName = "databaseName",
+    ///             Location = "West US",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.V20191212.Inputs.SqlContainerResourceArgs
+    ///             {
+    ///                 ConflictResolutionPolicy = new AzureRM.DocumentDB.V20191212.Inputs.ConflictResolutionPolicyArgs
+    ///                 {
+    ///                     ConflictResolutionPath = "/path",
+    ///                     Mode = "LastWriterWins",
+    ///                 },
+    ///                 DefaultTtl = 100,
+    ///                 Id = "containerName",
+    ///                 IndexingPolicy = new AzureRM.DocumentDB.V20191212.Inputs.IndexingPolicyArgs
+    ///                 {
+    ///                     Automatic = true,
+    ///                     ExcludedPaths = {},
+    ///                     IncludedPaths = 
+    ///                     {
+    ///                         new AzureRM.DocumentDB.V20191212.Inputs.IncludedPathArgs
+    ///                         {
+    ///                             Indexes = 
+    ///                             {
+    ///                                 new AzureRM.DocumentDB.V20191212.Inputs.IndexesArgs
+    ///                                 {
+    ///                                     DataType = "String",
+    ///                                     Kind = "Range",
+    ///                                     Precision = -1,
+    ///                                 },
+    ///                                 new AzureRM.DocumentDB.V20191212.Inputs.IndexesArgs
+    ///                                 {
+    ///                                     DataType = "Number",
+    ///                                     Kind = "Range",
+    ///                                     Precision = -1,
+    ///                                 },
+    ///                             },
+    ///                             Path = "/*",
+    ///                         },
+    ///                     },
+    ///                     IndexingMode = "Consistent",
+    ///                 },
+    ///                 PartitionKey = new AzureRM.DocumentDB.V20191212.Inputs.ContainerPartitionKeyArgs
+    ///                 {
+    ///                     Kind = "Hash",
+    ///                     Paths = 
+    ///                     {
+    ///                         "/AccountNumber",
+    ///                     },
+    ///                 },
+    ///                 UniqueKeyPolicy = new AzureRM.DocumentDB.V20191212.Inputs.UniqueKeyPolicyArgs
+    ///                 {
+    ///                     UniqueKeys = 
+    ///                     {
+    ///                         new AzureRM.DocumentDB.V20191212.Inputs.UniqueKeyArgs
+    ///                         {
+    ///                             Paths = 
+    ///                             {
+    ///                                 "/testPath",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SqlResourceSqlContainer : Pulumi.CustomResource
     {

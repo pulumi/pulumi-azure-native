@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.AlertsManagement.Latest
 {
     /// <summary>
     /// The alert rule information
+    /// 
+    /// ## Create or update a Smart Detector alert rule
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var smartDetectorAlertRule = new AzureRM.AlertsManagement.Latest.SmartDetectorAlertRule("smartDetectorAlertRule", new AzureRM.AlertsManagement.Latest.SmartDetectorAlertRuleArgs
+    ///         {
+    ///             ActionGroups = new AzureRM.AlertsManagement.Latest.Inputs.ActionGroupsInformationArgs
+    ///             {
+    ///                 CustomEmailSubject = "My custom email subject",
+    ///                 CustomWebhookPayload = "{\"AlertRuleName\":\"#alertrulename\"}",
+    ///                 GroupIds = 
+    ///                 {
+    ///                     "/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourcegroups/actionGroups/providers/microsoft.insights/actiongroups/MyActionGroup",
+    ///                 },
+    ///             },
+    ///             AlertRuleName = "MyAlertRule",
+    ///             Description = "Sample smart detector alert rule description",
+    ///             Detector = new AzureRM.AlertsManagement.Latest.Inputs.DetectorArgs
+    ///             {
+    ///                 Id = "VMMemoryLeak",
+    ///             },
+    ///             Frequency = "PT5M",
+    ///             ResourceGroupName = "MyAlertRules",
+    ///             Scope = 
+    ///             {
+    ///                 "/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/MyVms/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///             },
+    ///             Severity = "Sev3",
+    ///             State = "Enabled",
+    ///             Throttling = new AzureRM.AlertsManagement.Latest.Inputs.ThrottlingInformationArgs
+    ///             {
+    ///                 Duration = "PT20M",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SmartDetectorAlertRule : Pulumi.CustomResource
     {

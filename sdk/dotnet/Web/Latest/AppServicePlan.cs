@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.Web.Latest
 {
     /// <summary>
     /// App Service plan.
+    /// 
+    /// ## Create Or Update App Service plan
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var appServicePlan = new AzureRM.Web.Latest.AppServicePlan("appServicePlan", new AzureRM.Web.Latest.AppServicePlanArgs
+    ///         {
+    ///             Kind = "app",
+    ///             Location = "East US",
+    ///             Name = "testsf6141",
+    ///             ResourceGroupName = "testrg123",
+    ///             Sku = new AzureRM.Web.Latest.Inputs.SkuDescriptionArgs
+    ///             {
+    ///                 Capacity = 1,
+    ///                 Family = "P",
+    ///                 Name = "P1",
+    ///                 Size = "P1",
+    ///                 Tier = "Premium",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AppServicePlan : Pulumi.CustomResource
     {

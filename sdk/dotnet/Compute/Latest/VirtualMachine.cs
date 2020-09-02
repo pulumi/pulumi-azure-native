@@ -11,6 +11,1431 @@ namespace Pulumi.AzureRM.Compute.Latest
 {
     /// <summary>
     /// Describes a Virtual Machine.
+    /// 
+    /// ## Create a custom-image vm from an unmanaged generalized os image.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     Image = new AzureRM.Compute.Latest.Inputs.VirtualHardDiskArgs
+    ///                     {
+    ///                         Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/{existing-generalized-os-image-blob-name}.vhd",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                     OsType = "Windows",
+    ///                     Vhd = new AzureRM.Compute.Latest.Inputs.VirtualHardDiskArgs
+    ///                     {
+    ///                         Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmName = "{vm-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a platform-image vm with unmanaged os and data disks.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D2_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 DataDisks = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.DataDiskArgs
+    ///                     {
+    ///                         CreateOption = "Empty",
+    ///                         DiskSizeGB = 1023,
+    ///                         Lun = 0,
+    ///                         Vhd = new AzureRM.Compute.Latest.Inputs.VirtualHardDiskArgs
+    ///                         {
+    ///                             Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk0.vhd",
+    ///                         },
+    ///                     },
+    ///                     new AzureRM.Compute.Latest.Inputs.DataDiskArgs
+    ///                     {
+    ///                         CreateOption = "Empty",
+    ///                         DiskSizeGB = 1023,
+    ///                         Lun = 1,
+    ///                         Vhd = new AzureRM.Compute.Latest.Inputs.VirtualHardDiskArgs
+    ///                         {
+    ///                             Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk1.vhd",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     Name = "myVMosdisk",
+    ///                     Vhd = new AzureRM.Compute.Latest.Inputs.VirtualHardDiskArgs
+    ///                     {
+    ///                         Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmName = "{vm-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm from a custom image.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm in an availability set.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             AvailabilitySet = new AzureRM.Compute.Latest.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/{existing-availability-set-name}",
+    ///             },
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with DiskEncryptionSet resource id in the os disk and data disk.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 DataDisks = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.DataDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "Empty",
+    ///                         DiskSizeGB = 1023,
+    ///                         Lun = 0,
+    ///                         ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                         {
+    ///                             DiskEncryptionSet = new AzureRM.Compute.Latest.Inputs.DiskEncryptionSetParametersArgs
+    ///                             {
+    ///                                 Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                             },
+    ///                             StorageAccountType = "Standard_LRS",
+    ///                         },
+    ///                     },
+    ///                     new AzureRM.Compute.Latest.Inputs.DataDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "Attach",
+    ///                         DiskSizeGB = 1023,
+    ///                         Lun = 1,
+    ///                         ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                         {
+    ///                             DiskEncryptionSet = new AzureRM.Compute.Latest.Inputs.DiskEncryptionSetParametersArgs
+    ///                             {
+    ///                                 Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                             },
+    ///                             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/{existing-managed-disk-name}",
+    ///                             StorageAccountType = "Standard_LRS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         DiskEncryptionSet = new AzureRM.Compute.Latest.Inputs.DiskEncryptionSetParametersArgs
+    ///                         {
+    ///                             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                         },
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with Host Encryption using encryptionAtHost property.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_DS1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             Plan = new AzureRM.Compute.Latest.Inputs.PlanArgs
+    ///             {
+    ///                 Name = "windows2016",
+    ///                 Product = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             SecurityProfile = new AzureRM.Compute.Latest.Inputs.SecurityProfileArgs
+    ///             {
+    ///                 EncryptionAtHost = true,
+    ///             },
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "windows-data-science-vm",
+    ///                     Publisher = "microsoft-ads",
+    ///                     Sku = "windows2016",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadOnly",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with a marketplace image plan.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             Plan = new AzureRM.Compute.Latest.Inputs.PlanArgs
+    ///             {
+    ///                 Name = "windows2016",
+    ///                 Product = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "windows-data-science-vm",
+    ///                     Publisher = "microsoft-ads",
+    ///                     Sku = "windows2016",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with a patch setting patchMode of AutomaticByOS.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/nsgExistingNic",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///                 WindowsConfiguration = new AzureRM.Compute.Latest.Inputs.WindowsConfigurationArgs
+    ///                 {
+    ///                     EnableAutomaticUpdates = true,
+    ///                     PatchSettings = new AzureRM.Compute.Latest.Inputs.PatchSettingsArgs
+    ///                     {
+    ///                         PatchMode = "AutomaticByOS",
+    ///                     },
+    ///                     ProvisionVMAgent = true,
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Premium_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with a patch setting patchMode of AutomaticByPlatform.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///                 WindowsConfiguration = new AzureRM.Compute.Latest.Inputs.WindowsConfigurationArgs
+    ///                 {
+    ///                     EnableAutomaticUpdates = true,
+    ///                     PatchSettings = new AzureRM.Compute.Latest.Inputs.PatchSettingsArgs
+    ///                     {
+    ///                         PatchMode = "AutomaticByPlatform",
+    ///                     },
+    ///                     ProvisionVMAgent = true,
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Premium_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with a patch setting patchMode of Manual.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///                 WindowsConfiguration = new AzureRM.Compute.Latest.Inputs.WindowsConfigurationArgs
+    ///                 {
+    ///                     EnableAutomaticUpdates = true,
+    ///                     PatchSettings = new AzureRM.Compute.Latest.Inputs.PatchSettingsArgs
+    ///                     {
+    ///                         PatchMode = "Manual",
+    ///                     },
+    ///                     ProvisionVMAgent = true,
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Premium_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with an extensions time budget.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             DiagnosticsProfile = new AzureRM.Compute.Latest.Inputs.DiagnosticsProfileArgs
+    ///             {
+    ///                 BootDiagnostics = new AzureRM.Compute.Latest.Inputs.BootDiagnosticsArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+    ///                 },
+    ///             },
+    ///             ExtensionsTimeBudget = "PT30M",
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with boot diagnostics.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             DiagnosticsProfile = new AzureRM.Compute.Latest.Inputs.DiagnosticsProfileArgs
+    ///             {
+    ///                 BootDiagnostics = new AzureRM.Compute.Latest.Inputs.BootDiagnosticsArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+    ///                 },
+    ///             },
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with empty data disks.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D2_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 DataDisks = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.DataDiskArgs
+    ///                     {
+    ///                         CreateOption = "Empty",
+    ///                         DiskSizeGB = 1023,
+    ///                         Lun = 0,
+    ///                     },
+    ///                     new AzureRM.Compute.Latest.Inputs.DataDiskArgs
+    ///                     {
+    ///                         CreateOption = "Empty",
+    ///                         DiskSizeGB = 1023,
+    ///                         Lun = 1,
+    ///                     },
+    ///                 },
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with ephemeral os disk provisioning in Cache disk using placement property.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_DS1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             Plan = new AzureRM.Compute.Latest.Inputs.PlanArgs
+    ///             {
+    ///                 Name = "windows2016",
+    ///                 Product = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "windows-data-science-vm",
+    ///                     Publisher = "microsoft-ads",
+    ///                     Sku = "windows2016",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadOnly",
+    ///                     CreateOption = "FromImage",
+    ///                     DiffDiskSettings = new AzureRM.Compute.Latest.Inputs.DiffDiskSettingsArgs
+    ///                     {
+    ///                         Option = "Local",
+    ///                         Placement = "CacheDisk",
+    ///                     },
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with ephemeral os disk provisioning in Resource disk using placement property.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_DS1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             Plan = new AzureRM.Compute.Latest.Inputs.PlanArgs
+    ///             {
+    ///                 Name = "windows2016",
+    ///                 Product = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "windows-data-science-vm",
+    ///                     Publisher = "microsoft-ads",
+    ///                     Sku = "windows2016",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadOnly",
+    ///                     CreateOption = "FromImage",
+    ///                     DiffDiskSettings = new AzureRM.Compute.Latest.Inputs.DiffDiskSettingsArgs
+    ///                     {
+    ///                         Option = "Local",
+    ///                         Placement = "ResourceDisk",
+    ///                     },
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with ephemeral os disk.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_DS1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             Plan = new AzureRM.Compute.Latest.Inputs.PlanArgs
+    ///             {
+    ///                 Name = "windows2016",
+    ///                 Product = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "windows-data-science-vm",
+    ///                     Publisher = "microsoft-ads",
+    ///                     Sku = "windows2016",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadOnly",
+    ///                     CreateOption = "FromImage",
+    ///                     DiffDiskSettings = new AzureRM.Compute.Latest.Inputs.DiffDiskSettingsArgs
+    ///                     {
+    ///                         Option = "Local",
+    ///                     },
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with managed boot diagnostics.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             DiagnosticsProfile = new AzureRM.Compute.Latest.Inputs.DiagnosticsProfileArgs
+    ///             {
+    ///                 BootDiagnostics = new AzureRM.Compute.Latest.Inputs.BootDiagnosticsArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                 },
+    ///             },
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with password authentication.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with premium storage.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminPassword = "{your-password}",
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Premium_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a vm with ssh authentication.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.Compute.Latest.VirtualMachine("virtualMachine", new AzureRM.Compute.Latest.VirtualMachineArgs
+    ///         {
+    ///             HardwareProfile = new AzureRM.Compute.Latest.Inputs.HardwareProfileArgs
+    ///             {
+    ///                 VmSize = "Standard_D1_v2",
+    ///             },
+    ///             Location = "westus",
+    ///             NetworkProfile = new AzureRM.Compute.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 NetworkInterfaces = 
+    ///                 {
+    ///                     new AzureRM.Compute.Latest.Inputs.NetworkInterfaceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsProfile = new AzureRM.Compute.Latest.Inputs.OSProfileArgs
+    ///             {
+    ///                 AdminUsername = "{your-username}",
+    ///                 ComputerName = "myVM",
+    ///                 LinuxConfiguration = new AzureRM.Compute.Latest.Inputs.LinuxConfigurationArgs
+    ///                 {
+    ///                     DisablePasswordAuthentication = true,
+    ///                     Ssh = new AzureRM.Compute.Latest.Inputs.SshConfigurationArgs
+    ///                     {
+    ///                         PublicKeys = 
+    ///                         {
+    ///                             new AzureRM.Compute.Latest.Inputs.SshPublicKeyArgs
+    ///                             {
+    ///                                 KeyData = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeClRAk2ipUs/l5voIsDC5q9RI+YSRd1Bvd/O+axgY4WiBzG+4FwJWZm/mLLe5DoOdHQwmU2FrKXZSW4w2sYE70KeWnrFViCOX5MTVvJgPE8ClugNl8RWth/tU849DvM9sT7vFgfVSHcAS2yDRyDlueii+8nF2ym8XWAPltFVCyLHRsyBp5YPqK8JFYIa1eybKsY3hEAxRCA+/7bq8et+Gj3coOsuRmrehav7rE6N12Pb80I6ofa6SM5XNYq4Xk0iYNx7R3kdz0Jj9XgZYWjAHjJmT0gTRoOnt6upOuxK7xI/ykWrllgpXrCPu3Ymz+c+ujaqcxDopnAl2lmf69/J1",
+    ///                                 Path = "/home/{your-username}/.ssh/authorized_keys",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.Latest.Inputs.StorageProfileArgs
+    ///             {
+    ///                 ImageReference = new AzureRM.Compute.Latest.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "{image_offer}",
+    ///                     Publisher = "{image_publisher}",
+    ///                     Sku = "{image_sku}",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.Latest.Inputs.OSDiskArgs
+    ///                 {
+    ///                     Caching = "ReadWrite",
+    ///                     CreateOption = "FromImage",
+    ///                     ManagedDisk = new AzureRM.Compute.Latest.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                     Name = "myVMosdisk",
+    ///                 },
+    ///             },
+    ///             VmName = "myVM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualMachine : Pulumi.CustomResource
     {

@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Devices.V20180122
 {
     /// <summary>
     /// The X509 Certificate.
+    /// 
+    /// ## Certificates_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var certificate = new AzureRM.Devices.V20180122.Certificate("certificate", new AzureRM.Devices.V20180122.CertificateArgs
+    ///         {
+    ///             Certificate = "############################################",
+    ///             CertificateName = "cert",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ResourceName = "iothub",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

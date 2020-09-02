@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.Authorization.V20150701
 {
     /// <summary>
     /// Role definition.
+    /// 
+    /// ## GetConfigurations
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var roleDefinition = new AzureRM.Authorization.V20150701.RoleDefinition("roleDefinition", new AzureRM.Authorization.V20150701.RoleDefinitionArgs
+    ///         {
+    ///             RoleDefinitionId = "roleDefinitionId",
+    ///             Scope = "scope",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RoleDefinition : Pulumi.CustomResource
     {

@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.Automation.Latest
 {
     /// <summary>
     /// Definition of the certificate.
+    /// 
+    /// ## Create or update a certificate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var certificate = new AzureRM.Automation.Latest.Certificate("certificate", new AzureRM.Automation.Latest.CertificateArgs
+    ///         {
+    ///             AutomationAccountName = "myAutomationAccount18",
+    ///             Base64Value = "base 64 value of cert",
+    ///             CertificateName = "testCert",
+    ///             Description = "Sample Cert",
+    ///             IsExportable = false,
+    ///             Name = "testCert",
+    ///             ResourceGroupName = "rg",
+    ///             Thumbprint = "thumbprint of cert",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

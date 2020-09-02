@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
 {
     /// <summary>
     /// Description of a Namespace resource.
+    /// 
+    /// ## NameSpaceCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @namespace = new AzureRM.NotificationHubs.V20170401.Namespace("namespace", new AzureRM.NotificationHubs.V20170401.NamespaceArgs
+    ///         {
+    ///             Location = "South Central US",
+    ///             NamespaceName = "nh-sdk-ns",
+    ///             ResourceGroupName = "5ktrial",
+    ///             Sku = new AzureRM.NotificationHubs.V20170401.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource
     {

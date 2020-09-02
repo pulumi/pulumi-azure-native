@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Relay.V20170401
 {
     /// <summary>
     /// Description of hybrid connection resource.
+    /// 
+    /// ## RelayHybridConnectionCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hybridConnection = new AzureRM.Relay.V20170401.HybridConnection("hybridConnection", new AzureRM.Relay.V20170401.HybridConnectionArgs
+    ///         {
+    ///             HybridConnectionName = "sdk-Relay-Hybrid-01",
+    ///             NamespaceName = "sdk-RelayNamespace-01",
+    ///             RequiresClientAuthorization = true,
+    ///             ResourceGroupName = "RG-eg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class HybridConnection : Pulumi.CustomResource
     {

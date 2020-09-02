@@ -11,6 +11,68 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
 {
     /// <summary>
     /// Service resource
+    /// 
+    /// ## Services_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.AppPlatform.V20200701.Service("service", new AzureRM.AppPlatform.V20200701.ServiceArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceName = "myservice",
+    ///             Sku = new AzureRM.AppPlatform.V20200701.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Services_CreateOrUpdate_VNetInjection
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.AppPlatform.V20200701.Service("service", new AzureRM.AppPlatform.V20200701.ServiceArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceName = "myservice",
+    ///             Sku = new AzureRM.AppPlatform.V20200701.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

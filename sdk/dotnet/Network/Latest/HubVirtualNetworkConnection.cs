@@ -11,6 +11,81 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// HubVirtualNetworkConnection Resource.
+    /// 
+    /// ## HubVirtualNetworkConnectionPut
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hubVirtualNetworkConnection = new AzureRM.Network.Latest.HubVirtualNetworkConnection("hubVirtualNetworkConnection", new AzureRM.Network.Latest.HubVirtualNetworkConnectionArgs
+    ///         {
+    ///             ConnectionName = "connection1",
+    ///             EnableInternetSecurity = false,
+    ///             RemoteVirtualNetwork = new AzureRM.Network.Latest.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/SpokeVnet1",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             RoutingConfiguration = new AzureRM.Network.Latest.Inputs.RoutingConfigurationArgs
+    ///             {
+    ///                 AssociatedRouteTable = new AzureRM.Network.Latest.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+    ///                 },
+    ///                 PropagatedRouteTables = new AzureRM.Network.Latest.Inputs.PropagatedRouteTableArgs
+    ///                 {
+    ///                     Ids = 
+    ///                     {
+    ///                         new AzureRM.Network.Latest.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+    ///                         },
+    ///                     },
+    ///                     Labels = 
+    ///                     {
+    ///                         "label1",
+    ///                         "label2",
+    ///                     },
+    ///                 },
+    ///                 VnetRoutes = new AzureRM.Network.Latest.Inputs.VnetRouteArgs
+    ///                 {
+    ///                     StaticRoutes = 
+    ///                     {
+    ///                         new AzureRM.Network.Latest.Inputs.StaticRouteArgs
+    ///                         {
+    ///                             AddressPrefixes = 
+    ///                             {
+    ///                                 "10.1.0.0/16",
+    ///                                 "10.2.0.0/16",
+    ///                             },
+    ///                             Name = "route1",
+    ///                             NextHopIpAddress = "10.0.0.68",
+    ///                         },
+    ///                         new AzureRM.Network.Latest.Inputs.StaticRouteArgs
+    ///                         {
+    ///                             AddressPrefixes = 
+    ///                             {
+    ///                                 "10.3.0.0/16",
+    ///                                 "10.4.0.0/16",
+    ///                             },
+    ///                             Name = "route2",
+    ///                             NextHopIpAddress = "10.0.0.65",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VirtualHubName = "virtualHub1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class HubVirtualNetworkConnection : Pulumi.CustomResource
     {

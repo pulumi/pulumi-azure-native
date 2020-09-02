@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
 {
     /// <summary>
     /// Linked storage accounts top level resource container.
+    /// 
+    /// ## LinkedStorageAccountsCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var linkedStorageAccount = new AzureRM.OperationalInsights.V20200801.LinkedStorageAccount("linkedStorageAccount", new AzureRM.OperationalInsights.V20200801.LinkedStorageAccountArgs
+    ///         {
+    ///             DataSourceType = "CustomLogs",
+    ///             ResourceGroupName = "mms-eus",
+    ///             StorageAccountIds = 
+    ///             {
+    ///                 "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageA",
+    ///                 "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageB",
+    ///             },
+    ///             WorkspaceName = "testLinkStorageAccountsWS",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class LinkedStorageAccount : Pulumi.CustomResource
     {

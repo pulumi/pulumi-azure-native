@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.Compute.V20191201
 {
     /// <summary>
     /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+    /// 
+    /// ## Create or update a dedicated host group.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dedicatedHostGroup = new AzureRM.Compute.V20191201.DedicatedHostGroup("dedicatedHostGroup", new AzureRM.Compute.V20191201.DedicatedHostGroupArgs
+    ///         {
+    ///             HostGroupName = "myDedicatedHostGroup",
+    ///             Location = "westus",
+    ///             PlatformFaultDomainCount = 3,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Tags = 
+    ///             {
+    ///                 { "department", "finance" },
+    ///             },
+    ///             Zones = 
+    ///             {
+    ///                 "1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DedicatedHostGroup : Pulumi.CustomResource
     {

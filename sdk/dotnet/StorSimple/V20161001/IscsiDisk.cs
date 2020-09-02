@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 {
     /// <summary>
     /// The iSCSI disk.
+    /// 
+    /// ## IscsiDisksCreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iscsiDisk = new AzureRM.StorSimple.V20161001.IscsiDisk("iscsiDisk", new AzureRM.StorSimple.V20161001.IscsiDiskArgs
+    ///         {
+    ///             AccessControlRecords = {},
+    ///             DataPolicy = "Tiered",
+    ///             Description = "Demo IscsiDisk for SDK Test Tiered",
+    ///             DeviceName = "HSDK-0NZI14MDTF",
+    ///             DiskName = "Auto-TestIscsiDisk1",
+    ///             DiskStatus = "Online",
+    ///             IscsiServerName = "HSDK-0NZI14MDTF",
+    ///             ManagerName = "hAzureSDKOperations",
+    ///             MonitoringStatus = "Enabled",
+    ///             ProvisionedCapacityInBytes = 536870912000,
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IscsiDisk : Pulumi.CustomResource
     {

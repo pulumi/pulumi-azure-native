@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.OffAzure.Latest
 {
     /// <summary>
     /// Site REST Resource.
+    /// 
+    /// ## Create VMware site
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var site = new AzureRM.OffAzure.Latest.Site("site", new AzureRM.OffAzure.Latest.SiteArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "pajindTest",
+    ///             SiteName = "appliance1e39site",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Site : Pulumi.CustomResource
     {

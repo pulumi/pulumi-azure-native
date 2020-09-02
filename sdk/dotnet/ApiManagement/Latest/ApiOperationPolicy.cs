@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
 {
     /// <summary>
     /// Policy Contract details.
+    /// 
+    /// ## ApiManagementCreateApiOperationPolicy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiOperationPolicy = new AzureRM.ApiManagement.Latest.ApiOperationPolicy("apiOperationPolicy", new AzureRM.ApiManagement.Latest.ApiOperationPolicyArgs
+    ///         {
+    ///             ApiId = "5600b57e7e8880006a040001",
+    ///             Format = "xml",
+    ///             OperationId = "5600b57e7e8880006a080001",
+    ///             PolicyId = "policy",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Value = "&lt;policies&gt; &lt;inbound /&gt; &lt;backend&gt;    &lt;forward-request /&gt;  &lt;/backend&gt;  &lt;outbound /&gt;&lt;/policies&gt;",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApiOperationPolicy : Pulumi.CustomResource
     {

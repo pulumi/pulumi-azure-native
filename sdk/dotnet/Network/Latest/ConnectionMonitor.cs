@@ -11,6 +11,132 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Information about the connection monitor.
+    /// 
+    /// ## Create connection monitor V1
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var connectionMonitor = new AzureRM.Network.Latest.ConnectionMonitor("connectionMonitor", new AzureRM.Network.Latest.ConnectionMonitorArgs
+    ///         {
+    ///             ConnectionMonitorName = "cm1",
+    ///             Destination = new AzureRM.Network.Latest.Inputs.ConnectionMonitorDestinationArgs
+    ///             {
+    ///                 Address = "bing.com",
+    ///                 Port = 80,
+    ///             },
+    ///             MonitoringIntervalInSeconds = 60,
+    ///             NetworkWatcherName = "nw1",
+    ///             ResourceGroupName = "rg1",
+    ///             Source = new AzureRM.Network.Latest.Inputs.ConnectionMonitorSourceArgs
+    ///             {
+    ///                 ResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create connection monitor V2
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var connectionMonitor = new AzureRM.Network.Latest.ConnectionMonitor("connectionMonitor", new AzureRM.Network.Latest.ConnectionMonitorArgs
+    ///         {
+    ///             ConnectionMonitorName = "cm1",
+    ///             Endpoints = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.ConnectionMonitorEndpointArgs
+    ///                 {
+    ///                     Name = "vm1",
+    ///                     ResourceId = "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/NwRgIrinaCentralUSEUAP/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///                 },
+    ///                 new AzureRM.Network.Latest.Inputs.ConnectionMonitorEndpointArgs
+    ///                 {
+    ///                     Filter = new AzureRM.Network.Latest.Inputs.ConnectionMonitorEndpointFilterArgs
+    ///                     {
+    ///                         Items = 
+    ///                         {
+    ///                             new AzureRM.Network.Latest.Inputs.ConnectionMonitorEndpointFilterItemArgs
+    ///                             {
+    ///                                 Address = "npmuser",
+    ///                                 Type = "AgentAddress",
+    ///                             },
+    ///                         },
+    ///                         Type = "Include",
+    ///                     },
+    ///                     Name = "CanaryWorkspaceVamshi",
+    ///                     ResourceId = "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/vasamudrRG/providers/Microsoft.OperationalInsights/workspaces/vasamudrWorkspace",
+    ///                 },
+    ///                 new AzureRM.Network.Latest.Inputs.ConnectionMonitorEndpointArgs
+    ///                 {
+    ///                     Address = "bing.com",
+    ///                     Name = "bing",
+    ///                 },
+    ///                 new AzureRM.Network.Latest.Inputs.ConnectionMonitorEndpointArgs
+    ///                 {
+    ///                     Address = "google.com",
+    ///                     Name = "google",
+    ///                 },
+    ///             },
+    ///             NetworkWatcherName = "nw1",
+    ///             Outputs = {},
+    ///             ResourceGroupName = "rg1",
+    ///             TestConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.ConnectionMonitorTestConfigurationArgs
+    ///                 {
+    ///                     Name = "testConfig1",
+    ///                     Protocol = "Tcp",
+    ///                     TcpConfiguration = new AzureRM.Network.Latest.Inputs.ConnectionMonitorTcpConfigurationArgs
+    ///                     {
+    ///                         DisableTraceRoute = false,
+    ///                         Port = 80,
+    ///                     },
+    ///                     TestFrequencySec = 60,
+    ///                 },
+    ///             },
+    ///             TestGroups = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.ConnectionMonitorTestGroupArgs
+    ///                 {
+    ///                     Destinations = 
+    ///                     {
+    ///                         "bing",
+    ///                         "google",
+    ///                     },
+    ///                     Disable = false,
+    ///                     Name = "test1",
+    ///                     Sources = 
+    ///                     {
+    ///                         "vm1",
+    ///                         "CanaryWorkspaceVamshi",
+    ///                     },
+    ///                     TestConfigurations = 
+    ///                     {
+    ///                         "testConfig1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ConnectionMonitor : Pulumi.CustomResource
     {

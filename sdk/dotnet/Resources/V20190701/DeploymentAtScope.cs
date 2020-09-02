@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Resources.V20190701
 {
     /// <summary>
     /// Deployment information.
+    /// 
+    /// ## Create deployment at a given scope.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var deploymentAtScope = new AzureRM.Resources.V20190701.DeploymentAtScope("deploymentAtScope", new AzureRM.Resources.V20190701.DeploymentAtScopeArgs
+    ///         {
+    ///             DeploymentName = "mg-dep01",
+    ///             Location = "eastus",
+    ///             Scope = "providers/Microsoft.Management/managementGroups/tiano-group1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DeploymentAtScope : Pulumi.CustomResource
     {

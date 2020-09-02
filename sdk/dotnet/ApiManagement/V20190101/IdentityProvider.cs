@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
 {
     /// <summary>
     /// Identity Provider details.
+    /// 
+    /// ## ApiManagementCreateIdentityProvider
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var identityProvider = new AzureRM.ApiManagement.V20190101.IdentityProvider("identityProvider", new AzureRM.ApiManagement.V20190101.IdentityProviderArgs
+    ///         {
+    ///             ClientId = "facebookid",
+    ///             ClientSecret = "facebookapplicationsecret",
+    ///             IdentityProviderName = "facebook",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IdentityProvider : Pulumi.CustomResource
     {

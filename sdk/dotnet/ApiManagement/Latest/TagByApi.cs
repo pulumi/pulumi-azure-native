@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
 {
     /// <summary>
     /// Tag Contract details.
+    /// 
+    /// ## ApiManagementCreateApiTag
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var tagByApi = new AzureRM.ApiManagement.Latest.TagByApi("tagByApi", new AzureRM.ApiManagement.Latest.TagByApiArgs
+    ///         {
+    ///             ApiId = "5931a75ae4bbd512a88c680b",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             TagId = "tagId1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class TagByApi : Pulumi.CustomResource
     {

@@ -11,6 +11,42 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
 {
     /// <summary>
     /// The top level storage insight resource container.
+    /// 
+    /// ## StorageInsightsCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var storageInsightConfig = new AzureRM.OperationalInsights.Latest.StorageInsightConfig("storageInsightConfig", new AzureRM.OperationalInsights.Latest.StorageInsightConfigArgs
+    ///         {
+    ///             Containers = 
+    ///             {
+    ///                 "wad-iis-logfiles",
+    ///             },
+    ///             ResourceGroupName = "OIAutoRest5123",
+    ///             StorageAccount = new AzureRM.OperationalInsights.Latest.Inputs.StorageAccountArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
+    ///                 Key = "1234",
+    ///             },
+    ///             StorageInsightName = "AzTestSI1110",
+    ///             Tables = 
+    ///             {
+    ///                 "WADWindowsEventLogsTable",
+    ///                 "LinuxSyslogVer2v0",
+    ///             },
+    ///             WorkspaceName = "aztest5048",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StorageInsightConfig : Pulumi.CustomResource
     {

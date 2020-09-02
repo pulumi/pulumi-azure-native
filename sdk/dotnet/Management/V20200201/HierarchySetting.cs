@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Management.V20200201
 {
     /// <summary>
     /// Settings defined at the Management Group scope.
+    /// 
+    /// ## GetGroupSettings
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hierarchySetting = new AzureRM.Management.V20200201.HierarchySetting("hierarchySetting", new AzureRM.Management.V20200201.HierarchySettingArgs
+    ///         {
+    ///             DefaultManagementGroup = "/providers/Microsoft.Management/managementGroups/DefaultGroup",
+    ///             GroupId = "root",
+    ///             RequireAuthorizationForGroupCreation = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class HierarchySetting : Pulumi.CustomResource
     {

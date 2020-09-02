@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
 {
     /// <summary>
     /// The StorSimple Manager.
+    /// 
+    /// ## ManagersCreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var manager = new AzureRM.StorSimple.V20170601.Manager("manager", new AzureRM.StorSimple.V20170601.ManagerArgs
+    ///         {
+    ///             CisIntrinsicSettings = new AzureRM.StorSimple.V20170601.Inputs.ManagerIntrinsicSettingsArgs
+    ///             {
+    ///                 Type = "GardaV1",
+    ///             },
+    ///             Location = "westus",
+    ///             ManagerName = "ManagerForSDKTest2",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///             Sku = new AzureRM.StorSimple.V20170601.Inputs.ManagerSkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Manager : Pulumi.CustomResource
     {

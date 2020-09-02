@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.Logic.V20160601
 {
     /// <summary>
     /// The integration account session.
+    /// 
+    /// ## SessionsCreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var session = new AzureRM.Logic.V20160601.Session("session", new AzureRM.Logic.V20160601.SessionArgs
+    ///         {
+    ///             Content = 
+    ///             {
+    ///                 { "controlNumber", "1234" },
+    ///                 { "controlNumberChangedTime", "2017-02-21T22:30:11.9923759Z" },
+    ///             },
+    ///             IntegrationAccountName = "testia123",
+    ///             ResourceGroupName = "testrg123",
+    ///             SessionName = "testsession123-ICN",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Session : Pulumi.CustomResource
     {

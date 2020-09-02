@@ -11,6 +11,76 @@ namespace Pulumi.AzureRM.Network.V20200601
 {
     /// <summary>
     /// A common class for general resource information.
+    /// 
+    /// ## UpdateVirtualNetworkGateway
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualNetworkGateway = new AzureRM.Network.V20200601.VirtualNetworkGateway("virtualNetworkGateway", new AzureRM.Network.V20200601.VirtualNetworkGatewayArgs
+    ///         {
+    ///             ActiveActive = false,
+    ///             BgpSettings = new AzureRM.Network.V20200601.Inputs.BgpSettingsArgs
+    ///             {
+    ///                 Asn = 65515,
+    ///                 BgpPeeringAddress = "10.0.1.30",
+    ///                 PeerWeight = 0,
+    ///             },
+    ///             CustomRoutes = new AzureRM.Network.V20200601.Inputs.AddressSpaceArgs
+    ///             {
+    ///                 AddressPrefixes = 
+    ///                 {
+    ///                     "101.168.0.6/32",
+    ///                 },
+    ///             },
+    ///             EnableBgp = false,
+    ///             EnableDnsForwarding = true,
+    ///             GatewayType = "Vpn",
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.V20200601.Inputs.VirtualNetworkGatewayIPConfigurationArgs
+    ///                 {
+    ///                     Name = "gwipconfig1",
+    ///                 },
+    ///             },
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.V20200601.Inputs.VirtualNetworkGatewaySkuArgs
+    ///             {
+    ///                 Name = "VpnGw1",
+    ///                 Tier = "VpnGw1",
+    ///             },
+    ///             VirtualNetworkGatewayName = "vpngw",
+    ///             VpnClientConfiguration = new AzureRM.Network.V20200601.Inputs.VpnClientConfigurationArgs
+    ///             {
+    ///                 RadiusServers = 
+    ///                 {
+    ///                     new AzureRM.Network.V20200601.Inputs.RadiusServerArgs
+    ///                     {
+    ///                         RadiusServerAddress = "10.2.0.0",
+    ///                         RadiusServerScore = 20,
+    ///                         RadiusServerSecret = "radiusServerSecret",
+    ///                     },
+    ///                 },
+    ///                 VpnClientProtocols = 
+    ///                 {
+    ///                     "OpenVPN",
+    ///                 },
+    ///                 VpnClientRevokedCertificates = {},
+    ///                 VpnClientRootCertificates = {},
+    ///             },
+    ///             VpnType = "RouteBased",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualNetworkGateway : Pulumi.CustomResource
     {

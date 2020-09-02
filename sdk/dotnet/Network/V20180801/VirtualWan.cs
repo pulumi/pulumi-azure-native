@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.Network.V20180801
 {
     /// <summary>
     /// VirtualWAN Resource.
+    /// 
+    /// ## VirtualWANCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualWan = new AzureRM.Network.V20180801.VirtualWan("virtualWan", new AzureRM.Network.V20180801.VirtualWanArgs
+    ///         {
+    ///             DisableVpnEncryption = false,
+    ///             Location = "West US",
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             VirtualWANName = "wan1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualWan : Pulumi.CustomResource
     {

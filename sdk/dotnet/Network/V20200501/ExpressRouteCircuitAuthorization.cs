@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Network.V20200501
 {
     /// <summary>
     /// Authorization in an ExpressRouteCircuit resource.
+    /// 
+    /// ## Create ExpressRouteCircuit Authorization
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var expressRouteCircuitAuthorization = new AzureRM.Network.V20200501.ExpressRouteCircuitAuthorization("expressRouteCircuitAuthorization", new AzureRM.Network.V20200501.ExpressRouteCircuitAuthorizationArgs
+    ///         {
+    ///             AuthorizationName = "authorizatinName",
+    ///             CircuitName = "circuitName",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ExpressRouteCircuitAuthorization : Pulumi.CustomResource
     {

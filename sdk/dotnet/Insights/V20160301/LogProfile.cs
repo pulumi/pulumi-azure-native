@@ -11,6 +11,45 @@ namespace Pulumi.AzureRM.Insights.V20160301
 {
     /// <summary>
     /// The log profile resource.
+    /// 
+    /// ## Create or update a log profile
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var logProfile = new AzureRM.Insights.V20160301.LogProfile("logProfile", new AzureRM.Insights.V20160301.LogProfileArgs
+    ///         {
+    ///             Categories = 
+    ///             {
+    ///                 "Write",
+    ///                 "Delete",
+    ///                 "Action",
+    ///             },
+    ///             Location = "",
+    ///             Locations = 
+    ///             {
+    ///                 "global",
+    ///             },
+    ///             LogProfileName = "Rac46PostSwapRG",
+    ///             RetentionPolicy = new AzureRM.Insights.V20160301.Inputs.RetentionPolicyArgs
+    ///             {
+    ///                 Days = 3,
+    ///                 Enabled = true,
+    ///             },
+    ///             ServiceBusRuleId = "",
+    ///             StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class LogProfile : Pulumi.CustomResource
     {

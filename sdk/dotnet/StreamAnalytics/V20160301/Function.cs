@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
 {
     /// <summary>
     /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+    /// 
+    /// ## Create a JavaScript function
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var function = new AzureRM.StreamAnalytics.V20160301.Function("function", new AzureRM.StreamAnalytics.V20160301.FunctionArgs
+    ///         {
+    ///             FunctionName = "function8197",
+    ///             JobName = "sj8653",
+    ///             Properties = ,
+    ///             ResourceGroupName = "sjrg1637",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create an Azure ML function
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var function = new AzureRM.StreamAnalytics.V20160301.Function("function", new AzureRM.StreamAnalytics.V20160301.FunctionArgs
+    ///         {
+    ///             FunctionName = "function588",
+    ///             JobName = "sj9093",
+    ///             Properties = ,
+    ///             ResourceGroupName = "sjrg7",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Function : Pulumi.CustomResource
     {

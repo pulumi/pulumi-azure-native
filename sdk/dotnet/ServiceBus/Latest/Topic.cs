@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
 {
     /// <summary>
     /// Description of topic resource.
+    /// 
+    /// ## TopicCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var topic = new AzureRM.ServiceBus.Latest.Topic("topic", new AzureRM.ServiceBus.Latest.TopicArgs
+    ///         {
+    ///             EnableExpress = true,
+    ///             NamespaceName = "sdk-Namespace-1617",
+    ///             ResourceGroupName = "ArunMonocle",
+    ///             TopicName = "sdk-Topics-5488",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Topic : Pulumi.CustomResource
     {

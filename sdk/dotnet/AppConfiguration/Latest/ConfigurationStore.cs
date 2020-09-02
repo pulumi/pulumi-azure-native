@@ -11,6 +11,70 @@ namespace Pulumi.AzureRM.AppConfiguration.Latest
 {
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+    /// 
+    /// ## ConfigurationStores_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var configurationStore = new AzureRM.AppConfiguration.Latest.ConfigurationStore("configurationStore", new AzureRM.AppConfiguration.Latest.ConfigurationStoreArgs
+    ///         {
+    ///             ConfigStoreName = "contoso",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.AppConfiguration.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "myTag", "myTagValue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## ConfigurationStores_Create_WithIdentity
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var configurationStore = new AzureRM.AppConfiguration.Latest.ConfigurationStore("configurationStore", new AzureRM.AppConfiguration.Latest.ConfigurationStoreArgs
+    ///         {
+    ///             ConfigStoreName = "contoso",
+    ///             Identity = new AzureRM.AppConfiguration.Latest.Inputs.ResourceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned, UserAssigned",
+    ///             },
+    ///             Location = "westus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.AppConfiguration.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "myTag", "myTagValue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ConfigurationStore : Pulumi.CustomResource
     {

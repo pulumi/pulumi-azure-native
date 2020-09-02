@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.AppConfiguration.Latest
 {
     /// <summary>
     /// A private endpoint connection
+    /// 
+    /// ## PrivateEndpointConnection_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.AppConfiguration.Latest.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.AppConfiguration.Latest.PrivateEndpointConnectionArgs
+    ///         {
+    ///             ConfigStoreName = "contoso",
+    ///             PrivateEndpointConnectionName = "myConnection",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.AppConfiguration.Latest.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Auto-Approved",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

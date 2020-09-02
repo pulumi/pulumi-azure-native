@@ -11,6 +11,48 @@ namespace Pulumi.AzureRM.Resources.V20180201
 {
     /// <summary>
     /// Deployment information.
+    /// 
+    /// ## Create a deployment that will redeploy another deployment on failure
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var deployment = new AzureRM.Resources.V20180201.Deployment("deployment", new AzureRM.Resources.V20180201.DeploymentArgs
+    ///         {
+    ///             DeploymentName = "exampleDeploymentName",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a deployment that will redeploy the last successful deployment on failure
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var deployment = new AzureRM.Resources.V20180201.Deployment("deployment", new AzureRM.Resources.V20180201.DeploymentArgs
+    ///         {
+    ///             DeploymentName = "exampleDeploymentName",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Deployment : Pulumi.CustomResource
     {

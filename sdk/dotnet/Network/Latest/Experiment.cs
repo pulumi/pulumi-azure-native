@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Defines the properties of an Experiment
+    /// 
+    /// ## Creates an Experiment
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var experiment = new AzureRM.Network.Latest.Experiment("experiment", new AzureRM.Network.Latest.ExperimentArgs
+    ///         {
+    ///             Description = "this is my first experiment!",
+    ///             EnabledState = "Enabled",
+    ///             EndpointA = new AzureRM.Network.Latest.Inputs.EndpointArgs
+    ///             {
+    ///                 Name = "endpoint A",
+    ///             },
+    ///             EndpointB = new AzureRM.Network.Latest.Inputs.EndpointArgs
+    ///             {
+    ///                 Name = "endpoint B",
+    ///             },
+    ///             ExperimentName = "MyExperiment",
+    ///             ProfileName = "MyProfile",
+    ///             ResourceGroupName = "MyResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Experiment : Pulumi.CustomResource
     {

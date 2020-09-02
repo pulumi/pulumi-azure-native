@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
 {
     /// <summary>
     /// Gateway hostname configuration details.
+    /// 
+    /// ## ApiManagementCreateGatewayHostnameConfiguration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var gatewayHostnameConfiguration = new AzureRM.ApiManagement.Latest.GatewayHostnameConfiguration("gatewayHostnameConfiguration", new AzureRM.ApiManagement.Latest.GatewayHostnameConfigurationArgs
+    ///         {
+    ///             CertificateId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+    ///             GatewayId = "gw1",
+    ///             HcId = "default",
+    ///             Hostname = "*",
+    ///             NegotiateClientCertificate = false,
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class GatewayHostnameConfiguration : Pulumi.CustomResource
     {

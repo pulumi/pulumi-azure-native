@@ -11,6 +11,46 @@ namespace Pulumi.AzureRM.AnalysisServices.Latest
 {
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
+    /// 
+    /// ## Create a server.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serverDetails = new AzureRM.AnalysisServices.Latest.ServerDetails("serverDetails", new AzureRM.AnalysisServices.Latest.ServerDetailsArgs
+    ///         {
+    ///             AsAdministrators = new AzureRM.AnalysisServices.Latest.Inputs.ServerAdministratorsArgs
+    ///             {
+    ///                 Members = 
+    ///                 {
+    ///                     "azsdktest@microsoft.com",
+    ///                     "azsdktest2@microsoft.com",
+    ///                 },
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "TestRG",
+    ///             ServerName = "azsdktest",
+    ///             Sku = new AzureRM.AnalysisServices.Latest.Inputs.ResourceSkuArgs
+    ///             {
+    ///                 Capacity = 1,
+    ///                 Name = "S1",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "testKey", "testValue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ServerDetails : Pulumi.CustomResource
     {

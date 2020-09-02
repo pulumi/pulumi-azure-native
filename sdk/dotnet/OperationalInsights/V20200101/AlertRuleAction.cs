@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
 {
     /// <summary>
     /// Action for alert rule.
+    /// 
+    /// ## Creates or updates an action of alert rule.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var alertRuleAction = new AzureRM.OperationalInsights.V20200101.AlertRuleAction("alertRuleAction", new AzureRM.OperationalInsights.V20200101.AlertRuleActionArgs
+    ///         {
+    ///             ActionId = "912bec42-cb66-4c03-ac63-1761b6898c3e",
+    ///             Etag = "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+    ///             LogicAppResourceId = "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/MyAlerts",
+    ///             ResourceGroupName = "myRg",
+    ///             RuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///             TriggerUri = "https://prod-31.northcentralus.logic.azure.com:443/workflows/cd3765391efd48549fd7681ded1d48d7/triggers/manual/paths/invoke?api-version=2016-10-01&amp;sp=%2Ftriggers%2Fmanual%2Frun&amp;sv=1.0&amp;sig=signature",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AlertRuleAction : Pulumi.CustomResource
     {

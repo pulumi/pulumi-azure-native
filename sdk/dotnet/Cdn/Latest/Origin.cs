@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.Cdn.Latest
 {
     /// <summary>
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+    /// 
+    /// ## Origins_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var origin = new AzureRM.Cdn.Latest.Origin("origin", new AzureRM.Cdn.Latest.OriginArgs
+    ///         {
+    ///             Enabled = true,
+    ///             EndpointName = "endpoint1",
+    ///             HostName = "www.someDomain.net",
+    ///             HttpPort = 80,
+    ///             HttpsPort = 443,
+    ///             OriginHostHeader = "www.someDomain.net",
+    ///             OriginName = "www-someDomain-net",
+    ///             Priority = 1,
+    ///             PrivateLinkApprovalMessage = "Please approve the connection request for this Private Link",
+    ///             PrivateLinkLocation = "eastus",
+    ///             PrivateLinkResourceId = "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+    ///             ProfileName = "profile1",
+    ///             ResourceGroupName = "RG",
+    ///             Weight = 50,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Origin : Pulumi.CustomResource
     {

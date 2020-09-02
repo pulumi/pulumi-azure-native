@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Compute.Latest
 {
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
+    /// 
+    /// ## Create or update guest configuration assignment
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var guestConfigurationAssignment = new AzureRM.Compute.Latest.GuestConfigurationAssignment("guestConfigurationAssignment", new AzureRM.Compute.Latest.GuestConfigurationAssignmentArgs
+    ///         {
+    ///             GuestConfigurationAssignmentName = "WhitelistedApplication",
+    ///             Location = "westcentralus",
+    ///             Name = "WhitelistedApplication",
+    ///             ResourceGroupName = "myResourceGroupName",
+    ///             VmName = "myVMName",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class GuestConfigurationAssignment : Pulumi.CustomResource
     {

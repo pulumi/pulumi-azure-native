@@ -11,6 +11,70 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
 {
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+    /// 
+    /// ## ConfigurationStores_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var configurationStore = new AzureRM.AppConfiguration.V20200601.ConfigurationStore("configurationStore", new AzureRM.AppConfiguration.V20200601.ConfigurationStoreArgs
+    ///         {
+    ///             ConfigStoreName = "contoso",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.AppConfiguration.V20200601.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "myTag", "myTagValue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## ConfigurationStores_Create_WithIdentity
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var configurationStore = new AzureRM.AppConfiguration.V20200601.ConfigurationStore("configurationStore", new AzureRM.AppConfiguration.V20200601.ConfigurationStoreArgs
+    ///         {
+    ///             ConfigStoreName = "contoso",
+    ///             Identity = new AzureRM.AppConfiguration.V20200601.Inputs.ResourceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned, UserAssigned",
+    ///             },
+    ///             Location = "westus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.AppConfiguration.V20200601.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "myTag", "myTagValue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ConfigurationStore : Pulumi.CustomResource
     {

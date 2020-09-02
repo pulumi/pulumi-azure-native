@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
 {
     /// <summary>
     /// Datasources under OMS Workspace.
+    /// 
+    /// ## DataSourcesCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataSource = new AzureRM.OperationalInsights.Latest.DataSource("dataSource", new AzureRM.OperationalInsights.Latest.DataSourceArgs
+    ///         {
+    ///             DataSourceName = "AzTestDS774",
+    ///             Kind = "AzureActivityLog",
+    ///             ResourceGroupName = "OIAutoRest5123",
+    ///             WorkspaceName = "AzTest9724",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DataSource : Pulumi.CustomResource
     {

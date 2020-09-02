@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
 {
     /// <summary>
     /// Description of a NotificationHub Resource.
+    /// 
+    /// ## NotificationHubCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var notificationHub = new AzureRM.NotificationHubs.V20170401.NotificationHub("notificationHub", new AzureRM.NotificationHubs.V20170401.NotificationHubArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             NamespaceName = "nh-sdk-ns",
+    ///             NotificationHubName = "nh-sdk-hub",
+    ///             ResourceGroupName = "5ktrial",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NotificationHub : Pulumi.CustomResource
     {

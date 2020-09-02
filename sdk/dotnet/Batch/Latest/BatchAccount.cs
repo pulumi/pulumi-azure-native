@@ -11,6 +11,126 @@ namespace Pulumi.AzureRM.Batch.Latest
 {
     /// <summary>
     /// Contains information about an Azure Batch account.
+    /// 
+    /// ## BatchAccountCreate_BYOS
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var batchAccount = new AzureRM.Batch.Latest.BatchAccount("batchAccount", new AzureRM.Batch.Latest.BatchAccountArgs
+    ///         {
+    ///             AccountName = "sampleacct",
+    ///             AutoStorage = new AzureRM.Batch.Latest.Inputs.AutoStorageBasePropertiesArgs
+    ///             {
+    ///                 StorageAccountId = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    ///             },
+    ///             KeyVaultReference = new AzureRM.Batch.Latest.Inputs.KeyVaultReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+    ///                 Url = "http://sample.vault.azure.net/",
+    ///             },
+    ///             Location = "japaneast",
+    ///             PoolAllocationMode = "UserSubscription",
+    ///             ResourceGroupName = "default-azurebatch-japaneast",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## BatchAccountCreate_Default
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var batchAccount = new AzureRM.Batch.Latest.BatchAccount("batchAccount", new AzureRM.Batch.Latest.BatchAccountArgs
+    ///         {
+    ///             AccountName = "sampleacct",
+    ///             AutoStorage = new AzureRM.Batch.Latest.Inputs.AutoStorageBasePropertiesArgs
+    ///             {
+    ///                 StorageAccountId = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    ///             },
+    ///             Location = "japaneast",
+    ///             ResourceGroupName = "default-azurebatch-japaneast",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## BatchAccountCreate_SystemAssignedIdentity
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var batchAccount = new AzureRM.Batch.Latest.BatchAccount("batchAccount", new AzureRM.Batch.Latest.BatchAccountArgs
+    ///         {
+    ///             AccountName = "sampleacct",
+    ///             AutoStorage = new AzureRM.Batch.Latest.Inputs.AutoStorageBasePropertiesArgs
+    ///             {
+    ///                 StorageAccountId = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    ///             },
+    ///             Identity = new AzureRM.Batch.Latest.Inputs.BatchAccountIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Location = "japaneast",
+    ///             ResourceGroupName = "default-azurebatch-japaneast",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## PrivateBatchAccountCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var batchAccount = new AzureRM.Batch.Latest.BatchAccount("batchAccount", new AzureRM.Batch.Latest.BatchAccountArgs
+    ///         {
+    ///             AccountName = "sampleacct",
+    ///             AutoStorage = new AzureRM.Batch.Latest.Inputs.AutoStorageBasePropertiesArgs
+    ///             {
+    ///                 StorageAccountId = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    ///             },
+    ///             KeyVaultReference = new AzureRM.Batch.Latest.Inputs.KeyVaultReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+    ///                 Url = "http://sample.vault.azure.net/",
+    ///             },
+    ///             Location = "japaneast",
+    ///             PublicNetworkAccess = "Disabled",
+    ///             ResourceGroupName = "default-azurebatch-japaneast",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BatchAccount : Pulumi.CustomResource
     {

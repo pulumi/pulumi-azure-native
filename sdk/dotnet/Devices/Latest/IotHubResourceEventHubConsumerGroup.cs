@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Devices.Latest
 {
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
+    /// 
+    /// ## IotHubResource_CreateEventHubConsumerGroup
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iotHubResourceEventHubConsumerGroup = new AzureRM.Devices.Latest.IotHubResourceEventHubConsumerGroup("iotHubResourceEventHubConsumerGroup", new AzureRM.Devices.Latest.IotHubResourceEventHubConsumerGroupArgs
+    ///         {
+    ///             EventHubEndpointName = "events",
+    ///             Name = "test",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ResourceName = "testHub",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IotHubResourceEventHubConsumerGroup : Pulumi.CustomResource
     {

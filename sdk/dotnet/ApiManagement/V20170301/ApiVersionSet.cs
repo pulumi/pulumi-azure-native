@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 {
     /// <summary>
     /// Api Version Set Contract details.
+    /// 
+    /// ## ApiManagementCreateApiVersionSet
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiVersionSet = new AzureRM.ApiManagement.V20170301.ApiVersionSet("apiVersionSet", new AzureRM.ApiManagement.V20170301.ApiVersionSetArgs
+    ///         {
+    ///             Description = "Version configuration",
+    ///             DisplayName = "api set 1",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             VersionSetId = "api1",
+    ///             VersioningScheme = "Segment",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApiVersionSet : Pulumi.CustomResource
     {

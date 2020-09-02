@@ -11,6 +11,87 @@ namespace Pulumi.AzureRM.Consumption.V20180331
 {
     /// <summary>
     /// A budget resource.
+    /// 
+    /// ## CreateOrUpdateBudget
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var budget = new AzureRM.Consumption.V20180331.Budget("budget", new AzureRM.Consumption.V20180331.BudgetArgs
+    ///         {
+    ///             Amount = 100.65,
+    ///             BudgetName = "TestBudget",
+    ///             Category = "Cost",
+    ///             ETag = "\"1d34d016a593709\"",
+    ///             Filters = new AzureRM.Consumption.V20180331.Inputs.FiltersArgs
+    ///             {
+    ///                 Meters = 
+    ///                 {
+    ///                     "00000000-0000-0000-0000-000000000000",
+    ///                 },
+    ///                 ResourceGroups = 
+    ///                 {
+    ///                     "MYDEVTESTRG",
+    ///                 },
+    ///                 Resources = 
+    ///                 {
+    ///                     "/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/MYVM2",
+    ///                     "/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/platformcloudplatformGeneric1",
+    ///                 },
+    ///                 Tags = 
+    ///                 {
+    ///                     { "category", 
+    ///                     {
+    ///                         "Dev",
+    ///                         "Prod",
+    ///                     } },
+    ///                     { "department", 
+    ///                     {
+    ///                         "engineering",
+    ///                         "sales",
+    ///                     } },
+    ///                 },
+    ///             },
+    ///             Notifications = 
+    ///             {
+    ///                 { "Actual_GreaterThan_80_Percent", new AzureRM.Consumption.V20180331.Inputs.NotificationArgs
+    ///                 {
+    ///                     ContactEmails = 
+    ///                     {
+    ///                         "johndoe@contoso.com",
+    ///                         "janesmith@contoso.com",
+    ///                     },
+    ///                     ContactGroups = 
+    ///                     {
+    ///                         "/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/microsoft.insights/actionGroups/SampleActionGroup",
+    ///                     },
+    ///                     ContactRoles = 
+    ///                     {
+    ///                         "Contributor",
+    ///                         "Reader",
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Operator = "GreaterThan",
+    ///                     Threshold = 80,
+    ///                 } },
+    ///             },
+    ///             TimeGrain = "Monthly",
+    ///             TimePeriod = new AzureRM.Consumption.V20180331.Inputs.BudgetTimePeriodArgs
+    ///             {
+    ///                 EndDate = "2018-10-31T00:00:00Z",
+    ///                 StartDate = "2017-10-01T00:00:00Z",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Budget : Pulumi.CustomResource
     {

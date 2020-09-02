@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
 {
     /// <summary>
     /// Migration item.
+    /// 
+    /// ## Enables migration.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var replicationMigrationItem = new AzureRM.RecoveryServices.Latest.ReplicationMigrationItem("replicationMigrationItem", new AzureRM.RecoveryServices.Latest.ReplicationMigrationItemArgs
+    ///         {
+    ///             FabricName = "vmwarefabric1",
+    ///             MigrationItemName = "virtualmachine1",
+    ///             ProtectionContainerName = "vmwareContainer1",
+    ///             ResourceGroupName = "resourcegroup1",
+    ///             ResourceName = "migrationvault",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ReplicationMigrationItem : Pulumi.CustomResource
     {

@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Migrate.V20191001
 {
     /// <summary>
     /// Azure Migrate Project.
+    /// 
+    /// ## Projects_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var project = new AzureRM.Migrate.V20191001.Project("project", new AzureRM.Migrate.V20191001.ProjectArgs
+    ///         {
+    ///             ETag = "",
+    ///             Location = "West Europe",
+    ///             ProjectName = "abGoyalProject2",
+    ///             ResourceGroupName = "abgoyal-westEurope",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Project : Pulumi.CustomResource
     {

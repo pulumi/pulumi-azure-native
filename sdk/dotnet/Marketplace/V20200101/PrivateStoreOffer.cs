@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.Marketplace.V20200101
 {
     /// <summary>
     /// The privateStore offer data structure.
+    /// 
+    /// ## UpdatePrivateStoreOffer
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateStoreOffer = new AzureRM.Marketplace.V20200101.PrivateStoreOffer("privateStoreOffer", new AzureRM.Marketplace.V20200101.PrivateStoreOfferArgs
+    ///         {
+    ///             OfferId = "marketplacetestthirdparty.md-test-third-party-2",
+    ///             PrivateStoreId = "a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateStoreOffer : Pulumi.CustomResource
     {

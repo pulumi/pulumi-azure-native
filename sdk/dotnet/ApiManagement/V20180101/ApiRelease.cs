@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 {
     /// <summary>
     /// Api Release details.
+    /// 
+    /// ## ApiManagementCreateApiRelease
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiRelease = new AzureRM.ApiManagement.V20180101.ApiRelease("apiRelease", new AzureRM.ApiManagement.V20180101.ApiReleaseArgs
+    ///         {
+    ///             ApiId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1",
+    ///             Notes = "yahooagain",
+    ///             ReleaseId = "testrev",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApiRelease : Pulumi.CustomResource
     {

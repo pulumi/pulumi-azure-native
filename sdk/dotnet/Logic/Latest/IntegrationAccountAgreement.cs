@@ -11,6 +11,207 @@ namespace Pulumi.AzureRM.Logic.Latest
 {
     /// <summary>
     /// The integration account agreement.
+    /// 
+    /// ## Create or update an agreement
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var integrationAccountAgreement = new AzureRM.Logic.Latest.IntegrationAccountAgreement("integrationAccountAgreement", new AzureRM.Logic.Latest.IntegrationAccountAgreementArgs
+    ///         {
+    ///             AgreementName = "testAgreement",
+    ///             AgreementType = "AS2",
+    ///             Content = new AzureRM.Logic.Latest.Inputs.AgreementContentArgs
+    ///             {
+    ///                 AS2 = new AzureRM.Logic.Latest.Inputs.AS2AgreementContentArgs
+    ///                 {
+    ///                     ReceiveAgreement = new AzureRM.Logic.Latest.Inputs.AS2OneWayAgreementArgs
+    ///                     {
+    ///                         ProtocolSettings = new AzureRM.Logic.Latest.Inputs.AS2ProtocolSettingsArgs
+    ///                         {
+    ///                             AcknowledgementConnectionSettings = new AzureRM.Logic.Latest.Inputs.AS2AcknowledgementConnectionSettingsArgs
+    ///                             {
+    ///                                 IgnoreCertificateNameMismatch = true,
+    ///                                 KeepHttpConnectionAlive = true,
+    ///                                 SupportHttpStatusCodeContinue = true,
+    ///                                 UnfoldHttpHeaders = true,
+    ///                             },
+    ///                             EnvelopeSettings = new AzureRM.Logic.Latest.Inputs.AS2EnvelopeSettingsArgs
+    ///                             {
+    ///                                 AutogenerateFileName = true,
+    ///                                 FileNameTemplate = "Test",
+    ///                                 MessageContentType = "text/plain",
+    ///                                 SuspendMessageOnFileNameGenerationError = true,
+    ///                                 TransmitFileNameInMimeHeader = true,
+    ///                             },
+    ///                             ErrorSettings = new AzureRM.Logic.Latest.Inputs.AS2ErrorSettingsArgs
+    ///                             {
+    ///                                 ResendIfMDNNotReceived = true,
+    ///                                 SuspendDuplicateMessage = true,
+    ///                             },
+    ///                             MdnSettings = new AzureRM.Logic.Latest.Inputs.AS2MdnSettingsArgs
+    ///                             {
+    ///                                 DispositionNotificationTo = "http://tempuri.org",
+    ///                                 MdnText = "Sample",
+    ///                                 MicHashingAlgorithm = "SHA1",
+    ///                                 NeedMDN = true,
+    ///                                 ReceiptDeliveryUrl = "http://tempuri.org",
+    ///                                 SendInboundMDNToMessageBox = true,
+    ///                                 SendMDNAsynchronously = true,
+    ///                                 SignMDN = true,
+    ///                                 SignOutboundMDNIfOptional = true,
+    ///                             },
+    ///                             MessageConnectionSettings = new AzureRM.Logic.Latest.Inputs.AS2MessageConnectionSettingsArgs
+    ///                             {
+    ///                                 IgnoreCertificateNameMismatch = true,
+    ///                                 KeepHttpConnectionAlive = true,
+    ///                                 SupportHttpStatusCodeContinue = true,
+    ///                                 UnfoldHttpHeaders = true,
+    ///                             },
+    ///                             SecuritySettings = new AzureRM.Logic.Latest.Inputs.AS2SecuritySettingsArgs
+    ///                             {
+    ///                                 EnableNRRForInboundDecodedMessages = true,
+    ///                                 EnableNRRForInboundEncodedMessages = true,
+    ///                                 EnableNRRForInboundMDN = true,
+    ///                                 EnableNRRForOutboundDecodedMessages = true,
+    ///                                 EnableNRRForOutboundEncodedMessages = true,
+    ///                                 EnableNRRForOutboundMDN = true,
+    ///                                 OverrideGroupSigningCertificate = false,
+    ///                             },
+    ///                             ValidationSettings = new AzureRM.Logic.Latest.Inputs.AS2ValidationSettingsArgs
+    ///                             {
+    ///                                 CheckCertificateRevocationListOnReceive = true,
+    ///                                 CheckCertificateRevocationListOnSend = true,
+    ///                                 CheckDuplicateMessage = true,
+    ///                                 CompressMessage = true,
+    ///                                 EncryptMessage = false,
+    ///                                 EncryptionAlgorithm = "AES128",
+    ///                                 InterchangeDuplicatesValidityDays = 100,
+    ///                                 OverrideMessageProperties = true,
+    ///                                 SignMessage = false,
+    ///                             },
+    ///                         },
+    ///                         ReceiverBusinessIdentity = new AzureRM.Logic.Latest.Inputs.BusinessIdentityArgs
+    ///                         {
+    ///                             Qualifier = "ZZ",
+    ///                             Value = "ZZ",
+    ///                         },
+    ///                         SenderBusinessIdentity = new AzureRM.Logic.Latest.Inputs.BusinessIdentityArgs
+    ///                         {
+    ///                             Qualifier = "AA",
+    ///                             Value = "AA",
+    ///                         },
+    ///                     },
+    ///                     SendAgreement = new AzureRM.Logic.Latest.Inputs.AS2OneWayAgreementArgs
+    ///                     {
+    ///                         ProtocolSettings = new AzureRM.Logic.Latest.Inputs.AS2ProtocolSettingsArgs
+    ///                         {
+    ///                             AcknowledgementConnectionSettings = new AzureRM.Logic.Latest.Inputs.AS2AcknowledgementConnectionSettingsArgs
+    ///                             {
+    ///                                 IgnoreCertificateNameMismatch = true,
+    ///                                 KeepHttpConnectionAlive = true,
+    ///                                 SupportHttpStatusCodeContinue = true,
+    ///                                 UnfoldHttpHeaders = true,
+    ///                             },
+    ///                             EnvelopeSettings = new AzureRM.Logic.Latest.Inputs.AS2EnvelopeSettingsArgs
+    ///                             {
+    ///                                 AutogenerateFileName = true,
+    ///                                 FileNameTemplate = "Test",
+    ///                                 MessageContentType = "text/plain",
+    ///                                 SuspendMessageOnFileNameGenerationError = true,
+    ///                                 TransmitFileNameInMimeHeader = true,
+    ///                             },
+    ///                             ErrorSettings = new AzureRM.Logic.Latest.Inputs.AS2ErrorSettingsArgs
+    ///                             {
+    ///                                 ResendIfMDNNotReceived = true,
+    ///                                 SuspendDuplicateMessage = true,
+    ///                             },
+    ///                             MdnSettings = new AzureRM.Logic.Latest.Inputs.AS2MdnSettingsArgs
+    ///                             {
+    ///                                 DispositionNotificationTo = "http://tempuri.org",
+    ///                                 MdnText = "Sample",
+    ///                                 MicHashingAlgorithm = "SHA1",
+    ///                                 NeedMDN = true,
+    ///                                 ReceiptDeliveryUrl = "http://tempuri.org",
+    ///                                 SendInboundMDNToMessageBox = true,
+    ///                                 SendMDNAsynchronously = true,
+    ///                                 SignMDN = true,
+    ///                                 SignOutboundMDNIfOptional = true,
+    ///                             },
+    ///                             MessageConnectionSettings = new AzureRM.Logic.Latest.Inputs.AS2MessageConnectionSettingsArgs
+    ///                             {
+    ///                                 IgnoreCertificateNameMismatch = true,
+    ///                                 KeepHttpConnectionAlive = true,
+    ///                                 SupportHttpStatusCodeContinue = true,
+    ///                                 UnfoldHttpHeaders = true,
+    ///                             },
+    ///                             SecuritySettings = new AzureRM.Logic.Latest.Inputs.AS2SecuritySettingsArgs
+    ///                             {
+    ///                                 EnableNRRForInboundDecodedMessages = true,
+    ///                                 EnableNRRForInboundEncodedMessages = true,
+    ///                                 EnableNRRForInboundMDN = true,
+    ///                                 EnableNRRForOutboundDecodedMessages = true,
+    ///                                 EnableNRRForOutboundEncodedMessages = true,
+    ///                                 EnableNRRForOutboundMDN = true,
+    ///                                 OverrideGroupSigningCertificate = false,
+    ///                             },
+    ///                             ValidationSettings = new AzureRM.Logic.Latest.Inputs.AS2ValidationSettingsArgs
+    ///                             {
+    ///                                 CheckCertificateRevocationListOnReceive = true,
+    ///                                 CheckCertificateRevocationListOnSend = true,
+    ///                                 CheckDuplicateMessage = true,
+    ///                                 CompressMessage = true,
+    ///                                 EncryptMessage = false,
+    ///                                 EncryptionAlgorithm = "AES128",
+    ///                                 InterchangeDuplicatesValidityDays = 100,
+    ///                                 OverrideMessageProperties = true,
+    ///                                 SignMessage = false,
+    ///                             },
+    ///                         },
+    ///                         ReceiverBusinessIdentity = new AzureRM.Logic.Latest.Inputs.BusinessIdentityArgs
+    ///                         {
+    ///                             Qualifier = "AA",
+    ///                             Value = "AA",
+    ///                         },
+    ///                         SenderBusinessIdentity = new AzureRM.Logic.Latest.Inputs.BusinessIdentityArgs
+    ///                         {
+    ///                             Qualifier = "ZZ",
+    ///                             Value = "ZZ",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             GuestIdentity = new AzureRM.Logic.Latest.Inputs.BusinessIdentityArgs
+    ///             {
+    ///                 Qualifier = "AA",
+    ///                 Value = "AA",
+    ///             },
+    ///             GuestPartner = "GuestPartner",
+    ///             HostIdentity = new AzureRM.Logic.Latest.Inputs.BusinessIdentityArgs
+    ///             {
+    ///                 Qualifier = "ZZ",
+    ///                 Value = "ZZ",
+    ///             },
+    ///             HostPartner = "HostPartner",
+    ///             IntegrationAccountName = "testIntegrationAccount",
+    ///             Location = "westus",
+    ///             Metadata = ,
+    ///             ResourceGroupName = "testResourceGroup",
+    ///             Tags = 
+    ///             {
+    ///                 { "IntegrationAccountAgreement", "&lt;IntegrationAccountAgreementName&gt;" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IntegrationAccountAgreement : Pulumi.CustomResource
     {

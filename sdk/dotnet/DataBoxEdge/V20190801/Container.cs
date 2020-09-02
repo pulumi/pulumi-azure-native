@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
 {
     /// <summary>
     /// Represents a container on the  Data Box Edge/Gateway device.
+    /// 
+    /// ## ContainerPut
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var container = new AzureRM.DataBoxEdge.V20190801.Container("container", new AzureRM.DataBoxEdge.V20190801.ContainerArgs
+    ///         {
+    ///             ContainerName = "blobcontainer1",
+    ///             DataFormat = "BlockBlob",
+    ///             DeviceName = "testedgedevice",
+    ///             ResourceGroupName = "GroupForEdgeAutomation",
+    ///             StorageAccountName = "storageaccount1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Container : Pulumi.CustomResource
     {

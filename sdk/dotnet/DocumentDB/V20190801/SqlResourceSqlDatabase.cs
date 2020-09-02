@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
 {
     /// <summary>
     /// An Azure Cosmos DB SQL database.
+    /// 
+    /// ## CosmosDBSqlDatabaseCreateUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sqlResourceSqlDatabase = new AzureRM.DocumentDB.V20190801.SqlResourceSqlDatabase("sqlResourceSqlDatabase", new AzureRM.DocumentDB.V20190801.SqlResourceSqlDatabaseArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             DatabaseName = "databaseName",
+    ///             Location = "West US",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.V20190801.Inputs.SqlDatabaseResourceArgs
+    ///             {
+    ///                 Id = "databaseName",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SqlResourceSqlDatabase : Pulumi.CustomResource
     {

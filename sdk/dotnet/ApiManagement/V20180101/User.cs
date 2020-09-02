@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 {
     /// <summary>
     /// User details.
+    /// 
+    /// ## ApiManagementCreateUserBasic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var user = new AzureRM.ApiManagement.V20180101.User("user", new AzureRM.ApiManagement.V20180101.UserArgs
+    ///         {
+    ///             Confirmation = "signup",
+    ///             Email = "foobar@outlook.com",
+    ///             FirstName = "foo",
+    ///             LastName = "bar",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Uid = "5931a75ae4bbd512288c680b",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

@@ -9,6 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Migrate.V20191001
 {
+    /// <summary>
+    /// ## VMwareCollectors_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vMwareCollector = new AzureRM.Migrate.V20191001.VMwareCollector("vMwareCollector", new AzureRM.Migrate.V20191001.VMwareCollectorArgs
+    ///         {
+    ///             ETag = "\"01003d32-0000-0d00-0000-5d74d2e50000\"",
+    ///             ProjectName = "abgoyalWEselfhostb72bproject",
+    ///             ResourceGroupName = "abgoyal-westEurope",
+    ///             VmWareCollectorName = "PortalvCenterbc2fcollector",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// </summary>
     public partial class VMwareCollector : Pulumi.CustomResource
     {
         [Output("eTag")]

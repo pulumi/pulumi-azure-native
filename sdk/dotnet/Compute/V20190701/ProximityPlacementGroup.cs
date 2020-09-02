@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Compute.V20190701
 {
     /// <summary>
     /// Specifies information about the proximity placement group.
+    /// 
+    /// ## Create or Update a proximity placement group.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var proximityPlacementGroup = new AzureRM.Compute.V20190701.ProximityPlacementGroup("proximityPlacementGroup", new AzureRM.Compute.V20190701.ProximityPlacementGroupArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ProximityPlacementGroupName = "myProximityPlacementGroup",
+    ///             ProximityPlacementGroupType = "Standard",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ProximityPlacementGroup : Pulumi.CustomResource
     {

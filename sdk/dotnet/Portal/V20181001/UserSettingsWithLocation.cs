@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.Portal.V20181001
 {
     /// <summary>
     /// Response to get user settings
+    /// 
+    /// ## PutUserSettings
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var userSettingsWithLocation = new AzureRM.Portal.V20181001.UserSettingsWithLocation("userSettingsWithLocation", new AzureRM.Portal.V20181001.UserSettingsWithLocationArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             UserSettingsName = "cloudconsole",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class UserSettingsWithLocation : Pulumi.CustomResource
     {

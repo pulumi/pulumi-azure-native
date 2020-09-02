@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Security.V20190801
 {
     /// <summary>
     /// The device security group resource
+    /// 
+    /// ## Create or update a device security group for the specified IoT hub resource
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var deviceSecurityGroup = new AzureRM.Security.V20190801.DeviceSecurityGroup("deviceSecurityGroup", new AzureRM.Security.V20190801.DeviceSecurityGroupArgs
+    ///         {
+    ///             DeviceSecurityGroupName = "samplesecuritygroup",
+    ///             ResourceId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub",
+    ///             TimeWindowRules = 
+    ///             {
+    ///                 new AzureRM.Security.V20190801.Inputs.TimeWindowCustomAlertRuleArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                     MaxThreshold = 30,
+    ///                     MinThreshold = 0,
+    ///                     RuleType = "ActiveConnectionsNotInAllowedRange",
+    ///                     TimeWindowSize = "PT05M",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DeviceSecurityGroup : Pulumi.CustomResource
     {

@@ -11,6 +11,69 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
 {
     /// <summary>
     /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+    /// 
+    /// ## Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new AzureRM.DataLakeAnalytics.V20161101.Account("account", new AzureRM.DataLakeAnalytics.V20161101.AccountArgs
+    ///         {
+    ///             AccountName = "contosoadla",
+    ///             ComputePolicies = 
+    ///             {
+    ///                 new AzureRM.DataLakeAnalytics.V20161101.Inputs.CreateComputePolicyWithAccountParametersArgs
+    ///                 {
+    ///                     Name = "test_policy",
+    ///                 },
+    ///             },
+    ///             DataLakeStoreAccounts = 
+    ///             {
+    ///                 new AzureRM.DataLakeAnalytics.V20161101.Inputs.AddDataLakeStoreWithAccountParametersArgs
+    ///                 {
+    ///                     Name = "test_adls",
+    ///                 },
+    ///             },
+    ///             DefaultDataLakeStoreAccount = "test_adls",
+    ///             FirewallAllowAzureIps = "Enabled",
+    ///             FirewallRules = 
+    ///             {
+    ///                 new AzureRM.DataLakeAnalytics.V20161101.Inputs.CreateFirewallRuleWithAccountParametersArgs
+    ///                 {
+    ///                     Name = "test_rule",
+    ///                 },
+    ///             },
+    ///             FirewallState = "Enabled",
+    ///             Location = "eastus2",
+    ///             MaxDegreeOfParallelism = 30,
+    ///             MaxDegreeOfParallelismPerJob = 1,
+    ///             MaxJobCount = 3,
+    ///             MinPriorityPerJob = 1,
+    ///             NewTier = "Consumption",
+    ///             QueryStoreRetention = 30,
+    ///             ResourceGroupName = "contosorg",
+    ///             StorageAccounts = 
+    ///             {
+    ///                 new AzureRM.DataLakeAnalytics.V20161101.Inputs.AddStorageAccountWithAccountParametersArgs
+    ///                 {
+    ///                     Name = "test_storage",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "test_key", "test_value" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

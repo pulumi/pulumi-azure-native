@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
 {
     /// <summary>
     /// Description of a namespace resource.
+    /// 
+    /// ## NameSpaceCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @namespace = new AzureRM.ServiceBus.V20170401.Namespace("namespace", new AzureRM.ServiceBus.V20170401.NamespaceArgs
+    ///         {
+    ///             Location = "South Central US",
+    ///             NamespaceName = "sdk-Namespace2924",
+    ///             ResourceGroupName = "ArunMonocle",
+    ///             Sku = new AzureRM.ServiceBus.V20170401.Inputs.SBSkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource
     {

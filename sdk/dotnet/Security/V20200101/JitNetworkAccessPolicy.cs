@@ -9,6 +9,80 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Security.V20200101
 {
+    /// <summary>
+    /// ## Create JIT network access policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var jitNetworkAccessPolicy = new AzureRM.Security.V20200101.JitNetworkAccessPolicy("jitNetworkAccessPolicy", new AzureRM.Security.V20200101.JitNetworkAccessPolicyArgs
+    ///         {
+    ///             AscLocation = "westeurope",
+    ///             JitNetworkAccessPolicyName = "default",
+    ///             Kind = "Basic",
+    ///             Requests = 
+    ///             {
+    ///                 new AzureRM.Security.V20200101.Inputs.JitNetworkAccessRequestArgs
+    ///                 {
+    ///                     Requestor = "barbara@contoso.com",
+    ///                     StartTimeUtc = "2018-05-17T08:06:45.5691611Z",
+    ///                     VirtualMachines = 
+    ///                     {
+    ///                         new AzureRM.Security.V20200101.Inputs.JitNetworkAccessRequestVirtualMachineArgs
+    ///                         {
+    ///                             Id = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///                             Ports = 
+    ///                             {
+    ///                                 new AzureRM.Security.V20200101.Inputs.JitNetworkAccessRequestPortArgs
+    ///                                 {
+    ///                                     AllowedSourceAddressPrefix = "192.127.0.2",
+    ///                                     EndTimeUtc = "2018-05-17T09:06:45.5691611Z",
+    ///                                     Number = 3389,
+    ///                                     Status = "Initiated",
+    ///                                     StatusReason = "UserRequested",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "myRg1",
+    ///             VirtualMachines = 
+    ///             {
+    ///                 new AzureRM.Security.V20200101.Inputs.JitNetworkAccessPolicyVirtualMachineArgs
+    ///                 {
+    ///                     Id = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///                     Ports = 
+    ///                     {
+    ///                         new AzureRM.Security.V20200101.Inputs.JitNetworkAccessPortRuleArgs
+    ///                         {
+    ///                             AllowedSourceAddressPrefix = "*",
+    ///                             MaxRequestAccessDuration = "PT3H",
+    ///                             Number = 22,
+    ///                             Protocol = "*",
+    ///                         },
+    ///                         new AzureRM.Security.V20200101.Inputs.JitNetworkAccessPortRuleArgs
+    ///                         {
+    ///                             AllowedSourceAddressPrefix = "*",
+    ///                             MaxRequestAccessDuration = "PT3H",
+    ///                             Number = 3389,
+    ///                             Protocol = "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// </summary>
     public partial class JitNetworkAccessPolicy : Pulumi.CustomResource
     {
         /// <summary>

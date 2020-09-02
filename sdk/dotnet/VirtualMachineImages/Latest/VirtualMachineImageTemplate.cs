@@ -11,6 +11,149 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
 {
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+    /// 
+    /// ## Create an Image Template for Linux.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineImageTemplate = new AzureRM.VirtualMachineImages.Latest.VirtualMachineImageTemplate("virtualMachineImageTemplate", new AzureRM.VirtualMachineImages.Latest.VirtualMachineImageTemplateArgs
+    ///         {
+    ///             Customize = 
+    ///             {
+    ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateCustomizerArgs
+    ///                 {
+    ///                     Name = "Shell Customizer Example",
+    ///                     Type = "Shell",
+    ///                 },
+    ///             },
+    ///             Distribute = 
+    ///             {
+    ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateDistributorArgs
+    ///                 {
+    ///                     ArtifactTags = 
+    ///                     {
+    ///                         { "tagName", "value" },
+    ///                     },
+    ///                     RunOutputName = "image_it_pir_1",
+    ///                     Type = "ManagedImage",
+    ///                 },
+    ///             },
+    ///             Identity = new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateIdentityArgs
+    ///             {
+    ///                 Type = "UserAssigned",
+    ///             },
+    ///             ImageTemplateName = "myImageTemplate",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Source = new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateSourceArgs
+    ///             {
+    ///                 Type = "ManagedImage",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "imagetemplate_tag1", "IT_T1" },
+    ///                 { "imagetemplate_tag2", "IT_T2" },
+    ///             },
+    ///             VmProfile = new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateVmProfileArgs
+    ///             {
+    ///                 OsDiskSizeGB = 64,
+    ///                 VmSize = "Standard_D2s_v3",
+    ///                 VnetConfig = new AzureRM.VirtualMachineImages.Latest.Inputs.VirtualNetworkConfigArgs
+    ///                 {
+    ///                     SubnetId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create an Image Template for Windows.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineImageTemplate = new AzureRM.VirtualMachineImages.Latest.VirtualMachineImageTemplate("virtualMachineImageTemplate", new AzureRM.VirtualMachineImages.Latest.VirtualMachineImageTemplateArgs
+    ///         {
+    ///             Customize = 
+    ///             {
+    ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateCustomizerArgs
+    ///                 {
+    ///                     Name = "PowerShell (inline) Customizer Example",
+    ///                     Type = "PowerShell",
+    ///                 },
+    ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateCustomizerArgs
+    ///                 {
+    ///                     Name = "PowerShell (script) Customizer Example",
+    ///                     Type = "PowerShell",
+    ///                 },
+    ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateCustomizerArgs
+    ///                 {
+    ///                     Name = "Restart Customizer Example",
+    ///                     Type = "WindowsRestart",
+    ///                 },
+    ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateCustomizerArgs
+    ///                 {
+    ///                     Name = "Windows Update Customizer Example",
+    ///                     Type = "WindowsUpdate",
+    ///                 },
+    ///             },
+    ///             Distribute = 
+    ///             {
+    ///                 new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateDistributorArgs
+    ///                 {
+    ///                     ArtifactTags = 
+    ///                     {
+    ///                         { "tagName", "value" },
+    ///                     },
+    ///                     RunOutputName = "image_it_pir_1",
+    ///                     Type = "ManagedImage",
+    ///                 },
+    ///             },
+    ///             Identity = new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateIdentityArgs
+    ///             {
+    ///                 Type = "UserAssigned",
+    ///             },
+    ///             ImageTemplateName = "myImageTemplate",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Source = new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateSourceArgs
+    ///             {
+    ///                 Type = "ManagedImage",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "imagetemplate_tag1", "IT_T1" },
+    ///                 { "imagetemplate_tag2", "IT_T2" },
+    ///             },
+    ///             VmProfile = new AzureRM.VirtualMachineImages.Latest.Inputs.ImageTemplateVmProfileArgs
+    ///             {
+    ///                 OsDiskSizeGB = 64,
+    ///                 VmSize = "Standard_D2s_v3",
+    ///                 VnetConfig = new AzureRM.VirtualMachineImages.Latest.Inputs.VirtualNetworkConfigArgs
+    ///                 {
+    ///                     SubnetId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {

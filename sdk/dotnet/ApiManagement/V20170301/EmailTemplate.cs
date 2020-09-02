@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 {
     /// <summary>
     /// Email Template details.
+    /// 
+    /// ## ApiManagementCreateEmailTemplate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var emailTemplate = new AzureRM.ApiManagement.V20170301.EmailTemplate("emailTemplate", new AzureRM.ApiManagement.V20170301.EmailTemplateArgs
+    ///         {
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Subject = "Your request for $IssueName was successfully received.",
+    ///             TemplateName = "newIssueNotificationMessage",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class EmailTemplate : Pulumi.CustomResource
     {

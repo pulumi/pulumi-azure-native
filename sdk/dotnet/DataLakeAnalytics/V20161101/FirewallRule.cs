@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
 {
     /// <summary>
     /// Data Lake Analytics firewall rule information.
+    /// 
+    /// ## Creates or updates the specified firewall rule
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallRule = new AzureRM.DataLakeAnalytics.V20161101.FirewallRule("firewallRule", new AzureRM.DataLakeAnalytics.V20161101.FirewallRuleArgs
+    ///         {
+    ///             AccountName = "contosoadla",
+    ///             EndIpAddress = "2.2.2.2",
+    ///             FirewallRuleName = "test_rule",
+    ///             ResourceGroupName = "contosorg",
+    ///             StartIpAddress = "1.1.1.1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

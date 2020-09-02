@@ -11,6 +11,94 @@ namespace Pulumi.AzureRM.DocumentDB.V20150408
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
+    /// 
+    /// ## CosmosDBDatabaseAccountCreateMax
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var databaseAccount = new AzureRM.DocumentDB.V20150408.DatabaseAccount("databaseAccount", new AzureRM.DocumentDB.V20150408.DatabaseAccountArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             ConsistencyPolicy = new AzureRM.DocumentDB.V20150408.Inputs.ConsistencyPolicyArgs
+    ///             {
+    ///                 DefaultConsistencyLevel = "BoundedStaleness",
+    ///                 MaxIntervalInSeconds = 10,
+    ///                 MaxStalenessPrefix = 200,
+    ///             },
+    ///             DatabaseAccountOfferType = "Standard",
+    ///             IpRangeFilter = "10.10.10.10",
+    ///             IsVirtualNetworkFilterEnabled = true,
+    ///             Kind = "GlobalDocumentDB",
+    ///             Location = "westus",
+    ///             Locations = 
+    ///             {
+    ///                 new AzureRM.DocumentDB.V20150408.Inputs.LocationArgs
+    ///                 {
+    ///                     FailoverPriority = 0,
+    ///                     IsZoneRedundant = false,
+    ///                     LocationName = "southcentralus",
+    ///                 },
+    ///                 new AzureRM.DocumentDB.V20150408.Inputs.LocationArgs
+    ///                 {
+    ///                     FailoverPriority = 1,
+    ///                     IsZoneRedundant = false,
+    ///                     LocationName = "eastus",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///             VirtualNetworkRules = 
+    ///             {
+    ///                 new AzureRM.DocumentDB.V20150408.Inputs.VirtualNetworkRuleArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    ///                     IgnoreMissingVNetServiceEndpoint = false,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## CosmosDBDatabaseAccountCreateMin
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var databaseAccount = new AzureRM.DocumentDB.V20150408.DatabaseAccount("databaseAccount", new AzureRM.DocumentDB.V20150408.DatabaseAccountArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             DatabaseAccountOfferType = "Standard",
+    ///             Location = "westus",
+    ///             Locations = 
+    ///             {
+    ///                 new AzureRM.DocumentDB.V20150408.Inputs.LocationArgs
+    ///                 {
+    ///                     FailoverPriority = 0,
+    ///                     IsZoneRedundant = false,
+    ///                     LocationName = "southcentralus",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DatabaseAccount : Pulumi.CustomResource
     {

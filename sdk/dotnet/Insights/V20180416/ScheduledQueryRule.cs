@@ -11,6 +11,124 @@ namespace Pulumi.AzureRM.Insights.V20180416
 {
     /// <summary>
     /// The Log Search Rule resource.
+    /// 
+    /// ## Create or Update rule - AlertingAction
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var scheduledQueryRule = new AzureRM.Insights.V20180416.ScheduledQueryRule("scheduledQueryRule", new AzureRM.Insights.V20180416.ScheduledQueryRuleArgs
+    ///         {
+    ///             Action = new AzureRM.Insights.V20180416.Inputs.ActionArgs
+    ///             {
+    ///                 OdataType = "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+    ///             },
+    ///             Description = "log alert description",
+    ///             Enabled = "true",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "Rac46PostSwapRG",
+    ///             RuleName = "logalertfoo",
+    ///             Schedule = new AzureRM.Insights.V20180416.Inputs.ScheduleArgs
+    ///             {
+    ///                 FrequencyInMinutes = 15,
+    ///                 TimeWindowInMinutes = 15,
+    ///             },
+    ///             Source = new AzureRM.Insights.V20180416.Inputs.SourceArgs
+    ///             {
+    ///                 DataSourceId = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
+    ///                 Query = "Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)",
+    ///                 QueryType = "ResultCount",
+    ///             },
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create or Update rule - AlertingAction with Cross-Resource
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var scheduledQueryRule = new AzureRM.Insights.V20180416.ScheduledQueryRule("scheduledQueryRule", new AzureRM.Insights.V20180416.ScheduledQueryRuleArgs
+    ///         {
+    ///             Action = new AzureRM.Insights.V20180416.Inputs.ActionArgs
+    ///             {
+    ///                 OdataType = "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+    ///             },
+    ///             Description = "Sample Cross Resource alert",
+    ///             Enabled = "true",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "Rac46PostSwapRG",
+    ///             RuleName = "SampleCrossResourceAlert",
+    ///             Schedule = new AzureRM.Insights.V20180416.Inputs.ScheduleArgs
+    ///             {
+    ///                 FrequencyInMinutes = 60,
+    ///                 TimeWindowInMinutes = 60,
+    ///             },
+    ///             Source = new AzureRM.Insights.V20180416.Inputs.SourceArgs
+    ///             {
+    ///                 AuthorizedResources = 
+    ///                 {
+    ///                     "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
+    ///                     "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+    ///                 },
+    ///                 DataSourceId = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+    ///                 Query = "union requests, workspace(\"sampleWorkspace\").Update",
+    ///                 QueryType = "ResultCount",
+    ///             },
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create or Update rule - LogToMetricAction
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var scheduledQueryRule = new AzureRM.Insights.V20180416.ScheduledQueryRule("scheduledQueryRule", new AzureRM.Insights.V20180416.ScheduledQueryRuleArgs
+    ///         {
+    ///             Action = new AzureRM.Insights.V20180416.Inputs.ActionArgs
+    ///             {
+    ///                 OdataType = "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
+    ///             },
+    ///             Description = "log to metric description",
+    ///             Enabled = "true",
+    ///             Location = "West Europe",
+    ///             ResourceGroupName = "alertsweu",
+    ///             RuleName = "logtometricfoo",
+    ///             Source = new AzureRM.Insights.V20180416.Inputs.SourceArgs
+    ///             {
+    ///                 DataSourceId = "/subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/Microsoft.OperationalInsights/workspaces/alertsweu",
+    ///             },
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ScheduledQueryRule : Pulumi.CustomResource
     {

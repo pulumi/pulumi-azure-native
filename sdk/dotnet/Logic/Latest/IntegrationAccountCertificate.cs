@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.Logic.Latest
 {
     /// <summary>
     /// The integration account certificate.
+    /// 
+    /// ## Create or update a certificate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var integrationAccountCertificate = new AzureRM.Logic.Latest.IntegrationAccountCertificate("integrationAccountCertificate", new AzureRM.Logic.Latest.IntegrationAccountCertificateArgs
+    ///         {
+    ///             CertificateName = "testCertificate",
+    ///             IntegrationAccountName = "testIntegrationAccount",
+    ///             Key = new AzureRM.Logic.Latest.Inputs.KeyVaultKeyReferenceArgs
+    ///             {
+    ///                 KeyName = "&lt;keyName&gt;",
+    ///                 KeyVault = new AzureRM.Logic.Latest.Inputs.KeyVaultKeyReferenceKeyVaultArgs
+    ///                 {
+    ///                     Id = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/&lt;keyVaultName&gt;",
+    ///                 },
+    ///                 KeyVersion = "87d9764197604449b9b8eb7bd8710868",
+    ///             },
+    ///             Location = "brazilsouth",
+    ///             PublicCertificate = "&lt;publicCertificateValue&gt;",
+    ///             ResourceGroupName = "testResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IntegrationAccountCertificate : Pulumi.CustomResource
     {

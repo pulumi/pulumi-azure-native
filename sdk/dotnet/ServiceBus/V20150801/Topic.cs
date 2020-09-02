@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
 {
     /// <summary>
     /// Description of topic resource.
+    /// 
+    /// ## TopicCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var topic = new AzureRM.ServiceBus.V20150801.Topic("topic", new AzureRM.ServiceBus.V20150801.TopicArgs
+    ///         {
+    ///             Location = "West US",
+    ///             NamespaceName = "sdk-Namespace4191",
+    ///             ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///             TopicName = "sdk-Topics1377",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Topic : Pulumi.CustomResource
     {

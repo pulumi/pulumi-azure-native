@@ -9,6 +9,146 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Security.Latest
 {
+    /// <summary>
+    /// ## Update an application control machine group by adding a new application
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var adaptiveApplicationControl = new AzureRM.Security.Latest.AdaptiveApplicationControl("adaptiveApplicationControl", new AzureRM.Security.Latest.AdaptiveApplicationControlArgs
+    ///         {
+    ///             AscLocation = "centralus",
+    ///             EnforcementMode = "Audit",
+    ///             GroupName = "ERELGROUP1",
+    ///             PathRecommendations = 
+    ///             {
+    ///                 new AzureRM.Security.Latest.Inputs.PathRecommendationArgs
+    ///                 {
+    ///                     Action = "Recommended",
+    ///                     Common = true,
+    ///                     ConfigurationStatus = "Configured",
+    ///                     FileType = "Exe",
+    ///                     Path = "[Exe] O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US\\*\\*\\0.0.0.0",
+    ///                     PublisherInfo = new AzureRM.Security.Latest.Inputs.PublisherInfoArgs
+    ///                     {
+    ///                         BinaryName = "*",
+    ///                         ProductName = "*",
+    ///                         PublisherName = "O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US",
+    ///                         Version = "0.0.0.0",
+    ///                     },
+    ///                     Type = "PublisherSignature",
+    ///                     UserSids = 
+    ///                     {
+    ///                         "S-1-1-0",
+    ///                     },
+    ///                     Usernames = 
+    ///                     {
+    ///                         new AzureRM.Security.Latest.Inputs.UserRecommendationArgs
+    ///                         {
+    ///                             RecommendationAction = "Recommended",
+    ///                             Username = "Everyone",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureRM.Security.Latest.Inputs.PathRecommendationArgs
+    ///                 {
+    ///                     Action = "Recommended",
+    ///                     Common = true,
+    ///                     ConfigurationStatus = "Configured",
+    ///                     FileType = "Exe",
+    ///                     Path = "%OSDRIVE%\\WINDOWSAZURE\\SECAGENT\\WASECAGENTPROV.EXE",
+    ///                     PublisherInfo = new AzureRM.Security.Latest.Inputs.PublisherInfoArgs
+    ///                     {
+    ///                         BinaryName = "*",
+    ///                         ProductName = "MICROSOFT® COREXT",
+    ///                         PublisherName = "CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+    ///                         Version = "0.0.0.0",
+    ///                     },
+    ///                     Type = "ProductSignature",
+    ///                     UserSids = 
+    ///                     {
+    ///                         "S-1-1-0",
+    ///                     },
+    ///                     Usernames = 
+    ///                     {
+    ///                         new AzureRM.Security.Latest.Inputs.UserRecommendationArgs
+    ///                         {
+    ///                             RecommendationAction = "Recommended",
+    ///                             Username = "NT AUTHORITY\\SYSTEM",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureRM.Security.Latest.Inputs.PathRecommendationArgs
+    ///                 {
+    ///                     Action = "Recommended",
+    ///                     Common = true,
+    ///                     ConfigurationStatus = "Configured",
+    ///                     FileType = "Exe",
+    ///                     Path = "%OSDRIVE%\\WINDOWSAZURE\\PACKAGES_201973_7415\\COLLECTGUESTLOGS.EXE",
+    ///                     PublisherInfo = new AzureRM.Security.Latest.Inputs.PublisherInfoArgs
+    ///                     {
+    ///                         BinaryName = "*",
+    ///                         ProductName = "*",
+    ///                         PublisherName = "CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+    ///                         Version = "0.0.0.0",
+    ///                     },
+    ///                     Type = "PublisherSignature",
+    ///                     UserSids = 
+    ///                     {
+    ///                         "S-1-1-0",
+    ///                     },
+    ///                     Usernames = 
+    ///                     {
+    ///                         new AzureRM.Security.Latest.Inputs.UserRecommendationArgs
+    ///                         {
+    ///                             RecommendationAction = "Recommended",
+    ///                             Username = "NT AUTHORITY\\SYSTEM",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureRM.Security.Latest.Inputs.PathRecommendationArgs
+    ///                 {
+    ///                     Action = "Add",
+    ///                     Common = true,
+    ///                     Path = "C:\\directory\\file.exe",
+    ///                     Type = "File",
+    ///                 },
+    ///             },
+    ///             ProtectionMode = new AzureRM.Security.Latest.Inputs.ProtectionModeArgs
+    ///             {
+    ///                 Exe = "Audit",
+    ///                 Msi = "None",
+    ///                 Script = "None",
+    ///             },
+    ///             VmRecommendations = 
+    ///             {
+    ///                 new AzureRM.Security.Latest.Inputs.VmRecommendationArgs
+    ///                 {
+    ///                     ConfigurationStatus = "Configured",
+    ///                     EnforcementSupport = "Supported",
+    ///                     RecommendationAction = "Recommended",
+    ///                     ResourceId = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/erelh-stable/providers/microsoft.compute/virtualmachines/erelh-16090",
+    ///                 },
+    ///                 new AzureRM.Security.Latest.Inputs.VmRecommendationArgs
+    ///                 {
+    ///                     ConfigurationStatus = "Configured",
+    ///                     EnforcementSupport = "Supported",
+    ///                     RecommendationAction = "Recommended",
+    ///                     ResourceId = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/matanvs/providers/microsoft.compute/virtualmachines/matanvs19",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// </summary>
     public partial class AdaptiveApplicationControl : Pulumi.CustomResource
     {
         /// <summary>

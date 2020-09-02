@@ -11,6 +11,26 @@ namespace Pulumi.AzureRM.Management.V20200501
 {
     /// <summary>
     /// The details of subscription under management group.
+    /// 
+    /// ## AddSubscriptionToManagementGroup
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managementGroupSubscriptionSubscription = new AzureRM.Management.V20200501.ManagementGroupSubscriptionSubscription("managementGroupSubscriptionSubscription", new AzureRM.Management.V20200501.ManagementGroupSubscriptionSubscriptionArgs
+    ///         {
+    ///             GroupId = "Group",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagementGroupSubscriptionSubscription : Pulumi.CustomResource
     {

@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.Network.V20191101
 {
     /// <summary>
     /// Rule Group resource.
+    /// 
+    /// ## Create FirewallPolicyRuleGroup
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallPolicyRuleGroup = new AzureRM.Network.V20191101.FirewallPolicyRuleGroup("firewallPolicyRuleGroup", new AzureRM.Network.V20191101.FirewallPolicyRuleGroupArgs
+    ///         {
+    ///             FirewallPolicyName = "firewallPolicy",
+    ///             Priority = 110,
+    ///             ResourceGroupName = "rg1",
+    ///             RuleGroupName = "ruleGroup1",
+    ///             Rules = 
+    ///             {
+    ///                 new AzureRM.Network.V20191101.Inputs.FirewallPolicyRuleArgs
+    ///                 {
+    ///                     Name = "Example-Filter-Rule",
+    ///                     RuleType = "FirewallPolicyFilterRule",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FirewallPolicyRuleGroup : Pulumi.CustomResource
     {

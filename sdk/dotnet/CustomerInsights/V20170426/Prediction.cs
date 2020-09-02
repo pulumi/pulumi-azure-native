@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 {
     /// <summary>
     /// The prediction resource format.
+    /// 
+    /// ## Predictions_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var prediction = new AzureRM.CustomerInsights.V20170426.Prediction("prediction", new AzureRM.CustomerInsights.V20170426.PredictionArgs
+    ///         {
+    ///             AutoAnalyze = true,
+    ///             Description = 
+    ///             {
+    ///                 { "en-us", "sdktest" },
+    ///             },
+    ///             DisplayName = 
+    ///             {
+    ///                 { "en-us", "sdktest" },
+    ///             },
+    ///             Grades = {},
+    ///             HubName = "sdkTestHub",
+    ///             InvolvedInteractionTypes = {},
+    ///             InvolvedKpiTypes = {},
+    ///             InvolvedRelationships = {},
+    ///             Mappings = new AzureRM.CustomerInsights.V20170426.Inputs.PredictionMappingsArgs
+    ///             {
+    ///                 Grade = "sdktest_Grade",
+    ///                 Reason = "sdktest_Reason",
+    ///                 Score = "sdktest_Score",
+    ///             },
+    ///             NegativeOutcomeExpression = "Customers.FirstName = 'Mike'",
+    ///             PositiveOutcomeExpression = "Customers.FirstName = 'David'",
+    ///             PredictionName = "sdktest",
+    ///             PrimaryProfileType = "Customers",
+    ///             ResourceGroupName = "TestHubRG",
+    ///             ScopeExpression = "*",
+    ///             ScoreLabel = "score label",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Prediction : Pulumi.CustomResource
     {

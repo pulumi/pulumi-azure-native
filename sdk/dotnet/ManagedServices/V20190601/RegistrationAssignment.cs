@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.ManagedServices.V20190601
 {
     /// <summary>
     /// Registration assignment.
+    /// 
+    /// ## Put Registration Assignment
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var registrationAssignment = new AzureRM.ManagedServices.V20190601.RegistrationAssignment("registrationAssignment", new AzureRM.ManagedServices.V20190601.RegistrationAssignmentArgs
+    ///         {
+    ///             RegistrationAssignmentId = "26c128c2-fefa-4340-9bb1-6e081c90ada2",
+    ///             Scope = "subscription/0afefe50-734e-4610-8a82-a144ahf49dea",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RegistrationAssignment : Pulumi.CustomResource
     {

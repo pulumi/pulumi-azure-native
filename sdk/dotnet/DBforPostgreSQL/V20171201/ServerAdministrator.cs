@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
 {
     /// <summary>
     /// Represents a and external administrator to be created.
+    /// 
+    /// ## ServerAdministratorCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serverAdministrator = new AzureRM.DBforPostgreSQL.V20171201.ServerAdministrator("serverAdministrator", new AzureRM.DBforPostgreSQL.V20171201.ServerAdministratorArgs
+    ///         {
+    ///             AdministratorType = "ActiveDirectory",
+    ///             Login = "bob@contoso.com",
+    ///             ResourceGroupName = "testrg",
+    ///             ServerName = "pgtestsvc4",
+    ///             Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///             TenantId = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ServerAdministrator : Pulumi.CustomResource
     {

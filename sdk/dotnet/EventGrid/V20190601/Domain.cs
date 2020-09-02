@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
 {
     /// <summary>
     /// EventGrid Domain.
+    /// 
+    /// ## Domains_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var domain = new AzureRM.EventGrid.V20190601.Domain("domain", new AzureRM.EventGrid.V20190601.DomainArgs
+    ///         {
+    ///             DomainName = "exampledomain1",
+    ///             Location = "westus2",
+    ///             ResourceGroupName = "examplerg",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Domain : Pulumi.CustomResource
     {

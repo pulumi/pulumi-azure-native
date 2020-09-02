@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.NetApp.Latest
 {
     /// <summary>
     /// Backup of a Volume
+    /// 
+    /// ## Backups_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var backup = new AzureRM.NetApp.Latest.Backup("backup", new AzureRM.NetApp.Latest.BackupArgs
+    ///         {
+    ///             AccountName = "account1",
+    ///             BackupName = "backup1",
+    ///             Label = "myLabel",
+    ///             Location = "eastus",
+    ///             PoolName = "pool1",
+    ///             ResourceGroupName = "myRG",
+    ///             VolumeName = "volume1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Backup : Pulumi.CustomResource
     {

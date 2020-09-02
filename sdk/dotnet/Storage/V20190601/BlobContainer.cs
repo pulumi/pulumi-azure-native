@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.Storage.V20190601
 {
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
+    /// 
+    /// ## PutContainerWithDefaultEncryptionScope
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var blobContainer = new AzureRM.Storage.V20190601.BlobContainer("blobContainer", new AzureRM.Storage.V20190601.BlobContainerArgs
+    ///         {
+    ///             AccountName = "sto328",
+    ///             ContainerName = "container6185",
+    ///             DefaultEncryptionScope = "encryptionscope185",
+    ///             DenyEncryptionScopeOverride = true,
+    ///             ResourceGroupName = "res3376",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## PutContainers
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var blobContainer = new AzureRM.Storage.V20190601.BlobContainer("blobContainer", new AzureRM.Storage.V20190601.BlobContainerArgs
+    ///         {
+    ///             AccountName = "sto328",
+    ///             ContainerName = "container6185",
+    ///             ResourceGroupName = "res3376",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BlobContainer : Pulumi.CustomResource
     {

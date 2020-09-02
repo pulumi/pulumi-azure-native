@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.StorSimple.Latest
 {
     /// <summary>
     /// The bandwidth setting.
+    /// 
+    /// ## BandwidthSettingsCreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bandwidthSetting = new AzureRM.StorSimple.Latest.BandwidthSetting("bandwidthSetting", new AzureRM.StorSimple.Latest.BandwidthSettingArgs
+    ///         {
+    ///             BandwidthSettingName = "BWSForTest",
+    ///             ManagerName = "ManagerForSDKTest1",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///             Schedules = 
+    ///             {
+    ///                 new AzureRM.StorSimple.Latest.Inputs.BandwidthScheduleArgs
+    ///                 {
+    ///                     Days = 
+    ///                     {
+    ///                         "Saturday",
+    ///                         "Sunday",
+    ///                     },
+    ///                     RateInMbps = 10,
+    ///                     Start = new AzureRM.StorSimple.Latest.Inputs.TimeArgs
+    ///                     {
+    ///                         Hours = 10,
+    ///                         Minutes = 0,
+    ///                         Seconds = 0,
+    ///                     },
+    ///                     Stop = new AzureRM.StorSimple.Latest.Inputs.TimeArgs
+    ///                     {
+    ///                         Hours = 20,
+    ///                         Minutes = 0,
+    ///                         Seconds = 0,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BandwidthSetting : Pulumi.CustomResource
     {

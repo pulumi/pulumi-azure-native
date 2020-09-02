@@ -11,6 +11,42 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 {
     /// <summary>
     /// The Role Assignment resource format.
+    /// 
+    /// ## RoleAssignments_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var roleAssignment = new AzureRM.CustomerInsights.V20170426.RoleAssignment("roleAssignment", new AzureRM.CustomerInsights.V20170426.RoleAssignmentArgs
+    ///         {
+    ///             AssignmentName = "assignmentName8976",
+    ///             HubName = "sdkTestHub",
+    ///             Principals = 
+    ///             {
+    ///                 new AzureRM.CustomerInsights.V20170426.Inputs.AssignmentPrincipalArgs
+    ///                 {
+    ///                     PrincipalId = "4c54c38ffa9b416ba5a6d6c8a20cbe7e",
+    ///                     PrincipalType = "User",
+    ///                 },
+    ///                 new AzureRM.CustomerInsights.V20170426.Inputs.AssignmentPrincipalArgs
+    ///                 {
+    ///                     PrincipalId = "93061d15a5054f2b9948ae25724cf9d5",
+    ///                     PrincipalType = "User",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "TestHubRG",
+    ///             Role = "Admin",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RoleAssignment : Pulumi.CustomResource
     {

@@ -11,6 +11,102 @@ namespace Pulumi.AzureRM.DataShare.V20191101
 {
     /// <summary>
     /// A data set mapping data transfer object.
+    /// 
+    /// ## DataSetMappings_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataSetMapping = new AzureRM.DataShare.V20191101.DataSetMapping("dataSetMapping", new AzureRM.DataShare.V20191101.DataSetMappingArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             DataSetMappingName = "DatasetMapping1",
+    ///             Kind = "Blob",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareSubscriptionName = "ShareSubscription1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## DataSetMappings_SqlDB_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataSetMapping = new AzureRM.DataShare.V20191101.DataSetMapping("dataSetMapping", new AzureRM.DataShare.V20191101.DataSetMappingArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             DataSetMappingName = "DatasetMapping1",
+    ///             Kind = "SqlDBTable",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareSubscriptionName = "ShareSubscription1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataSetMapping = new AzureRM.DataShare.V20191101.DataSetMapping("dataSetMapping", new AzureRM.DataShare.V20191101.DataSetMappingArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             DataSetMappingName = "DatasetMapping1",
+    ///             Kind = "AdlsGen2File",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareSubscriptionName = "ShareSubscription1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## DataSetMappings_SqlDW_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataSetMapping = new AzureRM.DataShare.V20191101.DataSetMapping("dataSetMapping", new AzureRM.DataShare.V20191101.DataSetMappingArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             DataSetMappingName = "DatasetMapping1",
+    ///             Kind = "SqlDWTable",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareSubscriptionName = "ShareSubscription1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DataSetMapping : Pulumi.CustomResource
     {

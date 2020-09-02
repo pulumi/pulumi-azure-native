@@ -11,6 +11,88 @@ namespace Pulumi.AzureRM.ContainerService.Latest
 {
     /// <summary>
     /// OpenShift Managed cluster.
+    /// 
+    /// ## Create/Update OpenShift Managed Cluster
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var openShiftManagedCluster = new AzureRM.ContainerService.Latest.OpenShiftManagedCluster("openShiftManagedCluster", new AzureRM.ContainerService.Latest.OpenShiftManagedClusterArgs
+    ///         {
+    ///             AgentPoolProfiles = 
+    ///             {
+    ///                 new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                     Name = "infra",
+    ///                     OsType = "Linux",
+    ///                     Role = "infra",
+    ///                     SubnetCidr = "10.0.0.0/24",
+    ///                     VmSize = "Standard_D4s_v3",
+    ///                 },
+    ///                 new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+    ///                 {
+    ///                     Count = 4,
+    ///                     Name = "compute",
+    ///                     OsType = "Linux",
+    ///                     Role = "compute",
+    ///                     SubnetCidr = "10.0.0.0/24",
+    ///                     VmSize = "Standard_D4s_v3",
+    ///                 },
+    ///             },
+    ///             AuthProfile = new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterAuthProfileArgs
+    ///             {
+    ///                 IdentityProviders = 
+    ///                 {
+    ///                     new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterIdentityProviderArgs
+    ///                     {
+    ///                         Name = "Azure AD",
+    ///                         Provider = new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterBaseIdentityProviderArgs
+    ///                         {
+    ///                             Kind = "AADIdentityProvider",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Location = "location1",
+    ///             MasterPoolProfile = new AzureRM.ContainerService.Latest.Inputs.OpenShiftManagedClusterMasterPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 Name = "master",
+    ///                 OsType = "Linux",
+    ///                 SubnetCidr = "10.0.0.0/24",
+    ///                 VmSize = "Standard_D4s_v3",
+    ///             },
+    ///             NetworkProfile = new AzureRM.ContainerService.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 VnetCidr = "10.0.0.0/8",
+    ///             },
+    ///             OpenShiftVersion = "v3.11",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///             RouterProfiles = 
+    ///             {
+    ///                 new AzureRM.ContainerService.Latest.Inputs.OpenShiftRouterProfileArgs
+    ///                 {
+    ///                     Name = "default",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "archv2", "" },
+    ///                 { "tier", "production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class OpenShiftManagedCluster : Pulumi.CustomResource
     {

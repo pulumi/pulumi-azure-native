@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Logic.Latest
 {
     /// <summary>
     /// The batch configuration resource definition.
+    /// 
+    /// ## Create or update a batch configuration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var integrationAccountBatchConfiguration = new AzureRM.Logic.Latest.IntegrationAccountBatchConfiguration("integrationAccountBatchConfiguration", new AzureRM.Logic.Latest.IntegrationAccountBatchConfigurationArgs
+    ///         {
+    ///             BatchConfigurationName = "testBatchConfiguration",
+    ///             IntegrationAccountName = "testIntegrationAccount",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "testResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IntegrationAccountBatchConfiguration : Pulumi.CustomResource
     {

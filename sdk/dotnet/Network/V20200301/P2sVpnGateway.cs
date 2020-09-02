@@ -11,6 +11,49 @@ namespace Pulumi.AzureRM.Network.V20200301
 {
     /// <summary>
     /// P2SVpnGateway Resource.
+    /// 
+    /// ## P2SVpnGatewayPut
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var p2sVpnGateway = new AzureRM.Network.V20200301.P2sVpnGateway("p2sVpnGateway", new AzureRM.Network.V20200301.P2sVpnGatewayArgs
+    ///         {
+    ///             GatewayName = "p2sVpnGateway1",
+    ///             Location = "West US",
+    ///             P2SConnectionConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.V20200301.Inputs.P2SConnectionConfigurationArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/p2sVpnGateways/p2sVpnGateway1/p2sConnectionConfigurations/P2SConnectionConfig1",
+    ///                     Name = "P2SConnectionConfig1",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             VirtualHub = new AzureRM.Network.V20200301.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+    ///             },
+    ///             VpnGatewayScaleUnit = 1,
+    ///             VpnServerConfiguration = new AzureRM.Network.V20200301.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class P2sVpnGateway : Pulumi.CustomResource
     {

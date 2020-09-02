@@ -11,6 +11,70 @@ namespace Pulumi.AzureRM.Management.V20190901
 {
     /// <summary>
     /// The policy definition.
+    /// 
+    /// ## Create or update a policy definition at management group level
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policyDefinitionAtManagementGroup = new AzureRM.Management.V20190901.PolicyDefinitionAtManagementGroup("policyDefinitionAtManagementGroup", new AzureRM.Management.V20190901.PolicyDefinitionAtManagementGroupArgs
+    ///         {
+    ///             Description = "Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+    ///             DisplayName = "Enforce resource naming convention",
+    ///             ManagementGroupId = "MyManagementGroup",
+    ///             Metadata = 
+    ///             {
+    ///                 { "category", "Naming" },
+    ///             },
+    ///             Mode = "All",
+    ///             Parameters = 
+    ///             {
+    ///                 { "prefix", new AzureRM.Management.V20190901.Inputs.ParameterDefinitionsValueArgs
+    ///                 {
+    ///                     Metadata = new AzureRM.Management.V20190901.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                     {
+    ///                         Description = "Resource name prefix",
+    ///                         DisplayName = "Prefix",
+    ///                     },
+    ///                     Type = "String",
+    ///                 } },
+    ///                 { "suffix", new AzureRM.Management.V20190901.Inputs.ParameterDefinitionsValueArgs
+    ///                 {
+    ///                     Metadata = new AzureRM.Management.V20190901.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                     {
+    ///                         Description = "Resource name suffix",
+    ///                         DisplayName = "Suffix",
+    ///                     },
+    ///                     Type = "String",
+    ///                 } },
+    ///             },
+    ///             PolicyDefinitionName = "ResourceNaming",
+    ///             PolicyRule = 
+    ///             {
+    ///                 { "if", 
+    ///                 {
+    ///                     { "not", 
+    ///                     {
+    ///                         { "field", "name" },
+    ///                         { "like", "[concat(parameters('prefix'), '*', parameters('suffix'))]" },
+    ///                     } },
+    ///                 } },
+    ///                 { "then", 
+    ///                 {
+    ///                     { "effect", "deny" },
+    ///                 } },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PolicyDefinitionAtManagementGroup : Pulumi.CustomResource
     {

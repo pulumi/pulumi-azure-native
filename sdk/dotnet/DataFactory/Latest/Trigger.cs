@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.DataFactory.Latest
 {
     /// <summary>
     /// Trigger resource type.
+    /// 
+    /// ## Triggers_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var trigger = new AzureRM.DataFactory.Latest.Trigger("trigger", new AzureRM.DataFactory.Latest.TriggerArgs
+    ///         {
+    ///             FactoryName = "exampleFactoryName",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///             TriggerName = "exampleTrigger",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Triggers_Update
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var trigger = new AzureRM.DataFactory.Latest.Trigger("trigger", new AzureRM.DataFactory.Latest.TriggerArgs
+    ///         {
+    ///             FactoryName = "exampleFactoryName",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///             TriggerName = "exampleTrigger",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Trigger : Pulumi.CustomResource
     {

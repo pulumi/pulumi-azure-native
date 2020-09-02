@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
 {
     /// <summary>
     /// Data Lake Analytics compute policy information.
+    /// 
+    /// ## Creates or updates the specified compute policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var computePolicy = new AzureRM.DataLakeAnalytics.Latest.ComputePolicy("computePolicy", new AzureRM.DataLakeAnalytics.Latest.ComputePolicyArgs
+    ///         {
+    ///             AccountName = "contosoadla",
+    ///             ComputePolicyName = "test_policy",
+    ///             MaxDegreeOfParallelismPerJob = 10,
+    ///             MinPriorityPerJob = 30,
+    ///             ObjectId = "776b9091-8916-4638-87f7-9c989a38da98",
+    ///             ObjectType = "User",
+    ///             ResourceGroupName = "contosorg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ComputePolicy : Pulumi.CustomResource
     {

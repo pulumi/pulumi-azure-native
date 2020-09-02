@@ -11,6 +11,41 @@ namespace Pulumi.AzureRM.NetApp.Latest
 {
     /// <summary>
     /// NetApp account resource
+    /// 
+    /// ## Accounts_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new AzureRM.NetApp.Latest.Account("account", new AzureRM.NetApp.Latest.AccountArgs
+    ///         {
+    ///             AccountName = "account1",
+    ///             ActiveDirectories = 
+    ///             {
+    ///                 new AzureRM.NetApp.Latest.Inputs.ActiveDirectoryArgs
+    ///                 {
+    ///                     Dns = "10.10.10.3, 10.10.10.4",
+    ///                     Domain = "10.10.10.3",
+    ///                     OrganizationalUnit = "Engineering",
+    ///                     Password = "ad_password",
+    ///                     Site = "SiteName",
+    ///                     SmbServerName = "SMBServer",
+    ///                     Username = "ad_user_name",
+    ///                 },
+    ///             },
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "myRG",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

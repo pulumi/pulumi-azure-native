@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Storage.Latest
 {
     /// <summary>
     /// Properties of the table, including Id, resource name, resource type.
+    /// 
+    /// ## TableOperationPut
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var table = new AzureRM.Storage.Latest.Table("table", new AzureRM.Storage.Latest.TableArgs
+    ///         {
+    ///             AccountName = "sto328",
+    ///             ResourceGroupName = "res3376",
+    ///             TableName = "table6185",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Table : Pulumi.CustomResource
     {

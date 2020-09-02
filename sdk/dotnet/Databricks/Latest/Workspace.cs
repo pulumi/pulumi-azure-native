@@ -11,6 +11,170 @@ namespace Pulumi.AzureRM.Databricks.Latest
 {
     /// <summary>
     /// Information about workspace.
+    /// 
+    /// ## Create a workspace which is ready for Customer-Managed Key (CMK) encryption
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspace = new AzureRM.Databricks.Latest.Workspace("workspace", new AzureRM.Databricks.Latest.WorkspaceArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///             Parameters = new AzureRM.Databricks.Latest.Inputs.WorkspaceCustomParametersArgs
+    ///             {
+    ///                 PrepareEncryption = new AzureRM.Databricks.Latest.Inputs.WorkspaceCustomBooleanParameterArgs
+    ///                 {
+    ///                     Value = true,
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create or update workspace
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspace = new AzureRM.Databricks.Latest.Workspace("workspace", new AzureRM.Databricks.Latest.WorkspaceArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///             ResourceGroupName = "rg",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create or update workspace with custom parameters
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspace = new AzureRM.Databricks.Latest.Workspace("workspace", new AzureRM.Databricks.Latest.WorkspaceArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///             Parameters = new AzureRM.Databricks.Latest.Inputs.WorkspaceCustomParametersArgs
+    ///             {
+    ///                 CustomPrivateSubnetName = new AzureRM.Databricks.Latest.Inputs.WorkspaceCustomStringParameterArgs
+    ///                 {
+    ///                     Value = "myPrivateSubnet",
+    ///                 },
+    ///                 CustomPublicSubnetName = new AzureRM.Databricks.Latest.Inputs.WorkspaceCustomStringParameterArgs
+    ///                 {
+    ///                     Value = "myPublicSubnet",
+    ///                 },
+    ///                 CustomVirtualNetworkId = new AzureRM.Databricks.Latest.Inputs.WorkspaceCustomStringParameterArgs
+    ///                 {
+    ///                     Value = "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/myNetwork",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspace = new AzureRM.Databricks.Latest.Workspace("workspace", new AzureRM.Databricks.Latest.WorkspaceArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///             Parameters = new AzureRM.Databricks.Latest.Inputs.WorkspaceCustomParametersArgs
+    ///             {
+    ///                 Encryption = new AzureRM.Databricks.Latest.Inputs.WorkspaceEncryptionParameterArgs
+    ///                 {
+    ///                     Value = new AzureRM.Databricks.Latest.Inputs.EncryptionArgs
+    ///                     {
+    ///                         KeyName = "myKeyName",
+    ///                         KeySource = "Microsoft.Keyvault",
+    ///                         KeyVaultUri = "https://myKeyVault.vault.azure.net/",
+    ///                         KeyVersion = "00000000000000000000000000000000",
+    ///                     },
+    ///                 },
+    ///                 PrepareEncryption = new AzureRM.Databricks.Latest.Inputs.WorkspaceCustomBooleanParameterArgs
+    ///                 {
+    ///                     Value = true,
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspace = new AzureRM.Databricks.Latest.Workspace("workspace", new AzureRM.Databricks.Latest.WorkspaceArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///             Parameters = new AzureRM.Databricks.Latest.Inputs.WorkspaceCustomParametersArgs
+    ///             {
+    ///                 Encryption = new AzureRM.Databricks.Latest.Inputs.WorkspaceEncryptionParameterArgs
+    ///                 {
+    ///                     Value = new AzureRM.Databricks.Latest.Inputs.EncryptionArgs
+    ///                     {
+    ///                         KeySource = "Default",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

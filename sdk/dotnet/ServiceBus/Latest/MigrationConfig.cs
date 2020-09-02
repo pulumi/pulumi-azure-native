@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
 {
     /// <summary>
     /// Single item in List or Get Migration Config operation
+    /// 
+    /// ## MigrationConfigurationsStartMigration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var migrationConfig = new AzureRM.ServiceBus.Latest.MigrationConfig("migrationConfig", new AzureRM.ServiceBus.Latest.MigrationConfigArgs
+    ///         {
+    ///             ConfigName = "$default",
+    ///             NamespaceName = "sdk-Namespace-41",
+    ///             PostMigrationName = "sdk-PostMigration-5919",
+    ///             ResourceGroupName = "ResourceGroup",
+    ///             TargetNamespace = "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class MigrationConfig : Pulumi.CustomResource
     {

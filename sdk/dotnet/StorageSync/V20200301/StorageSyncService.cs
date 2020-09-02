@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
 {
     /// <summary>
     /// Storage Sync Service object.
+    /// 
+    /// ## StorageSyncServices_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var storageSyncService = new AzureRM.StorageSync.V20200301.StorageSyncService("storageSyncService", new AzureRM.StorageSync.V20200301.StorageSyncServiceArgs
+    ///         {
+    ///             IncomingTrafficPolicy = "AllowAllTraffic",
+    ///             Location = "WestUS",
+    ///             ResourceGroupName = "SampleResourceGroup_1",
+    ///             StorageSyncServiceName = "SampleStorageSyncService_1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StorageSyncService : Pulumi.CustomResource
     {

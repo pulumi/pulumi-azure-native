@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 {
     /// <summary>
     /// The File Share.
+    /// 
+    /// ## FileSharesCreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fileShare = new AzureRM.StorSimple.V20161001.FileShare("fileShare", new AzureRM.StorSimple.V20161001.FileShareArgs
+    ///         {
+    ///             AdminUser = "fareast\\idcdlslb",
+    ///             DataPolicy = "Tiered",
+    ///             Description = "Demo FileShare for SDK Test Tiered",
+    ///             DeviceName = "HSDK-4XY4FI2IVG",
+    ///             FileServerName = "HSDK-4XY4FI2IVG",
+    ///             ManagerName = "hAzureSDKOperations",
+    ///             MonitoringStatus = "Enabled",
+    ///             ProvisionedCapacityInBytes = 536870912000,
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///             ShareName = "Auto-TestFileShare1",
+    ///             ShareStatus = "Online",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FileShare : Pulumi.CustomResource
     {

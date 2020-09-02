@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.Relay.Latest
 {
     /// <summary>
     /// Description of a namespace authorization rule.
+    /// 
+    /// ## RelayNameSpaceAuthorizationRuleCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var namespaceAuthorizationRule = new AzureRM.Relay.Latest.NamespaceAuthorizationRule("namespaceAuthorizationRule", new AzureRM.Relay.Latest.NamespaceAuthorizationRuleArgs
+    ///         {
+    ///             AuthorizationRuleName = "sdk-RelayAuthRules-01",
+    ///             NamespaceName = "sdk-RelayNamespace-01",
+    ///             ResourceGroupName = "RG-eg",
+    ///             Rights = 
+    ///             {
+    ///                 "Listen",
+    ///                 "Send",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {

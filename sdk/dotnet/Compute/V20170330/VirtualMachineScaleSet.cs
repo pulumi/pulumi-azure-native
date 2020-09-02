@@ -11,6 +11,826 @@ namespace Pulumi.AzureRM.Compute.V20170330
 {
     /// <summary>
     /// Describes a Virtual Machine Scale Set.
+    /// 
+    /// ## Create a custom-image scale set from an unmanaged generalized os image.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D1_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "{your-password}",
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         Image = new AzureRM.Compute.V20170330.Inputs.VirtualHardDiskArgs
+    ///                         {
+    ///                             Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/{existing-generalized-os-image-blob-name}.vhd",
+    ///                         },
+    ///                         Name = "osDisk",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a platform-image scale set with unmanaged os disks.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D1_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "{your-password}",
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     ImageReference = new AzureRM.Compute.V20170330.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "WindowsServer",
+    ///                         Publisher = "MicrosoftWindowsServer",
+    ///                         Sku = "2016-Datacenter",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         Name = "osDisk",
+    ///                         VhdContainers = 
+    ///                         {
+    ///                             "http://{existing-storage-account-name-0}.blob.core.windows.net/vhdContainer",
+    ///                             "http://{existing-storage-account-name-1}.blob.core.windows.net/vhdContainer",
+    ///                             "http://{existing-storage-account-name-2}.blob.core.windows.net/vhdContainer",
+    ///                             "http://{existing-storage-account-name-3}.blob.core.windows.net/vhdContainer",
+    ///                             "http://{existing-storage-account-name-4}.blob.core.windows.net/vhdContainer",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a scale set from a custom image.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D1_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "{your-password}",
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     ImageReference = new AzureRM.Compute.V20170330.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+    ///                     },
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         ManagedDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+    ///                         {
+    ///                             StorageAccountType = "Standard_LRS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a scale set with a marketplace image plan.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             Plan = new AzureRM.Compute.V20170330.Inputs.PlanArgs
+    ///             {
+    ///                 Name = "windows2016",
+    ///                 Product = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D1_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "{your-password}",
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     ImageReference = new AzureRM.Compute.V20170330.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "windows-data-science-vm",
+    ///                         Publisher = "microsoft-ads",
+    ///                         Sku = "windows2016",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         ManagedDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+    ///                         {
+    ///                             StorageAccountType = "Standard_LRS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a scale set with an azure application gateway.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D1_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "{your-password}",
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     ImageReference = new AzureRM.Compute.V20170330.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "WindowsServer",
+    ///                         Publisher = "MicrosoftWindowsServer",
+    ///                         Sku = "2016-Datacenter",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         ManagedDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+    ///                         {
+    ///                             StorageAccountType = "Standard_LRS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a scale set with an azure load balancer.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D1_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "{your-password}",
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     ImageReference = new AzureRM.Compute.V20170330.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "WindowsServer",
+    ///                         Publisher = "MicrosoftWindowsServer",
+    ///                         Sku = "2016-Datacenter",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         ManagedDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+    ///                         {
+    ///                             StorageAccountType = "Standard_LRS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a scale set with boot diagnostics.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D1_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 DiagnosticsProfile = new AzureRM.Compute.V20170330.Inputs.DiagnosticsProfileArgs
+    ///                 {
+    ///                     BootDiagnostics = new AzureRM.Compute.V20170330.Inputs.BootDiagnosticsArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+    ///                     },
+    ///                 },
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "{your-password}",
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     ImageReference = new AzureRM.Compute.V20170330.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "WindowsServer",
+    ///                         Publisher = "MicrosoftWindowsServer",
+    ///                         Sku = "2016-Datacenter",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         ManagedDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+    ///                         {
+    ///                             StorageAccountType = "Standard_LRS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a scale set with empty data disks on each vm.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D2_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "{your-password}",
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     DataDisks = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetDataDiskArgs
+    ///                         {
+    ///                             CreateOption = "Empty",
+    ///                             DiskSizeGB = 1023,
+    ///                             Lun = 0,
+    ///                         },
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetDataDiskArgs
+    ///                         {
+    ///                             CreateOption = "Empty",
+    ///                             DiskSizeGB = 1023,
+    ///                             Lun = 1,
+    ///                         },
+    ///                     },
+    ///                     ImageReference = new AzureRM.Compute.V20170330.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "WindowsServer",
+    ///                         Publisher = "MicrosoftWindowsServer",
+    ///                         Sku = "2016-Datacenter",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         ManagedDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+    ///                         {
+    ///                             StorageAccountType = "Standard_LRS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a scale set with password authentication.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D1_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "{your-password}",
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     ImageReference = new AzureRM.Compute.V20170330.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "WindowsServer",
+    ///                         Publisher = "MicrosoftWindowsServer",
+    ///                         Sku = "2016-Datacenter",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         ManagedDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+    ///                         {
+    ///                             StorageAccountType = "Standard_LRS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a scale set with premium storage.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D1_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "{your-password}",
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     ImageReference = new AzureRM.Compute.V20170330.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "WindowsServer",
+    ///                         Publisher = "MicrosoftWindowsServer",
+    ///                         Sku = "2016-Datacenter",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         ManagedDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+    ///                         {
+    ///                             StorageAccountType = "Premium_LRS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a scale set with ssh authentication.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSet = new AzureRM.Compute.V20170330.VirtualMachineScaleSet("virtualMachineScaleSet", new AzureRM.Compute.V20170330.VirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = "westus",
+    ///             Overprovision = true,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20170330.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 3,
+    ///                 Name = "Standard_D1_v2",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             UpgradePolicy = new AzureRM.Compute.V20170330.Inputs.UpgradePolicyArgs
+    ///             {
+    ///                 Mode = "Manual",
+    ///             },
+    ///             VirtualMachineProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetVMProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkInterfaceConfigurations = 
+    ///                     {
+    ///                         new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "{vmss-name}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminUsername = "{your-username}",
+    ///                     ComputerNamePrefix = "{vmss-name}",
+    ///                     LinuxConfiguration = new AzureRM.Compute.V20170330.Inputs.LinuxConfigurationArgs
+    ///                     {
+    ///                         DisablePasswordAuthentication = true,
+    ///                         Ssh = new AzureRM.Compute.V20170330.Inputs.SshConfigurationArgs
+    ///                         {
+    ///                             PublicKeys = 
+    ///                             {
+    ///                                 new AzureRM.Compute.V20170330.Inputs.SshPublicKeyArgs
+    ///                                 {
+    ///                                     KeyData = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeClRAk2ipUs/l5voIsDC5q9RI+YSRd1Bvd/O+axgY4WiBzG+4FwJWZm/mLLe5DoOdHQwmU2FrKXZSW4w2sYE70KeWnrFViCOX5MTVvJgPE8ClugNl8RWth/tU849DvM9sT7vFgfVSHcAS2yDRyDlueii+8nF2ym8XWAPltFVCyLHRsyBp5YPqK8JFYIa1eybKsY3hEAxRCA+/7bq8et+Gj3coOsuRmrehav7rE6N12Pb80I6ofa6SM5XNYq4Xk0iYNx7R3kdz0Jj9XgZYWjAHjJmT0gTRoOnt6upOuxK7xI/ykWrllgpXrCPu3Ymz+c+ujaqcxDopnAl2lmf69/J1",
+    ///                                     Path = "/home/{your-username}/.ssh/authorized_keys",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 StorageProfile = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     ImageReference = new AzureRM.Compute.V20170330.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "WindowsServer",
+    ///                         Publisher = "MicrosoftWindowsServer",
+    ///                         Sku = "2016-Datacenter",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = "ReadWrite",
+    ///                         CreateOption = "FromImage",
+    ///                         ManagedDisk = new AzureRM.Compute.V20170330.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+    ///                         {
+    ///                             StorageAccountType = "Standard_LRS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VmScaleSetName = "{vmss-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualMachineScaleSet : Pulumi.CustomResource
     {

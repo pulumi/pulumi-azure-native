@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.Network.V20190401
 {
     /// <summary>
     /// Service Endpoint policy definitions.
+    /// 
+    /// ## Create service endpoint policy definition
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceEndpointPolicyDefinition = new AzureRM.Network.V20190401.ServiceEndpointPolicyDefinition("serviceEndpointPolicyDefinition", new AzureRM.Network.V20190401.ServiceEndpointPolicyDefinitionArgs
+    ///         {
+    ///             Description = "Storage Service EndpointPolicy Definition",
+    ///             ResourceGroupName = "rg1",
+    ///             Service = "Microsoft.Storage",
+    ///             ServiceEndpointPolicyDefinitionName = "testDefinition",
+    ///             ServiceEndpointPolicyName = "testPolicy",
+    ///             ServiceResources = 
+    ///             {
+    ///                 "/subscriptions/subid1",
+    ///                 "/subscriptions/subid1/resourceGroups/storageRg",
+    ///                 "/subscriptions/subid1/resourceGroups/storageRg/providers/Microsoft.Storage/storageAccounts/stAccount",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ServiceEndpointPolicyDefinition : Pulumi.CustomResource
     {

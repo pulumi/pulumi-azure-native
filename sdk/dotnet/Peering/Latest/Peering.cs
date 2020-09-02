@@ -11,6 +11,188 @@ namespace Pulumi.AzureRM.Peering.Latest
 {
     /// <summary>
     /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+    /// 
+    /// ## Create a direct peering
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var peering = new AzureRM.Peering.Latest.Peering("peering", new AzureRM.Peering.Latest.PeeringArgs
+    ///         {
+    ///             Direct = new AzureRM.Peering.Latest.Inputs.PeeringPropertiesDirectArgs
+    ///             {
+    ///                 Connections = 
+    ///                 {
+    ///                     new AzureRM.Peering.Latest.Inputs.DirectConnectionArgs
+    ///                     {
+    ///                         BandwidthInMbps = 10000,
+    ///                         BgpSession = new AzureRM.Peering.Latest.Inputs.BgpSessionArgs
+    ///                         {
+    ///                             MaxPrefixesAdvertisedV4 = 1000,
+    ///                             MaxPrefixesAdvertisedV6 = 100,
+    ///                             Md5AuthenticationKey = "test-md5-auth-key",
+    ///                             SessionPrefixV4 = "192.168.0.0/31",
+    ///                             SessionPrefixV6 = "fd00::0/127",
+    ///                         },
+    ///                         ConnectionIdentifier = "5F4CB5C7-6B43-4444-9338-9ABC72606C16",
+    ///                         PeeringDBFacilityId = 99999,
+    ///                         SessionAddressProvider = "Peer",
+    ///                         UseForPeeringService = false,
+    ///                     },
+    ///                     new AzureRM.Peering.Latest.Inputs.DirectConnectionArgs
+    ///                     {
+    ///                         BandwidthInMbps = 10000,
+    ///                         ConnectionIdentifier = "8AB00818-D533-4504-A25A-03A17F61201C",
+    ///                         PeeringDBFacilityId = 99999,
+    ///                         SessionAddressProvider = "Microsoft",
+    ///                         UseForPeeringService = true,
+    ///                     },
+    ///                 },
+    ///                 DirectPeeringType = "Edge",
+    ///                 PeerAsn = new AzureRM.Peering.Latest.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+    ///                 },
+    ///             },
+    ///             Kind = "Direct",
+    ///             Location = "eastus",
+    ///             PeeringLocation = "peeringLocation0",
+    ///             PeeringName = "peeringName",
+    ///             ResourceGroupName = "rgName",
+    ///             Sku = new AzureRM.Peering.Latest.Inputs.PeeringSkuArgs
+    ///             {
+    ///                 Name = "Basic_Direct_Free",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a peering with exchange route server
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var peering = new AzureRM.Peering.Latest.Peering("peering", new AzureRM.Peering.Latest.PeeringArgs
+    ///         {
+    ///             Direct = new AzureRM.Peering.Latest.Inputs.PeeringPropertiesDirectArgs
+    ///             {
+    ///                 Connections = 
+    ///                 {
+    ///                     new AzureRM.Peering.Latest.Inputs.DirectConnectionArgs
+    ///                     {
+    ///                         BandwidthInMbps = 10000,
+    ///                         BgpSession = new AzureRM.Peering.Latest.Inputs.BgpSessionArgs
+    ///                         {
+    ///                             MaxPrefixesAdvertisedV4 = 1000,
+    ///                             MaxPrefixesAdvertisedV6 = 100,
+    ///                             MicrosoftSessionIPv4Address = "192.168.0.123",
+    ///                             PeerSessionIPv4Address = "192.168.0.234",
+    ///                             SessionPrefixV4 = "192.168.0.0/24",
+    ///                         },
+    ///                         ConnectionIdentifier = "5F4CB5C7-6B43-4444-9338-9ABC72606C16",
+    ///                         PeeringDBFacilityId = 99999,
+    ///                         SessionAddressProvider = "Peer",
+    ///                         UseForPeeringService = true,
+    ///                     },
+    ///                 },
+    ///                 DirectPeeringType = "IxRs",
+    ///                 PeerAsn = new AzureRM.Peering.Latest.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+    ///                 },
+    ///             },
+    ///             Kind = "Direct",
+    ///             Location = "eastus",
+    ///             PeeringLocation = "peeringLocation0",
+    ///             PeeringName = "peeringName",
+    ///             ResourceGroupName = "rgName",
+    ///             Sku = new AzureRM.Peering.Latest.Inputs.PeeringSkuArgs
+    ///             {
+    ///                 Name = "Premium_Direct_Free",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create an exchange peering
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var peering = new AzureRM.Peering.Latest.Peering("peering", new AzureRM.Peering.Latest.PeeringArgs
+    ///         {
+    ///             Exchange = new AzureRM.Peering.Latest.Inputs.PeeringPropertiesExchangeArgs
+    ///             {
+    ///                 Connections = 
+    ///                 {
+    ///                     new AzureRM.Peering.Latest.Inputs.ExchangeConnectionArgs
+    ///                     {
+    ///                         BgpSession = new AzureRM.Peering.Latest.Inputs.BgpSessionArgs
+    ///                         {
+    ///                             MaxPrefixesAdvertisedV4 = 1000,
+    ///                             MaxPrefixesAdvertisedV6 = 100,
+    ///                             Md5AuthenticationKey = "test-md5-auth-key",
+    ///                             PeerSessionIPv4Address = "192.168.2.1",
+    ///                             PeerSessionIPv6Address = "fd00::1",
+    ///                         },
+    ///                         ConnectionIdentifier = "CE495334-0E94-4E51-8164-8116D6CD284D",
+    ///                         PeeringDBFacilityId = 99999,
+    ///                     },
+    ///                     new AzureRM.Peering.Latest.Inputs.ExchangeConnectionArgs
+    ///                     {
+    ///                         BgpSession = new AzureRM.Peering.Latest.Inputs.BgpSessionArgs
+    ///                         {
+    ///                             MaxPrefixesAdvertisedV4 = 1000,
+    ///                             MaxPrefixesAdvertisedV6 = 100,
+    ///                             Md5AuthenticationKey = "test-md5-auth-key",
+    ///                             PeerSessionIPv4Address = "192.168.2.2",
+    ///                             PeerSessionIPv6Address = "fd00::2",
+    ///                         },
+    ///                         ConnectionIdentifier = "CDD8E673-CB07-47E6-84DE-3739F778762B",
+    ///                         PeeringDBFacilityId = 99999,
+    ///                     },
+    ///                 },
+    ///                 PeerAsn = new AzureRM.Peering.Latest.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+    ///                 },
+    ///             },
+    ///             Kind = "Exchange",
+    ///             Location = "eastus",
+    ///             PeeringLocation = "peeringLocation0",
+    ///             PeeringName = "peeringName",
+    ///             ResourceGroupName = "rgName",
+    ///             Sku = new AzureRM.Peering.Latest.Inputs.PeeringSkuArgs
+    ///             {
+    ///                 Name = "Basic_Exchange_Free",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Peering : Pulumi.CustomResource
     {

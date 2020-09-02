@@ -11,6 +11,58 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB collection.
+    /// 
+    /// ## CosmosDBMongoDBCollectionCreateUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mongoDBResourceMongoDBCollection = new AzureRM.DocumentDB.V20190801.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection", new AzureRM.DocumentDB.V20190801.MongoDBResourceMongoDBCollectionArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             CollectionName = "collectionName",
+    ///             DatabaseName = "databaseName",
+    ///             Location = "West US",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.V20190801.Inputs.MongoDBCollectionResourceArgs
+    ///             {
+    ///                 Id = "collectionName",
+    ///                 Indexes = 
+    ///                 {
+    ///                     new AzureRM.DocumentDB.V20190801.Inputs.MongoIndexArgs
+    ///                     {
+    ///                         Key = new AzureRM.DocumentDB.V20190801.Inputs.MongoIndexKeysArgs
+    ///                         {
+    ///                             Keys = 
+    ///                             {
+    ///                                 "testKey",
+    ///                             },
+    ///                         },
+    ///                         Options = new AzureRM.DocumentDB.V20190801.Inputs.MongoIndexOptionsArgs
+    ///                         {
+    ///                             ExpireAfterSeconds = 100,
+    ///                             Unique = true,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ShardKey = 
+    ///                 {
+    ///                     { "testKey", "Hash" },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class MongoDBResourceMongoDBCollection : Pulumi.CustomResource
     {

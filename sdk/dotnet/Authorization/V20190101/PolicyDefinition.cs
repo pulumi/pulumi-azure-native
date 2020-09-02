@@ -11,6 +11,69 @@ namespace Pulumi.AzureRM.Authorization.V20190101
 {
     /// <summary>
     /// The policy definition.
+    /// 
+    /// ## Create or update a policy definition
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policyDefinition = new AzureRM.Authorization.V20190101.PolicyDefinition("policyDefinition", new AzureRM.Authorization.V20190101.PolicyDefinitionArgs
+    ///         {
+    ///             Description = "Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+    ///             DisplayName = "Enforce resource naming convention",
+    ///             Metadata = 
+    ///             {
+    ///                 { "category", "Naming" },
+    ///             },
+    ///             Mode = "All",
+    ///             Parameters = 
+    ///             {
+    ///                 { "prefix", 
+    ///                 {
+    ///                     { "metadata", 
+    ///                     {
+    ///                         { "description", "Resource name prefix" },
+    ///                         { "displayName", "Prefix" },
+    ///                     } },
+    ///                     { "type", "String" },
+    ///                 } },
+    ///                 { "suffix", 
+    ///                 {
+    ///                     { "metadata", 
+    ///                     {
+    ///                         { "description", "Resource name suffix" },
+    ///                         { "displayName", "Suffix" },
+    ///                     } },
+    ///                     { "type", "String" },
+    ///                 } },
+    ///             },
+    ///             PolicyDefinitionName = "ResourceNaming",
+    ///             PolicyRule = 
+    ///             {
+    ///                 { "if", 
+    ///                 {
+    ///                     { "not", 
+    ///                     {
+    ///                         { "field", "name" },
+    ///                         { "like", "[concat(parameters('prefix'), '*', parameters('suffix'))]" },
+    ///                     } },
+    ///                 } },
+    ///                 { "then", 
+    ///                 {
+    ///                     { "effect", "deny" },
+    ///                 } },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PolicyDefinition : Pulumi.CustomResource
     {

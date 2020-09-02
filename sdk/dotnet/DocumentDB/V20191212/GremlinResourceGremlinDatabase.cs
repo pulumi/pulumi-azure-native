@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin database.
+    /// 
+    /// ## CosmosDBGremlinDatabaseCreateUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var gremlinResourceGremlinDatabase = new AzureRM.DocumentDB.V20191212.GremlinResourceGremlinDatabase("gremlinResourceGremlinDatabase", new AzureRM.DocumentDB.V20191212.GremlinResourceGremlinDatabaseArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             DatabaseName = "databaseName",
+    ///             Location = "West US",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.V20191212.Inputs.GremlinDatabaseResourceArgs
+    ///             {
+    ///                 Id = "databaseName",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class GremlinResourceGremlinDatabase : Pulumi.CustomResource
     {

@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
 {
     /// <summary>
     /// vCenter definition.
+    /// 
+    /// ## Add vCenter.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var replicationvCenter = new AzureRM.RecoveryServices.V20180710.ReplicationvCenter("replicationvCenter", new AzureRM.RecoveryServices.V20180710.ReplicationvCenterArgs
+    ///         {
+    ///             FabricName = "MadhaviFabric",
+    ///             ResourceGroupName = "MadhaviVRG",
+    ///             ResourceName = "MadhaviVault",
+    ///             VCenterName = "esx-78",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ReplicationvCenter : Pulumi.CustomResource
     {

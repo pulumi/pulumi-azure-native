@@ -11,6 +11,59 @@ namespace Pulumi.AzureRM.Sql.Latest
 {
     /// <summary>
     /// Represents a server.
+    /// 
+    /// ## Create server max
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.Sql.Latest.Server("server", new AzureRM.Sql.Latest.ServerArgs
+    ///         {
+    ///             AdministratorLogin = "dummylogin",
+    ///             AdministratorLoginPassword = "Un53cuRE!",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-7398",
+    ///             ServerName = "sqlcrudtest-4645",
+    ///             Tags = 
+    ///             {
+    ///                 { "tagKey1", "TagValue1" },
+    ///             },
+    ///             Version = "12.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create server min
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.Sql.Latest.Server("server", new AzureRM.Sql.Latest.ServerArgs
+    ///         {
+    ///             AdministratorLogin = "dummylogin",
+    ///             AdministratorLoginPassword = "Un53cuRE!",
+    ///             Location = "Japan East",
+    ///             ResourceGroupName = "sqlcrudtest-7398",
+    ///             ServerName = "sqlcrudtest-4645",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

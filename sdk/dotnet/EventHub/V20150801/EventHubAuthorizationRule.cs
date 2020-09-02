@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.EventHub.V20150801
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
+    /// 
+    /// ## EventHubAuthorizationRuleCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventHubAuthorizationRule = new AzureRM.EventHub.V20150801.EventHubAuthorizationRule("eventHubAuthorizationRule", new AzureRM.EventHub.V20150801.EventHubAuthorizationRuleArgs
+    ///         {
+    ///             AuthorizationRuleName = "sdk-Authrules9261",
+    ///             EventHubName = "sdk-EventHub8887",
+    ///             NamespaceName = "sdk-Namespace2290",
+    ///             ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///             Rights = 
+    ///             {
+    ///                 "Listen",
+    ///                 "Send",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class EventHubAuthorizationRule : Pulumi.CustomResource
     {

@@ -11,6 +11,74 @@ namespace Pulumi.AzureRM.Storage.V20190601
 {
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
+    /// 
+    /// ## Create NFS Shares
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fileShare = new AzureRM.Storage.V20190601.FileShare("fileShare", new AzureRM.Storage.V20190601.FileShareArgs
+    ///         {
+    ///             AccountName = "sto666",
+    ///             EnabledProtocols = "NFS",
+    ///             ResourceGroupName = "res346",
+    ///             ShareName = "share1235",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## PutShares
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fileShare = new AzureRM.Storage.V20190601.FileShare("fileShare", new AzureRM.Storage.V20190601.FileShareArgs
+    ///         {
+    ///             AccountName = "sto328",
+    ///             ResourceGroupName = "res3376",
+    ///             ShareName = "share6185",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## PutShares with Access Tier
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fileShare = new AzureRM.Storage.V20190601.FileShare("fileShare", new AzureRM.Storage.V20190601.FileShareArgs
+    ///         {
+    ///             AccessTier = "Hot",
+    ///             AccountName = "sto666",
+    ///             ResourceGroupName = "res346",
+    ///             ShareName = "share1235",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FileShare : Pulumi.CustomResource
     {

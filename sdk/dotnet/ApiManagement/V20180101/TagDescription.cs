@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 {
     /// <summary>
     /// Contract details.
+    /// 
+    /// ## ApiManagementCreateApiTagDescription
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var tagDescription = new AzureRM.ApiManagement.V20180101.TagDescription("tagDescription", new AzureRM.ApiManagement.V20180101.TagDescriptionArgs
+    ///         {
+    ///             ApiId = "5931a75ae4bbd512a88c680b",
+    ///             Description = "Some description that will be displayed for operation's tag if the tag is assigned to operation of the API",
+    ///             ExternalDocsDescription = "Description of the external docs resource",
+    ///             ExternalDocsUrl = "http://some.url/additionaldoc",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             TagId = "tagId1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class TagDescription : Pulumi.CustomResource
     {

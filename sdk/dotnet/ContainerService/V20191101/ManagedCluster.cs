@@ -11,6 +11,92 @@ namespace Pulumi.AzureRM.ContainerService.V20191101
 {
     /// <summary>
     /// Managed cluster.
+    /// 
+    /// ## Create/Update Managed Cluster
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedCluster = new AzureRM.ContainerService.V20191101.ManagedCluster("managedCluster", new AzureRM.ContainerService.V20191101.ManagedClusterArgs
+    ///         {
+    ///             AddonProfiles = ,
+    ///             AgentPoolProfiles = 
+    ///             {
+    ///                 new AzureRM.ContainerService.V20191101.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///                 {
+    ///                     AvailabilityZones = 
+    ///                     {
+    ///                         "1",
+    ///                         "2",
+    ///                         "3",
+    ///                     },
+    ///                     Count = 3,
+    ///                     EnableNodePublicIP = true,
+    ///                     Name = "nodepool1",
+    ///                     OsType = "Linux",
+    ///                     Type = "VirtualMachineScaleSets",
+    ///                     VmSize = "Standard_DS1_v2",
+    ///                 },
+    ///             },
+    ///             DnsPrefix = "dnsprefix1",
+    ///             EnablePodSecurityPolicy = true,
+    ///             EnableRBAC = true,
+    ///             KubernetesVersion = "",
+    ///             LinuxProfile = new AzureRM.ContainerService.V20191101.Inputs.ContainerServiceLinuxProfileArgs
+    ///             {
+    ///                 AdminUsername = "azureuser",
+    ///                 Ssh = new AzureRM.ContainerService.V20191101.Inputs.ContainerServiceSshConfigurationArgs
+    ///                 {
+    ///                     PublicKeys = 
+    ///                     {
+    ///                         new AzureRM.ContainerService.V20191101.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                         {
+    ///                             KeyData = "keydata",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Location = "location1",
+    ///             NetworkProfile = new AzureRM.ContainerService.V20191101.Inputs.ContainerServiceNetworkProfileArgs
+    ///             {
+    ///                 LoadBalancerProfile = new AzureRM.ContainerService.V20191101.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///                 {
+    ///                     ManagedOutboundIPs = new AzureRM.ContainerService.V20191101.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                     {
+    ///                         Count = 2,
+    ///                     },
+    ///                 },
+    ///                 LoadBalancerSku = "standard",
+    ///                 OutboundType = "loadBalancer",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///             ServicePrincipalProfile = new AzureRM.ContainerService.V20191101.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///             {
+    ///                 ClientId = "clientid",
+    ///                 Secret = "secret",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "archv2", "" },
+    ///                 { "tier", "production" },
+    ///             },
+    ///             WindowsProfile = new AzureRM.ContainerService.V20191101.Inputs.ManagedClusterWindowsProfileArgs
+    ///             {
+    ///                 AdminPassword = "replacePassword1234$",
+    ///                 AdminUsername = "azureuser",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagedCluster : Pulumi.CustomResource
     {

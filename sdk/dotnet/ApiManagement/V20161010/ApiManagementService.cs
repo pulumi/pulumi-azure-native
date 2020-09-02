@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.ApiManagement.V20161010
 {
     /// <summary>
     /// A single API Management service resource in List or Get response.
+    /// 
+    /// ## ApiManagementCreateService
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiManagementService = new AzureRM.ApiManagement.V20161010.ApiManagementService("apiManagementService", new AzureRM.ApiManagement.V20161010.ApiManagementServiceArgs
+    ///         {
+    ///             Location = "West US",
+    ///             PublisherEmail = "admin@live.com",
+    ///             PublisherName = "contoso",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Sku = new AzureRM.ApiManagement.V20161010.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///             {
+    ///                 Capacity = 1,
+    ///                 Name = "Premium",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApiManagementService : Pulumi.CustomResource
     {

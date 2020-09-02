@@ -11,6 +11,78 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+    /// 
+    /// ## Create or update specific Front Door
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontDoor = new AzureRM.Network.Latest.FrontDoor("frontDoor", new AzureRM.Network.Latest.FrontDoorArgs
+    ///         {
+    ///             BackendPools = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.BackendPoolArgs
+    ///                 {
+    ///                     Name = "backendPool1",
+    ///                 },
+    ///             },
+    ///             BackendPoolsSettings = new AzureRM.Network.Latest.Inputs.BackendPoolsSettingsArgs
+    ///             {
+    ///                 EnforceCertificateNameCheck = "Enabled",
+    ///                 SendRecvTimeoutSeconds = 60,
+    ///             },
+    ///             EnabledState = "Enabled",
+    ///             FrontDoorName = "frontDoor1",
+    ///             FrontendEndpoints = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.FrontendEndpointArgs
+    ///                 {
+    ///                     Name = "frontendEndpoint1",
+    ///                 },
+    ///                 new AzureRM.Network.Latest.Inputs.FrontendEndpointArgs
+    ///                 {
+    ///                     Name = "default",
+    ///                 },
+    ///             },
+    ///             HealthProbeSettings = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.HealthProbeSettingsModelArgs
+    ///                 {
+    ///                     Name = "healthProbeSettings1",
+    ///                 },
+    ///             },
+    ///             LoadBalancingSettings = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.LoadBalancingSettingsModelArgs
+    ///                 {
+    ///                     Name = "loadBalancingSettings1",
+    ///                 },
+    ///             },
+    ///             Location = "westus",
+    ///             ResourceGroupName = "rg1",
+    ///             RoutingRules = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.RoutingRuleArgs
+    ///                 {
+    ///                     Name = "routingRule1",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FrontDoor : Pulumi.CustomResource
     {

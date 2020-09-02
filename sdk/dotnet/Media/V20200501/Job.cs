@@ -11,6 +11,45 @@ namespace Pulumi.AzureRM.Media.V20200501
 {
     /// <summary>
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+    /// 
+    /// ## Create a Job
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var job = new AzureRM.Media.V20200501.Job("job", new AzureRM.Media.V20200501.JobArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             CorrelationData = 
+    ///             {
+    ///                 { "Key 2", "Value 2" },
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             Input = new AzureRM.Media.V20200501.Inputs.JobInputArgs
+    ///             {
+    ///                 OdataType = "#Microsoft.Media.JobInputAsset",
+    ///             },
+    ///             JobName = "job1",
+    ///             Outputs = 
+    ///             {
+    ///                 new AzureRM.Media.V20200501.Inputs.JobOutputArgs
+    ///                 {
+    ///                     OdataType = "#Microsoft.Media.JobOutputAsset",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contosoresources",
+    ///             TransformName = "exampleTransform",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {

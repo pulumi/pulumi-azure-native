@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Logic.Latest
 {
     /// <summary>
     /// The assembly definition.
+    /// 
+    /// ## Create or update an account assembly
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var integrationAccountAssembly = new AzureRM.Logic.Latest.IntegrationAccountAssembly("integrationAccountAssembly", new AzureRM.Logic.Latest.IntegrationAccountAssemblyArgs
+    ///         {
+    ///             AssemblyArtifactName = "testAssembly",
+    ///             IntegrationAccountName = "testIntegrationAccount",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "testResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IntegrationAccountAssembly : Pulumi.CustomResource
     {

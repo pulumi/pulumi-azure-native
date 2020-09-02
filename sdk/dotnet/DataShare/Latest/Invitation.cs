@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.DataShare.Latest
 {
     /// <summary>
     /// A Invitation data transfer object.
+    /// 
+    /// ## Invitations_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var invitation = new AzureRM.DataShare.Latest.Invitation("invitation", new AzureRM.DataShare.Latest.InvitationArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             InvitationName = "Invitation1",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareName = "Share1",
+    ///             TargetEmail = "receiver@microsoft.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Invitation : Pulumi.CustomResource
     {

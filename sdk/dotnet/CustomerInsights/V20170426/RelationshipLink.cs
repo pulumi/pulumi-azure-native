@@ -11,6 +11,54 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 {
     /// <summary>
     /// The relationship link resource format.
+    /// 
+    /// ## RelationshipLinks_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var relationshipLink = new AzureRM.CustomerInsights.V20170426.RelationshipLink("relationshipLink", new AzureRM.CustomerInsights.V20170426.RelationshipLinkArgs
+    ///         {
+    ///             Description = 
+    ///             {
+    ///                 { "en-us", "Link Description" },
+    ///             },
+    ///             DisplayName = 
+    ///             {
+    ///                 { "en-us", "Link DisplayName" },
+    ///             },
+    ///             HubName = "sdkTestHub",
+    ///             InteractionType = "testInteraction4332",
+    ///             ProfilePropertyReferences = 
+    ///             {
+    ///                 new AzureRM.CustomerInsights.V20170426.Inputs.ParticipantProfilePropertyReferenceArgs
+    ///                 {
+    ///                     InteractionPropertyName = "profile1",
+    ///                     ProfilePropertyName = "ProfileId",
+    ///                 },
+    ///             },
+    ///             RelatedProfilePropertyReferences = 
+    ///             {
+    ///                 new AzureRM.CustomerInsights.V20170426.Inputs.ParticipantProfilePropertyReferenceArgs
+    ///                 {
+    ///                     InteractionPropertyName = "profile1",
+    ///                     ProfilePropertyName = "ProfileId",
+    ///                 },
+    ///             },
+    ///             RelationshipLinkName = "Somelink",
+    ///             RelationshipName = "testProfile2326994",
+    ///             ResourceGroupName = "TestHubRG",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RelationshipLink : Pulumi.CustomResource
     {

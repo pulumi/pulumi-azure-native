@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
 {
     /// <summary>
     /// Description of a namespace resource.
+    /// 
+    /// ## NameSpaceCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @namespace = new AzureRM.ServiceBus.V20150801.Namespace("namespace", new AzureRM.ServiceBus.V20150801.NamespaceArgs
+    ///         {
+    ///             Location = "West US",
+    ///             NamespaceName = "sdk-Namespace7816",
+    ///             ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///             Sku = new AzureRM.ServiceBus.V20150801.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource
     {

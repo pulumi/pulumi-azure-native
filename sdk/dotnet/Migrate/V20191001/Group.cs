@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Migrate.V20191001
 {
     /// <summary>
     /// A group created in a Migration project.
+    /// 
+    /// ## Groups_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @group = new AzureRM.Migrate.V20191001.Group("group", new AzureRM.Migrate.V20191001.GroupArgs
+    ///         {
+    ///             ETag = "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+    ///             GroupName = "Group2",
+    ///             ProjectName = "abgoyalWEselfhostb72bproject",
+    ///             ResourceGroupName = "abgoyal-westEurope",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {

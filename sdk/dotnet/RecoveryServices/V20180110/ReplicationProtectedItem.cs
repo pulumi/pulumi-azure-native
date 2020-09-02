@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
 {
     /// <summary>
     /// Replication protected item.
+    /// 
+    /// ## Enables protection.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var replicationProtectedItem = new AzureRM.RecoveryServices.V20180110.ReplicationProtectedItem("replicationProtectedItem", new AzureRM.RecoveryServices.V20180110.ReplicationProtectedItemArgs
+    ///         {
+    ///             FabricName = "cloud1",
+    ///             ProtectionContainerName = "cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+    ///             ReplicatedProtectedItemName = "f8491e4f-817a-40dd-a90c-af773978c75b",
+    ///             ResourceGroupName = "resourceGroupPS1",
+    ///             ResourceName = "vault1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ReplicationProtectedItem : Pulumi.CustomResource
     {

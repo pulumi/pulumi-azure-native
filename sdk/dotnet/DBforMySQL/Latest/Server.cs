@@ -11,6 +11,127 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
 {
     /// <summary>
     /// Represents a server.
+    /// 
+    /// ## Create a database as a point in time restore
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.DBforMySQL.Latest.Server("server", new AzureRM.DBforMySQL.Latest.ServerArgs
+    ///         {
+    ///             Location = "brazilsouth",
+    ///             ResourceGroupName = "TargetResourceGroup",
+    ///             ServerName = "targetserver",
+    ///             Sku = new AzureRM.DBforMySQL.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Family = "Gen5",
+    ///                 Name = "GP_Gen5_2",
+    ///                 Tier = "GeneralPurpose",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "ElasticServer", "1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a new server
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.DBforMySQL.Latest.Server("server", new AzureRM.DBforMySQL.Latest.ServerArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ResourceGroupName = "testrg",
+    ///             ServerName = "mysqltestsvc4",
+    ///             Sku = new AzureRM.DBforMySQL.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Family = "Gen5",
+    ///                 Name = "GP_Gen5_2",
+    ///                 Tier = "GeneralPurpose",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "ElasticServer", "1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a replica server
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.DBforMySQL.Latest.Server("server", new AzureRM.DBforMySQL.Latest.ServerArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ResourceGroupName = "TargetResourceGroup",
+    ///             ServerName = "targetserver",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a server as a geo restore
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new AzureRM.DBforMySQL.Latest.Server("server", new AzureRM.DBforMySQL.Latest.ServerArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ResourceGroupName = "TargetResourceGroup",
+    ///             ServerName = "targetserver",
+    ///             Sku = new AzureRM.DBforMySQL.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Family = "Gen5",
+    ///                 Name = "GP_Gen5_2",
+    ///                 Tier = "GeneralPurpose",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "ElasticServer", "1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

@@ -11,6 +11,112 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 {
     /// <summary>
     /// Backend details.
+    /// 
+    /// ## ApiManagementCreateBackendProxyBackend
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var backend = new AzureRM.ApiManagement.V20180101.Backend("backend", new AzureRM.ApiManagement.V20180101.BackendArgs
+    ///         {
+    ///             Backendid = "proxybackend",
+    ///             Credentials = new AzureRM.ApiManagement.V20180101.Inputs.BackendCredentialsContractArgs
+    ///             {
+    ///                 Authorization = new AzureRM.ApiManagement.V20180101.Inputs.BackendAuthorizationHeaderCredentialsArgs
+    ///                 {
+    ///                     Parameter = "opensesma",
+    ///                     Scheme = "Basic",
+    ///                 },
+    ///                 Header = 
+    ///                 {
+    ///                     { "x-my-1", 
+    ///                     {
+    ///                         "val1",
+    ///                         "val2",
+    ///                     } },
+    ///                 },
+    ///                 Query = 
+    ///                 {
+    ///                     { "sv", 
+    ///                     {
+    ///                         "xx",
+    ///                         "bb",
+    ///                         "cc",
+    ///                     } },
+    ///                 },
+    ///             },
+    ///             Description = "description5308",
+    ///             Protocol = "http",
+    ///             Proxy = new AzureRM.ApiManagement.V20180101.Inputs.BackendProxyContractArgs
+    ///             {
+    ///                 Password = "opensesame",
+    ///                 Url = "http://192.168.1.1:8080",
+    ///                 Username = "Contoso\\admin",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Tls = new AzureRM.ApiManagement.V20180101.Inputs.BackendTlsPropertiesArgs
+    ///             {
+    ///                 ValidateCertificateChain = true,
+    ///                 ValidateCertificateName = true,
+    ///             },
+    ///             Url = "https://backendname2644/",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## ApiManagementCreateBackendServiceFabric
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var backend = new AzureRM.ApiManagement.V20180101.Backend("backend", new AzureRM.ApiManagement.V20180101.BackendArgs
+    ///         {
+    ///             Backendid = "sfbackend",
+    ///             Description = "Service Fabric Test App 1",
+    ///             Properties = new AzureRM.ApiManagement.V20180101.Inputs.BackendPropertiesArgs
+    ///             {
+    ///                 ServiceFabricCluster = new AzureRM.ApiManagement.V20180101.Inputs.BackendServiceFabricClusterPropertiesArgs
+    ///                 {
+    ///                     ClientCertificatethumbprint = "EBA029198AA3E76EF0D70482626E5BCF148594A6",
+    ///                     ManagementEndpoints = 
+    ///                     {
+    ///                         "https://somecluster.com",
+    ///                     },
+    ///                     MaxPartitionResolutionRetries = 5,
+    ///                     ServerX509Names = 
+    ///                     {
+    ///                         new AzureRM.ApiManagement.V20180101.Inputs.X509CertificateNameArgs
+    ///                         {
+    ///                             IssuerCertificateThumbprint = "IssuerCertificateThumbprint1",
+    ///                             Name = "ServerCommonName1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Protocol = "http",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Url = "fabric:/mytestapp/mytestservice",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Backend : Pulumi.CustomResource
     {

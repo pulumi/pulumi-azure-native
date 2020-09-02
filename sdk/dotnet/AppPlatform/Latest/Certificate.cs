@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
 {
     /// <summary>
     /// Certificate resource payload.
+    /// 
+    /// ## Certificates_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var certificate = new AzureRM.AppPlatform.Latest.Certificate("certificate", new AzureRM.AppPlatform.Latest.CertificateArgs
+    ///         {
+    ///             CertificateName = "mycertificate",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceName = "myservice",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

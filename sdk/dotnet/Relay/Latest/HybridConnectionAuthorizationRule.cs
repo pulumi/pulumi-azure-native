@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.Relay.Latest
 {
     /// <summary>
     /// Description of a namespace authorization rule.
+    /// 
+    /// ## RelayHybridConnectionAuthorizationRuleCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hybridConnectionAuthorizationRule = new AzureRM.Relay.Latest.HybridConnectionAuthorizationRule("hybridConnectionAuthorizationRule", new AzureRM.Relay.Latest.HybridConnectionAuthorizationRuleArgs
+    ///         {
+    ///             AuthorizationRuleName = "sdk-RelayAuthRules-01",
+    ///             HybridConnectionName = "sdk-Relay-Hybrid-01",
+    ///             NamespaceName = "sdk-RelayNamespace-01",
+    ///             ResourceGroupName = "RG-eg",
+    ///             Rights = 
+    ///             {
+    ///                 "Listen",
+    ///                 "Send",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class HybridConnectionAuthorizationRule : Pulumi.CustomResource
     {

@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.KeyVault.Latest
 {
     /// <summary>
     /// Resource information with extended details.
+    /// 
+    /// ## Create a new vault or update an existing vault
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vault = new AzureRM.KeyVault.Latest.Vault("vault", new AzureRM.KeyVault.Latest.VaultArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ResourceGroupName = "sample-resource-group",
+    ///             VaultName = "sample-vault",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create or update a vault with network acls
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vault = new AzureRM.KeyVault.Latest.Vault("vault", new AzureRM.KeyVault.Latest.VaultArgs
+    ///         {
+    ///             Location = "westus",
+    ///             ResourceGroupName = "sample-resource-group",
+    ///             VaultName = "sample-vault",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Vault : Pulumi.CustomResource
     {

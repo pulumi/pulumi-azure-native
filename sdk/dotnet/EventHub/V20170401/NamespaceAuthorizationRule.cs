@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.EventHub.V20170401
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
+    /// 
+    /// ## NameSpaceAuthorizationRuleCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var namespaceAuthorizationRule = new AzureRM.EventHub.V20170401.NamespaceAuthorizationRule("namespaceAuthorizationRule", new AzureRM.EventHub.V20170401.NamespaceAuthorizationRuleArgs
+    ///         {
+    ///             AuthorizationRuleName = "sdk-Authrules-1746",
+    ///             NamespaceName = "sdk-Namespace-2702",
+    ///             ResourceGroupName = "ArunMonocle",
+    ///             Rights = 
+    ///             {
+    ///                 "Listen",
+    ///                 "Send",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {

@@ -11,6 +11,76 @@ namespace Pulumi.AzureRM.Network.V20190601
 {
     /// <summary>
     /// P2SVpnServerConfiguration Resource.
+    /// 
+    /// ## P2SVpnServerConfigurationPut
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var p2sVpnServerConfiguration = new AzureRM.Network.V20190601.P2sVpnServerConfiguration("p2sVpnServerConfiguration", new AzureRM.Network.V20190601.P2sVpnServerConfigurationArgs
+    ///         {
+    ///             P2SVpnServerConfigRadiusClientRootCertificates = 
+    ///             {
+    ///                 new AzureRM.Network.V20190601.Inputs.P2SVpnServerConfigRadiusClientRootCertificateArgs
+    ///                 {
+    ///                     Name = "p2sVpnServerConfigRadiusClientRootCert1",
+    ///                 },
+    ///             },
+    ///             P2SVpnServerConfigRadiusServerRootCertificates = 
+    ///             {
+    ///                 new AzureRM.Network.V20190601.Inputs.P2SVpnServerConfigRadiusServerRootCertificateArgs
+    ///                 {
+    ///                     Name = "p2sVpnServerConfigRadiusServerRootCert1",
+    ///                 },
+    ///             },
+    ///             P2SVpnServerConfigVpnClientRevokedCertificates = 
+    ///             {
+    ///                 new AzureRM.Network.V20190601.Inputs.P2SVpnServerConfigVpnClientRevokedCertificateArgs
+    ///                 {
+    ///                     Name = "p2sVpnServerConfigVpnClientRevokedCert1",
+    ///                 },
+    ///             },
+    ///             P2SVpnServerConfigVpnClientRootCertificates = 
+    ///             {
+    ///                 new AzureRM.Network.V20190601.Inputs.P2SVpnServerConfigVpnClientRootCertificateArgs
+    ///                 {
+    ///                     Name = "p2sVpnServerConfigVpnClientRootCert1",
+    ///                 },
+    ///             },
+    ///             P2SVpnServerConfigurationName = "p2sVpnServerConfiguration1",
+    ///             RadiusServerAddress = "8.9.9.9",
+    ///             RadiusServerSecret = "123_abc",
+    ///             ResourceGroupName = "rg1",
+    ///             VirtualWanName = "virtualWan1",
+    ///             VpnClientIpsecPolicies = 
+    ///             {
+    ///                 new AzureRM.Network.V20190601.Inputs.IpsecPolicyArgs
+    ///                 {
+    ///                     DhGroup = "DHGroup14",
+    ///                     IkeEncryption = "AES256",
+    ///                     IkeIntegrity = "SHA384",
+    ///                     IpsecEncryption = "AES256",
+    ///                     IpsecIntegrity = "SHA256",
+    ///                     PfsGroup = "PFS14",
+    ///                     SaDataSizeKilobytes = 429497,
+    ///                     SaLifeTimeSeconds = 86472,
+    ///                 },
+    ///             },
+    ///             VpnProtocols = 
+    ///             {
+    ///                 "IkeV2",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class P2sVpnServerConfiguration : Pulumi.CustomResource
     {

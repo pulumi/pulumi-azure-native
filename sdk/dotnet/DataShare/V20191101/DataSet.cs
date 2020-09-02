@@ -11,6 +11,126 @@ namespace Pulumi.AzureRM.DataShare.V20191101
 {
     /// <summary>
     /// A DataSet data transfer object.
+    /// 
+    /// ## DataSets_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataSet = new AzureRM.DataShare.V20191101.DataSet("dataSet", new AzureRM.DataShare.V20191101.DataSetArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             DataSetName = "Dataset1",
+    ///             Kind = "Blob",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareName = "Share1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## DataSets_KustoCluster_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataSet = new AzureRM.DataShare.V20191101.DataSet("dataSet", new AzureRM.DataShare.V20191101.DataSetArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             DataSetName = "Dataset1",
+    ///             Kind = "KustoCluster",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareName = "Share1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## DataSets_KustoDatabase_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataSet = new AzureRM.DataShare.V20191101.DataSet("dataSet", new AzureRM.DataShare.V20191101.DataSetArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             DataSetName = "Dataset1",
+    ///             Kind = "KustoDatabase",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareName = "Share1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## DataSets_SqlDBTable_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataSet = new AzureRM.DataShare.V20191101.DataSet("dataSet", new AzureRM.DataShare.V20191101.DataSetArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             DataSetName = "Dataset1",
+    ///             Kind = "SqlDBTable",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareName = "Share1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## DataSets_SqlDWTable_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataSet = new AzureRM.DataShare.V20191101.DataSet("dataSet", new AzureRM.DataShare.V20191101.DataSetArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             DataSetName = "Dataset1",
+    ///             Kind = "SqlDWTable",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareName = "Share1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DataSet : Pulumi.CustomResource
     {

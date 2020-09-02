@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.Aad.V20170601
 {
     /// <summary>
     /// Resource for OuContainer.
+    /// 
+    /// ## Create Domain Service
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ouContainer = new AzureRM.Aad.V20170601.OuContainer("ouContainer", new AzureRM.Aad.V20170601.OuContainerArgs
+    ///         {
+    ///             AccountName = "AccountName1",
+    ///             DomainServiceName = "OuContainer.com",
+    ///             OuContainerName = "OuContainer1",
+    ///             Password = "Password1",
+    ///             ResourceGroupName = "OuContainerResourceGroup",
+    ///             Spn = "Spn1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class OuContainer : Pulumi.CustomResource
     {

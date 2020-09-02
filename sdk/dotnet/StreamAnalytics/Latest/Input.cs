@@ -11,6 +11,94 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
 {
     /// <summary>
     /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+    /// 
+    /// ## Create a reference blob input with CSV serialization
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var input = new AzureRM.StreamAnalytics.Latest.Input("input", new AzureRM.StreamAnalytics.Latest.InputArgs
+    ///         {
+    ///             InputName = "input7225",
+    ///             JobName = "sj9597",
+    ///             ResourceGroupName = "sjrg8440",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a stream Event Hub input with JSON serialization
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var input = new AzureRM.StreamAnalytics.Latest.Input("input", new AzureRM.StreamAnalytics.Latest.InputArgs
+    ///         {
+    ///             InputName = "input7425",
+    ///             JobName = "sj197",
+    ///             ResourceGroupName = "sjrg3139",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a stream IoT Hub input with Avro serialization
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var input = new AzureRM.StreamAnalytics.Latest.Input("input", new AzureRM.StreamAnalytics.Latest.InputArgs
+    ///         {
+    ///             InputName = "input7970",
+    ///             JobName = "sj9742",
+    ///             ResourceGroupName = "sjrg3467",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a stream blob input with CSV serialization
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var input = new AzureRM.StreamAnalytics.Latest.Input("input", new AzureRM.StreamAnalytics.Latest.InputArgs
+    ///         {
+    ///             InputName = "input8899",
+    ///             JobName = "sj6695",
+    ///             ResourceGroupName = "sjrg8161",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Input : Pulumi.CustomResource
     {

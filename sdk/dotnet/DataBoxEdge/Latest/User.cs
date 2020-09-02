@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
 {
     /// <summary>
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+    /// 
+    /// ## UserPut
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var user = new AzureRM.DataBoxEdge.Latest.User("user", new AzureRM.DataBoxEdge.Latest.UserArgs
+    ///         {
+    ///             DeviceName = "testedgedevice",
+    ///             EncryptedPassword = new AzureRM.DataBoxEdge.Latest.Inputs.AsymmetricEncryptedSecretArgs
+    ///             {
+    ///                 EncryptionAlgorithm = "None",
+    ///                 EncryptionCertThumbprint = "blah",
+    ///                 Value = "Password@1",
+    ///             },
+    ///             Name = "user1",
+    ///             ResourceGroupName = "GroupForEdgeAutomation",
+    ///             ShareAccessRights = {},
+    ///             UserType = "Share",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

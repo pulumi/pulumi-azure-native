@@ -11,6 +11,130 @@ namespace Pulumi.AzureRM.Authorization.V20200301
 {
     /// <summary>
     /// The policy assignment.
+    /// 
+    /// ## Create or update a policy assignment
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policyAssignment = new AzureRM.Authorization.V20200301.PolicyAssignment("policyAssignment", new AzureRM.Authorization.V20200301.PolicyAssignmentArgs
+    ///         {
+    ///             Description = "Force resource names to begin with given DeptA and end with -LC",
+    ///             DisplayName = "Enforce resource naming rules",
+    ///             Metadata = 
+    ///             {
+    ///                 { "assignedBy", "Special Someone" },
+    ///             },
+    ///             Parameters = 
+    ///             {
+    ///                 { "prefix", new AzureRM.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///                 {
+    ///                     Value = "DeptA",
+    ///                 } },
+    ///                 { "suffix", new AzureRM.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///                 {
+    ///                     Value = "-LC",
+    ///                 } },
+    ///             },
+    ///             PolicyAssignmentName = "EnforceNaming",
+    ///             PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+    ///             Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create or update a policy assignment with a managed identity
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policyAssignment = new AzureRM.Authorization.V20200301.PolicyAssignment("policyAssignment", new AzureRM.Authorization.V20200301.PolicyAssignmentArgs
+    ///         {
+    ///             Description = "Force resource names to begin with given DeptA and end with -LC",
+    ///             DisplayName = "Enforce resource naming rules",
+    ///             EnforcementMode = "Default",
+    ///             Identity = new AzureRM.Authorization.V20200301.Inputs.IdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Location = "eastus",
+    ///             Metadata = 
+    ///             {
+    ///                 { "assignedBy", "Foo Bar" },
+    ///             },
+    ///             Parameters = 
+    ///             {
+    ///                 { "prefix", new AzureRM.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///                 {
+    ///                     Value = "DeptA",
+    ///                 } },
+    ///                 { "suffix", new AzureRM.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///                 {
+    ///                     Value = "-LC",
+    ///                 } },
+    ///             },
+    ///             PolicyAssignmentName = "EnforceNaming",
+    ///             PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+    ///             Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create or update a policy assignment without enforcing policy effect during resource creation or update.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policyAssignment = new AzureRM.Authorization.V20200301.PolicyAssignment("policyAssignment", new AzureRM.Authorization.V20200301.PolicyAssignmentArgs
+    ///         {
+    ///             Description = "Force resource names to begin with given DeptA and end with -LC",
+    ///             DisplayName = "Enforce resource naming rules",
+    ///             EnforcementMode = "DoNotEnforce",
+    ///             Metadata = 
+    ///             {
+    ///                 { "assignedBy", "Special Someone" },
+    ///             },
+    ///             Parameters = 
+    ///             {
+    ///                 { "prefix", new AzureRM.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///                 {
+    ///                     Value = "DeptA",
+    ///                 } },
+    ///                 { "suffix", new AzureRM.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///                 {
+    ///                     Value = "-LC",
+    ///                 } },
+    ///             },
+    ///             PolicyAssignmentName = "EnforceNaming",
+    ///             PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+    ///             Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PolicyAssignment : Pulumi.CustomResource
     {

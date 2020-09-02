@@ -11,6 +11,91 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
+    /// 
+    /// ## CosmosDBGremlinGraphCreateUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var gremlinResourceGremlinGraph = new AzureRM.DocumentDB.V20190801.GremlinResourceGremlinGraph("gremlinResourceGremlinGraph", new AzureRM.DocumentDB.V20190801.GremlinResourceGremlinGraphArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             DatabaseName = "databaseName",
+    ///             GraphName = "graphName",
+    ///             Location = "West US",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.V20190801.Inputs.GremlinGraphResourceArgs
+    ///             {
+    ///                 ConflictResolutionPolicy = new AzureRM.DocumentDB.V20190801.Inputs.ConflictResolutionPolicyArgs
+    ///                 {
+    ///                     ConflictResolutionPath = "/path",
+    ///                     Mode = "LastWriterWins",
+    ///                 },
+    ///                 DefaultTtl = 100,
+    ///                 Id = "graphName",
+    ///                 IndexingPolicy = new AzureRM.DocumentDB.V20190801.Inputs.IndexingPolicyArgs
+    ///                 {
+    ///                     Automatic = true,
+    ///                     ExcludedPaths = {},
+    ///                     IncludedPaths = 
+    ///                     {
+    ///                         new AzureRM.DocumentDB.V20190801.Inputs.IncludedPathArgs
+    ///                         {
+    ///                             Indexes = 
+    ///                             {
+    ///                                 new AzureRM.DocumentDB.V20190801.Inputs.IndexesArgs
+    ///                                 {
+    ///                                     DataType = "String",
+    ///                                     Kind = "Range",
+    ///                                     Precision = -1,
+    ///                                 },
+    ///                                 new AzureRM.DocumentDB.V20190801.Inputs.IndexesArgs
+    ///                                 {
+    ///                                     DataType = "Number",
+    ///                                     Kind = "Range",
+    ///                                     Precision = -1,
+    ///                                 },
+    ///                             },
+    ///                             Path = "/*",
+    ///                         },
+    ///                     },
+    ///                     IndexingMode = "Consistent",
+    ///                 },
+    ///                 PartitionKey = new AzureRM.DocumentDB.V20190801.Inputs.ContainerPartitionKeyArgs
+    ///                 {
+    ///                     Kind = "Hash",
+    ///                     Paths = 
+    ///                     {
+    ///                         "/AccountNumber",
+    ///                     },
+    ///                 },
+    ///                 UniqueKeyPolicy = new AzureRM.DocumentDB.V20190801.Inputs.UniqueKeyPolicyArgs
+    ///                 {
+    ///                     UniqueKeys = 
+    ///                     {
+    ///                         new AzureRM.DocumentDB.V20190801.Inputs.UniqueKeyArgs
+    ///                         {
+    ///                             Paths = 
+    ///                             {
+    ///                                 "/testPath",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class GremlinResourceGremlinGraph : Pulumi.CustomResource
     {

@@ -11,6 +11,77 @@ namespace Pulumi.AzureRM.RedHatOpenShift.Latest
 {
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+    /// 
+    /// ## Creates or updates a OpenShift cluster with the specified subscription, resource group and resource name.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var openShiftCluster = new AzureRM.RedHatOpenShift.Latest.OpenShiftCluster("openShiftCluster", new AzureRM.RedHatOpenShift.Latest.OpenShiftClusterArgs
+    ///         {
+    ///             ApiserverProfile = new AzureRM.RedHatOpenShift.Latest.Inputs.APIServerProfileArgs
+    ///             {
+    ///                 Visibility = "Public",
+    ///             },
+    ///             ClusterProfile = new AzureRM.RedHatOpenShift.Latest.Inputs.ClusterProfileArgs
+    ///             {
+    ///                 Domain = "cluster.location.aroapp.io",
+    ///                 PullSecret = "{\"auths\":{\"registry.connect.redhat.com\":{\"auth\":\"\"},\"registry.redhat.io\":{\"auth\":\"\"}}}",
+    ///                 ResourceGroupId = "/subscriptions/subscriptionId/resourceGroups/clusterResourceGroup",
+    ///             },
+    ///             ConsoleProfile = ,
+    ///             IngressProfiles = 
+    ///             {
+    ///                 new AzureRM.RedHatOpenShift.Latest.Inputs.IngressProfileArgs
+    ///                 {
+    ///                     Name = "default",
+    ///                     Visibility = "Public",
+    ///                 },
+    ///             },
+    ///             Location = "location",
+    ///             MasterProfile = new AzureRM.RedHatOpenShift.Latest.Inputs.MasterProfileArgs
+    ///             {
+    ///                 SubnetId = "/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/master",
+    ///                 VmSize = "Standard_D8s_v3",
+    ///             },
+    ///             NetworkProfile = new AzureRM.RedHatOpenShift.Latest.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 PodCidr = "10.128.0.0/14",
+    ///                 ServiceCidr = "172.30.0.0/16",
+    ///             },
+    ///             ResourceGroupName = "resourceGroup",
+    ///             ResourceName = "resourceName",
+    ///             ServicePrincipalProfile = new AzureRM.RedHatOpenShift.Latest.Inputs.ServicePrincipalProfileArgs
+    ///             {
+    ///                 ClientId = "clientId",
+    ///                 ClientSecret = "clientSecret",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key", "value" },
+    ///             },
+    ///             WorkerProfiles = 
+    ///             {
+    ///                 new AzureRM.RedHatOpenShift.Latest.Inputs.WorkerProfileArgs
+    ///                 {
+    ///                     Count = 3,
+    ///                     DiskSizeGB = 128,
+    ///                     Name = "worker",
+    ///                     SubnetId = "/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/worker",
+    ///                     VmSize = "Standard_D2s_v3",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class OpenShiftCluster : Pulumi.CustomResource
     {

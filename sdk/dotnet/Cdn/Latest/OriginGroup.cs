@@ -11,6 +11,48 @@ namespace Pulumi.AzureRM.Cdn.Latest
 {
     /// <summary>
     /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+    /// 
+    /// ## OriginGroups_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var originGroup = new AzureRM.Cdn.Latest.OriginGroup("originGroup", new AzureRM.Cdn.Latest.OriginGroupArgs
+    ///         {
+    ///             EndpointName = "endpoint1",
+    ///             HealthProbeSettings = new AzureRM.Cdn.Latest.Inputs.HealthProbeParametersArgs
+    ///             {
+    ///                 ProbeIntervalInSeconds = 120,
+    ///                 ProbePath = "/health.aspx",
+    ///                 ProbeProtocol = "Http",
+    ///                 ProbeRequestType = "GET",
+    ///             },
+    ///             OriginGroupName = "origingroup1",
+    ///             Origins = 
+    ///             {
+    ///                 new AzureRM.Cdn.Latest.Inputs.ResourceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+    ///                 },
+    ///             },
+    ///             ProfileName = "profile1",
+    ///             ResourceGroupName = "RG",
+    ///             ResponseBasedOriginErrorDetectionSettings = new AzureRM.Cdn.Latest.Inputs.ResponseBasedOriginErrorDetectionParametersArgs
+    ///             {
+    ///                 ResponseBasedDetectedErrorTypes = "TcpErrorsOnly",
+    ///                 ResponseBasedFailoverThresholdPercentage = 10,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class OriginGroup : Pulumi.CustomResource
     {

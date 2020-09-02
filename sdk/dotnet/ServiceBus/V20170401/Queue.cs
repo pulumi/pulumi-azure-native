@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
 {
     /// <summary>
     /// Description of queue Resource.
+    /// 
+    /// ## QueueCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var queue = new AzureRM.ServiceBus.V20170401.Queue("queue", new AzureRM.ServiceBus.V20170401.QueueArgs
+    ///         {
+    ///             EnablePartitioning = true,
+    ///             NamespaceName = "sdk-Namespace-3174",
+    ///             QueueName = "sdk-Queues-5647",
+    ///             ResourceGroupName = "ArunMonocle",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Queue : Pulumi.CustomResource
     {

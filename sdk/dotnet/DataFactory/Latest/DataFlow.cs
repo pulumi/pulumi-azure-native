@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.DataFactory.Latest
 {
     /// <summary>
     /// Data flow resource type.
+    /// 
+    /// ## DataFlows_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataFlow = new AzureRM.DataFactory.Latest.DataFlow("dataFlow", new AzureRM.DataFactory.Latest.DataFlowArgs
+    ///         {
+    ///             DataFlowName = "exampleDataFlow",
+    ///             FactoryName = "exampleFactoryName",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## DataFlows_Update
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataFlow = new AzureRM.DataFactory.Latest.DataFlow("dataFlow", new AzureRM.DataFactory.Latest.DataFlowArgs
+    ///         {
+    ///             DataFlowName = "exampleDataFlow",
+    ///             FactoryName = "exampleFactoryName",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DataFlow : Pulumi.CustomResource
     {

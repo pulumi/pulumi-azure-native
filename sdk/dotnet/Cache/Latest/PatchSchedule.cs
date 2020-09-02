@@ -11,6 +11,42 @@ namespace Pulumi.AzureRM.Cache.Latest
 {
     /// <summary>
     /// Response to put/get patch schedules for Redis cache.
+    /// 
+    /// ## RedisCachePatchSchedulesCreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var patchSchedule = new AzureRM.Cache.Latest.PatchSchedule("patchSchedule", new AzureRM.Cache.Latest.PatchScheduleArgs
+    ///         {
+    ///             Default = "default",
+    ///             Name = "cache1",
+    ///             ResourceGroupName = "rg1",
+    ///             ScheduleEntries = 
+    ///             {
+    ///                 new AzureRM.Cache.Latest.Inputs.ScheduleEntryArgs
+    ///                 {
+    ///                     DayOfWeek = "Monday",
+    ///                     MaintenanceWindow = "PT5H",
+    ///                     StartHourUtc = 12,
+    ///                 },
+    ///                 new AzureRM.Cache.Latest.Inputs.ScheduleEntryArgs
+    ///                 {
+    ///                     DayOfWeek = "Tuesday",
+    ///                     StartHourUtc = 12,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PatchSchedule : Pulumi.CustomResource
     {

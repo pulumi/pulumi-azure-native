@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.DataShare.Latest
 {
     /// <summary>
     /// A share subscription data transfer object.
+    /// 
+    /// ## ShareSubscriptions_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var shareSubscription = new AzureRM.DataShare.Latest.ShareSubscription("shareSubscription", new AzureRM.DataShare.Latest.ShareSubscriptionArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             InvitationId = "12345678-1234-1234-12345678abd",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareSubscriptionName = "ShareSubscription1",
+    ///             SourceShareLocation = "eastus2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ShareSubscription : Pulumi.CustomResource
     {

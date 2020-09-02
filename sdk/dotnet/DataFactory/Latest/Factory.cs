@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.DataFactory.Latest
 {
     /// <summary>
     /// Factory resource type.
+    /// 
+    /// ## Factories_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var factory = new AzureRM.DataFactory.Latest.Factory("factory", new AzureRM.DataFactory.Latest.FactoryArgs
+    ///         {
+    ///             FactoryName = "exampleFactoryName",
+    ///             Location = "East US",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Factory : Pulumi.CustomResource
     {

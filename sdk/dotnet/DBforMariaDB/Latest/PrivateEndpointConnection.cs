@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
 {
     /// <summary>
     /// A private endpoint connection
+    /// 
+    /// ## Approve or reject a private endpoint connection with a given name.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.DBforMariaDB.Latest.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.DBforMariaDB.Latest.PrivateEndpointConnectionArgs
+    ///         {
+    ///             PrivateEndpointConnectionName = "private-endpoint-connection-name",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.DBforMariaDB.Latest.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
+    ///             {
+    ///                 Description = "Approved by johndoe@contoso.com",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "Default",
+    ///             ServerName = "test-svr",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

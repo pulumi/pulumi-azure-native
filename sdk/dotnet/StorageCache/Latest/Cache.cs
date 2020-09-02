@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.StorageCache.Latest
 {
     /// <summary>
     /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+    /// 
+    /// ## Caches_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cache = new AzureRM.StorageCache.Latest.Cache("cache", new AzureRM.StorageCache.Latest.CacheArgs
+    ///         {
+    ///             CacheName = "sc1",
+    ///             CacheSizeGB = 3072,
+    ///             Location = "westus",
+    ///             ResourceGroupName = "scgroup",
+    ///             Sku = new AzureRM.StorageCache.Latest.Inputs.CacheSkuArgs
+    ///             {
+    ///                 Name = "Standard_2G",
+    ///             },
+    ///             Subnet = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+    ///             Tags = 
+    ///             {
+    ///                 { "Dept", "ContosoAds" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Cache : Pulumi.CustomResource
     {

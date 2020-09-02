@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.Network.V20190701
 {
     /// <summary>
     /// ExpressRouteConnection resource.
+    /// 
+    /// ## ExpressRouteConnectionCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var expressRouteConnection = new AzureRM.Network.V20190701.ExpressRouteConnection("expressRouteConnection", new AzureRM.Network.V20190701.ExpressRouteConnectionArgs
+    ///         {
+    ///             AuthorizationKey = "authorizationKey",
+    ///             ConnectionName = "connectionName",
+    ///             ExpressRouteCircuitPeering = new AzureRM.Network.V20190701.Inputs.ExpressRouteCircuitPeeringIdArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering",
+    ///             },
+    ///             ExpressRouteGatewayName = "gateway-2",
+    ///             Id = "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName",
+    ///             Name = "connectionName",
+    ///             ResourceGroupName = "resourceGroupName",
+    ///             RoutingWeight = 2,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ExpressRouteConnection : Pulumi.CustomResource
     {

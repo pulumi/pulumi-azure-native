@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.Relay.Latest
 {
     /// <summary>
     /// Description of a namespace authorization rule.
+    /// 
+    /// ## RelayAuthorizationRuleCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var wcfRelayAuthorizationRule = new AzureRM.Relay.Latest.WCFRelayAuthorizationRule("wcfRelayAuthorizationRule", new AzureRM.Relay.Latest.WCFRelayAuthorizationRuleArgs
+    ///         {
+    ///             AuthorizationRuleName = "sdk-RelayAuthRules-01",
+    ///             NamespaceName = "sdk-RelayNamespace-01",
+    ///             RelayName = "sdk-Relay-wcf-01",
+    ///             ResourceGroupName = "RG-eg",
+    ///             Rights = 
+    ///             {
+    ///                 "Listen",
+    ///                 "Send",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class WCFRelayAuthorizationRule : Pulumi.CustomResource
     {

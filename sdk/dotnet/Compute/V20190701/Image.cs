@@ -11,6 +11,377 @@ namespace Pulumi.AzureRM.Compute.V20190701
 {
     /// <summary>
     /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+    /// 
+    /// ## Create a virtual machine image from a blob with DiskEncryptionSet resource.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var image = new AzureRM.Compute.V20190701.Image("image", new AzureRM.Compute.V20190701.ImageArgs
+    ///         {
+    ///             ImageName = "myImage",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.V20190701.Inputs.ImageStorageProfileArgs
+    ///             {
+    ///                 OsDisk = new AzureRM.Compute.V20190701.Inputs.ImageOSDiskArgs
+    ///                 {
+    ///                     BlobUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///                     DiskEncryptionSet = new AzureRM.Compute.V20190701.Inputs.DiskEncryptionSetParametersArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                     },
+    ///                     OsState = "Generalized",
+    ///                     OsType = "Linux",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a virtual machine image from a blob.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var image = new AzureRM.Compute.V20190701.Image("image", new AzureRM.Compute.V20190701.ImageArgs
+    ///         {
+    ///             ImageName = "myImage",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.V20190701.Inputs.ImageStorageProfileArgs
+    ///             {
+    ///                 OsDisk = new AzureRM.Compute.V20190701.Inputs.ImageOSDiskArgs
+    ///                 {
+    ///                     BlobUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///                     OsState = "Generalized",
+    ///                     OsType = "Linux",
+    ///                 },
+    ///                 ZoneResilient = true,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a virtual machine image from a managed disk with DiskEncryptionSet resource.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var image = new AzureRM.Compute.V20190701.Image("image", new AzureRM.Compute.V20190701.ImageArgs
+    ///         {
+    ///             ImageName = "myImage",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.V20190701.Inputs.ImageStorageProfileArgs
+    ///             {
+    ///                 OsDisk = new AzureRM.Compute.V20190701.Inputs.ImageOSDiskArgs
+    ///                 {
+    ///                     DiskEncryptionSet = new AzureRM.Compute.V20190701.Inputs.DiskEncryptionSetParametersArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                     },
+    ///                     ManagedDisk = new AzureRM.Compute.V20190701.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+    ///                     },
+    ///                     OsState = "Generalized",
+    ///                     OsType = "Linux",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a virtual machine image from a managed disk.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var image = new AzureRM.Compute.V20190701.Image("image", new AzureRM.Compute.V20190701.ImageArgs
+    ///         {
+    ///             ImageName = "myImage",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.V20190701.Inputs.ImageStorageProfileArgs
+    ///             {
+    ///                 OsDisk = new AzureRM.Compute.V20190701.Inputs.ImageOSDiskArgs
+    ///                 {
+    ///                     ManagedDisk = new AzureRM.Compute.V20190701.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+    ///                     },
+    ///                     OsState = "Generalized",
+    ///                     OsType = "Linux",
+    ///                 },
+    ///                 ZoneResilient = true,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a virtual machine image from a snapshot with DiskEncryptionSet resource.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var image = new AzureRM.Compute.V20190701.Image("image", new AzureRM.Compute.V20190701.ImageArgs
+    ///         {
+    ///             ImageName = "myImage",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.V20190701.Inputs.ImageStorageProfileArgs
+    ///             {
+    ///                 OsDisk = new AzureRM.Compute.V20190701.Inputs.ImageOSDiskArgs
+    ///                 {
+    ///                     DiskEncryptionSet = new AzureRM.Compute.V20190701.Inputs.DiskEncryptionSetParametersArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                     },
+    ///                     OsState = "Generalized",
+    ///                     OsType = "Linux",
+    ///                     Snapshot = new AzureRM.Compute.V20190701.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a virtual machine image from a snapshot.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var image = new AzureRM.Compute.V20190701.Image("image", new AzureRM.Compute.V20190701.ImageArgs
+    ///         {
+    ///             ImageName = "myImage",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.V20190701.Inputs.ImageStorageProfileArgs
+    ///             {
+    ///                 OsDisk = new AzureRM.Compute.V20190701.Inputs.ImageOSDiskArgs
+    ///                 {
+    ///                     OsState = "Generalized",
+    ///                     OsType = "Linux",
+    ///                     Snapshot = new AzureRM.Compute.V20190701.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+    ///                     },
+    ///                 },
+    ///                 ZoneResilient = false,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a virtual machine image from an existing virtual machine.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var image = new AzureRM.Compute.V20190701.Image("image", new AzureRM.Compute.V20190701.ImageArgs
+    ///         {
+    ///             ImageName = "myImage",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             SourceVirtualMachine = new AzureRM.Compute.V20190701.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a virtual machine image that includes a data disk from a blob.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var image = new AzureRM.Compute.V20190701.Image("image", new AzureRM.Compute.V20190701.ImageArgs
+    ///         {
+    ///             ImageName = "myImage",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.V20190701.Inputs.ImageStorageProfileArgs
+    ///             {
+    ///                 DataDisks = 
+    ///                 {
+    ///                     new AzureRM.Compute.V20190701.Inputs.ImageDataDiskArgs
+    ///                     {
+    ///                         BlobUri = "https://mystorageaccount.blob.core.windows.net/dataimages/dataimage.vhd",
+    ///                         Lun = 1,
+    ///                     },
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.V20190701.Inputs.ImageOSDiskArgs
+    ///                 {
+    ///                     BlobUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///                     OsState = "Generalized",
+    ///                     OsType = "Linux",
+    ///                 },
+    ///                 ZoneResilient = false,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a virtual machine image that includes a data disk from a managed disk.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var image = new AzureRM.Compute.V20190701.Image("image", new AzureRM.Compute.V20190701.ImageArgs
+    ///         {
+    ///             ImageName = "myImage",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.V20190701.Inputs.ImageStorageProfileArgs
+    ///             {
+    ///                 DataDisks = 
+    ///                 {
+    ///                     new AzureRM.Compute.V20190701.Inputs.ImageDataDiskArgs
+    ///                     {
+    ///                         Lun = 1,
+    ///                         ManagedDisk = new AzureRM.Compute.V20190701.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.V20190701.Inputs.ImageOSDiskArgs
+    ///                 {
+    ///                     ManagedDisk = new AzureRM.Compute.V20190701.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+    ///                     },
+    ///                     OsState = "Generalized",
+    ///                     OsType = "Linux",
+    ///                 },
+    ///                 ZoneResilient = false,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a virtual machine image that includes a data disk from a snapshot.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var image = new AzureRM.Compute.V20190701.Image("image", new AzureRM.Compute.V20190701.ImageArgs
+    ///         {
+    ///             ImageName = "myImage",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             StorageProfile = new AzureRM.Compute.V20190701.Inputs.ImageStorageProfileArgs
+    ///             {
+    ///                 DataDisks = 
+    ///                 {
+    ///                     new AzureRM.Compute.V20190701.Inputs.ImageDataDiskArgs
+    ///                     {
+    ///                         Lun = 1,
+    ///                         Snapshot = new AzureRM.Compute.V20190701.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsDisk = new AzureRM.Compute.V20190701.Inputs.ImageOSDiskArgs
+    ///                 {
+    ///                     OsState = "Generalized",
+    ///                     OsType = "Linux",
+    ///                     Snapshot = new AzureRM.Compute.V20190701.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+    ///                     },
+    ///                 },
+    ///                 ZoneResilient = true,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Image : Pulumi.CustomResource
     {

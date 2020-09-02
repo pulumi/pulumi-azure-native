@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
 {
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
+    /// 
+    /// ## SBAliasCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disasterRecoveryConfig = new AzureRM.ServiceBus.V20170401.DisasterRecoveryConfig("disasterRecoveryConfig", new AzureRM.ServiceBus.V20170401.DisasterRecoveryConfigArgs
+    ///         {
+    ///             Alias = "sdk-Namespace-8860",
+    ///             AlternateName = "alternameforAlias-Namespace-8860",
+    ///             NamespaceName = "sdk-Namespace-8860",
+    ///             PartnerNamespace = "sdk-Namespace-37",
+    ///             ResourceGroupName = "ardsouzatestRG",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DisasterRecoveryConfig : Pulumi.CustomResource
     {

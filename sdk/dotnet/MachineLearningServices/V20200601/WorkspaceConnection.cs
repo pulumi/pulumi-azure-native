@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
 {
     /// <summary>
     /// Workspace connection.
+    /// 
+    /// ## CreateWorkspaceConnection
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspaceConnection = new AzureRM.MachineLearningServices.V20200601.WorkspaceConnection("workspaceConnection", new AzureRM.MachineLearningServices.V20200601.WorkspaceConnectionArgs
+    ///         {
+    ///             AuthType = "PAT",
+    ///             Category = "ACR",
+    ///             ConnectionName = "connection-1",
+    ///             Name = "connection-1",
+    ///             ResourceGroupName = "resourceGroup-1",
+    ///             Target = "www.facebook.com",
+    ///             Value = "secrets",
+    ///             WorkspaceName = "workspace-1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class WorkspaceConnection : Pulumi.CustomResource
     {

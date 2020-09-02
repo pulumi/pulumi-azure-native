@@ -11,6 +11,49 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
 {
     /// <summary>
     /// Type of the Storage Target.
+    /// 
+    /// ## StorageTargets_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var storageTarget = new AzureRM.StorageCache.V20200301.StorageTarget("storageTarget", new AzureRM.StorageCache.V20200301.StorageTargetArgs
+    ///         {
+    ///             CacheName = "sc1",
+    ///             Junctions = 
+    ///             {
+    ///                 new AzureRM.StorageCache.V20200301.Inputs.NamespaceJunctionArgs
+    ///                 {
+    ///                     NamespacePath = "/path/on/cache",
+    ///                     NfsExport = "exp1",
+    ///                     TargetPath = "/path/on/exp1",
+    ///                 },
+    ///                 new AzureRM.StorageCache.V20200301.Inputs.NamespaceJunctionArgs
+    ///                 {
+    ///                     NamespacePath = "/path2/on/cache",
+    ///                     NfsExport = "exp2",
+    ///                     TargetPath = "/path2/on/exp2",
+    ///                 },
+    ///             },
+    ///             Nfs3 = new AzureRM.StorageCache.V20200301.Inputs.Nfs3TargetArgs
+    ///             {
+    ///                 Target = "10.0.44.44",
+    ///                 UsageModel = "READ_HEAVY_INFREQ",
+    ///             },
+    ///             ResourceGroupName = "scgroup",
+    ///             StorageTargetName = "st1",
+    ///             TargetType = "nfs3",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StorageTarget : Pulumi.CustomResource
     {

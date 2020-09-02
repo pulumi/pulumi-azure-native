@@ -11,6 +11,112 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
 {
     /// <summary>
     /// A streaming job object, containing all information associated with the named streaming job.
+    /// 
+    /// ## Create a complete streaming job (a streaming job with a transformation, at least 1 input and at least 1 output)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingJob = new AzureRM.StreamAnalytics.Latest.StreamingJob("streamingJob", new AzureRM.StreamAnalytics.Latest.StreamingJobArgs
+    ///         {
+    ///             CompatibilityLevel = "1.0",
+    ///             DataLocale = "en-US",
+    ///             EventsLateArrivalMaxDelayInSeconds = 5,
+    ///             EventsOutOfOrderMaxDelayInSeconds = 0,
+    ///             EventsOutOfOrderPolicy = "Drop",
+    ///             Functions = {},
+    ///             Inputs = 
+    ///             {
+    ///                 new AzureRM.StreamAnalytics.Latest.Inputs.InputArgs
+    ///                 {
+    ///                     Name = "inputtest",
+    ///                     Properties = new AzureRM.StreamAnalytics.Latest.Inputs.InputPropertiesArgs
+    ///                     {
+    ///                         Serialization = new AzureRM.StreamAnalytics.Latest.Inputs.SerializationArgs
+    ///                         {
+    ///                             Type = "Json",
+    ///                         },
+    ///                         Type = "Stream",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             JobName = "sj7804",
+    ///             Location = "West US",
+    ///             OutputErrorPolicy = "Drop",
+    ///             Outputs = 
+    ///             {
+    ///                 new AzureRM.StreamAnalytics.Latest.Inputs.OutputArgs
+    ///                 {
+    ///                     Name = "outputtest",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "sjrg3276",
+    ///             Sku = new AzureRM.StreamAnalytics.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///                 { "key3", "value3" },
+    ///                 { "randomKey", "randomValue" },
+    ///             },
+    ///             Transformation = new AzureRM.StreamAnalytics.Latest.Inputs.TransformationArgs
+    ///             {
+    ///                 Name = "transformationtest",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a streaming job shell (a streaming job with no inputs, outputs, transformation, or functions)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingJob = new AzureRM.StreamAnalytics.Latest.StreamingJob("streamingJob", new AzureRM.StreamAnalytics.Latest.StreamingJobArgs
+    ///         {
+    ///             CompatibilityLevel = "1.0",
+    ///             DataLocale = "en-US",
+    ///             EventsLateArrivalMaxDelayInSeconds = 16,
+    ///             EventsOutOfOrderMaxDelayInSeconds = 5,
+    ///             EventsOutOfOrderPolicy = "Drop",
+    ///             Functions = {},
+    ///             Inputs = {},
+    ///             JobName = "sj59",
+    ///             Location = "West US",
+    ///             OutputErrorPolicy = "Drop",
+    ///             Outputs = {},
+    ///             ResourceGroupName = "sjrg6936",
+    ///             Sku = new AzureRM.StreamAnalytics.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///                 { "key3", "value3" },
+    ///                 { "randomKey", "randomValue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StreamingJob : Pulumi.CustomResource
     {

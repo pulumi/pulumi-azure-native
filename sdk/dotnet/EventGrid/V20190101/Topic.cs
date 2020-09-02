@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
 {
     /// <summary>
     /// EventGrid Topic
+    /// 
+    /// ## Topics_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var topic = new AzureRM.EventGrid.V20190101.Topic("topic", new AzureRM.EventGrid.V20190101.TopicArgs
+    ///         {
+    ///             Location = "westus2",
+    ///             ResourceGroupName = "examplerg",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///             TopicName = "exampletopic1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Topic : Pulumi.CustomResource
     {

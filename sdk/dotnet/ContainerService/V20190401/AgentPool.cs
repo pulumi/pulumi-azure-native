@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.ContainerService.V20190401
 {
     /// <summary>
     /// Agent Pool.
+    /// 
+    /// ## Create/Update Agent Pool
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var agentPool = new AzureRM.ContainerService.V20190401.AgentPool("agentPool", new AzureRM.ContainerService.V20190401.AgentPoolArgs
+    ///         {
+    ///             AgentPoolName = "agentpool1",
+    ///             Count = 3,
+    ///             OrchestratorVersion = "",
+    ///             OsType = "Linux",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///             VmSize = "Standard_DS1_v2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AgentPool : Pulumi.CustomResource
     {

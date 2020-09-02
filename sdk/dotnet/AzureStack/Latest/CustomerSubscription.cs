@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.AzureStack.Latest
 {
     /// <summary>
     /// Customer subscription.
+    /// 
+    /// ## Creates a new customer subscription under a registration.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var customerSubscription = new AzureRM.AzureStack.Latest.CustomerSubscription("customerSubscription", new AzureRM.AzureStack.Latest.CustomerSubscriptionArgs
+    ///         {
+    ///             CustomerSubscriptionName = "E09A4E93-29A7-4EBA-A6D4-76202383F07F",
+    ///             RegistrationName = "testregistration",
+    ///             ResourceGroup = "azurestack",
+    ///             TenantId = "dbab3982-796f-4d03-9908-044c08aef8a2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class CustomerSubscription : Pulumi.CustomResource
     {

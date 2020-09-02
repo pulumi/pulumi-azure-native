@@ -11,6 +11,57 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
 {
     /// <summary>
     /// The link resource format.
+    /// 
+    /// ## Links_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var link = new AzureRM.CustomerInsights.Latest.Link("link", new AzureRM.CustomerInsights.Latest.LinkArgs
+    ///         {
+    ///             Description = 
+    ///             {
+    ///                 { "en-us", "Link Description" },
+    ///             },
+    ///             DisplayName = 
+    ///             {
+    ///                 { "en-us", "Link DisplayName" },
+    ///             },
+    ///             HubName = "sdkTestHub",
+    ///             LinkName = "linkTest4806",
+    ///             Mappings = 
+    ///             {
+    ///                 new AzureRM.CustomerInsights.Latest.Inputs.TypePropertiesMappingArgs
+    ///                 {
+    ///                     LinkType = "UpdateAlways",
+    ///                     SourcePropertyName = "testInteraction1949",
+    ///                     TargetPropertyName = "testProfile1446",
+    ///                 },
+    ///             },
+    ///             ParticipantPropertyReferences = 
+    ///             {
+    ///                 new AzureRM.CustomerInsights.Latest.Inputs.ParticipantPropertyReferenceArgs
+    ///                 {
+    ///                     SourcePropertyName = "testInteraction1949",
+    ///                     TargetPropertyName = "ProfileId",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "TestHubRG",
+    ///             SourceEntityType = "Interaction",
+    ///             SourceEntityTypeName = "testInteraction1949",
+    ///             TargetEntityType = "Profile",
+    ///             TargetEntityTypeName = "testProfile1446",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Link : Pulumi.CustomResource
     {

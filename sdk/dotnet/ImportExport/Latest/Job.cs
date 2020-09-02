@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.ImportExport.Latest
 {
     /// <summary>
     /// Contains the job information.
+    /// 
+    /// ## Create export job
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var job = new AzureRM.ImportExport.Latest.Job("job", new AzureRM.ImportExport.Latest.JobArgs
+    ///         {
+    ///             JobName = "myExportJob",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create import job
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var job = new AzureRM.ImportExport.Latest.Job("job", new AzureRM.ImportExport.Latest.JobArgs
+    ///         {
+    ///             JobName = "myJob",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {

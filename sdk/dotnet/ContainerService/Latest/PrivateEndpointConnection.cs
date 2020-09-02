@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.ContainerService.Latest
 {
     /// <summary>
     /// A private endpoint connection
+    /// 
+    /// ## Update Private Endpoint Connection
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.ContainerService.Latest.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.ContainerService.Latest.PrivateEndpointConnectionArgs
+    ///         {
+    ///             PrivateEndpointConnectionName = "privateendpointconnection1",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.ContainerService.Latest.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

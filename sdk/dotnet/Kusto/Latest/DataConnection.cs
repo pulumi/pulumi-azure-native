@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.Kusto.Latest
 {
     /// <summary>
     /// Class representing an data connection.
+    /// 
+    /// ## KustoDataConnectionsCreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataConnection = new AzureRM.Kusto.Latest.DataConnection("dataConnection", new AzureRM.Kusto.Latest.DataConnectionArgs
+    ///         {
+    ///             ClusterName = "kustoclusterrptest4",
+    ///             DataConnectionName = "DataConnections8",
+    ///             DatabaseName = "KustoDatabase8",
+    ///             Kind = "EventHub",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "kustorptest",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DataConnection : Pulumi.CustomResource
     {

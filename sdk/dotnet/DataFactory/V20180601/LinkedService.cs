@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
 {
     /// <summary>
     /// Linked service resource type.
+    /// 
+    /// ## LinkedServices_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var linkedService = new AzureRM.DataFactory.V20180601.LinkedService("linkedService", new AzureRM.DataFactory.V20180601.LinkedServiceArgs
+    ///         {
+    ///             FactoryName = "exampleFactoryName",
+    ///             LinkedServiceName = "exampleLinkedService",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## LinkedServices_Update
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var linkedService = new AzureRM.DataFactory.V20180601.LinkedService("linkedService", new AzureRM.DataFactory.V20180601.LinkedServiceArgs
+    ///         {
+    ///             FactoryName = "exampleFactoryName",
+    ///             LinkedServiceName = "exampleLinkedService",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class LinkedService : Pulumi.CustomResource
     {

@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
 {
     /// <summary>
     /// Managed cluster.
+    /// 
+    /// ## Create/Update Managed Cluster
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedCluster = new AzureRM.ContainerService.V20170831.ManagedCluster("managedCluster", new AzureRM.ContainerService.V20170831.ManagedClusterArgs
+    ///         {
+    ///             AgentPoolProfiles = 
+    ///             {
+    ///                 new AzureRM.ContainerService.V20170831.Inputs.ContainerServiceAgentPoolProfileArgs
+    ///                 {
+    ///                     Count = 1,
+    ///                     Name = "agentpool1",
+    ///                     VmSize = "Standard_D2_v2",
+    ///                 },
+    ///             },
+    ///             DnsPrefix = "dnsprefix1",
+    ///             KubernetesVersion = "1.7.7",
+    ///             Location = "location1",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagedCluster : Pulumi.CustomResource
     {

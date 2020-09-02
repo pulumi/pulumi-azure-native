@@ -11,6 +11,46 @@ namespace Pulumi.AzureRM.Network.V20190901
 {
     /// <summary>
     /// Nat Gateway resource.
+    /// 
+    /// ## Create nat gateway
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var natGateway = new AzureRM.Network.V20190901.NatGateway("natGateway", new AzureRM.Network.V20190901.NatGatewayArgs
+    ///         {
+    ///             Location = "westus",
+    ///             NatGatewayName = "test-natgateway",
+    ///             PublicIpAddresses = 
+    ///             {
+    ///                 new AzureRM.Network.V20190901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIpAddress1",
+    ///                 },
+    ///             },
+    ///             PublicIpPrefixes = 
+    ///             {
+    ///                 new AzureRM.Network.V20190901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/PublicIpPrefix1",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.V20190901.Inputs.NatGatewaySkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NatGateway : Pulumi.CustomResource
     {

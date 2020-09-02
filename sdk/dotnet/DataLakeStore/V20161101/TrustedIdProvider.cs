@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
 {
     /// <summary>
     /// Data Lake Store trusted identity provider information.
+    /// 
+    /// ## Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var trustedIdProvider = new AzureRM.DataLakeStore.V20161101.TrustedIdProvider("trustedIdProvider", new AzureRM.DataLakeStore.V20161101.TrustedIdProviderArgs
+    ///         {
+    ///             AccountName = "contosoadla",
+    ///             IdProvider = "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+    ///             ResourceGroupName = "contosorg",
+    ///             TrustedIdProviderName = "test_trusted_id_provider_name",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class TrustedIdProvider : Pulumi.CustomResource
     {

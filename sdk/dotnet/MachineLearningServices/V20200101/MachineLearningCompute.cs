@@ -11,6 +11,124 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200101
 {
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
+    /// 
+    /// ## Create AKS Compute
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200101.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200101.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a AML Compute
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200101.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200101.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             Properties = ,
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Create a DataFactory Compute
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200101.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200101.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Update a AKS Compute
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200101.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200101.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             Properties = ,
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Update a AML Compute
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var machineLearningCompute = new AzureRM.MachineLearningServices.V20200101.MachineLearningCompute("machineLearningCompute", new AzureRM.MachineLearningServices.V20200101.MachineLearningComputeArgs
+    ///         {
+    ///             ComputeName = "compute123",
+    ///             Location = "eastus",
+    ///             Properties = ,
+    ///             ResourceGroupName = "testrg123",
+    ///             WorkspaceName = "workspaces123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class MachineLearningCompute : Pulumi.CustomResource
     {

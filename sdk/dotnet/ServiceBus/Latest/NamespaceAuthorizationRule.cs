@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
 {
     /// <summary>
     /// Description of a namespace authorization rule.
+    /// 
+    /// ## NameSpaceAuthorizationRuleCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var namespaceAuthorizationRule = new AzureRM.ServiceBus.Latest.NamespaceAuthorizationRule("namespaceAuthorizationRule", new AzureRM.ServiceBus.Latest.NamespaceAuthorizationRuleArgs
+    ///         {
+    ///             AuthorizationRuleName = "sdk-AuthRules-1788",
+    ///             NamespaceName = "sdk-Namespace-6914",
+    ///             ResourceGroupName = "ArunMonocle",
+    ///             Rights = 
+    ///             {
+    ///                 "Listen",
+    ///                 "Send",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {

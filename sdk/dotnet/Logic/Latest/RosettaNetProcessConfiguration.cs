@@ -11,6 +11,82 @@ namespace Pulumi.AzureRM.Logic.Latest
 {
     /// <summary>
     /// The integration account RosettaNet process configuration.
+    /// 
+    /// ## Create or update an RosettaNetProcessConfiguration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rosettaNetProcessConfiguration = new AzureRM.Logic.Latest.RosettaNetProcessConfiguration("rosettaNetProcessConfiguration", new AzureRM.Logic.Latest.RosettaNetProcessConfigurationArgs
+    ///         {
+    ///             ActivitySettings = new AzureRM.Logic.Latest.Inputs.RosettaNetPipActivitySettingsArgs
+    ///             {
+    ///                 AcknowledgmentOfReceiptSettings = new AzureRM.Logic.Latest.Inputs.RosettaNetPipAcknowledgmentOfReceiptSettingsArgs
+    ///                 {
+    ///                     IsNonRepudiationRequired = false,
+    ///                     TimeToAcknowledgeInSeconds = 600,
+    ///                 },
+    ///                 ActivityBehavior = new AzureRM.Logic.Latest.Inputs.RosettaNetPipActivityBehaviorArgs
+    ///                 {
+    ///                     ActionType = "DoubleAction",
+    ///                     IsAuthorizationRequired = false,
+    ///                     IsSecuredTransportRequired = false,
+    ///                     NonRepudiationOfOriginAndContent = false,
+    ///                     PersistentConfidentialityScope = "None",
+    ///                     ResponseType = "Async",
+    ///                     RetryCount = 2,
+    ///                     TimeToPerformInSeconds = 7200,
+    ///                 },
+    ///                 ActivityType = "RequestResponse",
+    ///             },
+    ///             Description = "Test description",
+    ///             InitiatorRoleSettings = new AzureRM.Logic.Latest.Inputs.RosettaNetPipRoleSettingsArgs
+    ///             {
+    ///                 Action = "Purchase Order Request",
+    ///                 BusinessDocument = new AzureRM.Logic.Latest.Inputs.RosettaNetPipBusinessDocumentArgs
+    ///                 {
+    ///                     Description = "A request to accept a purchase order for fulfillment..",
+    ///                     Name = "Purchase Order Request",
+    ///                     Version = "V02.02.00",
+    ///                 },
+    ///                 Description = "This partner role creates a demand for a product or service.",
+    ///                 Role = "Buyer",
+    ///                 RoleType = "Functional",
+    ///                 Service = "Buyer Service",
+    ///                 ServiceClassification = "Business Service",
+    ///             },
+    ///             IntegrationAccountName = "testia123",
+    ///             ProcessCode = "3A4",
+    ///             ProcessName = "Request Purchase Order",
+    ///             ProcessVersion = "V02.02.00",
+    ///             ResourceGroupName = "testrg123",
+    ///             ResponderRoleSettings = new AzureRM.Logic.Latest.Inputs.RosettaNetPipRoleSettingsArgs
+    ///             {
+    ///                 Action = "Purchase Order Confirmation Action",
+    ///                 BusinessDocument = new AzureRM.Logic.Latest.Inputs.RosettaNetPipBusinessDocumentArgs
+    ///                 {
+    ///                     Description = "Formally confirms the status of line item(s) in a Purchase Order. A Purchase Order line item may have one of the following states: accepted, rejected, or pending.",
+    ///                     Name = "Purchase Order Confirmation",
+    ///                     Version = "V02.02.00",
+    ///                 },
+    ///                 Description = "An organization that sells products to partners in the supply chain.",
+    ///                 Role = "Seller",
+    ///                 RoleType = "Organizational",
+    ///                 Service = "Seller Service",
+    ///                 ServiceClassification = "Business Service",
+    ///             },
+    ///             RosettaNetProcessConfigurationName = "3A4",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RosettaNetProcessConfiguration : Pulumi.CustomResource
     {

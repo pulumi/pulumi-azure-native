@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Migrate.Latest
 {
     /// <summary>
     /// An assessment created for a group in the Migration project.
+    /// 
+    /// ## Assessments_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var assessment = new AzureRM.Migrate.Latest.Assessment("assessment", new AzureRM.Migrate.Latest.AssessmentArgs
+    ///         {
+    ///             AssessmentName = "assessment_5_14_2019_16_48_47",
+    ///             ETag = "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+    ///             GroupName = "Group2",
+    ///             ProjectName = "abgoyalWEselfhostb72bproject",
+    ///             ResourceGroupName = "abgoyal-westEurope",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Assessment : Pulumi.CustomResource
     {

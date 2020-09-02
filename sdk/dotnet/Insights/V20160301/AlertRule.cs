@@ -11,6 +11,42 @@ namespace Pulumi.AzureRM.Insights.V20160301
 {
     /// <summary>
     /// The alert rule resource.
+    /// 
+    /// ## Create or update an alert rule
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var alertRule = new AzureRM.Insights.V20160301.AlertRule("alertRule", new AzureRM.Insights.V20160301.AlertRuleArgs
+    ///         {
+    ///             Actions = {},
+    ///             Condition = new AzureRM.Insights.V20160301.Inputs.RuleConditionArgs
+    ///             {
+    ///                 DataSource = new AzureRM.Insights.V20160301.Inputs.RuleDataSourceArgs
+    ///                 {
+    ///                     OdataType = "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+    ///                     ResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
+    ///                 },
+    ///                 OdataType = "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+    ///             },
+    ///             Description = "Pura Vida",
+    ///             IsEnabled = true,
+    ///             Location = "West US",
+    ///             Name = "chiricutin",
+    ///             ResourceGroupName = "Rac46PostSwapRG",
+    ///             RuleName = "chiricutin",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AlertRule : Pulumi.CustomResource
     {

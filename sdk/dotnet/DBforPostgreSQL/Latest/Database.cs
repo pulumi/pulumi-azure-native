@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
 {
     /// <summary>
     /// Represents a Database.
+    /// 
+    /// ## DatabaseCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.DBforPostgreSQL.Latest.Database("database", new AzureRM.DBforPostgreSQL.Latest.DatabaseArgs
+    ///         {
+    ///             Charset = "UTF8",
+    ///             Collation = "English_United States.1252",
+    ///             DatabaseName = "db1",
+    ///             ResourceGroupName = "TestGroup",
+    ///             ServerName = "testserver",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Database : Pulumi.CustomResource
     {

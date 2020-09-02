@@ -11,6 +11,40 @@ namespace Pulumi.AzureRM.Storage.V20181101
 {
     /// <summary>
     /// The storage account.
+    /// 
+    /// ## StorageAccountCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var storageAccount = new AzureRM.Storage.V20181101.StorageAccount("storageAccount", new AzureRM.Storage.V20181101.StorageAccountArgs
+    ///         {
+    ///             AccountName = "sto4445",
+    ///             EnableAzureFilesAadIntegration = true,
+    ///             IsHnsEnabled = true,
+    ///             Kind = "Storage",
+    ///             Location = "eastus2euap",
+    ///             ResourceGroupName = "res9101",
+    ///             Sku = new AzureRM.Storage.V20181101.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard_GRS",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///                 { "key2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StorageAccount : Pulumi.CustomResource
     {

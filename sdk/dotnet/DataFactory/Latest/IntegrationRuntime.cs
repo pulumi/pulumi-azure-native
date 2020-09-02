@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.DataFactory.Latest
 {
     /// <summary>
     /// Integration runtime resource type.
+    /// 
+    /// ## IntegrationRuntimes_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var integrationRuntime = new AzureRM.DataFactory.Latest.IntegrationRuntime("integrationRuntime", new AzureRM.DataFactory.Latest.IntegrationRuntimeArgs
+    ///         {
+    ///             FactoryName = "exampleFactoryName",
+    ///             IntegrationRuntimeName = "exampleIntegrationRuntime",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {

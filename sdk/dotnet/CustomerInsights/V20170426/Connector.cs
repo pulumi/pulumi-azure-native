@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 {
     /// <summary>
     /// The connector resource format.
+    /// 
+    /// ## Connectors_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var connector = new AzureRM.CustomerInsights.V20170426.Connector("connector", new AzureRM.CustomerInsights.V20170426.ConnectorArgs
+    ///         {
+    ///             ConnectorName = "testConnector",
+    ///             ConnectorProperties = 
+    ///             {
+    ///                 { "connectionKeyVaultUrl", 
+    ///                 {
+    ///                     { "organizationId", "XXX" },
+    ///                     { "organizationUrl", "https://XXX.crmlivetie.com/" },
+    ///                 } },
+    ///             },
+    ///             ConnectorType = "AzureBlob",
+    ///             Description = "Test connector",
+    ///             DisplayName = "testConnector",
+    ///             HubName = "sdkTestHub",
+    ///             ResourceGroupName = "TestHubRG",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Connector : Pulumi.CustomResource
     {

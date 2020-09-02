@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.PolicyInsights.Latest
 {
     /// <summary>
     /// The remediation definition.
+    /// 
+    /// ## Create remediation at individual resource scope
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var remediationAtResource = new AzureRM.PolicyInsights.Latest.RemediationAtResource("remediationAtResource", new AzureRM.PolicyInsights.Latest.RemediationAtResourceArgs
+    ///         {
+    ///             PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/myResourceGroup/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///             RemediationName = "storageRemediation",
+    ///             ResourceId = "subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourcegroups/myResourceGroup/providers/microsoft.storage/storageaccounts/storAc1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RemediationAtResource : Pulumi.CustomResource
     {

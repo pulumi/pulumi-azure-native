@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.StorSimple.Latest
 {
     /// <summary>
     /// The Backup Schedule Group
+    /// 
+    /// ## BackupScheduleGroupsCreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var backupScheduleGroup = new AzureRM.StorSimple.Latest.BackupScheduleGroup("backupScheduleGroup", new AzureRM.StorSimple.Latest.BackupScheduleGroupArgs
+    ///         {
+    ///             DeviceName = "HSDK-4XY4FI2IVG",
+    ///             ManagerName = "hAzureSDKOperations",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///             ScheduleGroupName = "BackupSchGroupForSDKTest",
+    ///             StartTime = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BackupScheduleGroup : Pulumi.CustomResource
     {

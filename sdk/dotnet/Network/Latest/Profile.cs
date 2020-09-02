@@ -11,6 +11,160 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Class representing a Traffic Manager profile.
+    /// 
+    /// ## Profile-PUT-NoEndpoints
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var profile = new AzureRM.Network.Latest.Profile("profile", new AzureRM.Network.Latest.ProfileArgs
+    ///         {
+    ///             DnsConfig = new AzureRM.Network.Latest.Inputs.DnsConfigArgs
+    ///             {
+    ///                 RelativeName = "azsmnet6386",
+    ///                 Ttl = 35,
+    ///             },
+    ///             Location = "global",
+    ///             MonitorConfig = new AzureRM.Network.Latest.Inputs.MonitorConfigArgs
+    ///             {
+    ///                 Path = "/testpath.aspx",
+    ///                 Port = 80,
+    ///                 Protocol = "HTTP",
+    ///             },
+    ///             ProfileName = "azsmnet6386",
+    ///             ProfileStatus = "Enabled",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///             TrafficRoutingMethod = "Performance",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Profile-PUT-WithCustomHeaders
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var profile = new AzureRM.Network.Latest.Profile("profile", new AzureRM.Network.Latest.ProfileArgs
+    ///         {
+    ///             DnsConfig = new AzureRM.Network.Latest.Inputs.DnsConfigArgs
+    ///             {
+    ///                 RelativeName = "azuresdkfornetautoresttrafficmanager6192",
+    ///                 Ttl = 35,
+    ///             },
+    ///             Endpoints = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.EndpointArgs
+    ///                 {
+    ///                     Name = "My external endpoint",
+    ///                     Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///                 },
+    ///             },
+    ///             Location = "global",
+    ///             MonitorConfig = new AzureRM.Network.Latest.Inputs.MonitorConfigArgs
+    ///             {
+    ///                 CustomHeaders = 
+    ///                 {
+    ///                     new AzureRM.Network.Latest.Inputs.MonitorConfigCustomHeadersArgs
+    ///                     {
+    ///                         Name = "header-1",
+    ///                         Value = "value-1",
+    ///                     },
+    ///                     new AzureRM.Network.Latest.Inputs.MonitorConfigCustomHeadersArgs
+    ///                     {
+    ///                         Name = "header-2",
+    ///                         Value = "value-2",
+    ///                     },
+    ///                 },
+    ///                 ExpectedStatusCodeRanges = 
+    ///                 {
+    ///                     new AzureRM.Network.Latest.Inputs.MonitorConfigExpectedStatusCodeRangesArgs
+    ///                     {
+    ///                         Max = 205,
+    ///                         Min = 200,
+    ///                     },
+    ///                     new AzureRM.Network.Latest.Inputs.MonitorConfigExpectedStatusCodeRangesArgs
+    ///                     {
+    ///                         Max = 410,
+    ///                         Min = 400,
+    ///                     },
+    ///                 },
+    ///                 IntervalInSeconds = 10,
+    ///                 Path = "/testpath.aspx",
+    ///                 Port = 80,
+    ///                 Protocol = "HTTP",
+    ///                 TimeoutInSeconds = 5,
+    ///                 ToleratedNumberOfFailures = 2,
+    ///             },
+    ///             ProfileName = "azuresdkfornetautoresttrafficmanager6192",
+    ///             ProfileStatus = "Enabled",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager2583",
+    ///             TrafficRoutingMethod = "Performance",
+    ///             TrafficViewEnrollmentStatus = "Disabled",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Profile-PUT-WithEndpoints
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var profile = new AzureRM.Network.Latest.Profile("profile", new AzureRM.Network.Latest.ProfileArgs
+    ///         {
+    ///             DnsConfig = new AzureRM.Network.Latest.Inputs.DnsConfigArgs
+    ///             {
+    ///                 RelativeName = "azuresdkfornetautoresttrafficmanager6192",
+    ///                 Ttl = 35,
+    ///             },
+    ///             Endpoints = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.EndpointArgs
+    ///                 {
+    ///                     Name = "My external endpoint",
+    ///                     Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///                 },
+    ///             },
+    ///             Location = "global",
+    ///             MonitorConfig = new AzureRM.Network.Latest.Inputs.MonitorConfigArgs
+    ///             {
+    ///                 IntervalInSeconds = 10,
+    ///                 Path = "/testpath.aspx",
+    ///                 Port = 80,
+    ///                 Protocol = "HTTP",
+    ///                 TimeoutInSeconds = 5,
+    ///                 ToleratedNumberOfFailures = 2,
+    ///             },
+    ///             ProfileName = "azuresdkfornetautoresttrafficmanager6192",
+    ///             ProfileStatus = "Enabled",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager2583",
+    ///             TrafficRoutingMethod = "Performance",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Profile : Pulumi.CustomResource
     {

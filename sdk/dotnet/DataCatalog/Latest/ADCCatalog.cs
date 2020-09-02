@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.DataCatalog.Latest
 {
     /// <summary>
     /// Azure Data Catalog.
+    /// 
+    /// ## Create Azure Data Catalog Service
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var adcCatalog = new AzureRM.DataCatalog.Latest.ADCCatalog("adcCatalog", new AzureRM.DataCatalog.Latest.ADCCatalogArgs
+    ///         {
+    ///             Admins = 
+    ///             {
+    ///                 new AzureRM.DataCatalog.Latest.Inputs.PrincipalsArgs
+    ///                 {
+    ///                     ObjectId = "99999999-9999-9999-999999999999",
+    ///                     Upn = "myupn@microsoft.com",
+    ///                 },
+    ///             },
+    ///             CatalogName = "exampleCatalog",
+    ///             EnableAutomaticUnitAdjustment = false,
+    ///             Location = "North US",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///             Sku = "Standard",
+    ///             Tags = 
+    ///             {
+    ///                 { "mykey", "myvalue" },
+    ///                 { "mykey2", "myvalue2" },
+    ///             },
+    ///             Units = 1,
+    ///             Users = 
+    ///             {
+    ///                 new AzureRM.DataCatalog.Latest.Inputs.PrincipalsArgs
+    ///                 {
+    ///                     ObjectId = "99999999-9999-9999-999999999999",
+    ///                     Upn = "myupn@microsoft.com",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ADCCatalog : Pulumi.CustomResource
     {

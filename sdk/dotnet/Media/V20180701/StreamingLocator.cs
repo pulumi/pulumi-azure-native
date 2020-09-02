@@ -11,6 +11,102 @@ namespace Pulumi.AzureRM.Media.V20180701
 {
     /// <summary>
     /// A Streaming Locator resource
+    /// 
+    /// ## Creates a Streaming Locator with clear streaming
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingLocator = new AzureRM.Media.V20180701.StreamingLocator("streamingLocator", new AzureRM.Media.V20180701.StreamingLocatorArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             AssetName = "ClimbingMountRainier",
+    ///             ResourceGroupName = "contoso",
+    ///             StreamingLocatorName = "UserCreatedClearStreamingLocator",
+    ///             StreamingPolicyName = "clearStreamingPolicy",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Creates a Streaming Locator with secure streaming
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingLocator = new AzureRM.Media.V20180701.StreamingLocator("streamingLocator", new AzureRM.Media.V20180701.StreamingLocatorArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             AssetName = "ClimbingMountRainier",
+    ///             EndTime = "2028-12-31T23:59:59.9999999Z",
+    ///             ResourceGroupName = "contoso",
+    ///             StartTime = "2018-03-01T00:00:00Z",
+    ///             StreamingLocatorName = "UserCreatedSecureStreamingLocator",
+    ///             StreamingPolicyName = "secureStreamingPolicy",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Creates a Streaming Locator with user defined content keys
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var streamingLocator = new AzureRM.Media.V20180701.StreamingLocator("streamingLocator", new AzureRM.Media.V20180701.StreamingLocatorArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             AssetName = "ClimbingMountRainier",
+    ///             ContentKeys = 
+    ///             {
+    ///                 new AzureRM.Media.V20180701.Inputs.StreamingLocatorContentKeyArgs
+    ///                 {
+    ///                     Id = "60000000-0000-0000-0000-000000000001",
+    ///                     LabelReferenceInStreamingPolicy = "aesDefaultKey",
+    ///                     Value = "1UqLohAfWsEGkULYxHjYZg==",
+    ///                 },
+    ///                 new AzureRM.Media.V20180701.Inputs.StreamingLocatorContentKeyArgs
+    ///                 {
+    ///                     Id = "60000000-0000-0000-0000-000000000004",
+    ///                     LabelReferenceInStreamingPolicy = "cencDefaultKey",
+    ///                     Value = "4UqLohAfWsEGkULYxHjYZg==",
+    ///                 },
+    ///                 new AzureRM.Media.V20180701.Inputs.StreamingLocatorContentKeyArgs
+    ///                 {
+    ///                     Id = "60000000-0000-0000-0000-000000000007",
+    ///                     LabelReferenceInStreamingPolicy = "cbcsDefaultKey",
+    ///                     Value = "7UqLohAfWsEGkULYxHjYZg==",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///             StreamingLocatorId = "90000000-0000-0000-0000-00000000000A",
+    ///             StreamingLocatorName = "UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys",
+    ///             StreamingPolicyName = "secureStreamingPolicy",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StreamingLocator : Pulumi.CustomResource
     {

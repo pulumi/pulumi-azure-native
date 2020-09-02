@@ -11,6 +11,147 @@ namespace Pulumi.AzureRM.Network.V20180401
 {
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
+    /// 
+    /// ## Endpoint-PUT-External-WithCustomHeaders
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var endpoint = new AzureRM.Network.V20180401.Endpoint("endpoint", new AzureRM.Network.V20180401.EndpointArgs
+    ///         {
+    ///             CustomHeaders = 
+    ///             {
+    ///                 new AzureRM.Network.V20180401.Inputs.EndpointPropertiesCustomHeadersArgs
+    ///                 {
+    ///                     Name = "header-1",
+    ///                     Value = "value-1",
+    ///                 },
+    ///                 new AzureRM.Network.V20180401.Inputs.EndpointPropertiesCustomHeadersArgs
+    ///                 {
+    ///                     Name = "header-2",
+    ///                     Value = "value-2",
+    ///                 },
+    ///             },
+    ///             EndpointLocation = "North Europe",
+    ///             EndpointName = "azsmnet7187",
+    ///             EndpointStatus = "Enabled",
+    ///             EndpointType = "ExternalEndpoints",
+    ///             Name = "azsmnet7187",
+    ///             ProfileName = "azsmnet6386",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///             Target = "foobar.contoso.com",
+    ///             Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Endpoint-PUT-External-WithGeoMapping
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var endpoint = new AzureRM.Network.V20180401.Endpoint("endpoint", new AzureRM.Network.V20180401.EndpointArgs
+    ///         {
+    ///             EndpointName = "My%20external%20endpoint",
+    ///             EndpointStatus = "Enabled",
+    ///             EndpointType = "ExternalEndpoints",
+    ///             GeoMapping = 
+    ///             {
+    ///                 "GEO-AS",
+    ///                 "GEO-AF",
+    ///             },
+    ///             Name = "My external endpoint",
+    ///             ProfileName = "azuresdkfornetautoresttrafficmanager8224",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager2191",
+    ///             Target = "foobar.contoso.com",
+    ///             Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Endpoint-PUT-External-WithLocation
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var endpoint = new AzureRM.Network.V20180401.Endpoint("endpoint", new AzureRM.Network.V20180401.EndpointArgs
+    ///         {
+    ///             EndpointLocation = "North Europe",
+    ///             EndpointName = "azsmnet7187",
+    ///             EndpointStatus = "Enabled",
+    ///             EndpointType = "ExternalEndpoints",
+    ///             Name = "azsmnet7187",
+    ///             ProfileName = "azsmnet6386",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///             Target = "foobar.contoso.com",
+    ///             Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## Endpoint-PUT-External-WithSubnetMapping
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var endpoint = new AzureRM.Network.V20180401.Endpoint("endpoint", new AzureRM.Network.V20180401.EndpointArgs
+    ///         {
+    ///             EndpointName = "My%20external%20endpoint",
+    ///             EndpointStatus = "Enabled",
+    ///             EndpointType = "ExternalEndpoints",
+    ///             Name = "My external endpoint",
+    ///             ProfileName = "azuresdkfornetautoresttrafficmanager8224",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager2191",
+    ///             Subnets = 
+    ///             {
+    ///                 new AzureRM.Network.V20180401.Inputs.EndpointPropertiesSubnetsArgs
+    ///                 {
+    ///                     First = "1.2.3.0",
+    ///                     Scope = 24,
+    ///                 },
+    ///                 new AzureRM.Network.V20180401.Inputs.EndpointPropertiesSubnetsArgs
+    ///                 {
+    ///                     First = "25.26.27.28",
+    ///                     Last = "29.30.31.32",
+    ///                 },
+    ///             },
+    ///             Target = "foobar.contoso.com",
+    ///             Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {

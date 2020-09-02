@@ -11,6 +11,100 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Defines web application firewall policy.
+    /// 
+    /// ## Creates specific policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policy = new AzureRM.Network.Latest.Policy("policy", new AzureRM.Network.Latest.PolicyArgs
+    ///         {
+    ///             CustomRules = new AzureRM.Network.Latest.Inputs.CustomRuleListArgs
+    ///             {
+    ///                 Rules = 
+    ///                 {
+    ///                     new AzureRM.Network.Latest.Inputs.CustomRuleArgs
+    ///                     {
+    ///                         Action = "Block",
+    ///                         MatchConditions = 
+    ///                         {
+    ///                             new AzureRM.Network.Latest.Inputs.MatchConditionArgs
+    ///                             {
+    ///                                 Operator = "IPMatch",
+    ///                             },
+    ///                         },
+    ///                         Name = "Rule1",
+    ///                         Priority = 1,
+    ///                         RateLimitThreshold = 1000,
+    ///                         RuleType = "RateLimitRule",
+    ///                     },
+    ///                     new AzureRM.Network.Latest.Inputs.CustomRuleArgs
+    ///                     {
+    ///                         Action = "Block",
+    ///                         MatchConditions = 
+    ///                         {
+    ///                             new AzureRM.Network.Latest.Inputs.MatchConditionArgs
+    ///                             {
+    ///                                 Operator = "GeoMatch",
+    ///                             },
+    ///                             new AzureRM.Network.Latest.Inputs.MatchConditionArgs
+    ///                             {
+    ///                                 Operator = "Contains",
+    ///                                 Transforms = 
+    ///                                 {
+    ///                                     "Lowercase",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Name = "Rule2",
+    ///                         Priority = 2,
+    ///                         RuleType = "MatchRule",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ManagedRules = new AzureRM.Network.Latest.Inputs.ManagedRuleSetListArgs
+    ///             {
+    ///                 ManagedRuleSets = 
+    ///                 {
+    ///                     new AzureRM.Network.Latest.Inputs.ManagedRuleSetArgs
+    ///                     {
+    ///                         RuleGroupOverrides = 
+    ///                         {
+    ///                             new AzureRM.Network.Latest.Inputs.ManagedRuleGroupOverrideArgs
+    ///                             {
+    ///                                 RuleGroupName = "SQLI",
+    ///                                 Rules = 
+    ///                                 {
+    ///                                     new AzureRM.Network.Latest.Inputs.ManagedRuleOverrideArgs
+    ///                                     {
+    ///                                         RuleId = "942100",
+    ///                                     },
+    ///                                     new AzureRM.Network.Latest.Inputs.ManagedRuleOverrideArgs
+    ///                                     {
+    ///                                         RuleId = "942110",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         RuleSetType = "DefaultRuleSet",
+    ///                         RuleSetVersion = "1.0",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             PolicyName = "Policy1",
+    ///             PolicySettings = ,
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Policy : Pulumi.CustomResource
     {

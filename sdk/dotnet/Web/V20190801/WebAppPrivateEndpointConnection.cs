@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.Web.V20190801
 {
     /// <summary>
     /// Private Endpoint Connection ARM resource.
+    /// 
+    /// ## Approves or rejects a private endpoint connection for a site.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var webAppPrivateEndpointConnection = new AzureRM.Web.V20190801.WebAppPrivateEndpointConnection("webAppPrivateEndpointConnection", new AzureRM.Web.V20190801.WebAppPrivateEndpointConnectionArgs
+    ///         {
+    ///             Name = "testSite",
+    ///             PrivateEndpointConnectionName = "connection",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.Web.V20190801.Inputs.PrivateLinkConnectionStateArgs
+    ///             {
+    ///                 ActionsRequired = "",
+    ///                 Description = "Approved by admin.",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "rg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class WebAppPrivateEndpointConnection : Pulumi.CustomResource
     {

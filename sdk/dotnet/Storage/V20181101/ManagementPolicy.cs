@@ -11,6 +11,79 @@ namespace Pulumi.AzureRM.Storage.V20181101
 {
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
+    /// 
+    /// ## StorageAccountSetManagementPolicies
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managementPolicy = new AzureRM.Storage.V20181101.ManagementPolicy("managementPolicy", new AzureRM.Storage.V20181101.ManagementPolicyArgs
+    ///         {
+    ///             AccountName = "sto9699",
+    ///             ManagementPolicyName = "default",
+    ///             Policy = new AzureRM.Storage.V20181101.Inputs.ManagementPolicySchemaArgs
+    ///             {
+    ///                 Rules = 
+    ///                 {
+    ///                     new AzureRM.Storage.V20181101.Inputs.ManagementPolicyRuleArgs
+    ///                     {
+    ///                         Definition = new AzureRM.Storage.V20181101.Inputs.ManagementPolicyDefinitionArgs
+    ///                         {
+    ///                             Actions = new AzureRM.Storage.V20181101.Inputs.ManagementPolicyActionArgs
+    ///                             {
+    ///                                 BaseBlob = new AzureRM.Storage.V20181101.Inputs.ManagementPolicyBaseBlobArgs
+    ///                                 {
+    ///                                     Delete = new AzureRM.Storage.V20181101.Inputs.DateAfterModificationArgs
+    ///                                     {
+    ///                                         DaysAfterModificationGreaterThan = 1000,
+    ///                                     },
+    ///                                     TierToArchive = new AzureRM.Storage.V20181101.Inputs.DateAfterModificationArgs
+    ///                                     {
+    ///                                         DaysAfterModificationGreaterThan = 90,
+    ///                                     },
+    ///                                     TierToCool = new AzureRM.Storage.V20181101.Inputs.DateAfterModificationArgs
+    ///                                     {
+    ///                                         DaysAfterModificationGreaterThan = 30,
+    ///                                     },
+    ///                                 },
+    ///                                 Snapshot = new AzureRM.Storage.V20181101.Inputs.ManagementPolicySnapShotArgs
+    ///                                 {
+    ///                                     Delete = new AzureRM.Storage.V20181101.Inputs.DateAfterCreationArgs
+    ///                                     {
+    ///                                         DaysAfterCreationGreaterThan = 30,
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Filters = new AzureRM.Storage.V20181101.Inputs.ManagementPolicyFilterArgs
+    ///                             {
+    ///                                 BlobTypes = 
+    ///                                 {
+    ///                                     "blockBlob",
+    ///                                 },
+    ///                                 PrefixMatch = 
+    ///                                 {
+    ///                                     "olcmtestcontainer",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Enabled = true,
+    ///                         Name = "olcmtest",
+    ///                         Type = "Lifecycle",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "res7687",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagementPolicy : Pulumi.CustomResource
     {

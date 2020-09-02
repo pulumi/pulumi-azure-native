@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.ManagedIdentity.V20181130
 {
     /// <summary>
     /// Describes an identity resource.
+    /// 
+    /// ## IdentityCreate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var userAssignedIdentity = new AzureRM.ManagedIdentity.V20181130.UserAssignedIdentity("userAssignedIdentity", new AzureRM.ManagedIdentity.V20181130.UserAssignedIdentityArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "rgName",
+    ///             ResourceName = "resourceName",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///                 { "key2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class UserAssignedIdentity : Pulumi.CustomResource
     {

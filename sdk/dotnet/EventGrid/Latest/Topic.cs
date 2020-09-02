@@ -11,6 +11,47 @@ namespace Pulumi.AzureRM.EventGrid.Latest
 {
     /// <summary>
     /// EventGrid Topic
+    /// 
+    /// ## Topics_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var topic = new AzureRM.EventGrid.Latest.Topic("topic", new AzureRM.EventGrid.Latest.TopicArgs
+    ///         {
+    ///             InboundIpRules = 
+    ///             {
+    ///                 new AzureRM.EventGrid.Latest.Inputs.InboundIpRuleArgs
+    ///                 {
+    ///                     Action = "Allow",
+    ///                     IpMask = "12.18.30.15",
+    ///                 },
+    ///                 new AzureRM.EventGrid.Latest.Inputs.InboundIpRuleArgs
+    ///                 {
+    ///                     Action = "Allow",
+    ///                     IpMask = "12.18.176.1",
+    ///                 },
+    ///             },
+    ///             Location = "westus2",
+    ///             PublicNetworkAccess = "Enabled",
+    ///             ResourceGroupName = "examplerg",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///             TopicName = "exampletopic1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Topic : Pulumi.CustomResource
     {

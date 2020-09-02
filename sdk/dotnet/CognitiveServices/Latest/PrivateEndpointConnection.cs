@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.CognitiveServices.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## PutPrivateEndpointConnection
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.CognitiveServices.Latest.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.CognitiveServices.Latest.PrivateEndpointConnectionArgs
+    ///         {
+    ///             AccountName = "sto9699",
+    ///             PrivateEndpointConnectionName = "{privateEndpointConnectionName}",
+    ///             ResourceGroupName = "res7687",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

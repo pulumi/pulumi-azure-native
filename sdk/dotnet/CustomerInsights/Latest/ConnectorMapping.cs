@@ -11,6 +11,74 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
 {
     /// <summary>
     /// The connector mapping resource format.
+    /// 
+    /// ## ConnectorMappings_CreateOrUpdate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var connectorMapping = new AzureRM.CustomerInsights.Latest.ConnectorMapping("connectorMapping", new AzureRM.CustomerInsights.Latest.ConnectorMappingArgs
+    ///         {
+    ///             ConnectorName = "testConnector8858",
+    ///             Description = "Test mapping",
+    ///             DisplayName = "testMapping12491",
+    ///             EntityType = "Interaction",
+    ///             EntityTypeName = "TestInteractionType2967",
+    ///             HubName = "sdkTestHub",
+    ///             MappingName = "testMapping12491",
+    ///             MappingProperties = new AzureRM.CustomerInsights.Latest.Inputs.ConnectorMappingPropertiesArgs
+    ///             {
+    ///                 Availability = new AzureRM.CustomerInsights.Latest.Inputs.ConnectorMappingAvailabilityArgs
+    ///                 {
+    ///                     Frequency = "Hour",
+    ///                     Interval = 5,
+    ///                 },
+    ///                 CompleteOperation = new AzureRM.CustomerInsights.Latest.Inputs.ConnectorMappingCompleteOperationArgs
+    ///                 {
+    ///                     CompletionOperationType = "DeleteFile",
+    ///                     DestinationFolder = "fakePath",
+    ///                 },
+    ///                 ErrorManagement = new AzureRM.CustomerInsights.Latest.Inputs.ConnectorMappingErrorManagementArgs
+    ///                 {
+    ///                     ErrorLimit = 10,
+    ///                     ErrorManagementType = "StopImport",
+    ///                 },
+    ///                 FileFilter = "unknown",
+    ///                 FolderPath = "http://sample.dne/file",
+    ///                 Format = new AzureRM.CustomerInsights.Latest.Inputs.ConnectorMappingFormatArgs
+    ///                 {
+    ///                     ColumnDelimiter = "|",
+    ///                     FormatType = "TextFormat",
+    ///                 },
+    ///                 HasHeader = false,
+    ///                 Structure = 
+    ///                 {
+    ///                     new AzureRM.CustomerInsights.Latest.Inputs.ConnectorMappingStructureArgs
+    ///                     {
+    ///                         ColumnName = "unknown1",
+    ///                         IsEncrypted = false,
+    ///                         PropertyName = "unknwon1",
+    ///                     },
+    ///                     new AzureRM.CustomerInsights.Latest.Inputs.ConnectorMappingStructureArgs
+    ///                     {
+    ///                         ColumnName = "unknown2",
+    ///                         IsEncrypted = true,
+    ///                         PropertyName = "unknwon2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "TestHubRG",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ConnectorMapping : Pulumi.CustomResource
     {

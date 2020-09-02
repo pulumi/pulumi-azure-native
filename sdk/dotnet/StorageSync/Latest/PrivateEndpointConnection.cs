@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.StorageSync.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## PrivateEndpointConnections_Create
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.StorageSync.Latest.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.StorageSync.Latest.PrivateEndpointConnectionArgs
+    ///         {
+    ///             PrivateEndpointConnectionName = "{privateEndpointConnectionName}",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.StorageSync.Latest.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Auto-Approved",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "res7687",
+    ///             StorageSyncServiceName = "sss2527",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

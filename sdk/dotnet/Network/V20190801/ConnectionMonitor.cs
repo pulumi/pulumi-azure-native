@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.Network.V20190801
 {
     /// <summary>
     /// Information about the connection monitor.
+    /// 
+    /// ## Create connection monitor
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var connectionMonitor = new AzureRM.Network.V20190801.ConnectionMonitor("connectionMonitor", new AzureRM.Network.V20190801.ConnectionMonitorArgs
+    ///         {
+    ///             ConnectionMonitorName = "cm1",
+    ///             Destination = new AzureRM.Network.V20190801.Inputs.ConnectionMonitorDestinationArgs
+    ///             {
+    ///                 Address = "bing.com",
+    ///                 Port = 80,
+    ///             },
+    ///             Location = "eastus",
+    ///             MonitoringIntervalInSeconds = 60,
+    ///             NetworkWatcherName = "nw1",
+    ///             ResourceGroupName = "rg1",
+    ///             Source = new AzureRM.Network.V20190801.Inputs.ConnectionMonitorSourceArgs
+    ///             {
+    ///                 ResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ConnectionMonitor : Pulumi.CustomResource
     {

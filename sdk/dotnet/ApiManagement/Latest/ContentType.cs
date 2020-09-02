@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
 {
     /// <summary>
     /// Content type contract details.
+    /// 
+    /// ## ApiManagementCreateContentType
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contentType = new AzureRM.ApiManagement.Latest.ContentType("contentType", new AzureRM.ApiManagement.Latest.ContentTypeArgs
+    ///         {
+    ///             ContentTypeId = "page",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ContentType : Pulumi.CustomResource
     {

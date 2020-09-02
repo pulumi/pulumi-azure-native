@@ -11,6 +11,142 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 {
     /// <summary>
     /// A single API Management service resource in List or Get response.
+    /// 
+    /// ## ApiManagementCreateMultiRegionServiceWithCustomHostname
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiManagementService = new AzureRM.ApiManagement.V20170301.ApiManagementService("apiManagementService", new AzureRM.ApiManagement.V20170301.ApiManagementServiceArgs
+    ///         {
+    ///             AdditionalLocations = 
+    ///             {
+    ///                 new AzureRM.ApiManagement.V20170301.Inputs.AdditionalLocationArgs
+    ///                 {
+    ///                     Location = "West US",
+    ///                     Sku = new AzureRM.ApiManagement.V20170301.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///                     {
+    ///                         Capacity = 1,
+    ///                         Name = "Premium",
+    ///                     },
+    ///                     VirtualNetworkConfiguration = new AzureRM.ApiManagement.V20170301.Inputs.VirtualNetworkConfigurationArgs
+    ///                     {
+    ///                         SubnetResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/westUsVirtualNetwork/subnets/apimSubnet",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             HostnameConfigurations = 
+    ///             {
+    ///                 new AzureRM.ApiManagement.V20170301.Inputs.HostnameConfigurationArgs
+    ///                 {
+    ///                     CertificatePassword = "**************Password of the Certificate************************************************",
+    ///                     EncodedCertificate = "************Base 64 Encoded Pfx Certificate************************",
+    ///                     HostName = "proxyhostname1.contoso.com",
+    ///                     Type = "Proxy",
+    ///                 },
+    ///                 new AzureRM.ApiManagement.V20170301.Inputs.HostnameConfigurationArgs
+    ///                 {
+    ///                     CertificatePassword = "**************Password of the Certificate************************************************",
+    ///                     EncodedCertificate = "************Base 64 Encoded Pfx Certificate************************",
+    ///                     HostName = "proxyhostname2.contoso.com",
+    ///                     NegotiateClientCertificate = true,
+    ///                     Type = "Proxy",
+    ///                 },
+    ///                 new AzureRM.ApiManagement.V20170301.Inputs.HostnameConfigurationArgs
+    ///                 {
+    ///                     CertificatePassword = "**************Password of the Certificate************************************************",
+    ///                     EncodedCertificate = "************Base 64 Encoded Pfx Certificate************************",
+    ///                     HostName = "portalhostname1.contoso.com",
+    ///                     Type = "Portal",
+    ///                 },
+    ///             },
+    ///             Location = "Central US",
+    ///             PublisherEmail = "admin@live.com",
+    ///             PublisherName = "contoso",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Sku = new AzureRM.ApiManagement.V20170301.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///             {
+    ///                 Capacity = 1,
+    ///                 Name = "Premium",
+    ///             },
+    ///             VirtualNetworkConfiguration = new AzureRM.ApiManagement.V20170301.Inputs.VirtualNetworkConfigurationArgs
+    ///             {
+    ///                 SubnetResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/centralUsVirtualNetwork/subnets/apimSubnet",
+    ///             },
+    ///             VirtualNetworkType = "External",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## ApiManagementCreateService
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiManagementService = new AzureRM.ApiManagement.V20170301.ApiManagementService("apiManagementService", new AzureRM.ApiManagement.V20170301.ApiManagementServiceArgs
+    ///         {
+    ///             Location = "West US",
+    ///             PublisherEmail = "admin@live.com",
+    ///             PublisherName = "contoso",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Sku = new AzureRM.ApiManagement.V20170301.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///             {
+    ///                 Capacity = 1,
+    ///                 Name = "Premium",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// 
+    /// ## ApiManagementCreateServiceHavingMsi
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiManagementService = new AzureRM.ApiManagement.V20170301.ApiManagementService("apiManagementService", new AzureRM.ApiManagement.V20170301.ApiManagementServiceArgs
+    ///         {
+    ///             Identity = new AzureRM.ApiManagement.V20170301.Inputs.ApiManagementServiceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Location = "Japan East",
+    ///             PublisherEmail = "admin@contoso.com",
+    ///             PublisherName = "Contoso",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Sku = new AzureRM.ApiManagement.V20170301.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///             {
+    ///                 Name = "Developer",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApiManagementService : Pulumi.CustomResource
     {

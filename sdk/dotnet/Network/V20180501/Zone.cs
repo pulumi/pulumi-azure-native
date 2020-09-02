@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.Network.V20180501
 {
     /// <summary>
     /// Describes a DNS zone.
+    /// 
+    /// ## Create zone
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var zone = new AzureRM.Network.V20180501.Zone("zone", new AzureRM.Network.V20180501.ZoneArgs
+    ///         {
+    ///             Location = "Global",
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             ZoneName = "zone1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Zone : Pulumi.CustomResource
     {

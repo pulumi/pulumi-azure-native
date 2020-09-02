@@ -11,6 +11,41 @@ namespace Pulumi.AzureRM.Compute.Latest
 {
     /// <summary>
     /// disk encryption set resource.
+    /// 
+    /// ## Create a disk encryption set.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var diskEncryptionSet = new AzureRM.Compute.Latest.DiskEncryptionSet("diskEncryptionSet", new AzureRM.Compute.Latest.DiskEncryptionSetArgs
+    ///         {
+    ///             ActiveKey = new AzureRM.Compute.Latest.Inputs.KeyVaultAndKeyReferenceArgs
+    ///             {
+    ///                 KeyUrl = "https://myvmvault.vault-int.azure-int.net/keys/{key}",
+    ///                 SourceVault = new AzureRM.Compute.Latest.Inputs.SourceVaultArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault",
+    ///                 },
+    ///             },
+    ///             DiskEncryptionSetName = "myDiskEncryptionSet",
+    ///             EncryptionType = "EncryptionAtRestWithCustomerKey",
+    ///             Identity = new AzureRM.Compute.Latest.Inputs.EncryptionSetIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {

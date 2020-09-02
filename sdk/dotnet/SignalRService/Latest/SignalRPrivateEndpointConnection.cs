@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.SignalRService.Latest
 {
     /// <summary>
     /// A private endpoint connection to SignalR resource
+    /// 
+    /// ## SignalRPrivateEndpointConnections_Update
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var signalRPrivateEndpointConnection = new AzureRM.SignalRService.Latest.SignalRPrivateEndpointConnection("signalRPrivateEndpointConnection", new AzureRM.SignalRService.Latest.SignalRPrivateEndpointConnectionArgs
+    ///         {
+    ///             PrivateEndpoint = new AzureRM.SignalRService.Latest.Inputs.PrivateEndpointArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+    ///             },
+    ///             PrivateEndpointConnectionName = "mySignalRService.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.SignalRService.Latest.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 ActionsRequired = "None",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ResourceName = "mySignalRService",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SignalRPrivateEndpointConnection : Pulumi.CustomResource
     {
