@@ -19,7 +19,7 @@ export class Python2Package extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Python2Package {
-        return new Python2Package(name, undefined, { ...opts, id: id });
+        return new Python2Package(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -108,12 +108,9 @@ export class Python2Package extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: Python2PackageArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: Python2PackageArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: Python2PackageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as Python2PackageArgs | undefined;
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
@@ -143,6 +140,23 @@ export class Python2Package extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["sizeInBytes"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
+        } else {
+            inputs["activityCount"] = undefined /*out*/;
+            inputs["contentLink"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["error"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["isComposite"] = undefined /*out*/;
+            inputs["isGlobal"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sizeInBytes"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }

@@ -19,7 +19,7 @@ export class DedicatedHsm extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DedicatedHsm {
-        return new DedicatedHsm(name, undefined, { ...opts, id: id });
+        return new DedicatedHsm(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -84,12 +84,9 @@ export class DedicatedHsm extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DedicatedHsmArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DedicatedHsmArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DedicatedHsmArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DedicatedHsmArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -113,6 +110,17 @@ export class DedicatedHsm extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["statusMessage"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkProfile"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["stampId"] = undefined /*out*/;
+            inputs["statusMessage"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["zones"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

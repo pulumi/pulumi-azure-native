@@ -19,7 +19,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ScheduledQueryRule {
-        return new ScheduledQueryRule(name, undefined, { ...opts, id: id });
+        return new ScheduledQueryRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ScheduledQueryRuleArgs | undefined;
             if (!args || args.action === undefined) {
                 throw new Error("Missing required property 'action'");
             }
@@ -121,6 +118,18 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["action"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["enabled"] = undefined /*out*/;
+            inputs["lastUpdatedTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["schedule"] = undefined /*out*/;
+            inputs["source"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

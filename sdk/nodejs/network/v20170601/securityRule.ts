@@ -17,7 +17,7 @@ export class SecurityRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SecurityRule {
-        return new SecurityRule(name, undefined, { ...opts, id: id });
+        return new SecurityRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -106,12 +106,9 @@ export class SecurityRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SecurityRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecurityRuleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SecurityRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SecurityRuleArgs | undefined;
             if (!args || args.access === undefined) {
                 throw new Error("Missing required property 'access'");
             }
@@ -150,6 +147,23 @@ export class SecurityRule extends pulumi.CustomResource {
             inputs["sourceAddressPrefixes"] = args ? args.sourceAddressPrefixes : undefined;
             inputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
             inputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
+        } else {
+            inputs["access"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["destinationAddressPrefix"] = undefined /*out*/;
+            inputs["destinationAddressPrefixes"] = undefined /*out*/;
+            inputs["destinationPortRange"] = undefined /*out*/;
+            inputs["destinationPortRanges"] = undefined /*out*/;
+            inputs["direction"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["priority"] = undefined /*out*/;
+            inputs["protocol"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sourceAddressPrefix"] = undefined /*out*/;
+            inputs["sourceAddressPrefixes"] = undefined /*out*/;
+            inputs["sourcePortRange"] = undefined /*out*/;
+            inputs["sourcePortRanges"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -17,7 +17,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSetExtension {
-        return new VirtualMachineScaleSetExtension(name, undefined, { ...opts, id: id });
+        return new VirtualMachineScaleSetExtension(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -78,12 +78,9 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualMachineScaleSetExtensionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualMachineScaleSetExtensionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualMachineScaleSetExtensionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualMachineScaleSetExtensionArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -105,6 +102,16 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
             inputs["vmssExtensionName"] = args ? args.vmssExtensionName : undefined;
             inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            inputs["forceUpdateTag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["protectedSettings"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publisher"] = undefined /*out*/;
+            inputs["settings"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["typeHandlerVersion"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

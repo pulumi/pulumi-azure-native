@@ -17,7 +17,7 @@ export class Channel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Channel {
-        return new Channel(name, undefined, { ...opts, id: id });
+        return new Channel(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -62,12 +62,9 @@ export class Channel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ChannelArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -86,6 +83,12 @@ export class Channel extends pulumi.CustomResource {
             inputs["channelType"] = args ? args.channelType : undefined;
             inputs["credentials"] = args ? args.credentials : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["channelFunctions"] = undefined /*out*/;
+            inputs["channelType"] = undefined /*out*/;
+            inputs["credentials"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

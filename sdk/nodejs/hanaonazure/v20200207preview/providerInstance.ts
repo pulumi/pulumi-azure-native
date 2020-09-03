@@ -17,7 +17,7 @@ export class ProviderInstance extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProviderInstance {
-        return new ProviderInstance(name, undefined, { ...opts, id: id });
+        return new ProviderInstance(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -62,12 +62,9 @@ export class ProviderInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProviderInstanceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProviderInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ProviderInstanceArgs | undefined;
             if (!args || args.providerInstanceName === undefined) {
                 throw new Error("Missing required property 'providerInstanceName'");
             }
@@ -85,6 +82,12 @@ export class ProviderInstance extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

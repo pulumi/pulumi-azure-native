@@ -17,7 +17,7 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppSiteExtensionSlot {
-        return new WebAppSiteExtensionSlot(name, undefined, { ...opts, id: id });
+        return new WebAppSiteExtensionSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -126,12 +126,9 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAppSiteExtensionSlotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebAppSiteExtensionSlotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WebAppSiteExtensionSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WebAppSiteExtensionSlotArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -161,6 +158,28 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
             inputs["licenseUrl"] = undefined /*out*/;
             inputs["localIsLatestVersion"] = undefined /*out*/;
             inputs["localPath"] = undefined /*out*/;
+            inputs["projectUrl"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publishedDateTime"] = undefined /*out*/;
+            inputs["summary"] = undefined /*out*/;
+            inputs["title"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
+        } else {
+            inputs["authors"] = undefined /*out*/;
+            inputs["comment"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["downloadCount"] = undefined /*out*/;
+            inputs["extensionUrl"] = undefined /*out*/;
+            inputs["feedUrl"] = undefined /*out*/;
+            inputs["iconUrl"] = undefined /*out*/;
+            inputs["installationArgs"] = undefined /*out*/;
+            inputs["installedDateTime"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["licenseUrl"] = undefined /*out*/;
+            inputs["localIsLatestVersion"] = undefined /*out*/;
+            inputs["localPath"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["projectUrl"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publishedDateTime"] = undefined /*out*/;

@@ -17,7 +17,7 @@ export class VendorSkuPreview extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VendorSkuPreview {
-        return new VendorSkuPreview(name, undefined, { ...opts, id: id });
+        return new VendorSkuPreview(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -50,12 +50,9 @@ export class VendorSkuPreview extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VendorSkuPreviewArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VendorSkuPreviewArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VendorSkuPreviewArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VendorSkuPreviewArgs | undefined;
             if (!args || args.previewSubscription === undefined) {
                 throw new Error("Missing required property 'previewSubscription'");
             }
@@ -68,6 +65,9 @@ export class VendorSkuPreview extends pulumi.CustomResource {
             inputs["previewSubscription"] = args ? args.previewSubscription : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["vendorName"] = args ? args.vendorName : undefined;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

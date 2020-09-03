@@ -17,7 +17,7 @@ export class IdentityProvider extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IdentityProvider {
-        return new IdentityProvider(name, undefined, { ...opts, id: id });
+        return new IdentityProvider(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -86,12 +86,9 @@ export class IdentityProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as IdentityProviderArgs | undefined;
             if (!args || args.clientId === undefined) {
                 throw new Error("Missing required property 'clientId'");
             }
@@ -121,6 +118,18 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["signupPolicyName"] = args ? args.signupPolicyName : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["name"] = undefined /*out*/;
+        } else {
+            inputs["allowedTenants"] = undefined /*out*/;
+            inputs["authority"] = undefined /*out*/;
+            inputs["clientId"] = undefined /*out*/;
+            inputs["clientSecret"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["passwordResetPolicyName"] = undefined /*out*/;
+            inputs["profileEditingPolicyName"] = undefined /*out*/;
+            inputs["signinPolicyName"] = undefined /*out*/;
+            inputs["signinTenant"] = undefined /*out*/;
+            inputs["signupPolicyName"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

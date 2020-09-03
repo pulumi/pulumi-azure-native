@@ -17,7 +17,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerAzureADAdministrator {
-        return new ServerAzureADAdministrator(name, undefined, { ...opts, id: id });
+        return new ServerAzureADAdministrator(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -70,12 +70,9 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerAzureADAdministratorArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerAzureADAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServerAzureADAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServerAzureADAdministratorArgs | undefined;
             if (!args || args.administratorName === undefined) {
                 throw new Error("Missing required property 'administratorName'");
             }
@@ -103,6 +100,14 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["azureADOnlyAuthentication"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["administratorType"] = undefined /*out*/;
+            inputs["azureADOnlyAuthentication"] = undefined /*out*/;
+            inputs["login"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["sid"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

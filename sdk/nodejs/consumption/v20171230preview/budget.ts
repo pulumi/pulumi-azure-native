@@ -19,7 +19,7 @@ export class Budget extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Budget {
-        return new Budget(name, undefined, { ...opts, id: id });
+        return new Budget(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class Budget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BudgetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BudgetArgs | undefined;
             if (!args || args.amount === undefined) {
                 throw new Error("Missing required property 'amount'");
             }
@@ -109,6 +106,16 @@ export class Budget extends pulumi.CustomResource {
             inputs["timeGrain"] = args ? args.timeGrain : undefined;
             inputs["timePeriod"] = args ? args.timePeriod : undefined;
             inputs["currentSpend"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["amount"] = undefined /*out*/;
+            inputs["category"] = undefined /*out*/;
+            inputs["currentSpend"] = undefined /*out*/;
+            inputs["eTag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notifications"] = undefined /*out*/;
+            inputs["timeGrain"] = undefined /*out*/;
+            inputs["timePeriod"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

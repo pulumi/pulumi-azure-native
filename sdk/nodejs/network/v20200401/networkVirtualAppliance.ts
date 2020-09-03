@@ -19,7 +19,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkVirtualAppliance {
-        return new NetworkVirtualAppliance(name, undefined, { ...opts, id: id });
+        return new NetworkVirtualAppliance(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -96,12 +96,9 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkVirtualApplianceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkVirtualApplianceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NetworkVirtualApplianceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as NetworkVirtualApplianceArgs | undefined;
             if (!args || args.networkVirtualApplianceName === undefined) {
                 throw new Error("Missing required property 'networkVirtualApplianceName'");
             }
@@ -124,6 +121,20 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualApplianceNics"] = undefined /*out*/;
+        } else {
+            inputs["bootStrapConfigurationBlob"] = undefined /*out*/;
+            inputs["cloudInitConfigurationBlob"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualApplianceAsn"] = undefined /*out*/;
+            inputs["virtualApplianceNics"] = undefined /*out*/;
+            inputs["virtualHub"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

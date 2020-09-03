@@ -17,7 +17,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabasePrincipalAssignment {
-        return new DatabasePrincipalAssignment(name, undefined, { ...opts, id: id });
+        return new DatabasePrincipalAssignment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -78,12 +78,9 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatabasePrincipalAssignmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DatabasePrincipalAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DatabasePrincipalAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DatabasePrincipalAssignmentArgs | undefined;
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -116,6 +113,16 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["principalName"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["tenantName"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["principalId"] = undefined /*out*/;
+            inputs["principalName"] = undefined /*out*/;
+            inputs["principalType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["role"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["tenantName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

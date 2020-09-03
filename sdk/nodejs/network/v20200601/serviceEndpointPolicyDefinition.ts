@@ -17,7 +17,7 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServiceEndpointPolicyDefinition {
-        return new ServiceEndpointPolicyDefinition(name, undefined, { ...opts, id: id });
+        return new ServiceEndpointPolicyDefinition(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -66,12 +66,9 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceEndpointPolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServiceEndpointPolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServiceEndpointPolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServiceEndpointPolicyDefinitionArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -91,6 +88,13 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
             inputs["serviceResources"] = args ? args.serviceResources : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["service"] = undefined /*out*/;
+            inputs["serviceResources"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

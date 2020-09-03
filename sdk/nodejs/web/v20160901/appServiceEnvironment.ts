@@ -19,7 +19,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AppServiceEnvironment {
-        return new AppServiceEnvironment(name, undefined, { ...opts, id: id });
+        return new AppServiceEnvironment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -202,12 +202,9 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AppServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AppServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AppServiceEnvironmentArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -263,6 +260,46 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["upgradeDomains"] = undefined /*out*/;
             inputs["vipMappings"] = undefined /*out*/;
+        } else {
+            inputs["allowedMultiSizes"] = undefined /*out*/;
+            inputs["allowedWorkerSizes"] = undefined /*out*/;
+            inputs["apiManagementAccountId"] = undefined /*out*/;
+            inputs["clusterSettings"] = undefined /*out*/;
+            inputs["databaseEdition"] = undefined /*out*/;
+            inputs["databaseServiceObjective"] = undefined /*out*/;
+            inputs["defaultFrontEndScaleFactor"] = undefined /*out*/;
+            inputs["dnsSuffix"] = undefined /*out*/;
+            inputs["dynamicCacheEnabled"] = undefined /*out*/;
+            inputs["environmentCapacities"] = undefined /*out*/;
+            inputs["environmentIsHealthy"] = undefined /*out*/;
+            inputs["environmentStatus"] = undefined /*out*/;
+            inputs["frontEndScaleFactor"] = undefined /*out*/;
+            inputs["internalLoadBalancingMode"] = undefined /*out*/;
+            inputs["ipsslAddressCount"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["lastAction"] = undefined /*out*/;
+            inputs["lastActionResult"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maximumNumberOfMachines"] = undefined /*out*/;
+            inputs["multiRoleCount"] = undefined /*out*/;
+            inputs["multiSize"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkAccessControlList"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["subscriptionId"] = undefined /*out*/;
+            inputs["suspended"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["upgradeDomains"] = undefined /*out*/;
+            inputs["userWhitelistedIpRanges"] = undefined /*out*/;
+            inputs["vipMappings"] = undefined /*out*/;
+            inputs["virtualNetwork"] = undefined /*out*/;
+            inputs["vnetName"] = undefined /*out*/;
+            inputs["vnetResourceGroupName"] = undefined /*out*/;
+            inputs["vnetSubnetName"] = undefined /*out*/;
+            inputs["workerPools"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

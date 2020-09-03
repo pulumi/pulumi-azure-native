@@ -19,7 +19,7 @@ export class Link extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Link {
-        return new Link(name, undefined, { ...opts, id: id });
+        return new Link(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -96,12 +96,9 @@ export class Link extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LinkArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as LinkArgs | undefined;
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
@@ -133,6 +130,20 @@ export class Link extends pulumi.CustomResource {
             inputs["targetProfileType"] = args ? args.targetProfileType : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["linkName"] = undefined /*out*/;
+            inputs["mappings"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["operationType"] = undefined /*out*/;
+            inputs["participantPropertyReferences"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["referenceOnly"] = undefined /*out*/;
+            inputs["sourceInteractionType"] = undefined /*out*/;
+            inputs["targetProfileType"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

@@ -17,7 +17,7 @@ export class AlertRuleAction extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AlertRuleAction {
-        return new AlertRuleAction(name, undefined, { ...opts, id: id });
+        return new AlertRuleAction(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -62,12 +62,9 @@ export class AlertRuleAction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AlertRuleActionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AlertRuleActionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AlertRuleActionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AlertRuleActionArgs | undefined;
             if (!args || args.actionId === undefined) {
                 throw new Error("Missing required property 'actionId'");
             }
@@ -90,6 +87,12 @@ export class AlertRuleAction extends pulumi.CustomResource {
             inputs["ruleId"] = args ? args.ruleId : undefined;
             inputs["triggerUri"] = args ? args.triggerUri : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["workflowId"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["logicAppResourceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["workflowId"] = undefined /*out*/;

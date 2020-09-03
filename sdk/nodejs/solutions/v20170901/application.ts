@@ -19,7 +19,7 @@ export class Application extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Application {
-        return new Application(name, undefined, { ...opts, id: id });
+        return new Application(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationArgs | undefined;
             if (!args || args.applicationName === undefined) {
                 throw new Error("Missing required property 'applicationName'");
             }
@@ -139,6 +136,22 @@ export class Application extends pulumi.CustomResource {
             inputs["outputs"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["applicationDefinitionId"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
+            inputs["managedResourceGroupId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["outputs"] = undefined /*out*/;
+            inputs["parameters"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uiDefinitionUri"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

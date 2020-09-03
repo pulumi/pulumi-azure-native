@@ -17,7 +17,7 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualRouterPeering {
-        return new VirtualRouterPeering(name, undefined, { ...opts, id: id });
+        return new VirtualRouterPeering(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -66,12 +66,9 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualRouterPeeringArgs | undefined;
             if (!args || args.peeringName === undefined) {
                 throw new Error("Missing required property 'peeringName'");
             }
@@ -89,6 +86,13 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["peerAsn"] = undefined /*out*/;
+            inputs["peerIp"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

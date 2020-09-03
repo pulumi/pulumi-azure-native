@@ -19,7 +19,7 @@ export class Case extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Case {
-        return new Case(name, undefined, { ...opts, id: id });
+        return new Case(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -124,12 +124,9 @@ export class Case extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CaseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CaseArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as CaseArgs | undefined;
             if (!args || args.caseId === undefined) {
                 throw new Error("Missing required property 'caseId'");
             }
@@ -176,6 +173,27 @@ export class Case extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["relatedAlertIds"] = undefined /*out*/;
             inputs["tactics"] = undefined /*out*/;
+            inputs["totalComments"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["caseNumber"] = undefined /*out*/;
+            inputs["closeReason"] = undefined /*out*/;
+            inputs["closedReasonText"] = undefined /*out*/;
+            inputs["createdTimeUtc"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["endTimeUtc"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["labels"] = undefined /*out*/;
+            inputs["lastComment"] = undefined /*out*/;
+            inputs["lastUpdatedTimeUtc"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["owner"] = undefined /*out*/;
+            inputs["relatedAlertIds"] = undefined /*out*/;
+            inputs["severity"] = undefined /*out*/;
+            inputs["startTimeUtc"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tactics"] = undefined /*out*/;
+            inputs["title"] = undefined /*out*/;
             inputs["totalComments"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

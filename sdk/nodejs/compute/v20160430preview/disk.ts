@@ -19,7 +19,7 @@ export class Disk extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Disk {
-        return new Disk(name, undefined, { ...opts, id: id });
+        return new Disk(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -92,12 +92,9 @@ export class Disk extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DiskArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DiskArgs | undefined;
             if (!args || args.creationData === undefined) {
                 throw new Error("Missing required property 'creationData'");
             }
@@ -122,6 +119,19 @@ export class Disk extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["timeCreated"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["accountType"] = undefined /*out*/;
+            inputs["creationData"] = undefined /*out*/;
+            inputs["diskSizeGB"] = undefined /*out*/;
+            inputs["encryptionSettings"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["osType"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

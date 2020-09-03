@@ -17,7 +17,7 @@ export class Product extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Product {
-        return new Product(name, undefined, { ...opts, id: id });
+        return new Product(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -78,12 +78,9 @@ export class Product extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProductArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProductArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProductArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ProductArgs | undefined;
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -107,6 +104,16 @@ export class Product extends pulumi.CustomResource {
             inputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
             inputs["terms"] = args ? args.terms : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["approvalRequired"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["subscriptionRequired"] = undefined /*out*/;
+            inputs["subscriptionsLimit"] = undefined /*out*/;
+            inputs["terms"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

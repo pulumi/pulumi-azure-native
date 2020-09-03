@@ -17,7 +17,7 @@ export class SupportPlanType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SupportPlanType {
-        return new SupportPlanType(name, undefined, { ...opts, id: id });
+        return new SupportPlanType(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -54,12 +54,9 @@ export class SupportPlanType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SupportPlanTypeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SupportPlanTypeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SupportPlanTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SupportPlanTypeArgs | undefined;
             if (!args || args.planTypeName === undefined) {
                 throw new Error("Missing required property 'planTypeName'");
             }
@@ -68,6 +65,10 @@ export class SupportPlanType extends pulumi.CustomResource {
             }
             inputs["planTypeName"] = args ? args.planTypeName : undefined;
             inputs["providerName"] = args ? args.providerName : undefined;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

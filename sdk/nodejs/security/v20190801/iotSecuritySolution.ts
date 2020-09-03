@@ -19,7 +19,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IotSecuritySolution {
-        return new IotSecuritySolution(name, undefined, { ...opts, id: id });
+        return new IotSecuritySolution(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -100,12 +100,9 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IotSecuritySolutionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IotSecuritySolutionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IotSecuritySolutionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as IotSecuritySolutionArgs | undefined;
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -134,6 +131,21 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             inputs["autoDiscoveredResources"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["autoDiscoveredResources"] = undefined /*out*/;
+            inputs["disabledDataSources"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["export"] = undefined /*out*/;
+            inputs["iotHubs"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["recommendationsConfiguration"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["unmaskedIpLoggingStatus"] = undefined /*out*/;
+            inputs["userDefinedResources"] = undefined /*out*/;
+            inputs["workspace"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

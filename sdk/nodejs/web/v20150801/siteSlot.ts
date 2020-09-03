@@ -19,7 +19,7 @@ export class SiteSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SiteSlot {
-        return new SiteSlot(name, undefined, { ...opts, id: id });
+        return new SiteSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -176,12 +176,9 @@ export class SiteSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SiteSlotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SiteSlotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SiteSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SiteSlotArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -233,6 +230,40 @@ export class SiteSlot extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["targetSwapSlot"] = undefined /*out*/;
             inputs["trafficManagerHostNames"] = undefined /*out*/;
+            inputs["usageState"] = undefined /*out*/;
+        } else {
+            inputs["availabilityState"] = undefined /*out*/;
+            inputs["clientAffinityEnabled"] = undefined /*out*/;
+            inputs["clientCertEnabled"] = undefined /*out*/;
+            inputs["cloningInfo"] = undefined /*out*/;
+            inputs["containerSize"] = undefined /*out*/;
+            inputs["defaultHostName"] = undefined /*out*/;
+            inputs["enabled"] = undefined /*out*/;
+            inputs["enabledHostNames"] = undefined /*out*/;
+            inputs["gatewaySiteName"] = undefined /*out*/;
+            inputs["hostNameSslStates"] = undefined /*out*/;
+            inputs["hostNames"] = undefined /*out*/;
+            inputs["hostNamesDisabled"] = undefined /*out*/;
+            inputs["hostingEnvironmentProfile"] = undefined /*out*/;
+            inputs["isDefaultContainer"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maxNumberOfWorkers"] = undefined /*out*/;
+            inputs["microService"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["outboundIpAddresses"] = undefined /*out*/;
+            inputs["premiumAppDeployed"] = undefined /*out*/;
+            inputs["repositorySiteName"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["scmSiteAlsoStopped"] = undefined /*out*/;
+            inputs["serverFarmId"] = undefined /*out*/;
+            inputs["siteConfig"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["targetSwapSlot"] = undefined /*out*/;
+            inputs["trafficManagerHostNames"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
             inputs["usageState"] = undefined /*out*/;
         }
         if (!opts) {

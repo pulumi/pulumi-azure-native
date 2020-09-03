@@ -19,7 +19,7 @@ export class Incident extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Incident {
-        return new Incident(name, undefined, { ...opts, id: id });
+        return new Incident(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -124,12 +124,9 @@ export class Incident extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IncidentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IncidentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IncidentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as IncidentArgs | undefined;
             if (!args || args.incidentId === undefined) {
                 throw new Error("Missing required property 'incidentId'");
             }
@@ -174,6 +171,27 @@ export class Incident extends pulumi.CustomResource {
             inputs["lastModifiedTimeUtc"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["relatedAnalyticRuleIds"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["additionalData"] = undefined /*out*/;
+            inputs["classification"] = undefined /*out*/;
+            inputs["classificationComment"] = undefined /*out*/;
+            inputs["classificationReason"] = undefined /*out*/;
+            inputs["createdTimeUtc"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["firstActivityTimeUtc"] = undefined /*out*/;
+            inputs["incidentNumber"] = undefined /*out*/;
+            inputs["incidentUrl"] = undefined /*out*/;
+            inputs["labels"] = undefined /*out*/;
+            inputs["lastActivityTimeUtc"] = undefined /*out*/;
+            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["owner"] = undefined /*out*/;
+            inputs["relatedAnalyticRuleIds"] = undefined /*out*/;
+            inputs["severity"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["title"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

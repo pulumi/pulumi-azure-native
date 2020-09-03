@@ -19,7 +19,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetworkGatewayConnection {
-        return new VirtualNetworkGatewayConnection(name, undefined, { ...opts, id: id });
+        return new VirtualNetworkGatewayConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -136,12 +136,9 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualNetworkGatewayConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualNetworkGatewayConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualNetworkGatewayConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualNetworkGatewayConnectionArgs | undefined;
             if (!args || args.connectionType === undefined) {
                 throw new Error("Missing required property 'connectionType'");
             }
@@ -180,6 +177,30 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tunnelConnectionStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["authorizationKey"] = undefined /*out*/;
+            inputs["connectionStatus"] = undefined /*out*/;
+            inputs["connectionType"] = undefined /*out*/;
+            inputs["egressBytesTransferred"] = undefined /*out*/;
+            inputs["enableBgp"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["expressRouteGatewayBypass"] = undefined /*out*/;
+            inputs["ingressBytesTransferred"] = undefined /*out*/;
+            inputs["ipsecPolicies"] = undefined /*out*/;
+            inputs["localNetworkGateway2"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["peer"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["routingWeight"] = undefined /*out*/;
+            inputs["sharedKey"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["tunnelConnectionStatus"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["usePolicyBasedTrafficSelectors"] = undefined /*out*/;
+            inputs["virtualNetworkGateway1"] = undefined /*out*/;
+            inputs["virtualNetworkGateway2"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

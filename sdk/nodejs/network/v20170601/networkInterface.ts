@@ -19,7 +19,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkInterface {
-        return new NetworkInterface(name, undefined, { ...opts, id: id });
+        return new NetworkInterface(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as NetworkInterfaceArgs | undefined;
             if (!args || args.networkInterfaceName === undefined) {
                 throw new Error("Missing required property 'networkInterfaceName'");
             }
@@ -134,6 +131,22 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["virtualMachine"] = args ? args.virtualMachine : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["dnsSettings"] = undefined /*out*/;
+            inputs["enableAcceleratedNetworking"] = undefined /*out*/;
+            inputs["enableIPForwarding"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["ipConfigurations"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["macAddress"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkSecurityGroup"] = undefined /*out*/;
+            inputs["primary"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualMachine"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

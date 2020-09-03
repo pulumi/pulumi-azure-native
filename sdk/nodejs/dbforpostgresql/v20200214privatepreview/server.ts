@@ -19,7 +19,7 @@ export class Server extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Server {
-        return new Server(name, undefined, { ...opts, id: id });
+        return new Server(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -125,12 +125,9 @@ export class Server extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServerArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -163,6 +160,28 @@ export class Server extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["administratorLogin"] = undefined /*out*/;
+            inputs["administratorLoginPassword"] = undefined /*out*/;
+            inputs["availabilityZone"] = undefined /*out*/;
+            inputs["createMode"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["haState"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["pointInTimeUTC"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["sourceServerName"] = undefined /*out*/;
+            inputs["standbyCount"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["storageProfile"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
+            inputs["vnetInjArgs"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

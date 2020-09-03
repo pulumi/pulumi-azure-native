@@ -19,7 +19,7 @@ export class Rollout extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Rollout {
-        return new Rollout(name, undefined, { ...opts, id: id });
+        return new Rollout(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class Rollout extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RolloutArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RolloutArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RolloutArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RolloutArgs | undefined;
             if (!args || args.buildVersion === undefined) {
                 throw new Error("Missing required property 'buildVersion'");
             }
@@ -117,6 +114,16 @@ export class Rollout extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetServiceTopologyId"] = args ? args.targetServiceTopologyId : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["artifactSourceId"] = undefined /*out*/;
+            inputs["buildVersion"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["stepGroups"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["targetServiceTopologyId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

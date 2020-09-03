@@ -19,7 +19,7 @@ export class Api extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Api {
-        return new Api(name, undefined, { ...opts, id: id });
+        return new Api(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -108,12 +108,9 @@ export class Api extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApiArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApiArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApiArgs | undefined;
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
@@ -147,6 +144,23 @@ export class Api extends pulumi.CustomResource {
             inputs["isCurrent"] = undefined /*out*/;
             inputs["isOnline"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["apiRevision"] = undefined /*out*/;
+            inputs["apiType"] = undefined /*out*/;
+            inputs["apiVersion"] = undefined /*out*/;
+            inputs["apiVersionSet"] = undefined /*out*/;
+            inputs["apiVersionSetId"] = undefined /*out*/;
+            inputs["authenticationSettings"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["isCurrent"] = undefined /*out*/;
+            inputs["isOnline"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["path"] = undefined /*out*/;
+            inputs["protocols"] = undefined /*out*/;
+            inputs["serviceUrl"] = undefined /*out*/;
+            inputs["subscriptionKeyParameterNames"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

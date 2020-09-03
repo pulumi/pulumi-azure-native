@@ -19,7 +19,7 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SourceControlConfiguration {
-        return new SourceControlConfiguration(name, undefined, { ...opts, id: id });
+        return new SourceControlConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -96,12 +96,9 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SourceControlConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SourceControlConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SourceControlConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SourceControlConfigurationArgs | undefined;
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -134,6 +131,20 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["repositoryPublicKey"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["complianceStatus"] = undefined /*out*/;
+            inputs["enableHelmOperator"] = undefined /*out*/;
+            inputs["helmOperatorProperties"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["operatorInstanceName"] = undefined /*out*/;
+            inputs["operatorNamespace"] = undefined /*out*/;
+            inputs["operatorParams"] = undefined /*out*/;
+            inputs["operatorScope"] = undefined /*out*/;
+            inputs["operatorType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["repositoryPublicKey"] = undefined /*out*/;
+            inputs["repositoryUrl"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

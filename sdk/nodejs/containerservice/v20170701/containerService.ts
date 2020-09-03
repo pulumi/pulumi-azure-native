@@ -19,7 +19,7 @@ export class ContainerService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContainerService {
-        return new ContainerService(name, undefined, { ...opts, id: id });
+        return new ContainerService(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -96,12 +96,9 @@ export class ContainerService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ContainerServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ContainerServiceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ContainerServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ContainerServiceArgs | undefined;
             if (!args || args.containerServiceName === undefined) {
                 throw new Error("Missing required property 'containerServiceName'");
             }
@@ -135,6 +132,20 @@ export class ContainerService extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["agentPoolProfiles"] = undefined /*out*/;
+            inputs["customProfile"] = undefined /*out*/;
+            inputs["diagnosticsProfile"] = undefined /*out*/;
+            inputs["linuxProfile"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["masterProfile"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["orchestratorProfile"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["servicePrincipalProfile"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["windowsProfile"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

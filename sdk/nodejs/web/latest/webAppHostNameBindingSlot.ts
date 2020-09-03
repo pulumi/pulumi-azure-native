@@ -17,7 +17,7 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppHostNameBindingSlot {
-        return new WebAppHostNameBindingSlot(name, undefined, { ...opts, id: id });
+        return new WebAppHostNameBindingSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -90,12 +90,9 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAppHostNameBindingSlotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebAppHostNameBindingSlotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WebAppHostNameBindingSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WebAppHostNameBindingSlotArgs | undefined;
             if (!args || args.hostName === undefined) {
                 throw new Error("Missing required property 'hostName'");
             }
@@ -121,6 +118,19 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["sslState"] = args ? args.sslState : undefined;
             inputs["thumbprint"] = args ? args.thumbprint : undefined;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualIP"] = undefined /*out*/;
+        } else {
+            inputs["azureResourceName"] = undefined /*out*/;
+            inputs["azureResourceType"] = undefined /*out*/;
+            inputs["customHostNameDnsRecordType"] = undefined /*out*/;
+            inputs["domainId"] = undefined /*out*/;
+            inputs["hostNameType"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["siteName"] = undefined /*out*/;
+            inputs["sslState"] = undefined /*out*/;
+            inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualIP"] = undefined /*out*/;
         }

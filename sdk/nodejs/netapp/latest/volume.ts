@@ -19,7 +19,7 @@ export class Volume extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Volume {
-        return new Volume(name, undefined, { ...opts, id: id });
+        return new Volume(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -133,12 +133,9 @@ export class Volume extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VolumeArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -190,6 +187,30 @@ export class Volume extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["backupId"] = undefined /*out*/;
+            inputs["baremetalTenantId"] = undefined /*out*/;
+            inputs["creationToken"] = undefined /*out*/;
+            inputs["dataProtection"] = undefined /*out*/;
+            inputs["exportPolicy"] = undefined /*out*/;
+            inputs["fileSystemId"] = undefined /*out*/;
+            inputs["isRestoring"] = undefined /*out*/;
+            inputs["kerberosEnabled"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["mountTargets"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["protocolTypes"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["securityStyle"] = undefined /*out*/;
+            inputs["serviceLevel"] = undefined /*out*/;
+            inputs["snapshotDirectoryVisible"] = undefined /*out*/;
+            inputs["snapshotId"] = undefined /*out*/;
+            inputs["subnetId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["throughputMibps"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["usageThreshold"] = undefined /*out*/;
+            inputs["volumeType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

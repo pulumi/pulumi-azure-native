@@ -19,7 +19,7 @@ export class ManagedCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedCluster {
-        return new ManagedCluster(name, undefined, { ...opts, id: id });
+        return new ManagedCluster(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -158,12 +158,9 @@ export class ManagedCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ManagedClusterArgs | undefined;
             if (!args || args.adminUserName === undefined) {
                 throw new Error("Missing required property 'adminUserName'");
             }
@@ -206,6 +203,32 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["adminPassword"] = undefined /*out*/;
+            inputs["adminUserName"] = undefined /*out*/;
+            inputs["azureActiveDirectory"] = undefined /*out*/;
+            inputs["clientConnectionPort"] = undefined /*out*/;
+            inputs["clients"] = undefined /*out*/;
+            inputs["clusterCertificateThumbprint"] = undefined /*out*/;
+            inputs["clusterCodeVersion"] = undefined /*out*/;
+            inputs["clusterId"] = undefined /*out*/;
+            inputs["clusterState"] = undefined /*out*/;
+            inputs["clusterUpgradeDescription"] = undefined /*out*/;
+            inputs["clusterUpgradeMode"] = undefined /*out*/;
+            inputs["dnsName"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["fabricSettings"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["httpGatewayConnectionPort"] = undefined /*out*/;
+            inputs["loadBalancingRules"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["reverseProxyEndpointPort"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["useTestExtension"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

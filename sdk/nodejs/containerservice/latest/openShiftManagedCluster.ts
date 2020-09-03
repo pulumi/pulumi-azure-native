@@ -19,7 +19,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OpenShiftManagedCluster {
-        return new OpenShiftManagedCluster(name, undefined, { ...opts, id: id });
+        return new OpenShiftManagedCluster(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as OpenShiftManagedClusterArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -138,6 +135,22 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicHostname"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["agentPoolProfiles"] = undefined /*out*/;
+            inputs["authProfile"] = undefined /*out*/;
+            inputs["clusterVersion"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["masterPoolProfile"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkProfile"] = undefined /*out*/;
+            inputs["openShiftVersion"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicHostname"] = undefined /*out*/;
+            inputs["routerProfiles"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

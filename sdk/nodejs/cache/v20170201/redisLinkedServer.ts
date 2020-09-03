@@ -17,7 +17,7 @@ export class RedisLinkedServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RedisLinkedServer {
-        return new RedisLinkedServer(name, undefined, { ...opts, id: id });
+        return new RedisLinkedServer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -66,12 +66,9 @@ export class RedisLinkedServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RedisLinkedServerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RedisLinkedServerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RedisLinkedServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RedisLinkedServerArgs | undefined;
             if (!args || args.linkedRedisCacheId === undefined) {
                 throw new Error("Missing required property 'linkedRedisCacheId'");
             }
@@ -97,6 +94,13 @@ export class RedisLinkedServer extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverRole"] = args ? args.serverRole : undefined;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["linkedRedisCacheId"] = undefined /*out*/;
+            inputs["linkedRedisCacheLocation"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["serverRole"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -19,7 +19,7 @@ export class OuContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OuContainer {
-        return new OuContainer(name, undefined, { ...opts, id: id });
+        return new OuContainer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -92,12 +92,9 @@ export class OuContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OuContainerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OuContainerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: OuContainerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as OuContainerArgs | undefined;
             if (!args || args.domainServiceName === undefined) {
                 throw new Error("Missing required property 'domainServiceName'");
             }
@@ -113,6 +110,19 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["spn"] = args ? args.spn : undefined;
+            inputs["accounts"] = undefined /*out*/;
+            inputs["containerId"] = undefined /*out*/;
+            inputs["deploymentId"] = undefined /*out*/;
+            inputs["domainName"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["serviceStatus"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
             inputs["accounts"] = undefined /*out*/;
             inputs["containerId"] = undefined /*out*/;
             inputs["deploymentId"] = undefined /*out*/;

@@ -19,7 +19,7 @@ export class Watchlist extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Watchlist {
-        return new Watchlist(name, undefined, { ...opts, id: id });
+        return new Watchlist(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -116,12 +116,9 @@ export class Watchlist extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WatchlistArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WatchlistArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WatchlistArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WatchlistArgs | undefined;
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -165,6 +162,25 @@ export class Watchlist extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["createdTimeUtc"] = undefined /*out*/;
+            inputs["defaultDuration"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["labels"] = undefined /*out*/;
+            inputs["lastUpdatedTimeUtc"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notes"] = undefined /*out*/;
+            inputs["provider"] = undefined /*out*/;
+            inputs["source"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["updatedBy"] = undefined /*out*/;
+            inputs["watchlistItems"] = undefined /*out*/;
+            inputs["watchlistType"] = undefined /*out*/;
+            inputs["workspaceId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -17,7 +17,7 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppInstanceFunctionSlot {
-        return new WebAppInstanceFunctionSlot(name, undefined, { ...opts, id: id });
+        return new WebAppInstanceFunctionSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -106,12 +106,9 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAppInstanceFunctionSlotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebAppInstanceFunctionSlotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WebAppInstanceFunctionSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WebAppInstanceFunctionSlotArgs | undefined;
             if (!args || args.functionName === undefined) {
                 throw new Error("Missing required property 'functionName'");
             }
@@ -142,6 +139,23 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["testData"] = args ? args.testData : undefined;
             inputs["testDataHref"] = args ? args.testDataHref : undefined;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["config"] = undefined /*out*/;
+            inputs["configHref"] = undefined /*out*/;
+            inputs["files"] = undefined /*out*/;
+            inputs["functionAppId"] = undefined /*out*/;
+            inputs["href"] = undefined /*out*/;
+            inputs["invokeUrlTemplate"] = undefined /*out*/;
+            inputs["isDisabled"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["language"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["scriptHref"] = undefined /*out*/;
+            inputs["scriptRootPathHref"] = undefined /*out*/;
+            inputs["secretsFileHref"] = undefined /*out*/;
+            inputs["testData"] = undefined /*out*/;
+            inputs["testDataHref"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

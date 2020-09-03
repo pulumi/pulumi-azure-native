@@ -19,7 +19,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountGremlinGraph {
-        return new DatabaseAccountGremlinGraph(name, undefined, { ...opts, id: id });
+        return new DatabaseAccountGremlinGraph(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -92,12 +92,9 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatabaseAccountGremlinGraphArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DatabaseAccountGremlinGraphArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DatabaseAccountGremlinGraphArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DatabaseAccountGremlinGraphArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -122,6 +119,19 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["conflictResolutionPolicy"] = undefined /*out*/;
+            inputs["defaultTtl"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["indexingPolicy"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["partitionKey"] = undefined /*out*/;
+            inputs["rid"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["ts"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueKeyPolicy"] = undefined /*out*/;
+        } else {
             inputs["conflictResolutionPolicy"] = undefined /*out*/;
             inputs["defaultTtl"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;

@@ -19,7 +19,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FailoverGroup {
-        return new FailoverGroup(name, undefined, { ...opts, id: id });
+        return new FailoverGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -84,12 +84,9 @@ export class FailoverGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FailoverGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FailoverGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FailoverGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as FailoverGroupArgs | undefined;
             if (!args || args.failoverGroupName === undefined) {
                 throw new Error("Missing required property 'failoverGroupName'");
             }
@@ -117,6 +114,17 @@ export class FailoverGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["replicationRole"] = undefined /*out*/;
             inputs["replicationState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["databases"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["partnerServers"] = undefined /*out*/;
+            inputs["readOnlyEndpoint"] = undefined /*out*/;
+            inputs["readWriteEndpoint"] = undefined /*out*/;
+            inputs["replicationRole"] = undefined /*out*/;
+            inputs["replicationState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

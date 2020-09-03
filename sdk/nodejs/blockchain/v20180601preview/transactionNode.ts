@@ -19,7 +19,7 @@ export class TransactionNode extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TransactionNode {
-        return new TransactionNode(name, undefined, { ...opts, id: id });
+        return new TransactionNode(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class TransactionNode extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TransactionNodeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TransactionNodeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TransactionNodeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TransactionNodeArgs | undefined;
             if (!args || args.blockchainMemberName === undefined) {
                 throw new Error("Missing required property 'blockchainMemberName'");
             }
@@ -103,6 +100,16 @@ export class TransactionNode extends pulumi.CustomResource {
             inputs["transactionNodeName"] = args ? args.transactionNodeName : undefined;
             inputs["dns"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicKey"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userName"] = undefined /*out*/;
+        } else {
+            inputs["dns"] = undefined /*out*/;
+            inputs["firewallRules"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["password"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicKey"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

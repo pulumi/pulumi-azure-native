@@ -19,7 +19,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConnectedCluster {
-        return new ConnectedCluster(name, undefined, { ...opts, id: id });
+        return new ConnectedCluster(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -85,12 +85,9 @@ export class ConnectedCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConnectedClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ConnectedClusterArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ConnectedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ConnectedClusterArgs | undefined;
             if (!args || args.aadProfile === undefined) {
                 throw new Error("Missing required property 'aadProfile'");
             }
@@ -120,6 +117,18 @@ export class ConnectedCluster extends pulumi.CustomResource {
             inputs["agentVersion"] = undefined /*out*/;
             inputs["kubernetesVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["totalNodeCount"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["aadProfile"] = undefined /*out*/;
+            inputs["agentPublicKeyCertificate"] = undefined /*out*/;
+            inputs["agentVersion"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["kubernetesVersion"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["totalNodeCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

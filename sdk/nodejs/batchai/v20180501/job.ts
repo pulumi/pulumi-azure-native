@@ -19,7 +19,7 @@ export class Job extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Job {
-        return new Job(name, undefined, { ...opts, id: id });
+        return new Job(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -168,12 +168,9 @@ export class Job extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JobArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as JobArgs | undefined;
             if (!args || args.cluster === undefined) {
                 throw new Error("Missing required property 'cluster'");
             }
@@ -228,6 +225,38 @@ export class Job extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["provisioningStateTransitionTime"] = undefined /*out*/;
+            inputs["toolType"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["caffe2Settings"] = undefined /*out*/;
+            inputs["caffeSettings"] = undefined /*out*/;
+            inputs["chainerSettings"] = undefined /*out*/;
+            inputs["cluster"] = undefined /*out*/;
+            inputs["cntkSettings"] = undefined /*out*/;
+            inputs["constraints"] = undefined /*out*/;
+            inputs["containerSettings"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["customMpiSettings"] = undefined /*out*/;
+            inputs["customToolkitSettings"] = undefined /*out*/;
+            inputs["environmentVariables"] = undefined /*out*/;
+            inputs["executionInfo"] = undefined /*out*/;
+            inputs["executionState"] = undefined /*out*/;
+            inputs["executionStateTransitionTime"] = undefined /*out*/;
+            inputs["horovodSettings"] = undefined /*out*/;
+            inputs["inputDirectories"] = undefined /*out*/;
+            inputs["jobOutputDirectoryPathSegment"] = undefined /*out*/;
+            inputs["jobPreparation"] = undefined /*out*/;
+            inputs["mountVolumes"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nodeCount"] = undefined /*out*/;
+            inputs["outputDirectories"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["provisioningStateTransitionTime"] = undefined /*out*/;
+            inputs["pyTorchSettings"] = undefined /*out*/;
+            inputs["schedulingPriority"] = undefined /*out*/;
+            inputs["secrets"] = undefined /*out*/;
+            inputs["stdOutErrPathPrefix"] = undefined /*out*/;
+            inputs["tensorFlowSettings"] = undefined /*out*/;
             inputs["toolType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

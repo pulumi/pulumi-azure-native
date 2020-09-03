@@ -19,7 +19,7 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReportConfigByResourceGroupName {
-        return new ReportConfigByResourceGroupName(name, undefined, { ...opts, id: id });
+        return new ReportConfigByResourceGroupName(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -72,12 +72,9 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReportConfigByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ReportConfigByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ReportConfigByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ReportConfigByResourceGroupNameArgs | undefined;
             if (!args || args.definition === undefined) {
                 throw new Error("Missing required property 'definition'");
             }
@@ -97,6 +94,14 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["definition"] = undefined /*out*/;
+            inputs["deliveryInfo"] = undefined /*out*/;
+            inputs["format"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["schedule"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

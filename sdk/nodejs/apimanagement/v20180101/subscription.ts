@@ -17,7 +17,7 @@ export class Subscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Subscription {
-        return new Subscription(name, undefined, { ...opts, id: id });
+        return new Subscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -98,12 +98,9 @@ export class Subscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SubscriptionArgs | undefined;
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -140,6 +137,21 @@ export class Subscription extends pulumi.CustomResource {
             inputs["startDate"] = undefined /*out*/;
             inputs["stateComment"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["endDate"] = undefined /*out*/;
+            inputs["expirationDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notificationDate"] = undefined /*out*/;
+            inputs["primaryKey"] = undefined /*out*/;
+            inputs["productId"] = undefined /*out*/;
+            inputs["secondaryKey"] = undefined /*out*/;
+            inputs["startDate"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["stateComment"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

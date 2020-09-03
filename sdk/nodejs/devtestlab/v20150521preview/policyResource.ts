@@ -17,7 +17,7 @@ export class PolicyResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PolicyResource {
-        return new PolicyResource(name, undefined, { ...opts, id: id });
+        return new PolicyResource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -86,12 +86,9 @@ export class PolicyResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyResourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyResourceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicyResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PolicyResourceArgs | undefined;
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
             }
@@ -119,6 +116,18 @@ export class PolicyResource extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threshold"] = args ? args.threshold : undefined;
             inputs["type"] = args ? args.type : undefined;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["evaluatorType"] = undefined /*out*/;
+            inputs["factData"] = undefined /*out*/;
+            inputs["factName"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["threshold"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

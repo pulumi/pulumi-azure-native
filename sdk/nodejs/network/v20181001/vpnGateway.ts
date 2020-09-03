@@ -19,7 +19,7 @@ export class VpnGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VpnGateway {
-        return new VpnGateway(name, undefined, { ...opts, id: id });
+        return new VpnGateway(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -84,12 +84,9 @@ export class VpnGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpnGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpnGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpnGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VpnGatewayArgs | undefined;
             if (!args || args.gatewayName === undefined) {
                 throw new Error("Missing required property 'gatewayName'");
             }
@@ -112,6 +109,17 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["bgpSettings"] = undefined /*out*/;
+            inputs["connections"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualHub"] = undefined /*out*/;
+            inputs["vpnGatewayScaleUnit"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

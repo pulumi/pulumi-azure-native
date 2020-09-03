@@ -19,7 +19,7 @@ export class NodeType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NodeType {
-        return new NodeType(name, undefined, { ...opts, id: id });
+        return new NodeType(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -116,12 +116,9 @@ export class NodeType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NodeTypeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NodeTypeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NodeTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as NodeTypeArgs | undefined;
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -161,6 +158,25 @@ export class NodeType extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["applicationPorts"] = undefined /*out*/;
+            inputs["capacities"] = undefined /*out*/;
+            inputs["dataDiskSizeGB"] = undefined /*out*/;
+            inputs["ephemeralPorts"] = undefined /*out*/;
+            inputs["isPrimary"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["placementProperties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vmExtensions"] = undefined /*out*/;
+            inputs["vmImageOffer"] = undefined /*out*/;
+            inputs["vmImagePublisher"] = undefined /*out*/;
+            inputs["vmImageSku"] = undefined /*out*/;
+            inputs["vmImageVersion"] = undefined /*out*/;
+            inputs["vmInstanceCount"] = undefined /*out*/;
+            inputs["vmSecrets"] = undefined /*out*/;
+            inputs["vmSize"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

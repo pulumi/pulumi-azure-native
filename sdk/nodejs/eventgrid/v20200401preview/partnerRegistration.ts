@@ -17,7 +17,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PartnerRegistration {
-        return new PartnerRegistration(name, undefined, { ...opts, id: id });
+        return new PartnerRegistration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -118,12 +118,9 @@ export class PartnerRegistration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PartnerRegistrationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PartnerRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PartnerRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PartnerRegistrationArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -152,6 +149,24 @@ export class PartnerRegistration extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["authorizedAzureSubscriptionIds"] = undefined /*out*/;
+            inputs["customerServiceUri"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["logoUri"] = undefined /*out*/;
+            inputs["longDescription"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["partnerCustomerServiceExtension"] = undefined /*out*/;
+            inputs["partnerCustomerServiceNumber"] = undefined /*out*/;
+            inputs["partnerName"] = undefined /*out*/;
+            inputs["partnerResourceTypeDescription"] = undefined /*out*/;
+            inputs["partnerResourceTypeDisplayName"] = undefined /*out*/;
+            inputs["partnerResourceTypeName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["setupUri"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["visibilityState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

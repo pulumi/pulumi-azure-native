@@ -19,7 +19,7 @@ export class Job extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Job {
-        return new Job(name, undefined, { ...opts, id: id });
+        return new Job(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -64,12 +64,9 @@ export class Job extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JobArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as JobArgs | undefined;
             if (!args || args.jobAgentName === undefined) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
@@ -89,6 +86,12 @@ export class Job extends pulumi.CustomResource {
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["schedule"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }

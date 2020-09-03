@@ -19,7 +19,7 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): InstanceFailoverGroup {
-        return new InstanceFailoverGroup(name, undefined, { ...opts, id: id });
+        return new InstanceFailoverGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: InstanceFailoverGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: InstanceFailoverGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: InstanceFailoverGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as InstanceFailoverGroupArgs | undefined;
             if (!args || args.failoverGroupName === undefined) {
                 throw new Error("Missing required property 'failoverGroupName'");
             }
@@ -108,6 +105,15 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
             inputs["readWriteEndpoint"] = args ? args.readWriteEndpoint : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["replicationRole"] = undefined /*out*/;
+            inputs["replicationState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["managedInstancePairs"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["partnerRegions"] = undefined /*out*/;
+            inputs["readOnlyEndpoint"] = undefined /*out*/;
+            inputs["readWriteEndpoint"] = undefined /*out*/;
             inputs["replicationRole"] = undefined /*out*/;
             inputs["replicationState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

@@ -17,7 +17,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MaintenanceWindow {
-        return new MaintenanceWindow(name, undefined, { ...opts, id: id });
+        return new MaintenanceWindow(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -66,12 +66,9 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MaintenanceWindowArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MaintenanceWindowArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MaintenanceWindowArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as MaintenanceWindowArgs | undefined;
             if (!args || args.dayOfWeek === undefined) {
                 throw new Error("Missing required property 'dayOfWeek'");
             }
@@ -98,6 +95,13 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             inputs["startHour"] = args ? args.startHour : undefined;
             inputs["startMinute"] = args ? args.startMinute : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["dayOfWeek"] = undefined /*out*/;
+            inputs["durationInMinutes"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["startHour"] = undefined /*out*/;
+            inputs["startMinute"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

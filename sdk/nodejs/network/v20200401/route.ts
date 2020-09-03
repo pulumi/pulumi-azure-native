@@ -17,7 +17,7 @@ export class Route extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Route {
-        return new Route(name, undefined, { ...opts, id: id });
+        return new Route(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -66,12 +66,9 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RouteArgs | undefined;
             if (!args || args.nextHopType === undefined) {
                 throw new Error("Missing required property 'nextHopType'");
             }
@@ -93,6 +90,13 @@ export class Route extends pulumi.CustomResource {
             inputs["routeName"] = args ? args.routeName : undefined;
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["addressPrefix"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nextHopIpAddress"] = undefined /*out*/;
+            inputs["nextHopType"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {

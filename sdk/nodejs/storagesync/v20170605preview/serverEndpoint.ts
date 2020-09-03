@@ -17,7 +17,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerEndpoint {
-        return new ServerEndpoint(name, undefined, { ...opts, id: id });
+        return new ServerEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -130,12 +130,9 @@ export class ServerEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerEndpointArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServerEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServerEndpointArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -174,6 +171,29 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["volumeFreeSpacePercent"] = args ? args.volumeFreeSpacePercent : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["byteProgress"] = undefined /*out*/;
+            inputs["byteTotal"] = undefined /*out*/;
+            inputs["cloudTiering"] = undefined /*out*/;
+            inputs["currentProgressType"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
+            inputs["itemDownloadErrorCount"] = undefined /*out*/;
+            inputs["itemProgressCount"] = undefined /*out*/;
+            inputs["itemTotalCount"] = undefined /*out*/;
+            inputs["itemUploadErrorCount"] = undefined /*out*/;
+            inputs["lastSyncSuccess"] = undefined /*out*/;
+            inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["serverLocalPath"] = undefined /*out*/;
+            inputs["serverResourceId"] = undefined /*out*/;
+            inputs["syncErrorContext"] = undefined /*out*/;
+            inputs["syncErrorDirection"] = undefined /*out*/;
+            inputs["syncErrorState"] = undefined /*out*/;
+            inputs["syncErrorStateTimestamp"] = undefined /*out*/;
+            inputs["totalProgress"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["volumeFreeSpacePercent"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

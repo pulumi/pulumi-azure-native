@@ -17,7 +17,7 @@ export class HybridConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HybridConnection {
-        return new HybridConnection(name, undefined, { ...opts, id: id });
+        return new HybridConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -70,12 +70,9 @@ export class HybridConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HybridConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HybridConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: HybridConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as HybridConnectionArgs | undefined;
             if (!args || args.hybridConnectionName === undefined) {
                 throw new Error("Missing required property 'hybridConnectionName'");
             }
@@ -95,6 +92,14 @@ export class HybridConnection extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
+        } else {
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["listenerCount"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["requiresClientAuthorization"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
+            inputs["userMetadata"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

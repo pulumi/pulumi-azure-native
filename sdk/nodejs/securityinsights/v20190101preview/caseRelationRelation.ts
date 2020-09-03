@@ -19,7 +19,7 @@ export class CaseRelationRelation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CaseRelationRelation {
-        return new CaseRelationRelation(name, undefined, { ...opts, id: id });
+        return new CaseRelationRelation(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class CaseRelationRelation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CaseRelationRelationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CaseRelationRelationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CaseRelationRelationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as CaseRelationRelationArgs | undefined;
             if (!args || args.caseId === undefined) {
                 throw new Error("Missing required property 'caseId'");
             }
@@ -110,6 +107,15 @@ export class CaseRelationRelation extends pulumi.CustomResource {
             inputs["caseIdentifier"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["bookmarkId"] = undefined /*out*/;
+            inputs["bookmarkName"] = undefined /*out*/;
+            inputs["caseIdentifier"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["relationName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

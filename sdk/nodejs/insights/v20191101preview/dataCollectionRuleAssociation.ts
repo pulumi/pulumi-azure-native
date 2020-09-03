@@ -17,7 +17,7 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataCollectionRuleAssociation {
-        return new DataCollectionRuleAssociation(name, undefined, { ...opts, id: id });
+        return new DataCollectionRuleAssociation(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -66,12 +66,9 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DataCollectionRuleAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DataCollectionRuleAssociationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataCollectionRuleAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DataCollectionRuleAssociationArgs | undefined;
             if (!args || args.associationName === undefined) {
                 throw new Error("Missing required property 'associationName'");
             }
@@ -85,6 +82,13 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
             inputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["resourceUri"] = args ? args.resourceUri : undefined;
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["dataCollectionRuleId"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;

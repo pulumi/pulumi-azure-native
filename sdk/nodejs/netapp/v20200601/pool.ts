@@ -17,7 +17,7 @@ export class Pool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Pool {
-        return new Pool(name, undefined, { ...opts, id: id });
+        return new Pool(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -86,12 +86,9 @@ export class Pool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PoolArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PoolArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -121,6 +118,18 @@ export class Pool extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["poolId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["totalThroughputMibps"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["utilizedThroughputMibps"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["poolId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["qosType"] = undefined /*out*/;
+            inputs["serviceLevel"] = undefined /*out*/;
+            inputs["size"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["totalThroughputMibps"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["utilizedThroughputMibps"] = undefined /*out*/;

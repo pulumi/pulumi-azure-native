@@ -19,7 +19,7 @@ export class ImportPipeline extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ImportPipeline {
-        return new ImportPipeline(name, undefined, { ...opts, id: id });
+        return new ImportPipeline(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class ImportPipeline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ImportPipelineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ImportPipelineArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ImportPipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ImportPipelineArgs | undefined;
             if (!args || args.importPipelineName === undefined) {
                 throw new Error("Missing required property 'importPipelineName'");
             }
@@ -104,6 +101,15 @@ export class ImportPipeline extends pulumi.CustomResource {
             inputs["trigger"] = args ? args.trigger : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["options"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["source"] = undefined /*out*/;
+            inputs["trigger"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

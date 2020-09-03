@@ -19,7 +19,7 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventSubscription {
-        return new EventSubscription(name, undefined, { ...opts, id: id });
+        return new EventSubscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -84,12 +84,9 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as EventSubscriptionArgs | undefined;
             if (!args || args.eventSubscriptionName === undefined) {
                 throw new Error("Missing required property 'eventSubscriptionName'");
             }
@@ -106,6 +103,17 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["topic"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["deadLetterDestination"] = undefined /*out*/;
+            inputs["destination"] = undefined /*out*/;
+            inputs["expirationTimeUtc"] = undefined /*out*/;
+            inputs["filter"] = undefined /*out*/;
+            inputs["labels"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["retryPolicy"] = undefined /*out*/;
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

@@ -17,7 +17,7 @@ export class WorkspaceSetting extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WorkspaceSetting {
-        return new WorkspaceSetting(name, undefined, { ...opts, id: id });
+        return new WorkspaceSetting(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -58,12 +58,9 @@ export class WorkspaceSetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WorkspaceSettingArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WorkspaceSettingArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WorkspaceSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WorkspaceSettingArgs | undefined;
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -78,6 +75,11 @@ export class WorkspaceSetting extends pulumi.CustomResource {
             inputs["workspaceSettingName"] = args ? args.workspaceSettingName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["scope"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["workspaceId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

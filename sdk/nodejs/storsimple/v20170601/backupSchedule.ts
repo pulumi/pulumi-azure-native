@@ -19,7 +19,7 @@ export class BackupSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BackupSchedule {
-        return new BackupSchedule(name, undefined, { ...opts, id: id });
+        return new BackupSchedule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class BackupSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BackupScheduleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BackupScheduleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BackupScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BackupScheduleArgs | undefined;
             if (!args || args.backupPolicyName === undefined) {
                 throw new Error("Missing required property 'backupPolicyName'");
             }
@@ -129,6 +126,16 @@ export class BackupSchedule extends pulumi.CustomResource {
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["lastSuccessfulRun"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["backupType"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["lastSuccessfulRun"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["retentionCount"] = undefined /*out*/;
+            inputs["scheduleRecurrence"] = undefined /*out*/;
+            inputs["scheduleStatus"] = undefined /*out*/;
+            inputs["startTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -19,7 +19,7 @@ export class Webhook extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Webhook {
-        return new Webhook(name, undefined, { ...opts, id: id });
+        return new Webhook(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -96,12 +96,9 @@ export class Webhook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebhookArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WebhookArgs | undefined;
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
@@ -130,6 +127,20 @@ export class Webhook extends pulumi.CustomResource {
             inputs["lastModifiedBy"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["expiryTime"] = undefined /*out*/;
+            inputs["isEnabled"] = undefined /*out*/;
+            inputs["lastInvokedTime"] = undefined /*out*/;
+            inputs["lastModifiedBy"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["parameters"] = undefined /*out*/;
+            inputs["runOn"] = undefined /*out*/;
+            inputs["runbook"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uri"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

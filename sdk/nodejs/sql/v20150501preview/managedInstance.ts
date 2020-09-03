@@ -19,7 +19,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedInstance {
-        return new ManagedInstance(name, undefined, { ...opts, id: id });
+        return new ManagedInstance(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -157,12 +157,9 @@ export class ManagedInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagedInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagedInstanceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagedInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ManagedInstanceArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -200,6 +197,33 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["administratorLogin"] = undefined /*out*/;
+            inputs["administratorLoginPassword"] = undefined /*out*/;
+            inputs["collation"] = undefined /*out*/;
+            inputs["dnsZone"] = undefined /*out*/;
+            inputs["dnsZonePartner"] = undefined /*out*/;
+            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["instancePoolId"] = undefined /*out*/;
+            inputs["licenseType"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maintenanceConfigurationId"] = undefined /*out*/;
+            inputs["managedInstanceCreateMode"] = undefined /*out*/;
+            inputs["minimalTlsVersion"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["proxyOverride"] = undefined /*out*/;
+            inputs["publicDataEndpointEnabled"] = undefined /*out*/;
+            inputs["restorePointInTime"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["sourceManagedInstanceId"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["storageSizeInGB"] = undefined /*out*/;
+            inputs["subnetId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["timezoneId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vCores"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

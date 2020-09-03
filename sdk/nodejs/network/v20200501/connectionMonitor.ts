@@ -19,7 +19,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConnectionMonitor {
-        return new ConnectionMonitor(name, undefined, { ...opts, id: id });
+        return new ConnectionMonitor(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -116,12 +116,9 @@ export class ConnectionMonitor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConnectionMonitorArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ConnectionMonitorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ConnectionMonitorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ConnectionMonitorArgs | undefined;
             if (!args || args.connectionMonitorName === undefined) {
                 throw new Error("Missing required property 'connectionMonitorName'");
             }
@@ -151,6 +148,25 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["startTime"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["autoStart"] = undefined /*out*/;
+            inputs["connectionMonitorType"] = undefined /*out*/;
+            inputs["destination"] = undefined /*out*/;
+            inputs["endpoints"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["monitoringIntervalInSeconds"] = undefined /*out*/;
+            inputs["monitoringStatus"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notes"] = undefined /*out*/;
+            inputs["outputs"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["source"] = undefined /*out*/;
+            inputs["startTime"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["testConfigurations"] = undefined /*out*/;
+            inputs["testGroups"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
