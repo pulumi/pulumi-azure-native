@@ -1,3 +1,6 @@
 [submodule "azure-rest-api-specs"]
 	path = azure-rest-api-specs
 	url = https://github.com/Azure/azure-rest-api-specs
+[submodule "provider/pkg/gen/internal/test/testdata/azure-quickstart-templates"]
+	path = provider/pkg/gen/internal/test/testdata/azure-quickstart-templates
+	url = https://github.com/Azure/azure-quickstart-templates.git
