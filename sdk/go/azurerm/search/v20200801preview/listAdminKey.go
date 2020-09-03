@@ -25,8 +25,8 @@ type ListAdminKeyArgs struct {
 
 // Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
 type ListAdminKeyResult struct {
-	// The primary admin API key of the Search service.
+	// The primary admin API key of the search service.
 	PrimaryKey string `pulumi:"primaryKey"`
-	// The secondary admin API key of the Search service.
+	// The secondary admin API key of the search service.
 	SecondaryKey string `pulumi:"secondaryKey"`
 }

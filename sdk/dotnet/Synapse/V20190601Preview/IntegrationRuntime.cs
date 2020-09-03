@@ -15,13 +15,13 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {
         /// <summary>
-        /// Etag identifies change in the resource.
+        /// Resource Etag.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         public Output<Outputs.IntegrationRuntimeResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

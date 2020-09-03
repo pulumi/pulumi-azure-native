@@ -20,10 +20,12 @@ from .get_data_connector import *
 from .get_incident import *
 from .get_incident_relation_relation import *
 from .get_product_setting import *
+from .get_threat_intelligence_indicator import *
 from .get_watchlist import *
 from .incident import *
 from .incident_relation_relation import *
 from .product_setting import *
+from .threat_intelligence_indicator import *
 from .watchlist import *
 from ._inputs import *
 from . import outputs

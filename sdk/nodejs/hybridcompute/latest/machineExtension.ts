@@ -47,7 +47,7 @@ export class MachineExtension extends pulumi.CustomResource {
     /**
      * The machine extension instance view.
      */
-    public readonly instanceView!: pulumi.Output<outputs.hybridcompute.latest.MachineExtensionPropertiesResponseInstanceView | undefined>;
+    public /*out*/ readonly instanceView!: pulumi.Output<outputs.hybridcompute.latest.MachineExtensionPropertiesResponseInstanceView | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -113,7 +113,6 @@ export class MachineExtension extends pulumi.CustomResource {
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
             inputs["extensionName"] = args ? args.extensionName : undefined;
             inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            inputs["instanceView"] = args ? args.instanceView : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
@@ -123,6 +122,7 @@ export class MachineExtension extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            inputs["instanceView"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
@@ -154,10 +154,6 @@ export interface MachineExtensionArgs {
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
     readonly forceUpdateTag?: pulumi.Input<string>;
-    /**
-     * The machine extension instance view.
-     */
-    readonly instanceView?: pulumi.Input<inputs.hybridcompute.latest.MachineExtensionPropertiesInstanceView>;
     /**
      * The geo-location where the resource lives
      */

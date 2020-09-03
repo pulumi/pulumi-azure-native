@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview.Inputs
     public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        /// </summary>
+        [Input("capacity")]
+        public Input<int>? Capacity { get; set; }
+
+        /// <summary>
         /// The SKU name
         /// </summary>
         [Input("name")]

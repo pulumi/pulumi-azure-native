@@ -135,142 +135,15 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 }
 
 // Describes the Machine Extension Instance View.
-type MachineExtensionInstanceView struct {
-	// The machine extension name.
-	Name *string `pulumi:"name"`
-	// Instance view status.
-	Status *MachineExtensionInstanceViewStatus `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
-}
-
-// MachineExtensionInstanceViewInput is an input type that accepts MachineExtensionInstanceViewArgs and MachineExtensionInstanceViewOutput values.
-// You can construct a concrete instance of `MachineExtensionInstanceViewInput` via:
-//
-//          MachineExtensionInstanceViewArgs{...}
-type MachineExtensionInstanceViewInput interface {
-	pulumi.Input
-
-	ToMachineExtensionInstanceViewOutput() MachineExtensionInstanceViewOutput
-	ToMachineExtensionInstanceViewOutputWithContext(context.Context) MachineExtensionInstanceViewOutput
-}
-
-// Describes the Machine Extension Instance View.
-type MachineExtensionInstanceViewArgs struct {
-	// The machine extension name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Instance view status.
-	Status MachineExtensionInstanceViewStatusPtrInput `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
-}
-
-func (MachineExtensionInstanceViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtensionInstanceView)(nil)).Elem()
-}
-
-func (i MachineExtensionInstanceViewArgs) ToMachineExtensionInstanceViewOutput() MachineExtensionInstanceViewOutput {
-	return i.ToMachineExtensionInstanceViewOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionInstanceViewArgs) ToMachineExtensionInstanceViewOutputWithContext(ctx context.Context) MachineExtensionInstanceViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewOutput)
-}
-
-// MachineExtensionInstanceViewArrayInput is an input type that accepts MachineExtensionInstanceViewArray and MachineExtensionInstanceViewArrayOutput values.
-// You can construct a concrete instance of `MachineExtensionInstanceViewArrayInput` via:
-//
-//          MachineExtensionInstanceViewArray{ MachineExtensionInstanceViewArgs{...} }
-type MachineExtensionInstanceViewArrayInput interface {
-	pulumi.Input
-
-	ToMachineExtensionInstanceViewArrayOutput() MachineExtensionInstanceViewArrayOutput
-	ToMachineExtensionInstanceViewArrayOutputWithContext(context.Context) MachineExtensionInstanceViewArrayOutput
-}
-
-type MachineExtensionInstanceViewArray []MachineExtensionInstanceViewInput
-
-func (MachineExtensionInstanceViewArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MachineExtensionInstanceView)(nil)).Elem()
-}
-
-func (i MachineExtensionInstanceViewArray) ToMachineExtensionInstanceViewArrayOutput() MachineExtensionInstanceViewArrayOutput {
-	return i.ToMachineExtensionInstanceViewArrayOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionInstanceViewArray) ToMachineExtensionInstanceViewArrayOutputWithContext(ctx context.Context) MachineExtensionInstanceViewArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewArrayOutput)
-}
-
-// Describes the Machine Extension Instance View.
-type MachineExtensionInstanceViewOutput struct{ *pulumi.OutputState }
-
-func (MachineExtensionInstanceViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtensionInstanceView)(nil)).Elem()
-}
-
-func (o MachineExtensionInstanceViewOutput) ToMachineExtensionInstanceViewOutput() MachineExtensionInstanceViewOutput {
-	return o
-}
-
-func (o MachineExtensionInstanceViewOutput) ToMachineExtensionInstanceViewOutputWithContext(ctx context.Context) MachineExtensionInstanceViewOutput {
-	return o
-}
-
-// The machine extension name.
-func (o MachineExtensionInstanceViewOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Instance view status.
-func (o MachineExtensionInstanceViewOutput) Status() MachineExtensionInstanceViewStatusPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceView) *MachineExtensionInstanceViewStatus { return v.Status }).(MachineExtensionInstanceViewStatusPtrOutput)
-}
-
-// Specifies the type of the extension; an example is "CustomScriptExtension".
-func (o MachineExtensionInstanceViewOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the version of the script handler.
-func (o MachineExtensionInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
-}
-
-type MachineExtensionInstanceViewArrayOutput struct{ *pulumi.OutputState }
-
-func (MachineExtensionInstanceViewArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MachineExtensionInstanceView)(nil)).Elem()
-}
-
-func (o MachineExtensionInstanceViewArrayOutput) ToMachineExtensionInstanceViewArrayOutput() MachineExtensionInstanceViewArrayOutput {
-	return o
-}
-
-func (o MachineExtensionInstanceViewArrayOutput) ToMachineExtensionInstanceViewArrayOutputWithContext(ctx context.Context) MachineExtensionInstanceViewArrayOutput {
-	return o
-}
-
-func (o MachineExtensionInstanceViewArrayOutput) Index(i pulumi.IntInput) MachineExtensionInstanceViewOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MachineExtensionInstanceView {
-		return vs[0].([]MachineExtensionInstanceView)[vs[1].(int)]
-	}).(MachineExtensionInstanceViewOutput)
-}
-
-// Describes the Machine Extension Instance View.
 type MachineExtensionInstanceViewResponse struct {
 	// The machine extension name.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Instance view status.
 	Status *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
 }
 
 // MachineExtensionInstanceViewResponseInput is an input type that accepts MachineExtensionInstanceViewResponseArgs and MachineExtensionInstanceViewResponseOutput values.
@@ -287,13 +160,13 @@ type MachineExtensionInstanceViewResponseInput interface {
 // Describes the Machine Extension Instance View.
 type MachineExtensionInstanceViewResponseArgs struct {
 	// The machine extension name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// Instance view status.
 	Status MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
 }
 
 func (MachineExtensionInstanceViewResponseArgs) ElementType() reflect.Type {
@@ -349,8 +222,8 @@ func (o MachineExtensionInstanceViewResponseOutput) ToMachineExtensionInstanceVi
 }
 
 // The machine extension name.
-func (o MachineExtensionInstanceViewResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o MachineExtensionInstanceViewResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Instance view status.
@@ -361,13 +234,13 @@ func (o MachineExtensionInstanceViewResponseOutput) Status() MachineExtensionIns
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
-func (o MachineExtensionInstanceViewResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o MachineExtensionInstanceViewResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Specifies the version of the script handler.
-func (o MachineExtensionInstanceViewResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+func (o MachineExtensionInstanceViewResponseOutput) TypeHandlerVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }
 
 type MachineExtensionInstanceViewResponseArrayOutput struct{ *pulumi.OutputState }
@@ -393,15 +266,15 @@ func (o MachineExtensionInstanceViewResponseArrayOutput) Index(i pulumi.IntInput
 // Instance view status.
 type MachineExtensionInstanceViewResponseStatus struct {
 	// The status code.
-	Code *string `pulumi:"code"`
+	Code string `pulumi:"code"`
 	// The short localizable label for the status.
-	DisplayStatus *string `pulumi:"displayStatus"`
+	DisplayStatus string `pulumi:"displayStatus"`
 	// The level code.
-	Level *string `pulumi:"level"`
+	Level string `pulumi:"level"`
 	// The detailed status message, including for alerts and error messages.
-	Message *string `pulumi:"message"`
+	Message string `pulumi:"message"`
 	// The time of the status.
-	Time *string `pulumi:"time"`
+	Time string `pulumi:"time"`
 }
 
 // MachineExtensionInstanceViewResponseStatusInput is an input type that accepts MachineExtensionInstanceViewResponseStatusArgs and MachineExtensionInstanceViewResponseStatusOutput values.
@@ -418,15 +291,15 @@ type MachineExtensionInstanceViewResponseStatusInput interface {
 // Instance view status.
 type MachineExtensionInstanceViewResponseStatusArgs struct {
 	// The status code.
-	Code pulumi.StringPtrInput `pulumi:"code"`
+	Code pulumi.StringInput `pulumi:"code"`
 	// The short localizable label for the status.
-	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
+	DisplayStatus pulumi.StringInput `pulumi:"displayStatus"`
 	// The level code.
-	Level pulumi.StringPtrInput `pulumi:"level"`
+	Level pulumi.StringInput `pulumi:"level"`
 	// The detailed status message, including for alerts and error messages.
-	Message pulumi.StringPtrInput `pulumi:"message"`
+	Message pulumi.StringInput `pulumi:"message"`
 	// The time of the status.
-	Time pulumi.StringPtrInput `pulumi:"time"`
+	Time pulumi.StringInput `pulumi:"time"`
 }
 
 func (MachineExtensionInstanceViewResponseStatusArgs) ElementType() reflect.Type {
@@ -508,28 +381,28 @@ func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInst
 }
 
 // The status code.
-func (o MachineExtensionInstanceViewResponseStatusOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
+func (o MachineExtensionInstanceViewResponseStatusOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) string { return v.Code }).(pulumi.StringOutput)
 }
 
 // The short localizable label for the status.
-func (o MachineExtensionInstanceViewResponseStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
+func (o MachineExtensionInstanceViewResponseStatusOutput) DisplayStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) string { return v.DisplayStatus }).(pulumi.StringOutput)
 }
 
 // The level code.
-func (o MachineExtensionInstanceViewResponseStatusOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
+func (o MachineExtensionInstanceViewResponseStatusOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) string { return v.Level }).(pulumi.StringOutput)
 }
 
 // The detailed status message, including for alerts and error messages.
-func (o MachineExtensionInstanceViewResponseStatusOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
+func (o MachineExtensionInstanceViewResponseStatusOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) string { return v.Message }).(pulumi.StringOutput)
 }
 
 // The time of the status.
-func (o MachineExtensionInstanceViewResponseStatusOutput) Time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Time }).(pulumi.StringPtrOutput)
+func (o MachineExtensionInstanceViewResponseStatusOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) string { return v.Time }).(pulumi.StringOutput)
 }
 
 type MachineExtensionInstanceViewResponseStatusPtrOutput struct{ *pulumi.OutputState }
@@ -558,7 +431,7 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Code() pulumi.Strin
 		if v == nil {
 			return nil
 		}
-		return v.Code
+		return &v.Code
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -568,7 +441,7 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) DisplayStatus() pul
 		if v == nil {
 			return nil
 		}
-		return v.DisplayStatus
+		return &v.DisplayStatus
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -578,7 +451,7 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Level() pulumi.Stri
 		if v == nil {
 			return nil
 		}
-		return v.Level
+		return &v.Level
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -588,7 +461,7 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Message() pulumi.St
 		if v == nil {
 			return nil
 		}
-		return v.Message
+		return &v.Message
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -598,421 +471,20 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Time() pulumi.Strin
 		if v == nil {
 			return nil
 		}
-		return v.Time
-	}).(pulumi.StringPtrOutput)
-}
-
-// Instance view status.
-type MachineExtensionInstanceViewStatus struct {
-	// The status code.
-	Code *string `pulumi:"code"`
-	// The short localizable label for the status.
-	DisplayStatus *string `pulumi:"displayStatus"`
-	// The level code.
-	Level *string `pulumi:"level"`
-	// The detailed status message, including for alerts and error messages.
-	Message *string `pulumi:"message"`
-	// The time of the status.
-	Time *string `pulumi:"time"`
-}
-
-// MachineExtensionInstanceViewStatusInput is an input type that accepts MachineExtensionInstanceViewStatusArgs and MachineExtensionInstanceViewStatusOutput values.
-// You can construct a concrete instance of `MachineExtensionInstanceViewStatusInput` via:
-//
-//          MachineExtensionInstanceViewStatusArgs{...}
-type MachineExtensionInstanceViewStatusInput interface {
-	pulumi.Input
-
-	ToMachineExtensionInstanceViewStatusOutput() MachineExtensionInstanceViewStatusOutput
-	ToMachineExtensionInstanceViewStatusOutputWithContext(context.Context) MachineExtensionInstanceViewStatusOutput
-}
-
-// Instance view status.
-type MachineExtensionInstanceViewStatusArgs struct {
-	// The status code.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// The short localizable label for the status.
-	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
-	// The level code.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// The detailed status message, including for alerts and error messages.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// The time of the status.
-	Time pulumi.StringPtrInput `pulumi:"time"`
-}
-
-func (MachineExtensionInstanceViewStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtensionInstanceViewStatus)(nil)).Elem()
-}
-
-func (i MachineExtensionInstanceViewStatusArgs) ToMachineExtensionInstanceViewStatusOutput() MachineExtensionInstanceViewStatusOutput {
-	return i.ToMachineExtensionInstanceViewStatusOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionInstanceViewStatusArgs) ToMachineExtensionInstanceViewStatusOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewStatusOutput)
-}
-
-func (i MachineExtensionInstanceViewStatusArgs) ToMachineExtensionInstanceViewStatusPtrOutput() MachineExtensionInstanceViewStatusPtrOutput {
-	return i.ToMachineExtensionInstanceViewStatusPtrOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionInstanceViewStatusArgs) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewStatusOutput).ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx)
-}
-
-// MachineExtensionInstanceViewStatusPtrInput is an input type that accepts MachineExtensionInstanceViewStatusArgs, MachineExtensionInstanceViewStatusPtr and MachineExtensionInstanceViewStatusPtrOutput values.
-// You can construct a concrete instance of `MachineExtensionInstanceViewStatusPtrInput` via:
-//
-//          MachineExtensionInstanceViewStatusArgs{...}
-//
-//  or:
-//
-//          nil
-type MachineExtensionInstanceViewStatusPtrInput interface {
-	pulumi.Input
-
-	ToMachineExtensionInstanceViewStatusPtrOutput() MachineExtensionInstanceViewStatusPtrOutput
-	ToMachineExtensionInstanceViewStatusPtrOutputWithContext(context.Context) MachineExtensionInstanceViewStatusPtrOutput
-}
-
-type machineExtensionInstanceViewStatusPtrType MachineExtensionInstanceViewStatusArgs
-
-func MachineExtensionInstanceViewStatusPtr(v *MachineExtensionInstanceViewStatusArgs) MachineExtensionInstanceViewStatusPtrInput {
-	return (*machineExtensionInstanceViewStatusPtrType)(v)
-}
-
-func (*machineExtensionInstanceViewStatusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MachineExtensionInstanceViewStatus)(nil)).Elem()
-}
-
-func (i *machineExtensionInstanceViewStatusPtrType) ToMachineExtensionInstanceViewStatusPtrOutput() MachineExtensionInstanceViewStatusPtrOutput {
-	return i.ToMachineExtensionInstanceViewStatusPtrOutputWithContext(context.Background())
-}
-
-func (i *machineExtensionInstanceViewStatusPtrType) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewStatusPtrOutput)
-}
-
-// Instance view status.
-type MachineExtensionInstanceViewStatusOutput struct{ *pulumi.OutputState }
-
-func (MachineExtensionInstanceViewStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtensionInstanceViewStatus)(nil)).Elem()
-}
-
-func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusOutput() MachineExtensionInstanceViewStatusOutput {
-	return o
-}
-
-func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusOutput {
-	return o
-}
-
-func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusPtrOutput() MachineExtensionInstanceViewStatusPtrOutput {
-	return o.ToMachineExtensionInstanceViewStatusPtrOutputWithContext(context.Background())
-}
-
-func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *MachineExtensionInstanceViewStatus {
-		return &v
-	}).(MachineExtensionInstanceViewStatusPtrOutput)
-}
-
-// The status code.
-func (o MachineExtensionInstanceViewStatusOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
-}
-
-// The short localizable label for the status.
-func (o MachineExtensionInstanceViewStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
-}
-
-// The level code.
-func (o MachineExtensionInstanceViewStatusOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-// The detailed status message, including for alerts and error messages.
-func (o MachineExtensionInstanceViewStatusOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-// The time of the status.
-func (o MachineExtensionInstanceViewStatusOutput) Time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Time }).(pulumi.StringPtrOutput)
-}
-
-type MachineExtensionInstanceViewStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (MachineExtensionInstanceViewStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MachineExtensionInstanceViewStatus)(nil)).Elem()
-}
-
-func (o MachineExtensionInstanceViewStatusPtrOutput) ToMachineExtensionInstanceViewStatusPtrOutput() MachineExtensionInstanceViewStatusPtrOutput {
-	return o
-}
-
-func (o MachineExtensionInstanceViewStatusPtrOutput) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
-	return o
-}
-
-func (o MachineExtensionInstanceViewStatusPtrOutput) Elem() MachineExtensionInstanceViewStatusOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) MachineExtensionInstanceViewStatus { return *v }).(MachineExtensionInstanceViewStatusOutput)
-}
-
-// The status code.
-func (o MachineExtensionInstanceViewStatusPtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-// The short localizable label for the status.
-func (o MachineExtensionInstanceViewStatusPtrOutput) DisplayStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// The level code.
-func (o MachineExtensionInstanceViewStatusPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Level
-	}).(pulumi.StringPtrOutput)
-}
-
-// The detailed status message, including for alerts and error messages.
-func (o MachineExtensionInstanceViewStatusPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time of the status.
-func (o MachineExtensionInstanceViewStatusPtrOutput) Time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(pulumi.StringPtrOutput)
-}
-
-// The machine extension instance view.
-type MachineExtensionPropertiesInstanceView struct {
-	// The machine extension name.
-	Name *string `pulumi:"name"`
-	// Instance view status.
-	Status *MachineExtensionInstanceViewStatus `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
-}
-
-// MachineExtensionPropertiesInstanceViewInput is an input type that accepts MachineExtensionPropertiesInstanceViewArgs and MachineExtensionPropertiesInstanceViewOutput values.
-// You can construct a concrete instance of `MachineExtensionPropertiesInstanceViewInput` via:
-//
-//          MachineExtensionPropertiesInstanceViewArgs{...}
-type MachineExtensionPropertiesInstanceViewInput interface {
-	pulumi.Input
-
-	ToMachineExtensionPropertiesInstanceViewOutput() MachineExtensionPropertiesInstanceViewOutput
-	ToMachineExtensionPropertiesInstanceViewOutputWithContext(context.Context) MachineExtensionPropertiesInstanceViewOutput
-}
-
-// The machine extension instance view.
-type MachineExtensionPropertiesInstanceViewArgs struct {
-	// The machine extension name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Instance view status.
-	Status MachineExtensionInstanceViewStatusPtrInput `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
-}
-
-func (MachineExtensionPropertiesInstanceViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtensionPropertiesInstanceView)(nil)).Elem()
-}
-
-func (i MachineExtensionPropertiesInstanceViewArgs) ToMachineExtensionPropertiesInstanceViewOutput() MachineExtensionPropertiesInstanceViewOutput {
-	return i.ToMachineExtensionPropertiesInstanceViewOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionPropertiesInstanceViewArgs) ToMachineExtensionPropertiesInstanceViewOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesInstanceViewOutput)
-}
-
-func (i MachineExtensionPropertiesInstanceViewArgs) ToMachineExtensionPropertiesInstanceViewPtrOutput() MachineExtensionPropertiesInstanceViewPtrOutput {
-	return i.ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (i MachineExtensionPropertiesInstanceViewArgs) ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesInstanceViewOutput).ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx)
-}
-
-// MachineExtensionPropertiesInstanceViewPtrInput is an input type that accepts MachineExtensionPropertiesInstanceViewArgs, MachineExtensionPropertiesInstanceViewPtr and MachineExtensionPropertiesInstanceViewPtrOutput values.
-// You can construct a concrete instance of `MachineExtensionPropertiesInstanceViewPtrInput` via:
-//
-//          MachineExtensionPropertiesInstanceViewArgs{...}
-//
-//  or:
-//
-//          nil
-type MachineExtensionPropertiesInstanceViewPtrInput interface {
-	pulumi.Input
-
-	ToMachineExtensionPropertiesInstanceViewPtrOutput() MachineExtensionPropertiesInstanceViewPtrOutput
-	ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(context.Context) MachineExtensionPropertiesInstanceViewPtrOutput
-}
-
-type machineExtensionPropertiesInstanceViewPtrType MachineExtensionPropertiesInstanceViewArgs
-
-func MachineExtensionPropertiesInstanceViewPtr(v *MachineExtensionPropertiesInstanceViewArgs) MachineExtensionPropertiesInstanceViewPtrInput {
-	return (*machineExtensionPropertiesInstanceViewPtrType)(v)
-}
-
-func (*machineExtensionPropertiesInstanceViewPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MachineExtensionPropertiesInstanceView)(nil)).Elem()
-}
-
-func (i *machineExtensionPropertiesInstanceViewPtrType) ToMachineExtensionPropertiesInstanceViewPtrOutput() MachineExtensionPropertiesInstanceViewPtrOutput {
-	return i.ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (i *machineExtensionPropertiesInstanceViewPtrType) ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesInstanceViewPtrOutput)
-}
-
-// The machine extension instance view.
-type MachineExtensionPropertiesInstanceViewOutput struct{ *pulumi.OutputState }
-
-func (MachineExtensionPropertiesInstanceViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtensionPropertiesInstanceView)(nil)).Elem()
-}
-
-func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionPropertiesInstanceViewOutput() MachineExtensionPropertiesInstanceViewOutput {
-	return o
-}
-
-func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionPropertiesInstanceViewOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewOutput {
-	return o
-}
-
-func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionPropertiesInstanceViewPtrOutput() MachineExtensionPropertiesInstanceViewPtrOutput {
-	return o.ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *MachineExtensionPropertiesInstanceView {
-		return &v
-	}).(MachineExtensionPropertiesInstanceViewPtrOutput)
-}
-
-// The machine extension name.
-func (o MachineExtensionPropertiesInstanceViewOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Instance view status.
-func (o MachineExtensionPropertiesInstanceViewOutput) Status() MachineExtensionInstanceViewStatusPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *MachineExtensionInstanceViewStatus { return v.Status }).(MachineExtensionInstanceViewStatusPtrOutput)
-}
-
-// Specifies the type of the extension; an example is "CustomScriptExtension".
-func (o MachineExtensionPropertiesInstanceViewOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the version of the script handler.
-func (o MachineExtensionPropertiesInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
-}
-
-type MachineExtensionPropertiesInstanceViewPtrOutput struct{ *pulumi.OutputState }
-
-func (MachineExtensionPropertiesInstanceViewPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MachineExtensionPropertiesInstanceView)(nil)).Elem()
-}
-
-func (o MachineExtensionPropertiesInstanceViewPtrOutput) ToMachineExtensionPropertiesInstanceViewPtrOutput() MachineExtensionPropertiesInstanceViewPtrOutput {
-	return o
-}
-
-func (o MachineExtensionPropertiesInstanceViewPtrOutput) ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewPtrOutput {
-	return o
-}
-
-func (o MachineExtensionPropertiesInstanceViewPtrOutput) Elem() MachineExtensionPropertiesInstanceViewOutput {
-	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) MachineExtensionPropertiesInstanceView { return *v }).(MachineExtensionPropertiesInstanceViewOutput)
-}
-
-// The machine extension name.
-func (o MachineExtensionPropertiesInstanceViewPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Instance view status.
-func (o MachineExtensionPropertiesInstanceViewPtrOutput) Status() MachineExtensionInstanceViewStatusPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *MachineExtensionInstanceViewStatus {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(MachineExtensionInstanceViewStatusPtrOutput)
-}
-
-// Specifies the type of the extension; an example is "CustomScriptExtension".
-func (o MachineExtensionPropertiesInstanceViewPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the version of the script handler.
-func (o MachineExtensionPropertiesInstanceViewPtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TypeHandlerVersion
+		return &v.Time
 	}).(pulumi.StringPtrOutput)
 }
 
 // The machine extension instance view.
 type MachineExtensionPropertiesResponseInstanceView struct {
 	// The machine extension name.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Instance view status.
 	Status *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
 }
 
 // MachineExtensionPropertiesResponseInstanceViewInput is an input type that accepts MachineExtensionPropertiesResponseInstanceViewArgs and MachineExtensionPropertiesResponseInstanceViewOutput values.
@@ -1029,13 +501,13 @@ type MachineExtensionPropertiesResponseInstanceViewInput interface {
 // The machine extension instance view.
 type MachineExtensionPropertiesResponseInstanceViewArgs struct {
 	// The machine extension name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// Instance view status.
 	Status MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
 }
 
 func (MachineExtensionPropertiesResponseInstanceViewArgs) ElementType() reflect.Type {
@@ -1117,8 +589,8 @@ func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtension
 }
 
 // The machine extension name.
-func (o MachineExtensionPropertiesResponseInstanceViewOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Instance view status.
@@ -1129,13 +601,13 @@ func (o MachineExtensionPropertiesResponseInstanceViewOutput) Status() MachineEx
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
-func (o MachineExtensionPropertiesResponseInstanceViewOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Specifies the version of the script handler.
-func (o MachineExtensionPropertiesResponseInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) TypeHandlerVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }
 
 type MachineExtensionPropertiesResponseInstanceViewPtrOutput struct{ *pulumi.OutputState }
@@ -1164,7 +636,7 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Name() pulumi.S
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1184,7 +656,7 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Type() pulumi.S
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1194,7 +666,7 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) TypeHandlerVers
 		if v == nil {
 			return nil
 		}
-		return v.TypeHandlerVersion
+		return &v.TypeHandlerVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2017,16 +1489,10 @@ func (o LocationDataResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
-	pulumi.RegisterOutputType(MachineExtensionInstanceViewOutput{})
-	pulumi.RegisterOutputType(MachineExtensionInstanceViewArrayOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseArrayOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseStatusOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseStatusPtrOutput{})
-	pulumi.RegisterOutputType(MachineExtensionInstanceViewStatusOutput{})
-	pulumi.RegisterOutputType(MachineExtensionInstanceViewStatusPtrOutput{})
-	pulumi.RegisterOutputType(MachineExtensionPropertiesInstanceViewOutput{})
-	pulumi.RegisterOutputType(MachineExtensionPropertiesInstanceViewPtrOutput{})
 	pulumi.RegisterOutputType(MachineExtensionPropertiesResponseInstanceViewOutput{})
 	pulumi.RegisterOutputType(MachineExtensionPropertiesResponseInstanceViewPtrOutput{})
 	pulumi.RegisterOutputType(MachineIdentityOutput{})

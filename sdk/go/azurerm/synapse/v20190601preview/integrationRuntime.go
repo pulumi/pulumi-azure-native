@@ -14,13 +14,13 @@ import (
 type IntegrationRuntime struct {
 	pulumi.CustomResourceState
 
-	// Etag identifies change in the resource.
+	// Resource Etag.
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Integration runtime properties.
 	Properties IntegrationRuntimeResponseOutput `pulumi:"properties"`
-	// The resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -64,24 +64,24 @@ func GetIntegrationRuntime(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationRuntime resources.
 type integrationRuntimeState struct {
-	// Etag identifies change in the resource.
+	// Resource Etag.
 	Etag *string `pulumi:"etag"`
-	// The resource name.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Integration runtime properties.
 	Properties *IntegrationRuntimeResponse `pulumi:"properties"`
-	// The resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type IntegrationRuntimeState struct {
-	// Etag identifies change in the resource.
+	// Resource Etag.
 	Etag pulumi.StringPtrInput
-	// The resource name.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Integration runtime properties.
 	Properties IntegrationRuntimeResponsePtrInput
-	// The resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }
 

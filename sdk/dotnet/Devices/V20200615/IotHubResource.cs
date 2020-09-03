@@ -95,6 +95,7 @@ namespace Pulumi.AzureRM.Devices.V20200615
                     new Pulumi.Alias { Type = "azurerm:devices/v20200301:IotHubResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200401:IotHubResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200710preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200801:IotHubResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

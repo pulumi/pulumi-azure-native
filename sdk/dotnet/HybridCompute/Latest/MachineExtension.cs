@@ -158,12 +158,6 @@ namespace Pulumi.AzureRM.HybridCompute.Latest
         public Input<string>? ForceUpdateTag { get; set; }
 
         /// <summary>
-        /// The machine extension instance view.
-        /// </summary>
-        [Input("instanceView")]
-        public Input<Inputs.MachineExtensionPropertiesInstanceViewArgs>? InstanceView { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]

@@ -449,21 +449,56 @@ class LinkedServicePropsResponse(dict):
     LinkedService specific properties.
     """
     def __init__(__self__, *,
-                 linked_service_resource_id: Optional[str] = None):
+                 linked_service_resource_id: str,
+                 created_time: Optional[str] = None,
+                 link_type: Optional[str] = None,
+                 modified_time: Optional[str] = None):
         """
         LinkedService specific properties.
         :param str linked_service_resource_id: ResourceId of the link target of the linked service.
+        :param str created_time: The creation time of the linked service.
+        :param str link_type: Type of the link target.
+        :param str modified_time: The last modified time of the linked service.
         """
-        if linked_service_resource_id is not None:
-            pulumi.set(__self__, "linked_service_resource_id", linked_service_resource_id)
+        pulumi.set(__self__, "linked_service_resource_id", linked_service_resource_id)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if link_type is not None:
+            pulumi.set(__self__, "link_type", link_type)
+        if modified_time is not None:
+            pulumi.set(__self__, "modified_time", modified_time)
 
     @property
     @pulumi.getter(name="linkedServiceResourceId")
-    def linked_service_resource_id(self) -> Optional[str]:
+    def linked_service_resource_id(self) -> str:
         """
         ResourceId of the link target of the linked service.
         """
         return pulumi.get(self, "linked_service_resource_id")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        """
+        The creation time of the linked service.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="linkType")
+    def link_type(self) -> Optional[str]:
+        """
+        Type of the link target.
+        """
+        return pulumi.get(self, "link_type")
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> Optional[str]:
+        """
+        The last modified time of the linked service.
+        """
+        return pulumi.get(self, "modified_time")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

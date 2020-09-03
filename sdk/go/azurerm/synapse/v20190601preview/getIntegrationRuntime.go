@@ -27,12 +27,12 @@ type LookupIntegrationRuntimeArgs struct {
 
 // Integration runtime resource type.
 type LookupIntegrationRuntimeResult struct {
-	// Etag identifies change in the resource.
+	// Resource Etag.
 	Etag string `pulumi:"etag"`
-	// The resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Integration runtime properties.
 	Properties IntegrationRuntimeResponse `pulumi:"properties"`
-	// The resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

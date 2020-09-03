@@ -71,7 +71,7 @@ export interface GetMachineResult {
     /**
      * Machine Extensions information
      */
-    readonly extensions?: outputs.hybridcompute.latest.MachineExtensionInstanceViewResponse[];
+    readonly extensions: outputs.hybridcompute.latest.MachineExtensionInstanceViewResponse[];
     readonly identity?: outputs.hybridcompute.latest.MachineResponseIdentity;
     /**
      * The time of the last status change.

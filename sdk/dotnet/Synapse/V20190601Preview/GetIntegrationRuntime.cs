@@ -46,11 +46,11 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
     public sealed class GetIntegrationRuntimeResult
     {
         /// <summary>
-        /// Etag identifies change in the resource.
+        /// Resource Etag.
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// The resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// </summary>
         public readonly Outputs.IntegrationRuntimeResponseResult Properties;
         /// <summary>
-        /// The resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
 

@@ -446,17 +446,29 @@ class SkuResponse(dict):
     SQL pool SKU
     """
     def __init__(__self__, *,
+                 capacity: Optional[float] = None,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         SQL pool SKU
+        :param float capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param str name: The SKU name
         :param str tier: The service tier
         """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[float]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
 
     @property
     @pulumi.getter
