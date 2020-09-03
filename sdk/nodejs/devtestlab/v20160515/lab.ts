@@ -17,7 +17,7 @@ export class Lab extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Lab {
-        return new Lab(name, undefined, { ...opts, id: id });
+        return new Lab(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -100,12 +100,9 @@ export class Lab extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LabArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as LabArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -126,6 +123,21 @@ export class Lab extends pulumi.CustomResource {
             inputs["defaultStorageAccount"] = undefined /*out*/;
             inputs["premiumDataDiskStorageAccount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["vaultName"] = undefined /*out*/;
+        } else {
+            inputs["artifactsStorageAccount"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["defaultPremiumStorageAccount"] = undefined /*out*/;
+            inputs["defaultStorageAccount"] = undefined /*out*/;
+            inputs["labStorageType"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["premiumDataDiskStorageAccount"] = undefined /*out*/;
+            inputs["premiumDataDisks"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
             inputs["vaultName"] = undefined /*out*/;
         }
         if (!opts) {

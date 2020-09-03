@@ -19,7 +19,7 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementGroup {
-        return new ManagementGroup(name, undefined, { ...opts, id: id });
+        return new ManagementGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -72,12 +72,9 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ManagementGroupArgs | undefined;
             if (!args || args.groupId === undefined) {
                 throw new Error("Missing required property 'groupId'");
             }
@@ -86,6 +83,14 @@ export class ManagementGroup extends pulumi.CustomResource {
             inputs["groupId"] = args ? args.groupId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["children"] = undefined /*out*/;
+            inputs["path"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["children"] = undefined /*out*/;
+            inputs["details"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["path"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

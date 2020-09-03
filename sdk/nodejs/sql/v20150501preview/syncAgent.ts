@@ -17,7 +17,7 @@ export class SyncAgent extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SyncAgent {
-        return new SyncAgent(name, undefined, { ...opts, id: id });
+        return new SyncAgent(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -74,12 +74,9 @@ export class SyncAgent extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SyncAgentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SyncAgentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SyncAgentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SyncAgentArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -98,6 +95,15 @@ export class SyncAgent extends pulumi.CustomResource {
             inputs["lastAliveTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
+        } else {
+            inputs["expiryTime"] = undefined /*out*/;
+            inputs["isUpToDate"] = undefined /*out*/;
+            inputs["lastAliveTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["syncDatabaseId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }

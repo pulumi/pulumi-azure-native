@@ -19,7 +19,7 @@ export class Redis extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Redis {
-        return new Redis(name, undefined, { ...opts, id: id });
+        return new Redis(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -132,12 +132,9 @@ export class Redis extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RedisArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RedisArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RedisArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RedisArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -173,6 +170,29 @@ export class Redis extends pulumi.CustomResource {
             inputs["redisVersion"] = undefined /*out*/;
             inputs["sslPort"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["accessKeys"] = undefined /*out*/;
+            inputs["enableNonSslPort"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["instances"] = undefined /*out*/;
+            inputs["linkedServers"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["minimumTlsVersion"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["port"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["redisConfiguration"] = undefined /*out*/;
+            inputs["redisVersion"] = undefined /*out*/;
+            inputs["replicasPerMaster"] = undefined /*out*/;
+            inputs["shardCount"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["sslPort"] = undefined /*out*/;
+            inputs["staticIP"] = undefined /*out*/;
+            inputs["subnetId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["tenantSettings"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["zones"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

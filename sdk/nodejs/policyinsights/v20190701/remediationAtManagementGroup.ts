@@ -19,7 +19,7 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RemediationAtManagementGroup {
-        return new RemediationAtManagementGroup(name, undefined, { ...opts, id: id });
+        return new RemediationAtManagementGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -84,12 +84,9 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RemediationAtManagementGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RemediationAtManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RemediationAtManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RemediationAtManagementGroupArgs | undefined;
             if (!args || args.managementGroupId === undefined) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
@@ -111,6 +108,17 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
             inputs["lastUpdatedOn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["createdOn"] = undefined /*out*/;
+            inputs["deploymentStatus"] = undefined /*out*/;
+            inputs["filters"] = undefined /*out*/;
+            inputs["lastUpdatedOn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["policyAssignmentId"] = undefined /*out*/;
+            inputs["policyDefinitionReferenceId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceDiscoveryMode"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

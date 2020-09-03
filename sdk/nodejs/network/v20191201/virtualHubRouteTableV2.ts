@@ -19,7 +19,7 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualHubRouteTableV2 {
-        return new VirtualHubRouteTableV2(name, undefined, { ...opts, id: id });
+        return new VirtualHubRouteTableV2(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -64,12 +64,9 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualHubRouteTableV2Args, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualHubRouteTableV2Args, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualHubRouteTableV2Args, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualHubRouteTableV2Args | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -88,6 +85,12 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["attachedConnections"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["routes"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

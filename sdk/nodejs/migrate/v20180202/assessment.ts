@@ -17,7 +17,7 @@ export class Assessment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Assessment {
-        return new Assessment(name, undefined, { ...opts, id: id });
+        return new Assessment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -138,12 +138,9 @@ export class Assessment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AssessmentArgs | undefined;
             if (!args || args.assessmentName === undefined) {
                 throw new Error("Missing required property 'assessmentName'");
             }
@@ -218,6 +215,31 @@ export class Assessment extends pulumi.CustomResource {
             inputs["numberOfMachines"] = undefined /*out*/;
             inputs["pricesTimestamp"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["updatedTimestamp"] = undefined /*out*/;
+        } else {
+            inputs["azureHybridUseBenefit"] = undefined /*out*/;
+            inputs["azureLocation"] = undefined /*out*/;
+            inputs["azureOfferCode"] = undefined /*out*/;
+            inputs["azurePricingTier"] = undefined /*out*/;
+            inputs["azureStorageRedundancy"] = undefined /*out*/;
+            inputs["confidenceRatingInPercentage"] = undefined /*out*/;
+            inputs["createdTimestamp"] = undefined /*out*/;
+            inputs["currency"] = undefined /*out*/;
+            inputs["discountPercentage"] = undefined /*out*/;
+            inputs["eTag"] = undefined /*out*/;
+            inputs["monthlyBandwidthCost"] = undefined /*out*/;
+            inputs["monthlyComputeCost"] = undefined /*out*/;
+            inputs["monthlyStorageCost"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["numberOfMachines"] = undefined /*out*/;
+            inputs["percentile"] = undefined /*out*/;
+            inputs["pricesTimestamp"] = undefined /*out*/;
+            inputs["scalingFactor"] = undefined /*out*/;
+            inputs["sizingCriterion"] = undefined /*out*/;
+            inputs["stage"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["timeRange"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedTimestamp"] = undefined /*out*/;
         }

@@ -19,7 +19,7 @@ export class Schedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Schedule {
-        return new Schedule(name, undefined, { ...opts, id: id });
+        return new Schedule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -108,12 +108,9 @@ export class Schedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ScheduleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ScheduleArgs | undefined;
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
@@ -150,6 +147,23 @@ export class Schedule extends pulumi.CustomResource {
             inputs["nextRun"] = undefined /*out*/;
             inputs["nextRunOffsetMinutes"] = undefined /*out*/;
             inputs["startTimeOffsetMinutes"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["advancedSchedule"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["expiryTime"] = undefined /*out*/;
+            inputs["expiryTimeOffsetMinutes"] = undefined /*out*/;
+            inputs["frequency"] = undefined /*out*/;
+            inputs["interval"] = undefined /*out*/;
+            inputs["isEnabled"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nextRun"] = undefined /*out*/;
+            inputs["nextRunOffsetMinutes"] = undefined /*out*/;
+            inputs["startTime"] = undefined /*out*/;
+            inputs["startTimeOffsetMinutes"] = undefined /*out*/;
+            inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

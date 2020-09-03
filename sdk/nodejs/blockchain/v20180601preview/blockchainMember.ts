@@ -19,7 +19,7 @@ export class BlockchainMember extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BlockchainMember {
-        return new BlockchainMember(name, undefined, { ...opts, id: id });
+        return new BlockchainMember(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -120,12 +120,9 @@ export class BlockchainMember extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BlockchainMemberArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BlockchainMemberArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BlockchainMemberArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BlockchainMemberArgs | undefined;
             if (!args || args.blockchainMemberName === undefined) {
                 throw new Error("Missing required property 'blockchainMemberName'");
             }
@@ -153,6 +150,26 @@ export class BlockchainMember extends pulumi.CustomResource {
             inputs["rootContractAddress"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
+        } else {
+            inputs["consortium"] = undefined /*out*/;
+            inputs["consortiumManagementAccountAddress"] = undefined /*out*/;
+            inputs["consortiumManagementAccountPassword"] = undefined /*out*/;
+            inputs["consortiumMemberDisplayName"] = undefined /*out*/;
+            inputs["consortiumRole"] = undefined /*out*/;
+            inputs["dns"] = undefined /*out*/;
+            inputs["firewallRules"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["password"] = undefined /*out*/;
+            inputs["protocol"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicKey"] = undefined /*out*/;
+            inputs["rootContractAddress"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userName"] = undefined /*out*/;
+            inputs["validatorNodesSku"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -19,7 +19,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AppServiceCertificateOrder {
-        return new AppServiceCertificateOrder(name, undefined, { ...opts, id: id });
+        return new AppServiceCertificateOrder(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -140,12 +140,9 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppServiceCertificateOrderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AppServiceCertificateOrderArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AppServiceCertificateOrderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AppServiceCertificateOrderArgs | undefined;
             if (!args || args.certificateOrderName === undefined) {
                 throw new Error("Missing required property 'certificateOrderName'");
             }
@@ -184,6 +181,31 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             inputs["signedCertificate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
+            inputs["autoRenew"] = undefined /*out*/;
+            inputs["certificates"] = undefined /*out*/;
+            inputs["csr"] = undefined /*out*/;
+            inputs["distinguishedName"] = undefined /*out*/;
+            inputs["domainVerificationToken"] = undefined /*out*/;
+            inputs["expirationTime"] = undefined /*out*/;
+            inputs["intermediate"] = undefined /*out*/;
+            inputs["isPrivateKeyExternal"] = undefined /*out*/;
+            inputs["keySize"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["lastCertificateIssuanceTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nextAutoRenewalTimeStamp"] = undefined /*out*/;
+            inputs["productType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["root"] = undefined /*out*/;
+            inputs["serialNumber"] = undefined /*out*/;
+            inputs["signedCertificate"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["validityInYears"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

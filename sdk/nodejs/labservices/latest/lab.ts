@@ -19,7 +19,7 @@ export class Lab extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Lab {
-        return new Lab(name, undefined, { ...opts, id: id });
+        return new Lab(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class Lab extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LabArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as LabArgs | undefined;
             if (!args || args.labAccountName === undefined) {
                 throw new Error("Missing required property 'labAccountName'");
             }
@@ -136,6 +133,22 @@ export class Lab extends pulumi.CustomResource {
             inputs["latestOperationResult"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userQuota"] = undefined /*out*/;
+        } else {
+            inputs["createdByObjectId"] = undefined /*out*/;
+            inputs["createdByUserPrincipalName"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["invitationCode"] = undefined /*out*/;
+            inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maxUsersInLab"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
+            inputs["usageQuota"] = undefined /*out*/;
+            inputs["userAccessMode"] = undefined /*out*/;
             inputs["userQuota"] = undefined /*out*/;
         }
         if (!opts) {

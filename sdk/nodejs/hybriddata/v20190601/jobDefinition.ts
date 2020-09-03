@@ -19,7 +19,7 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JobDefinition {
-        return new JobDefinition(name, undefined, { ...opts, id: id });
+        return new JobDefinition(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as JobDefinitionArgs | undefined;
             if (!args || args.dataManagerName === undefined) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
@@ -130,6 +127,18 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["userConfirmation"] = args ? args.userConfirmation : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["customerSecrets"] = undefined /*out*/;
+            inputs["dataServiceInput"] = undefined /*out*/;
+            inputs["dataSinkId"] = undefined /*out*/;
+            inputs["dataSourceId"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["runLocation"] = undefined /*out*/;
+            inputs["schedules"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userConfirmation"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

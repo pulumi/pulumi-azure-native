@@ -20,7 +20,7 @@ export class TaskRun extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TaskRun {
-        return new TaskRun(name, undefined, { ...opts, id: id });
+        return new TaskRun(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -77,12 +77,9 @@ export class TaskRun extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TaskRunArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TaskRunArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TaskRunArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TaskRunArgs | undefined;
             if (!args || args.registryName === undefined) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -101,6 +98,15 @@ export class TaskRun extends pulumi.CustomResource {
             inputs["taskRunName"] = args ? args.taskRunName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["runResult"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["forceUpdateTag"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["runRequest"] = undefined /*out*/;
             inputs["runResult"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

@@ -19,7 +19,7 @@ export class SqlDatabase extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlDatabase {
-        return new SqlDatabase(name, undefined, { ...opts, id: id });
+        return new SqlDatabase(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class SqlDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SqlDatabaseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SqlDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SqlDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SqlDatabaseArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -104,6 +101,15 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["databaseGuid"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["collation"] = undefined /*out*/;
+            inputs["databaseGuid"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maxSizeBytes"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

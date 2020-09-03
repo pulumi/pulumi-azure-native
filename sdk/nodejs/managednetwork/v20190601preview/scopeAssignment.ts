@@ -17,7 +17,7 @@ export class ScopeAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ScopeAssignment {
-        return new ScopeAssignment(name, undefined, { ...opts, id: id });
+        return new ScopeAssignment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -66,12 +66,9 @@ export class ScopeAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ScopeAssignmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ScopeAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ScopeAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ScopeAssignmentArgs | undefined;
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -83,6 +80,13 @@ export class ScopeAssignment extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["scopeAssignmentName"] = args ? args.scopeAssignmentName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["assignedManagedNetwork"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

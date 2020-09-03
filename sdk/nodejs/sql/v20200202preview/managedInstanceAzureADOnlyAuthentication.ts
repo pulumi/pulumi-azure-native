@@ -17,7 +17,7 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedInstanceAzureADOnlyAuthentication {
-        return new ManagedInstanceAzureADOnlyAuthentication(name, undefined, { ...opts, id: id });
+        return new ManagedInstanceAzureADOnlyAuthentication(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -54,12 +54,9 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagedInstanceAzureADOnlyAuthenticationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagedInstanceAzureADOnlyAuthenticationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagedInstanceAzureADOnlyAuthenticationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ManagedInstanceAzureADOnlyAuthenticationArgs | undefined;
             if (!args || args.authenticationName === undefined) {
                 throw new Error("Missing required property 'authenticationName'");
             }
@@ -76,6 +73,10 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
             inputs["azureADOnlyAuthentication"] = args ? args.azureADOnlyAuthentication : undefined;
             inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["azureADOnlyAuthentication"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

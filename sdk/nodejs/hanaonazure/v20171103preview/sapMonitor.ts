@@ -17,7 +17,7 @@ export class SapMonitor extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SapMonitor {
-        return new SapMonitor(name, undefined, { ...opts, id: id });
+        return new SapMonitor(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -118,12 +118,9 @@ export class SapMonitor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SapMonitorArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SapMonitorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SapMonitorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SapMonitorArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -146,6 +143,26 @@ export class SapMonitor extends pulumi.CustomResource {
             inputs["logAnalyticsWorkspaceSharedKey"] = args ? args.logAnalyticsWorkspaceSharedKey : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sapMonitorName"] = args ? args.sapMonitorName : undefined;
+            inputs["managedResourceGroupName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["enableCustomerAnalytics"] = undefined /*out*/;
+            inputs["hanaDbCredentialsMsiId"] = undefined /*out*/;
+            inputs["hanaDbName"] = undefined /*out*/;
+            inputs["hanaDbPassword"] = undefined /*out*/;
+            inputs["hanaDbPasswordKeyVaultUrl"] = undefined /*out*/;
+            inputs["hanaDbSqlPort"] = undefined /*out*/;
+            inputs["hanaDbUsername"] = undefined /*out*/;
+            inputs["hanaHostname"] = undefined /*out*/;
+            inputs["hanaSubnet"] = undefined /*out*/;
+            inputs["keyVaultId"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["logAnalyticsWorkspaceArmId"] = undefined /*out*/;
+            inputs["logAnalyticsWorkspaceId"] = undefined /*out*/;
+            inputs["logAnalyticsWorkspaceSharedKey"] = undefined /*out*/;
             inputs["managedResourceGroupName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;

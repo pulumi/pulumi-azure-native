@@ -19,7 +19,7 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedNetworkGroup {
-        return new ManagedNetworkGroup(name, undefined, { ...opts, id: id });
+        return new ManagedNetworkGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -84,12 +84,9 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagedNetworkGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagedNetworkGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagedNetworkGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ManagedNetworkGroupArgs | undefined;
             if (!args || args.managedNetworkGroupName === undefined) {
                 throw new Error("Missing required property 'managedNetworkGroupName'");
             }
@@ -112,6 +109,17 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["managementGroups"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["subnets"] = undefined /*out*/;
+            inputs["subscriptions"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualNetworks"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

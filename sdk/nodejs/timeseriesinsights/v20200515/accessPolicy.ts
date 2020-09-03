@@ -17,7 +17,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AccessPolicy {
-        return new AccessPolicy(name, undefined, { ...opts, id: id });
+        return new AccessPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -62,12 +62,9 @@ export class AccessPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AccessPolicyArgs | undefined;
             if (!args || args.accessPolicyName === undefined) {
                 throw new Error("Missing required property 'accessPolicyName'");
             }
@@ -84,6 +81,12 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["principalObjectId"] = undefined /*out*/;
+            inputs["roles"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

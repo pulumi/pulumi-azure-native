@@ -17,7 +17,7 @@ export class MyWorkbook extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MyWorkbook {
-        return new MyWorkbook(name, undefined, { ...opts, id: id });
+        return new MyWorkbook(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -90,12 +90,9 @@ export class MyWorkbook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MyWorkbookArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MyWorkbookArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MyWorkbookArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as MyWorkbookArgs | undefined;
             if (!args || args.category === undefined) {
                 throw new Error("Missing required property 'category'");
             }
@@ -126,6 +123,19 @@ export class MyWorkbook extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["timeModified"] = undefined /*out*/;
             inputs["userId"] = undefined /*out*/;
+        } else {
+            inputs["category"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["serializedData"] = undefined /*out*/;
+            inputs["sourceId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["timeModified"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userId"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

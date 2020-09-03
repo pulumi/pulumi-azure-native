@@ -16,7 +16,7 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AdaptiveApplicationControl {
-        return new AdaptiveApplicationControl(name, undefined, { ...opts, id: id });
+        return new AdaptiveApplicationControl(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AdaptiveApplicationControlArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AdaptiveApplicationControlArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AdaptiveApplicationControlArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AdaptiveApplicationControlArgs | undefined;
             if (!args || args.ascLocation === undefined) {
                 throw new Error("Missing required property 'ascLocation'");
             }
@@ -101,6 +98,18 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
             inputs["recommendationStatus"] = undefined /*out*/;
             inputs["sourceSystem"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["configurationStatus"] = undefined /*out*/;
+            inputs["enforcementMode"] = undefined /*out*/;
+            inputs["issues"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["pathRecommendations"] = undefined /*out*/;
+            inputs["protectionMode"] = undefined /*out*/;
+            inputs["recommendationStatus"] = undefined /*out*/;
+            inputs["sourceSystem"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vmRecommendations"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

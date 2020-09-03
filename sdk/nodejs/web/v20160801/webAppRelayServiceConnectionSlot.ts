@@ -17,7 +17,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppRelayServiceConnectionSlot {
-        return new WebAppRelayServiceConnectionSlot(name, undefined, { ...opts, id: id });
+        return new WebAppRelayServiceConnectionSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,12 +61,9 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAppRelayServiceConnectionSlotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebAppRelayServiceConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WebAppRelayServiceConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WebAppRelayServiceConnectionSlotArgs | undefined;
             if (!args || args.entityName === undefined) {
                 throw new Error("Missing required property 'entityName'");
             }
@@ -90,6 +87,17 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["biztalkUri"] = undefined /*out*/;
+            inputs["entityConnectionString"] = undefined /*out*/;
+            inputs["entityName"] = undefined /*out*/;
+            inputs["hostname"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["port"] = undefined /*out*/;
+            inputs["resourceConnectionString"] = undefined /*out*/;
+            inputs["resourceType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

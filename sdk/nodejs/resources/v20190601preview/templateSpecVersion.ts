@@ -19,7 +19,7 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TemplateSpecVersion {
-        return new TemplateSpecVersion(name, undefined, { ...opts, id: id });
+        return new TemplateSpecVersion(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TemplateSpecVersionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TemplateSpecVersionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TemplateSpecVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TemplateSpecVersionArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -104,6 +101,15 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
             inputs["templateSpecVersion"] = args ? args.templateSpecVersion : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["artifacts"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["template"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

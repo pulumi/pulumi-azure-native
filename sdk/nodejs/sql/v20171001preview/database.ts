@@ -19,7 +19,7 @@ export class Database extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Database {
-        return new Database(name, undefined, { ...opts, id: id });
+        return new Database(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -222,12 +222,9 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DatabaseArgs | undefined;
             if (!args || args.databaseName === undefined) {
                 throw new Error("Missing required property 'databaseName'");
             }
@@ -281,6 +278,45 @@ export class Database extends pulumi.CustomResource {
             inputs["resumedDate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["autoPauseDelay"] = undefined /*out*/;
+            inputs["catalogCollation"] = undefined /*out*/;
+            inputs["collation"] = undefined /*out*/;
+            inputs["createMode"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["currentServiceObjectiveName"] = undefined /*out*/;
+            inputs["currentSku"] = undefined /*out*/;
+            inputs["databaseId"] = undefined /*out*/;
+            inputs["defaultSecondaryLocation"] = undefined /*out*/;
+            inputs["earliestRestoreDate"] = undefined /*out*/;
+            inputs["elasticPoolId"] = undefined /*out*/;
+            inputs["failoverGroupId"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["licenseType"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["longTermRetentionBackupResourceId"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
+            inputs["maxLogSizeBytes"] = undefined /*out*/;
+            inputs["maxSizeBytes"] = undefined /*out*/;
+            inputs["minCapacity"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["pausedDate"] = undefined /*out*/;
+            inputs["readReplicaCount"] = undefined /*out*/;
+            inputs["readScale"] = undefined /*out*/;
+            inputs["recoverableDatabaseId"] = undefined /*out*/;
+            inputs["recoveryServicesRecoveryPointId"] = undefined /*out*/;
+            inputs["requestedServiceObjectiveName"] = undefined /*out*/;
+            inputs["restorableDroppedDatabaseId"] = undefined /*out*/;
+            inputs["restorePointInTime"] = undefined /*out*/;
+            inputs["resumedDate"] = undefined /*out*/;
+            inputs["sampleName"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["sourceDatabaseDeletionDate"] = undefined /*out*/;
+            inputs["sourceDatabaseId"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["zoneRedundant"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

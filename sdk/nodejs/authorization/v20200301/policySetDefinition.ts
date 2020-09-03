@@ -19,7 +19,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PolicySetDefinition {
-        return new PolicySetDefinition(name, undefined, { ...opts, id: id });
+        return new PolicySetDefinition(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicySetDefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicySetDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicySetDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PolicySetDefinitionArgs | undefined;
             if (!args || args.policyDefinitions === undefined) {
                 throw new Error("Missing required property 'policyDefinitions'");
             }
@@ -101,6 +98,16 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["policySetDefinitionName"] = args ? args.policySetDefinitionName : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["parameters"] = undefined /*out*/;
+            inputs["policyDefinitionGroups"] = undefined /*out*/;
+            inputs["policyDefinitions"] = undefined /*out*/;
+            inputs["policyType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

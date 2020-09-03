@@ -17,7 +17,7 @@ export class ApplicationType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationType {
-        return new ApplicationType(name, undefined, { ...opts, id: id });
+        return new ApplicationType(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -58,12 +58,9 @@ export class ApplicationType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationTypeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationTypeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationTypeArgs | undefined;
             if (!args || args.applicationTypeName === undefined) {
                 throw new Error("Missing required property 'applicationTypeName'");
             }
@@ -77,6 +74,11 @@ export class ApplicationType extends pulumi.CustomResource {
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

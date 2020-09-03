@@ -17,7 +17,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomerSubscription {
-        return new CustomerSubscription(name, undefined, { ...opts, id: id });
+        return new CustomerSubscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -58,12 +58,9 @@ export class CustomerSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as CustomerSubscriptionArgs | undefined;
             if (!args || args.customerSubscriptionName === undefined) {
                 throw new Error("Missing required property 'customerSubscriptionName'");
             }
@@ -79,6 +76,11 @@ export class CustomerSubscription extends pulumi.CustomResource {
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

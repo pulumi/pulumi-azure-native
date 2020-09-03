@@ -17,7 +17,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegisteredPrefix {
-        return new RegisteredPrefix(name, undefined, { ...opts, id: id });
+        return new RegisteredPrefix(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -70,12 +70,9 @@ export class RegisteredPrefix extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RegisteredPrefixArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RegisteredPrefixArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RegisteredPrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RegisteredPrefixArgs | undefined;
             if (!args || args.peeringName === undefined) {
                 throw new Error("Missing required property 'peeringName'");
             }
@@ -92,6 +89,14 @@ export class RegisteredPrefix extends pulumi.CustomResource {
             inputs["errorMessage"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["peeringServicePrefixKey"] = undefined /*out*/;
+            inputs["prefixValidationState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["errorMessage"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["peeringServicePrefixKey"] = undefined /*out*/;
+            inputs["prefix"] = undefined /*out*/;
             inputs["prefixValidationState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

@@ -19,7 +19,7 @@ export class SqlPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlPool {
-        return new SqlPool(name, undefined, { ...opts, id: id });
+        return new SqlPool(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -100,12 +100,9 @@ export class SqlPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SqlPoolArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SqlPoolArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SqlPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SqlPoolArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -134,6 +131,21 @@ export class SqlPool extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["collation"] = undefined /*out*/;
+            inputs["createMode"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maxSizeBytes"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["recoverableDatabaseId"] = undefined /*out*/;
+            inputs["restorePointInTime"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["sourceDatabaseId"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

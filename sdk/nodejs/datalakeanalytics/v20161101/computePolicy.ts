@@ -17,7 +17,7 @@ export class ComputePolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ComputePolicy {
-        return new ComputePolicy(name, undefined, { ...opts, id: id });
+        return new ComputePolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -66,12 +66,9 @@ export class ComputePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ComputePolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ComputePolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ComputePolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ComputePolicyArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -95,6 +92,13 @@ export class ComputePolicy extends pulumi.CustomResource {
             inputs["objectType"] = args ? args.objectType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["maxDegreeOfParallelismPerJob"] = undefined /*out*/;
+            inputs["minPriorityPerJob"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["objectId"] = undefined /*out*/;
+            inputs["objectType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

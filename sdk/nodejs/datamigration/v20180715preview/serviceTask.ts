@@ -19,7 +19,7 @@ export class ServiceTask extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServiceTask {
-        return new ServiceTask(name, undefined, { ...opts, id: id });
+        return new ServiceTask(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -60,12 +60,9 @@ export class ServiceTask extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceTaskArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServiceTaskArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServiceTaskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServiceTaskArgs | undefined;
             if (!args || args.groupName === undefined) {
                 throw new Error("Missing required property 'groupName'");
             }
@@ -81,6 +78,11 @@ export class ServiceTask extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["taskName"] = args ? args.taskName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

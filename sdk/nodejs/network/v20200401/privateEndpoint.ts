@@ -19,7 +19,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpoint {
-        return new PrivateEndpoint(name, undefined, { ...opts, id: id });
+        return new PrivateEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class PrivateEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PrivateEndpointArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PrivateEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PrivateEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PrivateEndpointArgs | undefined;
             if (!args || args.privateEndpointName === undefined) {
                 throw new Error("Missing required property 'privateEndpointName'");
             }
@@ -113,6 +110,18 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["customDnsConfigs"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["manualPrivateLinkServiceConnections"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["privateLinkServiceConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["subnet"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

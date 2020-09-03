@@ -19,7 +19,7 @@ export class Subscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Subscription {
-        return new Subscription(name, undefined, { ...opts, id: id });
+        return new Subscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -120,12 +120,9 @@ export class Subscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SubscriptionArgs | undefined;
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -159,6 +156,26 @@ export class Subscription extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["messageCount"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
+        } else {
+            inputs["accessedAt"] = undefined /*out*/;
+            inputs["autoDeleteOnIdle"] = undefined /*out*/;
+            inputs["countDetails"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["deadLetteringOnFilterEvaluationExceptions"] = undefined /*out*/;
+            inputs["deadLetteringOnMessageExpiration"] = undefined /*out*/;
+            inputs["defaultMessageTimeToLive"] = undefined /*out*/;
+            inputs["duplicateDetectionHistoryTimeWindow"] = undefined /*out*/;
+            inputs["enableBatchedOperations"] = undefined /*out*/;
+            inputs["forwardDeadLetteredMessagesTo"] = undefined /*out*/;
+            inputs["forwardTo"] = undefined /*out*/;
+            inputs["lockDuration"] = undefined /*out*/;
+            inputs["maxDeliveryCount"] = undefined /*out*/;
+            inputs["messageCount"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["requiresSession"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }

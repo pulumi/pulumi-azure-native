@@ -17,7 +17,7 @@ export class Backup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Backup {
-        return new Backup(name, undefined, { ...opts, id: id });
+        return new Backup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -74,12 +74,9 @@ export class Backup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BackupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BackupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BackupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BackupArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -107,6 +104,15 @@ export class Backup extends pulumi.CustomResource {
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["backupType"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["size"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["backupType"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["label"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["size"] = undefined /*out*/;

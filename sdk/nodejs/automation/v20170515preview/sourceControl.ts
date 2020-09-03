@@ -19,7 +19,7 @@ export class SourceControl extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SourceControl {
-        return new SourceControl(name, undefined, { ...opts, id: id });
+        return new SourceControl(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class SourceControl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SourceControlArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SourceControlArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SourceControlArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SourceControlArgs | undefined;
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
@@ -117,6 +114,18 @@ export class SourceControl extends pulumi.CustomResource {
             inputs["creationTime"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["autoSync"] = undefined /*out*/;
+            inputs["branch"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["folderPath"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["publishRunbook"] = undefined /*out*/;
+            inputs["repoUrl"] = undefined /*out*/;
+            inputs["sourceType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

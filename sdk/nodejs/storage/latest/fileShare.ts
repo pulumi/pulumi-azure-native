@@ -17,7 +17,7 @@ export class FileShare extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FileShare {
-        return new FileShare(name, undefined, { ...opts, id: id });
+        return new FileShare(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -106,12 +106,9 @@ export class FileShare extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FileShareArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FileShareArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FileShareArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as FileShareArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -137,6 +134,23 @@ export class FileShare extends pulumi.CustomResource {
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["remainingRetentionDays"] = undefined /*out*/;
+            inputs["shareUsageBytes"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
+        } else {
+            inputs["accessTier"] = undefined /*out*/;
+            inputs["accessTierChangeTime"] = undefined /*out*/;
+            inputs["accessTierStatus"] = undefined /*out*/;
+            inputs["deleted"] = undefined /*out*/;
+            inputs["deletedTime"] = undefined /*out*/;
+            inputs["enabledProtocols"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["remainingRetentionDays"] = undefined /*out*/;
+            inputs["rootSquash"] = undefined /*out*/;
+            inputs["shareQuota"] = undefined /*out*/;
             inputs["shareUsageBytes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;

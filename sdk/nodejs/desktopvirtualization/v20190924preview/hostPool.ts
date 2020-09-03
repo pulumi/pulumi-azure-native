@@ -19,7 +19,7 @@ export class HostPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HostPool {
-        return new HostPool(name, undefined, { ...opts, id: id });
+        return new HostPool(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -116,12 +116,9 @@ export class HostPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HostPoolArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HostPoolArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: HostPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as HostPoolArgs | undefined;
             if (!args || args.hostPoolName === undefined) {
                 throw new Error("Missing required property 'hostPoolName'");
             }
@@ -160,6 +157,25 @@ export class HostPool extends pulumi.CustomResource {
             inputs["applicationGroupReferences"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["applicationGroupReferences"] = undefined /*out*/;
+            inputs["customRdpProperty"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
+            inputs["hostPoolType"] = undefined /*out*/;
+            inputs["loadBalancerType"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maxSessionLimit"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["personalDesktopAssignmentType"] = undefined /*out*/;
+            inputs["preferredAppGroupType"] = undefined /*out*/;
+            inputs["registrationInfo"] = undefined /*out*/;
+            inputs["ring"] = undefined /*out*/;
+            inputs["ssoContext"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["validationEnvironment"] = undefined /*out*/;
+            inputs["vmTemplate"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

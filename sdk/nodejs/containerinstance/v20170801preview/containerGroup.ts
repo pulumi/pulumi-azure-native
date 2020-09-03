@@ -19,7 +19,7 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContainerGroup {
-        return new ContainerGroup(name, undefined, { ...opts, id: id });
+        return new ContainerGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -92,12 +92,9 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ContainerGroupArgs | undefined;
             if (!args || args.containerGroupName === undefined) {
                 throw new Error("Missing required property 'containerGroupName'");
             }
@@ -127,6 +124,19 @@ export class ContainerGroup extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["containers"] = undefined /*out*/;
+            inputs["imageRegistryCredentials"] = undefined /*out*/;
+            inputs["ipAddress"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["osType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["restartPolicy"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["volumes"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

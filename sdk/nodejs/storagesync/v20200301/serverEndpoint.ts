@@ -19,7 +19,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerEndpoint {
-        return new ServerEndpoint(name, undefined, { ...opts, id: id });
+        return new ServerEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -124,12 +124,9 @@ export class ServerEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerEndpointArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServerEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServerEndpointArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -166,6 +163,27 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["recallStatus"] = undefined /*out*/;
             inputs["syncStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["cloudTiering"] = undefined /*out*/;
+            inputs["cloudTieringStatus"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
+            inputs["initialDownloadPolicy"] = undefined /*out*/;
+            inputs["lastOperationName"] = undefined /*out*/;
+            inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["localCacheMode"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["offlineDataTransfer"] = undefined /*out*/;
+            inputs["offlineDataTransferShareName"] = undefined /*out*/;
+            inputs["offlineDataTransferStorageAccountResourceId"] = undefined /*out*/;
+            inputs["offlineDataTransferStorageAccountTenantId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["recallStatus"] = undefined /*out*/;
+            inputs["serverLocalPath"] = undefined /*out*/;
+            inputs["serverResourceId"] = undefined /*out*/;
+            inputs["syncStatus"] = undefined /*out*/;
+            inputs["tierFilesOlderThanDays"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["volumeFreeSpacePercent"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

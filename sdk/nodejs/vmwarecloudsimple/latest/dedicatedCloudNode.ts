@@ -19,7 +19,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DedicatedCloudNode {
-        return new DedicatedCloudNode(name, undefined, { ...opts, id: id });
+        return new DedicatedCloudNode(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -116,12 +116,9 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DedicatedCloudNodeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DedicatedCloudNodeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DedicatedCloudNodeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DedicatedCloudNodeArgs | undefined;
             if (!args || args.availabilityZoneId === undefined) {
                 throw new Error("Missing required property 'availabilityZoneId'");
             }
@@ -168,6 +165,25 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             inputs["privateCloudName"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vmwareClusterName"] = undefined /*out*/;
+        } else {
+            inputs["availabilityZoneId"] = undefined /*out*/;
+            inputs["availabilityZoneName"] = undefined /*out*/;
+            inputs["cloudRackName"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nodesCount"] = undefined /*out*/;
+            inputs["placementGroupId"] = undefined /*out*/;
+            inputs["placementGroupName"] = undefined /*out*/;
+            inputs["privateCloudId"] = undefined /*out*/;
+            inputs["privateCloudName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["purchaseId"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vmwareClusterName"] = undefined /*out*/;
         }

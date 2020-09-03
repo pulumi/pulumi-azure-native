@@ -19,7 +19,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cluster {
-        return new Cluster(name, undefined, { ...opts, id: id });
+        return new Cluster(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ClusterArgs | undefined;
             if (!args || args.aadClientId === undefined) {
                 throw new Error("Missing required property 'aadClientId'");
             }
@@ -140,6 +137,22 @@ export class Cluster extends pulumi.CustomResource {
             inputs["registrationTimestamp"] = undefined /*out*/;
             inputs["reportedProperties"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["trialDaysRemaining"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["aadClientId"] = undefined /*out*/;
+            inputs["aadTenantId"] = undefined /*out*/;
+            inputs["billingModel"] = undefined /*out*/;
+            inputs["cloudId"] = undefined /*out*/;
+            inputs["lastBillingTimestamp"] = undefined /*out*/;
+            inputs["lastSyncTimestamp"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["registrationTimestamp"] = undefined /*out*/;
+            inputs["reportedProperties"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["trialDaysRemaining"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

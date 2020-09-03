@@ -19,7 +19,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlVirtualMachine {
-        return new SqlVirtualMachine(name, undefined, { ...opts, id: id });
+        return new SqlVirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -116,12 +116,9 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SqlVirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SqlVirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SqlVirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SqlVirtualMachineArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -151,6 +148,25 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["autoBackupSettings"] = undefined /*out*/;
+            inputs["autoPatchingSettings"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["keyVaultCredentialSettings"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["serverConfigurationsManagementSettings"] = undefined /*out*/;
+            inputs["sqlImageOffer"] = undefined /*out*/;
+            inputs["sqlImageSku"] = undefined /*out*/;
+            inputs["sqlManagement"] = undefined /*out*/;
+            inputs["sqlServerLicenseType"] = undefined /*out*/;
+            inputs["sqlVirtualMachineGroupResourceId"] = undefined /*out*/;
+            inputs["storageConfigurationSettings"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualMachineResourceId"] = undefined /*out*/;
+            inputs["wsfcDomainCredentials"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -19,7 +19,7 @@ export class EventHub extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventHub {
-        return new EventHub(name, undefined, { ...opts, id: id });
+        return new EventHub(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class EventHub extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventHubArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventHubArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: EventHubArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as EventHubArgs | undefined;
             if (!args || args.eventHubName === undefined) {
                 throw new Error("Missing required property 'eventHubName'");
             }
@@ -105,6 +102,16 @@ export class EventHub extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["partitionIds"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
+        } else {
+            inputs["captureDescription"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["messageRetentionInDays"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["partitionCount"] = undefined /*out*/;
+            inputs["partitionIds"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }

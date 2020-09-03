@@ -19,7 +19,7 @@ export class Profile extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Profile {
-        return new Profile(name, undefined, { ...opts, id: id });
+        return new Profile(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -124,12 +124,9 @@ export class Profile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ProfileArgs | undefined;
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
@@ -162,6 +159,27 @@ export class Profile extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["apiEntitySetName"] = undefined /*out*/;
+            inputs["attributes"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["entityType"] = undefined /*out*/;
+            inputs["fields"] = undefined /*out*/;
+            inputs["instancesCount"] = undefined /*out*/;
+            inputs["largeImage"] = undefined /*out*/;
+            inputs["lastChangedUtc"] = undefined /*out*/;
+            inputs["localizedAttributes"] = undefined /*out*/;
+            inputs["mediumImage"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["schemaItemTypeLink"] = undefined /*out*/;
+            inputs["smallImage"] = undefined /*out*/;
+            inputs["strongIds"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["timestampFieldName"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["typeName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

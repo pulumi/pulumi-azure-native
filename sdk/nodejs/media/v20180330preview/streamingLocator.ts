@@ -19,7 +19,7 @@ export class StreamingLocator extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StreamingLocator {
-        return new StreamingLocator(name, undefined, { ...opts, id: id });
+        return new StreamingLocator(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -84,12 +84,9 @@ export class StreamingLocator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StreamingLocatorArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StreamingLocatorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StreamingLocatorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as StreamingLocatorArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -117,6 +114,17 @@ export class StreamingLocator extends pulumi.CustomResource {
             inputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
             inputs["created"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["assetName"] = undefined /*out*/;
+            inputs["contentKeys"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["defaultContentKeyPolicyName"] = undefined /*out*/;
+            inputs["endTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["startTime"] = undefined /*out*/;
+            inputs["streamingLocatorId"] = undefined /*out*/;
+            inputs["streamingPolicyName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

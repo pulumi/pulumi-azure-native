@@ -19,7 +19,7 @@ export class Network extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Network {
-        return new Network(name, undefined, { ...opts, id: id });
+        return new Network(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class Network extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NetworkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as NetworkArgs | undefined;
             if (!args || args.addressPrefix === undefined) {
                 throw new Error("Missing required property 'addressPrefix'");
             }
@@ -103,6 +100,15 @@ export class Network extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["addressPrefix"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["ingressConfig"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -17,7 +17,7 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedDatabaseSensitivityLabel {
-        return new ManagedDatabaseSensitivityLabel(name, undefined, { ...opts, id: id });
+        return new ManagedDatabaseSensitivityLabel(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -71,12 +71,9 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagedDatabaseSensitivityLabelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagedDatabaseSensitivityLabelArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagedDatabaseSensitivityLabelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ManagedDatabaseSensitivityLabelArgs | undefined;
             if (!args || args.columnName === undefined) {
                 throw new Error("Missing required property 'columnName'");
             }
@@ -112,6 +109,15 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
             inputs["tableName"] = args ? args.tableName : undefined;
             inputs["isDisabled"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["informationType"] = undefined /*out*/;
+            inputs["informationTypeId"] = undefined /*out*/;
+            inputs["isDisabled"] = undefined /*out*/;
+            inputs["labelId"] = undefined /*out*/;
+            inputs["labelName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["rank"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -17,7 +17,7 @@ export class LabResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LabResource {
-        return new LabResource(name, undefined, { ...opts, id: id });
+        return new LabResource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -90,12 +90,9 @@ export class LabResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LabResourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LabResourceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LabResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as LabResourceArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -116,6 +113,19 @@ export class LabResource extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
+        } else {
+            inputs["artifactsStorageAccount"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["defaultStorageAccount"] = undefined /*out*/;
+            inputs["defaultVirtualNetworkId"] = undefined /*out*/;
+            inputs["labStorageType"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["storageAccounts"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vaultName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

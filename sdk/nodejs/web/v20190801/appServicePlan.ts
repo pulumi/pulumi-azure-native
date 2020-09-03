@@ -19,7 +19,7 @@ export class AppServicePlan extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AppServicePlan {
-        return new AppServicePlan(name, undefined, { ...opts, id: id });
+        return new AppServicePlan(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -145,12 +145,9 @@ export class AppServicePlan extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppServicePlanArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AppServicePlanArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AppServicePlanArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AppServicePlanArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -186,6 +183,32 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["subscription"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["freeOfferExpirationTime"] = undefined /*out*/;
+            inputs["geoRegion"] = undefined /*out*/;
+            inputs["hostingEnvironmentProfile"] = undefined /*out*/;
+            inputs["hyperV"] = undefined /*out*/;
+            inputs["isSpot"] = undefined /*out*/;
+            inputs["isXenon"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maximumElasticWorkerCount"] = undefined /*out*/;
+            inputs["maximumNumberOfWorkers"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["numberOfSites"] = undefined /*out*/;
+            inputs["perSiteScaling"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["reserved"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["spotExpirationTime"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["subscription"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["targetWorkerCount"] = undefined /*out*/;
+            inputs["targetWorkerSizeId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["workerTierName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

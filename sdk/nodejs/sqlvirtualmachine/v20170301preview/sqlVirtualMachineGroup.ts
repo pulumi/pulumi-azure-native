@@ -19,7 +19,7 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlVirtualMachineGroup {
-        return new SqlVirtualMachineGroup(name, undefined, { ...opts, id: id });
+        return new SqlVirtualMachineGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SqlVirtualMachineGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SqlVirtualMachineGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SqlVirtualMachineGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SqlVirtualMachineGroupArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -116,6 +113,18 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["scaleType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["clusterConfiguration"] = undefined /*out*/;
+            inputs["clusterManagerType"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["scaleType"] = undefined /*out*/;
+            inputs["sqlImageOffer"] = undefined /*out*/;
+            inputs["sqlImageSku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["wsfcDomainProfile"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

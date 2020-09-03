@@ -19,7 +19,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExpressRoutePort {
-        return new ExpressRoutePort(name, undefined, { ...opts, id: id });
+        return new ExpressRoutePort(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -112,12 +112,9 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ExpressRoutePortArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ExpressRoutePortArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ExpressRoutePortArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ExpressRoutePortArgs | undefined;
             if (!args || args.expressRoutePortName === undefined) {
                 throw new Error("Missing required property 'expressRoutePortName'");
             }
@@ -143,6 +140,24 @@ export class ExpressRoutePort extends pulumi.CustomResource {
             inputs["provisionedBandwidthInGbps"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["allocationDate"] = undefined /*out*/;
+            inputs["bandwidthInGbps"] = undefined /*out*/;
+            inputs["circuits"] = undefined /*out*/;
+            inputs["encapsulation"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["etherType"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["links"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["mtu"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["peeringLocation"] = undefined /*out*/;
+            inputs["provisionedBandwidthInGbps"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

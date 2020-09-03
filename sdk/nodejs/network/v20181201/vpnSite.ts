@@ -19,7 +19,7 @@ export class VpnSite extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VpnSite {
-        return new VpnSite(name, undefined, { ...opts, id: id });
+        return new VpnSite(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -96,12 +96,9 @@ export class VpnSite extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpnSiteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpnSiteArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpnSiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VpnSiteArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -127,6 +124,20 @@ export class VpnSite extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["addressSpace"] = undefined /*out*/;
+            inputs["bgpProperties"] = undefined /*out*/;
+            inputs["deviceProperties"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["ipAddress"] = undefined /*out*/;
+            inputs["isSecuritySite"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["siteKey"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualWan"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

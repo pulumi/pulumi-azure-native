@@ -19,7 +19,7 @@ export class ServiceFabric extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServiceFabric {
-        return new ServiceFabric(name, undefined, { ...opts, id: id });
+        return new ServiceFabric(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class ServiceFabric extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceFabricArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServiceFabricArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServiceFabricArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServiceFabricArgs | undefined;
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
             }
@@ -108,6 +105,16 @@ export class ServiceFabric extends pulumi.CustomResource {
             inputs["userName"] = args ? args.userName : undefined;
             inputs["applicableSchedule"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
+        } else {
+            inputs["applicableSchedule"] = undefined /*out*/;
+            inputs["environmentId"] = undefined /*out*/;
+            inputs["externalServiceFabricId"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }

@@ -17,7 +17,7 @@ export class Disk extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Disk {
-        return new Disk(name, undefined, { ...opts, id: id });
+        return new Disk(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -98,12 +98,9 @@ export class Disk extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DiskArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DiskArgs | undefined;
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
             }
@@ -131,6 +128,21 @@ export class Disk extends pulumi.CustomResource {
             inputs["userName"] = args ? args.userName : undefined;
             inputs["createdDate"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
+        } else {
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["diskBlobName"] = undefined /*out*/;
+            inputs["diskSizeGiB"] = undefined /*out*/;
+            inputs["diskType"] = undefined /*out*/;
+            inputs["diskUri"] = undefined /*out*/;
+            inputs["hostCaching"] = undefined /*out*/;
+            inputs["leasedByLabVmId"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["managedDiskId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }

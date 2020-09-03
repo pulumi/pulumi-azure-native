@@ -19,7 +19,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationGateway {
-        return new ApplicationGateway(name, undefined, { ...opts, id: id });
+        return new ApplicationGateway(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -172,12 +172,9 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationGatewayArgs | undefined;
             if (!args || args.applicationGatewayName === undefined) {
                 throw new Error("Missing required property 'applicationGatewayName'");
             }
@@ -219,6 +216,39 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["authenticationCertificates"] = undefined /*out*/;
+            inputs["autoscaleConfiguration"] = undefined /*out*/;
+            inputs["backendAddressPools"] = undefined /*out*/;
+            inputs["backendHttpSettingsCollection"] = undefined /*out*/;
+            inputs["customErrorConfigurations"] = undefined /*out*/;
+            inputs["enableFips"] = undefined /*out*/;
+            inputs["enableHttp2"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["firewallPolicy"] = undefined /*out*/;
+            inputs["frontendIPConfigurations"] = undefined /*out*/;
+            inputs["frontendPorts"] = undefined /*out*/;
+            inputs["gatewayIPConfigurations"] = undefined /*out*/;
+            inputs["httpListeners"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["operationalState"] = undefined /*out*/;
+            inputs["probes"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["redirectConfigurations"] = undefined /*out*/;
+            inputs["requestRoutingRules"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["rewriteRuleSets"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["sslCertificates"] = undefined /*out*/;
+            inputs["sslPolicy"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["trustedRootCertificates"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["urlPathMaps"] = undefined /*out*/;
+            inputs["webApplicationFirewallConfiguration"] = undefined /*out*/;
+            inputs["zones"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

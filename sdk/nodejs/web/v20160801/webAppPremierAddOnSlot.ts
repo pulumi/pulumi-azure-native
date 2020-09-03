@@ -17,7 +17,7 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppPremierAddOnSlot {
-        return new WebAppPremierAddOnSlot(name, undefined, { ...opts, id: id });
+        return new WebAppPremierAddOnSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -86,12 +86,9 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAppPremierAddOnSlotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebAppPremierAddOnSlotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WebAppPremierAddOnSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WebAppPremierAddOnSlotArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -120,6 +117,18 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vendor"] = args ? args.vendor : undefined;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["marketplaceOffer"] = undefined /*out*/;
+            inputs["marketplacePublisher"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["premierAddOnName"] = undefined /*out*/;
+            inputs["product"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vendor"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

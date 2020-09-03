@@ -19,7 +19,7 @@ export class Token extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Token {
-        return new Token(name, undefined, { ...opts, id: id });
+        return new Token(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -72,12 +72,9 @@ export class Token extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TokenArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TokenArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TokenArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TokenArgs | undefined;
             if (!args || args.registryName === undefined) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -96,6 +93,14 @@ export class Token extends pulumi.CustomResource {
             inputs["creationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["credentials"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["scopeMapId"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

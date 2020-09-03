@@ -19,7 +19,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetwork {
-        return new VirtualNetwork(name, undefined, { ...opts, id: id });
+        return new VirtualNetwork(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualNetworkArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,6 +131,22 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["addressSpace"] = undefined /*out*/;
+            inputs["bgpCommunities"] = undefined /*out*/;
+            inputs["ddosProtectionPlan"] = undefined /*out*/;
+            inputs["dhcpOptions"] = undefined /*out*/;
+            inputs["enableDdosProtection"] = undefined /*out*/;
+            inputs["enableVmProtection"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["subnets"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualNetworkPeerings"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

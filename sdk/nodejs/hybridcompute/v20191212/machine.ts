@@ -19,7 +19,7 @@ export class Machine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Machine {
-        return new Machine(name, undefined, { ...opts, id: id });
+        return new Machine(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -117,12 +117,9 @@ export class Machine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MachineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MachineArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as MachineArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -152,6 +149,26 @@ export class Machine extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["agentVersion"] = undefined /*out*/;
+            inputs["clientPublicKey"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["errorDetails"] = undefined /*out*/;
+            inputs["extensions"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["lastStatusChange"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["locationData"] = undefined /*out*/;
+            inputs["machineFqdn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["osName"] = undefined /*out*/;
+            inputs["osProfile"] = undefined /*out*/;
+            inputs["osVersion"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vmId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

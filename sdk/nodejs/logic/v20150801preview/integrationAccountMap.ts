@@ -16,7 +16,7 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationAccountMap {
-        return new IntegrationAccountMap(name, undefined, { ...opts, id: id });
+        return new IntegrationAccountMap(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -85,12 +85,9 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IntegrationAccountMapArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IntegrationAccountMapArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IntegrationAccountMapArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as IntegrationAccountMapArgs | undefined;
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
@@ -115,6 +112,18 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
             inputs["changedTime"] = undefined /*out*/;
             inputs["contentLink"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
+        } else {
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["content"] = undefined /*out*/;
+            inputs["contentLink"] = undefined /*out*/;
+            inputs["contentType"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["mapType"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

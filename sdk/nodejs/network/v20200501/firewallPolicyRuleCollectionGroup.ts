@@ -19,7 +19,7 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FirewallPolicyRuleCollectionGroup {
-        return new FirewallPolicyRuleCollectionGroup(name, undefined, { ...opts, id: id });
+        return new FirewallPolicyRuleCollectionGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -68,12 +68,9 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as FirewallPolicyRuleCollectionGroupArgs | undefined;
             if (!args || args.firewallPolicyName === undefined) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
@@ -92,6 +89,13 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             inputs["ruleCollections"] = args ? args.ruleCollections : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["priority"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["ruleCollections"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

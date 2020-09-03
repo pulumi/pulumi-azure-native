@@ -17,7 +17,7 @@ export class SqlServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlServer {
-        return new SqlServer(name, undefined, { ...opts, id: id });
+        return new SqlServer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -70,12 +70,9 @@ export class SqlServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SqlServerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SqlServerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SqlServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SqlServerArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -95,6 +92,14 @@ export class SqlServer extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["cores"] = undefined /*out*/;
+            inputs["edition"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["propertyBag"] = undefined /*out*/;
+            inputs["registrationID"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

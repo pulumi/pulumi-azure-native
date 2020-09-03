@@ -19,7 +19,7 @@ export class Subnet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Subnet {
-        return new Subnet(name, undefined, { ...opts, id: id });
+        return new Subnet(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -112,12 +112,9 @@ export class Subnet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SubnetArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -148,6 +145,24 @@ export class Subnet extends pulumi.CustomResource {
             inputs["ipConfigurationProfiles"] = undefined /*out*/;
             inputs["ipConfigurations"] = undefined /*out*/;
             inputs["purpose"] = undefined /*out*/;
+        } else {
+            inputs["addressPrefix"] = undefined /*out*/;
+            inputs["addressPrefixes"] = undefined /*out*/;
+            inputs["delegations"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["interfaceEndpoints"] = undefined /*out*/;
+            inputs["ipConfigurationProfiles"] = undefined /*out*/;
+            inputs["ipConfigurations"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["natGateway"] = undefined /*out*/;
+            inputs["networkSecurityGroup"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["purpose"] = undefined /*out*/;
+            inputs["resourceNavigationLinks"] = undefined /*out*/;
+            inputs["routeTable"] = undefined /*out*/;
+            inputs["serviceAssociationLinks"] = undefined /*out*/;
+            inputs["serviceEndpointPolicies"] = undefined /*out*/;
+            inputs["serviceEndpoints"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

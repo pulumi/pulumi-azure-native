@@ -19,7 +19,7 @@ export class NetworkProfile extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkProfile {
-        return new NetworkProfile(name, undefined, { ...opts, id: id });
+        return new NetworkProfile(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class NetworkProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkProfileArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkProfileArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NetworkProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as NetworkProfileArgs | undefined;
             if (!args || args.networkProfileName === undefined) {
                 throw new Error("Missing required property 'networkProfileName'");
             }
@@ -103,6 +100,16 @@ export class NetworkProfile extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["containerNetworkInterfaceConfigurations"] = undefined /*out*/;
+            inputs["containerNetworkInterfaces"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -19,7 +19,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PublicIPAddress {
-        return new PublicIPAddress(name, undefined, { ...opts, id: id });
+        return new PublicIPAddress(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -93,12 +93,9 @@ export class PublicIPAddress extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PublicIPAddressArgs | undefined;
             if (!args || args.publicIpAddressName === undefined) {
                 throw new Error("Missing required property 'publicIpAddressName'");
             }
@@ -120,6 +117,20 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ipConfiguration"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["dnsSettings"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["idleTimeoutInMinutes"] = undefined /*out*/;
+            inputs["ipAddress"] = undefined /*out*/;
+            inputs["ipConfiguration"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicIPAddressVersion"] = undefined /*out*/;
+            inputs["publicIPAllocationMethod"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

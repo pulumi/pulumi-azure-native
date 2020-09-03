@@ -17,7 +17,7 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationTypeVersion {
-        return new ApplicationTypeVersion(name, undefined, { ...opts, id: id });
+        return new ApplicationTypeVersion(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -66,12 +66,9 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationTypeVersionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationTypeVersionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationTypeVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationTypeVersionArgs | undefined;
             if (!args || args.appPackageUrl === undefined) {
                 throw new Error("Missing required property 'appPackageUrl'");
             }
@@ -94,6 +91,13 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["defaultParameterList"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["appPackageUrl"] = undefined /*out*/;
+            inputs["defaultParameterList"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

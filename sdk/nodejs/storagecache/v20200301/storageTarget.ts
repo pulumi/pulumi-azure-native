@@ -19,7 +19,7 @@ export class StorageTarget extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageTarget {
-        return new StorageTarget(name, undefined, { ...opts, id: id });
+        return new StorageTarget(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class StorageTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StorageTargetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StorageTargetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StorageTargetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as StorageTargetArgs | undefined;
             if (!args || args.cacheName === undefined) {
                 throw new Error("Missing required property 'cacheName'");
             }
@@ -105,6 +102,15 @@ export class StorageTarget extends pulumi.CustomResource {
             inputs["unknown"] = args ? args.unknown : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["clfs"] = undefined /*out*/;
+            inputs["junctions"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nfs3"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["targetType"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["unknown"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

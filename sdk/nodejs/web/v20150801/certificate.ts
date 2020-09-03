@@ -19,7 +19,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Certificate {
-        return new Certificate(name, undefined, { ...opts, id: id });
+        return new Certificate(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -124,12 +124,9 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as CertificateArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -161,6 +158,27 @@ export class Certificate extends pulumi.CustomResource {
             inputs["thumbprint"] = args ? args.thumbprint : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["valid"] = args ? args.valid : undefined;
+        } else {
+            inputs["cerBlob"] = undefined /*out*/;
+            inputs["expirationDate"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
+            inputs["hostNames"] = undefined /*out*/;
+            inputs["hostingEnvironmentProfile"] = undefined /*out*/;
+            inputs["issueDate"] = undefined /*out*/;
+            inputs["issuer"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["password"] = undefined /*out*/;
+            inputs["pfxBlob"] = undefined /*out*/;
+            inputs["publicKeyHash"] = undefined /*out*/;
+            inputs["selfLink"] = undefined /*out*/;
+            inputs["siteName"] = undefined /*out*/;
+            inputs["subjectName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["thumbprint"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["valid"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -19,7 +19,7 @@ export class RoleDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RoleDefinition {
-        return new RoleDefinition(name, undefined, { ...opts, id: id });
+        return new RoleDefinition(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -72,12 +72,9 @@ export class RoleDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RoleDefinitionArgs | undefined;
             if (!args || args.roleDefinitionId === undefined) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
@@ -92,6 +89,14 @@ export class RoleDefinition extends pulumi.CustomResource {
             inputs["roleType"] = args ? args.roleType : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["assignableScopes"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["permissions"] = undefined /*out*/;
+            inputs["roleName"] = undefined /*out*/;
+            inputs["roleType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

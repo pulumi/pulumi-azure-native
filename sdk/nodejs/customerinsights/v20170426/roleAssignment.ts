@@ -19,7 +19,7 @@ export class RoleAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RoleAssignment {
-        return new RoleAssignment(name, undefined, { ...opts, id: id });
+        return new RoleAssignment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -132,12 +132,9 @@ export class RoleAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RoleAssignmentArgs | undefined;
             if (!args || args.assignmentName === undefined) {
                 throw new Error("Missing required property 'assignmentName'");
             }
@@ -177,6 +174,29 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["assignmentName"] = undefined /*out*/;
+            inputs["conflationPolicies"] = undefined /*out*/;
+            inputs["connectors"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["interactions"] = undefined /*out*/;
+            inputs["kpis"] = undefined /*out*/;
+            inputs["links"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["principals"] = undefined /*out*/;
+            inputs["profiles"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["relationshipLinks"] = undefined /*out*/;
+            inputs["relationships"] = undefined /*out*/;
+            inputs["role"] = undefined /*out*/;
+            inputs["roleAssignments"] = undefined /*out*/;
+            inputs["sasPolicies"] = undefined /*out*/;
+            inputs["segments"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["views"] = undefined /*out*/;
+            inputs["widgetTypes"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

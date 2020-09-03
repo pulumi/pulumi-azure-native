@@ -19,7 +19,7 @@ export class VirtualMachineResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineResource {
-        return new VirtualMachineResource(name, undefined, { ...opts, id: id });
+        return new VirtualMachineResource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -140,12 +140,9 @@ export class VirtualMachineResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualMachineResourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualMachineResourceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualMachineResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualMachineResourceArgs | undefined;
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
             }
@@ -182,6 +179,31 @@ export class VirtualMachineResource extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["userName"] = args ? args.userName : undefined;
+        } else {
+            inputs["artifactDeploymentStatus"] = undefined /*out*/;
+            inputs["artifacts"] = undefined /*out*/;
+            inputs["computeId"] = undefined /*out*/;
+            inputs["createdByUser"] = undefined /*out*/;
+            inputs["createdByUserId"] = undefined /*out*/;
+            inputs["customImageId"] = undefined /*out*/;
+            inputs["disallowPublicIpAddress"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["galleryImageReference"] = undefined /*out*/;
+            inputs["isAuthenticationWithSshKey"] = undefined /*out*/;
+            inputs["labSubnetName"] = undefined /*out*/;
+            inputs["labVirtualNetworkId"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notes"] = undefined /*out*/;
+            inputs["osType"] = undefined /*out*/;
+            inputs["ownerObjectId"] = undefined /*out*/;
+            inputs["password"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["size"] = undefined /*out*/;
+            inputs["sshKey"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

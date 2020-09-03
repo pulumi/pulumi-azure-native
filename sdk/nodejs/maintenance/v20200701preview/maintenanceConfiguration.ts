@@ -17,7 +17,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MaintenanceConfiguration {
-        return new MaintenanceConfiguration(name, undefined, { ...opts, id: id });
+        return new MaintenanceConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -94,12 +94,9 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MaintenanceConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MaintenanceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MaintenanceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as MaintenanceConfigurationArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -121,6 +118,20 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             inputs["visibility"] = args ? args.visibility : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["duration"] = undefined /*out*/;
+            inputs["expirationDateTime"] = undefined /*out*/;
+            inputs["extensionProperties"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maintenanceScope"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["namespace"] = undefined /*out*/;
+            inputs["recurEvery"] = undefined /*out*/;
+            inputs["startDateTime"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["timeZone"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["visibility"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

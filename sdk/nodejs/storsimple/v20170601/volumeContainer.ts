@@ -19,7 +19,7 @@ export class VolumeContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VolumeContainer {
-        return new VolumeContainer(name, undefined, { ...opts, id: id });
+        return new VolumeContainer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class VolumeContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VolumeContainerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VolumeContainerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VolumeContainerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VolumeContainerArgs | undefined;
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -121,6 +118,18 @@ export class VolumeContainer extends pulumi.CustomResource {
             inputs["encryptionStatus"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["ownerShipStatus"] = undefined /*out*/;
+            inputs["totalCloudStorageUsageInBytes"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["volumeCount"] = undefined /*out*/;
+        } else {
+            inputs["bandWidthRateInMbps"] = undefined /*out*/;
+            inputs["bandwidthSettingId"] = undefined /*out*/;
+            inputs["encryptionKey"] = undefined /*out*/;
+            inputs["encryptionStatus"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["ownerShipStatus"] = undefined /*out*/;
+            inputs["storageAccountCredentialId"] = undefined /*out*/;
             inputs["totalCloudStorageUsageInBytes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["volumeCount"] = undefined /*out*/;

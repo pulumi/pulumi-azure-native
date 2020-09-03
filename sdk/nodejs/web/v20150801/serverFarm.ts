@@ -19,7 +19,7 @@ export class ServerFarm extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerFarm {
-        return new ServerFarm(name, undefined, { ...opts, id: id });
+        return new ServerFarm(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -113,12 +113,9 @@ export class ServerFarm extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerFarmArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerFarmArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServerFarmArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServerFarmArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -148,6 +145,24 @@ export class ServerFarm extends pulumi.CustomResource {
             inputs["resourceGroup"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["subscription"] = undefined /*out*/;
+        } else {
+            inputs["adminSiteName"] = undefined /*out*/;
+            inputs["geoRegion"] = undefined /*out*/;
+            inputs["hostingEnvironmentProfile"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maximumNumberOfWorkers"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["numberOfSites"] = undefined /*out*/;
+            inputs["perSiteScaling"] = undefined /*out*/;
+            inputs["reserved"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["subscription"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["workerTierName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

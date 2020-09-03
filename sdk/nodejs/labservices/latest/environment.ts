@@ -19,7 +19,7 @@ export class Environment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Environment {
-        return new Environment(name, undefined, { ...opts, id: id });
+        return new Environment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -108,12 +108,9 @@ export class Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as EnvironmentArgs | undefined;
             if (!args || args.environmentName === undefined) {
                 throw new Error("Missing required property 'environmentName'");
             }
@@ -150,6 +147,23 @@ export class Environment extends pulumi.CustomResource {
             inputs["passwordLastReset"] = undefined /*out*/;
             inputs["totalUsage"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["claimedByUserName"] = undefined /*out*/;
+            inputs["claimedByUserObjectId"] = undefined /*out*/;
+            inputs["claimedByUserPrincipalId"] = undefined /*out*/;
+            inputs["isClaimed"] = undefined /*out*/;
+            inputs["lastKnownPowerState"] = undefined /*out*/;
+            inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkInterface"] = undefined /*out*/;
+            inputs["passwordLastReset"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceSets"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["totalUsage"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

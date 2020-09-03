@@ -17,7 +17,7 @@ export class SiteHostNameBinding extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SiteHostNameBinding {
-        return new SiteHostNameBinding(name, undefined, { ...opts, id: id });
+        return new SiteHostNameBinding(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -86,12 +86,9 @@ export class SiteHostNameBinding extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SiteHostNameBindingArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SiteHostNameBindingArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SiteHostNameBindingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SiteHostNameBindingArgs | undefined;
             if (!args || args.hostName === undefined) {
                 throw new Error("Missing required property 'hostName'");
             }
@@ -118,6 +115,18 @@ export class SiteHostNameBinding extends pulumi.CustomResource {
             inputs["siteName"] = args ? args.siteName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+        } else {
+            inputs["azureResourceName"] = undefined /*out*/;
+            inputs["azureResourceType"] = undefined /*out*/;
+            inputs["customHostNameDnsRecordType"] = undefined /*out*/;
+            inputs["domainId"] = undefined /*out*/;
+            inputs["hostNameType"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["siteName"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -19,7 +19,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiDiagnostic {
-        return new ApiDiagnostic(name, undefined, { ...opts, id: id });
+        return new ApiDiagnostic(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class ApiDiagnostic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApiDiagnosticArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApiDiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApiDiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApiDiagnosticArgs | undefined;
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
@@ -108,6 +105,15 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             inputs["sampling"] = args ? args.sampling : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["alwaysLog"] = undefined /*out*/;
+            inputs["backend"] = undefined /*out*/;
+            inputs["enableHttpCorrelationHeaders"] = undefined /*out*/;
+            inputs["frontend"] = undefined /*out*/;
+            inputs["loggerId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["sampling"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

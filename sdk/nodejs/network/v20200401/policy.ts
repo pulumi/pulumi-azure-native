@@ -19,7 +19,7 @@ export class Policy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Policy {
-        return new Policy(name, undefined, { ...opts, id: id });
+        return new Policy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -89,12 +89,9 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PolicyArgs | undefined;
             if (!args || args.policyName === undefined) {
                 throw new Error("Missing required property 'policyName'");
             }
@@ -114,6 +111,19 @@ export class Policy extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["routingRuleLinks"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["customRules"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["frontendEndpointLinks"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["managedRules"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["policySettings"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
+            inputs["routingRuleLinks"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

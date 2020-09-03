@@ -17,7 +17,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TopicAuthorizationRule {
-        return new TopicAuthorizationRule(name, undefined, { ...opts, id: id });
+        return new TopicAuthorizationRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -86,12 +86,9 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TopicAuthorizationRuleArgs | undefined;
             if (!args || args.authorizationRuleName === undefined) {
                 throw new Error("Missing required property 'authorizationRuleName'");
             }
@@ -121,6 +118,18 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             inputs["topicName"] = args ? args.topicName : undefined;
             inputs["createdTime"] = undefined /*out*/;
             inputs["modifiedTime"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["claimType"] = undefined /*out*/;
+            inputs["claimValue"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["keyName"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["modifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["primaryKey"] = undefined /*out*/;
+            inputs["rights"] = undefined /*out*/;
+            inputs["secondaryKey"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

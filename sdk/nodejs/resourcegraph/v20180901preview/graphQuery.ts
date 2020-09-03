@@ -17,7 +17,7 @@ export class GraphQuery extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GraphQuery {
-        return new GraphQuery(name, undefined, { ...opts, id: id });
+        return new GraphQuery(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -78,12 +78,9 @@ export class GraphQuery extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GraphQueryArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GraphQueryArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: GraphQueryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as GraphQueryArgs | undefined;
             if (!args || args.query === undefined) {
                 throw new Error("Missing required property 'query'");
             }
@@ -102,6 +99,16 @@ export class GraphQuery extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["resultKind"] = undefined /*out*/;
+            inputs["timeModified"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["eTag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["query"] = undefined /*out*/;
+            inputs["resultKind"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

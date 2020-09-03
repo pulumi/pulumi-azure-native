@@ -17,7 +17,7 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workspace {
-        return new Workspace(name, undefined, { ...opts, id: id });
+        return new Workspace(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -90,12 +90,9 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WorkspaceArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -122,6 +119,19 @@ export class Workspace extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["studioEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["workspaceId"] = undefined /*out*/;
+            inputs["workspaceState"] = undefined /*out*/;
+            inputs["workspaceType"] = undefined /*out*/;
+        } else {
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["keyVaultIdentifierId"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["ownerEmail"] = undefined /*out*/;
+            inputs["studioEndpoint"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userStorageAccountId"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
             inputs["workspaceState"] = undefined /*out*/;
             inputs["workspaceType"] = undefined /*out*/;

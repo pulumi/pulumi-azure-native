@@ -19,7 +19,7 @@ export class GalleryImage extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GalleryImage {
-        return new GalleryImage(name, undefined, { ...opts, id: id });
+        return new GalleryImage(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -108,12 +108,9 @@ export class GalleryImage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GalleryImageArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GalleryImageArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: GalleryImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as GalleryImageArgs | undefined;
             if (!args || args.galleryImageName === undefined) {
                 throw new Error("Missing required property 'galleryImageName'");
             }
@@ -142,6 +139,23 @@ export class GalleryImage extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["planId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["author"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["icon"] = undefined /*out*/;
+            inputs["imageReference"] = undefined /*out*/;
+            inputs["isEnabled"] = undefined /*out*/;
+            inputs["isOverride"] = undefined /*out*/;
+            inputs["isPlanAuthorized"] = undefined /*out*/;
+            inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["planId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

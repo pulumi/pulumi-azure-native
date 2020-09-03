@@ -19,7 +19,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationDefinition {
-        return new ApplicationDefinition(name, undefined, { ...opts, id: id });
+        return new ApplicationDefinition(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -128,12 +128,9 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationDefinitionArgs | undefined;
             if (!args || args.applicationDefinitionName === undefined) {
                 throw new Error("Missing required property 'applicationDefinitionName'");
             }
@@ -165,6 +162,28 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["artifacts"] = undefined /*out*/;
+            inputs["authorizations"] = undefined /*out*/;
+            inputs["createUiDefinition"] = undefined /*out*/;
+            inputs["deploymentPolicy"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["isEnabled"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["lockLevel"] = undefined /*out*/;
+            inputs["lockingPolicy"] = undefined /*out*/;
+            inputs["mainTemplate"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
+            inputs["managementPolicy"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notificationPolicy"] = undefined /*out*/;
+            inputs["packageFileUri"] = undefined /*out*/;
+            inputs["policies"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["storageAccountId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

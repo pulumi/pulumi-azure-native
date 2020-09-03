@@ -17,7 +17,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationGroup {
-        return new ApplicationGroup(name, undefined, { ...opts, id: id });
+        return new ApplicationGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -78,12 +78,9 @@ export class ApplicationGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationGroupArgs | undefined;
             if (!args || args.applicationGroupName === undefined) {
                 throw new Error("Missing required property 'applicationGroupName'");
             }
@@ -108,6 +105,16 @@ export class ApplicationGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["workspaceArmPath"] = undefined /*out*/;
+        } else {
+            inputs["applicationGroupType"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
+            inputs["hostPoolArmPath"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["workspaceArmPath"] = undefined /*out*/;
         }

@@ -17,7 +17,7 @@ export class ArtifactSourceResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ArtifactSourceResource {
-        return new ArtifactSourceResource(name, undefined, { ...opts, id: id });
+        return new ArtifactSourceResource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -90,12 +90,9 @@ export class ArtifactSourceResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ArtifactSourceResourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ArtifactSourceResourceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ArtifactSourceResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ArtifactSourceResourceArgs | undefined;
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
             }
@@ -120,6 +117,19 @@ export class ArtifactSourceResource extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["uri"] = args ? args.uri : undefined;
+        } else {
+            inputs["branchRef"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["folderPath"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["securityToken"] = undefined /*out*/;
+            inputs["sourceType"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uri"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
