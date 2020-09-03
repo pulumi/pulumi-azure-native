@@ -39,7 +39,7 @@ $ make ensure
 $ make build
 ```
 
-When the commands succeed, your `GOBIN` directory should contain the `pulumi-resource-azurerm` executable.
+Add the `bin` folder to your `$PATH` or copy the `bin/pulumi-resource-azurerm` file to another location in your `$PATH`.
 
 ### Running an example
 
